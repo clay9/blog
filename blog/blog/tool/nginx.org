@@ -1,0 +1,26 @@
+#+TITLE: nginx
+#+LAYOUT: post
+#+CATEGORIES: tool
+#+TAGS: nginx
+#+OPTIONS: ^:nil
+
+nginx是使用率最高的web容器
+
+#+HTML: <!-- more -->
+* 安装
+  #+BEGIN_EXAMPLE
+  docker pull nginx
+  #+END_EXAMPLE
+
+  #+BEGIN_EXAMPLE
+  docker run --name nginx-test -p 8080:80 -d nginx
+  #+END_EXAMPLE
+  
+* 配置
+  配置文件在/etc/nginx
+  
+ /etc/nginx/nginx.conf是总的, 默认不修改
+ /etc/nginx/config.d/* 下的是配置的, 一般一个文件配置一个站点
+
+* 使用
+  

@@ -1,0 +1,77 @@
+#+TITLE: CC mode
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+
+
+代码缩放 && 语法高亮
+* 什么是
+  cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
+  主要功能为代码缩放和语法高亮.
+* 配置
+** 配置接口
+   #+BEGIN_EXAMPLE
+      (setq  XXX)
+   破坏all-style, 不推荐
+	  |
+	  |
+	  | 	      (c-add-style XXX) --推荐
+	  |       	        |
+	  | 	    	       	|
+	  | 	    		|                               (交互式)
+	  | 	    	  +-------------+      		    临时性的, 不推荐
+	  | 	       	  | style-list  |                          |
+	  | 		  |             |      			   |
+	  | 		  +-------------+      			   |
+	  |       	       	|   	       			   |
+	  | 			|   	       			   |
+	  | 	         (c-set-style XXX)     	       	       	   |
+	  | 	(add hook 'c-code-common-hook 'XXXX)		   |
+	  | 	       	       	|   	       			   |
+	 \| /		       \| / 	       			  \| /
+	  \/		        \/				   \/
+   ---------------------------------------------------------------------------
+
+    *****************************************************************
+    *  +----      -     -         X	       +--   	  --\	    *
+    *  |          |\   /|        / \          /      	 (	    *
+    *  +---       | \ / |       o---o        |       	  +--+	    *
+    *  |          |  X  |      /     \        \      	      )	    *
+    *  +----      |     |     /       \        +--   	   \--	    *
+    *							            *
+    *****************************************************************
+   #+END_EXAMPLE
+** 具体配置
+   #+BEGIN_EXAMPLE
+   ;;.h关联到c++ mode
+   (setq auto-mode-alist
+     (append '(("\\.h$" . c++-)) auto-mode-alist))
+
+   ;;定义自己的cc-mode风格
+   (defconst my-cpp-style
+     '((c-basic-offset . 4)
+       (c-tab-always-inde . t)
+       (c-hanging-braces-alist . ((brace-list-open)
+                                  (brace-entry-open)
+                                  (statement-cont)))
+      (c-offsets-alist . ((block-open  . 0)
+                         (block-close . 0)
+			 (comment-intro . 0)
+			 (case-label . +)
+			 (substatement-open . 0))))
+     "My C++ Programming Style 2017.01.12")
+   (c-add-style "MY_CPP_STYLE" my-cpp-style)
+
+   ;;定义自己的hook函数,并与自定义的cc-mode风格关联
+   (defun my-cpp-mode-common-hook()
+     (c-set-style "MY_CPP_STYLE")
+     (setq tab-width 8
+       indent-tabs-mode nil))
+
+   ;;注册到c-mode-common-hook中
+   (add-hook 'c-mode-common-hook 'my-cpp-mode-common-hook)
+   #+END_EXAMPLE
+* 使用
+  cc-mode配置完成后, 无需额外操作即可使用.
+  如果想进一步深入了解, 可以[[https://david.rothlis.net/emacs/customize_c.html][参考这个文档]].
+

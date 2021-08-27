@@ -6,7 +6,7 @@ languageCode = "zh-CN"
 # 是否包括中日韩文字
 hasCJKLanguage = true
 # 网站标题
-title = "我的全新 Hugo 网站"
+title = "飘"
 
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
@@ -43,6 +43,57 @@ theme = "LoveIt"
     url = "/categories/"
     title = ""
     weight = 3
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "关于"
+    url = "/about/"
+    title = ""
+    weight = 3
+
+# 页面底部信息配置
+  [params.footer]
+    enable = true
+    # LoveIt 新增 | 0.2.0 自定义内容 (支持 HTML 格式)
+    custom = ''
+    # LoveIt 新增 | 0.2.0 是否显示 Hugo 和主题信息
+    hugo = false
+    # LoveIt 新增 | 0.2.0 是否显示版权信息
+    copyright = true
+    # LoveIt 新增 | 0.2.0 是否显示作者
+    author = false
+    # 网站创立年份
+    since = 2019
+    # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
+    icp = ""
+    # 许可协议信息 (支持 HTML 格式)
+    license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+
+
+# LoveIt 新增 | 0.2.0 搜索配置
+  [params.search]
+    enable = true
+    # 搜索引擎的类型 ("lunr", "algolia")
+    type = "lunr"
+    # 文章内容最长索引长度
+    contentLength = 4000
+    # 搜索框的占位提示语
+    placeholder = ""
+    # LoveIt 新增 | 0.2.1 最大结果数目
+    maxResultLength = 100
+    # LoveIt 新增 | 0.2.3 结果内容片段长度
+    snippetLength = 50
+    # LoveIt 新增 | 0.2.1 搜索结果中高亮部分的 HTML 标签
+    highlightTag = "em"
+    # LoveIt 新增 | 0.2.4 是否在搜索索引中使用基于 baseURL 的绝对路径
+    absoluteURL = false
+    [params.search.algolia]
+      index = ""
+      appID = ""
+      searchKey = ""
+
+
 
 # Hugo 解析文档的配置
 [markup]
@@ -50,3 +101,28 @@ theme = "LoveIt"
   [markup.highlight]
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    # 是否在table中显示数字编号
+    lineNumbersInTable = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      # 是否在文档中直接使用 HTML 标签
+      unsafe = true
+
+# 用于 Hugo 输出文档的设置
+[outputs]
+  # LoveIt 更改 | 0.2.0
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]

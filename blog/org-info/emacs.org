@@ -1,0 +1,116 @@
+#+TITLE: emacs
+#+INFOJS_OPT: path:script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+
+* emacs基础操作
+** Helm
+   [[file:emacs_com/emacs_helm-mode.org][Helm]]改善了用户"查找"时候的体验;
+   helm与传统方式 对比:
+   - Helm的过滤方式为 正则表达式
+   - 传统的过滤方式为 首字母扩展
+** org mode
+   [[file:emacs_com/emacs_org-mode.org][org-mode]]一直被称为神器, 据传很多人为了它转到了emacs.
+  
+** eshell
+   [[file:emacs_com/emacs_eshell.org][eshell]]是emacs下非常好用shell;
+   主要优点:
+   - 与elisp的无缝结合
+   - 语法特性方面比bash shell更有意思
+     #+BEGIN_EXAMPLE
+     cd /ssh:clay@192.168.0.97:~
+     #+END_EXAMPLE
+** 画图
+   emacs支持 [[file:emacs_com/emacs_graphviz-mode.org][ASCII图形 和 dot图形等]]
+** 快捷键
+   [[file:emacs_com/emacs_shortkey.org][emacs按键]]与vim按键 个人理解:
+   - emacs功能强大, 却对手指不友好,  更适合在编辑的时候使用
+   - vim 功能缺少, 对手指友好, 更适合在查看文档的时候使用
+** elisp
+   [[file:emacs_com/emacs_elisp.org][elisp]] 是emacs下的lisp
+
+* emacs打造IDE
+** 说明
+   本文很大程度借鉴[[http://tuhdo.github.io/c-ide.html][参考文档(强烈建议阅读)]]
+** 合格的IDE功能
+   - 编辑
+     所想即所得的编辑模式
+   - 编译
+   - 调试
+   - 发布
+
+** 编辑器
+
+   | 功能     | mode                         | 说明                                 | 备注   |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 格式规范 | [[file:emacs_IDE/emacs_cc-mode.org][cc-mode]]                      |                                      |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 自动补全 | [[file:emacs_IDE/emacs_company-mode.org][company-mode]](front-ends)     | 需要back-ends                        |        |
+   |          | company-c-headers(back-ends) | 针对头文件,直接安装即可使用,无需配置 |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 智能括号 | [[file:emacs_IDE/emacs_smartparens-mode.org][smartparens-mode]]             |                                      |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 代码折叠 | [[file:emacs_IDE/emacs_hs-mode.org][hs-minor-mode]]                |                                      |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 模板文件 | [[file:emacs_IDE/emacs_yasnippet-mode.org][yasnippet-mode]]               |                                      |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 代码跳转 | [[file:emacs_IDE/emacs_helm-gtags-mode][helm-gtags-mode]](front-ends)  | 需要back-ends                        |        |
+   | 查找引用 | global(back-ends)            | apt install global                   |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 拼写检查 | [[file:emacs_IDE/emacs_flyspell-mode.org][flyspell-mode]]                | 单词拼写                             | 已弃用 |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 语法检查 | flycheck-mode                | 动态,实时检查                        |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 目录列表 | [[file:emacs_IDE/emacs_speedbar-mode.org][speedbar-mode]]                | 显示目录,文件                        |        |
+   |----------+------------------------------+--------------------------------------+--------|
+   | 语法高亮 | symbol-overlay-mode          |                                      |        |
+   |----------+------------------------------+--------------------------------------+--------|
+
+** 编译器
+   compilation-mode
+   : front-ends, 依赖g++
+
+** 调试器
+   gud
+
+* emacs奇淫技巧
+** figlet
+   把字符艺术化
+*** 安装
+    1. bash中安装back-ends
+       #+BEGIN_EXAMPLE
+       brew install figlet
+       #+END_EXAMPLE
+    2. emacs中安装front-ends
+       #+BEGIN_EXAMPLE
+       package-list-package RET figlet RET
+       #+END_EXAMPLE
+*** 配置
+    1. figlet默认路径
+       #+BEGIN_EXAMPLE
+       setq figlet-default-directory "/usr/local/bin"
+       #+END_EXAMPLE
+    2. 默认艺术字体
+       #+BEGIN_EXAMPLE
+       setq figlet-default-font "banner3-D"
+       #+END_EXAMPLE
+       
+       已安装的字体可以在bash中通过showfigfonts查看   
+
+*** 使用
+    #+BEGIN_EXAMPLE
+    M-x figlet RET <string> RET
+    #+END_EXAMPLE
+
+    #+BEGIN_EXAMPLE
+# '########:'##::::'##::::'###:::::'######:::'######::
+#  ##.....:: ###::'###:::'## ##:::'##... ##:'##... ##:
+#  ##::::::: ####'####::'##:. ##:: ##:::..:: ##:::..::
+#  ######::: ## ### ##:'##:::. ##: ##:::::::. ######::
+#  ##...:::: ##. #: ##: #########: ##::::::::..... ##:
+#  ##::::::: ##:.:: ##: ##.... ##: ##::: ##:'##::: ##:
+#  ########: ##:::: ##: ##:::: ##:. ######::. ######::
+# ........::..:::::..::..:::::..:::......::::......:::
+    #+END_EXAMPLE 
+    

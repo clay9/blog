@@ -1,0 +1,28 @@
+#+TITLE: smartparens mode
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+#+TAGS:
+
+智能括号
+: 书写, 显示
+: pair间跳转
+
+
+* 什么是
+  smartparens mode是管理成对符号(pair)的工具.
+
+  [[https://github.com/Fuco1/smartparens/wiki#information-for-new-users][如果想深入了解, 可以阅读这篇文档]]
+
+  主要功能:
+  - 显示pair关系
+  - 书写pair
+    : wrap, rewrap, unwrap
+  - 在pair间跳转  
+* 配置
+  smartparens的配置非常简单.
+  - shortkey配置
+    : 详见之后的快捷键文档, 还在整理TODONOW
+  - [[file:emacs_smartparens-mode/init-smartparens-mode.el][pair的配置]]
+* 使用
+  安装即用, 无需特别注意

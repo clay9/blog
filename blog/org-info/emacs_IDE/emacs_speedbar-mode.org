@@ -1,0 +1,17 @@
+#+TITLE: speedbar && sr-speedbar
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+* 功能
+  - 在frame中显示同目录文件; sr-speedbar可以使frame一直显示
+  - 显示已打开的buffer
+* 安装
+  1. speedbar mode为emacs自带
+  2. sr-speedbar是speedbar的一个扩展
+* 配置
+  [[file:emacs_speedbar-mode/init-speedbar.el][具体配置]]
+* 使用
+  1. 在工程中使用sr-speedbar显示同目录文件
+     
+     
+  TODONOW 其他的待补充

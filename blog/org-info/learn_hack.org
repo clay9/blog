@@ -1,0 +1,27 @@
+#+TITLE: 学习记录
+#+OPTIONS: ^:nil
+#+INFOJS_OPT: path:script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+
+* 推荐文章
+  1. [[https://nmap.org/man/zh/man-port-scanning-basics.html][端口扫描 -- nmap]]
+
+* 端口扫描
+  1. 安装并使用nmap (macOS)
+     #+BEGIN_SRC sh
+     brew install nmap
+     #+END_SRC
+  2. 
+
+  
+
+* 清空自己的痕迹
+  linux系统
+  1. 登录失败的痕迹  lastb
+     echo > /var/log/btmp     
+  2. 登录成功的痕迹 last
+     echo > /var/log/wtmp
+  3. 历史命令痕迹 history -c 
+     echo > ./.bash_history //或清空用户目录下的这个文件即可

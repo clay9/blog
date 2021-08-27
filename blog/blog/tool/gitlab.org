@@ -1,0 +1,75 @@
+#+TITLE: Mac搭建gitlab服务器
+#+LAYOUT: post
+#+CATEGORIES: tool
+#+TAGS: gitlab
+
+Docker安装gitlab
+#+HTML: <!-- more -->
+
+* 为什么要用gitlab
+  git分布式架构,本身没有服务器之说.但为了团队开发, 总有一台电脑充当服务器的角色.我们称之为Public, 意为公共库.
+
+  有了Public之后, 所有人都通过该库进行交流. 如果有人恶意或无意损坏了该库的代码, 将导致不可预估的风险.因此我们希望能够对该库进行权限控制.
+  笔者最开始接触的控制软件是gitosis, 本质仍是通过控制public_key, private_key来管理人员.现在想来, 其缺点非常明显:
+  1. 配置时候容易出错
+  2. 无法直观展示人员和项目
+  3. 除了管理员, 其他人都项目和人员无法认知
+
+     
+  虽然gitosis满足了权限的需求, 但是却无法提供良好的用户体验. 对于git, 不应该仅仅是在控制权限方面, 更应该是:
+  1. 交流, 思想的分享
+  2. 使用简单便捷
+  3. 配置简单直观
+
+  
+  这些gitlab都完全满足, 并且其允许代码放置在自己的服务器上, 这避免了代码泄漏到internet, 对于企业来说, 非常重要. 省去了在github买private的钱...
+  
+
+  当然, gitlab还有非常多惊喜的地方, 比如CI|CD等
+  
+* gitlab是什么
+  综上所述, gitlab是一款优秀的git代码管理软件. 其主要优点:
+  1. 安装简单, 使用简单, 配置简单
+  2. 团队项目交流方便
+  3. 完善的开发流程, 主要是CI, CD
+  4. 可部署在自己的服务器, 减少了代码泄露风险
+
+* gitlab怎么用
+** gitlab安装
+   安装方式很多, 这里采用docker安装, 因为简单.
+   1. [[https://www.docker.com/products/docker-toolbox][安装Docker]]
+   2. 在GUI模式(Kitmatic)中搜索并安装gitlabb-ce
+      或者[[http://www.cnblogs.com/int32bit/p/5310382.html][Docker命令行安装]]
+
+** gitlab配置
+   1. Settings Volumes下面配置文件路径
+   2. Settings Hostname/Posts下配置端口转发
+   3. /etc/gitlab/gitlab.rb 中 external_url "http://www.45quyou.com"  
+      
+      该字段不仅仅影响登陆, 还会影响项目的显示
+   4. /var/opt/gitlab/gitlab-rails/etc/gitlab.yml 中 Web Server Settings中的host www.45quyou.com
+** gitlab使用
+   配置生效 sudo gitlab-ctl reconfigure
+   
+   重启进程 sudo gitlab-ce stop | start | restart
+
+* gitlab高级用法
+** CI
+   CI: 持续集成
+   
+   1. 注册 [[https://docs.gitlab.com/runner/install/][gitlab-runner]]
+   2. 在仓库根目录下添加[[https://docs.gitlab.com/ee/ci/quick_start/README.html][.gitlab-ci.yml]]文件
+      1) piple
+      2) stage
+      3) jobs
+
+
+* 常见问题
+  1. KiteMatic 卡在Starting Docker VM界面
+     
+     解决办法:
+     1) 完全关闭 KietMatic 和 Docker进程
+     2) 下载 [[file:gitlab/reset][reset脚本]]
+     3) 打开命令行, 执行 ./reset
+     4) 启动Docker
+     5) 启动KiteMatic

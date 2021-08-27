@@ -1,0 +1,98 @@
+#+TITLE: yasnippet mode
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+模板工具
+
+
+* 为什么需要模板
+  - 减少重复工作, 提升效率
+  - 标准化
+* 什么是yasnippet-mode
+  一个好用的快速模板工具
+* 配置
+  1. 下载yasnippet-mode
+     #+BEGIN_EXAMPLE
+     package-list-packages yasnippet-mode RET
+     #+END_EXAMPLE
+
+  2. 加载yasnippet-mode
+     #+BEGIN_EXAMPLE
+     (require 'yasnippet)
+     (yas-global-mode t)
+     #+END_EXAMPLE
+
+  3. 配置路径
+     #+BEGIN_EXAMPLE
+     ;; 重载路径文件
+     (setq yas-snippet-dirs
+       '("~/.emacs.d/yasnippets"))
+
+     ;; 加载路径文件
+     (yas-load-directory "~/.emacs.d/yasnippets/")
+     #+END_EXAMPLE
+     删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
+
+  4. 配置快捷键
+     #+BEGIN_EXAMPLE
+     (require 'yasnippet)
+
+     ;; 使用hydra-mode管理yasnippet快捷键
+     (defhydra hydra-yas-minor (:color blue
+				  :hint nil)
+     "
+     _j_: 扩展   _i_: 增加   _v_: 查看
+  
+     "
+     ("j" yas-expand)  ;;<Tab>仍可使用
+     ("i" yas-new-snippet)
+     ("v" yas-visit-snippet-file))
+
+     ;;全局快捷键放到统一文件管理
+     ;(global-set-key (kbd "C-;")  'hydra-yas-minor/body) ;;写入init-global-shortkey中
+     #+END_EXAMPLE
+
+* 使用
+  以使用org-mode在hexo下写blog 举例
+  #+BEGIN_EXAMPLE
+  # 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
+  # -*- mode: snippet -*-
+  # name: hexo : hexo博客
+  # key: hexo
+  # --
+
+  # 此处使用了org-mode的元数据
+  #+BEGIN_COMMENT
+  | 名称       | 简述         | 取值               | 备注                 |
+  |------------+--------------+--------------------+----------------------|
+  | TITLE      | 标题         |                    |                      |
+  |------------+--------------+--------------------+----------------------|
+  | LAYOUT     | hexo排版模式 | post               |                      |
+  |------------+--------------+--------------------+----------------------|
+  | CATEGORIES | 分类仓库     | IDE, gnu, protocal |                      |
+  |            |              | system, tool       |                      |
+  |------------+--------------+--------------------+----------------------|
+  | TAGS       | 标签         |                    | gnu仓库的要打gun标签 |
+  |------------+--------------+--------------------+----------------------|
+  #+END_COMMENT
+
+  # 此处为org-mode 与 hexo交互的元数据
+  #+TITLE: ${1}
+  #+LAYOUT: post
+  #+CATEGORIES: ${2}
+  #+TAGS: ${3}
+
+  ${4}
+
+  #+HTML: <!-- more -->
+  ${5}
+
+  # 按tab可以方便的从${n} 到 ${n+1}
+  #+END_EXAMPLE
+
+  当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
+  
+  
+  
+

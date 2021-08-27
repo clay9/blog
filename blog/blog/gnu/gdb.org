@@ -1,0 +1,46 @@
+#+TITLE: gdb
+#+LAYOUT: post
+#+CATEGORIES: gnu
+#+TAGS: 
+#+OPTIONS: ^:nil
+
+gdb学习
+
+#+HTML: <!-- more -->
+
+* 附加命令
+  1. attach thread_id 附加到进程
+  2. gdb ./a.out 使用gdb启动程序
+
+* 调试命令
+  1. bt (backtrace) 查看函数栈
+     bt full 查看更加详细的信息
+  2. f (frame) 查看栈信息
+     f 0 表示查看栈顶;  f n查看第n+1层
+     down 查看下一栈
+     up 查看上一栈
+  3. i (info) 
+     i f 查看当前栈所在层的具体信息
+     i args 当前函数的参数名及其值
+     i locals 当前函数中所有局部变量及其值
+     i catch 异常处理信息
+     
+     i b 查看断点
+     i proc mappings 查看程序的内存分布
+     i reg 查看寄存器
+     
+
+  4. l (list) 查看源码
+  5. p (print) 查看变量的值
+ 
+
+
+
+* 调试方法
+  以调试core文件为例
+  1. gdb  ./a.out core
+  2. bt 先查看堆栈
+  3. 如果2没有有用信息, bt full 查看更加详细的堆栈
+
+     
+  : 有时候遇到一些奇怪问题, 可以尝试make clean 整个工程, 再重新生成

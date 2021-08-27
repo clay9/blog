@@ -1,0 +1,12 @@
+#+TITLE: vargrind
+#+LAYOUT: post
+#+CATEGORIES: tool
+#+TAGS: 
+
+程序检测工具
+#+HTML: <!-- more -->
+* vargrind
+  程序性能查看工具,号称程序员的瑞士军刀
+  可以查看内存信息, 函数调用, cache信息等等
+  
+  

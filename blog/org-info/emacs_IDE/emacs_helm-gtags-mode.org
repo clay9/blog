@@ -1,0 +1,64 @@
+#+TITLE: helm gtags mode
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+
+global的front-ends.
+查找声明定义引用.
+
+
+* 功能
+  - 转到声明
+  - 转到定义
+  - 查找引用
+* 配置
+  1. 需要安装back-ends
+     #+BEGIN_EXAMPLE
+     sudo apt install global
+     #+END_EXAMPLE
+  2. 在melpa中安装helm-gtags即可
+  3. [[file:init-helm-gtags.el][具体配置文件]]
+
+* 使用
+  1. 在工程root目录执行gtags.生成以下文件:
+     #+BEGIN_EXAMPLE
+     GTAGS definition database 4.5M
+     GRTAGS reference database 3.8M
+     GPATH path name database 64K
+     #+END_EXAMPLE
+  2. 在emacs中通过以下命令来查看tag和rtag
+     #+BEGIN_EXAMPLE
+     | 命令                   | 功能                       |
+     |------------------------+----------------------------|
+     | helm-gtags-dwin        | 转到声明定义或查找tags引用 |
+     |------------------------+----------------------------|
+     | helm-gtags-find-rtags  | 查找函数引用               |
+     |------------------------+----------------------------|
+     | helm-gtags-find-symbol | 查找变量引用               |
+     |------------------------+----------------------------|
+     | helm-gtags-pop-stack   | 上一个位置(堆栈)           |
+     |------------------------+----------------------------|
+     #+END_EXAMPLE
+  
+* gtags简易指令
+  1. .h文件默认为c的, 需要增加以下设置, 使其识别为c++的
+     #+BEGIN_EXAMPLE
+     export GTAGSFORCECPP=""
+     #+END_EXAMPLE
+  2. 有些文件是不需要去解析的, 比如protobuf生成的XX.pd.h XX.pd.c
+     增加gtags.files文件. 这样gtags就会只解析在该文件内的
+
+
+* global简易指令
+  指令说明:
+  #+BEGIN_EXAMPLE
+  无参数运行 查找GTAGS
+  -r  查找GRTAGS
+  -x show details
+  -a 查找GPATH
+  -s locate symbols which are not defined in GTAGS 找到未定义的变量
+  #+END_EXAMPLE
+
+  备注:
+  global无法解析局部变量

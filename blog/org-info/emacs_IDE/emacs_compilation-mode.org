@@ -1,0 +1,31 @@
+#+TITLE: compilation mode
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+
+编译日志, 支持错误查看
+
+* 功能
+  1. 美化编译输出信息
+  2. 错误跳转到源文件
+* 安装
+  melpa中安装
+* 配置
+  [[file:init-compilation-mode.el][具体配置文件]]
+* 使用
+  M-x compile RET 开始编译
+  快捷键配置如下
+  #+BEGIN_EXAMPLE
+  ;;下个错误
+  (define-key compilation-mode-map (kbd "n") 'compilation-next-error)
+  ;;上个错误
+  (define-key compilation-mode-map (kbd "p") 'compilation-previous-error)
+  ;;查看错误源码
+  (define-key compilation-mode-map (kbd "TAB") 'compilation-display-error)
+  ;;跳转到错误源码
+  (define-key compilation-mode-map (kbd "RET") 'compile-goto-error)
+  #+END_EXAMPLE
+
+
+  

@@ -1,0 +1,25 @@
+#+TITLE: html && css & js
+#+LAYOUT: post
+#+CATEGORIES: language
+#+TAGS: 
+#+OPTIONS: ^:nil
+
+web前端三剑客
+
+#+HTML: <!-- more -->
+* 功能
+  html -- 骨骼
+  css  -- 组织
+  js   -- 血液
+
+* Bootstrap
+  bootstrap是web前端框架, 封装了html, css
+
+* AdminLTE
+  AdminlLTE是web前端框架, 封装了Bootstrap和js框架
+  推荐使用
+  1) 使用简单
+  2) 代码简洁干净
+
+  
+  

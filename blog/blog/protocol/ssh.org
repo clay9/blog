@@ -1,0 +1,21 @@
+#+TITLE: ssh
+#+LAYOUT: post
+#+CATEGORIES: protocol
+#+TAGS: 
+
+ssh简述
+#+HTML: <!-- more -->
+* 功能
+* 安装
+* 配置
+** 超时断开处理
+*** client 超时断开处理
+    #+BEGIN_EXAMPLE
+    ServerAliveInterval 120
+    #+END_EXAMPLE
+    这行内容的含义是，每120s，客户端就向服务端发送一个空的包。让服务端认为客户端在线，因此就不会超时断开。当然，如果服务端设置的超时时间是60s，你这里设置的时间肯定要小于60s。不过服务端设置超时时间为60s的情况非常罕见，而且是出错的时候才会出现这种情况。所以这里设置为120s即可
+
+*** server 超时断开处理
+* 使用
+
+  

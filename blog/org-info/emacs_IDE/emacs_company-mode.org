@@ -1,0 +1,43 @@
+#+TITLE: company mode
+#+INFOJS_OPT: path:../script/org-info.js
+#+INFOJS_OPT: toc:t ltoc:t
+#+INFOJS_OPT: view:info mouse:underline buttons:nil
+
+自动补全功能
+: 头文件自动补全选择了company-c-header-mode
+: 代码变量函数自动自动补全选择了gtags-mode和clang
+
+
+* 什么是
+  company-mode, 意思为complete anything, 是一个前端工具(front-ends).它可以提供候选词, 供用户选择,以
+  完成自动补全的功能. 但是具体提供什么词, 是依赖于后端(back-ends)做处理的. 可以认为company-mode只是
+  一个容器, 它只处理界面的事情, 不处理具体的代码分析等工作.
+  : 必须依赖于back-ends才能工作.
+  [[http://company-mode.github.io][具体可以参考这个文档, 但没太大必要]]
+
+* 配置
+  #+BEGIN_EXAMPLE
+  ;; start up company-mode
+  (add-hook 'after-init-hook 'global-company-mode)
+  (add-hook 'c-mode-common-hook 'global-company-mode)
+
+  ;; chose back-ends
+  (setq company-backends
+    (quote
+      (company-bbdb company-nxml company-css company-eclim company-xcode company-cmake company-capf company-files
+        (company-dabbrev-code company-gtags company-etags company-keywords)
+        company-oddmuse company-dabbrev)))
+  #+END_EXAMPLE
+
+  company mode的配置比较简单, 只需要指定启动时机和配置后端即可.
+* 使用
+  | 常用快捷键 | 功能说明             | 备注 |
+  |------------+----------------------+------|
+  | M-p        | 选择上一个候选词     |      |
+  |------------+----------------------+------|
+  | M-n        | 选择下一个候选词     |      |
+  |------------+----------------------+------|
+  | Tab        | 扩展当前提示的候选词 |      |
+  |------------+----------------------+------|
+  | Ret        | 扩展选择的候选词     |      |
+  |------------+----------------------+------|
