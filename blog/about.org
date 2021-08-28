@@ -1,0 +1,17 @@
+#+TITLE: About
+#+DATE: 2021-08-28 15:01:56
+#+HUGO_CATEGORIES: 
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+
+* 个人简介
+  - 昵称: wcq
+  - 地址: 来自山东, 现居武汉
+  - 邮箱: 377133665@qq.com
+  - 描述: Emacs重度患者
+
+* 关于本站
+  - 梳理自身知识体系
+  - 分享

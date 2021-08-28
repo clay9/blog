@@ -1,10 +1,14 @@
 #+TITLE: 数据库开发
-#+LAYOUT: post
-#+CATEGORIES: protocol
-#+TAGS: 
+#+DATE: 2021-08-28 15:17:52
+#+HUGO_CATEGORIES: protocol
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 数据库开发
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 数据库开发  
 ** win下
    [[https://www.bbsmax.com/A/kjdwDq7wzN/][详细解释]]

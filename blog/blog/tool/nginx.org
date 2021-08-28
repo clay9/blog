@@ -1,12 +1,15 @@
 #+TITLE: nginx
-#+LAYOUT: post
-#+CATEGORIES: tool
-#+TAGS: nginx
+#+DATE: 2021-08-28 15:20:58
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: nginx
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 nginx是使用率最高的web容器
 
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 安装
   #+BEGIN_EXAMPLE
   docker pull nginx

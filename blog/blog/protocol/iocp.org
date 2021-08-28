@@ -1,11 +1,14 @@
 #+TITLE: IOCP完成端口
-#+LAYOUT: post
-#+CATEGORIES: protocol
+#+DATE: 2021-08-28 15:15:41
+#+HUGO_CATEGORIES: protocol
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 完成端口
+#+hugo: more
 
-#+HTML: <!-- more -->
 * 说明
   完成端口IOCP是windows下的异步非阻塞模型
   : IOCP I/O completion port

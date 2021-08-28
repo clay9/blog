@@ -1,10 +1,14 @@
 #+TITLE: vargrind
-#+LAYOUT: post
-#+CATEGORIES: tool
-#+TAGS: 
+#+DATE: 2021-08-28 15:21:21
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: vargrind
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 程序检测工具
-#+HTML: <!-- more -->
+#+hugo: more
+
 * vargrind
   程序性能查看工具,号称程序员的瑞士军刀
   可以查看内存信息, 函数调用, cache信息等等

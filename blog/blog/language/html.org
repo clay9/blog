@@ -1,12 +1,14 @@
 #+TITLE: html && css & js
-#+LAYOUT: post
-#+CATEGORIES: language
-#+TAGS: 
+#+DATE: 2021-08-28 15:13:18
+#+HUGO_CATEGORIES: language
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 web前端三剑客
 
-#+HTML: <!-- more -->
+#+hugo: more
 * 功能
   html -- 骨骼
   css  -- 组织

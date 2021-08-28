@@ -1,10 +1,14 @@
 #+TITLE: 乱七八糟的协议合集
-#+LAYOUT: post
-#+CATEGORIES: protocol
-#+TAGS: 
+#+DATE: 2021-08-28 15:16:41
+#+HUGO_CATEGORIES: 
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 协议太多, 不好分类, 真是乱七八糟
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 简单协议
 ** 字符编码
    写入内存过程:

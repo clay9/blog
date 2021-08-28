@@ -1,11 +1,14 @@
 #+TITLE: 正则表达式
-#+LAYOUT: post
-#+CATEGORIES: protocol
-#+TAGS: regex
+#+DATE: 2021-08-28 15:16:55
+#+HUGO_CATEGORIES: protocol
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 正则表达式
+#+hugo: more
 
-#+HTML: <!-- more -->
 * 推荐文章
   1. [[http://help.locoy.com/Document/Learn_Regex_For_30_Minutes.htm][正则表达式30分钟入门教程]]
   

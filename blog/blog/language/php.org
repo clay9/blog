@@ -1,11 +1,14 @@
 #+TITLE: php
-#+LAYOUT: post
-#+CATEGORIES: language
-#+TAGS: 
+#+DATE: 2021-08-28 15:13:45
+#+HUGO_CATEGORIES: language
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 php && php框架
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 说明
   php是web后端常用的开发语言
   有cli和fpm版本, cli版本暂时不知道什么用, 

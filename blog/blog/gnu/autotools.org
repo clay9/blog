@@ -1,10 +1,13 @@
 #+TITLE: autotools个人心得
-#+LAYOUT: post
-#+CATEGORIES: gnu
-#+TAGS: autotools
+#+DATE: 2021-08-28 00:53:01
+#+HUGO_CATEGORIES: gnu
+#+HUGO_TAGS: autotools
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 初学autotools
-#+HTML: <!-- more -->
+#+hugo: more
 
 * 为什么需要autotools
    Makefile固然可以帮助make完成它的使命，但要承认的是，编写Makefile确实不是一件轻松的事，尤其对于一个较大的项目而言更是如此。

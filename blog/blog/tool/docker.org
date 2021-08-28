@@ -1,12 +1,15 @@
 #+TITLE: docker
-#+LAYOUT: post
-#+CATEGORIES: tool
-#+TAGS: docker
+#+DATE: 2021-08-28 15:19:45
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: docker
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 docker容器
 
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 功能
 ** 为什么需要docker
 ** docker与虚拟机的对比

@@ -1,13 +1,15 @@
 #+TITLE: web框架搭建
-#+LAYOUT: post
-#+CATEGORIES: project
-#+TAGS:
+#+DATE: 2021-08-28 15:14:38
+#+HUGO_CATEGORIES: project
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 使用docker搭建web,
 包含web服务器(nginx), php7.4.7, lavarel7.12.0, mssql
 
-#+HTML: <!-- more -->
+#+hugo: more
 
 * 基本信息
   | 软件           | 版本          | 备注                   |

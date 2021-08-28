@@ -1,10 +1,14 @@
-#+TITLE: Mac搭建gitlab服务器
-#+LAYOUT: post
-#+CATEGORIES: tool
-#+TAGS: gitlab
+#+TITLE: mac搭建gitlab服务器
+#+DATE: 2021-08-28 15:20:06
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: gitlab
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
-Docker安装gitlab
-#+HTML: <!-- more -->
+docker安装gitlab
+
+#+hugo: more
 
 * 为什么要用gitlab
   git分布式架构,本身没有服务器之说.但为了团队开发, 总有一台电脑充当服务器的角色.我们称之为Public, 意为公共库.

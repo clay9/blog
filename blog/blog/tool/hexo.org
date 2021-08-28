@@ -1,10 +1,14 @@
-#+TITLE: Hexo搭建blog
-#+LAYOUT: post
-#+CATEGORIES: tool
-#+TAGS:
+#+TITLE: hexo搭建blog
+#+DATE: 2021-08-28 15:20:31
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: hexo
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 使用hexo + org-mode + github搭建blog
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 为什么要用hexo
   说hexo之前, 必须先说blog. blog作用有下:
   - 利己, 整理自身知识体系 或作记录

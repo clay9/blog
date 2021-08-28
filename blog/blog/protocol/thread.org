@@ -1,10 +1,13 @@
 #+TITLE: 多线程总结
-#+LAYOUT: post
-#+CATEGORIES: protocol
-#+TAGS: 
+#+DATE: 2021-08-28 15:18:42
+#+HUGO_CATEGORIES: protocol
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
+#+hugo: more
 
-#+HTML: <!-- more -->
 ** 应用场景
 ** 创建
 ** 使用

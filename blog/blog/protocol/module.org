@@ -1,12 +1,16 @@
 #+TITLE: 基本模型概念
-#+LAYOUT: post
-#+CATEGORIES: protocol
+#+DATE: 2021-08-28 15:16:14
+#+HUGO_CATEGORIES: 
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 基本模型概念:
 - 阻塞, 非阻塞
 - 同步, 异步
-#+HTML: <!-- more -->
+#+hugo: more
+
 * 阻塞, 非阻塞
   1. 阻塞
      : 进程(线程)挂起, 由运行队列转移到等待队列

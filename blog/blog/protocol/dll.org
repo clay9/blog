@@ -1,10 +1,13 @@
 #+TITLE: 静态库 && 动态库
-#+LAYOUT: post
-#+CATEGORIES: protocol
+#+DATE: 2021-08-28 15:15:13
+#+HUGO_CATEGORIES: protocol
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 linux下静态库 && 动态库
-#+HTML: <!-- more -->
+#+hugo: more
 * 差异区别
   1. 编译连接静态库时, 会copy一份静态库镜像到目标文件;
      编译连接动态库时, 不会copy

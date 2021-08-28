@@ -1,11 +1,15 @@
-#+TITLE: Mac实用技巧汇总
-#+LAYOUT: post
-#+CATEGORIES: system
-#+TAGS: mac
+#+TITLE: mac实用技巧
+#+DATE: 2021-08-28 15:19:09
+#+HUGO_CATEGORIES: system
+#+HUGO_TAGS: mac
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
 
 本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看.
 
-#+HTML: <!-- more -->
+#+hugo: more
+
 * mac系统怎么样
   之前是为了学习linux命令行, 后来是开发环境使用到了xcode.
   mac是一款很稳定的系统, 但是稳定的代价是, 对于大部分游戏都不支持. 所以如果有游戏需求, 非常不建议使用mac. 
