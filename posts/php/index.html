@@ -1,0 +1,660 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>php - 飘</title><meta name=Description content><meta property="og:title" content="php">
+<meta property="og:description" content="php && php框架">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://example.org/posts/php/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-08-28T15:13:00+08:00">
+<meta property="article:modified_time" content="2021-08-28T17:07:52+08:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="php">
+<meta name=twitter:description content="php && php框架">
+<meta name=application-name content="飘">
+<meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://example.org/posts/php/><link rel=prev href=http://example.org/posts/c++/><link rel=next href=http://example.org/posts/html/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"php","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/example.org\/posts\/php\/"},"genre":"posts","wordcount":2136,"url":"http:\/\/example.org\/posts\/php\/","datePublished":"2021-08-28T15:13:00+08:00","dateModified":"2021-08-28T17:07:52+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=飘>飘</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/about> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title=飘>飘</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">php</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=" author" class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/language/><i class="far fa-folder fa-fw"></i>language</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2136 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#说明>说明</a></li>
+<li><a href=#安装>安装</a></li>
+<li><a href=#laravel>laravel</a>
+<ul>
+<li><a href=#laravel安装adminlte-通过mix方式安装>laravel安装adminLTE &ndash; 通过mix方式安装</a></li>
+<li><a href=#laravel安装adminlte-直接放到public目录下面即可>laravel安装adminLTE &ndash; 直接放到public目录下面即可</a></li>
+<li><a href=#laravel学习>laravel学习</a></li>
+</ul>
+</li>
+<li><a href=#compose>compose</a>
+<ul>
+<li><a href=#安装>安装</a></li>
+<li><a href=#更新源>更新源</a></li>
+</ul>
+</li>
+<li><a href=#pear-and-and-pecl>pear && pecl</a></li>
+<li><a href=#使用>使用</a></li>
+<li><a href=#支持mssql-and-and-sqlserver>支持mssql && sqlserver</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>php && php框架</p>
+<h2 id=说明>说明</h2>
+<p>php是web后端常用的开发语言
+有cli和fpm版本, cli版本暂时不知道什么用,
+fpm版本可以供其他软件使用, 比如apache2, nginx</p>
+<h2 id=安装>安装</h2>
+<p>强烈推荐使用docker安装php</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>docker install php:7.4.7-fpm
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=laravel>laravel</h2>
+<p><a href=https://learnku.com/docs/laravel/7.x target=_blank rel="noopener noreffer">中文翻译文档</a>
+<a href=https://laravel.com target=_blank rel="noopener noreffer">官方文档</a></p>
+<p>laravel是流行的php框架</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>唯一感触就是环境配置真麻烦
+</code></pre></td></tr></table>
+</div>
+</div><p>laravel与hexo非常类似, 都是通过命令生成一个项目.
+不同的是laravel需要把很多信息打入到php所在的载体中(docker容器或者服务器)(在compose install的时候打入).
+而hexo则是通过命令, 把源文件生成为静态文件, 静态文件可以被github-page等服务器识别, 供web解析</p>
+<h3 id=laravel安装adminlte-通过mix方式安装>laravel安装adminLTE &ndash; 通过mix方式安装</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>laravel7.x 安装adminlte2.4
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>下载adminLTE到工程中</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>composer require &#34;almasaeed2010/adminlte=~2.4&#34;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>编写app.scss && app.js && webpack.mix.js TODONOW 如何编写
+app.scss路径 resources/sass/app.scss
+app.js路径 resources/js/app.js
+webpack.mix.js路径 在项目根目录下</p>
+</li>
+<li>
+<p>npm install && npm run dev</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>项目根目录下执行
+npm install 安装js依赖  (根据package.json来安装)
+npm run dev 把webpack.mix.js(类似工程项目)中内容编译
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>xxx.blade.php代码中引用修改</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>css文件引用修改
+js文件引用修改
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+.
+.
+.
+   &lt;link rel=&#34;stylesheet&#34; href=&#34;{{ mix(&#39;css/app.css&#39;) }}&#34;&gt;
+&lt;/head&gt;
+
+&lt;body class=&#34;hold-transition skin-blue sidebar-mini&#34;&gt;
+.
+.
+.
+  &lt;script src=&#34;{{ mix(&#39;js/app.js&#39;) }}&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id=laravel安装adminlte-直接放到public目录下面即可>laravel安装adminLTE &ndash; 直接放到public目录下面即可</h3>
+<ol>
+<li>
+<p>把adminLTE代码(github下载的源码) 放到laravel项目的pulic目录中</p>
+</li>
+<li>
+<p>修改项目中对adminLTE的引用路径</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>&lt;!-- Font Awesome --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;adminlte/plugins/fontawesome-free/css/all.min.css&#34;&gt;
+&lt;!-- icheck bootstrap --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css&#34;&gt;
+&lt;!-- Theme style --&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;adminlte/dist/css/adminlte.min.css&#34;&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>注意路径的起始位置为laravel项目的public</p>
+</li>
+<li>
+<p>重启php 与 nginx!!!!!</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>需要重启才能生效
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id=laravel学习>laravel学习</h3>
+<p>/project path/app目录 逻辑代码(后端代码)</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>app目录下的Http中放的是我们需要的 逻辑代码
+app/Http中 controlers与middleware交互是通过app/Http/kernel.php中的变量map来寻找的
+</code></pre></td></tr></table>
+</div>
+</div><p>/project path/resources/views 前端代码(表现层代码)</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>模板文件一般放在layouts目录下面
+</code></pre></td></tr></table>
+</div>
+</div><h4 id=访问db数据库>访问DB数据库</h4>
+<p>注意事项</p>
+<ol>
+<li>
+<p>修改config/database.php</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>吐槽 database.php中sql server的demo不正确
+</code></pre></td></tr></table>
+</div>
+</div><p>配置为</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>&#39;sqltest&#39; =&gt; [
+     &#39;driver&#39; =&gt; &#39;sqlsrv&#39;,
+     //&#39;url&#39; =&gt; env(&#39;DATABASE_URL&#39;),
+     &#39;host&#39; =&gt; &#39;172.22.0.4&#39;,
+     &#39;port&#39; =&gt; &#39;1433&#39;,
+     &#39;database&#39; =&gt;&#39;QPAccountsDB&#39;,
+     &#39;username&#39; =&gt; &#39;sa&#39;,
+     &#39;password&#39; =&gt; &#39;hack@2020&#39;,
+     &#39;charset&#39; =&gt; &#39;utf8&#39;,
+     &#39;prefix&#39; =&gt; &#39;&#39;,
+     &#39;prefix_indexes&#39; =&gt; true,
+ ],
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>提示 修改了database.php后 需要执行以下命令</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>提示错误为
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>php artisan config:cache
+</code></pre></td></tr></table>
+</div>
+</div><p>成功了会显示</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>Configuration cache cleared!
+Configuration cached successfully!
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>提示错误 There is no existing directory at &ldquo;%s&rdquo; and its not buildable</p>
+<ol>
+<li>
+<p>查看storage权限 是否为775</p>
+</li>
+<li>
+<p>执行以下命令</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>php artisan route:clear   &amp;&amp;
+php artisan config:clear &amp;&amp;
+php artisan cache:clear
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>查看php是否开启了对DB的支持(这里以mssql为例)
+详见本文档的 支持mssql && sqlserver</p>
+</li>
+<li>
+<p>数据库表的搭建</p>
+<ol>
+<li>
+<p>创建数据库 && 在app/User.php中选择数据库</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>protected $connection = &#39;QPWebDB&#39;;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在选择的数据库中创建table</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>php artisan migrate
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+<li>
+<p>测试laravel的注册, 登录功能
+访问 0.0.0.0:8080 进行注册,登录测试</p>
+</li>
+</ol>
+<h4 id=web站点访问流程-以登录为例>web站点访问流程 &ndash; 以登录为例</h4>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>controler 管理类
+middleware 中间件
+</code></pre></td></tr></table>
+</div>
+</div><p>访问web站点
+&ndash;> 通过/project path/routes/web.php中的路由找到controler &ndash; /project path/app/Http/controler/HomeControler.php
+&ndash;> controler转交给middleware处理 &ndash; auth</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>根据/project path/app/Http/kernel中的变量map找到middleware
+如果有缓存, 则进入到home界面, 否则进入到login界面, 由controler中控制
+</code></pre></td></tr></table>
+</div>
+</div><p>&ndash;> middleware通过route找到view (route 与 view之间通过XXX.blade.php关联)
+&ndash;> 显示view页面
+&ndash;> 点击login页面中的登录按钮
+&ndash;> view找到对应的对应的controlers &ndash; /projectt path/app/Http/Controllers/Auth/LoginController.php</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>根据Auth::routes()找到 TODONOW可以查看在哪里实现的该函数
+</code></pre></td></tr></table>
+</div>
+</div><p>&ndash;> controler转交给middleware处理 &ndash; /projcet path/Http/Middleware/RedirectIfAuthenticated.php
+&ndash;> middleware中继续往下传递</p>
+<h4 id=总结>总结</h4>
+<ol>
+<li>
+<p>laravel 可以分为下面几个模块
+route &ndash; 路由
+controler &ndash; 管理器
+middleware&ndash; 中间件
+view &ndash; 视图文件(前端显示)
+guard</p>
+<p>其架构为</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>
+              +-----------+
+                  | controler | -----	     +------------+
++----------+     /--&gt; +-----------+      \---&gt; |  middleware|
+|  route   | ----	       |    ^  	       	     +------------+
++----------+ --	       v    |  	       	   ---
+           \---   +------------+    ----/
+           \&gt; |   view     | &lt;-/
+              +------------+
+
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>route可以访问 controler 与view
+controler可以访问view,  或者把复杂逻辑交给middleware
+midlleware可以访问view
+view 可以把action提交给controler, 由controler管理
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id=compose>compose</h2>
+<p>compose 解决项目中对php的依赖</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>mac系统下
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=安装>安装</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text># 安装compose
+curl -sS https://getcomposer.org/installer | php
+# 修改为全局可用
+sudo mv composer.phar /usr/local/bin/composer
+# 查看是否安装成功
+composer --version
+</code></pre></td></tr></table>
+</div>
+</div><h3 id=更新源>更新源</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>国外的源 被墙了
+</code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text># 修改为国内的源
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=pear-and-and-pecl>pear && pecl</h2>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>实际中并未使用到 :)
+</code></pre></td></tr></table>
+</div>
+</div><p>pecl是php扩展池,
+pear管理php自身扩展库, 可以在pecl中下载php扩展</p>
+<h2 id=使用>使用</h2>
+<p>实际使用, 可以参考下面的
+web服务器 + php + lavarel + 数据库
+TODONOW 待补充连接</p>
+<h2 id=支持mssql-and-and-sqlserver>支持mssql && sqlserver</h2>
+<ol>
+<li>
+<p>下载odbc驱动</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>apt install unixodbc
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下载微软的 dobc for sql
+<a href="https://docs.microsoft.com/zh-cn/sql/connect/odbc/microsoft-odbc-driver-for-sql-server?view=sql-server-linux-2017" target=_blank rel="noopener noreffer">微软官方下载地址</a>
+根据服务器和php选择下载 并安装</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>dpkg -i msodbcsql17_17.5.2.1-1_amd64.deb
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下载微软的 php for sql扩展
+<a href="https://docs.microsoft.com/zh-cn/sql/connect/php/microsoft-php-driver-for-sql-server?view=sql-server-linux-2017" target=_blank rel="noopener noreffer">微软官方下载</a>
+并根据操作放入到php的lib目录, 同时修改php.ini</p>
+</li>
+<li>
+<p>重启php 与 web载体(nginx, apache2)</p>
+</li>
+<li>
+<p>测试是否安装成功
+<a href="https://docs.microsoft.com/zh-cn/sql/connect/php/installation-tutorial-linux-mac?view=sql-server-linux-2017#testing-your-installation" target=_blank rel="noopener noreffer">官方测试代码</a></p>
+</li>
+</ol></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2021-08-28</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md></div>
+<div class=post-info-share>
+<span></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/posts/c++/ class=prev rel=prev title="C && C++ 常见库"><i class="fas fa-angle-left fa-fw"></i>C && C++ 常见库</a>
+<a href=/posts/html/ class=next rel=next title="html && css & js">html && css & js<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
