@@ -1,8 +1,7 @@
 #+TITLE: emacs
-#+INFOJS_OPT: path:script/org-info.js
-#+INFOJS_OPT: home:http://wcq.fun
 #+INFOJS_OPT: toc:t ltoc:t
 #+INFOJS_OPT: view:info mouse:underline buttons:nil
+#+INFOJS_OPT: path:/script/org-info.js
 
 * emacs基础操作
 ** Helm

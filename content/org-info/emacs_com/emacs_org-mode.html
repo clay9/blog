@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-08-29 Sun 23:25 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>org-mode</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+
+<script type="text/javascript" src="../script/org-info.js">
+/**
+ *
+ * @source: ../script/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in ../script/org-info.js.
+ *
+ * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in ../script/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "/");
+org_html_manager.set("LINK_UP", "../emacs.html");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../emacs.html"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content">
+<h1 class="title">org-mode</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9e25845">1. 功能</a></li>
+<li><a href="#orgdee75af">2. 配置</a>
+<ul>
+<li><a href="#org7a33034">2.1. org-bullets</a></li>
+</ul>
+</li>
+<li><a href="#orgb25c731">3. 使用</a>
+<ul>
+<li><a href="#org56a2f1b">3.1. 基本语法</a>
+<ul>
+<li><a href="#orgaa475c4">3.1.1. 语法: time-stamp选择</a></li>
+<li><a href="#org22b73d4">3.1.2. 语法: 时间repeate</a></li>
+<li><a href="#org5c3fa4d">3.1.3. 语法: table计算</a></li>
+</ul>
+</li>
+<li><a href="#orgef848b8">3.2. 导出</a></li>
+<li><a href="#org658e000">3.3. org-info.js</a>
+<ul>
+<li><a href="#org30e9cf1">3.3.1. 模式</a></li>
+<li><a href="#org6189318">3.3.2. 属性值说明</a></li>
+<li><a href="#org5f8a435">3.3.3. 快捷键</a></li>
+<li><a href="#org11aae43">3.3.4. 安装</a></li>
+<li><a href="#org8a434e0">3.3.5. 使用</a></li>
+<li><a href="#org8f73866">3.3.6. 链接</a></li>
+</ul>
+</li>
+<li><a href="#org27f341a">3.4. MobileOrg</a></li>
+</ul>
+</li>
+<li><a href="#org3b6f565">4. org-mode与GTD</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9e25845" class="outline-2">
+<h2 id="org9e25845"><span class="section-number-2">1</span> 功能</h2>
+</div>
+<div id="outline-container-orgdee75af" class="outline-2">
+<h2 id="orgdee75af"><span class="section-number-2">2</span> 配置</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7a33034" class="outline-3">
+<h3 id="org7a33034"><span class="section-number-3">2.1</span> org-bullets</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+使org-mode更美观
+</p>
+<ol class="org-ol">
+<li>改变 **为图标</li>
+<li>改变省略号为⤵</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb25c731" class="outline-2">
+<h2 id="orgb25c731"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org56a2f1b" class="outline-3">
+<h3 id="org56a2f1b"><span class="section-number-3">3.1</span> 基本语法</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgaa475c4" class="outline-4">
+<h4 id="orgaa475c4"><span class="section-number-4">3.1.1</span> 语法: time-stamp选择</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+添加time-stamp时, 不要在calendar中移动,效率太低
+使用以下2种方式即可:
+</p>
+<ol class="org-ol">
+<li>使用简约的时间格式
+17-1-1  =&gt; 2017-01-01</li>
+<li>使用时间间隔
+now = <span class="timestamp-wrapper"><span class="timestamp">[2016-12-28 Wed]</span></span>
++1d  =&gt; 2016-12-29</li>
+</ol>
+
+<p>
+具体见(dir) - Org mode - Dates and times - Creating timestamps - The date/time promt
+</p>
+</div>
+</div>
+
+<div id="outline-container-org22b73d4" class="outline-4">
+<h4 id="org22b73d4"><span class="section-number-4">3.1.2</span> 语法: 时间repeate</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+org-mode repeate格式
+</p>
+<ul class="org-ul">
+<li>.+   ++区别</li>
+
+<li>"+"
+backlog 可以积压的item</li>
+<li>".+"
+specific date, no backlog 在特定日期完成的item
+ep: call mother
+每周六给mother打电话, 不可积压(或者说现在的操作不会影响之前)</li>
+<li>"++"
+specific interval, no backlog 在特定间隔完成的item
+ep: change batteries
+每隔1月更换电池, 不可积压</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5c3fa4d" class="outline-4">
+<h4 id="org5c3fa4d"><span class="section-number-4">3.1.3</span> 语法: table计算</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+@ 表示行； $表示列
+&lt; 表示第一;   &gt; 表示最后；
+</p>
+
+<p>
+例子:
+@&lt;  第一行
+$&gt;  最后一列
+@&lt;&lt; 第二行(更建议使用 @2)
+</p>
+
+<p>
+对table使用C-c} 可以查看行列值
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef848b8" class="outline-3">
+<h3 id="orgef848b8"><span class="section-number-3">3.2</span> 导出</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+快捷键
+</p>
+<pre class="example">
+C-c C-e
+</pre>
+</div>
+</div>
+<div id="outline-container-org658e000" class="outline-3">
+<h3 id="org658e000"><span class="section-number-3">3.3</span> org-info.js</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+输出info-style xhtml
+<a href="https://orgmode.org/worg/code/org-info-js/">官方文档</a>
+</p>
+</div>
+<div id="outline-container-org30e9cf1" class="outline-4">
+<h4 id="org30e9cf1"><span class="section-number-4">3.3.1</span> 模式</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<ul class="org-ul">
+<li>info
+'m' 切换</li>
+<li>over view 
+'m' 切换</li>
+<li>ppt 
+'x' 切换</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6189318" class="outline-4">
+<h4 id="org6189318"><span class="section-number-4">3.3.2</span> 属性值说明</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<ul class="org-ul">
+<li>path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录
+如果没有设置, 则默认从orgmode.org中读取
+publish , export均生效</li>
+<li>home     整个org-file的根节点,  对应界面上的"HOME"按钮
+<ol class="org-ol">
+<li>export 时候, 设置有效</li>
+<li>publish的时候, 设置无效</li>
+</ol></li>
+<li>up       整个org-file的上层节点,对应界面上的"UP"按钮
+TODONOW 暂时不知道作用, 不设置正常使用, 界面上没有"UP"按钮</li>
+<li>view     html显示样式</li>
+<li>toc      整个org-file是否显示content
+publish时候 设置无效</li>
+<li>ltoc     sub-heading是否显示content
+publish时候 设置无效</li>
+<li>mouse    鼠标样式</li>
+<li>buttons</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5f8a435" class="outline-4">
+<h4 id="org5f8a435"><span class="section-number-4">3.3.3</span> 快捷键</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">快捷键</th>
+<th scope="col" class="org-left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">n</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">p</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">m</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">x</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">i</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org11aae43" class="outline-4">
+<h4 id="org11aae43"><span class="section-number-4">3.3.4</span> 安装</h4>
+<div class="outline-text-4" id="text-3-3-4">
+<p>
+org-mode自带, 无须额外安装
+</p>
+</div>
+</div>
+<div id="outline-container-org8a434e0" class="outline-4">
+<h4 id="org8a434e0"><span class="section-number-4">3.3.5</span> 使用</h4>
+<div class="outline-text-4" id="text-3-3-5">
+<ol class="org-ol">
+<li><p>
+org文件增加导出属性
+</p>
+<pre class="example">
+#+INFOJS_OPT: home:http://wcq.fun
+#+INFOJS_OPT: view:info toc:t ltoc:t mouse:underline buttons:nil
+</pre></li>
+
+<li>org-export-html-to-html</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org8f73866" class="outline-4">
+<h4 id="org8f73866"><span class="section-number-4">3.3.6</span> 链接</h4>
+<div class="outline-text-4" id="text-3-3-6">
+<p>
+org-file中的连接会被自动转换为 html 比如:
+org-file中:
+</p>
+<pre class="example">
+file:test.org
+</pre>
+
+<p>
+在export的html中, 会被自动转换为
+</p>
+<pre class="example">
+link:test.html
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org27f341a" class="outline-3">
+<h3 id="org27f341a"><span class="section-number-3">3.4</span> MobileOrg</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+方案流程
+</p>
+<ol class="org-ol">
+<li>PC端配置MobileOrg
+具体见.emacs</li>
+<li>寻找WebDAV server
+现在使用的是坚果云</li>
+<li>curl同步PC端到webDAV server
+这一块非常纠结
+起初使用的ssh的scp,发现scp貌似不支持https?
+后来使用了curl, 结果发现curl不支持目录的上传&#x2026;..
+导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块!
+方法有2:
+<ol class="org-ol">
+<li>换一种工具取代curl  &#x2013; 更倾向于这一种方式</li>
+<li>使用regular expression &#x2013; 貌似curl支持的不好</li>
+</ol></li>
+</ol>
+
+
+<p>
+总览图
+</p>
+
+<p>
+<del>-----------</del> push	       	<del>--------------</del>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">PC端</td>
+<td class="org-left">---------&#x2013;&#x2014;&gt;</td>
+<td class="org-left">WwbDAV server</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&lt;--------------</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+<del>-----------</del> pull	       	<del>--------------</del>
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<tbody>
+<tr>
+</tr>
+
+<tr>
+</tr>
+</tbody>
+</table>
+<p>
+v	  |
+</p>
+<!-- This HTML table template is generated by emacs 26.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b6f565" class="outline-2">
+<h2 id="org3b6f565"><span class="section-number-2">4</span> org-mode与GTD</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="emacs_GTD.html">org-mode与GTD</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2021-08-29 Sun 23:25</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>

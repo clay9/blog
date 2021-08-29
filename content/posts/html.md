@@ -1,7 +1,7 @@
 +++
 title = "html && css & js"
 date = 2021-08-28T15:13:00+08:00
-lastmod = 2021-08-28T17:07:52+08:00
+lastmod = 2021-08-29T23:25:50+08:00
 categories = ["language"]
 draft = false
 +++

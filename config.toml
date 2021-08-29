@@ -47,10 +47,18 @@ theme = "LoveIt"
     identifier = ""
     pre = ""
     post = ""
+    name = "Emacs"
+    url = "/org-info/emacs.html"
+    title = ""
+    weight = 4
+  [[menu.main]]
+    identifier = ""
+    pre = ""
+    post = ""
     name = "关于"
     url = "about" #对应content目录下的about.md文件 -- 必须是.md(org无效)
     title = ""
-    weight = 4
+    weight = 5
 
 # 页面底部信息配置
   [params.footer]
