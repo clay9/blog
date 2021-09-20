@@ -1,7 +1,7 @@
 +++
 title = "autotools个人心得"
 date = 2021-08-28T00:53:00+08:00
-lastmod = 2021-09-20T23:09:01+08:00
+lastmod = 2021-09-20T23:22:22+08:00
 tags = ["autotools"]
 categories = ["gnu"]
 draft = false
