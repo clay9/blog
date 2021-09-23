@@ -1,0 +1,121 @@
+#+TITLE: github
+#+DATE: 2021-09-23 21:43:27
+#+HUGO_CATEGORIES: tool 
+#+HUGO_TAGS: github
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+
+github记录
+
+#+hugo: more
+
+* workflow -- hugo
+  : workflow中所有缩进必须是空格, 不能是tab
+# name -- github action中显示的名字
+name: github page
+
+# on  -- 触发workflow的条件
+on:
+  # push动作触发, 可以指定分支
+  push:
+    branches:
+      - master  # Set a branch to deploy
+  # pull request触发
+  pull_request:
+# jobs -- 工作流程运行包括一项或多项作业, 作业默认是并行运行, 要按顺序运行作业, 使用 <job_id>needs
+jobs:
+  # 这个只是jobs下的任务名字, 自定义
+  deploy:
+    # runs-on github支持的托管运行器, 支持window,linux与macos
+    runs-on: ubuntu-20.04
+    # steps -- job 步骤的唯一标识, 标识处理哪些step
+    steps:
+      # 不确定 actions/checkout@v2做了什么
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      # name -- step步骤显示在github中的名字
+      - name: Setup Hugo
+        # uses -- 选择要作为作业中步骤的一部分运行的操作。 操作是一种可重复使用的代码单位
+        #        uses实际是在github中寻找user为peaceiris的仓库为action-hugo的tag为v2的commit节点
+        #        猜测是把该commit节点的执行文件放到runs-on的服务器上, 然后执行操作
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          # extended: true
+
+      # 执行hugo的编译动作
+      - name: Build
+        run: hugo --minify
+
+      # 发布到./public
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+	# if -- 为条件判断
+        if: github.ref == 'refs/heads/master'
+	# with -- 应该是uses中所需要的参数
+        with:
+          github_token: ${{ secrets.HUGO_PUBLISH_TOKEN }}
+          publish_dir: ./public
+
+* workflow -- server-kernel
+name: build-kernel
+
+on:
+  push:
+    branches:
+      - master  # Set a branch to deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      # 不确定这个做了什么
+      - uses: actions/checkout@v2
+      - name: step 1 test
+      # run -- 执行的shell动作, 可以执行脚本
+	run: echo "step 1"
+	# shell -- 指定shell的环境
+	shell: bash
+
+	# TODONOW 如何指定g++版本 
+      - name: step 2 make
+        run: make
+
+      # TODONOW 测试
+#      - name: make check
+#        run: make check
+
+      # 发布到./public
+      - name: step 3 deploy
+	# run -- 执行的shell动作, 可以执行脚本
+	run: echo "step 3"
+	# shell -- 指定shell的环境
+	shell: bash
+* workflow
+name: build-kernel
+
+on:
+  push:
+    branches:
+      - master  # Set a branch to deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: step-1
+        run: echo ${env:PATH}
+        shell: bash
+      - name: step 2 make
+        uses: docker://alpine:3.8
+#        dependencies:
+          protobuf:
+        run: make
+      - name: step 3 deploy
+        run: echo "step 3"
+        shell: bash
