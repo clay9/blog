@@ -1,7 +1,7 @@
 +++
 title = "gdb"
 date = 2021-08-28T15:11:00+08:00
-lastmod = 2021-09-26T20:07:31+08:00
+lastmod = 2021-09-26T22:44:32+08:00
 categories = ["gnu"]
 draft = false
 +++
