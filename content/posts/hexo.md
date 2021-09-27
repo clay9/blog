@@ -1,7 +1,7 @@
 +++
 title = "hexo搭建blog"
 date = 2021-08-28T15:20:00+08:00
-lastmod = 2021-09-27T21:44:24+08:00
+lastmod = 2021-09-27T21:51:03+08:00
 tags = ["hexo"]
 categories = ["tool"]
 draft = false

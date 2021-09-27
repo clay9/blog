@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 21:44 -->
+<!-- 2021-09-27 Mon 21:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>gdb &amp;&amp; gud</title>
@@ -309,22 +309,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga04f724">1. 功能</a></li>
-<li><a href="#org0b15d3e">2. 安装</a></li>
-<li><a href="#org48b4c9f">3. 配置</a></li>
-<li><a href="#org17b9d85">4. gdb使用</a></li>
-<li><a href="#org6570df7">5. gud使用</a>
+<li><a href="#orgc7dec5f">1. 功能</a></li>
+<li><a href="#org2d3b7bc">2. 安装</a></li>
+<li><a href="#org26c9e42">3. 配置</a></li>
+<li><a href="#org0b18ac3">4. gdb使用</a></li>
+<li><a href="#orgac177b5">5. gud使用</a>
 <ul>
-<li><a href="#org82f1995">5.1. 例子</a></li>
-<li><a href="#org6b5d79b">5.2. 问题</a></li>
+<li><a href="#org47d9fdf">5.1. 例子</a></li>
+<li><a href="#orgbbc756d">5.2. 问题</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga04f724" class="outline-2">
-<h2 id="orga04f724"><span class="section-number-2">1</span> 功能</h2>
+<div id="outline-container-orgc7dec5f" class="outline-2">
+<h2 id="orgc7dec5f"><span class="section-number-2">1</span> 功能</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>gdb: 调试软件</li>
@@ -332,8 +332,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-org0b15d3e" class="outline-2">
-<h2 id="org0b15d3e"><span class="section-number-2">2</span> 安装</h2>
+<div id="outline-container-org2d3b7bc" class="outline-2">
+<h2 id="org2d3b7bc"><span class="section-number-2">2</span> 安装</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 gud为emacs自带;
@@ -341,16 +341,16 @@ gdb可以在gnu.org下载
 </p>
 </div>
 </div>
-<div id="outline-container-org48b4c9f" class="outline-2">
-<h2 id="org48b4c9f"><span class="section-number-2">3</span> 配置</h2>
+<div id="outline-container-org26c9e42" class="outline-2">
+<h2 id="org26c9e42"><span class="section-number-2">3</span> 配置</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <a href="emacs_gdb/init-gdb.el">具体配置</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org17b9d85" class="outline-2">
-<h2 id="org17b9d85"><span class="section-number-2">4</span> gdb使用</h2>
+<div id="outline-container-org0b18ac3" class="outline-2">
+<h2 id="org0b18ac3"><span class="section-number-2">4</span> gdb使用</h2>
 <div class="outline-text-2" id="text-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -475,8 +475,8 @@ continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使
 </div>
 </div>
 
-<div id="outline-container-org6570df7" class="outline-2">
-<h2 id="org6570df7"><span class="section-number-2">5</span> gud使用</h2>
+<div id="outline-container-orgac177b5" class="outline-2">
+<h2 id="orgac177b5"><span class="section-number-2">5</span> gud使用</h2>
 <div class="outline-text-2" id="text-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -568,8 +568,8 @@ local与register buffer同在一个frame;
 </p>
 </div>
 
-<div id="outline-container-org82f1995" class="outline-3">
-<h3 id="org82f1995"><span class="section-number-3">5.1</span> 例子</h3>
+<div id="outline-container-org47d9fdf" class="outline-3">
+<h3 id="org47d9fdf"><span class="section-number-3">5.1</span> 例子</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li>emacs: M-x gdb RET</li>
@@ -588,8 +588,8 @@ local与register buffer同在一个frame;
 </ol>
 </div>
 </div>
-<div id="outline-container-org6b5d79b" class="outline-3">
-<h3 id="org6b5d79b"><span class="section-number-3">5.2</span> 问题</h3>
+<div id="outline-container-orgbbc756d" class="outline-3">
+<h3 id="orgbbc756d"><span class="section-number-3">5.2</span> 问题</h3>
 <div class="outline-text-3" id="text-5-2">
 <ol class="org-ol">
 <li>gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.
@@ -605,7 +605,7 @@ local与register buffer同在一个frame;
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-27 Mon 21:44</p>
+<p class="date">Created: 2021-09-27 Mon 21:50</p>
 <p class="validation"></p>
 </div>
 </body>
