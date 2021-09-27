@@ -1,7 +1,7 @@
 +++
 title = "git"
 date = 2021-08-28T15:12:00+08:00
-lastmod = 2021-09-27T20:17:35+08:00
+lastmod = 2021-09-27T21:44:21+08:00
 tags = ["git"]
 categories = ["gnu"]
 draft = false
