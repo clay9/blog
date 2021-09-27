@@ -1,7 +1,7 @@
 +++
 title = "mac实用技巧"
 date = 2021-08-28T15:19:00+08:00
-lastmod = 2021-09-26T22:48:46+08:00
+lastmod = 2021-09-27T20:17:38+08:00
 tags = ["mac"]
 categories = ["system"]
 draft = false
