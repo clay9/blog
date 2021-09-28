@@ -1,7 +1,7 @@
 +++
 title = "hexo搭建blog"
 date = 2021-08-28T15:20:00+08:00
-lastmod = 2021-09-27T21:51:03+08:00
+lastmod = 2021-09-28T09:30:16+08:00
 tags = ["hexo"]
 categories = ["tool"]
 draft = false
@@ -43,8 +43,7 @@ hexo的主要优点:
 
 hexo的缺点:
 
--   环境无法移植
-    在A pc上搭建的环境, 只能在A pc上发布blog
+-   环境无法移植在A pc上搭建的环境, 只能在A pc上发布blog
 
 
 ## hexo怎么使用 {#hexo怎么使用}
@@ -228,8 +227,7 @@ wcq.fun
 
 ### 鼠标点击小心心效果 {#鼠标点击小心心效果}
 
-1.  在themes/next/source/js/src/下新建love.js文件
-    并且[copy下面的代码](hexo/love.txt)到love.js中
+1.  在themes/next/source/js/src/下新建love.js文件并且[copy下面的代码](hexo/love.txt)到love.js中
 2.  在themes/next/layout/\_layout.swig末尾添加以下代码:
 
     ```text

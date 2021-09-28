@@ -1,7 +1,7 @@
 +++
 title = "socket"
 date = 2021-08-28T15:17:00+08:00
-lastmod = 2021-09-27T21:51:02+08:00
+lastmod = 2021-09-28T09:30:15+08:00
 tags = ["epoll", "socket"]
 categories = ["protocol"]
 draft = false
@@ -17,8 +17,7 @@ socket相关网络编程
 
 ### socket {#socket}
 
-socket是 [应用层] 与 [传输层, 网络层] 之间的一个抽象层
-它的出现是为了简化网络进程通信
+socket是 [应用层] 与 [传输层, 网络层] 之间的一个抽象层它的出现是为了简化网络进程通信
 
 
 #### linux头文件 {#linux头文件}
@@ -55,15 +54,12 @@ socket是 [应用层] 与 [传输层, 网络层] 之间的一个抽象层
     fd:        socket()中的文件表指针的索引
     sockaddr:  地址, 端口
     len:       sockaddr的长度
-    <1> 比较有意思的是sockaddr根据family的不同, 可以与不同的结构体互转
-        比如
+    <1> 比较有意思的是sockaddr根据family的不同, 可以与不同的结构体互转比如
          AF\_INET   sockaddr\_in
          AF\_INET6  sockaddr\_in6
          AF\_UNIX   sockaddr\_un
         这几种结构体都与sockaddr可互转(字节对齐blabla)
-    bind()本质是在补充socket()创建的文件表. socket()时候该文件表很多值都是空的, bind()来补充
-    因为client 在connect的时候, 系统会自动分配端口,以及绑定本机ip, 所以client的socket一般不必要
-    使用bind()
+    bind()本质是在补充socket()创建的文件表. socket()时候该文件表很多值都是空的, bind()来补充因为client 在connect的时候, 系统会自动分配端口,以及绑定本机ip, 所以client的socket一般不必要使用bind()
 3.  connet(fd, sockaddr\*, len)
     连接到其他scokaddr
 4.  listen(fd, iMaxNum)
@@ -75,9 +71,7 @@ socket是 [应用层] 与 [传输层, 网络层] 之间的一个抽象层
     一般只在server开启listen(), 监听指定的端口信息
 5.  accept()
     accept()会造成阻塞.
-    它会将listen()中的sockaddr进行处理
-    处理流程是 accept()会创建一个新的fd\_connet, 此fd\_connet公用server socket() fd的端口和地址
-    但是fd\_connect仅仅是用来传输数据的
+    它会将listen()中的sockaddr进行处理处理流程是 accept()会创建一个新的fd\_connet, 此fd\_connet公用server socket() fd的端口和地址但是fd\_connect仅仅是用来传输数据的
 6.  recv(fd, msg)  send(fd, msg)
     至accetp()时候, 一切操作就和在本地上操作一样,
     所以这里的recv() 和 send()操作与本机上的文件操作是一样的
@@ -133,8 +127,7 @@ socket本质是维护了fd进程文件表, 如下:
 
 1.  流程函数
     socket() bind() listen() connect() accept()等
-2.  字节处理函数
-    处理大小字节序 htons() htonl() ntohs() ntohl()
+2.  字节处理函数处理大小字节序 htons() htonl() ntohs() ntohl()
     处理域名与十分数字 getaddrinfo()  getnameinfo()
 3.  处理sockaddr结构体的函数
     getsockname() 返回local fd
@@ -154,8 +147,7 @@ socket本质是维护了fd进程文件表, 如下:
     1.  使用非阻塞模型, 比如select, poll, epoll(linux下特有), IOCP(windows下特有)
     2.  多线程 -- 不推荐使用
     3.  多进程 -- 不推荐使用
-2.  粘包
-    解决方案:
+2.  粘包解决方案:
     1.  限制发送大小
     2.  每个消息增加长度标识
 

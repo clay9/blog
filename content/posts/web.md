@@ -1,7 +1,7 @@
 +++
 title = "web框架搭建"
 date = 2021-08-28T15:14:00+08:00
-lastmod = 2021-09-27T21:51:01+08:00
+lastmod = 2021-09-28T09:30:14+08:00
 categories = ["project"]
 draft = false
 +++
@@ -209,6 +209,5 @@ docker-compose up
 
 ## 遗留问题 {#遗留问题}
 
-1.  docker php容器映射问题
-    如何把php容器的路径 映射出来
+1.  docker php容器映射问题如何把php容器的路径 映射出来
 2.  生产环境 docker-compse.yml编写问题

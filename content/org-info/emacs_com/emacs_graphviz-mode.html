@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 21:50 -->
+<!-- 2021-09-28 Tue 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>artist mode &amp;&amp; graphviz mode</title>
@@ -160,6 +160,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in ../script/org-info.js.
  *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -217,7 +230,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +269,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -309,23 +322,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbb5cd02">1. 为什么需要artist-mode &amp;&amp; graphviz-mode</a></li>
-<li><a href="#orgd3fa9ad">2. 什么是artist-mode &amp;&amp; graphviz-mode</a></li>
-<li><a href="#org5018141">3. artist-mode</a>
+<li><a href="#org33d7c27">1. 为什么需要artist-mode &amp;&amp; graphviz-mode</a></li>
+<li><a href="#org5864f60">2. 什么是artist-mode &amp;&amp; graphviz-mode</a></li>
+<li><a href="#orgb4d743b">3. artist-mode</a>
 <ul>
-<li><a href="#orgd8d4e44">3.1. 配置</a></li>
-<li><a href="#org5f5b04c">3.2. 使用</a></li>
+<li><a href="#org61e2f93">3.1. 配置</a></li>
+<li><a href="#org1d3eba8">3.2. 使用</a></li>
 </ul>
 </li>
-<li><a href="#orge0498cb">4. graphviz-mode</a>
+<li><a href="#org5717004">4. graphviz-mode</a>
 <ul>
-<li><a href="#org8c64190">4.1. 配置</a></li>
-<li><a href="#org8da595d">4.2. 使用</a></li>
-<li><a href="#org22ca45d">4.3. The DOT Language</a>
+<li><a href="#org9ee71ab">4.1. 配置</a></li>
+<li><a href="#orge2d05f1">4.2. 使用</a></li>
+<li><a href="#org9aad162">4.3. The DOT Language</a>
 <ul>
-<li><a href="#org5e3044b">4.3.1. 图</a></li>
-<li><a href="#org90f35b0">4.3.2. 节点</a></li>
-<li><a href="#org9bfa1ca">4.3.3. 边</a></li>
+<li><a href="#orgd3a9fe2">4.3.1. 图</a></li>
+<li><a href="#org57ae7f4">4.3.2. 节点</a></li>
+<li><a href="#org9497ff4">4.3.3. 边</a></li>
 </ul>
 </li>
 </ul>
@@ -337,8 +350,8 @@ for the JavaScript code in this tag.
 emacs绘图mode, artist-mode &amp;&amp; graphviz-mode
 </p>
 
-<div id="outline-container-orgbb5cd02" class="outline-2">
-<h2 id="orgbb5cd02"><span class="section-number-2">1</span> 为什么需要artist-mode &amp;&amp; graphviz-mode</h2>
+<div id="outline-container-org33d7c27" class="outline-2">
+<h2 id="org33d7c27"><span class="section-number-2">1</span> 为什么需要artist-mode &amp;&amp; graphviz-mode</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 图形表达更直观, 形象.
@@ -346,8 +359,8 @@ emacs绘图mode, artist-mode &amp;&amp; graphviz-mode
 </div>
 </div>
 
-<div id="outline-container-orgd3fa9ad" class="outline-2">
-<h2 id="orgd3fa9ad"><span class="section-number-2">2</span> 什么是artist-mode &amp;&amp; graphviz-mode</h2>
+<div id="outline-container-org5864f60" class="outline-2">
+<h2 id="org5864f60"><span class="section-number-2">2</span> 什么是artist-mode &amp;&amp; graphviz-mode</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 两者都是emacs上的绘图mode
@@ -406,20 +419,20 @@ emacs绘图mode, artist-mode &amp;&amp; graphviz-mode
 </table>
 </div>
 </div>
-<div id="outline-container-org5018141" class="outline-2">
-<h2 id="org5018141"><span class="section-number-2">3</span> artist-mode</h2>
+<div id="outline-container-orgb4d743b" class="outline-2">
+<h2 id="orgb4d743b"><span class="section-number-2">3</span> artist-mode</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgd8d4e44" class="outline-3">
-<h3 id="orgd8d4e44"><span class="section-number-3">3.1</span> 配置</h3>
+<div id="outline-container-org61e2f93" class="outline-3">
+<h3 id="org61e2f93"><span class="section-number-3">3.1</span> 配置</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 emacs自带, 无需额外配置
 </p>
 </div>
 </div>
-<div id="outline-container-org5f5b04c" class="outline-3">
-<h3 id="org5f5b04c"><span class="section-number-3">3.2</span> 使用</h3>
+<div id="outline-container-org1d3eba8" class="outline-3">
+<h3 id="org1d3eba8"><span class="section-number-3">3.2</span> 使用</h3>
 <div class="outline-text-3" id="text-3-2">
 <ol class="org-ol">
 <li>具体使用方法: "C-h f artist-mode"可查看详细文档</li>
@@ -516,8 +529,8 @@ emacs自带, 无需额外配置
 </p>
 <pre class="example">
 强推Hydra-mode用来改建
-
 </pre>
+
 <pre class="example">
 (require 'artist)
 (defhydra hydra-artist-mode (:color blue
@@ -548,12 +561,12 @@ _y_: 水雾
 </div>
 </div>
 
-<div id="outline-container-orge0498cb" class="outline-2">
-<h2 id="orge0498cb"><span class="section-number-2">4</span> graphviz-mode</h2>
+<div id="outline-container-org5717004" class="outline-2">
+<h2 id="org5717004"><span class="section-number-2">4</span> graphviz-mode</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org8c64190" class="outline-3">
-<h3 id="org8c64190"><span class="section-number-3">4.1</span> 配置</h3>
+<div id="outline-container-org9ee71ab" class="outline-3">
+<h3 id="org9ee71ab"><span class="section-number-3">4.1</span> 配置</h3>
 <div class="outline-text-3" id="text-4-1">
 <ol class="org-ol">
 <li><p>
@@ -561,20 +574,18 @@ Emacs安装graphviz-dot-mode
 </p>
 <pre class="example">
 package-list-packages
-
 </pre></li>
 <li><p>
 操作系统安装graphviz
 </p>
 <pre class="example">
 mac下安装 brew install graphviz
-
 </pre></li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org8da595d" class="outline-3">
-<h3 id="org8da595d"><span class="section-number-3">4.2</span> 使用</h3>
+<div id="outline-container-orge2d05f1" class="outline-3">
+<h3 id="orge2d05f1"><span class="section-number-3">4.2</span> 使用</h3>
 <div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>创建.dot (或者org)文件</li>
@@ -583,8 +594,8 @@ mac下安装 brew install graphviz
 </ol>
 </div>
 </div>
-<div id="outline-container-org22ca45d" class="outline-3">
-<h3 id="org22ca45d"><span class="section-number-3">4.3</span> The DOT Language</h3>
+<div id="outline-container-org9aad162" class="outline-3">
+<h3 id="org9aad162"><span class="section-number-3">4.3</span> The DOT Language</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 <a href="http://users.skynet.be/ppareit/projects/graphviz-dot-mode/graphviz-dot-mode.html">官方文档</a>
@@ -595,8 +606,8 @@ mac下安装 brew install graphviz
 DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程图.
 </p>
 </div>
-<div id="outline-container-org5e3044b" class="outline-4">
-<h4 id="org5e3044b"><span class="section-number-4">4.3.1</span> 图</h4>
+<div id="outline-container-orgd3a9fe2" class="outline-4">
+<h4 id="orgd3a9fe2"><span class="section-number-4">4.3.1</span> 图</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <ul class="org-ul">
 <li>有向图 digraph</li>
@@ -606,7 +617,6 @@ DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程
 </p>
 <pre class="example">
 可以进行和“父图”类似的设置，唯一注意的是子图必须以cluster做为名称的前缀
-
 </pre></li>
 </ul>
 
@@ -734,8 +744,8 @@ DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程
 </div>
 </div>
 
-<div id="outline-container-org90f35b0" class="outline-4">
-<h4 id="org90f35b0"><span class="section-number-4">4.3.2</span> 节点</h4>
+<div id="outline-container-org57ae7f4" class="outline-4">
+<h4 id="org57ae7f4"><span class="section-number-4">4.3.2</span> 节点</h4>
 <div class="outline-text-4" id="text-4-3-2">
 <p>
 DOT中，节点可以不用声明直接使用，但如果需要设置节点的属性，则需声明节点并在声明处设
@@ -832,8 +842,8 @@ node []用于设置节点默认属性（对设置位置之后的点有效），�
 </table>
 </div>
 </div>
-<div id="outline-container-org9bfa1ca" class="outline-4">
-<h4 id="org9bfa1ca"><span class="section-number-4">4.3.3</span> 边</h4>
+<div id="outline-container-org9497ff4" class="outline-4">
+<h4 id="org9497ff4"><span class="section-number-4">4.3.3</span> 边</h4>
 <div class="outline-text-4" id="text-4-3-3">
 <p>
 DOT中有有向边（使用-&gt;表示）和无向边（使用&#x2013;表示）两种，有向边用于有向图，无向边用于无向图，不可混用。
@@ -966,8 +976,7 @@ DOT中有有向边（使用-&gt;表示）和无向边（使用&#x2013;表示）�
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-27 Mon 21:50</p>
-<p class="validation"></p>
+<p class="date">Created: 2021-09-28 Tue 09:30</p>
 </div>
 </body>
 </html>

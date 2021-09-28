@@ -1,7 +1,7 @@
 +++
 title = "mac搭建gitlab服务器"
 date = 2021-08-28T15:20:00+08:00
-lastmod = 2021-09-27T21:51:03+08:00
+lastmod = 2021-09-28T09:30:16+08:00
 tags = ["gitlab"]
 categories = ["tool"]
 draft = false

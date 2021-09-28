@@ -1,7 +1,7 @@
 +++
 title = "docker"
 date = 2021-08-28T15:19:00+08:00
-lastmod = 2021-09-27T21:51:03+08:00
+lastmod = 2021-09-28T09:30:16+08:00
 tags = ["docker"]
 categories = ["tool"]
 draft = false
@@ -20,9 +20,7 @@ docker容器
 
 ### docker与虚拟机的对比 {#docker与虚拟机的对比}
 
-之前以为docker容器就是简约版本的虚拟机, 所以一直想把不同的软件融合到一个镜像中
-现在2020.6.21 发现上面的想法是错误的
-现在的认知:
+之前以为docker容器就是简约版本的虚拟机, 所以一直想把不同的软件融合到一个镜像中现在2020.6.21 发现上面的想法是错误的现在的认知:
 
 1.  docker是对于app(单个软件)的封装
 2.  多个软件协同合作的正确方式, 应该是建立多个互相关联的容器, 而不是企图把所有的软件放到一个容器中
@@ -38,8 +36,7 @@ docker容器
 
 ## 配置 {#配置}
 
-1.  镜像配置
-    使用[中国科技大学镜像加速](http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker), 无须注册, 直接使用即可
+1.  镜像配置使用[中国科技大学镜像加速](http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker), 无须注册, 直接使用即可
 
 
 ## 使用 {#使用}
@@ -56,8 +53,7 @@ web服务器 + php + laravel + 数据库
     docker search <image name>
 2.  下载镜像
     docker pull <image name>
-3.  实例化镜像
-    镜像实例化为容器 (类比C++中的类--镜像,  对象--容器)
+3.  实例化镜像镜像实例化为容器 (类比C++中的类--镜像,  对象--容器)
     docker run -e "参数"  -P 端口映射 --name 容器名字 -d(后台运行) image名字
 
     ```text
@@ -133,8 +129,7 @@ docker-compose -h查看用法
 
 ### 网桥 {#网桥}
 
-通过指令docker network可以查看 docker中的网桥信息
-网桥可以使多个容器组件局域网
+通过指令docker network可以查看 docker中的网桥信息网桥可以使多个容器组件局域网
 
 1.  容器可以在创建之前选择网桥
 
@@ -164,8 +159,7 @@ docker-compose -h查看用法
 
 ## 小技巧 {#小技巧}
 
-1.  使用镜像的时候, 不一定要做成容器
-    可以使用
+1.  使用镜像的时候, 不一定要做成容器可以使用
 
     ```text
     docker run -it image_name

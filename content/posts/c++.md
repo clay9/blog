@@ -1,7 +1,7 @@
 +++
 title = "C && C++ 常见库"
 date = 2021-08-28T15:12:00+08:00
-lastmod = 2021-09-27T21:51:00+08:00
+lastmod = 2021-09-28T09:30:14+08:00
 categories = ["language"]
 draft = false
 +++
@@ -34,8 +34,7 @@ C++类, 头文件:
     file.open(file\_name, mode)
     mode:
     -   fstream::out  写: 内存->文件
-    -   fstream::in   读: 文件->内存
-        当带有此模式的时候, 会默认认为文件存在,
+    -   fstream::in   读: 文件->内存当带有此模式的时候, 会默认认为文件存在,
         即使文件不存在, 也不会创建文件;
         所以对于需要创建文件的场景, 应该不带此mode
 3.  读文件
@@ -62,10 +61,8 @@ C++类, 头文件:
 1.  获得读写指针位置
     TODONOW 待确认
 2.  设置读写指针函数
-    1.  读: seekg(postion) //postion绝对位置
-        一般用户文本文件
-    2.  读: seekg(offset, ios::beg|ios::end::ios::cur) //offset相对位置
-        一般用户二进制文件, 最好勿在文本文件中使用
+    1.  读: seekg(postion) //postion绝对位置一般用户文本文件
+    2.  读: seekg(offset, ios::beg|ios::end::ios::cur) //offset相对位置一般用户二进制文件, 最好勿在文本文件中使用
     3.  写: seekp(positon)
         一般用户文本文件
     4.  写: seekp(offset, ios::beg|ios::end|ios::cur)
@@ -73,15 +70,12 @@ C++类, 头文件:
 
 fstream状态函数
 
-1.  if(file) 检验流是否有效
-    这个需要重点查看下, 什么时候流会失效
-    已知:
+1.  if(file) 检验流是否有效这个需要重点查看下, 什么时候流会失效已知:
     1.  file.eof()时候, file则会变为无效
 2.  file.is\_open() 流是否打开了文件
 3.  file.eof() 是否到了文件尾
 4.  file.clear()
-    TODONOW 这个也需要再看下
-    如果file.eof(), 调用clear可以重置标志;
+    TODONOW 这个也需要再看下如果file.eof(), 调用clear可以重置标志;
     重置标识后, file重新变为有效流
 
 
@@ -123,8 +117,7 @@ FILE是C的文件操作 -- C++的为fstream
 
 ## 左值, 右值, 左值引用, 右值引用 {#左值-右值-左值引用-右值引用}
 
-左值 lvalue(loactor value)  -- 地址
-右值 rvalue(read value) -- value
+左值 lvalue(loactor value)  -- 地址右值 rvalue(read value) -- value
 
 ```text
 lvalue 是“loactor value”的缩写，可意为存储在内存中、有明确存储地址（可寻址）的数
@@ -136,6 +129,4 @@ rvalue 译为 "read value"，指的是那些可以提供数据值的数据（不
 & -- 只能操作左值, 称为左值引用
 && -- 只能操作右值,称为右值引用
 
-std::move(arg) -- 可以把左值引用转换为右值引用
-左值引用, 对于类来说, 会使用copy 构造函数
-右值引用, 对于类来说, 会使用移动构造函数
+std::move(arg) -- 可以把左值引用转换为右值引用左值引用, 对于类来说, 会使用copy 构造函数右值引用, 对于类来说, 会使用移动构造函数

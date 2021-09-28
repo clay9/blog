@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 21:50 -->
+<!-- 2021-09-28 Tue 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>company mode</title>
@@ -160,6 +160,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in ../script/org-info.js.
  *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -217,7 +230,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +269,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -309,9 +322,9 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge6877b1">1. 什么是</a></li>
-<li><a href="#org4b3ec47">2. 配置</a></li>
-<li><a href="#org9899c15">3. 使用</a></li>
+<li><a href="#orgfb2cdc3">1. 什么是</a></li>
+<li><a href="#org6008b9b">2. 配置</a></li>
+<li><a href="#orgbb8214f">3. 使用</a></li>
 </ul>
 </div>
 </div>
@@ -321,12 +334,11 @@ for the JavaScript code in this tag.
 <pre class="example">
 头文件自动补全选择了company-c-header-mode
 代码变量函数自动自动补全选择了gtags-mode和clang
-
 </pre>
 
 
-<div id="outline-container-orge6877b1" class="outline-2">
-<h2 id="orge6877b1"><span class="section-number-2">1</span> 什么是</h2>
+<div id="outline-container-orgfb2cdc3" class="outline-2">
+<h2 id="orgfb2cdc3"><span class="section-number-2">1</span> 什么是</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 company-mode, 意思为complete anything, 是一个前端工具(front-ends).它可以提供候选词, 供用户选择,以
@@ -335,16 +347,16 @@ company-mode, 意思为complete anything, 是一个前端工具(front-ends).它�
 </p>
 <pre class="example">
 必须依赖于back-ends才能工作.
-
 </pre>
+
 <p>
 <a href="http://company-mode.github.io">具体可以参考这个文档, 但没太大必要</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4b3ec47" class="outline-2">
-<h2 id="org4b3ec47"><span class="section-number-2">2</span> 配置</h2>
+<div id="outline-container-org6008b9b" class="outline-2">
+<h2 id="org6008b9b"><span class="section-number-2">2</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 <pre class="example">
 ;; start up company-mode
@@ -364,8 +376,8 @@ company mode的配置比较简单, 只需要指定启动时机和配置后端即
 </p>
 </div>
 </div>
-<div id="outline-container-org9899c15" class="outline-2">
-<h2 id="org9899c15"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-orgbb8214f" class="outline-2">
+<h2 id="orgbb8214f"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -417,8 +429,7 @@ company mode的配置比较简单, 只需要指定启动时机和配置后端即
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-27 Mon 21:50</p>
-<p class="validation"></p>
+<p class="date">Created: 2021-09-28 Tue 09:30</p>
 </div>
 </body>
 </html>
