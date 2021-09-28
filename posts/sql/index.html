@@ -9,14 +9,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://elisp.cc/posts/sql/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-08-28T15:17:00+08:00">
-<meta property="article:modified_time" content="2021-09-27T21:51:02+08:00">
+<meta property="article:modified_time" content="2021-09-28T09:30:15+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="数据库开发">
 <meta name=twitter:description content="数据库开发">
 <meta name=application-name content="飘">
 <meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/sql/><link rel=prev href=https://elisp.cc/posts/protocal/><link rel=next href=https://elisp.cc/posts/socket/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"数据库开发","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/sql\/"},"genre":"posts","wordcount":1312,"url":"https:\/\/elisp.cc\/posts\/sql\/","datePublished":"2021-08-28T15:17:00+08:00","dateModified":"2021-09-27T21:51:02+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/sql/><link rel=prev href=https://elisp.cc/posts/protocal/><link rel=next href=https://elisp.cc/posts/socket/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"数据库开发","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/sql\/"},"genre":"posts","wordcount":1312,"url":"https:\/\/elisp.cc\/posts\/sql\/","datePublished":"2021-08-28T15:17:00+08:00","dateModified":"2021-09-28T09:30:15+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
 <body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -145,8 +145,7 @@ docker pull microsoft/mssql-server-linux</p>
 <li>
 <p>运行镜像, 创建容器
 docker run -e &ldquo;ACCEPT_EULA=Y&rdquo; -e &ldquo;SA_PASSWORD=hack@2020&rdquo; -p 9988:1433 &ndash;name mssql -d microsoft/mssql-server-linux</p>
-<p>注: 如果不指定映射的端口, 则可能随机使用一个端口
-密码必须8位数, 否则会创建失败
+<p>注: 如果不指定映射的端口, 则可能随机使用一个端口密码必须8位数, 否则会创建失败
 -p 第一个参数为主机端口, 第二参数为docker容器端口</p>
 </li>
 <li>
@@ -244,8 +243,7 @@ go
 <p>总结:
 数据库表字段的编码,
 服务器程序运行环境的编码,
-unixodbc编译时候的字符编码
-三者需要统一, 这样写入数据库的时候 才不会乱码</p>
+unixodbc编译时候的字符编码三者需要统一, 这样写入数据库的时候 才不会乱码</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -257,8 +255,7 @@ locale -a显示系统支持的字符集
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=遇到的奇怪的问题-and-and-解决思路>遇到的奇怪的问题 && 解决思路</h3>
-<p>简述: 通过odbc 操作sqlserver, 插入中文错误
-现象:</p>
+<p>简述: 通过odbc 操作sqlserver, 插入中文错误现象:</p>
 <ol>
 <li>读取sqlserver中文正常</li>
 <li>插入sqlserver中文乱码</li>
@@ -338,8 +335,7 @@ locale -a显示系统支持的字符集
 <pre tabindex=0 class=chroma><code class=language-text data-lang=text>这里sql的驱动是 odbc下的sql驱动
 </code></pre></td></tr></table>
 </div>
-</div><p>以mssql为例
-下载并安装</p>
+</div><p>以mssql为例下载并安装</p>
 </li>
 <li>
 <p>查看sql的驱动信息</p>
@@ -577,7 +573,7 @@ SELECT COLLATIONPROPERTY(&lsquo;Chinese_Simplified_Stroke_Order_100_CI_AI&rsquo;
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>更新于 2021-09-27</span>
+<span>更新于 2021-09-28</span>
 </div>
 <div class=post-info-license></div>
 </div>

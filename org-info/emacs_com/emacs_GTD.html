@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 21:50 -->
+<!-- 2021-09-28 Tue 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GTD &amp;&amp; org-mode</title>
@@ -160,6 +160,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in ../script/org-info.js.
  *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -217,7 +230,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +269,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -309,31 +322,31 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org19f0ed2">1. 为什么要用GTD</a></li>
-<li><a href="#orgd3aa90e">2. GTD是什么</a>
+<li><a href="#org0126922">1. 为什么要用GTD</a></li>
+<li><a href="#orga45ce73">2. GTD是什么</a>
 <ul>
-<li><a href="#orgbc39c03">2.1. 人生5楼</a></li>
-<li><a href="#orgdce6e48">2.2. GTD是什么</a></li>
+<li><a href="#orgb8c45f3">2.1. 人生5楼</a></li>
+<li><a href="#org663e7fd">2.2. GTD是什么</a></li>
 </ul>
 </li>
-<li><a href="#org3cdeb1f">3. GTD怎么实现</a></li>
-<li><a href="#org92ed8e2">4. org mode怎么实现GTD</a>
+<li><a href="#org6714480">3. GTD怎么实现</a></li>
+<li><a href="#org010beff">4. org mode怎么实现GTD</a>
 <ul>
-<li><a href="#org9ffb8e1">4.1. 思路的设计</a></li>
-<li><a href="#org8c697b4">4.2. 流程的设计</a></li>
-<li><a href="#org00d3e90">4.3. 文件的设计</a></li>
-<li><a href="#org0d4c279">4.4. <span class="todo TODO">TODO</span> 的设计</a></li>
-<li><a href="#org1ad8027">4.5. TAGS的设计</a></li>
-<li><a href="#orgc2927e6">4.6. Agent的设计</a></li>
-<li><a href="#orgc4e9bae">4.7. 使用流程</a></li>
+<li><a href="#org8e5f425">4.1. 思路的设计</a></li>
+<li><a href="#orga7f7ace">4.2. 流程的设计</a></li>
+<li><a href="#org2fde1a7">4.3. 文件的设计</a></li>
+<li><a href="#org126f105">4.4. TODO的设计</a></li>
+<li><a href="#org0d64867">4.5. TAGS的设计</a></li>
+<li><a href="#org0fd4033">4.6. Agent的设计</a></li>
+<li><a href="#orgf1fdd00">4.7. 使用流程</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org19f0ed2" class="outline-2">
-<h2 id="org19f0ed2"><span class="section-number-2">1</span> 为什么要用GTD</h2>
+<div id="outline-container-org0126922" class="outline-2">
+<h2 id="org0126922"><span class="section-number-2">1</span> 为什么要用GTD</h2>
 <div class="outline-text-2" id="text-1">
 <p>
   每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. 这些事情如果都存储在脑中, 轻则
@@ -344,12 +357,12 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd3aa90e" class="outline-2">
-<h2 id="orgd3aa90e"><span class="section-number-2">2</span> GTD是什么</h2>
+<div id="outline-container-orga45ce73" class="outline-2">
+<h2 id="orga45ce73"><span class="section-number-2">2</span> GTD是什么</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgbc39c03" class="outline-3">
-<h3 id="orgbc39c03"><span class="section-number-3">2.1</span> 人生5楼</h3>
+<div id="outline-container-orgb8c45f3" class="outline-3">
+<h3 id="orgb8c45f3"><span class="section-number-3">2.1</span> 人生5楼</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 了解GTD之前, 必须了解人生5楼.
@@ -446,8 +459,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-orgdce6e48" class="outline-3">
-<h3 id="orgdce6e48"><span class="section-number-3">2.2</span> GTD是什么</h3>
+<div id="outline-container-org663e7fd" class="outline-3">
+<h3 id="org663e7fd"><span class="section-number-3">2.2</span> GTD是什么</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 GTD全名Getting things done, 它只是一种思想, 所能管理的是大厦的1楼.
@@ -464,20 +477,20 @@ GTD的工作流程(算法)甚至文件(结构)都是可以自定义的. 适合�
 </div>
 </div>
 </div>
-<div id="outline-container-org3cdeb1f" class="outline-2">
-<h2 id="org3cdeb1f"><span class="section-number-2">3</span> GTD怎么实现</h2>
+<div id="outline-container-org6714480" class="outline-2">
+<h2 id="org6714480"><span class="section-number-2">3</span> GTD怎么实现</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mode(emacs 插件).
 </p>
 </div>
 </div>
-<div id="outline-container-org92ed8e2" class="outline-2">
-<h2 id="org92ed8e2"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
+<div id="outline-container-org010beff" class="outline-2">
+<h2 id="org010beff"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org9ffb8e1" class="outline-3">
-<h3 id="org9ffb8e1"><span class="section-number-3">4.1</span> 思路的设计</h3>
+<div id="outline-container-org8e5f425" class="outline-3">
+<h3 id="org8e5f425"><span class="section-number-3">4.1</span> 思路的设计</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 5楼 到 地面视角
@@ -557,8 +570,8 @@ GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mod
 </div>
 </div>
 
-<div id="outline-container-org8c697b4" class="outline-3">
-<h3 id="org8c697b4"><span class="section-number-3">4.2</span> 流程的设计</h3>
+<div id="outline-container-orga7f7ace" class="outline-3">
+<h3 id="orga7f7ace"><span class="section-number-3">4.2</span> 流程的设计</h3>
 <div class="outline-text-3" id="text-4-2">
 <pre class="example">
 --------------------------------+-------------------------------
@@ -592,8 +605,8 @@ GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mod
 </pre>
 </div>
 </div>
-<div id="outline-container-org00d3e90" class="outline-3">
-<h3 id="org00d3e90"><span class="section-number-3">4.3</span> 文件的设计</h3>
+<div id="outline-container-org2fde1a7" class="outline-3">
+<h3 id="org2fde1a7"><span class="section-number-3">4.3</span> 文件的设计</h3>
 <div class="outline-text-3" id="text-4-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -682,8 +695,8 @@ task只有one step,  project的steps &gt; 1</li>
 </div>
 </div>
 
-<div id="outline-container-org0d4c279" class="outline-3">
-<h3 id="org0d4c279"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> 的设计</h3>
+<div id="outline-container-org126f105" class="outline-3">
+<h3 id="org126f105"><span class="section-number-3">4.4</span> TODO的设计</h3>
 <div class="outline-text-3" id="text-4-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -743,8 +756,8 @@ task中的下一步行动是依据四象限法则来确定的.</li>
 </div>
 </div>
 
-<div id="outline-container-org1ad8027" class="outline-3">
-<h3 id="org1ad8027"><span class="section-number-3">4.5</span> TAGS的设计</h3>
+<div id="outline-container-org0d64867" class="outline-3">
+<h3 id="org0d64867"><span class="section-number-3">4.5</span> TAGS的设计</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 四象限使用proirity来区分;
@@ -753,8 +766,8 @@ TAGS为之后快速查找使用
 </div>
 </div>
 
-<div id="outline-container-orgc2927e6" class="outline-3">
-<h3 id="orgc2927e6"><span class="section-number-3">4.6</span> Agent的设计</h3>
+<div id="outline-container-org0fd4033" class="outline-3">
+<h3 id="org0fd4033"><span class="section-number-3">4.6</span> Agent的设计</h3>
 <div class="outline-text-3" id="text-4-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -817,8 +830,8 @@ TAGS为之后快速查找使用
 </div>
 </div>
 
-<div id="outline-container-orgc4e9bae" class="outline-3">
-<h3 id="orgc4e9bae"><span class="section-number-3">4.7</span> 使用流程</h3>
+<div id="outline-container-orgf1fdd00" class="outline-3">
+<h3 id="orgf1fdd00"><span class="section-number-3">4.7</span> 使用流程</h3>
 <div class="outline-text-3" id="text-4-7">
 <pre class="example">
      随时            	       自动处理        	       	  C-c a n界面		      C-c a a 界面
@@ -838,8 +851,7 @@ TAGS为之后快速查找使用
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-27 Mon 21:50</p>
-<p class="validation"></p>
+<p class="date">Created: 2021-09-28 Tue 09:30</p>
 </div>
 </body>
 </html>

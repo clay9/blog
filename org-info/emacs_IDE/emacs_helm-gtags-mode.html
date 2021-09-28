@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 21:50 -->
+<!-- 2021-09-28 Tue 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>helm gtags mode</title>
@@ -160,6 +160,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in ../script/org-info.js.
  *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -217,7 +230,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +269,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -309,11 +322,11 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6068b64">1. 功能</a></li>
-<li><a href="#orge852dde">2. 配置</a></li>
-<li><a href="#org155e794">3. 使用</a></li>
-<li><a href="#orge9c584e">4. gtags简易指令</a></li>
-<li><a href="#orgfd3b632">5. global简易指令</a></li>
+<li><a href="#orga6bba05">1. 功能</a></li>
+<li><a href="#org1fa2e8f">2. 配置</a></li>
+<li><a href="#org8650550">3. 使用</a></li>
+<li><a href="#orgc8d25ec">4. gtags简易指令</a></li>
+<li><a href="#orga1dd90e">5. global简易指令</a></li>
 </ul>
 </div>
 </div>
@@ -323,8 +336,8 @@ global的front-ends.
 </p>
 
 
-<div id="outline-container-org6068b64" class="outline-2">
-<h2 id="org6068b64"><span class="section-number-2">1</span> 功能</h2>
+<div id="outline-container-orga6bba05" class="outline-2">
+<h2 id="orga6bba05"><span class="section-number-2">1</span> 功能</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>转到声明</li>
@@ -333,8 +346,8 @@ global的front-ends.
 </ul>
 </div>
 </div>
-<div id="outline-container-orge852dde" class="outline-2">
-<h2 id="orge852dde"><span class="section-number-2">2</span> 配置</h2>
+<div id="outline-container-org1fa2e8f" class="outline-2">
+<h2 id="org1fa2e8f"><span class="section-number-2">2</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
@@ -349,8 +362,8 @@ sudo apt install global
 </div>
 </div>
 
-<div id="outline-container-org155e794" class="outline-2">
-<h2 id="org155e794"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-org8650550" class="outline-2">
+<h2 id="org8650550"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
@@ -380,8 +393,8 @@ GPATH path name database 64K
 </div>
 </div>
 
-<div id="outline-container-orge9c584e" class="outline-2">
-<h2 id="orge9c584e"><span class="section-number-2">4</span> gtags简易指令</h2>
+<div id="outline-container-orgc8d25ec" class="outline-2">
+<h2 id="orgc8d25ec"><span class="section-number-2">4</span> gtags简易指令</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li><p>
@@ -397,8 +410,8 @@ export GTAGSFORCECPP=""
 </div>
 
 
-<div id="outline-container-orgfd3b632" class="outline-2">
-<h2 id="orgfd3b632"><span class="section-number-2">5</span> global简易指令</h2>
+<div id="outline-container-orga1dd90e" class="outline-2">
+<h2 id="orga1dd90e"><span class="section-number-2">5</span> global简易指令</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 指令说明:
@@ -419,8 +432,7 @@ global无法解析局部变量
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-27 Mon 21:50</p>
-<p class="validation"></p>
+<p class="date">Created: 2021-09-28 Tue 09:30</p>
 </div>
 </body>
 </html>

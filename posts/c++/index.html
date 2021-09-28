@@ -9,14 +9,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://elisp.cc/posts/c++/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-08-28T15:12:00+08:00">
-<meta property="article:modified_time" content="2021-09-27T21:51:00+08:00">
+<meta property="article:modified_time" content="2021-09-28T09:30:14+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="C && C++ 常见库">
 <meta name=twitter:description content="C && C++ 常见库">
 <meta name=application-name content="飘">
 <meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/c++/><link rel=prev href=https://elisp.cc/posts/git/><link rel=next href=https://elisp.cc/posts/php/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"C \u0026\u0026 C++ 常见库","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/c\u002b\u002b\/"},"genre":"posts","wordcount":973,"url":"https:\/\/elisp.cc\/posts\/c\u002b\u002b\/","datePublished":"2021-08-28T15:12:00+08:00","dateModified":"2021-09-27T21:51:00+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/c++/><link rel=prev href=https://elisp.cc/posts/git/><link rel=next href=https://elisp.cc/posts/php/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"C \u0026\u0026 C++ 常见库","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/c\u002b\u002b\/"},"genre":"posts","wordcount":973,"url":"https:\/\/elisp.cc\/posts\/c\u002b\u002b\/","datePublished":"2021-08-28T15:12:00+08:00","dateModified":"2021-09-28T09:30:14+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
 <body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -125,8 +125,7 @@ file.open(file_name, mode)
 mode:
 <ul>
 <li>fstream::out 写: 内存->文件</li>
-<li>fstream::in 读: 文件->内存
-当带有此模式的时候, 会默认认为文件存在,
+<li>fstream::in 读: 文件->内存当带有此模式的时候, 会默认认为文件存在,
 即使文件不存在, 也不会创建文件;
 所以对于需要创建文件的场景, 应该不带此mode</li>
 </ul>
@@ -167,10 +166,8 @@ file.close</li>
 TODONOW 待确认</li>
 <li>设置读写指针函数
 <ol>
-<li>读: seekg(postion) //postion绝对位置
-一般用户文本文件</li>
-<li>读: seekg(offset, ios::beg|ios::end::ios::cur) //offset相对位置
-一般用户二进制文件, 最好勿在文本文件中使用</li>
+<li>读: seekg(postion) //postion绝对位置一般用户文本文件</li>
+<li>读: seekg(offset, ios::beg|ios::end::ios::cur) //offset相对位置一般用户二进制文件, 最好勿在文本文件中使用</li>
 <li>写: seekp(positon)
 一般用户文本文件</li>
 <li>写: seekp(offset, ios::beg|ios::end|ios::cur)
@@ -180,9 +177,7 @@ TODONOW 待确认</li>
 </ol>
 <p>fstream状态函数</p>
 <ol>
-<li>if(file) 检验流是否有效
-这个需要重点查看下, 什么时候流会失效
-已知:
+<li>if(file) 检验流是否有效这个需要重点查看下, 什么时候流会失效已知:
 <ol>
 <li>file.eof()时候, file则会变为无效</li>
 </ol>
@@ -190,8 +185,7 @@ TODONOW 待确认</li>
 <li>file.is_open() 流是否打开了文件</li>
 <li>file.eof() 是否到了文件尾</li>
 <li>file.clear()
-TODONOW 这个也需要再看下
-如果file.eof(), 调用clear可以重置标志;
+TODONOW 这个也需要再看下如果file.eof(), 调用clear可以重置标志;
 重置标识后, file重新变为有效流</li>
 </ol>
 <h2 id=字符串-string类>字符串: string类</h2>
@@ -219,8 +213,7 @@ TODONOW 这个也需要再看下
 <h2><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h2>
 <h2 id=c-plus-plus-与-shell的互相调用-传参-获取运行输出>C++ 与 shell的互相调用,传参,获取运行输出</h2>
 <h2 id=左值-右值-左值引用-右值引用>左值, 右值, 左值引用, 右值引用</h2>
-<p>左值 lvalue(loactor value) &ndash; 地址
-右值 rvalue(read value) &ndash; value</p>
+<p>左值 lvalue(loactor value) &ndash; 地址右值 rvalue(read value) &ndash; value</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -236,13 +229,11 @@ rvalue 译为 &#34;read value&#34;，指的是那些可以提供数据值的数�
 </div><p>引用
 & &ndash; 只能操作左值, 称为左值引用
 && &ndash; 只能操作右值,称为右值引用</p>
-<p>std::move(arg) &ndash; 可以把左值引用转换为右值引用
-左值引用, 对于类来说, 会使用copy 构造函数
-右值引用, 对于类来说, 会使用移动构造函数</p></div><div class=post-footer id=post-footer>
+<p>std::move(arg) &ndash; 可以把左值引用转换为右值引用左值引用, 对于类来说, 会使用copy 构造函数右值引用, 对于类来说, 会使用移动构造函数</p></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>更新于 2021-09-27</span>
+<span>更新于 2021-09-28</span>
 </div>
 <div class=post-info-license></div>
 </div>

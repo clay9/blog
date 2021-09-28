@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-27 Mon 21:50 -->
+<!-- 2021-09-28 Tue 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>hs mode</title>
@@ -160,6 +160,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in ../script/org-info.js.
  *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2020 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -217,7 +230,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +269,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -309,9 +322,9 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org637c2f8">1. 什么是</a></li>
-<li><a href="#org6699d4c">2. 配置</a></li>
-<li><a href="#org0850f91">3. 使用</a></li>
+<li><a href="#org438030d">1. 什么是</a></li>
+<li><a href="#org608631f">2. 配置</a></li>
+<li><a href="#org68394f0">3. 使用</a></li>
 </ul>
 </div>
 </div>
@@ -319,24 +332,24 @@ for the JavaScript code in this tag.
 折叠代码块
 </p>
 
-<div id="outline-container-org637c2f8" class="outline-2">
-<h2 id="org637c2f8"><span class="section-number-2">1</span> 什么是</h2>
+<div id="outline-container-org438030d" class="outline-2">
+<h2 id="org438030d"><span class="section-number-2">1</span> 什么是</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 hs-mode可以折叠代码块, 函数, 类
 </p>
 </div>
 </div>
-<div id="outline-container-org6699d4c" class="outline-2">
-<h2 id="org6699d4c"><span class="section-number-2">2</span> 配置</h2>
+<div id="outline-container-org608631f" class="outline-2">
+<h2 id="org608631f"><span class="section-number-2">2</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 无需配置,无需安装, emacs自带
 </p>
 </div>
 </div>
-<div id="outline-container-org0850f91" class="outline-2">
-<h2 id="org0850f91"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-org68394f0" class="outline-2">
+<h2 id="org68394f0"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -411,8 +424,7 @@ hs-mode可以折叠代码块, 函数, 类
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-27 Mon 21:50</p>
-<p class="validation"></p>
+<p class="date">Created: 2021-09-28 Tue 09:30</p>
 </div>
 </body>
 </html>
