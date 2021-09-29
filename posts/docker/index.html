@@ -9,14 +9,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://elisp.cc/posts/docker/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-08-28T15:19:00+08:00">
-<meta property="article:modified_time" content="2021-09-28T18:35:23+08:00">
+<meta property="article:modified_time" content="2021-09-29T20:01:48+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="docker">
 <meta name=twitter:description content="docker容器">
 <meta name=application-name content="飘">
 <meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/docker/><link rel=prev href=https://elisp.cc/posts/mac/><link rel=next href=https://elisp.cc/posts/nginx/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"docker","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/docker\/"},"genre":"posts","keywords":"docker","wordcount":1106,"url":"https:\/\/elisp.cc\/posts\/docker\/","datePublished":"2021-08-28T15:19:00+08:00","dateModified":"2021-09-28T18:35:23+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/docker/><link rel=prev href=https://elisp.cc/posts/mac/><link rel=next href=https://elisp.cc/posts/nginx/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"docker","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/docker\/"},"genre":"posts","keywords":"docker","wordcount":1106,"url":"https:\/\/elisp.cc\/posts\/docker\/","datePublished":"2021-08-28T15:19:00+08:00","dateModified":"2021-09-29T20:01:48+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
 <body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -118,7 +118,9 @@
 <h2 id=功能>功能</h2>
 <h3 id=为什么需要docker>为什么需要docker</h3>
 <h3 id=docker与虚拟机的对比>docker与虚拟机的对比</h3>
-<p>之前以为docker容器就是简约版本的虚拟机, 所以一直想把不同的软件融合到一个镜像中现在2020.6.21 发现上面的想法是错误的现在的认知:</p>
+<p>之前以为docker容器就是简约版本的虚拟机, 所以一直想把不同的软件融合到一个镜像中
+现在2020.6.21 发现上面的想法是错误的
+现在的认知:</p>
 <ol>
 <li>docker是对于app(单个软件)的封装</li>
 <li>多个软件协同合作的正确方式, 应该是建立多个互相关联的容器, 而不是企图把所有的软件放到一个容器中</li>
@@ -132,7 +134,8 @@ docker gui工具;
 </ol>
 <h2 id=配置>配置</h2>
 <ol>
-<li>镜像配置使用<a href="http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker" target=_blank rel="noopener noreffer">中国科技大学镜像加速</a>, 无须注册, 直接使用即可</li>
+<li>镜像配置
+使用<a href="http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker" target=_blank rel="noopener noreffer">中国科技大学镜像加速</a>, 无须注册, 直接使用即可</li>
 </ol>
 <h2 id=使用>使用</h2>
 <p><a href=https://www.runoob.com/docker/docker-container-connection.html target=_blank rel="noopener noreffer">推荐阅读教程</a>
@@ -150,7 +153,8 @@ docker search <image name></p>
 docker pull <image name></p>
 </li>
 <li>
-<p>实例化镜像镜像实例化为容器 (类比C++中的类&ndash;镜像, 对象&ndash;容器)
+<p>实例化镜像
+镜像实例化为容器 (类比C++中的类&ndash;镜像, 对象&ndash;容器)
 docker run -e &ldquo;参数&rdquo; -P 端口映射 &ndash;name 容器名字 -d(后台运行) image名字</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -260,7 +264,8 @@ docker-compose -h查看用法
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=网桥>网桥</h3>
-<p>通过指令docker network可以查看 docker中的网桥信息网桥可以使多个容器组件局域网</p>
+<p>通过指令docker network可以查看 docker中的网桥信息
+网桥可以使多个容器组件局域网</p>
 <ol>
 <li>
 <p>容器可以在创建之前选择网桥</p>
@@ -301,7 +306,8 @@ docker-compose -h查看用法
 <h2 id=小技巧>小技巧</h2>
 <ol>
 <li>
-<p>使用镜像的时候, 不一定要做成容器可以使用</p>
+<p>使用镜像的时候, 不一定要做成容器
+可以使用</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -315,7 +321,7 @@ docker-compose -h查看用法
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>更新于 2021-09-28</span>
+<span>更新于 2021-09-29</span>
 </div>
 <div class=post-info-license></div>
 </div>

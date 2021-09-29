@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-28 Tue 18:35 -->
+<!-- 2021-09-29 Wed 20:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>org-mode</title>
@@ -160,19 +160,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -201,7 +188,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in ../script/org-info.js.
  *
- * Copyright (C) 2012-2020 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2018 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -230,7 +217,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -269,7 +256,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -322,49 +309,49 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2b26940">1. 功能</a></li>
-<li><a href="#orgae0c12a">2. 配置</a>
+<li><a href="#orgb75d69d">1. 功能</a></li>
+<li><a href="#org91048ee">2. 配置</a>
 <ul>
-<li><a href="#org1e6b33c">2.1. org-bullets</a></li>
+<li><a href="#org34ba699">2.1. org-bullets</a></li>
 </ul>
 </li>
-<li><a href="#orgf7df249">3. 使用</a>
+<li><a href="#org9642568">3. 使用</a>
 <ul>
-<li><a href="#orgbeed3a8">3.1. 基本语法</a>
+<li><a href="#orga2240bc">3.1. 基本语法</a>
 <ul>
-<li><a href="#orga12b46f">3.1.1. 语法: time-stamp选择</a></li>
-<li><a href="#orgaa1482b">3.1.2. 语法: 时间repeate</a></li>
-<li><a href="#org9616531">3.1.3. 语法: table计算</a></li>
+<li><a href="#org2ca3655">3.1.1. 语法: time-stamp选择</a></li>
+<li><a href="#orgb9264a2">3.1.2. 语法: 时间repeate</a></li>
+<li><a href="#org3afa991">3.1.3. 语法: table计算</a></li>
 </ul>
 </li>
-<li><a href="#orga4d7242">3.2. 导出</a></li>
-<li><a href="#orgd24b051">3.3. org-info.js</a>
+<li><a href="#org444266b">3.2. 导出</a></li>
+<li><a href="#org6c82fce">3.3. org-info.js</a>
 <ul>
-<li><a href="#org5832c06">3.3.1. 模式</a></li>
-<li><a href="#orga5b47e8">3.3.2. 属性值说明</a></li>
-<li><a href="#org6f7f517">3.3.3. 快捷键</a></li>
-<li><a href="#org47a95e5">3.3.4. 安装</a></li>
-<li><a href="#org7038ed0">3.3.5. 使用</a></li>
-<li><a href="#orgce9326a">3.3.6. 链接</a></li>
+<li><a href="#org26233c5">3.3.1. 模式</a></li>
+<li><a href="#orgdcfd4d4">3.3.2. 属性值说明</a></li>
+<li><a href="#orga3a6654">3.3.3. 快捷键</a></li>
+<li><a href="#orgb5b5267">3.3.4. 安装</a></li>
+<li><a href="#org3f16a27">3.3.5. 使用</a></li>
+<li><a href="#orgc7933b1">3.3.6. 链接</a></li>
 </ul>
 </li>
-<li><a href="#org4199acc">3.4. MobileOrg</a></li>
+<li><a href="#org013a51a">3.4. MobileOrg</a></li>
 </ul>
 </li>
-<li><a href="#org91b9148">4. org-mode与GTD</a></li>
+<li><a href="#org6d2ea89">4. org-mode与GTD</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2b26940" class="outline-2">
-<h2 id="org2b26940"><span class="section-number-2">1</span> 功能</h2>
+<div id="outline-container-orgb75d69d" class="outline-2">
+<h2 id="orgb75d69d"><span class="section-number-2">1</span> 功能</h2>
 </div>
-<div id="outline-container-orgae0c12a" class="outline-2">
-<h2 id="orgae0c12a"><span class="section-number-2">2</span> 配置</h2>
+<div id="outline-container-org91048ee" class="outline-2">
+<h2 id="org91048ee"><span class="section-number-2">2</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org1e6b33c" class="outline-3">
-<h3 id="org1e6b33c"><span class="section-number-3">2.1</span> org-bullets</h3>
+<div id="outline-container-org34ba699" class="outline-3">
+<h3 id="org34ba699"><span class="section-number-3">2.1</span> org-bullets</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 使org-mode更美观
@@ -376,16 +363,16 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf7df249" class="outline-2">
-<h2 id="orgf7df249"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-org9642568" class="outline-2">
+<h2 id="org9642568"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgbeed3a8" class="outline-3">
-<h3 id="orgbeed3a8"><span class="section-number-3">3.1</span> 基本语法</h3>
+<div id="outline-container-orga2240bc" class="outline-3">
+<h3 id="orga2240bc"><span class="section-number-3">3.1</span> 基本语法</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orga12b46f" class="outline-4">
-<h4 id="orga12b46f"><span class="section-number-4">3.1.1</span> 语法: time-stamp选择</h4>
+<div id="outline-container-org2ca3655" class="outline-4">
+<h4 id="org2ca3655"><span class="section-number-4">3.1.1</span> 语法: time-stamp选择</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 添加time-stamp时, 不要在calendar中移动,效率太低
@@ -405,8 +392,8 @@ now = <span class="timestamp-wrapper"><span class="timestamp">[2016-12-28 Wed]</
 </div>
 </div>
 
-<div id="outline-container-orgaa1482b" class="outline-4">
-<h4 id="orgaa1482b"><span class="section-number-4">3.1.2</span> 语法: 时间repeate</h4>
+<div id="outline-container-orgb9264a2" class="outline-4">
+<h4 id="orgb9264a2"><span class="section-number-4">3.1.2</span> 语法: 时间repeate</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 org-mode repeate格式
@@ -427,8 +414,8 @@ ep: change batteries
 </ul>
 </div>
 </div>
-<div id="outline-container-org9616531" class="outline-4">
-<h4 id="org9616531"><span class="section-number-4">3.1.3</span> 语法: table计算</h4>
+<div id="outline-container-org3afa991" class="outline-4">
+<h4 id="org3afa991"><span class="section-number-4">3.1.3</span> 语法: table计算</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 @ 表示行； $表示列
@@ -449,8 +436,8 @@ $&gt;  最后一列
 </div>
 </div>
 
-<div id="outline-container-orga4d7242" class="outline-3">
-<h3 id="orga4d7242"><span class="section-number-3">3.2</span> 导出</h3>
+<div id="outline-container-org444266b" class="outline-3">
+<h3 id="org444266b"><span class="section-number-3">3.2</span> 导出</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 快捷键
@@ -460,16 +447,16 @@ C-c C-e
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd24b051" class="outline-3">
-<h3 id="orgd24b051"><span class="section-number-3">3.3</span> org-info.js</h3>
+<div id="outline-container-org6c82fce" class="outline-3">
+<h3 id="org6c82fce"><span class="section-number-3">3.3</span> org-info.js</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 输出info-style xhtml
 <a href="https://orgmode.org/worg/code/org-info-js/">官方文档</a>
 </p>
 </div>
-<div id="outline-container-org5832c06" class="outline-4">
-<h4 id="org5832c06"><span class="section-number-4">3.3.1</span> 模式</h4>
+<div id="outline-container-org26233c5" class="outline-4">
+<h4 id="org26233c5"><span class="section-number-4">3.3.1</span> 模式</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <ul class="org-ul">
 <li>info
@@ -482,8 +469,8 @@ C-c C-e
 </div>
 </div>
 
-<div id="outline-container-orga5b47e8" class="outline-4">
-<h4 id="orga5b47e8"><span class="section-number-4">3.3.2</span> 属性值说明</h4>
+<div id="outline-container-orgdcfd4d4" class="outline-4">
+<h4 id="orgdcfd4d4"><span class="section-number-4">3.3.2</span> 属性值说明</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li>path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录
@@ -506,8 +493,8 @@ publish时候 设置无效</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6f7f517" class="outline-4">
-<h4 id="org6f7f517"><span class="section-number-4">3.3.3</span> 快捷键</h4>
+<div id="outline-container-orga3a6654" class="outline-4">
+<h4 id="orga3a6654"><span class="section-number-4">3.3.3</span> 快捷键</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -563,16 +550,16 @@ publish时候 设置无效</li>
 </div>
 </div>
 
-<div id="outline-container-org47a95e5" class="outline-4">
-<h4 id="org47a95e5"><span class="section-number-4">3.3.4</span> 安装</h4>
+<div id="outline-container-orgb5b5267" class="outline-4">
+<h4 id="orgb5b5267"><span class="section-number-4">3.3.4</span> 安装</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <p>
 org-mode自带, 无须额外安装
 </p>
 </div>
 </div>
-<div id="outline-container-org7038ed0" class="outline-4">
-<h4 id="org7038ed0"><span class="section-number-4">3.3.5</span> 使用</h4>
+<div id="outline-container-org3f16a27" class="outline-4">
+<h4 id="org3f16a27"><span class="section-number-4">3.3.5</span> 使用</h4>
 <div class="outline-text-4" id="text-3-3-5">
 <ol class="org-ol">
 <li><p>
@@ -587,8 +574,8 @@ org文件增加导出属性
 </ol>
 </div>
 </div>
-<div id="outline-container-orgce9326a" class="outline-4">
-<h4 id="orgce9326a"><span class="section-number-4">3.3.6</span> 链接</h4>
+<div id="outline-container-orgc7933b1" class="outline-4">
+<h4 id="orgc7933b1"><span class="section-number-4">3.3.6</span> 链接</h4>
 <div class="outline-text-4" id="text-3-3-6">
 <p>
 org-file中的连接会被自动转换为 html 比如:
@@ -607,8 +594,8 @@ link:test.html
 </div>
 </div>
 </div>
-<div id="outline-container-org4199acc" class="outline-3">
-<h3 id="org4199acc"><span class="section-number-3">3.4</span> MobileOrg</h3>
+<div id="outline-container-org013a51a" class="outline-3">
+<h3 id="org013a51a"><span class="section-number-3">3.4</span> MobileOrg</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 方案流程
@@ -679,33 +666,20 @@ link:test.html
 <p>
 v	  |
 </p>
-<p>
-<del>--------------</del>
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Mobile</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
+<!-- This HTML table template is generated by emacs 26.1 -->
+<table border="1">
+  <tr>
+    <td align="left" valign="top">
+      &nbsp;Mobile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
 </table>
-<p>
-<del>--------------</del>
-</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org91b9148" class="outline-2">
-<h2 id="org91b9148"><span class="section-number-2">4</span> org-mode与GTD</h2>
+<div id="outline-container-org6d2ea89" class="outline-2">
+<h2 id="org6d2ea89"><span class="section-number-2">4</span> org-mode与GTD</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="emacs_GTD.html">org-mode与GTD</a>
@@ -714,7 +688,8 @@ v	  |
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-09-28 Tue 18:35</p>
+<p class="date">Created: 2021-09-29 Wed 20:01</p>
+<p class="validation"></p>
 </div>
 </body>
 </html>
