@@ -1,7 +1,7 @@
 +++
 title = "git"
 date = 2021-08-28T15:12:00+08:00
-lastmod = 2021-09-28T18:35:21+08:00
+lastmod = 2021-09-29T20:01:45+08:00
 tags = ["git"]
 categories = ["gnu"]
 draft = false
@@ -71,7 +71,8 @@ git lfs install
 
 参考文档 <https://www.cnblogs.com/nicksheng/p/6201711.html>
 
-当项目越来越庞大之后，不可避免的要拆分成多个子模块，我们希望各个子模块有独立的版本管理，并且由专门的人去维护，这时候我们就要用到git的submodule功能
+当项目越来越庞大之后，不可避免的要拆分成多个子模块，
+我们希望各个子模块有独立的版本管理，并且由专门的人去维护，这时候我们就要用到git的submodule功能
 
 ```text
 git clone <repository> --recursive 递归的方式克隆整个项目
@@ -98,7 +99,7 @@ git submodule foreach git pull 拉取所有子模块
 1.  问: 命令行下的git status如何显示中文
 
     ```text
-    答：git config --global core.quotepath false
+         答：git config --global core.quotepath false
     ```
 2.  问：在命令行下(gnu-bash)中git不能补全git的命令
 

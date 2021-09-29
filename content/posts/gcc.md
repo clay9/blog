@@ -1,7 +1,7 @@
 +++
 title = "gcc"
 date = 2021-08-28T00:53:00+08:00
-lastmod = 2021-09-28T18:35:20+08:00
+lastmod = 2021-09-29T20:01:44+08:00
 tags = ["gcc"]
 categories = ["gnu"]
 draft = false

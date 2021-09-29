@@ -1,7 +1,7 @@
 +++
 title = "静态库 && 动态库"
 date = 2021-08-28T15:15:00+08:00
-lastmod = 2021-09-28T18:35:21+08:00
+lastmod = 2021-09-29T20:01:46+08:00
 categories = ["protocol"]
 draft = false
 +++
@@ -44,11 +44,12 @@ linux下静态库 && 动态库
 1.  运行时候找不到动态库, 处理方式
 
     ```text
-    （1) 最直接最简单的方法就是把so拉到/usr/lib或/lib中去，但这好像有点污染环境吧？
-    （2）export LD_LIBRARY_PATH=$(pwd)
-    （3）可以在/etc/ld.so.conf文件里加入我们生成的库的目录，然后/sbin/ldconfig
+        （1) 最直接最简单的方法就是把so拉到/usr/lib或/lib中去，但这好像有点污染环境吧？
+        （2）export LD_LIBRARY_PATH=$(pwd)
+        （3）可以在/etc/ld.so.conf文件里加入我们生成的库的目录，然后/sbin/ldconfig
     ```
-2.  加载动态库函数原型：void \*dlopen(const char \*libname,int flag);
+2.  加载动态库
+    函数原型：void \*dlopen(const char \*libname,int flag);
     1.  参数中的libname一般是库的全路径，这样dlopen会直接装载该文件；
 
         ```text

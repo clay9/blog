@@ -1,7 +1,7 @@
 +++
 title = "vargrind"
 date = 2021-08-28T15:21:00+08:00
-lastmod = 2021-09-28T18:35:23+08:00
+lastmod = 2021-09-29T20:01:49+08:00
 tags = ["vargrind"]
 categories = ["tool"]
 draft = false
@@ -14,4 +14,5 @@ draft = false
 
 ## vargrind {#vargrind}
 
-程序性能查看工具,号称程序员的瑞士军刀可以查看内存信息, 函数调用, cache信息等等
+程序性能查看工具,号称程序员的瑞士军刀
+可以查看内存信息, 函数调用, cache信息等等

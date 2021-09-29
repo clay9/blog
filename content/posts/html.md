@@ -1,7 +1,7 @@
 +++
 title = "html && css & js"
 date = 2021-08-28T15:13:00+08:00
-lastmod = 2021-09-28T18:35:21+08:00
+lastmod = 2021-09-29T20:01:45+08:00
 categories = ["language"]
 draft = false
 +++
@@ -25,7 +25,8 @@ bootstrap是web前端框架, 封装了html, css
 
 ## AdminLTE {#adminlte}
 
-AdminlLTE是web前端框架, 封装了Bootstrap和js框架推荐使用
+AdminlLTE是web前端框架, 封装了Bootstrap和js框架
+推荐使用
 
 1.  使用简单
 2.  代码简洁干净

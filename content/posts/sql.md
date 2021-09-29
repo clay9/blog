@@ -1,7 +1,7 @@
 +++
 title = "数据库开发"
 date = 2021-08-28T15:17:00+08:00
-lastmod = 2021-09-28T18:35:22+08:00
+lastmod = 2021-09-29T20:01:47+08:00
 categories = ["protocol"]
 draft = false
 +++
@@ -47,7 +47,8 @@ draft = false
 3.  运行镜像, 创建容器
     docker run -e "ACCEPT\_EULA=Y" -e "SA\_PASSWORD=hack@2020" -p 9988:1433 --name mssql -d microsoft/mssql-server-linux
 
-    注: 如果不指定映射的端口, 则可能随机使用一个端口密码必须8位数, 否则会创建失败
+    注: 如果不指定映射的端口, 则可能随机使用一个端口
+        密码必须8位数, 否则会创建失败
         -p 第一个参数为主机端口, 第二参数为docker容器端口
 4.  进入容器
     docker exec -it mssql bash
@@ -109,7 +110,8 @@ draft = false
 总结:
 数据库表字段的编码,
 服务器程序运行环境的编码,
-unixodbc编译时候的字符编码三者需要统一, 这样写入数据库的时候 才不会乱码
+unixodbc编译时候的字符编码
+三者需要统一, 这样写入数据库的时候 才不会乱码
 
 ```text
 服务器运行环境 locale可以查看
@@ -119,7 +121,8 @@ locale -a显示系统支持的字符集
 
 ### 遇到的奇怪的问题 && 解决思路 {#遇到的奇怪的问题-and-and-解决思路}
 
-简述: 通过odbc 操作sqlserver, 插入中文错误现象:
+简述: 通过odbc 操作sqlserver, 插入中文错误
+现象:
 
 1.  读取sqlserver中文正常
 2.  插入sqlserver中文乱码
@@ -170,7 +173,8 @@ locale -a显示系统支持的字符集
     这里sql的驱动是 odbc下的sql驱动
     ```
 
-    以mssql为例下载并安装
+    以mssql为例
+    下载并安装
 3.  查看sql的驱动信息
 
     ```text

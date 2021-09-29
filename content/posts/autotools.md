@@ -1,7 +1,7 @@
 +++
 title = "autotools个人心得"
 date = 2021-08-28T00:53:00+08:00
-lastmod = 2021-09-28T18:35:20+08:00
+lastmod = 2021-09-29T20:01:44+08:00
 tags = ["autotools"]
 categories = ["gnu"]
 draft = false
@@ -14,7 +14,9 @@ draft = false
 
 ## 为什么需要autotools {#为什么需要autotools}
 
-Makefile固然可以帮助make完成它的使命，但要承认的是，编写Makefile确实不是一件轻松的事，尤其对于一个较大的项目而言更是如此。那么，有没有一种轻松的手段生成Makefile而同时又能让我们享受make的优越性呢？本节要讲autotools系列工具正是为此而设的，
+Makefile固然可以帮助make完成它的使命，但要承认的是，编写Makefile确实不是一件轻松的事，尤其对于一个较大的项目而言更是如此。
+那么，有没有一种轻松的手段生成Makefile而同时又能让我们享受make的优越性呢？
+本节要讲autotools系列工具正是为此而设的，
 
 1.  autotools只需用户输入简单的目标文件、依赖文件、文件目录等就可以轻松地生成Makefile
 2.  autotools还可以完成系统配置信息的收集，从而可以方便地处理各种移植性的问题。
@@ -95,7 +97,8 @@ mac下包管理习惯使用homebrew
     AC_OUTPUT
     ```
 2.  执行aclocal命令. 扫描configure.ac文件生成aclocal.m4文件. 该文件主要处理本地宏定义. 它根据已经安装的宏、用户定义宏和 acinclude.m4 文件中的宏将 configure.ac 文件需要的宏集中定义到文件 aclocal.m4 中.
-3.  执行autoconf.这个命令将 configure.ac 文件中的宏展开，生成 configure 脚本。这个过程要用到aclocal.m4中定义的宏. 如果configure.ac宏定义改变了, 需要重新执行aclocal命令
+3.  执行autoconf.这个命令将 configure.ac 文件中的宏展开，生成 configure 脚本。
+    这个过程要用到aclocal.m4中定义的宏. 如果configure.ac宏定义改变了, 需要重新执行aclocal命令
 4.  执行autoheader.该命令生成 config.h.in 文件。该命令通常会从 "acconfig.h” 文件中复制用户附加的符号定义。该例子中没有附加的符号定义, 所以不需要创建 "acconfig.h” 文件。
 5.  创建Makefile.am文件.Automake工具会根据 configure.in 中的参量把 Makefile.am 转换成 Makefile.in 文件。最终通过Makefile.in生成Makefile文件，所以Makefile.am这个文件非常重要，定义了一些生成Makefile的规则
 
