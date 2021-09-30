@@ -1,7 +1,7 @@
 +++
 title = "php"
 date = 2021-08-28T15:13:00+08:00
-lastmod = 2021-09-30T23:09:21+08:00
+lastmod = 2021-10-01T00:00:46+08:00
 categories = ["language"]
 draft = false
 +++
