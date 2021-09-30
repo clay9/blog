@@ -1,7 +1,7 @@
 +++
 title = "nginx"
 date = 2021-08-28T15:20:00+08:00
-lastmod = 2021-09-29T20:01:49+08:00
+lastmod = 2021-09-30T22:50:28+08:00
 tags = ["nginx"]
 categories = ["tool"]
 draft = false
