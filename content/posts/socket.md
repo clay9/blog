@@ -1,7 +1,7 @@
 +++
 title = "socket"
 date = 2021-08-28T15:17:00+08:00
-lastmod = 2021-10-02T03:13:49+08:00
+lastmod = 2021-10-03T01:46:03+08:00
 tags = ["epoll", "socket"]
 categories = ["protocol"]
 draft = false

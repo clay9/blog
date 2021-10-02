@@ -1,7 +1,7 @@
 +++
 title = "git"
 date = 2021-08-28T15:12:00+08:00
-lastmod = 2021-10-02T03:13:47+08:00
+lastmod = 2021-10-03T01:46:01+08:00
 tags = ["git"]
 categories = ["gnu"]
 draft = false
@@ -15,7 +15,37 @@ git简易指导, 个人使用心得
 ## git使用流程 {#git使用流程}
 
 
-## git原理 && 常见命令 {#git原理-and-and-常见命令}
+## git原理 {#git原理}
+
+
+## git特性 {#git特性}
+
+
+### tag {#tag}
+
+1.  获取最近的tag
+
+    ```text
+    git describe --abbrev=0 --tags
+    ```
+2.  查看2个tag(或HEAD, 或branch)之间的距离, A与B之间的距离(或B与A之间的距离)
+
+    ```text
+    如果未branch_name, 实际为branch上的HEAD节点
+    ```
+
+    ```text
+    git log --pretty=oneline tagA...tagB
+    ```
+
+    查看从A到B的距离, 而不是从B到A的距离
+    If you just wanted commits reachable from tagB but not tagA:
+
+    ```text
+    git log --pretty=oneline tagA..tagB
+    #或者
+    git log --pretty=oneline ^tagA tagB
+    ```
 
 
 ## git高级特性 {#git高级特性}
@@ -29,11 +59,20 @@ git简易指导, 个人使用心得
 ### 删除大文件 {#删除大文件}
 
 1.  寻找大文件
-    git rev-list --objects --all | grep "$(git verify-pack -v .git/objects/pack/\*.idx | sort -k 3 -n | tail -5 | awk '{print$1}')"
+
+    ```text
+    git rev-list --objects --all | grep "$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk '{print$1}')"
+    ```
 2.  删除大文件
+
+    ```text
     git filter-branch -f --prune-empty --index-filter 'git rm -rf --cached --ignore-unmatch your-file-name' --tag-name-filter cat -- --all
+    ```
 3.  删除之后
+
+    ```text
     git gc --prune=now
+    ```
 
 
 ## git lfs {#git-lfs}
@@ -52,19 +91,27 @@ git lfs install
 
 ### 初始化 {#初始化}
 
+```text
 git lfs install
+```
 
 
 ### 使用 {#使用}
 
 1.  过滤大文件
-    git lfs track file\_path
+
+    ```text
+    git lfs track file_path
+    ```
 2.  过滤之后, 会生成.gitattributes
 3.  提交到远端
     git push      -- 提交普通文件
     git lfs push  -- 提交lfs文件
 4.  下载大文件
+
+    ```text
     git lfs clone url
+    ```
 
 
 ## git submodule {#git-submodule}
@@ -73,13 +120,19 @@ git lfs install
 
 当项目越来越庞大之后，不可避免的要拆分成多个子模块，
 我们希望各个子模块有独立的版本管理，并且由专门的人去维护，这时候我们就要用到git的submodule功能
+submodule 管理的不是分支, 而是一个commit
 
 ```text
-git clone <repository> --recursive 递归的方式克隆整个项目
-git submodule add <repository> <path> 添加子模块
-git submodule init 初始化子模块
-git submodule update 更新子模块
-git submodule foreach git pull 拉取所有子模块
+#递归的方式克隆整个项目
+git clone <repository> --recursive
+#添加子模块
+git submodule add --branch branch_name <repository> <path>
+#初始化子模块 -- 根据.gitmodule文件clone子模块
+git submodule init
+# 更新子模块 参数remote表示拉取远端最新的而非仓库对应的;  init同上
+git submodule update --remote --init
+# 拉取所有子模块
+git submodule foreach git pull
 ```
 
 
@@ -87,11 +140,17 @@ git submodule foreach git pull 拉取所有子模块
 
 -   方法1
     1.  先clone父项目
-    2.  git submodule init
-    3.  git submodule update
+    2.  更新子模块
+
+        ```text
+        git submodule update --init
+        ```
 -   方法2
     1.  clone 父项目时 加 --recursive
+
+        ```text
         git clone url path --recursive
+        ```
 
 
 ## F&Q {#f-and-q}
