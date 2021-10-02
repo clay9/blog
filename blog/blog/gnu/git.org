@@ -31,6 +31,11 @@ git简易指导, 个人使用心得
       #或者
       git log --pretty=oneline ^tagA tagB
       #+END_EXAMPLE
+   3. 简化SHA信息 --abbrev-commit
+      #+BEGIN_EXAMPLE sh
+      # 一般--pretty=oneline 后面都会加 --abbrev-commit
+      git log --pretty=oneline --abbrev-commit
+      #+END_EXAMPLE
 
 * git高级特性
 ** git hooks
