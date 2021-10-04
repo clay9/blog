@@ -52,3 +52,12 @@ bash-shell
 	   #+BEGIN_EXAMPLE sh
 	   ret=$(fun_check)
 	   #+END_EXAMPLE
+     10. 获取文件名 和 扩展名
+	 #+BEGIN_EXAMPLE sh
+	 file="1.2.3.4.5"
+	 ${file%%.*} # =>1
+	 ${file%.*}  # =>1.2.3.4
+
+	 ${file#*.}  # =>2.3.4.5
+	 ${file##*.} # =>5
+	 #+END_EXAMPLE
