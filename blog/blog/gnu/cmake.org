@@ -1,0 +1,29 @@
+#+TITLE: cmake
+#+DATE: 2021-10-08 13:44:11
+#+HUGO_CATEGORIES: 
+#+HUGO_TAGS: cmake
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+
+cmake
+
+#+hugo: more
+
+* options
+  -S path_to_source
+  -B path_to_build
+  -G generator-name
+
+
+* question
+  1. err:
+    #+BEGIN_EXAMPLE 1
+    Tell CMake where to find the compiler by setting either the environment
+    variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
+    to the compiler, or to the compiler name if it is in the PATH.
+    #+END_EXAMPLE
+
+    sln:
+     - sudo apt install gcc
+     - sudo apt install g++
