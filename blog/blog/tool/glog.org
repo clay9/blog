@@ -1,6 +1,6 @@
 #+TITLE: glog
 #+DATE: 2021-10-09 09:36:21
-#+HUGO_CATEGORIES: tools
+#+HUGO_CATEGORIES: tool
 #+HUGO_TAGS: glog
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
