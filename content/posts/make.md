@@ -1,7 +1,7 @@
 +++
 title = "make"
 date = 2021-09-23T22:27:00+08:00
-lastmod = 2021-10-03T01:46:01+08:00
+lastmod = 2021-10-09T18:32:36+08:00
 tags = ["make"]
 categories = ["gnu"]
 draft = false

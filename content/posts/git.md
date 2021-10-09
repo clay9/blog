@@ -1,7 +1,7 @@
 +++
 title = "git"
 date = 2021-08-28T15:12:00+08:00
-lastmod = 2021-10-03T01:46:01+08:00
+lastmod = 2021-10-09T18:32:36+08:00
 tags = ["git"]
 categories = ["gnu"]
 draft = false
@@ -45,6 +45,12 @@ git简易指导, 个人使用心得
     git log --pretty=oneline tagA..tagB
     #或者
     git log --pretty=oneline ^tagA tagB
+    ```
+3.  简化SHA信息 --abbrev-commit
+
+    ```text
+    # 一般--pretty=oneline 后面都会加 --abbrev-commit
+    git log --pretty=oneline --abbrev-commit
     ```
 
 

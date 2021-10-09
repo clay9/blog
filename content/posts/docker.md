@@ -1,7 +1,7 @@
 +++
 title = "docker"
 date = 2021-08-28T15:19:00+08:00
-lastmod = 2021-10-03T01:46:04+08:00
+lastmod = 2021-10-09T18:32:38+08:00
 tags = ["docker"]
 categories = ["tool"]
 draft = false
@@ -77,15 +77,15 @@ web服务器 + php + laravel + 数据库
     ```text
     docker commit [container_id]  [image_name]
     ```
-6.  image增加tag
+6.  image tag修改名字
 
     ```text
     docker tag [old_image_name]  [new_image_name]
     ```
-7.  推送image到github
+7.  推送image到dockerhub
 
     ```text
-    必须先登录github   docker login
+    必须先登录dockerhub   docker login
     推送的时候image必须增加tag, tag的名字必须为 登录id/image名字
     docker 官网速度太慢了, 建议存储为文件, 供别人使用
     ```
