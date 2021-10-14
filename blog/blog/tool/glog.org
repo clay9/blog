@@ -15,6 +15,16 @@ glog是google开发的日志库
 * 安装
 * 配置
 * 使用
+  1. LOG_IF(INFO, condition)
+  2. LOG_EVERY_N(INFO, 20)
+     每20次 打印一次
+  3. LOG_IF_EVERY_N(INFO, condition, 20)
+     符合条件下, 每20次打印一次
+  4. LOG_FIRST_N(INFO, 20)
+     只打印前20次
+  5. LOG_EVERY_T(INFO, 2.35)
+     每2.35s打印一次
+     
 * 记录
 1. glog
    参考文档 _https://zhuanlan.zhihu.com/p/26025722
