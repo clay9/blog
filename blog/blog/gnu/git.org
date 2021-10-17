@@ -131,5 +131,10 @@ git简易指导, 个人使用心得
      #+END_EXAMPLE
   4. git对大小写不敏感问题, 可以通过下面命令修改
      : git config core.ignorecase false
+  5. 修改git默认的编辑器
+      #+BEGIN_EXAMPLE sh git修改默认的编辑器
+      git config --global core.editor "'D:/notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+      #+END_EXAMPLE
+
 
 
