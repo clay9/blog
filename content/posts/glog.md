@@ -1,7 +1,7 @@
 +++
 title = "glog"
 date = 2021-10-09T09:36:00+08:00
-lastmod = 2021-10-09T18:32:38+08:00
+lastmod = 2021-10-18T21:19:01+08:00
 tags = ["glog"]
 categories = ["tool"]
 draft = false
@@ -22,6 +22,16 @@ glog是google开发的日志库
 
 
 ## 使用 {#使用}
+
+1.  LOG\_IF(INFO, condition)
+2.  LOG\_EVERY\_N(INFO, 20)
+    每20次 打印一次
+3.  LOG\_IF\_EVERY\_N(INFO, condition, 20)
+    符合条件下, 每20次打印一次
+4.  LOG\_FIRST\_N(INFO, 20)
+    只打印前20次
+5.  LOG\_EVERY\_T(INFO, 2.35)
+    每2.35s打印一次
 
 
 ## 记录 {#记录}

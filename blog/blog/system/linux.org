@@ -1,0 +1,54 @@
+#+TITLE: linux
+#+DATE: 2021-10-18 20:30:33
+#+HUGO_CATEGORIES: system
+#+HUGO_TAGS: linux
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+
+linux常用命令&&工具
+
+#+hugo: more
+
+* 查看系统信息
+  
+** 查看库 (动态库, 静态库)的封装信息
+   readelf
+   nm
+   objdump
+  
+** fd
+   查询
+   1. 所有进程允许打开的最大fd数量。查询语句：
+      #+BEGIN_EXAMPLE sh
+      /proc/sys/fs/file-max
+      #+END_EXAMPLE
+   2. 所有进程已经打开的fd数量及允许的最大数量。查询语句：
+      #+BEGIN_EXAMPLE sh
+      /proc/sys/fs/file-nr
+      #+END_EXAMPLE
+   3. 单个进程允许打开的最大fd数量.查询语句：
+      #+BEGIN_EXAMPLE sh
+      ulimit -n
+      #+END_EXAMPLE
+   4. 单个进程（例如进程id为5454）已经打开的fd.查询语句：
+      #+BEGIN_EXAMPLE sh
+      ls -l /proc/5454/fd/
+      #+END_EXAMPLE
+
+** socket
+   命令: ss
+   socket Statistics -- socket统计信息
+   比netstat 更快
+
+
+* 必备命令(软件)
+
+** watch
+   周期性的执行某个命令
+
+   #+BEGIN_EXAMPLE sh 查看socket统计信息
+   watch ss -s
+   #+END_EXAMPLE
+   
+  

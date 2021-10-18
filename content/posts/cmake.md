@@ -1,7 +1,7 @@
 +++
 title = "cmake"
 date = 2021-10-08T13:44:00+08:00
-lastmod = 2021-10-09T18:32:36+08:00
+lastmod = 2021-10-18T21:18:56+08:00
 tags = ["cmake"]
 draft = false
 +++
@@ -11,14 +11,14 @@ cmake
 <!--more-->
 
 
-## options {#options}
+## 参数 {#参数}
 
 -S path\_to\_source
 -B path\_to\_build
 -G generator-name
 
 
-## question {#question}
+## F&Q {#f-and-q}
 
 1.  err:
 

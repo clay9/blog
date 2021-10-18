@@ -10,13 +10,13 @@ cmake
 
 #+hugo: more
 
-* options
+* 参数
   -S path_to_source
   -B path_to_build
   -G generator-name
 
 
-* question
+* F&Q
   1. err:
     #+BEGIN_EXAMPLE 1
     Tell CMake where to find the compiler by setting either the environment

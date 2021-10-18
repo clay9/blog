@@ -1,7 +1,7 @@
 +++
 title = "git"
 date = 2021-08-28T15:12:00+08:00
-lastmod = 2021-10-09T18:32:36+08:00
+lastmod = 2021-10-18T21:18:56+08:00
 tags = ["git"]
 categories = ["gnu"]
 draft = false
@@ -186,4 +186,9 @@ git submodule foreach git pull
 
     ```text
     git config core.ignorecase false
+    ```
+5.  修改git默认的编辑器
+
+    ```text
+    git config --global core.editor "'D:/notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
     ```
