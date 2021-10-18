@@ -11,7 +11,6 @@ linux常用命令&&工具
 #+hugo: more
 
 * 查看系统信息
-  
 ** 查看库 (动态库, 静态库)的封装信息
    readelf
    nm
@@ -43,12 +42,99 @@ linux常用命令&&工具
 
 
 * 必备命令(软件)
-
 ** watch
    周期性的执行某个命令
 
    #+BEGIN_EXAMPLE sh 查看socket统计信息
    watch ss -s
    #+END_EXAMPLE
+** crontab
+   定时任务, 具体见
+   #+BEGIN_EXAMPLE
+   man crontab
+   #+END_EXAMPLE
+** tmux && screen
+   为什么使用tmux 和 screen: 远程登录操作时候, 因网络不稳定, 总是掉线, 导致东西无法保存
+   讲解它们之前必须要先了解nohup 与 &
+*** nohup 与 &
+    nohup与 &都是后台运行
+    nohup会占用标准输出
+    &则不会占用标准输出
+    它们的作用都是为了防止session关闭后, 程序无法运行
+
+    但每个程序都要加上 nohup前缀 或者 &后缀, 则会特别麻烦, 因此出现了screen与tmux
+
+*** screen
+    screen属于GNU计划
+    然其操作什么的并不友善, 个人更倾向于tmux
+
+    【基本指令】
+    screen | screen -S <name> 创建screen
+    screen -d                 detach screen  只有deatch之后 其他人才能attach
+    screen -r                 reatach screen 链接screen
+    screen -ls | screen -list 列出所有的screen
+
+    【快捷键操作】
+    screen的一个弊端就是将太多功能放在了快捷键上 而不是放在CMD上
+    C-a 为screen指令的前缀
+    C-a k  kill
+    C-a w  列出所有的screen窗口  -- 亲测无效???
+    C-a p |C-a n 切换到上一个或下一个窗口 -- 亲测无效??
+    C-a z  类似于emacs的C-z 将程序放入后台 可以通过jobs 和fg操作
+    通过C-a z可以了解screen的工作原理 -- screen就是新开了一个shell, 在里面有不同的窗口windows
+    然后可以在windows间切换, 或者是回到原先的shell中
+
+
+    【为什么放弃screen】
+    虽然查看教程, 发现screen还有很多高级功能, 然而screen的窗口功能太不友好, 导致我经常不知道自己工作
+    在哪个窗口下, 而且因为C-a w的无效, 很难有一览全局, 所以最后选择放弃screen, 改投tmux
+
+*** tmux
+    _框架_
+
+    server  -> session 01  |
+            -> session 02  |  --> socket 01(默认socket)
+            -> session 03     --> socket 02(通过-L | -S生成的新的socket)
+            ...
+	    ...
+    即一个server 多个session, session又属于socket
+
+    _基本指令_
+    tmux
+    tmux ls                  列出所有的tmux session, 注意没有-  --
+    tmux attach              attch到上次的tmux session
+    tmux attach -t session   attch到指定的tmux session
+    tmux kill-session -t     关闭session
+    tmux kill-server -t      关闭server
+    注: 关闭server 将导致tmux关闭, tmux中的程序也会关闭
+        如果session退出之前, tmux是挂起状态stopped,那么下次session重新链接后, 将导致tmux关闭
+    tmux new -s $sessionName 创建一个新的session, 并指定其名称, 不然就是递增数字
+
+    _快捷键操作_
+    tmux以C-b作为快捷键的前缀
+    C-b ?             列出所有的命令
+    C-b 数字 | n | p  切换窗口
+    C-b C-z           挂起程序
+    C-b d             deatach类似于screen中的deatch
+                      deatch之后就可以回到正常的shell, 并使tmux运行在后台
+
+    _为什么选择tmux_
+    友好的界面, 友好的C-b ?帮助提示, 简单的操作
+
+    _遗留问题_
+     1. [ ] 如果运行 tmux& (&后台运行), 会导致莫名其妙的问题
+     2. [X] 如何使tmux在后台运行
+	使用bg命令无效, 这与进程的状态有关...有时间再看
+	C-b d 使当前session deatch运行在后台
+
+** ffmpeg
+   : 强大的视频解码软件
+   ffmpeg -i https://××××××××/really.m3u8 -c copy  xxx.mp4 
+
+* 管道
+** | && xargs
+   1. 管道是实现“将前面的标准输出作为后面的标准输入”
+   2. xargs是实现“将标准输入作为命令的参数”
+
+
    
-  
