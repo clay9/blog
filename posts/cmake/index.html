@@ -9,14 +9,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://elisp.cc/posts/cmake/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-10-08T13:44:00+08:00">
-<meta property="article:modified_time" content="2021-10-09T18:32:36+08:00">
+<meta property="article:modified_time" content="2021-10-18T21:18:56+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="cmake">
 <meta name=twitter:description content="cmake">
 <meta name=application-name content="飘">
 <meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/cmake/><link rel=prev href=https://elisp.cc/posts/shell/><link rel=next href=https://elisp.cc/posts/glog/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"cmake","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/cmake\/"},"genre":"posts","keywords":"cmake","wordcount":60,"url":"https:\/\/elisp.cc\/posts\/cmake\/","datePublished":"2021-10-08T13:44:00+08:00","dateModified":"2021-10-09T18:32:36+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/cmake/><link rel=prev href=https://elisp.cc/posts/shell/><link rel=next href=https://elisp.cc/posts/glog/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"cmake","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/cmake\/"},"genre":"posts","keywords":"cmake","wordcount":61,"url":"https:\/\/elisp.cc\/posts\/cmake\/","datePublished":"2021-10-08T13:44:00+08:00","dateModified":"2021-10-18T21:18:56+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
 <body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -84,7 +84,7 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">cmake</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=" author" class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-08>2021-10-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 60 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-08>2021-10-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 61 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -93,16 +93,16 @@
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#options>options</a></li>
-<li><a href=#question>question</a></li>
+<li><a href=#参数>参数</a></li>
+<li><a href=#f-and-q>F&Q</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p>cmake</p>
-<h2 id=options>options</h2>
+<h2 id=参数>参数</h2>
 <p>-S path_to_source
 -B path_to_build
 -G generator-name</p>
-<h2 id=question>question</h2>
+<h2 id=f-and-q>F&Q</h2>
 <ol>
 <li>
 <p>err:</p>
@@ -128,7 +128,7 @@ to the compiler, or to the compiler name if it is in the PATH.
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>更新于 2021-10-09</span>
+<span>更新于 2021-10-18</span>
 </div>
 <div class=post-info-license></div>
 </div>

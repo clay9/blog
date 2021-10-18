@@ -9,14 +9,14 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://elisp.cc/posts/github/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2021-09-23T21:43:00+08:00">
-<meta property="article:modified_time" content="2021-10-09T18:32:38+08:00">
+<meta property="article:modified_time" content="2021-10-18T21:19:00+08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="github">
 <meta name=twitter:description content="github记录">
 <meta name=application-name content="飘">
 <meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/github/><link rel=prev href=https://elisp.cc/posts/vargrind/><link rel=next href=https://elisp.cc/posts/make/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"github","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/github\/"},"genre":"posts","keywords":"github","wordcount":1182,"url":"https:\/\/elisp.cc\/posts\/github\/","datePublished":"2021-09-23T21:43:00+08:00","dateModified":"2021-10-09T18:32:38+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/github/><link rel=prev href=https://elisp.cc/posts/vargrind/><link rel=next href=https://elisp.cc/posts/make/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"github","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/github\/"},"genre":"posts","keywords":"github","wordcount":580,"url":"https:\/\/elisp.cc\/posts\/github\/","datePublished":"2021-09-23T21:43:00+08:00","dateModified":"2021-10-18T21:19:00+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
 <body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -84,8 +84,8 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single"><h1 class="single-title animated flipInX">github</h1><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=/ title=Author rel=" author" class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/tool/><i class="far fa-folder fa-fw"></i>tool</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-23>2021-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1182 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-23>2021-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 580 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -93,99 +93,40 @@
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#github>github</a></li>
-<li><a href=#github-action>github action</a></li>
-<li><a href=#workflow-hugo>workflow &ndash; hugo</a></li>
-<li><a href=#workflow-server-kernel>workflow &ndash; server-kernel</a></li>
+<li><a href=#github-认证方式>github 认证方式</a></li>
+<li><a href=#github-action实例解析-hugo>github action实例解析 &ndash; hugo</a></li>
+<li><a href=#github-action实例解析-qygame调用docker>github action实例解析 &ndash; qygame调用docker</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p>github记录</p>
-<h2 id=github>github</h2>
+<h2 id=github-认证方式>github 认证方式</h2>
 <p>Github 本身提供了多种认证方式，所有开发人员可以各取所需。</p>
+<ol>
+<li>
 <p>SSH，这是最原始的方式，如果使用git bash只要按照官方文档一步一步配置就好了
 小心坑：SSH有可能需要配置代理，否则无法解析服务器域名。错误如下：
 ssh: Could not resolve hostname github.com: no address associated with name
-解决办法：给SSH以及git 客户端配置代理。
-HTTPS，这也是比较方便的方式，但是每一次都需要输入用户名和密码。
+解决办法：给SSH以及git 客户端配置代理。</p>
+</li>
+<li>
+<p>HTTPS，这也是比较方便的方式，但是每一次都需要输入用户名和密码。
 小心坑：本机的SSL证书不是正规机构颁发的，验证失败。错误如下：
 fatal: unable to access &lsquo;<a href=https://github.com/owner/repo.git/%27: target=_blank rel="noopener noreffer">https://github.com/owner/repo.git/':</a> SSL certificate problem: unable to get local issuer certificate</p>
 <p>解决办法：将Git的SSL验证关闭，命令如下。
-git config &ndash;global http.sslVerify false
-Access Token，我个人认为最为便捷的方式之一，不失安全性。
+git config &ndash;global http.sslVerify false</p>
+</li>
+<li>
+<p>Access Token，我个人认为最为便捷的方式之一，不失安全性。
 <a href=https://help.github.com/articles/creating-an-access-token-for-command-line-use/ target=_blank rel="noopener noreffer">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a>
-使用方法：
-1)从Settings页面生成唯一的Token</p>
+使用方法：</p>
 <ol>
+<li>从Settings页面生成唯一的Token</li>
 <li>手动拼接出远程仓库的地址，比如：<a href=https://%24GH%5FTOKEN@github.com/owner/repo.git target=_blank rel="noopener noreffer">https://%24GH%5FTOKEN@github.com/owner/repo.git</a></li>
 </ol>
 <p>3）从以上地址克隆或使用git remote add 的方式关联本地仓库，之后都不需要输入用户名和密码信息</p>
-<h2 id=github-action>github action</h2>
-<ol>
-<li>
-<p>qygame v1.0版本
-版本信息的描述: x.y.z
-x &ndash; 对外接口改变时, 刷新
-y &ndash; 增加功能时, 刷新
-z &ndash; fix bug等 刷新</p>
-<ol>
-<li>
-<p><i class="far fa-check-square fa-fw"></i> tag 对应关系
-保证repository 及其依赖的repository 及其生成的deploy之间 保持相同的tag
-比如
-frame</p>
-<ul>
-<li>publish/server-kernel</li>
-<li>proto</li>
-<li>publsih/server-frame</li>
-</ul>
-<p>之间tag应该完全相同</p>
-</li>
-<li>
-<p><i class="far fa-check-square fa-fw"></i> workflow 中编译的时候拉取对应的tag依赖仓库
-比如 frame tag1.0的仓库 应该拉取 publish/server-kernel中tag1.0的仓库编译</p>
-</li>
-<li>
-<p>workflow 中如果依赖的仓库的tag还不存在, 应该等待直至其完成后(或github action时间到了), 才进行后续的动作</p>
-</li>
-<li>
-<p><i class="far fa-check-square fa-fw"></i> frame的 workflow中 当触发tag的时候, 应该判断对应的submodule的tag是否一致, 如果不一致, 应该重新打tag(workflow中处理)
-并重新触发tag流程</p>
 </li>
 </ol>
-</li>
-<li>
-<p><i class="far fa-check-square fa-fw"></i> frame的 workflow中 当触发tag的时候, 应该判断对应的submodule的tag是否一致, 如果不一致, 应该重新打tag(workflow中处理)
-并重新触发tag流程</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>更新了tag, 也push到原仓库了
-更新tag之后, 没必要退出当前workflow, 用更新后的tag重新走流程, 因为更新后的tag不会触发workflow, 所以直接使用旧tag的commit走
-workflow即可
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p><i class="far fa-check-square fa-fw"></i> server-subgames</p>
-<ol>
-<li>workflow的编写</li>
-<li>add server-frame deploy => submodule</li>
-</ol>
-</li>
-<li>
-<p><i class="far fa-check-square fa-fw"></i> my_delete.sh脚本的编写</p>
-</li>
-<li>
-<p>publish 分支说明
-publish repository_name分支主要是供依赖者获取使用，目标是repository
-publish tag分支则是供运维人员使用</p>
-</li>
-</ol>
-<h2 id=workflow-hugo>workflow &ndash; hugo</h2>
+<h2 id=github-action实例解析-hugo>github action实例解析 &ndash; hugo</h2>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -234,39 +175,21 @@ github_token: ${{ secrets.HUGO_PUBLISH_TOKEN }}
 publish_dir: ./public</p>
 </li>
 </ul>
-<h2 id=workflow-server-kernel>workflow &ndash; server-kernel</h2>
-<p>name: build-kernel</p>
-<p>on:
-push:
-branches:</p>
-<ul>
-<li>master # Set a branch to deploy</li>
-</ul>
-<p>jobs:
-build:
-runs-on: ubuntu-20.04
-steps:</p>
-<ul>
-<li>uses: actions/checkout@v2</li>
-<li>name: step 1 test</li>
-</ul>
-<p>run: echo &ldquo;step 1&rdquo;</p>
-<p>shell: bash</p>
-<ul>
-<li>name: step 2 make
-run: make</li>
-</ul>
-<ul>
-<li>
-<p>name: step 3 deploy</p>
-<p>run: echo &ldquo;step 3&rdquo;</p>
-<p>shell: bash</p>
-</li>
-</ul></div><div class=post-footer id=post-footer>
+<h2 id=github-action实例解析-qygame调用docker>github action实例解析 &ndash; qygame调用docker</h2>
+<p>name: &lsquo;make for qygame&rsquo;
+autho: wcq
+description: &lsquo;make for qygame&rsquo;</p>
+<p>inputs:</p>
+<p>qygame_token:</p>
+<p>description: &lsquo;Set a generated GITHUB_TOKEN for pushing to the remote branch.&rsquo;</p>
+<p>required: true</p>
+<p>runs:</p>
+<p>using: &lsquo;docker&rsquo;</p>
+<p>image: &lsquo;Dockerfile&rsquo;</p></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
-<span>更新于 2021-10-09</span>
+<span>更新于 2021-10-18</span>
 </div>
 <div class=post-info-license></div>
 </div>

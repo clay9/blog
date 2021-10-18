@@ -4,19 +4,19 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
 <meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>docker-compose - 飘</title><meta name=Description content><meta property="og:title" content="docker-compose">
-<meta property="og:description" content="docker-compose简化了container的命令">
+<title>linux - 飘</title><meta name=Description content><meta property="og:title" content="linux">
+<meta property="og:description" content="linux常用命令&&工具">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://elisp.cc/posts/docker-compose/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-10-09T17:00:00+08:00">
-<meta property="article:modified_time" content="2021-10-18T21:19:00+08:00">
+<meta property="og:url" content="https://elisp.cc/posts/linux/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-10-18T20:30:00+08:00">
+<meta property="article:modified_time" content="2021-10-18T21:18:59+08:00">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="docker-compose">
-<meta name=twitter:description content="docker-compose简化了container的命令">
+<meta name=twitter:title content="linux">
+<meta name=twitter:description content="linux常用命令&&工具">
 <meta name=application-name content="飘">
 <meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/docker-compose/><link rel=prev href=https://elisp.cc/posts/glog/><link rel=next href=https://elisp.cc/posts/linux/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"docker-compose","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/docker-compose\/"},"genre":"posts","keywords":"docker","wordcount":83,"url":"https:\/\/elisp.cc\/posts\/docker-compose\/","datePublished":"2021-10-09T17:00:00+08:00","dateModified":"2021-10-18T21:19:00+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/linux/><link rel=prev href=https://elisp.cc/posts/docker-compose/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"linux","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/linux\/"},"genre":"posts","keywords":"linux","wordcount":211,"url":"https:\/\/elisp.cc\/posts\/linux\/","datePublished":"2021-10-18T20:30:00+08:00","dateModified":"2021-10-18T21:18:59+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
 <body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
@@ -82,9 +82,9 @@
 <div class=container><div class=toc id=toc-auto>
 <h2 class=toc-title>目录</h2>
 <div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">docker-compose</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=" author" class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/tool/><i class="far fa-folder fa-fw"></i>tool</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-09>2021-10-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 83 字&nbsp;
+</div><article class="page single"><h1 class="single-title animated flipInX">linux</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=" author" class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/system/><i class="far fa-folder fa-fw"></i>system</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-18>2021-10-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 211 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept>
 <div class="details-summary toc-title">
@@ -93,24 +93,90 @@
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
-<li><a href=#配置文件docker-compose-dot-yml>配置文件docker-compose.yml</a></li>
+<li><a href=#查看系统信息>查看系统信息</a>
+<ul>
+<li><a href=#查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</a></li>
+<li><a href=#fd>fd</a></li>
+<li><a href=#socket>socket</a></li>
+</ul>
+</li>
+<li><a href=#必备命令--软件>必备命令(软件)</a>
+<ul>
+<li><a href=#watch>watch</a></li>
+</ul>
+</li>
 </ul>
 </nav></div>
-</div><div class=content id=content><p>docker-compose简化了container的命令</p>
-<h2 id=配置文件docker-compose-dot-yml>配置文件docker-compose.yml</h2>
+</div><div class=content id=content><p>linux常用命令&&工具</p>
+<h2 id=查看系统信息>查看系统信息</h2>
+<h3 id=查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</h3>
+<p>readelf
+nm
+objdump</p>
+<h3 id=fd>fd</h3>
+<p>查询</p>
 <ol>
 <li>
-<p>如何支持docker run -itd中的itd参数</p>
+<p>所有进程允许打开的最大fd数量。查询语句：</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>i交互 t:tty d后台运行
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>/proc/sys/fs/file-max
 </code></pre></td></tr></table>
 </div>
 </div></li>
-</ol></div><div class=post-footer id=post-footer>
+<li>
+<p>所有进程已经打开的fd数量及允许的最大数量。查询语句：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>/proc/sys/fs/file-nr
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>单个进程允许打开的最大fd数量.查询语句：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>ulimit -n
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>单个进程（例如进程id为5454）已经打开的fd.查询语句：</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>ls -l /proc/5454/fd/
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id=socket>socket</h3>
+<p>命令: ss
+socket Statistics &ndash; socket统计信息
+比netstat 更快</p>
+<h2 id=必备命令--软件>必备命令(软件)</h2>
+<h3 id=watch>watch</h3>
+<p>周期性的执行某个命令</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-text data-lang=text>watch ss -s
+</code></pre></td></tr></table>
+</div>
+</div></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
@@ -126,13 +192,12 @@
 </div>
 </div>
 <div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/docker/>docker</a></section>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>linux</a></section>
 <section>
 <span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
 </section>
 </div>
-<div class=post-nav><a href=/posts/glog/ class=prev rel=prev title=glog><i class="fas fa-angle-left fa-fw"></i>glog</a>
-<a href=/posts/linux/ class=next rel=next title=linux>linux<i class="fas fa-angle-right fa-fw"></i></a></div>
+<div class=post-nav><a href=/posts/docker-compose/ class=prev rel=prev title=docker-compose><i class="fas fa-angle-left fa-fw"></i>docker-compose</a></div>
 </div>
 </article></div>
 </main><footer class=footer>
