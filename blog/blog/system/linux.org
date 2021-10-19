@@ -11,6 +11,23 @@ linux常用命令&&工具
 #+hugo: more
 
 * 查看系统信息
+** cpu
+   # 总核数 = 物理CPU个数 X 每颗物理CPU的核数
+   # 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+
+   # 查看物理CPU个数
+   cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+
+   # 查看每个物理CPU中core的个数(即核数)
+   cat /proc/cpuinfo| grep "cpu cores"| uniq
+
+   # 查看逻辑CPU的个数
+   cat /proc/cpuinfo| grep "processor"| wc -l
+ 
+
+   # 查看CPU信息（型号）
+   cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+   
 ** 查看库 (动态库, 静态库)的封装信息
    readelf
    nm
@@ -42,6 +59,74 @@ linux常用命令&&工具
 
 
 * 必备命令(软件)
+** top
+   #+BEGIN_EXAMPLE sh 信息含义 重点关注 cpu可用%Cpu->id, 内存可用MiB->availMem, 服务器负载情况top-> load average
+   # top      当前系统时间; 启动了3小时45分钟; user同时在线的用户; load average服务器1min, 5min, 15min的负载情况
+   #          load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。
+   #                      如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了
+   # Tasks    总共开启了27个进程, 1个在run, 26个sleep, 0stoped, 0僵尸进程zombie
+   # %cpu     总核数的平均值(不会大于100%), us用户占比, sy系统占比, ni用户进程空间内改变过优先级的进程占用CPU百分比
+   #          id空闲cpu百分比, wa用户进程空间内改变过优先级的进程占用CPU百分比, hi硬件中断, si软件中断, st实时
+   # MiB Mem  total系统物理总内存, free空闲内存, used已使用,    buff/cache缓冲区内存
+   # MiB Swap total交换总内存,     free交换空闲, used交换已用,  avail 可用内存
+   top - 12:19:58 up  3:45,  1 user,  load average: 0.00, 0.02, 0.05
+   Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
+   %Cpu(s):  1.5 us,  1.1 sy,  0.0 ni, 97.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
+   MiB Mem :  64348.3 total,  39305.2 free,  11285.5 used,  13757.6 buff/cache
+   MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem 
+
+
+   # pid      pid
+   # user     谁启动的该进程
+   # PR       优先级
+   # ni       nice值 负值表示高优先级，正值表示低优先级
+   # VIRT     虚拟内存
+   # RES      真实内存
+   # SHR      共享内存
+   # %CPU     单核cpu占比, 大于100%表示占用了多个cpu核, 不能大于100% * cpu核数
+   # TIME+    进程运行总时间??占用cpu的总时间??
+   # COMMAND  进程启动时的命令
+     PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+
+     122 root      20   0   12936   7148   6648 S   1.0   0.0   2:32.20 cli                                                                            
+     69  root      20   0   12928   7064   6572 S   0.7   0.0   2:07.64 svr                                                                            
+     125 root      20   0   27728  17472   3944 S   0.3   0.0   1:01.14 cli                                                                            
+     123 root      20   0   27728  17316   3880 S   0.3   0.0   1:01.08 cli                                                                            
+     126 root      20   0   27728  17436   3948 S   0.3   0.0   1:01.07 cli                                                                            
+     124 root      20   0   27728  17380   3852 S   0.3   0.0   1:00.94 cli                                                                            
+     132 root      20   0   27728  17436   3948 S   0.7   0.0   0:59.75 cli      
+   #+END_EXAMPLE
+   #+BEGIN_EXAMPLE sh 常用快捷键
+   1. 排序
+      < -- 左移sort-field; 进入top时候默认sort-field是%cpu
+      > -- 右移sort-field
+      R -- 反转排序
+
+      M -- (不推荐)根据%mem 排序
+      P -- (不推荐)根据%cpu 排序
+      T -- (不推荐)根据TIME+排序
+   2. 高亮
+      b -- 是否高亮显示 <R进程 或者 sort-field>, 总开关
+      x -- 是否高亮 sort-field
+      y -- 是否高亮 R进程
+
+      z -- (不推荐)高亮显示
+      B -- (不推荐)加粗
+
+   3. 其他
+      1 -- 显示所有逻辑cpu
+      k -- 关闭特定pid进程
+      s -- 设置刷新时间
+   4. 内存
+      m -- 切换mem显示, 显示使用百分比&&总内存 -->  (*used/total)% / total
+      t -- 切换cpu显示, 没看明白; 仍然推荐看%Cpu->id 或者1查看所有核心的
+
+
+   #+END_EXAMPLE
+   #+BEGIN_EXAMPLE sh 不足
+   1. 最小单位为进程, 线程信息需要通过ps去查看
+   #+END_EXAMPLE
+
 ** watch
    周期性的执行某个命令
 
@@ -131,6 +216,17 @@ linux常用命令&&工具
    : 强大的视频解码软件
    ffmpeg -i https://××××××××/really.m3u8 -c copy  xxx.mp4 
 
+** sort
+   根据ASCII进行排序, 默认为升序
+   - u 去除重复行
+   - r 降序
+   - n 根据数值进行排序
+     : 你有没有遇到过10比2小的情况。我反正遇到过。
+     : 出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面
+     : -n可以告诉sort根据数值进行排序, 而非ASCII
+   - k, t  k指定列数, t指定分隔符
+   - f 会将小写字母都转换为大写字母来进行比较，亦即忽略大小写
+   
 * 管道
 ** | && xargs
    1. 管道是实现“将前面的标准输出作为后面的标准输入”
