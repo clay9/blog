@@ -193,7 +193,7 @@ socket相关网络编程
 	     m_wRecvSize = 0;
 	     return 3;//"数据包太大";
 	     }
-    
+
 	     //解析数据
 	     if (m_wRecvSize == wPacketSize)  //数据全部接受完毕之后 再解析
 	     {		
@@ -240,3 +240,13 @@ socket相关网络编程
      }
    #+END_SRC
 
+* ipv4
+  : 系统文件在/proc/sys/net/ipv4下面
+  #+BEGIN_EXAMPLE sh 文件含义
+  ip_forward               0禁止ip转发, 1打开;
+  ip_default_ttl           数据报的生存周期(time to live), 即最多经过多少路由器
+
+  ip_no_pmtu_disc          关闭路径MTU探测
+  min_pmtu                 最小路径MTU的大小
+  mtu_expires              PMTU信息缓存多长时间
+  #+END_EXAMPLE

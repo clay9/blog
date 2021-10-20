@@ -69,6 +69,7 @@ linux常用命令&&工具
    #          id空闲cpu百分比, wa用户进程空间内改变过优先级的进程占用CPU百分比, hi硬件中断, si软件中断, st实时
    # MiB Mem  total系统物理总内存, free空闲内存, used已使用,    buff/cache缓冲区内存
    # MiB Swap total交换总内存,     free交换空闲, used交换已用,  avail 可用内存
+   # 这一系列信息是系统的信息, docker容器内外是一致的
    top - 12:19:58 up  3:45,  1 user,  load average: 0.00, 0.02, 0.05
    Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
    %Cpu(s):  1.5 us,  1.1 sy,  0.0 ni, 97.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
@@ -126,12 +127,70 @@ linux常用命令&&工具
    #+BEGIN_EXAMPLE sh 不足
    1. 最小单位为进程, 线程信息需要通过ps去查看
    #+END_EXAMPLE
+** ss
+   : 查看socket 统计信息
+   : 这是system的统计信息, docker容器内外是一致的
+
+   #+BEGIN_EXAMPLE sh 信息详解
+   # every 100s 每100s刷新一次 ss-s  851d60ae4404是服务器名字  服务器当前时间
+   # total:           这个数值是docker容器有关的, 每个单独计算;   貌似是inet + 1 TODONOW.
+   # TCP: 2101        这个数值是docker容器无关的, 容器内外都一样; 貌似是state总和?? TODONOW
+   #      estab    -- 这个数值是docker容器相关的, 每个单独计算
+   #      closed   -- 这个数值是docker容器相关的, 每个单独计算
+   #      orphaned --
+   #      timewait --   
+   Every 100.0s: ss -s      851d60ae4404: Wed Oct 20 17:44:33 2021
+
+   Total: 3
+   TCP:   2101 (estab 0, closed 2100, orphaned 0, timewait 0)
+
+   # RAW
+   # UDP
+   # TCP   这里的total是docker容器相关的, 每个单独计算
+   # INET
+   # FRAG
+   Transport Total     IP        IPv6
+   RAW       0         0         0
+   UDP       1         1         0
+   TCP       1         1         0
+   INET      2         2         0
+   FRAG      0         0         0
+   #+END_EXAMPLE
+
+   #+BEGIN_EXAMPLE sh 常用参数
+   # ss默认只显示state = established状态的, 可以通过-a或state参数来控制显示
+   -a  #显示所有状态的
+   
+   #+END_EXAMPLE
+   #+BEGIN_EXAMPLE sh 过滤参数
+   # -4 ipv4
+   # -6 ipv6
+   # -t tcp协议
+   # -u udp协议 等等
+   ss -t                     # 匹配tcp连接
+   
+   # dst   -- 远端
+   # src   -- 本地   
+   ss dst 192.168.1.5        # 匹配远程地址
+   ss dst 192.168.1.5:443    # 匹配远程地址和端口
+   
+   # dport --
+   # sport --
+   # 可以通过比较参数来选择某个区间的端口号
+   # le, ge, eq, ne, gt, lt -- 与sh的语法一致
+   ss sport lt 50            # 匹配小于50的端口号
+
+   # state 通过tcp连接状态进行过滤
+   # 常用状态
+   # established, syn-sent, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, listen, closing
+   ss state listening        # 匹配listen状态
+   #+END_EXAMPLE
 
 ** watch
    周期性的执行某个命令
 
-   #+BEGIN_EXAMPLE sh 查看socket统计信息
-   watch ss -s
+   #+BEGIN_EXAMPLE sh
+   watch ss -s # 定时刷新ss-s命令
    #+END_EXAMPLE
 ** crontab
    定时任务, 具体见
