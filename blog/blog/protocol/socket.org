@@ -242,6 +242,18 @@ socket相关网络编程
 
 * ipv4
   : 系统文件在/proc/sys/net/ipv4下面
+
+  #+BEGIN_EXAMPLE sh 常用设定
+  ip_local_port_range # 用户端口范围, [n, m)
+  tcp_timestamp       # 针对TIME_WAIT状态的tcp连接; 0关闭,1开启
+  tcp_tw_recycle      # 是否快速回收+ linux内核已删除该字段
+  tcp_tw_reuse        # TIME_WAIT状态的tcp的port是否可以复用;0关闭,1开启
+                      # 需要开启tcp_timestamp;
+		      # 这是针对cli的设计,而非svr
+  tcp_rmem            # tcp read缓冲区
+  tcp_wmem            # tcp write缓冲区
+  #+END_EXAMPLE
+  
   #+BEGIN_EXAMPLE sh 文件含义
   ip_forward               0禁止ip转发, 1打开;
   ip_default_ttl           数据报的生存周期(time to live), 即最多经过多少路由器
