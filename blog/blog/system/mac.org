@@ -155,6 +155,11 @@
    [[https://brew.sh/index_zh-cn][HomeBrew]] 是一款包管理软件, 类似于ubuntu下的apt
 ** iterm
    [[https://www.iterm2.com][iterm]] 是非常好用的终端软件
+   1. 安装iterm
+      iterm支持很多sh, 比如bash, zsh等
+      我们这里使用zsh 配置oh-my-zsh
+   2. 安装oh-my-zsh
+      oh-my-zsh可以让zsh焕然一新
 ** Annotate
    Annotate (App Store下载) 是非常好用的截屏软件, 同时支持gif
 ** IINA
