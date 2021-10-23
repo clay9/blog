@@ -27,9 +27,11 @@ gcc
        4) 删除变量 unset C_INCLUDE_PATH
        5) C++调用 string strValue(getenv("C_INCLUDE_PATH")
     3. 库文件搜索路径
-       1) 动态链接库搜索路径
-          LD_LIBRARY_PATH
-       2) 静态链接库搜索路径
-	  LIBRARY_PATH       
+       1) LIBRARY_PATH
+	  gcc编译时候需要
+          
+       2) LD_LIBRARY_PATH
+	  程序运行时候需要
+	  
 * 使用
   

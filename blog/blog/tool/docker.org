@@ -116,3 +116,5 @@ docker容器
   1. 使用镜像的时候, 不一定要做成容器
      可以使用
      : docker run -it image_name
+* 镜像漏斗排查
+  docker scan 
