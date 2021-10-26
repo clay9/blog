@@ -101,8 +101,7 @@
      : 这里需要添加中文支持, 不然会发生数据库读取中文正常, 写入中文时候乱码
   2. 安装对应的sql的驱动
      : 这里sql的驱动是 odbc下的sql驱动
-     以mssql为例
-     下载并安装
+     以mssql为例. 在microsoft官网下载
   3. 查看sql的驱动信息
      : debin在 /usr/local/etc/odbcinst.ini
      #+BEGIN_EXAMPLE
@@ -119,7 +118,20 @@
      Driver = ODBC Driver 17 for SQL Server
      Server = tcp:172.16.238.10,1433
      #+END_EXAMPLE
-  5. 测试连接
+
+  5. 测试安装
+     #+BEGIN_EXAMPLE sh
+     # 查看odbc是否已经安装
+     odbcinst -j
+
+     # 查看驱动是否安装 odbcinst.ini
+     odbcinst -q -d
+
+     # 查看源是否安装 odbc.init
+     odbcinst -q -s
+     #+END_EXAMPLE
+  6. 测试连接
+     上面安装测试完成之后, 测试连接
      #+BEGIN_EXAMPLE
      isql MssqlDB user_name user_passwd -v 
      #+END_EXAMPLE
@@ -136,9 +148,10 @@
      +---------------------------------------+
      #+END_EXAMPLE
      
-     
-
-
+     连接失败的可能分析
+     - 先确认安装测试的3个命令执行正常
+     - 确认数据库的密码是否正确
+       : 在数据库的容器中查看$SA_PASSWORD, 与本地的密码比较
   
   
 * 常用数据库语句
