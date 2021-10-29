@@ -112,9 +112,16 @@ docker容器
        会删除未被容器或者服务副本使用的全部卷。
     5) docker volume rm
        删除未被使用的指定卷
+* docker-compose
+* dockerfile
+  1. COPY 注意事项
+     : COPY src tag
+     如果tag不存在, 则会创建, 类似mkdir -p
+     - 如果src或tag为目录, 则必须以/结尾
+     - src为目录, 复制的时候src自身不会被复制, 只会复制其里面所有子文件
 * 小技巧
   1. 使用镜像的时候, 不一定要做成容器
      可以使用
      : docker run -it image_name
-* 镜像漏斗排查
+* 镜像漏洞排查
   docker scan 
