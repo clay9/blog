@@ -28,7 +28,6 @@ grafana  负责数据的展示, 其图表做的非常好
      3) 再创建数据库<db,rp>, 需要关联到bucket与org
      4) 再创建数据库用户 关联到bucket与org
 	: 这里的用户只是数据库的, 没有web的权限
-  
 ** 常用命令
    查看用户
    influx user list     -- 这里看到的是上面的超级用户, 有web权限的
@@ -36,3 +35,76 @@ grafana  负责数据的展示, 其图表做的非常好
 
    查看数据库
    influx v1 dbrp list  -- 可以看到db及其相关联的bucket等map信息
+
+* cadvisor
+** 写入influxdb中的数据格式
+   1) _measurement     -- 表
+      - cpu_usage_per_cpu
+      - cpu_usage_system
+      - cpu_usage_total
+      - cpu_usage_user
+      - fs_limit
+      - fs_usage
+      - load_average
+      - memory_cache
+      - memory_failcnt
+      - memory_failure
+      - memory_mapped_file
+      - memory_max_usage
+      - memory_rss
+      - memory_swap
+      - memory_usage
+      - memory_working_set
+      - referenced_momory
+      - rx_bytes
+      - rx_erros
+      - tx_bytes
+      - tx_erros
+   2) _field           -- key
+      - value
+   3) instance         -- per_cpu的编号(cpu核)
+   4) machine          -- 物理机器名字
+   5) container_name   -- 容器名字
+   6) device
+   7) failure_type
+      - pgmajfault
+   8) scope
+      - hierarchical
+   9) type
+      - limit
+      - usage
+
+	//确认
+	Group下面有:
+	_start
+	_stop
+	_time
+	_measurement
+
+* grafana
+** 使用Flux查询influxdb注意事项
+   1. from 前面不能加data =, 否则数据会流向data
+   2. 不能加yield(),  否则数据不显示
+   #+BEGIN_EXAMPLE FLUX 查询语法
+   from(bucket: "qybucket")
+     |> range(start: v.timeRangeStart, stop:v.timeRangeStop)
+     |> filter(fn: (r) =>
+       r._measurement == "cpu_usage_total" and
+       r._field == "value"
+     )
+   #+END_EXAMPLE   
+** dashboard 配置
+   一个dashboard 由1个多个panel面板组成,  可以有多个dashboard
+   每个dashboard对应一个xx.yaml
+   每个面板对应一个配置文件xx.json
+
+   dashboard的配置文件xx.yaml中有个特殊的字段, 可以把指定目录下的 子目录变为dashboard, 子目录下的xx.json变为面板
+   #+BEGIN_EXAMPLE yaml 
+   path: $GF_PATHS_PROVISIONING/dashboards
+   foldersFromFilesStructure: true
+   #+END_EXAMPLE
+   当 foldersFromFilesStructure设置为true的时候, path下的子目录名字会变为dashboard的名字
+   子目录下的xx.json会变为该dashboard下的panel面板
+
+   这样我们只需要配置一个总的yaml, 然后规划path下的目录层级即可, 方便进行统一的管理
+
