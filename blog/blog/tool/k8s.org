@@ -1,0 +1,269 @@
+#+TITLE: k8s
+#+DATE: 2021-11-08 10:43:52
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: k8s
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+
+kubernetes, 简称k8s
+
+#+hugo: more
+
+* kubernetes 创建集群
+** 安装
+   #+BEGIN_EXAMPLE sh 下载依赖-CNI插件
+   # 大多数 Pod 网络都需要
+   CNI_VERSION="v0.8.2"
+   ARCH="amd64"
+   sudo mkdir -p /opt/cni/bin
+   curl -L "https://github.com/containernetworking/plugins/releases/download/${CNI_VERSION}/cni-plugins-linux-${ARCH}-${CNI_VERSION}.tgz" | sudo tar -C /opt/cni/bin -xz
+   #+END_EXAMPLE
+
+   #+BEGIN_EXAMPLE sh 下载依赖-crictl
+   # kubeadm/kubelet 容器运行时接口（CRI）所需
+   DOWNLOAD_DIR=/usr/local/bin
+   sudo mkdir -p $DOWNLOAD_DIR
+   CRICTL_VERSION="v1.17.0"
+   ARCH="amd64"
+   curl -L "https://github.com/kubernetes-sigs/cri-tools/releases/download/${CRICTL_VERSION}/crictl-${CRICTL_VERSION}-linux-${ARCH}.tar.gz" | sudo tar -C $DOWNLOAD_DIR -xz
+   #+END_EXAMPLE
+
+   #+BEGIN_EXAMPLE sh 下载kubeadm, kubelet, kubectl
+   #RELEASE="$(curl -sSL https://dl.k8s.io/release/stable.txt)"
+   RELEASE=v1.22.3
+   ARCH="amd64"
+   cd $DOWNLOAD_DIR
+   sudo curl -L --remote-name-all https://storage.googleapis.com/kubernetes-release/release/${RELEASE}/bin/linux/${ARCH}/{kubeadm,kubelet,kubectl}
+   sudo chmod +x {kubeadm,kubelet,kubectl}
+
+   # 添加kubelet系统服务
+   RELEASE_VERSION="v0.4.0"
+   curl -sSL "https://raw.githubusercontent.com/kubernetes/release/${RELEASE_VERSION}/cmd/kubepkg/templates/latest/deb/kubelet/lib/systemd/system/kubelet.service" | sed "s:/usr/bin:${DOWNLOAD_DIR}:g" | sudo tee /etc/systemd/system/kubelet.service
+   sudo mkdir -p /etc/systemd/system/kubelet.service.d
+   curl -sSL "https://raw.githubusercontent.com/kubernetes/release/${RELEASE_VERSION}/cmd/kubepkg/templates/latest/deb/kubeadm/10-kubeadm.conf" | sed "s:/usr/bin:${DOWNLOAD_DIR}:g" | sudo tee /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+   # 激活并启动kubelet
+   systemctl enable --now kubelet
+   #+END_EXAMPLE
+** 环境配置
+   #+BEGIN_EXAMPLE sh 运行iptables检查桥接流量
+   # 加载模块
+   sudo modprobe br_netfilter
+
+   #
+   cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+   br_netfilter
+   EOF
+
+   cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+   net.bridge.bridge-nf-call-ip6tables = 1
+   net.bridge.bridge-nf-call-iptables = 1
+   EOF
+
+   sudo sysctl --system
+   #+END_EXAMPLE
+
+   #+BEGIN_EXAMPLE sh 端口检测
+   控制平面节点 
+   协议	方向	端口范围	作用	使用者
+   TCP	入站	6443	Kubernetes API 服务器	所有组件
+   TCP	入站	2379-2380	etcd 服务器客户端 API	kube-apiserver, etcd
+   TCP	入站	10250	Kubelet API	kubelet 自身、控制平面组件
+   TCP	入站	10251	kube-scheduler	kube-scheduler 自身
+   TCP	入站	10252	kube-controller-manager	kube-controller-manager 自身
+
+   工作节点
+   协议	方向	端口范围	作用	使用者
+   TCP	入站	10250	Kubelet API	kubelet 自身、控制平面组件
+   TCP	入站	30000-32767	NodePort 服务†	所有组件
+   #+END_EXAMPLE
+
+   #+BEGIN_EXAMPLE sh kubeadm 需要下载的镜像image
+   # 查看需要下载哪些
+   kubeadm config images list
+
+   # 替换为mirror-images
+   kubeadm config images list |grep -v 'coredns' |sed -e 's/^/docker pull /g' -e 's#k8s.gcr.io#docker.io/clay2019#g' |sh -x
+   kubeadm config images list |grep 'coredns'    |sed -e 's/^/docker pull /g' -e 's#k8s.gcr.io#docker.io#g' -e 's#:v#:#g' |sh -x
+
+   kubeadm config images list |grep -v 'coredns' |sed -e 's/^/docker pull /g' -e 's#k8s.gcr.io#docker.io/clay2019#g' |sh -x
+   docker images |grep clay2019 |awk '{print "docker tag ",$1":"$2,$1":"$2}' |sed -e 's#clay2019#k8s.gcr.io#2' |sh -x
+   docker images |grep clay2019 |awk '{print "docker rmi ", $1":"$2}' |sh -x
+   #+END_EXAMPLE
+** kubeadm init 配置
+   : kubeadm的配置文件 kubeadm --config中指定的那个, 会覆盖kubelet等组件的默认行为!!!
+
+   #+BEGIN_EXAMPLE sh  查看默认的配置文件
+   # 查看kubeadm init-defaults
+   kubeadm config print init-defaults --component-configs KubeProxyConfiguration,KubeletConfiguration > kubeadm.yaml
+
+   # 有时候 kubeadm init 与 kubeadm init --config kubeadm.yaml 使用的镜像并不相同
+   # 比如我遇到的kubeadm init使用的是v1.22.3, 但是其init-defaults输出的kubeadm.yaml中的images为v1.22.0!! 需要注意
+   #+END_EXAMPLE
+
+   配置完成之后, 使用 kubeadm init --config xx.yaml来创建master
+   也可以使用kubeadm init默认安装
+   如果kubelet没有启动, 修改下kubelet的配置文件, 重新启动即可
+** 网络插件安装
+   kubectl get nodes中发现Node的STATUS为NotReady, 需要安装网络插件.
+   如果没有安装网络插件, pods/coredns的状态为pending
+   这里选的是calico, 详见calico安装
+   
+* kubernetes 配置集群的
+  主要配置deployment 与 service
+  deployment会创建rc, rc会创建pod
+
+  #+BEGIN_EXAMPLE sh 测试
+  # 1.写deployment
+  kubectl create deployment alpine --image=alpine
+  # 2.执行
+  kubectl expose deployment/alpine --name=apine-svc --port=80 --type=NodePort
+  # 3.查看是否成功
+  kubectl get pods #视情况 加namespace
+  # 4.如果报错, 查看具体错误
+  kubectl describe pods <pod-name>
+  #+END_EXAMPLE
+
+* kubeadm
+  集群创建工具
+  1. kubeadm init
+  2. kubeadm reset
+     需要重新init的时候, 先执行reset
+  3. kubeadm config print init-default
+     #+BEGIN_EXAMPLE sh
+     kubeadm config print init-defaults --component-configs KubeProxyConfiguration,KubeletConfiguration > kubeadm.yaml
+     #+END_EXAMPLE
+* kubectl
+  集群管理工具
+  : 使用kubectl必须配置kubeconfig文件
+  : 放到~/.kube/config中 或者 使用 --kubeconfig来指定
+  #+BEGIN_EXAMPLE sh 配置集群的config文件
+  ## kubectl 在 $HOME/.kube 目录中查找一个名为 config 的配置文件
+  ## 你可以通过设置 KUBECONFIG 环境变量或设置 --kubeconfig 参数来指定其它 kubeconfig 文件
+  cp -i /etc/kubernetes/admin.conf ~/.kube/config
+  #+END_EXAMPLE
+* kubelet
+  work-node 运行需要, master不建议运行
+  配置文件在/var/lib/kubelet/config.yaml
+  如果遇到cgroup错误, 可以修改--cgroup-driver=cgroupfs, 然后重新启动kubelet
+
+  # 设置kubelet开机启动
+  systemctl daemon-reload
+  systemctl enable kubelet
+
+  # 查看kubelet是否正常允许
+  systemctl status kubelet
+
+  #+BEGIN_EXAMPLE sh 状态解释
+  root@ubt:/home/dev_wangchengqing# kubectl get nodes
+  NAME   STATUS     ROLES    AGE     VERSION
+  ubt    NotReady   <none>   3h21m   v1.22.3
+  # NotReady 是因为还没有部署网络插件
+  #+END_EXAMPLE
+* 网络插件 calico
+  #+BEGIN_EXAMPLE sh 安装
+  # 1.node节点数小于50的配置文件; 如果node节点数大于50, 请参考官网
+  curl https://docs.projectcalico.org/manifests/calico.yaml -O
+
+  # 2.如果本地地址在192.168.0.0/16, 需要设置calico的ip地址
+  #  修改 CALICO_IPV4POOL_CIDR的value的值即可
+  
+  # 3.执行插件的安装
+  kubectl apply -f calico.yaml
+
+  # 4. 确认是否安装成功
+  kubectl get pods --all-namespaces
+  # coredns 会在网络插件安装成功之后启动 Pending -> Running
+  # 同时kubectl get nodes中的 STATUS会变为Ready
+  #+END_EXAMPLE
+* kubernetes 错误排查
+  1. 首先确认master节点是否安装成功
+     #+BEGIN_EXAMPLE sh 查看master上面的服务
+     # 查看kube-apiserver, kube-controller-manager, kube-scheduler, etcd, pause服务
+     #kubectl get pods -n kube-system # -n表示namespace
+     kubectl get pods --all-namespaces  # 查看所有namespace的pods信息
+     # coredns为pending是正常的, 其在等待CNI网络插件
+     #+END_EXAMPLE
+  2. 再确认node节点是否成功
+     #+BEGIN_EXAMPLE sh kubectl查看node节点信息
+     kubectl get nodes
+     kubectl get nodes -o wide #获取更详细信息
+     # Node状态为NotReady是正常的, 其在等待CNI网络插件
+     #+END_EXAMPLE
+* Q&A
+  1. kubelet 找不到node
+     #+BEGIN_EXAMPLE sh
+     journalctl -xeu kubelet
+     Nov 05 17:22:16 ubt kubelet[775493]: E1105 17:22:16.246230  775493 kubelet.go:2412] "Error getting node" err="node \"node\" not found"
+     #+END_EXAMPLE
+
+     #+BEGIN_EXAMPLE sh step1. 修改kubeadm.yaml中的nodeRegistrationnodeRegis.name
+     # kubeadm init --config kubeadm.yaml的 kubeadm.yaml中修改nodeRegistration.name为 执行机的hostname
+     nodeRegistration:
+     criSocket: /var/run/dockershim.sock
+     imagePullPolicy: IfNotPresent
+     name: k8s-m1 # 修改为执行节点的hostname，不然会提示找不到node
+     taints: null
+     #+END_EXAMPLE
+
+     #+BEGIN_EXAMPLE sh step2. 修改kubeadm.yaml中的master ip
+     localAPIEndpoint:
+       advertiseAddress: 1.2.3.4 #修改为master机器的ip
+       bindPort: 6443
+     #+END_EXAMPLE
+  2. kubelet 提示cgroup错误
+     #+BEGIN_EXAMPLE sh 修改kubeadm.yaml中的cgroupDriver: cgroupfs
+     # kubeadm init --config kubeadm.yaml的 kubeadm.yaml中修改nodeRegistration.name为 执行机的hostname
+     # cgroupDriver: systemd  -- 这里暂时不知道什么意思, 修改为cgroupfs
+     cgroupDriver: cgroupfs
+     #+END_EXAMPLE
+  3. pod启动失败: had taint {node-role.kubernetes.io/master: }, that the pod didn't tolerate.
+     #+BEGIN_EXAMPLE sh
+root@ubt:/home/dev_wangchengqing# kubectl describe pods alpine-6b967c77f7-9rvv2
+Name:           alpine-6b967c77f7-9rvv2
+Namespace:      default
+Priority:       0
+Node:           <none>
+Labels:         app=alpine
+                pod-template-hash=6b967c77f7
+Annotations:    <none>
+Status:         Pending
+IP:             
+IPs:            <none>
+Controlled By:  ReplicaSet/alpine-6b967c77f7
+Containers:
+  alpine:
+    Image:        alpine
+    Port:         <none>
+    Host Port:    <none>
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kwqhc (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False 
+Volumes:
+  kube-api-access-kwqhc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                  From               Message
+  ----     ------            ----                 ----               -------
+  Warning  FailedScheduling  29s (x3 over 2m51s)  default-scheduler  0/1 nodes are available: 1 node(s) had taint {node-role.kubernetes.io/master: }, that the pod didn't tolerate.
+     #+END_EXAMPLE
+
+     #+BEGIN_EXAMPLE sh 去除master标签和污点
+     # 因为 master 节点同时当 node 节点用，需要把 master 标签和污点去掉，默认 master 无法调度
+     # 去除master标签
+     kubectl label node ubt node-role.kubernetes.io/master-
+     # 去除污点(无法调用schedule)
+     kubectl taint node ubt node-role.kubernetes.io/master:NoSchedule-
+     #+END_EXAMPLE
