@@ -142,6 +142,9 @@ kubernetes, 简称k8s
   ## kubectl 在 $HOME/.kube 目录中查找一个名为 config 的配置文件
   ## 你可以通过设置 KUBECONFIG 环境变量或设置 --kubeconfig 参数来指定其它 kubeconfig 文件
   cp -i /etc/kubernetes/admin.conf ~/.kube/config
+
+  # 检查是否正常
+  kubectl cluster-info
   #+END_EXAMPLE
 * kubelet
   work-node 运行需要, master不建议运行
