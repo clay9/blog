@@ -195,7 +195,22 @@ kubernetes, 简称k8s
      # Node状态为NotReady是正常的, 其在等待CNI网络插件
      #+END_EXAMPLE
 * Q&A
-  1. kubelet 找不到node
+  1. node的状态显示为NotReady
+     #+BEGIN_EXAMPLE sh 问
+     #
+     kubectl get nodes
+     # 显示STATUS为notReady
+     #+END_EXAMPLE
+
+     #+BEGIN_EXAMPLE sh 答
+     # 1. 先查看node上的kubelet是否启动
+     systemctl status kubelet
+     #如果未启动或者报错, 重启kubelet, systemctl restart kubelet
+
+     # 2. 再看网络插件(CNI插件)是否安装
+     kubectl get pods --all-namespaces
+     #+END_EXAMPLE
+  2. kubelet 找不到node
      #+BEGIN_EXAMPLE sh
      journalctl -xeu kubelet
      Nov 05 17:22:16 ubt kubelet[775493]: E1105 17:22:16.246230  775493 kubelet.go:2412] "Error getting node" err="node \"node\" not found"
@@ -215,13 +230,13 @@ kubernetes, 简称k8s
        advertiseAddress: 1.2.3.4 #修改为master机器的ip
        bindPort: 6443
      #+END_EXAMPLE
-  2. kubelet 提示cgroup错误
+  3. kubelet 提示cgroup错误
      #+BEGIN_EXAMPLE sh 修改kubeadm.yaml中的cgroupDriver: cgroupfs
      # kubeadm init --config kubeadm.yaml的 kubeadm.yaml中修改nodeRegistration.name为 执行机的hostname
      # cgroupDriver: systemd  -- 这里暂时不知道什么意思, 修改为cgroupfs
      cgroupDriver: cgroupfs
      #+END_EXAMPLE
-  3. pod启动失败: had taint {node-role.kubernetes.io/master: }, that the pod didn't tolerate.
+  4. pod启动失败: had taint {node-role.kubernetes.io/master: }, that the pod didn't tolerate.
      #+BEGIN_EXAMPLE sh
 root@ubt:/home/dev_wangchengqing# kubectl describe pods alpine-6b967c77f7-9rvv2
 Name:           alpine-6b967c77f7-9rvv2
