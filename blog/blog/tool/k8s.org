@@ -168,6 +168,32 @@ kubernetes, 简称k8s
   # 检查是否正常
   kubectl cluster-info
   #+END_EXAMPLE
+** 常用命令
+   kubectl cmd type
+
+   cmd:
+     get
+     describe
+
+   type:
+     node
+     namespace
+     deployment
+     pod
+** 常用命令2
+   #+BEGIN_EXAMPLE sh 端口转发
+   # 转发monitoring/svc=prometheus-k8s的端口9090到 localhost的9000
+   # 如果不写9000:9090, 只写9090, 表示转发svc的9090到 localhost的9090
+   kubectl -n monitoring port-forward svc/prometheus-k8s 9000:9090
+
+   # 其输出如下
+   Forwarding from 127.0.0.1:9000 -> 9090
+   Forwarding from [::1]:9000 -> 9090
+   # 看上面的输出, 我们知道, 这个端口转发只对localhost生效, 外部网络无法访问
+   # 如果想从外部可以访问, 我们可以使用nginx反向代理, 转发remote-port到9000
+   # ingress同样的道理
+   #+END_EXAMPLE
+     
 * 工具    - kubelet
   work-node 运行需要, master不建议运行
   配置文件在/var/lib/kubelet/config.yaml
