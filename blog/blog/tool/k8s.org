@@ -233,7 +233,7 @@ kubernetes, 简称k8s
   # 同时kubectl get nodes中的 STATUS会变为Ready
   #+END_EXAMPLE
 * 插件    - ingress-nginx
-  #+BEGIN_EXAMPLE sh 安装
+  #+BEGIN_EXAMPLE sh 部署ingress-controller
   # 下载yaml
   curl -L  https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/cloud/deploy.yaml > ingress-nginx.yaml
 
@@ -246,6 +246,47 @@ kubernetes, 简称k8s
   # 查看是否安装成功
   kubectl get pods -n ingress-nginx
   #+END_EXAMPLE
+
+  #+BEGIN_EXAMPLE sh 部署ingress-rule
+  # 1. 查看已有的ingress
+  kubectl get ingress
+  # 不确定是否有用的时候, 可以 kubectl describe ingress <ingress-name>
+
+  # 2. 编写ingress.yaml
+  ## 编写的时候注意 backend的命名空间 
+
+  # 3. apply
+  kubectl apply -f ingress.yaml
+
+  # 4. check 查看是否正常
+  kubectl describe ingress <ingress-name> 
+  #+END_EXAMPLE
+
+  #+BEGIN_EXAMPLE sh 外部访问
+  # 当ingress-controller与ingress-rule正确部署之后
+  # 查看一下ingess-controller命名空间下的svc, 获取到port
+  kubectl get svr -n ingress-nginx
+
+  # 输出如下
+  root@ubt:/home/dev_wangchengqing# kubectl get svc -n ingress-nginx
+  NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+  ingress-nginx-controller             LoadBalancer   10.108.147.62   <pending>     80:31468/TCP,443:31055/TCP   61m
+  ingress-nginx-controller-admission   ClusterIP      10.107.83.233   <none>        443/TCP                      61m
+
+  # 从输出中可以看到, ingress-controller的svc把自身80端口映射到了31468端口
+  # 因此我们访问ip:31468, 会访问到ingress-controller
+  # 然后ingress-controller 会根据 ingress-rule把我们的转发, 下发到不同的backends service
+  #+END_EXAMPLE
+** 命名空间问题
+   Now, Ingress Controller can be deployed in any namespace and is, in fact,
+   usually deployed in a namespace separate from your app services.
+   It can out-of-the-box see Ingress rules in all namespaces in the cluster and will pick them up.
+
+   The Ingress rules, however, must reside in the namespace where the app that they configure reside.
+
+   ingress-controller常常有独立的namespace. 其可以获取所有namespaces中的ingress-rule
+   ingress-rule,     需要与backend保持同一个namespace
+   
 * 配置    - kube-prometheus
 ** 安装
    1. 替换被墙的镜像的源
