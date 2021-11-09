@@ -111,7 +111,7 @@ ssh: Could not resolve hostname github.com: no address associated with name
 <li>
 <p>HTTPS，这也是比较方便的方式，但是每一次都需要输入用户名和密码。
 小心坑：本机的SSL证书不是正规机构颁发的，验证失败。错误如下：
-fatal: unable to access &lsquo;<a href=https://github.com/owner/repo.git/%27: target=_blank rel="noopener noreffer">https://github.com/owner/repo.git/':</a> SSL certificate problem: unable to get local issuer certificate</p>
+fatal: unable to access &lsquo;<a href=https://github.com/owner/repo.git/%27 target=_blank rel="noopener noreffer">https://github.com/owner/repo.git/'</a>: SSL certificate problem: unable to get local issuer certificate</p>
 <p>解决办法：将Git的SSL验证关闭，命令如下。
 git config &ndash;global http.sslVerify false</p>
 </li>
