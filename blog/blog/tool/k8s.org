@@ -10,6 +10,28 @@ kubernetes, 简称k8s
 
 #+hugo: more
 
+* k8s概念
+  1. namespace 在所有抽象层之前
+     -n xx              -- 使用xx命名空间
+     --all-namespaces   -- 显示所有的命名空间
+
+     #+BEGIN_EXAMPLE sh 查看已有的命名空间
+     kubectl get namespaces
+     #+END_EXAMPLE
+     
+     #+BEGIN_EXAMPLE sh 删除xx命名空间之下的某个pod
+     kubectl delete pod <pod-name> --force -n xx
+     #+END_EXAMPLE
+  2. 各种概念
+     - cluster 即k8s集群
+     - master  控制节点
+     - node    工作节点
+              
+     - Namespace
+     - CustomResourceDefinition 自定义类型资源crd
+     - service
+     - deployment -- rc -- pods
+  
 * kubernetes 创建集群
 ** 安装
    #+BEGIN_EXAMPLE sh 下载依赖-CNI插件
@@ -125,7 +147,7 @@ kubernetes, 简称k8s
   kubectl describe pods <pod-name>
   #+END_EXAMPLE
 
-* kubeadm
+* 工具    - kubeadm
   集群创建工具
   1. kubeadm init
   2. kubeadm reset
@@ -134,7 +156,7 @@ kubernetes, 简称k8s
      #+BEGIN_EXAMPLE sh
      kubeadm config print init-defaults --component-configs KubeProxyConfiguration,KubeletConfiguration > kubeadm.yaml
      #+END_EXAMPLE
-* kubectl
+* 工具    - kubectl
   集群管理工具
   : 使用kubectl必须配置kubeconfig文件
   : 放到~/.kube/config中 或者 使用 --kubeconfig来指定
@@ -146,7 +168,7 @@ kubernetes, 简称k8s
   # 检查是否正常
   kubectl cluster-info
   #+END_EXAMPLE
-* kubelet
+* 工具    - kubelet
   work-node 运行需要, master不建议运行
   配置文件在/var/lib/kubelet/config.yaml
   如果遇到cgroup错误, 可以修改--cgroup-driver=cgroupfs, 然后重新启动kubelet
@@ -164,7 +186,7 @@ kubernetes, 简称k8s
   ubt    NotReady   <none>   3h21m   v1.22.3
   # NotReady 是因为还没有部署网络插件
   #+END_EXAMPLE
-* 网络插件 calico
+* 网络插件 - calico
   #+BEGIN_EXAMPLE sh 安装
   # 1.node节点数小于50的配置文件; 如果node节点数大于50, 请参考官网
   curl https://docs.projectcalico.org/manifests/calico.yaml -O
@@ -180,6 +202,77 @@ kubernetes, 简称k8s
   # coredns 会在网络插件安装成功之后启动 Pending -> Running
   # 同时kubectl get nodes中的 STATUS会变为Ready
   #+END_EXAMPLE
+* 配置项   - kube-prometheus
+** 安装
+   1. 替换被墙的镜像的源
+      *-deployment.yaml中搜索image关键字, 可以看到需要下载那些镜像
+      具体的文件有
+      - blackbox-exporter-deployment.yaml
+      - grafana-deployment.yaml
+      - kube-state-metrics-deployment.yaml   包含k8s.gcr.io中的镜像, 需要提前替换
+      - prometheus-adapter-deployment.yaml   包含k8s.gcr.io中的镜像, 需要提前替换
+      - prometheus-prometheus.yaml           prometheus镜像
+   2. 修改kubelet configuration
+      : cat /var/lib/kubelet/config.yaml查看
+      - set config.yaml authentication.webhook.enabled to true.
+	或者 kubelet --authentication-token-webhook=true
+      - set config.yaml  authorization.mode to Webhook.
+	或者 kubelet --authorization-mode=Webhook
+   3. kubectl create -f manifests/setup
+   4. 等待下面的镜像下载完成
+      - quay.io/brancz/kube-rbac-proxy
+      - quay.io/prometheus-operator/prometheus-operator
+   5. +until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done+
+      官方该命令只是确保 kubectl create -f manifests/setup执行完毕, 没有实际意义
+   6. kubectl create -f manifests/
+      : 查看images镜像 和 kubectl get pods -n monitoring查看安装进度
+   7. 卸载kube-prometheus
+      #+BEGIN_EXAMPLE sh
+      kubectl delete --ignore-not-found=true -f manifests/ -f manifests/setup
+
+      # 对于某些无法卸载的, 可以使用强制卸载
+      kubectl delete pod -n monitoring <pod-name> --force
+      #+END_EXAMPLE
+** Q&A
+   1. pod处于ImagePullBackOff状态
+      #+BEGIN_EXAMPLE sh 问
+      kubectl get pods -n monitoring
+      #+END_EXAMPLE
+      #+BEGIN_EXAMPLE sh 答
+      # 通过下面的命令查看是哪个镜像没有拉取到, 然后使用mirror-image拉取即可
+      kubectl describe pods -n monitoring <pod-name>
+      #+END_EXAMPLE
+   2. pod处于pending状态
+      #+BEGIN_EXAMPLE sh 问
+      kubectl get pods -n monitoring
+      #+END_EXAMPLE
+
+      #+BEGIN_EXAMPLE sh 答 如果是Insuffcient cpu
+      # 先查看pod状态
+      kubectl describe pods -n <pod-name>
+
+      Events:
+      Type     Reason            Age   From               Message
+      ----     ------            ----  ----               -------
+      Warning  FailedScheduling  134m  default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
+
+      # 查看node状态
+      kubectl describe nodes
+
+      Allocated resources:
+      (Total limits may be over 100 percent, i.e., overcommitted.)
+      Resource           Requests      Limits
+      --------           --------      ------
+      cpu                1906m (95%)   1760m (88%)
+      memory             1580Mi (41%)  2080Mi (54%)
+      ephemeral-storage  0 (0%)        0 (0%)
+      hugepages-1Gi      0 (0%)        0 (0%)
+      hugepages-2Mi      0 (0%)        0 (0%)
+      Events:              <none>
+      # 通过输出可以看到, cpu已经被占用到95%了, 所以导致有的pod无法启动, 对于这种情况, 可以通过增加node节点来解决
+      # k8s实际是对资源的管理, 资源包括cpu, 内存等等
+      #+END_EXAMPLE
+
 * kubernetes 错误排查
   1. 首先确认master节点是否安装成功
      #+BEGIN_EXAMPLE sh 查看master上面的服务
