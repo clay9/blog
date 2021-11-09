@@ -12,6 +12,9 @@ kubernetes, 简称k8s
 
 * k8s概念
   1. namespace 在所有抽象层之前
+     : kubectl delete namespace <namespace-name>
+     : 删除namespace会删除namespace下面所有的资源, 比如deployment,pods,svc等等
+     
      -n xx              -- 使用xx命名空间
      --all-namespaces   -- 显示所有的命名空间
 
@@ -31,6 +34,7 @@ kubernetes, 简称k8s
      - CustomResourceDefinition 自定义类型资源crd
      - service
      - deployment -- rc -- pods
+     - ingress 
   
 * kubernetes 创建集群
 ** 安装
@@ -212,7 +216,7 @@ kubernetes, 简称k8s
   ubt    NotReady   <none>   3h21m   v1.22.3
   # NotReady 是因为还没有部署网络插件
   #+END_EXAMPLE
-* 网络插件 - calico
+* 插件    - calico
   #+BEGIN_EXAMPLE sh 安装
   # 1.node节点数小于50的配置文件; 如果node节点数大于50, 请参考官网
   curl https://docs.projectcalico.org/manifests/calico.yaml -O
@@ -228,7 +232,21 @@ kubernetes, 简称k8s
   # coredns 会在网络插件安装成功之后启动 Pending -> Running
   # 同时kubectl get nodes中的 STATUS会变为Ready
   #+END_EXAMPLE
-* 配置项   - kube-prometheus
+* 插件    - ingress-nginx
+  #+BEGIN_EXAMPLE sh 安装
+  # 下载yaml
+  curl -L  https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.4/deploy/static/provider/cloud/deploy.yaml > ingress-nginx.yaml
+
+  # 修改yaml中的mirror
+  sed -i 's#k8s.gcr.io/ingress-nginx#docker.io/clay2019#g' ingress-nginx.yaml
+
+  # 部署ingress-nginx
+  kubectl apply -f ${ingress-n-yaml}
+
+  # 查看是否安装成功
+  kubectl get pods -n ingress-nginx
+  #+END_EXAMPLE
+* 配置    - kube-prometheus
 ** 安装
    1. 替换被墙的镜像的源
       *-deployment.yaml中搜索image关键字, 可以看到需要下载那些镜像
@@ -298,7 +316,6 @@ kubernetes, 简称k8s
       # 通过输出可以看到, cpu已经被占用到95%了, 所以导致有的pod无法启动, 对于这种情况, 可以通过增加node节点来解决
       # k8s实际是对资源的管理, 资源包括cpu, 内存等等
       #+END_EXAMPLE
-
 * kubernetes 错误排查
   1. 首先确认master节点是否安装成功
      #+BEGIN_EXAMPLE sh 查看master上面的服务
