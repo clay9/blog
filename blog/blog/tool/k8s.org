@@ -516,4 +516,17 @@ Events:
 	  #+END_EXAMPLE
        6) 确定网络内其他主机可以访问 A-ip:port
 	  : A-ip是ingress-nginx所在的机器的ip
-	  : port是ingress-nginx隐射出来的port	  
+	  : port是ingress-nginx隐射出来的port
+  6. ingress-nginx svc 一直pending
+     #+BEGIN_EXAMPLE sh 问
+     root@ubt:/home/dev_wangchengqing# kubectl get svc -n ingress-nginx
+     NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+     ingress-nginx-controller             LoadBalancer   10.108.147.62   <pending>     80:31468/TCP,443:31055/TCP   23h
+     ingress-nginx-controller-admission   ClusterIP      10.107.83.233   <none>        443/TCP                      23h
+     #+END_EXAMPLE
+
+     #+BEGIN_EXAMPLE sh 答
+     # 1. 确认所在环境是否支持LB(LoadBalancer), 本地以及大部分云服务器商 都不支持
+     #    如果是使用ingress-controller, 使用NodePort更好
+     # 2. 确认ingress-nginx/pod是否正常
+     #+END_EXAMPLE
