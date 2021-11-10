@@ -497,7 +497,7 @@ Events:
        : 必须配置ingress.kubernetes.io/rewrite-target: /
      - 确定访问的方式正确
        1) 确定backend的pod-ip:port可以访问
-	  : 此处的port为backend自己的port
+	  : 此处的port为backend自己的port(即backend所在的svc的port, backend pod是没有端口的?? TODONOW待确定)
        2) 确定backend的svc-ip:port可以访问
 	  : 此处的port为backend自己的port
        3) 确定ingress-nginx的pod-ip:port可以访问
