@@ -20,13 +20,13 @@ jobs:
           repository: clay9/emacs
           ref: v1.0
           token: ${{ secrets.CLAY9 }}
-          path: /emacs
+          path: ./emacs
 
       - run: |
           apt install emacs -y
-          mv /emacs/.emacs.d ~/.emacs.d
-          emacs -u $USER --script /emacs/.emacs.d/script/init-org-publish.el
-          emacs -u $USER --script /emacs/.emacs.d/script/init-hugo-publish.el	  
+          mv ./emacs/.emacs.d ~/.emacs.d && rm -rf ./emacs
+          emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
+          emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
