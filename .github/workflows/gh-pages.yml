@@ -27,7 +27,7 @@ jobs:
           ln -s $PWD/emacs/.emacs.d ~/.emacs.d
           emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
           emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
-	  rm -rf emacs
+          rm -rf emacs
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
