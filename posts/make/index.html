@@ -1,280 +1,57 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>make - 飘</title><meta name=Description content><meta property="og:title" content="make">
-<meta property="og:description" content="make记录">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://elisp.cc/posts/make/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-09-23T22:27:00+08:00">
-<meta property="article:modified_time" content="2021-10-18T21:18:57+08:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="make">
-<meta name=twitter:description content="make记录">
-<meta name=application-name content="飘">
-<meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/make/><link rel=prev href=https://elisp.cc/posts/github/><link rel=next href=https://elisp.cc/posts/shell/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"make","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/make\/"},"genre":"posts","keywords":"make","wordcount":1153,"url":"https:\/\/elisp.cc\/posts\/make\/","datePublished":"2021-09-23T22:27:00+08:00","dateModified":"2021-10-18T21:18:57+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
-<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/org-info/emacs.html> Emacs </a><a class=menu-item href=/about> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/org-info/emacs.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">make</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/gnu/><i class="far fa-folder fa-fw"></i>gnu</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-23>2021-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1153 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#常用>常用</a></li>
-<li><a href=#make>make</a></li>
-</ul>
-</nav></div>
-</div><div class=content id=content><p>make记录</p>
-<h2 id=常用>常用</h2>
-<p>make
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>make - 飘</title><meta name=Description content><meta property="og:title" content="make"><meta property="og:description" content="make记录"><meta property="og:type" content="article"><meta property="og:url" content="https://elisp.cc/posts/make/"><meta property="article:published_time" content="2021-09-23T22:27:00+00:00"><meta property="article:modified_time" content="2021-11-11T07:20:26+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="make"><meta name=twitter:description content="make记录"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/make/><link rel=prev href=https://elisp.cc/posts/github/><link rel=next href=https://elisp.cc/posts/shell/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"make","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/make\/"},"genre":"posts","keywords":"make","wordcount":1153,"url":"https:\/\/elisp.cc\/posts\/make\/","datePublished":"2021-09-23T22:27:00+00:00","dateModified":"2021-11-11T07:20:26+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/org-info/emacs.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>所有文章</a><a class=menu-item href=/categories/>分类</a><a class=menu-item href=/tags/>标签</a><a class=menu-item href=/org-info/emacs.html>Emacs</a><a class=menu-item href=/about>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">make</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/gnu/><i class="far fa-folder fa-fw"></i>gnu</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-23>2021-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1153 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#常用>常用</a></li><li><a href=#make>make</a></li></ul></nav></div></div><div class=content id=content><p>make记录</p><h2 id=常用>常用</h2><p>make
 make clean
-make install &ndash; 编译成功的文件安装到系统目录</p>
-<p>make dist 产生发布软件包文件（即distribution package</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+make install &ndash; 编译成功的文件安装到系统目录</p><p>make dist 产生发布软件包文件（即distribution package</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>这个命令将会将可执行文件及相关文件打包成一个tar.gz压缩的文件用来作为发布软件的软件包。
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>这个命令将会将可执行文件及相关文件打包成一个tar.gz压缩的文件用来作为发布软件的软件包。
 它会在当前目录下生成一个名字类似“PACKAGE-VERSION.tar.gz”的文件
 PACKAGE和VERSION，是我们在configure.in中定义的AM_INIT_AUTOMAKE(PACKAGE, VERSION)
-</code></pre></td></tr></table>
-</div>
-</div><p>make distcheck</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><p>make distcheck</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>生成发布软件包并对其进行测试检查，以确定发布包的正确性
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>生成发布软件包并对其进行测试检查，以确定发布包的正确性
 这个操作将自动把压缩包文件解开，然后执行configure命令，并且执行make，来确认编译不出现错误
 最后提示你软件包已经准备好，可以发布了
-</code></pre></td></tr></table>
-</div>
-</div><h2 id=make>make</h2>
-<ol>
-<li>
-<p>-j num 同时启动多少个jobs一起编译, 一般为系统内核数的2倍</p>
-</li>
-<li>
-<p>make打印信息 不显示目录</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>make --no-print-directory
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>make打印信息优化</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h2 id=make>make</h2><ol><li><p>-j num 同时启动多少个jobs一起编译, 一般为系统内核数的2倍</p></li><li><p>make打印信息 不显示目录</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>make --no-print-directory
+</code></pre></td></tr></table></div></div></li><li><p>make打印信息优化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>SHOW_COMPILE=@echo -e &#34;\033[36mCompling \033[35m==&gt; \033[33m$&lt;\033[0m&#34;
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>SHOW_COMPILE=@echo -e &#34;\033[36mCompling \033[35m==&gt; \033[33m$&lt;\033[0m&#34;
 SHOW_LINK=@echo -e &#34;\033[31mLINKING \033[35m==&gt; \033[33m$(EXEFILE)\033[0m&#34;
 SHOW_DEBUG_BUILD=@echo -e &#34;\033[31mBuilding Debug...\033[0m&#34;
 SHOW_RELEASE_BUILD=@echo -e &#34;\033[31mBuilding Release...\033[0m&#34;
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>makefile 中的 &ldquo;+ - @&rdquo;
-实际为shell中的规则, 不是makefile中的</p>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@</td>
-<td>使命令被执行前不回显</td>
-</tr>
-<tr>
-<td>-</td>
-<td>使任何命令行的非0退出状态都被忽略</td>
-</tr>
-<tr>
-<td>+</td>
-<td>使命令行可以通过制定-n -q或-t选项来执行</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>内置函数 patsubst
+</code></pre></td></tr></table></div></div></li><li><p>makefile 中的 &ldquo;+ - @&rdquo;
+实际为shell中的规则, 不是makefile中的</p><table><thead><tr><th>符号</th><th>作用</th></tr></thead><tbody><tr><td>@</td><td>使命令被执行前不回显</td></tr><tr><td>-</td><td>使任何命令行的非0退出状态都被忽略</td></tr><tr><td>+</td><td>使命令行可以通过制定-n -q或-t选项来执行</td></tr></tbody></table></li><li><p>内置函数 patsubst
 格式：$(patsubst <pattern>,<replacement>,<text> )
 名称：模式字符串替换函数——patsubst。
 功能：查找<text>中的单词（单词以“空格”、“Tab”或“回车”“换行”分隔）是否符合模式<pattern>，如果匹配的话，则以<replacement>替换。
 　　　这里，<pattern>可以包括通配符“%”，表示任意长度的字串。如果<replacement>中也包含“%”，那么，<replacement>中的这个“%”将是<pattern>中的那个“%”所代表的字串。
 　　　（可以用“\”来转义，以“\%”来表示真实含义的“%”字符）
-返回：函数返回被替换过后的字符串。</p>
-<p>示例：
+返回：函数返回被替换过后的字符串。</p><p>示例：
 $(patsubst %.c,%.o, a.c b.c)
-把字串“a.c b.c”符合模式[%.c]的单词替换成[%.o]，返回结果是“a.o b.o”</p>
-</li>
-<li>
-<p>$@ $^ $ $&lt; $?
+把字串“a.c b.c”符合模式[%.c]的单词替换成[%.o]，返回结果是“a.o b.o”</p></li><li><p>$@ $^ $ $&lt; $?
 $@ 表示目标文件
 $^ 表示所有的依赖文件
 $&lt; 表示第一个依赖文件
-$? 表示比目标还要新的依赖文件列表</p>
-</li>
-<li>
-<p>gcc编译过程
+$? 表示比目标还要新的依赖文件列表</p></li><li><p>gcc编译过程
 预处理 -E .cpp -> .i
 汇编 -S .i -> .s
-编译 -c .s -> .o</p>
-<p>-o 仅仅是输出目标的file_name, 不一定是连接后的file_name, 比如</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>gcc -S hello.i -o hello.s
-</code></pre></td></tr></table>
-</div>
-</div><p>gcc 不带参数可以 跟随.cpp .i .s .o类型的文件, 会自动执行预处理, 汇编, 编译, 连接的动作
-所以连接不需要指定参数</p>
-</li>
-<li>
-<p><i class="far fa-square fa-fw"></i> wildcard
+编译 -c .s -> .o</p><p>-o 仅仅是输出目标的file_name, 不一定是连接后的file_name, 比如</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>gcc -S hello.i -o hello.s
+</code></pre></td></tr></table></div></div><p>gcc 不带参数可以 跟随.cpp .i .s .o类型的文件, 会自动执行预处理, 汇编, 编译, 连接的动作
+所以连接不需要指定参数</p></li><li><p><i class="far fa-square fa-fw"></i>wildcard
 Makefile规则中，通配符会被自动展开。但在变量的定义和函数引用时，通配符将失效。
 这种情况下如果需要通配符有效，就需要使用函数“wildcard”，它的用法是：$(wildcard PATTERN&mldr;) 。
 在Makefile中，它被展开为已经存在的、使用空格分开的、匹配此模式的所有文件列表。
 如果不存在任何符合此模式的文件，函数会忽略模式字符并返回空。
-需要注意的是：这种情况下规则中通配符的展开和上一小节匹配通配符的区别。</p>
-</li>
-<li>
-<p>makefile只能在taget的地方调用shell, 其他地方无效</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>其他地方调用需要使用 $(shell cmd)
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>更新于 2021-10-18</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
-<span></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/make/>make</a></section>
-<section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/posts/github/ class=prev rel=prev title=github><i class="fas fa-angle-left fa-fw"></i>github</a>
-<a href=/posts/shell/ class=next rel=next title=shell>shell<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-</article></div>
-</main><footer class=footer>
-<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+需要注意的是：这种情况下规则中通配符的展开和上一小节匹配通配符的区别。</p></li><li><p>makefile只能在taget的地方调用shell, 其他地方无效</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>其他地方调用需要使用 $(shell cmd)
+</code></pre></td></tr></table></div></div></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-11</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/make/>make</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/github/ class=prev rel=prev title=github><i class="fas fa-angle-left fa-fw"></i>github</a>
+<a href=/posts/shell/ class=next rel=next title=shell>shell<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":100,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

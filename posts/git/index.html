@@ -1,294 +1,48 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>git - 飘</title><meta name=Description content><meta property="og:title" content="git">
-<meta property="og:description" content="git简易指导, 个人使用心得">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://elisp.cc/posts/git/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-08-28T15:12:00+08:00">
-<meta property="article:modified_time" content="2021-10-18T21:18:56+08:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="git">
-<meta name=twitter:description content="git简易指导, 个人使用心得">
-<meta name=application-name content="飘">
-<meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/git/><link rel=prev href=https://elisp.cc/posts/gdb/><link rel=next href=https://elisp.cc/posts/c++/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"git","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/git\/"},"genre":"posts","keywords":"git","wordcount":975,"url":"https:\/\/elisp.cc\/posts\/git\/","datePublished":"2021-08-28T15:12:00+08:00","dateModified":"2021-10-18T21:18:56+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
-<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/org-info/emacs.html> Emacs </a><a class=menu-item href=/about> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/org-info/emacs.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">git</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/gnu/><i class="far fa-folder fa-fw"></i>gnu</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 975 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#git使用流程>git使用流程</a></li>
-<li><a href=#git原理>git原理</a></li>
-<li><a href=#git特性>git特性</a>
-<ul>
-<li><a href=#tag>tag</a></li>
-</ul>
-</li>
-<li><a href=#git高级特性>git高级特性</a>
-<ul>
-<li><a href=#git-hooks>git hooks</a></li>
-<li><a href=#删除大文件>删除大文件</a></li>
-</ul>
-</li>
-<li><a href=#git-lfs>git lfs</a>
-<ul>
-<li><a href=#安装lfs>安装lfs</a></li>
-<li><a href=#初始化>初始化</a></li>
-<li><a href=#使用>使用</a></li>
-</ul>
-</li>
-<li><a href=#git-submodule>git submodule</a>
-<ul>
-<li><a href=#拉取子模块>拉取子模块</a></li>
-</ul>
-</li>
-<li><a href=#f-and-q>F&Q</a></li>
-</ul>
-</nav></div>
-</div><div class=content id=content><p>git简易指导, 个人使用心得</p>
-<h2 id=git使用流程>git使用流程</h2>
-<h2 id=git原理>git原理</h2>
-<h2 id=git特性>git特性</h2>
-<h3 id=tag>tag</h3>
-<ol>
-<li>
-<p>获取最近的tag</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git describe --abbrev=0 --tags
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>查看2个tag(或HEAD, 或branch)之间的距离, A与B之间的距离(或B与A之间的距离)</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>如果未branch_name, 实际为branch上的HEAD节点
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git log --pretty=oneline tagA...tagB
-</code></pre></td></tr></table>
-</div>
-</div><p>查看从A到B的距离, 而不是从B到A的距离
-If you just wanted commits reachable from tagB but not tagA:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>git - 飘</title><meta name=Description content><meta property="og:title" content="git"><meta property="og:description" content="git简易指导, 个人使用心得"><meta property="og:type" content="article"><meta property="og:url" content="https://elisp.cc/posts/git/"><meta property="article:published_time" content="2021-08-28T15:12:00+00:00"><meta property="article:modified_time" content="2021-11-11T07:20:26+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="git"><meta name=twitter:description content="git简易指导, 个人使用心得"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/git/><link rel=prev href=https://elisp.cc/posts/gdb/><link rel=next href=https://elisp.cc/posts/c++/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"git","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/git\/"},"genre":"posts","keywords":"git","wordcount":975,"url":"https:\/\/elisp.cc\/posts\/git\/","datePublished":"2021-08-28T15:12:00+00:00","dateModified":"2021-11-11T07:20:26+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/org-info/emacs.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>所有文章</a><a class=menu-item href=/categories/>分类</a><a class=menu-item href=/tags/>标签</a><a class=menu-item href=/org-info/emacs.html>Emacs</a><a class=menu-item href=/about>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">git</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/gnu/><i class="far fa-folder fa-fw"></i>gnu</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 975 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#git使用流程>git使用流程</a></li><li><a href=#git原理>git原理</a></li><li><a href=#git特性>git特性</a><ul><li><a href=#tag>tag</a></li></ul></li><li><a href=#git高级特性>git高级特性</a><ul><li><a href=#git-hooks>git hooks</a></li><li><a href=#删除大文件>删除大文件</a></li></ul></li><li><a href=#git-lfs>git lfs</a><ul><li><a href=#安装lfs>安装lfs</a></li><li><a href=#初始化>初始化</a></li><li><a href=#使用>使用</a></li></ul></li><li><a href=#git-submodule>git submodule</a><ul><li><a href=#拉取子模块>拉取子模块</a></li></ul></li><li><a href=#f-and-q>F&Q</a></li></ul></nav></div></div><div class=content id=content><p>git简易指导, 个人使用心得</p><h2 id=git使用流程>git使用流程</h2><h2 id=git原理>git原理</h2><h2 id=git特性>git特性</h2><h3 id=tag>tag</h3><ol><li><p>获取最近的tag</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git describe --abbrev=0 --tags
+</code></pre></td></tr></table></div></div></li><li><p>查看2个tag(或HEAD, 或branch)之间的距离, A与B之间的距离(或B与A之间的距离)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>如果未branch_name, 实际为branch上的HEAD节点
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git log --pretty=oneline tagA...tagB
+</code></pre></td></tr></table></div></div><p>查看从A到B的距离, 而不是从B到A的距离
+If you just wanted commits reachable from tagB but not tagA:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git log --pretty=oneline tagA..tagB
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git log --pretty=oneline tagA..tagB
 #或者
 git log --pretty=oneline ^tagA tagB
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>简化SHA信息 &ndash;abbrev-commit</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div></li><li><p>简化SHA信息 &ndash;abbrev-commit</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text># 一般--pretty=oneline 后面都会加 --abbrev-commit
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># 一般--pretty=oneline 后面都会加 --abbrev-commit
 git log --pretty=oneline --abbrev-commit
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h2 id=git高级特性>git高级特性</h2>
-<h3 id=git-hooks>git hooks</h3>
-<p><a href=https://blog.csdn.net/jessise%5Fzhan/article/details/80131618 target=_blank rel="noopener noreffer">参考文档</a></p>
-<h3 id=删除大文件>删除大文件</h3>
-<ol>
-<li>
-<p>寻找大文件</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git rev-list --objects --all | grep &#34;$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk &#39;{print$1}&#39;)&#34;
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>删除大文件</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git filter-branch -f --prune-empty --index-filter &#39;git rm -rf --cached --ignore-unmatch your-file-name&#39; --tag-name-filter cat -- --all
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>删除之后</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git gc --prune=now
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h2 id=git-lfs>git lfs</h2>
-<p>把大文件排除在git仓库之外, git仓库中只有一个指针指向该大文件</p>
-<h3 id=安装lfs>安装lfs</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div></li></ol><h2 id=git高级特性>git高级特性</h2><h3 id=git-hooks>git hooks</h3><p><a href=https://blog.csdn.net/jessise%5Fzhan/article/details/80131618 target=_blank rel="noopener noreffer">参考文档</a></p><h3 id=删除大文件>删除大文件</h3><ol><li><p>寻找大文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git rev-list --objects --all | grep &#34;$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk &#39;{print$1}&#39;)&#34;
+</code></pre></td></tr></table></div></div></li><li><p>删除大文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git filter-branch -f --prune-empty --index-filter &#39;git rm -rf --cached --ignore-unmatch your-file-name&#39; --tag-name-filter cat -- --all
+</code></pre></td></tr></table></div></div></li><li><p>删除之后</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git gc --prune=now
+</code></pre></td></tr></table></div></div></li></ol><h2 id=git-lfs>git lfs</h2><p>把大文件排除在git仓库之外, git仓库中只有一个指针指向该大文件</p><h3 id=安装lfs>安装lfs</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash &amp;&amp;
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash &amp;&amp;
 sudo apt-get install git-lfs &amp;&amp;
 git lfs install
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=初始化>初始化</h3>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git lfs install
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=使用>使用</h3>
-<ol>
-<li>
-<p>过滤大文件</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git lfs track file_path
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>过滤之后, 会生成.gitattributes</p>
-</li>
-<li>
-<p>提交到远端
+</code></pre></td></tr></table></div></div><h3 id=初始化>初始化</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git lfs install
+</code></pre></td></tr></table></div></div><h3 id=使用>使用</h3><ol><li><p>过滤大文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git lfs track file_path
+</code></pre></td></tr></table></div></div></li><li><p>过滤之后, 会生成.gitattributes</p></li><li><p>提交到远端
 git push &ndash; 提交普通文件
-git lfs push &ndash; 提交lfs文件</p>
-</li>
-<li>
-<p>下载大文件</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git lfs clone url
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h2 id=git-submodule>git submodule</h2>
-<p>参考文档 <a href=https://www.cnblogs.com/nicksheng/p/6201711.html target=_blank rel="noopener noreffer">https://www.cnblogs.com/nicksheng/p/6201711.html</a></p>
-<p>当项目越来越庞大之后，不可避免的要拆分成多个子模块，
+git lfs push &ndash; 提交lfs文件</p></li><li><p>下载大文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git lfs clone url
+</code></pre></td></tr></table></div></div></li></ol><h2 id=git-submodule>git submodule</h2><p>参考文档 <a href=https://www.cnblogs.com/nicksheng/p/6201711.html>https://www.cnblogs.com/nicksheng/p/6201711.html</a></p><p>当项目越来越庞大之后，不可避免的要拆分成多个子模块，
 我们希望各个子模块有独立的版本管理，并且由专门的人去维护，这时候我们就要用到git的submodule功能
-submodule 管理的不是分支, 而是一个commit</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+submodule 管理的不是分支, 而是一个commit</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -298,9 +52,7 @@ submodule 管理的不是分支, 而是一个commit</p>
 </span><span class=lnt> 8
 </span><span class=lnt> 9
 </span><span class=lnt>10
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>#递归的方式克隆整个项目
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>#递归的方式克隆整个项目
 git clone &lt;repository&gt; --recursive
 #添加子模块
 git submodule add --branch branch_name &lt;repository&gt; &lt;path&gt;
@@ -310,146 +62,31 @@ git submodule init
 git submodule update --remote --init
 # 拉取所有子模块
 git submodule foreach git pull
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=拉取子模块>拉取子模块</h3>
-<ul>
-<li>方法1
-<ol>
-<li>
-<p>先clone父项目</p>
-</li>
-<li>
-<p>更新子模块</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git submodule update --init
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-</li>
-<li>方法2
-<ol>
-<li>
-<p>clone 父项目时 加 &ndash;recursive</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git clone url path --recursive
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-</li>
-</ul>
-<h2 id=f-and-q>F&Q</h2>
-<ol>
-<li>
-<p>问: 命令行下的git status如何显示中文</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>     答：git config --global core.quotepath false
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>问：在命令行下(gnu-bash)中git不能补全git的命令</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><h3 id=拉取子模块>拉取子模块</h3><ul><li>方法1<ol><li><p>先clone父项目</p></li><li><p>更新子模块</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git submodule update --init
+</code></pre></td></tr></table></div></div></li></ol></li><li>方法2<ol><li><p>clone 父项目时 加 &ndash;recursive</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git clone url path --recursive
+</code></pre></td></tr></table></div></div></li></ol></li></ul><h2 id=f-and-q>F&Q</h2><ol><li><p>问: 命令行下的git status如何显示中文</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>     答：git config --global core.quotepath false
+</code></pre></td></tr></table></div></div></li><li><p>问：在命令行下(gnu-bash)中git不能补全git的命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>1) 首先获得源码 git clone git://git.kernel.org/pub/scm/git/git.git
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>1) 首先获得源码 git clone git://git.kernel.org/pub/scm/git/git.git
 1) 从源码中拷贝git-completion.bash到用户主目录下. git-completion.bash
    cp git/contrib/completion/git-completion.bash ~/.git-completion.bash
 2) 在 .bashrc 中加入 source ~/.git-completion.bash
 3) 在shell下执行 . ~/.bashrc
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>问: 如何取消对文件的跟踪</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div></li><li><p>问: 如何取消对文件的跟踪</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>答: 分情况而定
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>答: 分情况而定
 1) 对于从没有追踪过的文件, 只需要设置.gitignore即可
 2) 对于已经追踪过的文件, 需要git rm --cached (-r) file 然后再加入到.gitignoe中即可
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>git对大小写不敏感问题, 可以通过下面命令修改</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git config core.ignorecase false
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>修改git默认的编辑器</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>git config --global core.editor &#34;&#39;D:/notepad++/notepad++.exe&#39; -multiInst -notabbar -nosession -noPlugin&#34;
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>更新于 2021-10-18</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
-<span></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/git/>git</a></section>
-<section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/posts/gdb/ class=prev rel=prev title=gdb><i class="fas fa-angle-left fa-fw"></i>gdb</a>
-<a href=/posts/c++/ class=next rel=next title="C && C++ 常见库">C && C++ 常见库<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-</article></div>
-</main><footer class=footer>
-<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+</code></pre></td></tr></table></div></div></li><li><p>git对大小写不敏感问题, 可以通过下面命令修改</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git config core.ignorecase false
+</code></pre></td></tr></table></div></div></li><li><p>修改git默认的编辑器</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>git config --global core.editor &#34;&#39;D:/notepad++/notepad++.exe&#39; -multiInst -notabbar -nosession -noPlugin&#34;
+</code></pre></td></tr></table></div></div></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-11</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/git/>git</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/gdb/ class=prev rel=prev title=gdb><i class="fas fa-angle-left fa-fw"></i>gdb</a>
+<a href=/posts/c++/ class=next rel=next title="C && C++ 常见库">C && C++ 常见库<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":100,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

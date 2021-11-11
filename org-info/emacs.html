@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-18 Mon 21:18 -->
+<!-- 2021-11-11 Thu 07:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs</title>
@@ -188,7 +188,7 @@
  * @licstart  The following is the entire license notice for the
  *  JavaScript code in https://orgmode.org/org-info.js.
  *
- * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ * Copyright (C) 2012-2019 Free Software Foundation, Inc.
  *
  *
  * The JavaScript code in this tag is free software: you can
@@ -217,7 +217,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -256,7 +256,7 @@ org_html_manager.setup();  // activate after the parameters are set
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -309,32 +309,32 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb4669a1">1. emacs基础操作</a>
+<li><a href="#org8f1cbe1">1. emacs基础操作</a>
 <ul>
-<li><a href="#org55d0cdd">1.1. Helm</a></li>
-<li><a href="#org16c7b48">1.2. org mode</a></li>
-<li><a href="#org833316a">1.3. eshell</a></li>
-<li><a href="#orgf7bb962">1.4. 画图</a></li>
-<li><a href="#orgf75b57e">1.5. 快捷键</a></li>
-<li><a href="#org0f61693">1.6. elisp</a></li>
+<li><a href="#org48c1432">1.1. Helm</a></li>
+<li><a href="#orgc7d9087">1.2. org mode</a></li>
+<li><a href="#org5c13a26">1.3. eshell</a></li>
+<li><a href="#org0393c31">1.4. 画图</a></li>
+<li><a href="#org0773aea">1.5. 快捷键</a></li>
+<li><a href="#org0f8678a">1.6. elisp</a></li>
 </ul>
 </li>
-<li><a href="#org381465a">2. emacs打造IDE</a>
+<li><a href="#orgbac7515">2. emacs打造IDE</a>
 <ul>
-<li><a href="#orgf85dc16">2.1. 说明</a></li>
-<li><a href="#org672381b">2.2. 合格的IDE功能</a></li>
-<li><a href="#orgfc5b8c0">2.3. 编辑器</a></li>
-<li><a href="#org54ceb6b">2.4. 编译器</a></li>
-<li><a href="#org3365763">2.5. 调试器</a></li>
+<li><a href="#org6442d4d">2.1. 说明</a></li>
+<li><a href="#org9c5b964">2.2. 合格的IDE功能</a></li>
+<li><a href="#orged69494">2.3. 编辑器</a></li>
+<li><a href="#orgaef175f">2.4. 编译器</a></li>
+<li><a href="#org62b66fd">2.5. 调试器</a></li>
 </ul>
 </li>
-<li><a href="#org1bc1a8c">3. emacs奇淫技巧</a>
+<li><a href="#org1c245fd">3. emacs奇淫技巧</a>
 <ul>
-<li><a href="#org9be807e">3.1. figlet</a>
+<li><a href="#org031a5c0">3.1. figlet</a>
 <ul>
-<li><a href="#org0d6c655">3.1.1. 安装</a></li>
-<li><a href="#org65ca0f1">3.1.2. 配置</a></li>
-<li><a href="#orgedc08e6">3.1.3. 使用</a></li>
+<li><a href="#orgf6f12e1">3.1.1. 安装</a></li>
+<li><a href="#org6d98da6">3.1.2. 配置</a></li>
+<li><a href="#org0abfa88">3.1.3. 使用</a></li>
 </ul>
 </li>
 </ul>
@@ -343,12 +343,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgb4669a1" class="outline-2">
-<h2 id="orgb4669a1"><span class="section-number-2">1</span> emacs基础操作</h2>
+<div id="outline-container-org8f1cbe1" class="outline-2">
+<h2 id="org8f1cbe1"><span class="section-number-2">1</span> emacs基础操作</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org55d0cdd" class="outline-3">
-<h3 id="org55d0cdd"><span class="section-number-3">1.1</span> Helm</h3>
+<div id="outline-container-org48c1432" class="outline-3">
+<h3 id="org48c1432"><span class="section-number-3">1.1</span> Helm</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 <a href="emacs_com/emacs_helm-mode.html">Helm</a>改善了用户"查找"时候的体验;
@@ -360,8 +360,8 @@ helm与传统方式 对比:
 </ul>
 </div>
 </div>
-<div id="outline-container-org16c7b48" class="outline-3">
-<h3 id="org16c7b48"><span class="section-number-3">1.2</span> org mode</h3>
+<div id="outline-container-orgc7d9087" class="outline-3">
+<h3 id="orgc7d9087"><span class="section-number-3">1.2</span> org mode</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 <a href="emacs_com/emacs_org-mode.html">org-mode</a>一直被称为神器, 据传很多人为了它转到了emacs.
@@ -369,8 +369,8 @@ helm与传统方式 对比:
 </div>
 </div>
 
-<div id="outline-container-org833316a" class="outline-3">
-<h3 id="org833316a"><span class="section-number-3">1.3</span> eshell</h3>
+<div id="outline-container-org5c13a26" class="outline-3">
+<h3 id="org5c13a26"><span class="section-number-3">1.3</span> eshell</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <a href="emacs_com/emacs_eshell.html">eshell</a>是emacs下非常好用shell;
@@ -387,16 +387,16 @@ cd /ssh:clay@192.168.0.97:~
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf7bb962" class="outline-3">
-<h3 id="orgf7bb962"><span class="section-number-3">1.4</span> 画图</h3>
+<div id="outline-container-org0393c31" class="outline-3">
+<h3 id="org0393c31"><span class="section-number-3">1.4</span> 画图</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 emacs支持 <a href="emacs_com/emacs_graphviz-mode.html">ASCII图形 和 dot图形等</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf75b57e" class="outline-3">
-<h3 id="orgf75b57e"><span class="section-number-3">1.5</span> 快捷键</h3>
+<div id="outline-container-org0773aea" class="outline-3">
+<h3 id="org0773aea"><span class="section-number-3">1.5</span> 快捷键</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 <a href="emacs_com/emacs_shortkey.html">emacs按键</a>与vim按键 个人理解:
@@ -407,8 +407,8 @@ emacs支持 <a href="emacs_com/emacs_graphviz-mode.html">ASCII图形 和 dot图�
 </ul>
 </div>
 </div>
-<div id="outline-container-org0f61693" class="outline-3">
-<h3 id="org0f61693"><span class="section-number-3">1.6</span> elisp</h3>
+<div id="outline-container-org0f8678a" class="outline-3">
+<h3 id="org0f8678a"><span class="section-number-3">1.6</span> elisp</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 <a href="emacs_com/emacs_elisp.html">elisp</a> 是emacs下的lisp
@@ -417,20 +417,20 @@ emacs支持 <a href="emacs_com/emacs_graphviz-mode.html">ASCII图形 和 dot图�
 </div>
 </div>
 
-<div id="outline-container-org381465a" class="outline-2">
-<h2 id="org381465a"><span class="section-number-2">2</span> emacs打造IDE</h2>
+<div id="outline-container-orgbac7515" class="outline-2">
+<h2 id="orgbac7515"><span class="section-number-2">2</span> emacs打造IDE</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf85dc16" class="outline-3">
-<h3 id="orgf85dc16"><span class="section-number-3">2.1</span> 说明</h3>
+<div id="outline-container-org6442d4d" class="outline-3">
+<h3 id="org6442d4d"><span class="section-number-3">2.1</span> 说明</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 本文很大程度借鉴<a href="http://tuhdo.github.io/c-ide.html">参考文档(强烈建议阅读)</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org672381b" class="outline-3">
-<h3 id="org672381b"><span class="section-number-3">2.2</span> 合格的IDE功能</h3>
+<div id="outline-container-org9c5b964" class="outline-3">
+<h3 id="org9c5b964"><span class="section-number-3">2.2</span> 合格的IDE功能</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>编辑
@@ -442,8 +442,8 @@ emacs支持 <a href="emacs_com/emacs_graphviz-mode.html">ASCII图形 和 dot图�
 </div>
 </div>
 
-<div id="outline-container-orgfc5b8c0" class="outline-3">
-<h3 id="orgfc5b8c0"><span class="section-number-3">2.3</span> 编辑器</h3>
+<div id="outline-container-orged69494" class="outline-3">
+<h3 id="orged69494"><span class="section-number-3">2.3</span> 编辑器</h3>
 <div class="outline-text-3" id="text-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -563,8 +563,8 @@ emacs支持 <a href="emacs_com/emacs_graphviz-mode.html">ASCII图形 和 dot图�
 </div>
 </div>
 
-<div id="outline-container-org54ceb6b" class="outline-3">
-<h3 id="org54ceb6b"><span class="section-number-3">2.4</span> 编译器</h3>
+<div id="outline-container-orgaef175f" class="outline-3">
+<h3 id="orgaef175f"><span class="section-number-3">2.4</span> 编译器</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 compilation-mode
@@ -576,8 +576,8 @@ front-ends, 依赖g++
 </div>
 </div>
 
-<div id="outline-container-org3365763" class="outline-3">
-<h3 id="org3365763"><span class="section-number-3">2.5</span> 调试器</h3>
+<div id="outline-container-org62b66fd" class="outline-3">
+<h3 id="org62b66fd"><span class="section-number-3">2.5</span> 调试器</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 gud
@@ -586,19 +586,19 @@ gud
 </div>
 </div>
 
-<div id="outline-container-org1bc1a8c" class="outline-2">
-<h2 id="org1bc1a8c"><span class="section-number-2">3</span> emacs奇淫技巧</h2>
+<div id="outline-container-org1c245fd" class="outline-2">
+<h2 id="org1c245fd"><span class="section-number-2">3</span> emacs奇淫技巧</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org9be807e" class="outline-3">
-<h3 id="org9be807e"><span class="section-number-3">3.1</span> figlet</h3>
+<div id="outline-container-org031a5c0" class="outline-3">
+<h3 id="org031a5c0"><span class="section-number-3">3.1</span> figlet</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 把字符艺术化
 </p>
 </div>
-<div id="outline-container-org0d6c655" class="outline-4">
-<h4 id="org0d6c655"><span class="section-number-4">3.1.1</span> 安装</h4>
+<div id="outline-container-orgf6f12e1" class="outline-4">
+<h4 id="orgf6f12e1"><span class="section-number-4">3.1.1</span> 安装</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <ol class="org-ol">
 <li><p>
@@ -616,8 +616,8 @@ package-list-package RET figlet RET
 </ol>
 </div>
 </div>
-<div id="outline-container-org65ca0f1" class="outline-4">
-<h4 id="org65ca0f1"><span class="section-number-4">3.1.2</span> 配置</h4>
+<div id="outline-container-org6d98da6" class="outline-4">
+<h4 id="org6d98da6"><span class="section-number-4">3.1.2</span> 配置</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <ol class="org-ol">
 <li><p>
@@ -640,8 +640,8 @@ setq figlet-default-font "banner3-D"
 </div>
 </div>
 
-<div id="outline-container-orgedc08e6" class="outline-4">
-<h4 id="orgedc08e6"><span class="section-number-4">3.1.3</span> 使用</h4>
+<div id="outline-container-org0abfa88" class="outline-4">
+<h4 id="org0abfa88"><span class="section-number-4">3.1.3</span> 使用</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <pre class="example">
 M-x figlet RET &lt;string&gt; RET
@@ -663,7 +663,7 @@ M-x figlet RET &lt;string&gt; RET
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2021-10-18 Mon 21:18</p>
+<p class="date">Created: 2021-11-11 Thu 07:20</p>
 <p class="validation"></p>
 </div>
 </body>

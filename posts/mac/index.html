@@ -1,333 +1,40 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>mac实用技巧 - 飘</title><meta name=Description content><meta property="og:title" content="mac实用技巧">
-<meta property="og:description" content="本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://elisp.cc/posts/mac/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-08-28T15:19:00+08:00">
-<meta property="article:modified_time" content="2021-10-18T21:19:00+08:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="mac实用技巧">
-<meta name=twitter:description content="本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看.">
-<meta name=application-name content="飘">
-<meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/mac/><link rel=prev href=https://elisp.cc/posts/ssh/><link rel=next href=https://elisp.cc/posts/docker/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"mac实用技巧","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/mac\/"},"genre":"posts","keywords":"mac","wordcount":3618,"url":"https:\/\/elisp.cc\/posts\/mac\/","datePublished":"2021-08-28T15:19:00+08:00","dateModified":"2021-10-18T21:19:00+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
-<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/org-info/emacs.html> Emacs </a><a class=menu-item href=/about> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/org-info/emacs.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">mac实用技巧</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/system/><i class="far fa-folder fa-fw"></i>system</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3618 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#mac系统怎么样>mac系统怎么样</a></li>
-<li><a href=#mac初步整理>mac初步整理</a>
-<ul>
-<li><a href=#界面的整理>界面的整理</a></li>
-<li><a href=#状态栏调整>状态栏调整</a></li>
-<li><a href=#输入法的整理>输入法的整理</a></li>
-<li><a href=#推荐iterm代替>Terminal显示颜色设置 推荐iTerm代替</a></li>
-<li><a href=#强烈建议不删除>删除不需要的系统软件 强烈建议不删除</a></li>
-</ul>
-</li>
-<li><a href=#mac好用的软件>mac好用的软件</a>
-<ul>
-<li><a href=#alfred>Alfred</a></li>
-<li><a href=#karabiner>Karabiner</a></li>
-<li><a href=#>1password</a></li>
-<li><a href=#>Manico</a></li>
-<li><a href=#>paste</a></li>
-<li><a href=#homebrew>HomeBrew</a></li>
-<li><a href=#iterm>iterm</a></li>
-<li><a href=#annotate>Annotate</a></li>
-<li><a href=#iina>IINA</a></li>
-</ul>
-</li>
-<li><a href=#mac实用技巧>mac实用技巧</a>
-<ul>
-<li><a href=#crontab>crontab</a></li>
-<li><a href=#dock上隐藏运行的程序>Dock上隐藏运行的程序</a></li>
-<li><a href=#tmux-and-and-screen>tmux && screen</a></li>
-<li><a href=#and-and-xargs>| && xargs</a></li>
-<li><a href=#mac卡顿处理>mac卡顿处理</a></li>
-<li><a href=#安装gcc--g-plus-plus>安装gcc (g++)</a></li>
-<li><a href=#实用快捷键>实用快捷键</a></li>
-<li><a href=#无用程序关闭>无用程序关闭</a></li>
-<li><a href=#ssh远程连接mac-os-中文乱码>ssh远程连接mac os, 中文乱码</a></li>
-<li><a href=#ffmpeg>ffmpeg</a></li>
-</ul>
-</li>
-</ul>
-</nav></div>
-</div><div class=content id=content><p>本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看.</p>
-<h2 id=mac系统怎么样>mac系统怎么样</h2>
-<p>之前是为了学习linux命令行, 后来是开发环境使用到了xcode.
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>mac实用技巧 - 飘</title><meta name=Description content><meta property="og:title" content="mac实用技巧"><meta property="og:description" content="本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看."><meta property="og:type" content="article"><meta property="og:url" content="https://elisp.cc/posts/mac/"><meta property="article:published_time" content="2021-08-28T15:19:00+00:00"><meta property="article:modified_time" content="2021-11-11T07:20:28+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="mac实用技巧"><meta name=twitter:description content="本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看."><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/mac/><link rel=prev href=https://elisp.cc/posts/ssh/><link rel=next href=https://elisp.cc/posts/docker/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"mac实用技巧","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/mac\/"},"genre":"posts","keywords":"mac","wordcount":2445,"url":"https:\/\/elisp.cc\/posts\/mac\/","datePublished":"2021-08-28T15:19:00+00:00","dateModified":"2021-11-11T07:20:28+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/org-info/emacs.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>所有文章</a><a class=menu-item href=/categories/>分类</a><a class=menu-item href=/tags/>标签</a><a class=menu-item href=/org-info/emacs.html>Emacs</a><a class=menu-item href=/about>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">mac实用技巧</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/system/><i class="far fa-folder fa-fw"></i>system</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2445 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#mac系统怎么样>mac系统怎么样</a></li><li><a href=#mac初步整理>mac初步整理</a><ul><li><a href=#界面的整理>界面的整理</a></li><li><a href=#状态栏调整>状态栏调整</a></li><li><a href=#输入法的整理>输入法的整理</a></li><li><a href=#推荐iterm代替>Terminal显示颜色设置 推荐iTerm代替</a></li><li><a href=#强烈建议不删除>删除不需要的系统软件 强烈建议不删除</a></li></ul></li><li><a href=#mac好用的软件>mac好用的软件</a><ul><li><a href=#alfred>Alfred</a></li><li><a href=#karabiner>Karabiner</a></li><li><a href=#>1password</a></li><li><a href=#>Manico</a></li><li><a href=#>paste</a></li><li><a href=#homebrew>HomeBrew</a></li><li><a href=#iterm>iterm</a></li><li><a href=#annotate>Annotate</a></li><li><a href=#iina>IINA</a></li></ul></li><li><a href=#mac实用技巧>mac实用技巧</a><ul><li><a href=#dock上隐藏运行的程序>Dock上隐藏运行的程序</a></li><li><a href=#mac卡顿处理>mac卡顿处理</a></li><li><a href=#安装gcc--g-plus-plus>安装gcc (g++)</a></li><li><a href=#实用快捷键>实用快捷键</a></li><li><a href=#无用程序关闭>无用程序关闭</a></li><li><a href=#ssh远程连接mac-os-中文乱码>ssh远程连接mac os, 中文乱码</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>本文技巧大多来自网上, 只是笔者整理, 方便以后自己和别人查看.</p><h2 id=mac系统怎么样>mac系统怎么样</h2><p>之前是为了学习linux命令行, 后来是开发环境使用到了xcode.
 mac是一款很稳定的系统, 但是稳定的代价是, 对于大部分游戏都不支持. 所以如果有游戏需求, 非常不建议使用mac.
-17年开始使用mac, 缺点很明显, 对游戏的支持差. 优点也不少:</p>
-<ol>
-<li>稳定</li>
-<li>广告少! 广告少! 广告少!</li>
-<li>命令行学习使用方便</li>
-<li>原生软件xcode</li>
-</ol>
-<h2 id=mac初步整理>mac初步整理</h2>
-<p>笔者有严重的强迫症, 新上手的东西必须整理一遍才去使用.
-习惯性由大到小, 由外而内的整理方式.</p>
-<h3 id=界面的整理>界面的整理</h3>
-<ol>
-<li>
-<p>launchpad图标大小整理</p>
-<ol>
-<li>
-<p>每一列图标数量</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock springboard-rows -int 7
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>每一行图标数量</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock springboard-columns -int 7
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>重启Launchpad</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-</code></pre></td></tr></table>
-</div>
-</div><p>慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!</p>
-</li>
-</ol>
-</li>
-<li>
-<p>添加空白到Dock栏
-空白能使Dock中的程序更好的归类</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock persistent-apps -array-add &#39;{&#34;tile-type&#34;=&#34;spacer-tile&#34;;}&#39;; killall Dock
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h3 id=状态栏调整>状态栏调整</h3>
-<p>按住Command之后, 鼠标可以拖动状态栏图标</p>
-<h3 id=输入法的整理>输入法的整理</h3>
-<p>习惯了搜狗输入法, 并且不喜欢多余的输入法. 因此安装完搜狗输入法for mac之后, 删除mac自带输入法. 具体步骤:</p>
-<ol>
-<li>
-<p>关闭 mac 系统的 SIP</p>
-<ol>
-<li>
-<p>重启系统，按住 Command + R 进入恢复模式</p>
-</li>
-<li>
-<p>点击顶部菜单栏 实用工具 中的 终端</p>
-</li>
-<li>
-<p>输入以下命令来禁用 SIP 保护机制</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>csrutil disable
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>执行后输出以下信息表示禁用成功</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>Successfully disabled System Integrity Protection. Please restart the machine for the changes to take effect.
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>重启系统</p>
-</li>
-<li>
-<p>如果重新打开 SIP 的方法同上，只是终端中输入的命令改为以下命令</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>csrutil enable
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-</li>
-<li>
-<p>先将输入法切换为系统自带的 ABC 输入法，然后打开终端输入以下命令</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>sudo open ~/Library/Preferences/com.apple.HIToolbox.plist
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>接着输入密码即可打开 com.apple.HIToolbox.plist 文件。（打开 .plist 文件需要安装有 Xcode 或者 PlistEdit Pro 也行）</p>
-</li>
-<li>
-<p>依次点开 Root - AppleEnabledInputSources ，会看到一列 item ，找到其中 KeyboardLayout Name 为 ABC 的那一列，将整列 item 删掉，然后 command + S 保存。</p>
-</li>
-<li>
-<p>接着重启电脑，打开键盘设置，就可以看到系统自带的 ABC 输入法已经被删掉了</p>
-</li>
-<li>
-<p>如果又想用回自带输入法，只要在 偏好设置 - 键盘 - 输入法 里，按 + 号，把自带的输入法重新添加就可以了</p>
-</li>
-</ol>
-<h3 id=推荐iterm代替><del>Terminal显示颜色设置</del> 推荐iTerm代替</h3>
-<ol>
-<li>
-<p>ls设置为ls -G的别名</p>
-<p>在~/.bash_profile中加入下面的内容:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>alias ls=&#34;ks -G&#34;
-</code></pre></td></tr></table>
-</div>
-</div><p>并使脚本生效:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>source ~/.bash_profile
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>自定义颜色</p>
-<p>在~/.bash_profile中加入下面的内容:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+17年开始使用mac, 缺点很明显, 对游戏的支持差. 优点也不少:</p><ol><li>稳定</li><li>广告少! 广告少! 广告少!</li><li>命令行学习使用方便</li><li>原生软件xcode</li></ol><h2 id=mac初步整理>mac初步整理</h2><p>笔者有严重的强迫症, 新上手的东西必须整理一遍才去使用.
+习惯性由大到小, 由外而内的整理方式.</p><h3 id=界面的整理>界面的整理</h3><ol><li><p>launchpad图标大小整理</p><ol><li><p>每一列图标数量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock springboard-rows -int 7
+</code></pre></td></tr></table></div></div></li><li><p>每一行图标数量</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock springboard-columns -int 7
+</code></pre></td></tr></table></div></div></li><li><p>重启Launchpad</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+</code></pre></td></tr></table></div></div><p>慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!</p></li></ol></li><li><p>添加空白到Dock栏
+空白能使Dock中的程序更好的归类</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>defaults write com.apple.dock persistent-apps -array-add &#39;{&#34;tile-type&#34;=&#34;spacer-tile&#34;;}&#39;; killall Dock
+</code></pre></td></tr></table></div></div></li></ol><h3 id=状态栏调整>状态栏调整</h3><p>按住Command之后, 鼠标可以拖动状态栏图标</p><h3 id=输入法的整理>输入法的整理</h3><p>习惯了搜狗输入法, 并且不喜欢多余的输入法. 因此安装完搜狗输入法for mac之后, 删除mac自带输入法. 具体步骤:</p><ol><li><p>关闭 mac 系统的 SIP</p><ol><li><p>重启系统，按住 Command + R 进入恢复模式</p></li><li><p>点击顶部菜单栏 实用工具 中的 终端</p></li><li><p>输入以下命令来禁用 SIP 保护机制</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>csrutil disable
+</code></pre></td></tr></table></div></div></li><li><p>执行后输出以下信息表示禁用成功</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>Successfully disabled System Integrity Protection. Please restart the machine for the changes to take effect.
+</code></pre></td></tr></table></div></div></li><li><p>重启系统</p></li><li><p>如果重新打开 SIP 的方法同上，只是终端中输入的命令改为以下命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>csrutil enable
+</code></pre></td></tr></table></div></div></li></ol></li><li><p>先将输入法切换为系统自带的 ABC 输入法，然后打开终端输入以下命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>sudo open ~/Library/Preferences/com.apple.HIToolbox.plist
+</code></pre></td></tr></table></div></div></li><li><p>接着输入密码即可打开 com.apple.HIToolbox.plist 文件。（打开 .plist 文件需要安装有 Xcode 或者 PlistEdit Pro 也行）</p></li><li><p>依次点开 Root - AppleEnabledInputSources ，会看到一列 item ，找到其中 KeyboardLayout Name 为 ABC 的那一列，将整列 item 删掉，然后 command + S 保存。</p></li><li><p>接着重启电脑，打开键盘设置，就可以看到系统自带的 ABC 输入法已经被删掉了</p></li><li><p>如果又想用回自带输入法，只要在 偏好设置 - 键盘 - 输入法 里，按 + 号，把自带的输入法重新添加就可以了</p></li></ol><h3 id=推荐iterm代替><del>Terminal显示颜色设置</del> 推荐iTerm代替</h3><ol><li><p>ls设置为ls -G的别名</p><p>在~/.bash_profile中加入下面的内容:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>alias ls=&#34;ks -G&#34;
+</code></pre></td></tr></table></div></div><p>并使脚本生效:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>source ~/.bash_profile
+</code></pre></td></tr></table></div></div></li><li><p>自定义颜色</p><p>在~/.bash_profile中加入下面的内容:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>export CLICOLOR=1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>export CLICOLOR=1
 export LSCOLORS=gxfxaxdxcxegedabagacad
-</code></pre></td></tr></table>
-</div>
-</div><p>并使脚本生效:</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>source ~/.bash_profile
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>颜色配置说明
-LSCOLORS中一共11组颜色设置，按照先后顺序，分别对以下的文件类型进行设置：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>并使脚本生效:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>source ~/.bash_profile
+</code></pre></td></tr></table></div></div></li><li><p>颜色配置说明
+LSCOLORS中一共11组颜色设置，按照先后顺序，分别对以下的文件类型进行设置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -338,9 +45,7 @@ LSCOLORS中一共11组颜色设置，按照先后顺序，分别对以下的文�
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>directory
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>directory
 symbolic link
 socket
 pipe
@@ -351,12 +56,7 @@ executable with setuid bit set
 executable with setgid bit set
 directory writable to others, with sticky bit
 directory writable to others, without sticky bit
-</code></pre></td></tr></table>
-</div>
-</div><p>LSCOLORS中，字母代表的颜色如下：</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</code></pre></td></tr></table></div></div><p>LSCOLORS中，字母代表的颜色如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -373,9 +73,7 @@ directory writable to others, without sticky bit
 </span><span class=lnt>15
 </span><span class=lnt>16
 </span><span class=lnt>17
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>   　　a 黑色
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>   　　a 黑色
    　　b 红色
    　　c 绿色
    　　d 棕色
@@ -392,370 +90,55 @@ directory writable to others, without sticky bit
    　　G 青色粗体
    　　H 浅灰色粗体
    　　x 系统默认颜色
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h3 id=强烈建议不删除><del>删除不需要的系统软件</del> 强烈建议不删除</h3>
-<h2 id=mac好用的软件>mac好用的软件</h2>
-<h3 id=alfred>Alfred</h3>
-<p><a href=https://www.alfredapp.com target=_blank rel="noopener noreffer">Alfred</a> 是加强版的聚焦搜索, 支持自定义编程, 非常强大</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div></li></ol><h3 id=强烈建议不删除><del>删除不需要的系统软件</del> 强烈建议不删除</h3><h2 id=mac好用的软件>mac好用的软件</h2><h3 id=alfred>Alfred</h3><p><a href=https://www.alfredapp.com target=_blank rel="noopener noreffer">Alfred</a> 是加强版的聚焦搜索, 支持自定义编程, 非常强大</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>   之前先买了Manico, paster
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>   之前先买了Manico, paster
    发现这些功能Alfred都可以更好的完成...
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=karabiner>Karabiner</h3>
-<p><a href=https://pqrs.org/index.html target=_blank rel="noopener noreffer">Karabiner</a> 是一款好用的键位映射软件</p>
-<h3><del>1password</del></h3>
-<p><del><a href=https://1password.com target=_blank rel="noopener noreffer">1password</a> 是非常好用的密码管理软件</del>
-不再推荐使用, 支持不够好, 不如mac自带的好用</p>
-<h3><del>Manico</del></h3>
-<p><del>不打开launchpad情形下, 快速打开需要的app软件</del>
+</code></pre></td></tr></table></div></div><h3 id=karabiner>Karabiner</h3><p><a href=https://pqrs.org/index.html target=_blank rel="noopener noreffer">Karabiner</a> 是一款好用的键位映射软件</p><h3><del>1password</del></h3><p><del><a href=https://1password.com target=_blank rel="noopener noreffer">1password</a> 是非常好用的密码管理软件</del>
+不再推荐使用, 支持不够好, 不如mac自带的好用</p><h3><del>Manico</del></h3><p><del>不打开launchpad情形下, 快速打开需要的app软件</del>
 <del>使用的<a href=https://manico.im target=_blank rel="noopener noreffer">manico</a>, 虽然是收费的, 但是效果确实很不错</del>
-推荐使用Alfred代替</p>
-<h3><del>paste</del></h3>
-<p><del><a href=https://pasteapp.me target=_blank rel="noopener noreffer">paste</a> 非常好用的粘贴复制软件, 记录了之前的复制记录</del>
-推荐使用Alfred代替</p>
-<h3 id=homebrew>HomeBrew</h3>
-<p><a href=https://brew.sh/index%5Fzh-cn target=_blank rel="noopener noreffer">HomeBrew</a> 是一款包管理软件, 类似于ubuntu下的apt</p>
-<h3 id=iterm>iterm</h3>
-<p><a href=https://www.iterm2.com target=_blank rel="noopener noreffer">iterm</a> 是非常好用的终端软件</p>
-<h3 id=annotate>Annotate</h3>
-<p>Annotate (App Store下载) 是非常好用的截屏软件, 同时支持gif</p>
-<h3 id=iina>IINA</h3>
-<p><a href=https://www.iina.io target=_blank rel="noopener noreffer">IINA</a> 是mac下最好用的视频软件</p>
-<h2 id=mac实用技巧>mac实用技巧</h2>
-<h3 id=crontab>crontab</h3>
-<p>定时任务, 具体见</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>man crontab
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=dock上隐藏运行的程序>Dock上隐藏运行的程序</h3>
-<ol>
-<li>
-<p>进入要隐藏的程序的Contents目录</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>cd App_Path/Contents
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>编辑info.plist文件</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>sudo vim info.plist
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>添加下面的代码</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+推荐使用Alfred代替</p><h3><del>paste</del></h3><p><del><a href=https://pasteapp.me target=_blank rel="noopener noreffer">paste</a> 非常好用的粘贴复制软件, 记录了之前的复制记录</del>
+推荐使用Alfred代替</p><h3 id=homebrew>HomeBrew</h3><p><a href=https://brew.sh/index%5Fzh-cn target=_blank rel="noopener noreffer">HomeBrew</a> 是一款包管理软件, 类似于ubuntu下的apt</p><h3 id=iterm>iterm</h3><p><a href=https://www.iterm2.com target=_blank rel="noopener noreffer">iterm</a> 是非常好用的终端软件</p><ol><li>安装iterm
+iterm支持很多sh, 比如bash, zsh等
+我们这里使用zsh 配置oh-my-zsh</li><li>安装oh-my-zsh
+oh-my-zsh可以让zsh焕然一新</li></ol><h3 id=annotate>Annotate</h3><p>Annotate (App Store下载) 是非常好用的截屏软件, 同时支持gif</p><h3 id=iina>IINA</h3><p><a href=https://www.iina.io target=_blank rel="noopener noreffer">IINA</a> 是mac下最好用的视频软件</p><h2 id=mac实用技巧>mac实用技巧</h2><h3 id=dock上隐藏运行的程序>Dock上隐藏运行的程序</h3><ol><li><p>进入要隐藏的程序的Contents目录</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>cd App_Path/Contents
+</code></pre></td></tr></table></div></div></li><li><p>编辑info.plist文件</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>sudo vim info.plist
+</code></pre></td></tr></table></div></div></li><li><p>添加下面的代码</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>&lt;key&gt;LSUIElement&lt;/key&gt;
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>&lt;key&gt;LSUIElement&lt;/key&gt;
 &lt;true/&gt;
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>上面的方法并不是万能的，有些软件并不能这么设置，设置了会导致打不开，例如teamview，应该还要修改其他设置，但是大多数软件都可以通过此方法进行修改，如果出错了按此方法修改回去就可以了</p>
-</li>
-<li>
-<p>关于teamviewer的隐藏，需要在终端执行下面的命令</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>sudo bash -c &#39;killall TeamViewer_Service; killall TeamViewer; killall TeamViewer_Desktop; perl -i -0pe &#34;s/&lt;\/dict&gt;\n&lt;\/plist&gt;/\t&lt;key&gt;LSUIElement&lt;\/key&gt;\n\t&lt;string&gt;1&lt;\/string&gt;\n&lt;\/dict&gt;\n&lt;\/plist&gt;/g&#34; /Applications/TeamViewer.app/Contents/Info.plist; codesign -f -s - /Applications/TeamViewer.app; launchctl unload /Library/LaunchDaemons/com.teamviewer.teamviewer_service.plist; launchctl load /Library/LaunchDaemons/com.teamviewer.teamviewer_service.plist&#39;
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h3 id=tmux-and-and-screen>tmux && screen</h3>
-<p>为什么使用tmux 和 screen: 远程登录操作时候, 因网络不稳定, 总是掉线, 导致东西无法保存
-讲解它们之前必须要先了解nohup 与 &</p>
-<h4 id=nohup-与-and>nohup 与 &</h4>
-<p>nohup与 &都是后台运行
-nohup会占用标准输出
-&则不会占用标准输出
-它们的作用都是为了防止session关闭后, 程序无法运行</p>
-<p>但每个程序都要加上 nohup前缀 或者 &后缀, 则会特别麻烦, 因此出现了screen与tmux</p>
-<h4 id=screen>screen</h4>
-<p>screen属于GNU计划
-然其操作什么的并不友善, 个人更倾向于tmux</p>
-<p>【基本指令】
-screen | screen -S <name> 创建screen
-screen -d detach screen 只有deatch之后 其他人才能attach
-screen -r reatach screen 链接screen
-screen -ls | screen -list 列出所有的screen</p>
-<p>【快捷键操作】
-screen的一个弊端就是将太多功能放在了快捷键上 而不是放在CMD上
-C-a 为screen指令的前缀
-C-a k kill
-C-a w 列出所有的screen窗口 &ndash; 亲测无效???
-C-a p |C-a n 切换到上一个或下一个窗口 &ndash; 亲测无效??
-C-a z 类似于emacs的C-z 将程序放入后台 可以通过jobs 和fg操作
-通过C-a z可以了解screen的工作原理 &ndash; screen就是新开了一个shell, 在里面有不同的窗口windows
-然后可以在windows间切换, 或者是回到原先的shell中</p>
-<p>【为什么放弃screen】
-虽然查看教程, 发现screen还有很多高级功能, 然而screen的窗口功能太不友好, 导致我经常不知道自己工作
-在哪个窗口下, 而且因为C-a w的无效, 很难有一览全局, 所以最后选择放弃screen, 改投tmux</p>
-<h4 id=tmux>tmux</h4>
-<p><span class=underline>框架</span></p>
-<p>server -> session 01 |
--> session 02 | &ndash;> socket 01(默认socket)
--> session 03 &ndash;> socket 02(通过-L | -S生成的新的socket)
-&mldr;
-&mldr;
-即一个server 多个session, session又属于socket</p>
-<p><span class=underline>基本指令</span>
-tmux
-tmux ls 列出所有的tmux session, 注意没有- &ndash;
-tmux attach attch到上次的tmux session
-tmux attach -t session attch到指定的tmux session
-tmux kill-session -t 关闭session
-tmux kill-server -t 关闭server
-注: 关闭server 将导致tmux关闭, tmux中的程序也会关闭
-如果session退出之前, tmux是挂起状态stopped,那么下次session重新链接后, 将导致tmux关闭
-tmux new -s $sessionName 创建一个新的session, 并指定其名称, 不然就是递增数字</p>
-<p><span class=underline>快捷键操作</span>
-tmux以C-b作为快捷键的前缀
-C-b ? 列出所有的命令
-C-b 数字 | n | p 切换窗口
-C-b C-z 挂起程序
-C-b d deatach类似于screen中的deatch
-deatch之后就可以回到正常的shell, 并使tmux运行在后台</p>
-<p><span class=underline>为什么选择tmux</span>
-友好的界面, 友好的C-b ?帮助提示, 简单的操作</p>
-<p><span class=underline>遗留问题</span></p>
-<ol>
-<li><i class="far fa-square fa-fw"></i> 如果运行 tmux& (&后台运行), 会导致莫名其妙的问题</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何使tmux在后台运行
-使用bg命令无效, 这与进程的状态有关&mldr;有时间再看
-C-b d 使当前session deatch运行在后台</li>
-</ol>
-<h3 id=and-and-xargs>| && xargs</h3>
-<ol>
-<li>管道是实现“将前面的标准输出作为后面的标准输入”</li>
-<li>xargs是实现“将标准输入作为命令的参数”</li>
-</ol>
-<h3 id=mac卡顿处理>mac卡顿处理</h3>
-<ol>
-<li>删除Macintosh HD/系统/资源库/Caches中的文件</li>
-<li>删除Macintosh HD/资源库/Caches中的文件</li>
-<li>如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave</li>
-</ol>
-<h3 id=安装gcc--g-plus-plus>安装gcc (g++)</h3>
-<p>mac上默认的gcc(g++)实际是苹果的Apple LLVM. 不是说这个不好, 而是很多时候gnu的gcc对于c++更标准些(待商榷?).</p>
-<ol>
-<li>
-<p>安装<a href=https://www.macports.org/install.php target=_blank rel="noopener noreffer">port</a></p>
-</li>
-<li>
-<p>搜索gcc</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>port search gcc
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>安装gcc</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>sudo port install gcc8 #这里选了最新的稳定版
-</code></pre></td></tr></table>
-</div>
-</div><p>不要使用brew安装, 不然后面无法使用port指定苹果的gcc版本</p>
-</li>
-<li>
-<p>查看安装的版本</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>port select --list gcc
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>切换版本</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>sudo prot select --set gcc mp-gcc8
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>清空bash缓存</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>hash -r
-</code></pre></td></tr></table>
-</div>
-</div><p>查看gcc版本</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>gcc -v ## 或g++ -v
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h3 id=实用快捷键>实用快捷键</h3>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Command + c</td>
-<td>选中文件</td>
-<td></td>
-</tr>
-<tr>
-<td>Command + v</td>
-<td>粘贴</td>
-<td>Command-c之后才能操作</td>
-</tr>
-<tr>
-<td>Command + option + v</td>
-<td>剪切</td>
-<td>Command-c之后才能操作</td>
-</tr>
-<tr>
-<td>Command + 空格</td>
-<td>聚焦搜索</td>
-<td>非常好用的搜索</td>
-</tr>
-</tbody>
-</table>
-<h3 id=无用程序关闭>无用程序关闭</h3>
-<ol>
-<li>
-<p>聚焦
+</code></pre></td></tr></table></div></div></li><li><p>上面的方法并不是万能的，有些软件并不能这么设置，设置了会导致打不开，例如teamview，应该还要修改其他设置，但是大多数软件都可以通过此方法进行修改，如果出错了按此方法修改回去就可以了</p></li><li><p>关于teamviewer的隐藏，需要在终端执行下面的命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>sudo bash -c &#39;killall TeamViewer_Service; killall TeamViewer; killall TeamViewer_Desktop; perl -i -0pe &#34;s/&lt;\/dict&gt;\n&lt;\/plist&gt;/\t&lt;key&gt;LSUIElement&lt;\/key&gt;\n\t&lt;string&gt;1&lt;\/string&gt;\n&lt;\/dict&gt;\n&lt;\/plist&gt;/g&#34; /Applications/TeamViewer.app/Contents/Info.plist; codesign -f -s - /Applications/TeamViewer.app; launchctl unload /Library/LaunchDaemons/com.teamviewer.teamviewer_service.plist; launchctl load /Library/LaunchDaemons/com.teamviewer.teamviewer_service.plist&#39;
+</code></pre></td></tr></table></div></div></li></ol><h3 id=mac卡顿处理>mac卡顿处理</h3><ol><li>删除Macintosh HD/系统/资源库/Caches中的文件</li><li>删除Macintosh HD/资源库/Caches中的文件</li><li>如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave</li></ol><h3 id=安装gcc--g-plus-plus>安装gcc (g++)</h3><p>mac上默认的gcc(g++)实际是苹果的Apple LLVM. 不是说这个不好, 而是很多时候gnu的gcc对于c++更标准些(待商榷?).</p><ol><li><p>安装<a href=https://www.macports.org/install.php target=_blank rel="noopener noreffer">port</a></p></li><li><p>搜索gcc</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>port search gcc
+</code></pre></td></tr></table></div></div></li><li><p>安装gcc</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>sudo port install gcc8 #这里选了最新的稳定版
+</code></pre></td></tr></table></div></div><p>不要使用brew安装, 不然后面无法使用port指定苹果的gcc版本</p></li><li><p>查看安装的版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>port select --list gcc
+</code></pre></td></tr></table></div></div></li><li><p>切换版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>sudo prot select --set gcc mp-gcc8
+</code></pre></td></tr></table></div></div></li><li><p>清空bash缓存</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>hash -r
+</code></pre></td></tr></table></div></div><p>查看gcc版本</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>gcc -v ## 或g++ -v
+</code></pre></td></tr></table></div></div></li></ol><h3 id=实用快捷键>实用快捷键</h3><table><thead><tr><th>快捷键</th><th>功能说明</th><th>备注</th></tr></thead><tbody><tr><td>Command + c</td><td>选中文件</td><td></td></tr><tr><td>Command + v</td><td>粘贴</td><td>Command-c之后才能操作</td></tr><tr><td>Command + option + v</td><td>剪切</td><td>Command-c之后才能操作</td></tr><tr><td>Command + 空格</td><td>聚焦搜索</td><td>非常好用的搜索</td></tr></tbody></table><h3 id=无用程序关闭>无用程序关闭</h3><ol><li><p>聚焦
 作用: Command+空格的 聚焦搜索
 影响进程: mds、mds_stores、mdworker
-关闭原因: 实际没必要, 追求效率的, 可以关掉</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+关闭原因: 实际没必要, 追求效率的, 可以关掉</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>#关闭
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>#关闭
 sudo mdutil -a -i off
 
 #打开
 sudo mdutil -a -i on
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h3 id=ssh远程连接mac-os-中文乱码>ssh远程连接mac os, 中文乱码</h3>
-<p>这种情况一般是终端和服务器的字符集不匹配，MacOSX下默认的是utf8字符集。输入locale可以查看字符编码设置情况，而我的对应值是空的。因为我在本地和服务器都用zsh替代了bash，而且使用了oh-my-zsh，而默认的.zshrc没有设置为utf-8编码，所以本地和服务器端都要在.zshrc设置，步骤如下，bash对应.bash_profile或.bashrc文件。</p>
-<ol>
-<li>
-<p>在.bash_profile中增加</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div></li></ol><h3 id=ssh远程连接mac-os-中文乱码>ssh远程连接mac os, 中文乱码</h3><p>这种情况一般是终端和服务器的字符集不匹配，MacOSX下默认的是utf8字符集。输入locale可以查看字符编码设置情况，而我的对应值是空的。因为我在本地和服务器都用zsh替代了bash，而且使用了oh-my-zsh，而默认的.zshrc没有设置为utf-8编码，所以本地和服务器端都要在.zshrc设置，步骤如下，bash对应.bash_profile或.bashrc文件。</p><ol><li><p>在.bash_profile中增加</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>export LC_ALL=en_US.UTF-8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>source .bash_profile</p>
-</li>
-<li>
-<p>locale 查看下是否设置成功</p>
-</li>
-<li>
-<p>完成</p>
-</li>
-</ol>
-<h3 id=ffmpeg>ffmpeg</h3>
-<p>ffmpeg -i <a href=https://%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97/really.m3u8 target=_blank rel="noopener noreffer">https://××××××××/really.m3u8</a> -c copy xxx.mp4</p></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>更新于 2021-10-18</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
-<span></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/mac/>mac</a></section>
-<section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/posts/ssh/ class=prev rel=prev title=ssh><i class="fas fa-angle-left fa-fw"></i>ssh</a>
-<a href=/posts/docker/ class=next rel=next title=docker>docker<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-</article></div>
-</main><footer class=footer>
-<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+</code></pre></td></tr></table></div></div></li><li><p>source .bash_profile</p></li><li><p>locale 查看下是否设置成功</p></li><li><p>完成</p></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-11</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/mac/>mac</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/ssh/ class=prev rel=prev title=ssh><i class="fas fa-angle-left fa-fw"></i>ssh</a>
+<a href=/posts/docker/ class=next rel=next title=docker>docker<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":100,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

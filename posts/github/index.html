@@ -1,223 +1,29 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
-<title>github - 飘</title><meta name=Description content><meta property="og:title" content="github">
-<meta property="og:description" content="github记录">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://elisp.cc/posts/github/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-09-23T21:43:00+08:00">
-<meta property="article:modified_time" content="2021-10-18T21:19:00+08:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="github">
-<meta name=twitter:description content="github记录">
-<meta name=application-name content="飘">
-<meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/github/><link rel=prev href=https://elisp.cc/posts/vargrind/><link rel=next href=https://elisp.cc/posts/make/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"github","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/github\/"},"genre":"posts","keywords":"github","wordcount":580,"url":"https:\/\/elisp.cc\/posts\/github\/","datePublished":"2021-09-23T21:43:00+08:00","dateModified":"2021-10-18T21:19:00+08:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head>
-<body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 所有文章 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/org-info/emacs.html> Emacs </a><a class=menu-item href=/about> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-desktop>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title=飘>飘</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><div class=search-wrapper>
-<div class="search mobile" id=search-mobile>
-<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
-<i class="fas fa-search fa-fw"></i>
-</a>
-<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
-<i class="fas fa-times-circle fa-fw"></i>
-</a>
-<span class="search-button search-loading" id=search-loading-mobile>
-<i class="fas fa-spinner fa-fw fa-spin"></i>
-</span>
-</div>
-<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
-取消
-</a>
-</div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/org-info/emacs.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i>
-</a></div>
-</div>
-</header>
-<div class="search-dropdown desktop">
-<div id=search-dropdown-desktop></div>
-</div>
-<div class="search-dropdown mobile">
-<div id=search-dropdown-mobile></div>
-</div>
-<main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>目录</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single"><h1 class="single-title animated flipInX">github</h1><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/tool/><i class="far fa-folder fa-fw"></i>tool</a></span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-23>2021-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 580 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept>
-<div class="details-summary toc-title">
-<span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#github-认证方式>github 认证方式</a></li>
-<li><a href=#github-action实例解析-hugo>github action实例解析 &ndash; hugo</a></li>
-<li><a href=#github-action实例解析-qygame调用docker>github action实例解析 &ndash; qygame调用docker</a></li>
-</ul>
-</nav></div>
-</div><div class=content id=content><p>github记录</p>
-<h2 id=github-认证方式>github 认证方式</h2>
-<p>Github 本身提供了多种认证方式，所有开发人员可以各取所需。</p>
-<ol>
-<li>
-<p>SSH，这是最原始的方式，如果使用git bash只要按照官方文档一步一步配置就好了
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>github - 飘</title><meta name=Description content><meta property="og:title" content="github"><meta property="og:description" content="github记录"><meta property="og:type" content="article"><meta property="og:url" content="https://elisp.cc/posts/github/"><meta property="article:published_time" content="2021-09-23T21:43:00+00:00"><meta property="article:modified_time" content="2021-11-11T07:20:28+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="github"><meta name=twitter:description content="github记录"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://elisp.cc/posts/github/><link rel=prev href=https://elisp.cc/posts/vargrind/><link rel=next href=https://elisp.cc/posts/make/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"github","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/elisp.cc\/posts\/github\/"},"genre":"posts","keywords":"github","wordcount":580,"url":"https:\/\/elisp.cc\/posts\/github\/","datePublished":"2021-09-23T21:43:00+00:00","dateModified":"2021-11-11T07:20:28+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/org-info/emacs.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>所有文章</a><a class=menu-item href=/categories/>分类</a><a class=menu-item href=/tags/>标签</a><a class=menu-item href=/org-info/emacs.html>Emacs</a><a class=menu-item href=/about>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">github</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/tool/><i class="far fa-folder fa-fw"></i>tool</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-09-23>2021-09-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 580 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#github-认证方式>github 认证方式</a></li><li><a href=#github-action实例解析-hugo>github action实例解析 &ndash; hugo</a></li><li><a href=#github-action实例解析-qygame调用docker>github action实例解析 &ndash; qygame调用docker</a></li></ul></nav></div></div><div class=content id=content><p>github记录</p><h2 id=github-认证方式>github 认证方式</h2><p>Github 本身提供了多种认证方式，所有开发人员可以各取所需。</p><ol><li><p>SSH，这是最原始的方式，如果使用git bash只要按照官方文档一步一步配置就好了
 小心坑：SSH有可能需要配置代理，否则无法解析服务器域名。错误如下：
 ssh: Could not resolve hostname github.com: no address associated with name
-解决办法：给SSH以及git 客户端配置代理。</p>
-</li>
-<li>
-<p>HTTPS，这也是比较方便的方式，但是每一次都需要输入用户名和密码。
+解决办法：给SSH以及git 客户端配置代理。</p></li><li><p>HTTPS，这也是比较方便的方式，但是每一次都需要输入用户名和密码。
 小心坑：本机的SSL证书不是正规机构颁发的，验证失败。错误如下：
-fatal: unable to access &lsquo;<a href=https://github.com/owner/repo.git/%27 target=_blank rel="noopener noreffer">https://github.com/owner/repo.git/'</a>: SSL certificate problem: unable to get local issuer certificate</p>
-<p>解决办法：将Git的SSL验证关闭，命令如下。
-git config &ndash;global http.sslVerify false</p>
-</li>
-<li>
-<p>Access Token，我个人认为最为便捷的方式之一，不失安全性。
-<a href=https://help.github.com/articles/creating-an-access-token-for-command-line-use/ target=_blank rel="noopener noreffer">https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a>
-使用方法：</p>
-<ol>
-<li>从Settings页面生成唯一的Token</li>
-<li>手动拼接出远程仓库的地址，比如：<a href=https://%24GH%5FTOKEN@github.com/owner/repo.git target=_blank rel="noopener noreffer">https://%24GH%5FTOKEN@github.com/owner/repo.git</a></li>
-</ol>
-<p>3）从以上地址克隆或使用git remote add 的方式关联本地仓库，之后都不需要输入用户名和密码信息</p>
-</li>
-</ol>
-<h2 id=github-action实例解析-hugo>github action实例解析 &ndash; hugo</h2>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-text data-lang=text>workflow中所有缩进必须是空格, 不能是tab
-</code></pre></td></tr></table>
-</div>
-</div><p>name: github page</p>
-<p>on:</p>
-<p>push:
-branches:</p>
-<ul>
-<li>master # Set a branch to deploy</li>
-</ul>
-<p>pull_request:</p>
-<p>jobs:</p>
-<p>deploy:</p>
-<p>runs-on: ubuntu-20.04</p>
-<p>steps:</p>
-<ul>
-<li>uses: actions/checkout@v2
+fatal: unable to access &lsquo;<a href="https://github.com/owner/repo.git/':">https://github.com/owner/repo.git/':</a> SSL certificate problem: unable to get local issuer certificate</p><p>解决办法：将Git的SSL验证关闭，命令如下。
+git config &ndash;global http.sslVerify false</p></li><li><p>Access Token，我个人认为最为便捷的方式之一，不失安全性。
+<a href=https://help.github.com/articles/creating-an-access-token-for-command-line-use/>https://help.github.com/articles/creating-an-access-token-for-command-line-use/</a>
+使用方法：</p><ol><li>从Settings页面生成唯一的Token</li><li>手动拼接出远程仓库的地址，比如：<a href=https://%24GH%5FTOKEN@github.com/owner/repo.git>https://%24GH%5FTOKEN@github.com/owner/repo.git</a></li></ol><p>3）从以上地址克隆或使用git remote add 的方式关联本地仓库，之后都不需要输入用户名和密码信息</p></li></ol><h2 id=github-action实例解析-hugo>github action实例解析 &ndash; hugo</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>workflow中所有缩进必须是空格, 不能是tab
+</code></pre></td></tr></table></div></div><p>name: github page</p><p>on:</p><p>push:
+branches:</p><ul><li>master # Set a branch to deploy</li></ul><p>pull_request:</p><p>jobs:</p><p>deploy:</p><p>runs-on: ubuntu-20.04</p><p>steps:</p><ul><li>uses: actions/checkout@v2
 with:
 submodules: true # Fetch Hugo themes (true OR recursive)
-fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod</li>
-</ul>
-<ul>
-<li>
-<p>name: Setup Hugo</p>
-<p>uses: peaceiris/actions-hugo@v2
+fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod</li></ul><ul><li><p>name: Setup Hugo</p><p>uses: peaceiris/actions-hugo@v2
 with:
-hugo-version: &lsquo;latest&rsquo;</p>
-</li>
-</ul>
-<ul>
-<li>name: Build
-run: hugo &ndash;minify</li>
-</ul>
-<ul>
-<li>
-<p>name: Deploy
-uses: peaceiris/actions-gh-pages@v3</p>
-<p>if: github.ref == &lsquo;refs/heads/master&rsquo;</p>
-<p>with:
+hugo-version: &lsquo;latest&rsquo;</p></li></ul><ul><li>name: Build
+run: hugo &ndash;minify</li></ul><ul><li><p>name: Deploy
+uses: peaceiris/actions-gh-pages@v3</p><p>if: github.ref == &lsquo;refs/heads/master&rsquo;</p><p>with:
 github_token: ${{ secrets.HUGO_PUBLISH_TOKEN }}
-publish_dir: ./public</p>
-</li>
-</ul>
-<h2 id=github-action实例解析-qygame调用docker>github action实例解析 &ndash; qygame调用docker</h2>
-<p>name: &lsquo;make for qygame&rsquo;
+publish_dir: ./public</p></li></ul><h2 id=github-action实例解析-qygame调用docker>github action实例解析 &ndash; qygame调用docker</h2><p>name: &lsquo;make for qygame&rsquo;
 autho: wcq
-description: &lsquo;make for qygame&rsquo;</p>
-<p>inputs:</p>
-<p>qygame_token:</p>
-<p>description: &lsquo;Set a generated GITHUB_TOKEN for pushing to the remote branch.&rsquo;</p>
-<p>required: true</p>
-<p>runs:</p>
-<p>using: &lsquo;docker&rsquo;</p>
-<p>image: &lsquo;Dockerfile&rsquo;</p></div><div class=post-footer id=post-footer>
-<div class=post-info>
-<div class=post-info-line>
-<div class=post-info-mod>
-<span>更新于 2021-10-18</span>
-</div>
-<div class=post-info-license></div>
-</div>
-<div class=post-info-line>
-<div class=post-info-md></div>
-<div class=post-info-share>
-<span></span>
-</div>
-</div>
-</div>
-<div class=post-info-more>
-<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/github/>github</a></section>
-<section>
-<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
-</section>
-</div>
-<div class=post-nav><a href=/posts/vargrind/ class=prev rel=prev title=vargrind><i class="fas fa-angle-left fa-fw"></i>vargrind</a>
-<a href=/posts/make/ class=next rel=next title=make>make<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-</article></div>
-</main><footer class=footer>
-<div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
-</div>
-</footer></div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
-<i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论>
-<i class="fas fa-comment fa-fw"></i>
-</a>
-</div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
-</html>
+description: &lsquo;make for qygame&rsquo;</p><p>inputs:</p><p>qygame_token:</p><p>description: &lsquo;Set a generated GITHUB_TOKEN for pushing to the remote branch.&rsquo;</p><p>required: true</p><p>runs:</p><p>using: &lsquo;docker&rsquo;</p><p>image: &lsquo;Dockerfile&rsquo;</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-11-11</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/github/>github</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/vargrind/ class=prev rel=prev title=vargrind><i class="fas fa-angle-left fa-fw"></i>vargrind</a>
+<a href=/posts/make/ class=next rel=next title=make>make<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":100,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
