@@ -1,6 +1,6 @@
 #+TITLE: 基本模型概念
 #+DATE: 2021-08-28 15:16:14
-#+HUGO_CATEGORIES: 
+#+HUGO_CATEGORIES: net
 #+HUGO_TAGS: 
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t

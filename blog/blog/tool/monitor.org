@@ -93,7 +93,7 @@ grafana  负责数据的展示, 其图表做的非常好
        r._field == "value"
      )
    #+END_EXAMPLE   
-** dashboard 配置
+** dashboard
    一个dashboard 由1个多个panel面板组成,  可以有多个dashboard
    每个dashboard对应一个xx.yaml
    每个面板对应一个配置文件xx.json
@@ -107,4 +107,4 @@ grafana  负责数据的展示, 其图表做的非常好
    子目录下的xx.json会变为该dashboard下的panel面板
 
    这样我们只需要配置一个总的yaml, 然后规划path下的目录层级即可, 方便进行统一的管理
-
+* prometheus

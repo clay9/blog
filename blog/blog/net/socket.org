@@ -1,6 +1,6 @@
 #+TITLE: socket
 #+DATE: 2021-08-28 15:17:19
-#+HUGO_CATEGORIES:protocol 
+#+HUGO_CATEGORIES: net
 #+HUGO_TAGS: epoll socket
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t

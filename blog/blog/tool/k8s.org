@@ -379,7 +379,9 @@ spec:
 
    #+END_EXAMPLE
 
-* 配置    - kube-prometheus
+* 监控
+  使用grafana + prometheus来监控k8s
+  使用kube-prometheus来配置监控系统
 ** 安装
    1. 替换被墙的镜像的源
       *-deployment.yaml中搜索image关键字, 可以看到需要下载那些镜像
@@ -410,45 +412,10 @@ spec:
       # 对于某些无法卸载的, 可以使用强制卸载
       kubectl delete pod -n monitoring <pod-name> --force
       #+END_EXAMPLE
-** Q&A
-   1. pod处于ImagePullBackOff状态
-      #+BEGIN_EXAMPLE sh 问
-      kubectl get pods -n monitoring
-      #+END_EXAMPLE
-      #+BEGIN_EXAMPLE sh 答
-      # 通过下面的命令查看是哪个镜像没有拉取到, 然后使用mirror-image拉取即可
-      kubectl describe pods -n monitoring <pod-name>
-      #+END_EXAMPLE
-   2. pod处于pending状态
-      #+BEGIN_EXAMPLE sh 问
-      kubectl get pods -n monitoring
-      #+END_EXAMPLE
-
-      #+BEGIN_EXAMPLE sh 答 如果是Insuffcient cpu
-      # 先查看pod状态
-      kubectl describe pods -n <pod-name>
-
-      Events:
-      Type     Reason            Age   From               Message
-      ----     ------            ----  ----               -------
-      Warning  FailedScheduling  134m  default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
-
-      # 查看node状态
-      kubectl describe nodes
-
-      Allocated resources:
-      (Total limits may be over 100 percent, i.e., overcommitted.)
-      Resource           Requests      Limits
-      --------           --------      ------
-      cpu                1906m (95%)   1760m (88%)
-      memory             1580Mi (41%)  2080Mi (54%)
-      ephemeral-storage  0 (0%)        0 (0%)
-      hugepages-1Gi      0 (0%)        0 (0%)
-      hugepages-2Mi      0 (0%)        0 (0%)
-      Events:              <none>
-      # 通过输出可以看到, cpu已经被占用到95%了, 所以导致有的pod无法启动, 对于这种情况, 可以通过增加node节点来解决
-      # k8s实际是对资源的管理, 资源包括cpu, 内存等等
-      #+END_EXAMPLE
+** grafana dashboard配置
+   使用kube-prometheus安装完成之后, 默认的dashboards在defalut目录下,
+   包含了alertmanager, kubenets,node-export, prometheus等各种dashboard信息, 以及足够使用
+** 报警配置
 * kubernetes 错误排查
   1. 首先确认master节点是否安装成功
      #+BEGIN_EXAMPLE sh 查看master上面的服务
@@ -597,3 +564,41 @@ Events:
      #    如果是使用ingress-controller, 使用NodePort更好
      # 2. 确认ingress-nginx/pod是否正常
      #+END_EXAMPLE
+  7. pod处于ImagePullBackOff状态
+      #+BEGIN_EXAMPLE sh 问
+      kubectl get pods -n monitoring
+      #+END_EXAMPLE
+      #+BEGIN_EXAMPLE sh 答
+      # 通过下面的命令查看是哪个镜像没有拉取到, 然后使用mirror-image拉取即可
+      kubectl describe pods -n monitoring <pod-name>
+      #+END_EXAMPLE
+  8. pod处于pending状态
+      #+BEGIN_EXAMPLE sh 问
+      kubectl get pods -n monitoring
+      #+END_EXAMPLE
+
+      #+BEGIN_EXAMPLE sh 答 如果是Insuffcient cpu
+      # 先查看pod状态
+      kubectl describe pods -n <pod-name>
+
+      Events:
+      Type     Reason            Age   From               Message
+      ----     ------            ----  ----               -------
+      Warning  FailedScheduling  134m  default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
+
+      # 查看node状态
+      kubectl describe nodes
+
+      Allocated resources:
+      (Total limits may be over 100 percent, i.e., overcommitted.)
+      Resource           Requests      Limits
+      --------           --------      ------
+      cpu                1906m (95%)   1760m (88%)
+      memory             1580Mi (41%)  2080Mi (54%)
+      ephemeral-storage  0 (0%)        0 (0%)
+      hugepages-1Gi      0 (0%)        0 (0%)
+      hugepages-2Mi      0 (0%)        0 (0%)
+      Events:              <none>
+      # 通过输出可以看到, cpu已经被占用到95%了, 所以导致有的pod无法启动, 对于这种情况, 可以通过增加node节点来解决
+      # k8s实际是对资源的管理, 资源包括cpu, 内存等等
+      #+END_EXAMPLE
