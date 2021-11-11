@@ -311,7 +311,74 @@ spec:
 
    ingress-controller常常有独立的namespace. 其可以获取所有namespaces中的ingress-rule
    ingress-rule,     需要与backend保持同一个namespace
-   
+** TODO ingress-rule配置问题
+   #+BEGIN_EXAMPLE yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: nginx  
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana
+            port:
+              number: 3000
+   #+END_EXAMPLE  
+   如果path配置了/app, curl ip:port/app的时候确实可以拉取到<herf/> 但是进不去
+   如果path配置了/   , crul ip:port    的时候就是正常的
+
+   猜测原因
+   当配置为/app的时候, 访问ip:port/app时候, 会被重定向为 backend:port/xxx
+   xxx一般为backend service对外提供的, 比如 prometheus的为http://mytest.com/login
+   这时候url在client被修改为ip:port/login
+   但是在ingress-rule中并没有对ip:port/login的处理规则, 因此提示404
+
+
+   解决方法
+   暂时回避了该问题, 使用多个host 取代 <单host+ 多path>的方式
+   #+BEGIN_EXAMPLE yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test
+  namespace: monitoring
+  annotations:
+    kubernetes.io/ingress.class: nginx  
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: g.mytest.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: grafana
+            port:
+              number: 3000
+  - host: p.mytest.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-k8s
+            port:
+              number: 9090
+
+   #+END_EXAMPLE
+
 * 配置    - kube-prometheus
 ** 安装
    1. 替换被墙的镜像的源
