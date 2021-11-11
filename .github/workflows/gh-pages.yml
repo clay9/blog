@@ -23,7 +23,7 @@ jobs:
           path: ./emacs
 
       - run: |
-          apt install emacs -y
+          sudo apt install emacs -y
           mv ./emacs/.emacs.d ~/.emacs.d && rm -rf ./emacs
           emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
           emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
