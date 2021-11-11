@@ -24,8 +24,9 @@ jobs:
 
       - run: |
           apt install emacs -y
-	  emacs --script /emacs/.emacs.d/lisp/fun/init-org-publish.el
-	  emacs --script /emacs/.emacs.d/lisp/fun/init-hugo-publish.el	  
+          mv /emacs/.emacs.d ~/.emacs.d
+          emacs -u $USER --script /emacs/.emacs.d/script/init-org-publish.el
+          emacs -u $USER --script /emacs/.emacs.d/script/init-hugo-publish.el	  
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
