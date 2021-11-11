@@ -28,6 +28,6 @@
      - 在action的ubuntu系统上安装emacs
      - 下载clay9/emacs
      - 执行init-org-publish.el, 完成blog到content(md)的转换
-       : emacs --script /emacs/.emacs.d/lisp/fun/init-org-publish.el
+       : emacs -u clay --script ~/.emacs.d/script/init-org-publish.el
      - 执行hugo的编译, 完成md到html静态文件
      - 执行hugo的发布
