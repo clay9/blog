@@ -44,7 +44,7 @@ theme = "LoveIt"
     title = ""
     weight = 3
   [[menu.main]]
-    identifier = "emacs"
+    identifier = ""
     pre = ""
     post = ""
     name = "Emacs"
@@ -52,7 +52,7 @@ theme = "LoveIt"
     title = ""
     weight = 4
   [[menu.main]]
-    identifier = "about"
+    identifier = ""
     pre = ""
     post = ""
     name = "关于"
