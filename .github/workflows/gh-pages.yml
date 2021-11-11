@@ -28,6 +28,7 @@ jobs:
           emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
           emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
           rm -rf ~/emacs
+          mv content/posts/about.md content/
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
