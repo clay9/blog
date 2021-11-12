@@ -148,3 +148,6 @@
                                  +--------------+
 * org-mode与GTD
   [[file:emacs_GTD.org][org-mode与GTD]]
+* org-agenda使用指南
+  tab     显示entry的具体信息
+  space   切换到下一个org-agenda界面

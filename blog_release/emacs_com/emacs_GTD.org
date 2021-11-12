@@ -183,5 +183,3 @@
       默认的是archive到 archive.org中
    5. 其实还有最后一步, 即把archive中的内容输出到blog中, 或者把无用的删掉
       : blog具体见 hugo的文档
-
-      
