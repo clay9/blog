@@ -177,8 +177,9 @@
       这里, todo, waiting, project都会reflie到task.org中      
       除了refile之外, r动作还会根据优先级自动排序
    3. 使用org-agenda-bulk在org-agenda界面操控
-      举例, 在C-c a n界面, 即next-step界面, 先使用'm'标记要操作的entry, 然后按'a'可以看到可执行的action
-      比如s 添加开始时间, d添加截至时间等
+      1) 举例, 在C-c a n界面, 即next-step界面, 先使用'm'标记要操作的entry, 然后按'a'可以看到可执行的action
+	 比如s 添加开始时间, d添加截至时间等
+      2) 举例, 在org-agenda的entry入口出, 使用't', 可以更改entry的状态, 比如把TODO的改为DONE或者CANCEL
    4. org-agenda界面的'r'动作, 不仅可以把inbox中的文件reflie, 也可以把next step(即task.org)中完成的任务archive
       默认的是archive到 archive.org中
    5. 其实还有最后一步, 即把archive中的内容输出到blog中, 或者把无用的删掉
