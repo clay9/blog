@@ -11,23 +11,21 @@ protobuf使用
 #+hugo: more
 
 * 安装
-* 使用
-* 语法
-** repeated
-
-* protobuf cmake生成命令
+** protobuf cmake生成命令
   cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_INSTALL_PREFIX=../../../../../install ../.. -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=ON
   cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_INSTALL_PREFIX=../../../../../install ../.. -Dprotobuf_BUILD_TESTS=OFF
 
   
   cmake -G "Visual Studio 16 2019" -A Win32 -DCMAKE_INSTALL_PREFIX=../install ../cmake -Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=ON
+    
+* 使用
+  1. 打印protobuf结构体数据信息
+     #+BEGIN_EXAMPLE c++
+     tagUserinfo ui;
+     cout << ui.Utf8DebugString() << endl;
+     #+END_EXAMPLE
+* 语法
 
-
-   
-  
-
-
-  
 * F&Q
    1. 问: 编译的时候提示找不到定义
       #+BEGIN_EXAMPLE c++
