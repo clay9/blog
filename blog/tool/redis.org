@@ -37,15 +37,16 @@ redis学习记录
     getset  将键设置为新值, 并返回旧值为结果
 *** 链表相关
     : 索引从0开始
-    lpush  在链表的左侧(头部)添加元素 -- 常数时间    
-    rpush  在链表的右侧(尾部)添加元素 -- 常数时间
+    lpush (key v) 在链表的左侧(头部)添加元素 -- 常数时间    
+    rpush (key v) 在链表的右侧(尾部)添加元素 -- 常数时间
     : 可以一次推送多个数据. 返回结果为当前链表中的元素个数
-    lrange (arg1 arg2) 从链表中提取元素范围 -- 需要的时间与元素数量正比, 非常慢
+    lrange (key arg1 arg2) 从链表中提取元素范围 -- 需要的时间与元素数量正比, 非常慢
     : 参数可以为负数表示. -1表示最后一个元素, -2表示倒数第二个
-    lpop
-    rpop
+    lpop (key)
+    rpop (key)
     : 返回结果为左侧或右侧的元素
-    ltrim (arg1 arg2) 只保留范围内的元素, 删除链表其他元素
+    ltrim (key arg1 arg2) 只保留范围内的元素, 删除链表其他元素
+    llen (key)  链表的长度
 *** Hash
     hmset
     hmget    检索多个字段(可单, 可全部)
@@ -56,7 +57,7 @@ redis学习记录
     sadd     添加新的元素
     smembers 返回集合中的元素(未排序的, redis随意返回)
     sismember (Set key) 检测key是否是Set的成员. 返回1是,0不是
-    spop     删除一个随机的元素, 并返回给客户端
+    spop (key option& count)    删除count个随机的元素, 并返回给客户端
     scard    返回集合中的元素个数
 *** Sorted Set
     现根据score排序, score一致则根据key的字典值排序
