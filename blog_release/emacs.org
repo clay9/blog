@@ -3,7 +3,54 @@
 #+INFOJS_OPT: view:info mouse:underline buttons:nil
 #+INFOJS_OPT: path:/script/org-info.js
 
+* emacs使用心得
+** why  -- 为什么使用emacs
+   下面只是自己的理由
+   1. 项目管理 && 日常工作计划               -- org-mode处理(主要使用了org-agent特性)
+   2. blog写作                               -- org-mode处理(org本身是非常优秀的文本模式)
+   3. bash(shell) 环境                       -- eshell非常优秀
+   4. coding 类c语言(c, c++)                 -- 使用emacs作为IDE
+   5. coding 其他语言 (go,lisp, ...)         -- 虽然不如专业的开发软件，但emacs胜在方便快捷   
+   
+** what -- emacs是什么
+   emacs更像是一个可扩展的框架, 需要什么功能，扩展一下即可(添加package)
+   
+** how  -- 如何使用
+   这里只是复述自己如何打造自己的emacs
+   
+   1. 定制外在样式
+      - frame的定制, init-frame
+      - font的定制,  init-font
+      - 字符编码,    init-encode
+      - 主题定制,    dracula-theme
+   2. package管理
+      init-site-lisp && init-elpa
+   3. 内在优化
+      - buffer, file显示优化, init-helm-mode
+      - 智能匹配（[], {}, '', ""...),  init-smartparens-mode
+      - 模板文件,     init-yasnippet-mode
+      - 文本区域选择, init-expand-region
+      - windos选择,   init-window-number
+   4. 常用功能
+      - 书签     init-bookmark
+      - eshell   init-eshell
+      - search   init-search
+      - tramp    init-tramp
+   5. 常用mode
+      - org
+      - c-comon IDE	
+   6. 快捷键管理
+      - 鼠标管理, init-disable-mouse
+      - 快捷键,   init-local-shortkey, init-global-shortkey
+	
+	
 * emacs基础操作
+** frame基础
+   建议frame只显示window, mode-line
+   - window是我们操作(write, read)的区域
+     重要的是window的创建，切换 和 删除
+   - mode-line 补充显示buffer的其他信息,以及mode信息，也非常重要
+     
 ** Helm
    [[file:emacs_com/emacs_helm-mode.org][Helm]]改善了用户"查找"时候的体验;
    helm与传统方式 对比:
@@ -11,6 +58,9 @@
    - 传统的过滤方式为 首字母扩展
 ** org mode
    [[file:emacs_com/emacs_org-mode.org][org-mode]]一直被称为神器, 据传很多人为了它转到了emacs.
+   主要功能:
+   - org自身强大的文本模式
+   - org-agent
   
 ** eshell
    [[file:emacs_com/emacs_eshell.org][eshell]]是emacs下非常好用shell;
@@ -76,6 +126,9 @@
 * emacs奇淫技巧
 ** figlet
    把字符艺术化
+   emacs中的figlet package是front-end,
+   依赖shell环境的back-ends figlet
+   
 *** 安装
     1. bash中安装back-ends
        #+BEGIN_EXAMPLE
@@ -113,3 +166,37 @@
 # ........::..:::::..::..:::::..:::......::::......:::
     #+END_EXAMPLE 
     
+
+    
+* emacs键位设置
+  原则
+  1. 尽量保留默认常用快捷键
+  2. 不同mode, 尽量使用相似的快捷键
+
+
+  思路
+  1. 通用快捷键(比如search等与mode无关的) 或者是 所有mode都会使用的(比如yas)
+     统一放到C-s中
+  2. mode自身的快捷键, 放到C-j中
+  3. 因为使用hydra来管理快捷键, 因此可以通过查看hydra body 来查看快捷键设置
+
+
+  方案
+  1. C-s
+     查找, 查找全部, 替换, 替换全部
+     跳转行号
+     查看模板, 添加模板
+  2. C-j
+     symbol-overlay -- 所有coding都会开启
+     helm-gtas      -- cc-mode中开启
+     smart-parents  -- 所有coding都会开启
+     org-mode
+
+
+  问题
+  1. symbol-overlay, smartparens, helm-gtags会有冲突
+     解决方案
+     - [X] 开启helm-gtags的时候, hydra-helm-gtags覆盖symbol-overlay
+       : 使用remapping commands
+     - [ ] smart-parents 使用另外一个快捷键 (这里是妥协的做法, 不是最好的)
+     
