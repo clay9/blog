@@ -78,7 +78,65 @@
    - vim 功能缺少, 对手指友好, 更适合在查看文档的时候使用
 ** elisp
    [[file:emacs_com/emacs_elisp.org][elisp]] 是emacs下的lisp
+** tramp
+   全程 transparent remote access multiple protocol
+   tramp是用来编辑远端文件的模块
+   支持多种协议 ssh, ftp, smb, adb等, 常用method
+   - ssh
+   - plink putty的ssh client(与linux的ssh client作用一样)
+   - su  这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+     #+BEGIN_EXAMPLE shell
+     /su:root:path/
+     #+END_EXAMPLE
+   - sudo 同上
 
+*** 基本用法
+    #+BEGIN_EXAMPLE shell
+    /method:user@host#port:path/to/file
+    # example 1 
+    /ssh:clay@192.1.1.1#22:~
+    # example 2 windows下可以使用putty作为ssh的client
+    /plink:clay@192.1.1.1:~
+    #+END_EXAMPLE
+*** 设置默认method
+    #+BEGIN_EXAMPLE lisp
+    (setq tramp-default-method "plink")
+
+    ; 设置之后的例子. 优点在于可以不需要考虑window和linux环境
+    /-:clay@192.1.1.1:~
+    #+END_EXAMPLE
+*** 多级跳转
+    #+BEGIN_EXAMPLE shell
+    /ssh:clay@host1|ssh:admin@host2:/path
+
+    # 在本机上,    通过clay用户登录到host1
+    # 再在host1上, 通过admin登录到host2    
+    #+END_EXAMPLE
+*** 以sudo方式打开file
+    #+BEGIN_EXAMPLE shell
+    # 使用sudo打开远程文件
+    /-:clay@192.1.1.1|sudo::/path
+    # 使用sudo打开本地文件
+    # su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+    /su::local-path
+    /su:user@localhost:/local-path
+    /sudo:root@localhost:/local-path
+    #+END_EXAMPLE
+*** 注意事项
+    Tramp 打开的远端文件和本地的文件没什么区别，
+    会被记录在 backup、autosave、recentf 等中。
+    在今后重启 Emacs 时，如果这时无法连接远端机器，Emacs 可能会卡住，
+    这是因为 tramp 会对之前打开的文件进行检查
+
+    解决方案:
+    让backup等机制绕过tramp即可
+*** tramp alist
+    tramp使用的时候 需要使用到method user host path的组合，一般较长
+    我们更希望使用较短的shortcut去远程打开某个file
+    这里推荐的方法是bookmark. 理由:
+    1. bookmark emacs内置, 而且非常方便
+    2. bookmark 的配置信息 可以方便git管理    
+    
 * emacs打造IDE
 ** 说明
    本文很大程度借鉴[[http://tuhdo.github.io/c-ide.html][参考文档(强烈建议阅读)]]
