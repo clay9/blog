@@ -151,6 +151,27 @@
     # 5.管理auth信息文件
     ~/.emacs.d/authinfo
     #+END_EXAMPLE
+** 快速选择窗口
+   mode: switch-window
+   快捷键
+   1. C-x o -- switch-window 当window数量超过2个, 会使用快捷键选择窗口
+   2. 当处于C-x o窗口选择状态时候, 可以通过快捷键改变windows布局
+      | key | desc                  |
+      |-----+-----------------------|
+      | i   | move the border up    |
+      |-----+-----------------------|
+      | k   | move the border down  |
+      |-----+-----------------------|
+      | j   | move the border left  |
+      |-----+-----------------------|
+      | l   | move the border right |
+      |-----+-----------------------|
+      | b   | balance windows       |
+      |-----+-----------------------|
+      | SPC | resume auto-resize    |
+      |-----+-----------------------|
+   
+   
 * emacs打造IDE
 ** 说明
    本文很大程度借鉴[[http://tuhdo.github.io/c-ide.html][参考文档(强烈建议阅读)]]
