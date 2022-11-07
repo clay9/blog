@@ -170,8 +170,27 @@
       |-----+-----------------------|
       | SPC | resume auto-resize    |
       |-----+-----------------------|
-   
-   
+** 查找
+*** 当前buffer查找 isearch，helm-occur
+*** 任意目录中查找
+    - find-grep
+      实际是linux下的find+grep组合, 所以依赖linux下的find和grep命令
+      如果是windows系统, 需要下载GnuWin32，并配置emacs认识他
+      #+BEGIN_EXAMPLE shell
+      # exp1: 在当前目录下的所有文件中(含递归目录) 查找字符串'emacs'
+      find . -type f |xargs grep -n emacs
+      #+END_EXAMPLE
+    - eshell/grep -- 仅在eshell-mode下生效
+      使用eshell(emacs内置)的grep
+      #+BEGIN_EXAMPLE shell
+      # TODO 待补充详细用法
+      # 用法 grep 搜索内容 正则式(搜索目录)
+      # 在当前目录的文件中 查找字符串'emacs'
+      grep emacs *
+      #+END_EXAMPLE
+*** 工程中查找
+    TODO 待补充 整理emacs作为IDE的时候再整理
+
 * emacs打造IDE
 ** 说明
    本文很大程度借鉴[[http://tuhdo.github.io/c-ide.html][参考文档(强烈建议阅读)]]
