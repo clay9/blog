@@ -3,21 +3,27 @@
 #+INFOJS_OPT: view:info mouse:underline buttons:nil
 #+INFOJS_OPT: path:/script/org-info.js
 
-* emacs使用心得
-** why  -- 为什么使用emacs
-   下面只是自己的理由
-   1. 项目管理 && 日常工作计划               -- org-mode处理(主要使用了org-agent特性)
-   2. blog写作                               -- org-mode处理(org本身是非常优秀的文本模式)
-   3. bash(shell) 环境                       -- eshell非常优秀
-   4. coding 类c语言(c, c++)                 -- 使用emacs作为IDE
-   5. coding 其他语言 (go,lisp, ...)         -- 虽然不如专业的开发软件，但emacs胜在方便快捷   
+* emacs总览
+** why use emacs
+   : 下面只是自己的理由
+   | 原因                           | 主要功能            |
+   |--------------------------------+---------------------|
+   | 项目管理 && 日常工作计划       | org-agenda          |
+   |--------------------------------+---------------------|
+   | blog写作                       | org-mode && ox-hugo |
+   |--------------------------------+---------------------|
+   | shell环境                      | eshell              |
+   |--------------------------------+---------------------|
+   | cc(c,c++) programming language | [[*CC-IDE][CC-IDE]]              |
+   |--------------------------------+---------------------|
+   | other programming language     | TODO待补充          |
+   |--------------------------------+---------------------|
    
-** what -- emacs是什么
+** what is emacs
    emacs更像是一个可扩展的框架, 需要什么功能，扩展一下即可(添加package)
-   
-** how  -- 如何使用
-   这里只是复述自己如何打造自己的emacs
-   
+** how to use emacs
+   : 这里只是复述自己如何打造自己的emacs
+
    1. 定制外在样式
       - frame的定制, init-frame
       - font的定制,  init-font
@@ -42,116 +48,49 @@
    6. 快捷键管理
       - 鼠标管理, init-disable-mouse
       - 快捷键,   init-local-shortkey, init-global-shortkey
-	
-	
-* emacs基础操作
+
+        
+* 外在样式
 ** frame基础
    建议frame只显示window, mode-line
    - window是我们操作(write, read)的区域
      重要的是window的创建，切换 和 删除
    - mode-line 补充显示buffer的其他信息,以及mode信息，也非常重要
-     
-** Helm
-   [[file:emacs_com/emacs_helm-mode.org][Helm]]改善了用户"查找"时候的体验;
-   helm与传统方式 对比:
-   - Helm的过滤方式为 正则表达式
-   - 传统的过滤方式为 首字母扩展
-** org mode
-   [[file:emacs_com/emacs_org-mode.org][org-mode]]一直被称为神器, 据传很多人为了它转到了emacs.
-   主要功能:
-   - org自身强大的文本模式
-   - org-agent
+
+* 内在优化
+** helm
+*** why
+    改善了用户"查找"时候的体验;
+    传统方式, 一般为首字母扩张; 而helm使用正则表达式
+
+    #+BEGIN_EXAMPLE text
+    假设有3个buffer, 分别为AB,BC,AD.
+    常规的选择, 只能从左到右输入选择, 或者buffer中移动.
+    而helm提供了过滤功能, 我们输入D, 它能只留下符合的, 即AD, 方便在众多buffer中选择.
+    #+END_EXAMPLE
+
+    helm应用场景:
+    - buffer-list
+    - M-x [command]
+    - find-files      
+*** how
+    helm没有特意的去改变用户的使用习惯, 只是提升了用户体验. 操作使用与之前一样即可
+    其配置也非常简单, 具体见github或init-helm-mode.el
+*** function
+    | fun                 | key     | desc                                         |
+    |---------------------+---------+----------------------------------------------|
+    | helm-occur          | C-s a   | 当前buffer查找全部                           |
+    |---------------------+---------+----------------------------------------------|
+    | helm-browse-project | C-x C-b | 查看工程文件                                 |
+    |---------------------+---------+----------------------------------------------|
+    | helm-compilation    |         | 重载了emacs的compilation                     |
+    |---------------------+---------+----------------------------------------------|
+    | helm-buffers-list   | C-x b   | 1.输入" @XX"过滤buffer XX(注意@XX前面有空格) |
+    |                     |         | 2.helm buffers可以调用C-z 显示额外的actions  |
+    |                     |         | 比如occur不打开选中的buffer而查找            |
+    |---------------------+---------+----------------------------------------------|
   
-** eshell
-   [[file:emacs_com/emacs_eshell.org][eshell]]是emacs下非常好用shell;
-   主要优点:
-   - 与elisp的无缝结合
-   - 语法特性方面比bash shell更有意思
-     #+BEGIN_EXAMPLE
-     cd /ssh:clay@192.168.0.97:~
-     #+END_EXAMPLE
-** 画图
-   emacs支持 [[file:emacs_com/emacs_graphviz-mode.org][ASCII图形 和 dot图形等]]
-** 快捷键
-   [[file:emacs_com/emacs_shortkey.org][emacs按键]]与vim按键 个人理解:
-   - emacs功能强大, 却对手指不友好,  更适合在编辑的时候使用
-   - vim 功能缺少, 对手指友好, 更适合在查看文档的时候使用
-** elisp
-   [[file:emacs_com/emacs_elisp.org][elisp]] 是emacs下的lisp
-** tramp
-   全程 transparent remote access multiple protocol
-   tramp是用来编辑远端文件的模块
-   支持多种协议 ssh, ftp, smb, adb等, 常用method
-   - ssh
-   - plink putty的ssh client(与linux的ssh client作用一样)
-   - su  这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
-     #+BEGIN_EXAMPLE shell
-     /su:root:path/
-     #+END_EXAMPLE
-   - sudo 同上
-
-*** 基本用法
-    #+BEGIN_EXAMPLE shell
-    /method:user@host#port:path/to/file
-    # example 1 
-    /ssh:clay@192.1.1.1#22:~
-    # example 2 windows下可以使用putty作为ssh的client
-    /plink:clay@192.1.1.1:~
-    #+END_EXAMPLE
-*** 设置默认method
-    #+BEGIN_EXAMPLE lisp
-    (setq tramp-default-method "plink")
-
-    ; 设置之后的例子. 优点在于可以不需要考虑window和linux环境
-    /-:clay@192.1.1.1:~
-    #+END_EXAMPLE
-*** 多级跳转
-    #+BEGIN_EXAMPLE shell
-    /ssh:clay@host1|ssh:admin@host2:/path
-
-    # 在本机上,    通过clay用户登录到host1
-    # 再在host1上, 通过admin登录到host2    
-    #+END_EXAMPLE
-*** 以sudo方式打开file
-    #+BEGIN_EXAMPLE shell
-    # 使用sudo打开远程文件
-    /-:clay@192.1.1.1|sudo::/path
-    # 使用sudo打开本地文件
-    # su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
-    /su::local-path
-    /su:user@localhost:/local-path
-    /sudo:root@localhost:/local-path
-    #+END_EXAMPLE
-*** 注意事项
-    Tramp 打开的远端文件和本地的文件没什么区别，
-    会被记录在 backup、autosave、recentf 等中。
-    在今后重启 Emacs 时，如果这时无法连接远端机器，Emacs 可能会卡住，
-    这是因为 tramp 会对之前打开的文件进行检查
-
-    解决方案:
-    让backup等机制绕过tramp即可
-*** tramp alist
-    tramp使用的时候 需要使用到method user host path的组合，一般较长
-    我们更希望使用较短的shortcut去远程打开某个file
-    这里推荐的方法是bookmark. 理由:
-    1. bookmark emacs内置, 而且非常方便
-    2. bookmark 的配置信息 可以方便git管理    
-
-
-    使用方法:
-    #+BEGIN_EXAMPLE shell
-    # 1.远程连接
-    C-x f /ssh:clay@192.1.1.1:~
-    # 2.添加到bookmark
-    C-x C-f BOOK-NAME RET
-    # 3.查看bookmark
-    C-x C-f
-    # 4.管理bookmark配置文件
-    ~/.emacs.d/bookmarks
-    # 5.管理auth信息文件
-    ~/.emacs.d/authinfo
-    #+END_EXAMPLE
-** 快速选择窗口
+** switch-windows
    mode: switch-window
    快捷键
    1. C-x o -- switch-window 当window数量超过2个, 会使用快捷键选择窗口
@@ -170,8 +109,12 @@
       |-----+-----------------------|
       | SPC | resume auto-resize    |
       |-----+-----------------------|
-** 查找
-*** 当前buffer查找 isearch，helm-occur
+** seach
+*** 当前buffer查找
+    : 已集成到C-s中
+    - isearch
+    - helm-occur
+
 *** 任意目录中查找
     - find-grep
       实际是linux下的find+grep组合, 所以依赖linux下的find和grep命令
@@ -191,7 +134,264 @@
 *** 工程中查找
     TODO 待补充 整理emacs作为IDE的时候再整理
 
-* emacs打造IDE
+* 常用功能
+** eshell
+*** why
+    emacs内置的shell.
+    - 与elisp无缝结合
+    - 语法特性方面比bash shell更有意思
+      #+BEGIN_EXAMPLE eshell
+      # cd后的路径是tramp
+      cd /method:user@host#port:path
+      #+END_EXAMPLE
+*** how
+**** eshell script
+     官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾     
+***** 变量赋值
+      eshell 脚本中使用elisp语法给变量赋值
+      #+BEGIN_EXAMPLE eshell
+      (setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
+      #+END_EXAMPLE
+***** 变量使用 $
+      基本与shell相同, 具体可以详见官方说明
+      #+BEGIN_EXAMPLE eshell
+      eshell/rm -r $remote_temp
+      #+END_EXAMPLE
+*** manual
+    1. [[https://linuxtoy.org/archives/emacs-eshell.html][官方文档]]
+** elisp
+*** how
+**** record
+     1. lisp没有重载一说, 直接覆盖; 因此为了方便出现了 advise 函数
+**** elisp 与 bash
+***** bash调用elisp
+      1. elisp代码写入el文件(eshell script)
+      2. bash调用emacs执行el文件
+         #+BEGIN_EXAMPLE shell
+         # 实际还是emacs 执行的elisp代码
+         emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
+         #+END_EXAMPLE
+***** elisp 调用bashe
+      #+BEGIN_EXAMPLE elisp
+      (setq my-command
+      (concat "IFS=: read -ra dirs <<<\"$PATH\"\n"
+              "for dir in ${dirs[@]}; do\n"
+              " echo got dir \"$dir\"\n"
+              "done\n"))
+      (shell-command (format "bash -c %s" (shell-quote-argument my-command)))
+      #+END_EXAMPLE
+*** manual
+    1. [[http://smacs.github.io/elisp/02-elisp-basic.html][水木社区Emacs版]]
+    2. [[https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp][lisp的本质]]
+
+** tramp
+*** what
+    全程 transparent remote access multiple protocol
+    tramp是用来编辑远端文件的模块
+    支持多种协议 ssh, ftp, smb, adb等, 常用method
+    - ssh
+    - plink
+      : putty的ssh client(与linux的ssh client作用一样)
+    - su | sudo
+      #+BEGIN_EXAMPLE shell
+      # 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+      /su:root:path/
+      #+END_EXAMPLE
+*** how
+**** basic
+     #+BEGIN_EXAMPLE shell
+     /method:user@host#port:path/to/file
+     # example 1 
+     /ssh:clay@192.1.1.1#22:~
+     # example 2 windows下可以使用putty作为ssh的client
+     /plink:clay@192.1.1.1:~
+     #+END_EXAMPLE
+
+**** set default method
+     #+BEGIN_EXAMPLE elisp
+     (setq tramp-default-method "plink")
+
+     ; 设置之后的例子
+     ; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+     /-:clay@192.1.1.1:~
+     #+END_EXAMPLE
+**** multiple hop
+     #+BEGIN_EXAMPLE shell
+     # 在本机上,    通过clay用户登录到host1
+     # 再在host1上, 通过admin登录到host2    
+     /ssh:clay@host1|ssh:admin@host2:/path
+     #+END_EXAMPLE
+**** su | sudo
+     #+BEGIN_EXAMPLE shell
+     # 使用sudo打开远程文件
+     /-:clay@192.1.1.1|sudo::/path
+     # 使用sudo打开本地文件
+     # su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+     /su::local-path
+     /su:user@localhost:/local-path
+     /sudo:root@localhost:/local-path
+     #+END_EXAMPLE
+**** use with bookmarks
+     tramp使用的时候 需要使用到method user host path的组合，一般较长
+     我们更希望使用较短的shortcut去远程打开某个file
+     这里推荐的方法是bookmark. 理由:
+     1. bookmark emacs内置, 而且非常方便
+     2. bookmark 的配置信息 可以方便git管理    
+
+     使用方法:
+     #+BEGIN_EXAMPLE shell
+     # 1.远程连接
+     C-x f /ssh:clay@192.1.1.1:~
+     # 2.添加到bookmark
+     C-x C-f BOOK-NAME RET
+     # 3.查看bookmark
+     C-x C-f
+     # 4.管理bookmark配置文件
+     ~/.emacs.d/bookmarks
+     # 5.管理auth信息文件
+     ~/.emacs.d/authinfo
+     #+END_EXAMPLE
+
+*** notice
+    : TODO 这条notice待验证
+    Tramp 打开的远端文件和本地的文件没什么区别，
+    会被记录在 backup、autosave、recentf 等中。
+    在今后重启 Emacs 时，如果这时无法连接远端机器，Emacs 可能会卡住，
+    这是因为 tramp 会对之前打开的文件进行检查
+
+    解决方案:
+    让backup等机制绕过tramp即可
+
+** graph
+*** why
+    图形表达更直观, 形象.
+*** what
+    artist-mode和graphviz-mode都可以完成绘图的功能.
+    不再推荐artist-mode. 手动绘图意义不大
+
+    | mode          | 简述      | 优点                          | 缺点                                      |
+    |---------------+-----------+-------------------------------+-------------------------------------------|
+    | artist-mode   | ASCII绘图 | 1.ASCII代码表示图形           | 1.功能少                                  |
+    |               |           | 2.短小精悍                    | 2.需要手动绘制图形                        |
+    |---------------+-----------+-------------------------------+-------------------------------------------|
+    | graphviz-mode | dot绘图   | 1.只关注逻辑设计,布局自动生成 | 1.生成的为图片文件, 而非可嵌入的ASCII代码 |
+    |               |           |                               | 2.需要学习dot语言                         |
+    |---------------+-----------+-------------------------------+-------------------------------------------|
+*** how
+**** install
+     1. emacs install graphviz-dot-mode
+     2. system install graphviz
+        : brew install graphviz  #mac
+**** use
+     1. create .dot | .org file
+     2. write "The DOT Language"
+     3. M-x graphviz-dot-preview
+**** dot language
+     DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程图.
+***** graph
+      - 有向图 digraph
+      - 无向图 graph
+      - 子图 subgraph
+        : 可以进行和“父图”类似的设置，唯一注意的是子图必须以cluster做为名称的前缀
+
+
+      在图的开头使用graph []对图进行设置，如：graph [bgcolor="gray"]将图背景色设置为灰色。
+      属性设置语句也可以不包含在graph []中而直接使用。
+      | 属性名称  | 默认值      | 含义                          | 备注                         |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | color     | black       | 颜色                          | 支持如red和#FF00000两种形式  |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | fontcolor | black       | 文本颜色                      |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | fontsiez  | 14          | 字体大小                      |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | label     |             | 显示的标签                    | 对于节点, 默认为节点名称     |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | style     |             | 样式                          |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      |-----------+-------------+-------------------------------+------------------------------|
+      | bgcolor   |             | 背景颜色                      |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | nodesep   | .25         | 节点间隔(英寸)                |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | rank      |             | 节点顺序                      | same, min, source, max, sink |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | rankdir   | TB          | 排序方向                      | TB(top->bottom)              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | size      |             | 图的大小                      |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | labelloc  |             | 调整图或子图的 标签的上下位置 |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+      | labeljust |             | 调整图或子图的 标签的左右位置 |                              |
+      |-----------+-------------+-------------------------------+------------------------------|
+
+***** node
+      DOT中，节点可以不用声明直接使用，但如果需要设置节点的属性，则需声明节点并在声明处设
+      置属性然后再使用。每个节点首次出现的名称做为该节点的唯一标识
+
+      node []用于设置节点默认属性（对设置位置之后的点有效），在节点后面用[]设置单独一个点的属性。
+      | 属性名称  | 默认值          | 含义                 | 备注                        |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | color     | black           | 颜色                 | 支持如red和#FF00000两种形式 |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | fontcolor | black           | 文本颜色             |                             |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | fontsiez  | 14              | 字体大小             |                             |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | label     |                 | 显示的标签           | 对于节点, 默认为节点名称    |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | style     |                 | 样式                 |                             |
+      |-----------+-----------------+----------------------+-----------------------------|
+      |-----------+-----------------+----------------------+-----------------------------|
+      | shape     | ellipse         | 节点形状             |                             |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | fillcolor | lightgrey/black | 节点填充颜色         |                             |
+      |-----------+-----------------+----------------------+-----------------------------|
+      | fixedsize | false           | 标签是否影响节点大小 |                             |
+      |-----------+-----------------+----------------------+-----------------------------|
+
+***** edge
+      DOT中有有向边（使用->表示）和无向边（使用--表示）两种，有向边用于有向图，无向边用于无向图，不可混用。
+
+      和节点类似的，用edge []设置边默认属性，在边之后用[]设置单独一条边的属性。
+      对于有向边，还可以设置边的起点/终点的位置（用n、e、s、w或它们的组合表示位置）。
+      | 属性名称   | 默认值  | 含义                                | 备注                        |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | color      | black   | 颜色                                | 支持如red和#FF00000两种形式 |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | fontcolor  | black   | 文本颜色                            |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | fontsiez   | 14      | 字体大小                            |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | label      |         | 显示的标签                          | 对于节点, 默认为节点名称    |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | style      |         | 样式                                |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      |------------+---------+-------------------------------------+-----------------------------|
+      | arrowhead  | normal  | 箭头头部形状                        |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | arrowtail  | normal  | 箭头尾部形状                        |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | constraint | ture    | 是否根据边来影响节点的排序          |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | decorate   |         | 设置之后会用一条线来连接edge和label |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | dir        | forward | 边的设置方向                        | forward,bcak,both,none      |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | headlabel  |         | 边的头部显示的标签                  |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+      | taillabel  |         | 边的尾部显示的标签                  |                             |
+      |------------+---------+-------------------------------------+-----------------------------|
+
+
+* org与GTD
+** org mode
+   [[file:emacs_com/emacs_org-mode.org][org-mode]]一直被称为神器, 据传很多人为了它转到了emacs.
+   主要功能:
+   - org自身强大的文本模式
+   - org-agent
+
+* cc IDE
 ** 说明
    本文很大程度借鉴[[http://tuhdo.github.io/c-ide.html][参考文档(强烈建议阅读)]]
 ** 合格的IDE功能
@@ -235,6 +435,64 @@
 ** 调试器
    gud
 
+    
+* 键位设置
+** 设计思路
+   原则
+   1. 尽量保留默认常用快捷键
+   2. 不同mode, 尽量使用相似的快捷键
+
+   思路
+   1. 通用快捷键(比如search等与mode无关的) 或者是 所有mode都会使用的(比如yas)
+      统一放到C-s中
+   2. mode自身的快捷键, 放到C-j中
+   3. 因为使用hydra来管理快捷键, 因此可以通过查看hydra body 来查看快捷键设置
+** CFG
+   常用通用快捷键
+
+   | key | C                  | M    | C-x      | C-c              |
+   |-----+--------------------+------+----------+------------------|
+   | a   | 行首               | 段首 | buffer首 | =mode= org-agent |
+   | b   | 后退               | 后退 | 列表     |                  |
+   | c   | =修饰= 通用修饰    |      |          | capure           |
+   | d   | 删除               | 删除 | 目录     |                  |
+   | e   | 行尾               | 段尾 | buffer尾 |                  |
+   | f   | 前进               | 前进 | 打开     |                  |
+   | g   | 取消               |      |          |                  |
+   | h   | =修饰= 帮助文档    |      |          |                  |
+   | i   | 别名 {TAB}         |      |          |                  |
+   | j   | =修饰= mode使用    |      |          |                  |
+   | k   | kill               |      | 删除     |                  |
+   | l   | 移动buffer         |      |          |                  |
+   | m   | 别名 {ENTER}       |      |          |                  |
+   | n   | 下一行             |      |          |                  |
+   | o   | =mode= smartparens |      | 切换     |                  |
+   | p   | 上一行             |      |          |                  |
+   | q   | =未使用=           |      |          |                  |
+   | r   | =未使用=           |      |          |                  |
+   | s   | 查找               |      | 保存     |                  |
+   | t   | =未使用=           |      |          |                  |
+   | u   | =修饰= 命令重复    |      |          |                  |
+   | v   | 翻页               | 翻页 |          |                  |
+   | w   | 剪切               | 复制 |          | refile           |
+   | x   | =修饰= buffer      | 命令 |          |                  |
+   | y   | 粘贴               |      |          | archive          |
+   | z   | =未使用=           |      |          |                  |
+   | DEL |                    | 删除 |          |                  |
+   |-----+--------------------+------+----------+------------------|
+** org-mode
+   只显示org-mode local keymap
+   | key   | desc                               |
+   |-------+------------------------------------|
+   | C-j   | 大部分快捷键                       |
+   |-------+------------------------------------|
+   | M-p   | 上一个heading                      |
+   |-------+------------------------------------|
+   | M-n   | 下一个heading                      |
+   |-------+------------------------------------|
+   | C-c j | edit block in special-buff && exit |
+   |-------+------------------------------------|
+   
 * emacs奇淫技巧
 ** figlet
    把字符艺术化
@@ -259,7 +517,7 @@
        #+BEGIN_EXAMPLE
        setq figlet-default-font "banner3-D"
        #+END_EXAMPLE
-       
+
        已安装的字体可以在bash中通过showfigfonts查看   
 
 *** 使用
@@ -279,36 +537,4 @@
     #+END_EXAMPLE 
     
 
-    
-* emacs键位设置
-  原则
-  1. 尽量保留默认常用快捷键
-  2. 不同mode, 尽量使用相似的快捷键
 
-
-  思路
-  1. 通用快捷键(比如search等与mode无关的) 或者是 所有mode都会使用的(比如yas)
-     统一放到C-s中
-  2. mode自身的快捷键, 放到C-j中
-  3. 因为使用hydra来管理快捷键, 因此可以通过查看hydra body 来查看快捷键设置
-
-
-  方案
-  1. C-s
-     查找, 查找全部, 替换, 替换全部
-     跳转行号
-     查看模板, 添加模板
-  2. C-j
-     symbol-overlay -- 所有coding都会开启
-     helm-gtas      -- cc-mode中开启
-     smart-parents  -- 所有coding都会开启
-     org-mode
-
-
-  问题
-  1. symbol-overlay, smartparens, helm-gtags会有冲突
-     解决方案
-     - [X] 开启helm-gtags的时候, hydra-helm-gtags覆盖symbol-overlay
-       : 使用remapping commands
-     - [ ] smart-parents 使用另外一个快捷键 (这里是妥协的做法, 不是最好的)
-     
