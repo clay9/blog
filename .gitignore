@@ -1,3 +1,5 @@
 public
 resources
 content/
+.DS_Store
+blog/.DS_Store
