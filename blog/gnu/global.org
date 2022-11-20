@@ -34,13 +34,13 @@
 
    对于C++来说
    tag包含了class, struct, global-function && class-function
-   但是不包含class-symbol(成员变量)
+   但是不包含class-symbol(成员变量), 局部变量, 全局变量
    rtags中包含了tag中内容的引用 和 非tag中内容的引用(比如成员变量)
 
    所以使用global来查找的时候, 参数非常有必要. 比如   
    global X    是在GTAGS中查找, 所以是查找不到成员变量的, 因为成员变量没有在GTAGS中
    global -r X 是在GRTAGS中查找GTAGS中定义的内容的引用, 所以也是查找不到成员变量的
-   global -s X 与-r相反, 是在GRTAGS中查找没有在GTAGS中定义内容的引用, 所以可以查找成员变量, 局部变量等
+   global -s X 与-r相反, 是在GRTAGS中查找没有在GTAGS中定义内容的引用, 所以可以查找成员变量, 局部变量, 全局变量等
 ** 对于C++的.h文件
    通过gtags --config可以查看gtags生成tags-file的配置
    #+BEGIN_EXAMPLE shell
