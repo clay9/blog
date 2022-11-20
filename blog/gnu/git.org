@@ -1,7 +1,7 @@
 #+TITLE: git
 #+DATE: 2021-08-28 15:12:12
 #+HUGO_CATEGORIES: gnu
-#+HUGO_TAGS: git
+#+HUGO_TAGS:
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil

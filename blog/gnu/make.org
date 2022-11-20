@@ -1,7 +1,7 @@
 #+TITLE: make
 #+DATE: 2021-09-23 22:27:35
 #+HUGO_CATEGORIES: gnu
-#+HUGO_TAGS: make
+#+HUGO_TAGS:
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
