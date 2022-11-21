@@ -17,17 +17,17 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-          repository: clay9/emacs
+          repository: clay9/emacs.d
           ref: v1.0
           token: ${{ secrets.CLAY9 }}
-          path: ./emacs
+          path: ./emacs.d
 
       - run: |
           sudo apt install emacs -y
-          mv ./emacs ~/emacs && ln -s ~/emacs/.emacs.d ~/.emacs.d
+          mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
           emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
           emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
-          rm -rf ~/emacs
+          rm -rf ~/emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
           echo "ls content/org-info" && ls -al content/org-info
