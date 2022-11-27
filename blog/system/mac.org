@@ -1,4 +1,4 @@
-#+TITLE: mac实用技巧
+#+TITLE: mac
 #+DATE: 2022-11-12 23:19:09
 #+HUGO_CATEGORIES: system
 #+HUGO_TAGS: mac
@@ -6,20 +6,20 @@
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
-mac 驯服记录
+mac 记录
 
 #+hugo: more
 
 * mac系统怎么样
   之前是为了学习linux命令行, 后来是开发环境使用到了xcode, 现在是emacs+alfred.
-  mac是一款很稳定的系统, 但是稳定的代价是, 对于大部分游戏都不支持. 所以如果有游戏需求, 非常不建议使用mac. 
+  mac是一款很稳定的系统, 但是稳定的代价是, 对于大部分游戏都不支持. 所以如果有游戏需求, 非常不建议使用mac.
   17年开始使用mac, 缺点很明显, 对游戏的支持差. 优点也不少:
   1. 稳定
   2. 广告少! 广告少! 广告少!
   3. 命令行学习使用方便
   4. 原生软件xcode
   5. alfred
-  
+
 * mac初步整理
   笔者有严重的强迫症, 新上手的东西必须整理一遍才去使用.
   习惯性由大到小, 由外而内的整理方式.
@@ -30,18 +30,18 @@ mac 驯服记录
 ** 界面的整理
    1. launchpad图标大小整理
       1) 每一列图标数量
-	 #+BEGIN_EXAMPLE
-	 defaults write com.apple.dock springboard-rows -int 7
-	 #+END_EXAMPLE
+     #+BEGIN_EXAMPLE
+     defaults write com.apple.dock springboard-rows -int 7
+     #+END_EXAMPLE
       2) 每一行图标数量
-	 #+BEGIN_EXAMPLE
-	 defaults write com.apple.dock springboard-columns -int 7
-	 #+END_EXAMPLE
+     #+BEGIN_EXAMPLE
+     defaults write com.apple.dock springboard-columns -int 7
+     #+END_EXAMPLE
       3) 重启Launchpad
-	 #+BEGIN_EXAMPLE
-	 defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-	 #+END_EXAMPLE
-	 慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!
+     #+BEGIN_EXAMPLE
+     defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+     #+END_EXAMPLE
+     慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!
    2. 添加空白到Dock栏
       空白能使Dock中的程序更好的归类. 按住Option可以拖动
       #+BEGIN_EXAMPLE
@@ -55,18 +55,18 @@ mac 驯服记录
       1) 重启系统，按住 Command + R 进入恢复模式
       2) 点击顶部菜单栏 实用工具 中的 终端
       3) 输入以下命令来禁用 SIP 保护机制
-	 #+BEGIN_EXAMPLE
-	 csrutil disable
-	 #+END_EXAMPLE
+     #+BEGIN_EXAMPLE
+     csrutil disable
+     #+END_EXAMPLE
       4) 执行后输出以下信息表示禁用成功
-	 #+BEGIN_EXAMPLE
-	 Successfully disabled System Integrity Protection. Please restart the machine for the changes to take effect.
-	 #+END_EXAMPLE
+     #+BEGIN_EXAMPLE
+     Successfully disabled System Integrity Protection. Please restart the machine for the changes to take effect.
+     #+END_EXAMPLE
       5) 重启系统
       6) 如果重新打开 SIP 的方法同上，只是终端中输入的命令改为以下命令
-	 #+BEGIN_EXAMPLE
-	 csrutil enable
-	 #+END_EXAMPLE
+     #+BEGIN_EXAMPLE
+     csrutil enable
+     #+END_EXAMPLE
    2. 先将输入法切换为系统自带的 ABC 输入法，然后打开终端输入以下命令
       #+BEGIN_EXAMPLE
       sudo open ~/Library/Preferences/com.apple.HIToolbox.plist
@@ -86,7 +86,7 @@ mac 驯服记录
    2. 候选词为横屏的时候, 会遮挡住输入区域
 ** +Terminal显示颜色设置+ 推荐iTerm代替
    1. ls设置为ls -G的别名
-      
+
       在~/.bash_profile中加入下面的内容:
       #+BEGIN_EXAMPLE
       alias ls="ks -G"
@@ -97,7 +97,7 @@ mac 驯服记录
       source ~/.bash_profile
       #+END_EXAMPLE
    2. 自定义颜色
-      
+
       在~/.bash_profile中加入下面的内容:
       #+BEGIN_EXAMPLE
       export CLICOLOR=1
@@ -120,10 +120,10 @@ mac 驯服记录
       character special
       executable with setuid bit set
       executable with setgid bit set
-      directory writable to others, with sticky bit 
+      directory writable to others, with sticky bit
       directory writable to others, without sticky bit
-      #+END_EXAMPLE      
-      
+      #+END_EXAMPLE
+
       LSCOLORS中，字母代表的颜色如下：
       #+BEGIN_EXAMPLE
    　　a 黑色
@@ -143,12 +143,12 @@ mac 驯服记录
    　　G 青色粗体
    　　H 浅灰色粗体
    　　x 系统默认颜色
-      #+END_EXAMPLE      
+      #+END_EXAMPLE
 ** 关闭内置键盘
    苹果内置键盘不好用, 但是触控板非常好用.
    习惯把HHKB放在苹果键盘上, 这样可以使用HHKB+苹果触控版
 
-   #+BEGIN_EXAMPLE shell 
+   #+BEGIN_EXAMPLE shell
    # For newer versions on MacOS / alternative solution:
    # List loaded kexts for keyboard
    kextstat | grep Keyboard
@@ -161,7 +161,7 @@ mac 驯服记录
    sudo kextunload -b com.apple.driver.AppleHIDKeyboard
    # To enable it back:
    sudo kextload -b com.apple.driver.AppleHIDKeyboard
-   #+END_EXAMPLE  
+   #+END_EXAMPLE
 ** 开机启动
    mac没有像linux使用init作为系统管理, 而是使用Launchd
 *** launchd
@@ -181,7 +181,7 @@ mac 驯服记录
     |------------------------+-------------------------------|
     Daemons是一种无用户交互的服务程序, 而Agents是用户交互
     当系统启动时, 依次执行/System/Library/LaunchDaemons 和 /Library/LaunchDaemons
-    当用户登陆时, 依次执行/System/Library/LaunchAgents, /Library/LaunchAgents 和 ~/Library/LaunchAgents     
+    当用户登陆时, 依次执行/System/Library/LaunchAgents, /Library/LaunchAgents 和 ~/Library/LaunchAgents
 *** 操作流程
     1. 编写自己的脚本, 并添加可执行权限
        如果是Daemons调用, 需要给于777权限
@@ -209,11 +209,11 @@ mac 驯服记录
        launchctl start com.user.loginscript
 *** 实例
     功能: 苹果开机时候 禁用内置键盘
-    
+
     1. 创建mac_startup.sh && 设置权限为777
        #+BEGIN_EXAMPLE shell
        #!/bin/bash
-       
+
        ## disable mac internal keyboard
        sudo -S kextunload -b com.apple.driver.AppleHIDKeyboard > /dev/null
        #+END_EXAMPLE
@@ -239,7 +239,7 @@ mac 驯服记录
        sudo launchctl load -w /Library/LaunchDaemons/mac_startup.plist
        #+END_EXAMPLE
     4. 登陆测试
-       
+
 * mac好用的软件
 ** Alfred
    [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索, 支持自定义编程, 非常强大
@@ -313,18 +313,27 @@ mac 驯服记录
       #+BEGIN_EXAMPLE
       #关闭
       sudo mdutil -a -i off
-      
+
       #打开
       sudo mdutil -a -i on
       #+END_EXAMPLE
 ** ssh远程连接mac os, 中文乱码
    这种情况一般是终端和服务器的字符集不匹配，MacOSX下默认的是utf8字符集。输入locale可以查看字符编码设置情况，而我的对应值是空的。因为我在本地和服务器都用zsh替代了bash，而且使用了oh-my-zsh，而默认的.zshrc没有设置为utf-8编码，所以本地和服务器端都要在.zshrc设置，步骤如下，bash对应.bash_profile或.bashrc文件。
-   
+
    1. 在.bash_profile中增加
       #+BEGIN_EXAMPLE
-      export LC_ALL=en_US.UTF-8  
+      export LC_ALL=en_US.UTF-8
       export LANG=en_US.UTF-8
       #+END_EXAMPLE
    2. source .bash_profile
    3. locale 查看下是否设置成功
    4. 完成
+* 查找错误
+  1. mac崩溃原因查找
+     #+BEGIN_EXAMPLE shell
+     # 会打印mac 24小时崩溃的原因
+     # 常见原因
+     # 5 -- 正常关机
+     # 3 -- 硬件关机 (holding the power button)
+     log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
+     #+END_EXAMPLE

@@ -46,7 +46,7 @@
     @<< 第二行(更建议使用 @2)
 
     对table使用C-c} 可以查看行列值
-    
+
 ** 导出
    快捷键
    #+BEGIN_EXAMPLE
@@ -58,15 +58,15 @@
 *** 模式
     - info
       'm' 切换
-    - over view 
+    - over view
       'm' 切换
-    - ppt 
+    - ppt
       'x' 切换
 
 *** 属性值说明
     - path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录
                如果没有设置, 则默认从orgmode.org中读取
-	       publish , export均生效
+           publish , export均生效
     - home     整个org-file的根节点,  对应界面上的"HOME"按钮
       1) export 时候, 设置有效
       2) publish的时候, 设置无效
@@ -78,7 +78,7 @@
     - ltoc     sub-heading是否显示content
       publish时候 设置无效
     - mouse    鼠标样式
-    - buttons 
+    - buttons
 *** 快捷键
     | 快捷键 | 说明 |
     |--------+------|
@@ -111,7 +111,7 @@
     #+BEGIN_EXAMPLE
     file:test.org
     #+END_EXAMPLE
-    
+
     在export的html中, 会被自动转换为
     #+BEGIN_EXAMPLE
     link:test.html
@@ -119,31 +119,31 @@
 ** MobileOrg
     方案流程
      1. PC端配置MobileOrg
-       	具体见.emacs
+        具体见.emacs
      2. 寻找WebDAV server
-       	现在使用的是坚果云
+        现在使用的是坚果云
      3. curl同步PC端到webDAV server
-       	这一块非常纠结
-       	起初使用的ssh的scp,发现scp貌似不支持https?
-       	后来使用了curl, 结果发现curl不支持目录的上传.....
-       	导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块!
-       	方法有2:
-       	1) 换一种工具取代curl  -- 更倾向于这一种方式
-       	2) 使用regular expression -- 貌似curl支持的不好
+        这一块非常纠结
+        起初使用的ssh的scp,发现scp貌似不支持https?
+        后来使用了curl, 结果发现curl不支持目录的上传.....
+        导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块!
+        方法有2:
+        1) 换一种工具取代curl  -- 更倾向于这一种方式
+        2) 使用regular expression -- 貌似curl支持的不好
 
 
     总览图
 
-     +-----------+ push	       	+--------------+
+     +-----------+ push         +--------------+
      | PC端      |-------------->| WwbDAV server|
      |           |<--------------|              |
-     +-----------+ pull	       	+--------------+
-       	       	       	       	       | 	  ^ |
-       	       	       	       	       | 	    |
-       	       	       	       	       | 	    |
-				       v	  |
+     +-----------+ pull         +--------------+
+                                       |      ^ |
+                                       |        |
+                                       |        |
+                       v	  |
                                  +--------------+
- 			       	 | Mobile       |
+                     | Mobile       |
                                  |              |
                                  +--------------+
 * org-mode与GTD
@@ -151,3 +151,5 @@
 * org-agenda使用指南
   tab     显示entry的具体信息
   space   切换到下一个org-agenda界面
+* 参考资料
+  [[http://doc.norang.ca/org-mode.html][org心得体会]]
