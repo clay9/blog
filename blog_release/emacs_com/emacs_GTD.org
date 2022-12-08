@@ -49,6 +49,22 @@
 * GTD怎么实现
   GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mode(emacs 插件).
 * org mode怎么实现GTD
+** 需求分析
+   所有的设计都是基于需求的, 应该先有需求, 再去设计.
+   当前的需求:
+   1. 有哪些task
+      - [X] 他们归属于哪个PROJECT
+      - [X] 他们的四象限: 紧急&&重要
+      - [X] 工作量预估
+      - [ ] 关联性 A task可能与B, C相关联
+        : TODO 该任务并未完成
+   2. 当前正在处理的任务
+      尽可能的关注当前, 忽略其他
+   3. 当某个task进行时, 快速capture我的想法, 并且自动refile
+   4. 看到自己花费的时间
+      - [X] 一天,一周都做了什么
+      - [X] 某个PROJECT总共花费的时间
+
 ** 思路的设计
    5楼 到 地面视角
    | 楼数 | 功能     | 说明    | 备注    |
@@ -66,41 +82,68 @@
    | 地面 | 行动清单 | 隶属1楼 | GTD管理 |
    |------+----------+---------+---------|
    备注 : GTD管理的其实是 1楼 && 地面的清单
-             
+
 ** 流程的设计
    #+BEGIN_EXAMPLE artist-mode
      -------------------------+------------------------
-                              |                        
-                              |                        
-                              |---------------\ capture
-                              |                \       
-                              v                        
-                         +---------+                   
-             +-----------|  inbox  |
-             |           +----+----+
-             |                |
-             |                |
-             |                |---------------\ refile
-             |                |                \
-             | arvhive        v
-             |           +---------+
-             |           |  task   |
-             |           +----+----+
-             |                |
-             |                |
-             |                |---------------\ archive
-             |                |                \
-             |                v
-             |           +---------+
-             +---------> | archive |
-                         +---------+
+                              |
+                              | capture (easy)
+                              |
+                              |
+                              v
+          archive        +---------+
+     +-------------------|  inbox  |
+     |                   +----+----+
+     |                        |
+     |                        | refile (auto)
+     |                        |
+     |                        |
+     |       |----------------+--------------------|
+     |       |                |                    |
+     |       |                v                    v
+     |       v           +---------+          +---------+
+     |  +---------+      | my/emacs|          | work/qy |
+     |  |  task   |      |  * emacs|          |  * ker  |
+     |  +----+----+      |  * org  |          |  * frame|
+     |       |           |  * ccIDE|          |  * sub  |
+     |       |           +---------+          +---------+
+     |       |
+     |       | archive (auto)
+     |       |
+     |       v
+     |  +---------+
+     +->| archive |
+        +----+----+
    #+END_EXAMPLE
 ** 文件的设计
+   区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间
+   gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及一系列TODO任务.
+   而gtd_my与gtd_work则是已经明确分类的PROJECT.
+   比如gtd_my/emacs.org明确的是与emacs有关的任务.
+   但即使都是emacs相关, 也可分为是emacs自身, org, 还是cc-IDE.
+   所以emacs.org中实际包含了上面三个PROJECT.
+   #+BEGIN_EXAMPLE org emacs.org
+   * emacs
+   * org
+   * ccIDE
+   #+END_EXAMPLE
+
+   | 目录       | 说明                | 备注        |
+   |------------+---------------------+-------------|
+   | gtd_common | 通用gtd流程文件     | inbox.org   |
+   |            |                     | task.org    |
+   |            |                     | archive.org |
+   |------------+---------------------+-------------|
+   | gtd_my     | 自己的project files |             |
+   |------------+---------------------+-------------|
+   | gtd_work   | 工作的project files |             |
+   |------------+---------------------+-------------|
+
+   gtd_common中的文件:
    | 文件名      | 说明     | 备注                       |
    |-------------+----------+----------------------------|
-   | inbox.org   | 收集箱   | 1. 不区分时间, 不区分场景  |
-   |             |          | 2. 灵光一闪即可扔进去保存  |
-   |             |          | 3. 自动清空                |
+   | inbox.org   | 收集箱   | 不区分时间, 不区分场景     |
+   |             |          | 灵光一闪即可扔进去保存     |
    |-------------+----------+----------------------------|
    | task.org    | 任务清单 | 1. priority标签            |
    |             | task     | 2. 四象限约束              |
@@ -137,45 +180,103 @@
    四象限使用proirity来区分;
    TAGS为之后快速查找使用
 
-** Agent的设计
+** PROPERTY的设计
+   当前主要使用的字段
+   1. P_UUID
+      PROEJCT item的标志, 主要影响auto refile
+   2. HIDE_WHEN_STUCK
+      PROJECT item的属性, 控制了是否在agenda中显示
+      有些PROJECT是长久开启的, 不会关闭. 比如emacs
+      当这类PROJECT没有task时, 就变成了STUCK项目. 但我们并不希望将这类PROJECT在agenda中显示.
+      所以有了HIDE_WHEN_STUCK.
 
-   | 命令    | 含义                              | 备注                                 |
-   |---------+-----------------------------------+--------------------------------------|
-   | C-c a a | 查看当下的操作                    | 最好把当下设置为1月, 能全局一览      |
-   |---------+-----------------------------------+--------------------------------------|
-   | C-c a n | 当下没有操作, 则可以查看next step |                                      |
-   |---------+-----------------------------------+--------------------------------------|
-   | C-c a i | 查看inbox中的记录                 | 无需在查看inbox; inbox中的TODO会自动 |
-   |         |                                   | refile到task中                       |
-   |---------+-----------------------------------+--------------------------------------|
-   |         | 如果inbox中也没有                 |                                      |
-   |         | 则应该反思, 最近是不是太闲了      |                                      |
-   |---------+-----------------------------------+--------------------------------------|
+      #+BEGIN_EXAMPLE artist
+        +------------+----------------+
+        |  not stuck |  stuck project |
+        |            |                |
+        |            |   +---+        |
+        |            |   |   |        |
+        |            |   |   +--------+--------> stuck but also hide
+        |            |   +---+        |          HIDE_WHEN_STUCK
+        |            |                |
+        |            |                |
+        +------------+----------------+
+      #+END_EXAMPLE
+** Effort的设计
+   effort是自己对某个task工作量的预估, 与clock-sum-time比对, 可以很好的进行分析.
+   为了方便的effort, 这里只在两处设计了提示:
+   1. capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过
+   2. clock-in的时候, 如果item effort还是0, 则会要求进入工作预估
+** clock的设计
+   org的clock已经非常好用了. 这里只是做了一点点修改:
+   1. 快捷键快速clock-in, clock-out
+   2. 如果当前没有clock, 会在agenda界面做个提示
+
+** capture设计
+   经常是在工作的时候, 突然有了某个想法. 这个想法也许值得记录, 但不要打断当前的思路. 所以需要capture
+   capture应该是快速的, 但又要明确的(归属要明确, 最好effort要明确)
+
+   为了快速capture, 所以不应该考虑这个想法应该放到哪个file. 统一放到inbox即可.
+   为了后面的auto refile, 这个想法或item 应该携带足够的信息, 可以完成auto refile.
+   这里的办法是给item一个tag.
+   比如 capture了一个item, 再给其增加对应的tag
+   : * org应该快速capture :org:
+   这样就表明了这是一个与org PROJECT有关的task
+** refile的设计
+   refile应该是自动完成的, 不应该手动
+   为了自动完成, item已经给了相关信息(tag)
+   在gtd_my或gtd_work的PROJECT中, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
+   这里的办法是给PROJECT item一个Property (P_UUID)来实现
+   比如
+   #+BEGIN_EXAMPLE org
+   * PROJECT org                                                       :org:
+     :PROPERTIES:
+     :P_UUID:   org
+     :END:
+   #+END_EXAMPLE
+   当capute-item的tag 与 PROJECT-item的P_UUID相匹配的时候, 会自动refile
+** archive的设计
+   对于gtd_my, gtd_work中的task, 没必要archive
+   对于gtd_common中的task, 应该自动archive
+
+** Agent的设计
+   agent的目的有2个:
+   1. 查看各种代办事项
+      今天的, 未来的, TODO的, inbox中的
+   2. 统计信息
+      一是以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT
+      二是以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间
+
+
+   查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view 查看
+   查看统计信息, 主要是org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体
+
+
+   快捷键主要是为了方便.比如
+   - 空格滚动各种view
+   - tab在另一个窗口显示item narrow
+   - enter则进入item编辑
+   - 常用的功能都会放到C-j中处理 等等
 
 ** 使用流程
    #+BEGIN_EXAMPLE
      |
-     | capture with               add TODO &&               add timestamp &&              add DONE &&
+     | capture with                                         add timestamp &&              add DONE &&
      | template       +---------+ auto refile   +---------+   auto refile     +---------+ auto archive  +---------+
      +--------------->|  inbxo  |-------------->|next step|------------------>|  agenda |-------------->| archive |
-     |  C-c c         +---+-----+  C-j t        +---------+  C-j s,d          +---------+  C-j t        +---------+
+     |  C-c c         +---+-----+               +---------+  C-j s,d          +---------+  C-j t        +---------+
      |                    |                                                                                  ^
      |                    |                       add DONE && auto refile                                    |
      |                    +----------------------------------------------------------------------------------+
-     |                                                  C-j t           
+     |                                                  C-j t
    #+END_EXAMPLE
 
    1. C-c c   -> inbox
       : info, todo, waiting, project 都会放到inbox
-      : 这里使用inbox.org文件存储inbox
    2. 当打开org-agenda(主动调用"r")或者在org-agenda中按'r' 会自动把inbox中的文件refile到指定位置
-      这里, todo, waiting, project都会reflie到task.org中      
-      除了refile之外, r动作还会根据优先级自动排序
-   3. 使用org-agenda-bulk在org-agenda界面操控
-      1) 举例, 在C-c a n界面, 即next-step界面, 先使用'm'标记要操作的entry, 然后按'a'可以看到可执行的action
-	 比如s 添加开始时间, d添加截至时间等
-      2) 举例, 在org-agenda的entry入口出, 使用't', 可以更改entry的状态, 比如把TODO的改为DONE或者CANCEL
-   4. org-agenda界面的'r'动作, 不仅可以把inbox中的文件reflie, 也可以把next step(即task.org)中完成的任务archive
-      默认的是archive到 archive.org中
-   5. 其实还有最后一步, 即把archive中的内容输出到blog中, 或者把无用的删掉
+   3. 在org-agenda界面操控
+      C-j 以及常用的快捷键 t, space, tab, enter等
+   4. org-agenda界面的'r'动作, 不仅可以把inbox中的文件reflie, 也可以把task.org中完成的任务archive
+   5. 其实还有最后一步, 即把archive中的内容输出到blog中
       : blog具体见 hugo的文档
+      : 不建议删除已完成或cancel的task. 后期统计可以使用

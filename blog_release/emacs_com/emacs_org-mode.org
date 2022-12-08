@@ -3,7 +3,6 @@
 #+INFOJS_OPT: toc:t ltoc:t
 #+INFOJS_OPT: view:info mouse:underline buttons:nil
 
-* 功能
 * 配置
 ** org-bullets
    使org-mode更美观
@@ -47,11 +46,6 @@
 
     对table使用C-c} 可以查看行列值
 
-** 导出
-   快捷键
-   #+BEGIN_EXAMPLE
-   C-c C-e
-   #+END_EXAMPLE
 ** org-info.js
    输出info-style xhtml
    [[https://orgmode.org/worg/code/org-info-js/][官方文档]]
@@ -148,8 +142,5 @@
                                  +--------------+
 * org-mode与GTD
   [[file:emacs_GTD.org][org-mode与GTD]]
-* org-agenda使用指南
-  tab     显示entry的具体信息
-  space   切换到下一个org-agenda界面
 * 参考资料
   [[http://doc.norang.ca/org-mode.html][org心得体会]]
