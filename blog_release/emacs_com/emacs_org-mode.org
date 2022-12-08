@@ -127,7 +127,7 @@
 
 
     总览图
-
+    #+BEGIN_EXAMPLE artist
      +-----------+ push         +--------------+
      | PC端      |-------------->| WwbDAV server|
      |           |<--------------|              |
@@ -140,6 +140,7 @@
                      | Mobile       |
                                  |              |
                                  +--------------+
+    #+END_EXAMPLE
 * org-mode与GTD
   [[file:emacs_GTD.org][org-mode与GTD]]
 * 参考资料
