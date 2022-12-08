@@ -25,8 +25,8 @@ jobs:
       - run: |
           sudo apt install emacs -y
           mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
-          emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
-          emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
+          emacs -Q -l ~/.emacs.d/lisp/init-elpa.el --script ~/.emacs.d/script/init-org-publish.el
+          emacs -Q -l ~/.emacs.d/lisp/init-elpa.el --script ~/.emacs.d/script/init-hugo-publish.el
           rm -rf ~/emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
