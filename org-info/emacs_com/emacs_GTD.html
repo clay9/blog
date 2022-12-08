@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-21 Mon 18:48 -->
+<!-- 2022-12-08 Thu 15:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GTD &amp;&amp; org-mode</title>
@@ -11,16 +11,16 @@
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
-             margin-bottom: .2em; }
+	     margin-bottom: .2em; }
   .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+	      font-size: medium;
+	      font-weight: bold;
+	      margin-top:0; }
   .todo   { font-family: monospace; color: red; }
   .done   { font-family: monospace; color: green; }
   .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
+	    padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
   .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
@@ -309,31 +309,38 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgec8a9a6">1. 为什么要用GTD</a></li>
-<li><a href="#org4f478cd">2. GTD是什么</a>
+<li><a href="#org54000f2">1. 为什么要用GTD</a></li>
+<li><a href="#org1046844">2. GTD是什么</a>
 <ul>
-<li><a href="#orgb96aa54">2.1. 人生5楼</a></li>
-<li><a href="#orgd1cd306">2.2. GTD是什么</a></li>
+<li><a href="#org75f0162">2.1. 人生5楼</a></li>
+<li><a href="#orgcb9c091">2.2. GTD是什么</a></li>
 </ul>
 </li>
-<li><a href="#orgd518316">3. GTD怎么实现</a></li>
-<li><a href="#orgee329b9">4. org mode怎么实现GTD</a>
+<li><a href="#orgfcf7070">3. GTD怎么实现</a></li>
+<li><a href="#orgc2fce6a">4. org mode怎么实现GTD</a>
 <ul>
-<li><a href="#orga2246ce">4.1. 思路的设计</a></li>
-<li><a href="#orgb844283">4.2. 流程的设计</a></li>
-<li><a href="#org62dd912">4.3. 文件的设计</a></li>
-<li><a href="#org97a918e">4.4. <span class="todo TODO">TODO</span> 的设计</a></li>
-<li><a href="#orgf7962d2">4.5. TAGS的设计</a></li>
-<li><a href="#org114b0a6">4.6. Agent的设计</a></li>
-<li><a href="#org65f3485">4.7. 使用流程</a></li>
+<li><a href="#org1a06073">4.1. 需求分析</a></li>
+<li><a href="#org4fcb56e">4.2. 思路的设计</a></li>
+<li><a href="#org066b540">4.3. 流程的设计</a></li>
+<li><a href="#orgb0db8f5">4.4. 文件的设计</a></li>
+<li><a href="#org1de0034">4.5. <span class="todo TODO">TODO</span> 的设计</a></li>
+<li><a href="#org30f6016">4.6. TAGS的设计</a></li>
+<li><a href="#orgefd3873">4.7. PROPERTY的设计</a></li>
+<li><a href="#org5c95b0c">4.8. Effort的设计</a></li>
+<li><a href="#org865b066">4.9. clock的设计</a></li>
+<li><a href="#orgb3841d4">4.10. capture设计</a></li>
+<li><a href="#org9ae4e95">4.11. refile的设计</a></li>
+<li><a href="#org13bd82f">4.12. archive的设计</a></li>
+<li><a href="#org4fb71eb">4.13. Agent的设计</a></li>
+<li><a href="#orgce23794">4.14. 使用流程</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgec8a9a6" class="outline-2">
-<h2 id="orgec8a9a6"><span class="section-number-2">1</span> 为什么要用GTD</h2>
+<div id="outline-container-org54000f2" class="outline-2">
+<h2 id="org54000f2"><span class="section-number-2">1</span> 为什么要用GTD</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. 这些事情如果都存储在脑中, 轻则
@@ -344,12 +351,12 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-org4f478cd" class="outline-2">
-<h2 id="org4f478cd"><span class="section-number-2">2</span> GTD是什么</h2>
+<div id="outline-container-org1046844" class="outline-2">
+<h2 id="org1046844"><span class="section-number-2">2</span> GTD是什么</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb96aa54" class="outline-3">
-<h3 id="orgb96aa54"><span class="section-number-3">2.1</span> 人生5楼</h3>
+<div id="outline-container-org75f0162" class="outline-3">
+<h3 id="org75f0162"><span class="section-number-3">2.1</span> 人生5楼</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 了解GTD之前, 必须了解人生5楼.
@@ -446,8 +453,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd1cd306" class="outline-3">
-<h3 id="orgd1cd306"><span class="section-number-3">2.2</span> GTD是什么</h3>
+<div id="outline-container-orgcb9c091" class="outline-3">
+<h3 id="orgcb9c091"><span class="section-number-3">2.2</span> GTD是什么</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 GTD全名Getting things done, 它只是一种思想, 所能管理的是大厦的1楼.
@@ -464,21 +471,54 @@ GTD的工作流程(算法)甚至文件(结构)都是可以自定义的. 适合�
 </div>
 </div>
 </div>
-<div id="outline-container-orgd518316" class="outline-2">
-<h2 id="orgd518316"><span class="section-number-2">3</span> GTD怎么实现</h2>
+<div id="outline-container-orgfcf7070" class="outline-2">
+<h2 id="orgfcf7070"><span class="section-number-2">3</span> GTD怎么实现</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mode(emacs 插件).
 </p>
 </div>
 </div>
-<div id="outline-container-orgee329b9" class="outline-2">
-<h2 id="orgee329b9"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
+<div id="outline-container-orgc2fce6a" class="outline-2">
+<h2 id="orgc2fce6a"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orga2246ce" class="outline-3">
-<h3 id="orga2246ce"><span class="section-number-3">4.1</span> 思路的设计</h3>
+<div id="outline-container-org1a06073" class="outline-3">
+<h3 id="org1a06073"><span class="section-number-3">4.1</span> 需求分析</h3>
 <div class="outline-text-3" id="text-4-1">
+<p>
+所有的设计都是基于需求的, 应该先有需求, 再去设计.
+当前的需求:
+</p>
+<ol class="org-ol">
+<li>有哪些task
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 他们归属于哪个PROJECT</li>
+<li class="on"><code>[X]</code> 他们的四象限: 紧急&amp;&amp;重要</li>
+<li class="on"><code>[X]</code> 工作量预估</li>
+<li class="off"><code>[&#xa0;]</code> <p>
+关联性 A task可能与B, C相关联
+</p>
+<pre class="example">
+TODO 该任务并未完成
+
+</pre></li>
+</ul></li>
+<li>当前正在处理的任务
+尽可能的关注当前, 忽略其他</li>
+<li>当某个task进行时, 快速capture我的想法, 并且自动refile</li>
+<li>看到自己花费的时间
+<ul class="org-ul">
+<li class="on"><code>[X]</code> 一天,一周都做了什么</li>
+<li class="on"><code>[X]</code> 某个PROJECT总共花费的时间</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org4fcb56e" class="outline-3">
+<h3 id="org4fcb56e"><span class="section-number-3">4.2</span> 思路的设计</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 5楼 到 地面视角
 </p>
@@ -557,41 +597,114 @@ GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mod
 </div>
 </div>
 
-<div id="outline-container-orgb844283" class="outline-3">
-<h3 id="orgb844283"><span class="section-number-3">4.2</span> 流程的设计</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org066b540" class="outline-3">
+<h3 id="org066b540"><span class="section-number-3">4.3</span> 流程的设计</h3>
+<div class="outline-text-3" id="text-4-3">
 <pre class="example">
 -------------------------+------------------------
-                         |                        
-                         |                        
-                         |---------------\ capture
-                         |                \       
-                         v                        
-                    +---------+                   
-        +-----------|  inbox  |
-        |           +----+----+
-        |                |
-        |                |
-        |                |---------------\ refile
-        |                |                \
-        | arvhive        v
-        |           +---------+
-        |           |  task   |
-        |           +----+----+
-        |                |
-        |                |
-        |                |---------------\ archive
-        |                |                \
-        |                v
-        |           +---------+
-        +---------&gt; | archive |
-                    +---------+
+			 |
+			 | capture (easy)
+			 |
+			 |
+			 v
+     archive        +---------+
++-------------------|  inbox  |
+|                   +----+----+
+|                        |
+|                        | refile (auto)
+|                        |
+|                        |
+|       |----------------+--------------------|
+|       |                |                    |
+|       |                v                    v
+|       v           +---------+          +---------+
+|  +---------+      | my/emacs|          | work/qy |
+|  |  task   |      |  * emacs|          |  * ker  |
+|  +----+----+      |  * org  |          |  * frame|
+|       |           |  * ccIDE|          |  * sub  |
+|       |           +---------+          +---------+
+|       |
+|       | archive (auto)
+|       |
+|       v
+|  +---------+
++-&gt;| archive |
+   +----+----+
 </pre>
 </div>
 </div>
-<div id="outline-container-org62dd912" class="outline-3">
-<h3 id="org62dd912"><span class="section-number-3">4.3</span> 文件的设计</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orgb0db8f5" class="outline-3">
+<h3 id="orgb0db8f5"><span class="section-number-3">4.4</span> 文件的设计</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间
+gtd<sub>common中保存的是一些通用的</sub>, 可能暂时不好归类的PROJECT以及一系列TODO任务.
+而gtd<sub>my与gtd</sub><sub>work则是已经明确分类的PROJECT</sub>.
+比如gtd<sub>my</sub>/emacs.org明确的是与emacs有关的任务.
+但即使都是emacs相关, 也可分为是emacs自身, org, 还是cc-IDE.
+所以emacs.org中实际包含了上面三个PROJECT.
+</p>
+<pre class="example">
+* emacs
+* org
+* ccIDE
+</pre>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">目录</th>
+<th scope="col" class="org-left">说明</th>
+<th scope="col" class="org-left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">gtd<sub>common</sub></td>
+<td class="org-left">通用gtd流程文件</td>
+<td class="org-left">inbox.org</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">task.org</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">archive.org</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">gtd<sub>my</sub></td>
+<td class="org-left">自己的project files</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">gtd<sub>work</sub></td>
+<td class="org-left">工作的project files</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+gtd<sub>common中的文件</sub>:
+</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -613,19 +726,13 @@ GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mod
 <tr>
 <td class="org-left">inbox.org</td>
 <td class="org-left">收集箱</td>
-<td class="org-left">1. 不区分时间, 不区分场景</td>
+<td class="org-left">不区分时间, 不区分场景</td>
 </tr>
 
 <tr>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-left">2. 灵光一闪即可扔进去保存</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">3. 自动清空</td>
+<td class="org-left">灵光一闪即可扔进去保存</td>
 </tr>
 </tbody>
 <tbody>
@@ -679,9 +786,9 @@ task只有one step,  project的steps &gt; 1</li>
 </div>
 </div>
 
-<div id="outline-container-org97a918e" class="outline-3">
-<h3 id="org97a918e"><span class="section-number-3">4.4</span> <span class="todo TODO">TODO</span> 的设计</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-org1de0034" class="outline-3">
+<h3 id="org1de0034"><span class="section-number-3">4.5</span> <span class="todo TODO">TODO</span> 的设计</h3>
+<div class="outline-text-3" id="text-4-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -740,9 +847,9 @@ task中的下一步行动是依据四象限法则来确定的.</li>
 </div>
 </div>
 
-<div id="outline-container-orgf7962d2" class="outline-3">
-<h3 id="orgf7962d2"><span class="section-number-3">4.5</span> TAGS的设计</h3>
-<div class="outline-text-3" id="text-4-5">
+<div id="outline-container-org30f6016" class="outline-3">
+<h3 id="org30f6016"><span class="section-number-3">4.6</span> TAGS的设计</h3>
+<div class="outline-text-3" id="text-4-6">
 <p>
 四象限使用proirity来区分;
 TAGS为之后快速查找使用
@@ -750,83 +857,164 @@ TAGS为之后快速查找使用
 </div>
 </div>
 
-<div id="outline-container-org114b0a6" class="outline-3">
-<h3 id="org114b0a6"><span class="section-number-3">4.6</span> Agent的设计</h3>
-<div class="outline-text-3" id="text-4-6">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">命令</th>
-<th scope="col" class="org-left">含义</th>
-<th scope="col" class="org-left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">C-c a a</td>
-<td class="org-left">查看当下的操作</td>
-<td class="org-left">最好把当下设置为1月, 能全局一览</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">C-c a n</td>
-<td class="org-left">当下没有操作, 则可以查看next step</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">C-c a i</td>
-<td class="org-left">查看inbox中的记录</td>
-<td class="org-left">无需在查看inbox; inbox中的TODO会自动</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">refile到task中</td>
-</tr>
-</tbody>
-<tbody>
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">如果inbox中也没有</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">则应该反思, 最近是不是太闲了</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org65f3485" class="outline-3">
-<h3 id="org65f3485"><span class="section-number-3">4.7</span> 使用流程</h3>
+<div id="outline-container-orgefd3873" class="outline-3">
+<h3 id="orgefd3873"><span class="section-number-3">4.7</span> PROPERTY的设计</h3>
 <div class="outline-text-3" id="text-4-7">
+<p>
+当前主要使用的字段
+</p>
+<ol class="org-ol">
+<li>P<sub>UUID</sub>
+PROEJCT item的标志, 主要影响auto refile</li>
+<li><p>
+HIDE<sub>WHEN</sub><sub>STUCK</sub>
+PROJECT item的属性, 控制了是否在agenda中显示
+有些PROJECT是长久开启的, 不会关闭. 比如emacs
+当这类PROJECT没有task时, 就变成了STUCK项目. 但我们并不希望将这类PROJECT在agenda中显示.
+所以有了HIDE<sub>WHEN</sub><sub>STUCK</sub>.
+</p>
+
+<pre class="example">
++------------+----------------+
+|  not stuck |  stuck project |
+|            |                |
+|            |   +---+        |
+|            |   |   |        |
+|            |   |   +--------+--------&gt; stuck but also hide
+|            |   +---+        |          HIDE_WHEN_STUCK
+|            |                |
+|            |                |
++------------+----------------+
+</pre></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org5c95b0c" class="outline-3">
+<h3 id="org5c95b0c"><span class="section-number-3">4.8</span> Effort的设计</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+effort是自己对某个task工作量的预估, 与clock-sum-time比对, 可以很好的进行分析.
+为了方便的effort, 这里只在两处设计了提示:
+</p>
+<ol class="org-ol">
+<li>capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过</li>
+<li>clock-in的时候, 如果item effort还是0, 则会要求进入工作预估</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org865b066" class="outline-3">
+<h3 id="org865b066"><span class="section-number-3">4.9</span> clock的设计</h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+org的clock已经非常好用了. 这里只是做了一点点修改:
+</p>
+<ol class="org-ol">
+<li>快捷键快速clock-in, clock-out</li>
+<li>如果当前没有clock, 会在agenda界面做个提示</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb3841d4" class="outline-3">
+<h3 id="orgb3841d4"><span class="section-number-3">4.10</span> capture设计</h3>
+<div class="outline-text-3" id="text-4-10">
+<p>
+经常是在工作的时候, 突然有了某个想法. 这个想法也许值得记录, 但不要打断当前的思路. 所以需要capture
+capture应该是快速的, 但又要明确的(归属要明确, 最好effort要明确)
+</p>
+
+<p>
+为了快速capture, 所以不应该考虑这个想法应该放到哪个file. 统一放到inbox即可.
+为了后面的auto refile, 这个想法或item 应该携带足够的信息, 可以完成auto refile.
+这里的办法是给item一个tag.
+比如 capture了一个item, 再给其增加对应的tag
+</p>
+<pre class="example">
+* org应该快速capture :org:
+
+</pre>
+<p>
+这样就表明了这是一个与org PROJECT有关的task
+</p>
+</div>
+</div>
+<div id="outline-container-org9ae4e95" class="outline-3">
+<h3 id="org9ae4e95"><span class="section-number-3">4.11</span> refile的设计</h3>
+<div class="outline-text-3" id="text-4-11">
+<p>
+refile应该是自动完成的, 不应该手动
+为了自动完成, item已经给了相关信息(tag)
+在gtd<sub>my或gtd</sub><sub>work的PROJECT中</sub>, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
+这里的办法是给PROJECT item一个Property (P<sub>UUID</sub>)来实现
+比如
+</p>
+<pre class="example">
+* PROJECT org                                                       :org:
+  :PROPERTIES:
+  :P_UUID:   org
+  :END:
+</pre>
+<p>
+当capute-item的tag 与 PROJECT-item的P<sub>UUID相匹配的时候</sub>, 会自动refile
+</p>
+</div>
+</div>
+<div id="outline-container-org13bd82f" class="outline-3">
+<h3 id="org13bd82f"><span class="section-number-3">4.12</span> archive的设计</h3>
+<div class="outline-text-3" id="text-4-12">
+<p>
+对于gtd<sub>my</sub>, gtd<sub>work中的task</sub>, 没必要archive
+对于gtd<sub>common中的task</sub>, 应该自动archive
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4fb71eb" class="outline-3">
+<h3 id="org4fb71eb"><span class="section-number-3">4.13</span> Agent的设计</h3>
+<div class="outline-text-3" id="text-4-13">
+<p>
+agent的目的有2个:
+</p>
+<ol class="org-ol">
+<li>查看各种代办事项
+今天的, 未来的, TODO的, inbox中的</li>
+<li>统计信息
+一是以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT
+二是以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间</li>
+</ol>
+
+
+<p>
+查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view 查看
+查看统计信息, 主要是org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体
+</p>
+
+
+<p>
+快捷键主要是为了方便.比如
+</p>
+<ul class="org-ul">
+<li>空格滚动各种view</li>
+<li>tab在另一个窗口显示item narrow</li>
+<li>enter则进入item编辑</li>
+<li>常用的功能都会放到C-j中处理 等等</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgce23794" class="outline-3">
+<h3 id="orgce23794"><span class="section-number-3">4.14</span> 使用流程</h3>
+<div class="outline-text-3" id="text-4-14">
 <pre class="example">
 |
-| capture with               add TODO &amp;&amp;               add timestamp &amp;&amp;              add DONE &amp;&amp;
+| capture with                                         add timestamp &amp;&amp;              add DONE &amp;&amp;
 | template       +---------+ auto refile   +---------+   auto refile     +---------+ auto archive  +---------+
 +---------------&gt;|  inbxo  |--------------&gt;|next step|------------------&gt;|  agenda |--------------&gt;| archive |
-|  C-c c         +---+-----+  C-j t        +---------+  C-j s,d          +---------+  C-j t        +---------+
+|  C-c c         +---+-----+               +---------+  C-j s,d          +---------+  C-j t        +---------+
 |                    |                                                                                  ^
 |                    |                       add DONE &amp;&amp; auto refile                                    |
 |                    +----------------------------------------------------------------------------------+
-|                                                  C-j t           
+|                                                  C-j t
 </pre>
 
 <ol class="org-ol">
@@ -835,25 +1023,18 @@ C-c c   -&gt; inbox
 </p>
 <pre class="example">
 info, todo, waiting, project 都会放到inbox
-这里使用inbox.org文件存储inbox
 
 </pre></li>
-<li>当打开org-agenda(主动调用"r")或者在org-agenda中按'r' 会自动把inbox中的文件refile到指定位置
-这里, todo, waiting, project都会reflie到task.org中      
-除了refile之外, r动作还会根据优先级自动排序</li>
-<li>使用org-agenda-bulk在org-agenda界面操控
-<ol class="org-ol">
-<li>举例, 在C-c a n界面, 即next-step界面, 先使用'm'标记要操作的entry, 然后按'a'可以看到可执行的action
-比如s 添加开始时间, d添加截至时间等</li>
-<li>举例, 在org-agenda的entry入口出, 使用't', 可以更改entry的状态, 比如把TODO的改为DONE或者CANCEL</li>
-</ol></li>
-<li>org-agenda界面的'r'动作, 不仅可以把inbox中的文件reflie, 也可以把next step(即task.org)中完成的任务archive
-默认的是archive到 archive.org中</li>
+<li>当打开org-agenda(主动调用"r")或者在org-agenda中按'r' 会自动把inbox中的文件refile到指定位置</li>
+<li>在org-agenda界面操控
+C-j 以及常用的快捷键 t, space, tab, enter等</li>
+<li>org-agenda界面的'r'动作, 不仅可以把inbox中的文件reflie, 也可以把task.org中完成的任务archive</li>
 <li><p>
-其实还有最后一步, 即把archive中的内容输出到blog中, 或者把无用的删掉
+其实还有最后一步, 即把archive中的内容输出到blog中
 </p>
 <pre class="example">
 blog具体见 hugo的文档
+不建议删除已完成或cancel的task. 后期统计可以使用
 
 </pre></li>
 </ol>
@@ -862,7 +1043,7 @@ blog具体见 hugo的文档
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-11-21 Mon 18:48</p>
+<p class="date">Created: 2022-12-08 Thu 15:37</p>
 <p class="validation"></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-21 Mon 18:48 -->
+<!-- 2022-12-08 Thu 15:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CC mode</title>
@@ -11,16 +11,16 @@
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
-             margin-bottom: .2em; }
+	     margin-bottom: .2em; }
   .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+	      font-size: medium;
+	      font-weight: bold;
+	      margin-top:0; }
   .todo   { font-family: monospace; color: red; }
   .done   { font-family: monospace; color: green; }
   .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
+	    padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
   .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
@@ -309,22 +309,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org46eed93">1. 什么是</a></li>
-<li><a href="#org879031b">2. 配置</a>
+<li><a href="#orgc8fab61">1. 什么是</a></li>
+<li><a href="#orgbf3b74b">2. 配置</a>
 <ul>
-<li><a href="#orgd85a360">2.1. 配置接口</a></li>
-<li><a href="#org7cc947c">2.2. 具体配置</a></li>
+<li><a href="#orgb268981">2.1. 配置接口</a></li>
+<li><a href="#orgcea4490">2.2. 具体配置</a></li>
 </ul>
 </li>
-<li><a href="#org29b9da7">3. 使用</a></li>
+<li><a href="#org0c2c3de">3. 使用</a></li>
 </ul>
 </div>
 </div>
 <p>
 代码缩放 &amp;&amp; 语法高亮
 </p>
-<div id="outline-container-org46eed93" class="outline-2">
-<h2 id="org46eed93"><span class="section-number-2">1</span> 什么是</h2>
+<div id="outline-container-orgc8fab61" class="outline-2">
+<h2 id="orgc8fab61"><span class="section-number-2">1</span> 什么是</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
@@ -332,48 +332,48 @@ cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
 </p>
 </div>
 </div>
-<div id="outline-container-org879031b" class="outline-2">
-<h2 id="org879031b"><span class="section-number-2">2</span> 配置</h2>
+<div id="outline-container-orgbf3b74b" class="outline-2">
+<h2 id="orgbf3b74b"><span class="section-number-2">2</span> 配置</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgd85a360" class="outline-3">
-<h3 id="orgd85a360"><span class="section-number-3">2.1</span> 配置接口</h3>
+<div id="outline-container-orgb268981" class="outline-3">
+<h3 id="orgb268981"><span class="section-number-3">2.1</span> 配置接口</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="example">
    (setq  XXX)
 破坏all-style, 不推荐
        |
        |
-       | 	      (c-add-style XXX) --推荐
-       |       	        |
-       | 	    	       	|
-       | 	    		|                               (交互式)
-       | 	    	  +-------------+      		    临时性的, 不推荐
-       | 	       	  | style-list  |                          |
-       | 		  |             |      			   |
-       | 		  +-------------+      			   |
-       |       	       	|   	       			   |
-       | 			|   	       			   |
-       | 	         (c-set-style XXX)     	       	       	   |
-       | 	(add hook 'c-code-common-hook 'XXXX)		   |
-       | 	       	       	|   	       			   |
-      \| /		       \| / 	       			  \| /
-       \/		        \/				   \/
+       |	      (c-add-style XXX) --推荐
+       |		|
+       |			|
+       |			|                               (交互式)
+       |		  +-------------+		    临时性的, 不推荐
+       |		  | style-list  |                          |
+       |		  |             |			   |
+       |		  +-------------+			   |
+       |		|				   |
+       |			|				   |
+       |		 (c-set-style XXX)			   |
+       |	(add hook 'c-code-common-hook 'XXXX)		   |
+       |			|				   |
+      \| /		       \| /				  \| /
+       \/			\/				   \/
 ---------------------------------------------------------------------------
 
  *****************************************************************
- *  +----      -     -         X	       +--   	  --\	    *
- *  |          |\   /|        / \          /      	 (	    *
- *  +---       | \ / |       o---o        |       	  +--+	    *
- *  |          |  X  |      /     \        \      	      )	    *
- *  +----      |     |     /       \        +--   	   \--	    *
- *							            *
+ *  +----      -     -         X	       +--	  --\	    *
+ *  |          |\   /|        / \          /		 (	    *
+ *  +---       | \ / |       o---o        |		  +--+	    *
+ *  |          |  X  |      /     \        \		      )	    *
+ *  +----      |     |     /       \        +--		   \--	    *
+ *								    *
  *****************************************************************
 </pre>
 </div>
 </div>
-<div id="outline-container-org7cc947c" class="outline-3">
-<h3 id="org7cc947c"><span class="section-number-3">2.2</span> 具体配置</h3>
+<div id="outline-container-orgcea4490" class="outline-3">
+<h3 id="orgcea4490"><span class="section-number-3">2.2</span> 具体配置</h3>
 <div class="outline-text-3" id="text-2-2">
 <pre class="example">
 ;;.h关联到c++ mode
@@ -385,10 +385,10 @@ cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
   '((c-basic-offset . 4)
     (c-tab-always-inde . t)
     (c-hanging-braces-alist . ((brace-list-open)
-                               (brace-entry-open)
-                               (statement-cont)))
+			       (brace-entry-open)
+			       (statement-cont)))
    (c-offsets-alist . ((block-open  . 0)
-                      (block-close . 0)
+		      (block-close . 0)
 		      (comment-intro . 0)
 		      (case-label . +)
 		      (substatement-open . 0))))
@@ -407,8 +407,8 @@ cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
 </div>
 </div>
 </div>
-<div id="outline-container-org29b9da7" class="outline-2">
-<h2 id="org29b9da7"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-org0c2c3de" class="outline-2">
+<h2 id="org0c2c3de"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 cc-mode配置完成后, 无需额外操作即可使用.
@@ -418,7 +418,7 @@ cc-mode配置完成后, 无需额外操作即可使用.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2022-11-21 Mon 18:48</p>
+<p class="date">Created: 2022-12-08 Thu 15:37</p>
 <p class="validation"></p>
 </div>
 </body>
