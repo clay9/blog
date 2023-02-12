@@ -1,0 +1,43 @@
+#+TITLE: calibre 图书管理软件
+#+DATE: 2023-02-12 17:25:48
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: calibre
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+
+功能强大的图书管理软件
+
+#+hugo: more
+
+* 功能
+  笔者主要用来整理图书, 供kindle使用
+* 使用
+** book libray 书库使用中文代替拼音
+   在calibre中，导入中文书名、中文作者名的书籍时，calibre library 中自动生成的文件夹名、文件名会转换成拼音。
+   这是个老大难的问题了，网络上的解决方案大概有以下 2 种：
+   - 通过设置项修改
+     : 针对的是「保存到硬盘」操作，对导入数据不生效
+   - 编译 python 文件，替换程序文件
+
+*** 替换程序文件
+    calibre 的作者强烈不建议自己编译，而是建议使用 debug 模式
+    具体操作官方文档描述得很清楚，https://manual.calibre-ebook.com/develop.html
+
+    以 macOS 为例
+    1. 安装 calibre app
+    2. 下载源码文件 && check out calibre-app对应版本
+    3. 修改源码文件
+       对于中文替换拼音, 只需要在calibre/src/calibre/utils/filenames.py 修改 ascii_text 回传的值即可
+       #+BEGIN_EXAMPLE python
+       #return ascii
+       return orig
+       #+END_EXAMPLE
+    4. 新建启动方式
+       新建my-calibre.sh && 修改mod 775
+       #+BEGIN_EXAMPLE sh my-calibre.sh
+       #!/bin/sh
+       export CALIBRE_DEVELOP_FROM="/Users/kovid/work/calibre/src"
+       /Applications/calibre.app/Contents/MacOS/calibre-debug -g
+       #+END_EXAMPLE
+    5. 通过my-calibre.sh启动
