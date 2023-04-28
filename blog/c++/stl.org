@@ -1,6 +1,6 @@
 #+TITLE: C && C++ 常见库
 #+DATE: 2021-08-28 15:12:45
-#+HUGO_CATEGORIES: language
+#+HUGO_CATEGORIES: c++
 #+HUGO_TAGS:
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
