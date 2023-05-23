@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-04-28 Fri 22:14 -->
+<!-- 2023-05-23 Tue 09:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>GTD &amp;&amp; org-mode</title>
@@ -309,38 +309,38 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org338157a">1. 为什么要用GTD</a></li>
-<li><a href="#org75a831d">2. GTD是什么</a>
+<li><a href="#orge8ecb88">1. 为什么要用GTD</a></li>
+<li><a href="#orgc175d2f">2. GTD是什么</a>
 <ul>
-<li><a href="#orgc102ec7">2.1. 人生5楼</a></li>
-<li><a href="#org4849a27">2.2. GTD是什么</a></li>
+<li><a href="#orgbcfa54b">2.1. 人生5楼</a></li>
+<li><a href="#orgd342f73">2.2. GTD是什么</a></li>
 </ul>
 </li>
-<li><a href="#org9829f2c">3. GTD怎么实现</a></li>
-<li><a href="#orgfa75ec6">4. org mode怎么实现GTD</a>
+<li><a href="#orgdead54a">3. GTD怎么实现</a></li>
+<li><a href="#orgc63fb20">4. org mode怎么实现GTD</a>
 <ul>
-<li><a href="#orgc4640c7">4.1. 需求分析</a></li>
-<li><a href="#orge746eba">4.2. 思路的设计</a></li>
-<li><a href="#org7c74519">4.3. 流程的设计</a></li>
-<li><a href="#org7d4df59">4.4. 文件的设计</a></li>
-<li><a href="#org2e88c0b">4.5. <span class="todo TODO">TODO</span> 的设计</a></li>
-<li><a href="#org0f22cc2">4.6. TAGS的设计</a></li>
-<li><a href="#orgf1dd70f">4.7. PROPERTY的设计</a></li>
-<li><a href="#org1fe0819">4.8. Effort的设计</a></li>
-<li><a href="#orga5e650f">4.9. clock的设计</a></li>
-<li><a href="#org30fe066">4.10. capture设计</a></li>
-<li><a href="#orgfb59fab">4.11. refile的设计</a></li>
-<li><a href="#org06cb596">4.12. archive的设计</a></li>
-<li><a href="#orgeb9c42b">4.13. Agent的设计</a></li>
-<li><a href="#orgff93754">4.14. 使用流程</a></li>
+<li><a href="#org57b2c55">4.1. 需求分析</a></li>
+<li><a href="#orgbf4e46e">4.2. 思路的设计</a></li>
+<li><a href="#orgbd3de4c">4.3. 流程的设计</a></li>
+<li><a href="#orgc67c2b8">4.4. 文件的设计</a></li>
+<li><a href="#orgac9007b">4.5. <span class="todo TODO">TODO</span> 的设计</a></li>
+<li><a href="#orgbe5dd4a">4.6. TAGS的设计</a></li>
+<li><a href="#org5073851">4.7. PROPERTY的设计</a></li>
+<li><a href="#org410d3ab">4.8. Effort的设计</a></li>
+<li><a href="#orgce2c56a">4.9. clock的设计</a></li>
+<li><a href="#org8ce4d37">4.10. capture设计</a></li>
+<li><a href="#orgd8bf0b5">4.11. refile的设计</a></li>
+<li><a href="#orgce0e5e7">4.12. archive的设计</a></li>
+<li><a href="#org9389267">4.13. Agent的设计</a></li>
+<li><a href="#org56be02d">4.14. 使用流程</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org338157a" class="outline-2">
-<h2 id="org338157a"><span class="section-number-2">1</span> 为什么要用GTD</h2>
+<div id="outline-container-orge8ecb88" class="outline-2">
+<h2 id="orge8ecb88"><span class="section-number-2">1</span> 为什么要用GTD</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. 这些事情如果都存储在脑中, 轻则
@@ -351,12 +351,12 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-org75a831d" class="outline-2">
-<h2 id="org75a831d"><span class="section-number-2">2</span> GTD是什么</h2>
+<div id="outline-container-orgc175d2f" class="outline-2">
+<h2 id="orgc175d2f"><span class="section-number-2">2</span> GTD是什么</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgc102ec7" class="outline-3">
-<h3 id="orgc102ec7"><span class="section-number-3">2.1</span> 人生5楼</h3>
+<div id="outline-container-orgbcfa54b" class="outline-3">
+<h3 id="orgbcfa54b"><span class="section-number-3">2.1</span> 人生5楼</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 了解GTD之前, 必须了解人生5楼.
@@ -453,8 +453,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </div>
-<div id="outline-container-org4849a27" class="outline-3">
-<h3 id="org4849a27"><span class="section-number-3">2.2</span> GTD是什么</h3>
+<div id="outline-container-orgd342f73" class="outline-3">
+<h3 id="orgd342f73"><span class="section-number-3">2.2</span> GTD是什么</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 GTD全名Getting things done, 它只是一种思想, 所能管理的是大厦的1楼.
@@ -471,20 +471,20 @@ GTD的工作流程(算法)甚至文件(结构)都是可以自定义的. 适合�
 </div>
 </div>
 </div>
-<div id="outline-container-org9829f2c" class="outline-2">
-<h2 id="org9829f2c"><span class="section-number-2">3</span> GTD怎么实现</h2>
+<div id="outline-container-orgdead54a" class="outline-2">
+<h2 id="orgdead54a"><span class="section-number-2">3</span> GTD怎么实现</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mode(emacs 插件).
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa75ec6" class="outline-2">
-<h2 id="orgfa75ec6"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
+<div id="outline-container-orgc63fb20" class="outline-2">
+<h2 id="orgc63fb20"><span class="section-number-2">4</span> org mode怎么实现GTD</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgc4640c7" class="outline-3">
-<h3 id="orgc4640c7"><span class="section-number-3">4.1</span> 需求分析</h3>
+<div id="outline-container-org57b2c55" class="outline-3">
+<h3 id="org57b2c55"><span class="section-number-3">4.1</span> 需求分析</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 所有的设计都是基于需求的, 应该先有需求, 再去设计.
@@ -516,8 +516,8 @@ TODO 该任务并未完成
 </div>
 </div>
 
-<div id="outline-container-orge746eba" class="outline-3">
-<h3 id="orge746eba"><span class="section-number-3">4.2</span> 思路的设计</h3>
+<div id="outline-container-orgbf4e46e" class="outline-3">
+<h3 id="orgbf4e46e"><span class="section-number-3">4.2</span> 思路的设计</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 5楼 到 地面视角
@@ -597,8 +597,8 @@ TODO 该任务并未完成
 </div>
 </div>
 
-<div id="outline-container-org7c74519" class="outline-3">
-<h3 id="org7c74519"><span class="section-number-3">4.3</span> 流程的设计</h3>
+<div id="outline-container-orgbd3de4c" class="outline-3">
+<h3 id="orgbd3de4c"><span class="section-number-3">4.3</span> 流程的设计</h3>
 <div class="outline-text-3" id="text-4-3">
 <pre class="example">
 -------------------------+------------------------
@@ -633,14 +633,14 @@ TODO 该任务并未完成
 </pre>
 </div>
 </div>
-<div id="outline-container-org7d4df59" class="outline-3">
-<h3 id="org7d4df59"><span class="section-number-3">4.4</span> 文件的设计</h3>
+<div id="outline-container-orgc67c2b8" class="outline-3">
+<h3 id="orgc67c2b8"><span class="section-number-3">4.4</span> 文件的设计</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间
 gtd<sub>common中保存的是一些通用的</sub>, 可能暂时不好归类的PROJECT以及一系列TODO任务.
-而gtd<sub>my与gtd</sub><sub>work则是已经明确分类的PROJECT</sub>.
-比如gtd<sub>my</sub>/emacs.org明确的是与emacs有关的任务.
+而gtd<sub>emacs与gtd</sub><sub>qygame则是已经明确分类的PROJECT</sub>.
+比如gtd<sub>emacs</sub>/emacs.org明确的是与emacs有关的任务.
 但即使都是emacs相关, 也可分为是emacs自身, org, 还是cc-IDE.
 所以emacs.org中实际包含了上面三个PROJECT.
 </p>
@@ -688,15 +688,15 @@ gtd<sub>common中保存的是一些通用的</sub>, 可能暂时不好归类的P
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">gtd<sub>my</sub></td>
-<td class="org-left">自己的project files</td>
+<td class="org-left">gtd<sub>emacs</sub></td>
+<td class="org-left">emacs project files</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">gtd<sub>work</sub></td>
-<td class="org-left">工作的project files</td>
+<td class="org-left">gtd<sub>qygame</sub></td>
+<td class="org-left">qygame project files</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -782,12 +782,13 @@ gtd<sub>common中的文件</sub>:
 <li>task 与 project的唯一区别
 task只有one step,  project的steps &gt; 1</li>
 <li>文件都是通过流程来操作的, 不应该手动去干预</li>
+<li>没增加一个工程, 应该增加一个对应的gtd<sub>xx目录</sub></li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-org2e88c0b" class="outline-3">
-<h3 id="org2e88c0b"><span class="section-number-3">4.5</span> <span class="todo TODO">TODO</span> 的设计</h3>
+<div id="outline-container-orgac9007b" class="outline-3">
+<h3 id="orgac9007b"><span class="section-number-3">4.5</span> <span class="todo TODO">TODO</span> 的设计</h3>
 <div class="outline-text-3" id="text-4-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -847,8 +848,8 @@ task中的下一步行动是依据四象限法则来确定的.</li>
 </div>
 </div>
 
-<div id="outline-container-org0f22cc2" class="outline-3">
-<h3 id="org0f22cc2"><span class="section-number-3">4.6</span> TAGS的设计</h3>
+<div id="outline-container-orgbe5dd4a" class="outline-3">
+<h3 id="orgbe5dd4a"><span class="section-number-3">4.6</span> TAGS的设计</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 四象限使用proirity来区分;
@@ -857,8 +858,8 @@ TAGS为之后快速查找使用
 </div>
 </div>
 
-<div id="outline-container-orgf1dd70f" class="outline-3">
-<h3 id="orgf1dd70f"><span class="section-number-3">4.7</span> PROPERTY的设计</h3>
+<div id="outline-container-org5073851" class="outline-3">
+<h3 id="org5073851"><span class="section-number-3">4.7</span> PROPERTY的设计</h3>
 <div class="outline-text-3" id="text-4-7">
 <p>
 当前主要使用的字段
@@ -889,8 +890,8 @@ PROJECT item的属性, 控制了是否在agenda中显示
 </ol>
 </div>
 </div>
-<div id="outline-container-org1fe0819" class="outline-3">
-<h3 id="org1fe0819"><span class="section-number-3">4.8</span> Effort的设计</h3>
+<div id="outline-container-org410d3ab" class="outline-3">
+<h3 id="org410d3ab"><span class="section-number-3">4.8</span> Effort的设计</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 effort是自己对某个task工作量的预估, 与clock-sum-time比对, 可以很好的进行分析.
@@ -902,8 +903,8 @@ effort是自己对某个task工作量的预估, 与clock-sum-time比对, 可以�
 </ol>
 </div>
 </div>
-<div id="outline-container-orga5e650f" class="outline-3">
-<h3 id="orga5e650f"><span class="section-number-3">4.9</span> clock的设计</h3>
+<div id="outline-container-orgce2c56a" class="outline-3">
+<h3 id="orgce2c56a"><span class="section-number-3">4.9</span> clock的设计</h3>
 <div class="outline-text-3" id="text-4-9">
 <p>
 org的clock已经非常好用了. 这里只是做了一点点修改:
@@ -915,8 +916,8 @@ org的clock已经非常好用了. 这里只是做了一点点修改:
 </div>
 </div>
 
-<div id="outline-container-org30fe066" class="outline-3">
-<h3 id="org30fe066"><span class="section-number-3">4.10</span> capture设计</h3>
+<div id="outline-container-org8ce4d37" class="outline-3">
+<h3 id="org8ce4d37"><span class="section-number-3">4.10</span> capture设计</h3>
 <div class="outline-text-3" id="text-4-10">
 <p>
 经常是在工作的时候, 突然有了某个想法. 这个想法也许值得记录, 但不要打断当前的思路. 所以需要capture
@@ -938,8 +939,8 @@ capture应该是快速的, 但又要明确的(归属要明确, 最好effort要�
 </p>
 </div>
 </div>
-<div id="outline-container-orgfb59fab" class="outline-3">
-<h3 id="orgfb59fab"><span class="section-number-3">4.11</span> refile的设计</h3>
+<div id="outline-container-orgd8bf0b5" class="outline-3">
+<h3 id="orgd8bf0b5"><span class="section-number-3">4.11</span> refile的设计</h3>
 <div class="outline-text-3" id="text-4-11">
 <p>
 refile应该是自动完成的, 不应该手动
@@ -959,8 +960,8 @@ refile应该是自动完成的, 不应该手动
 </p>
 </div>
 </div>
-<div id="outline-container-org06cb596" class="outline-3">
-<h3 id="org06cb596"><span class="section-number-3">4.12</span> archive的设计</h3>
+<div id="outline-container-orgce0e5e7" class="outline-3">
+<h3 id="orgce0e5e7"><span class="section-number-3">4.12</span> archive的设计</h3>
 <div class="outline-text-3" id="text-4-12">
 <p>
 对于gtd<sub>my</sub>, gtd<sub>work中的task</sub>, 没必要archive
@@ -969,8 +970,8 @@ refile应该是自动完成的, 不应该手动
 </div>
 </div>
 
-<div id="outline-container-orgeb9c42b" class="outline-3">
-<h3 id="orgeb9c42b"><span class="section-number-3">4.13</span> Agent的设计</h3>
+<div id="outline-container-org9389267" class="outline-3">
+<h3 id="org9389267"><span class="section-number-3">4.13</span> Agent的设计</h3>
 <div class="outline-text-3" id="text-4-13">
 <p>
 agent的目的有2个:
@@ -1002,8 +1003,8 @@ agent的目的有2个:
 </div>
 </div>
 
-<div id="outline-container-orgff93754" class="outline-3">
-<h3 id="orgff93754"><span class="section-number-3">4.14</span> 使用流程</h3>
+<div id="outline-container-org56be02d" class="outline-3">
+<h3 id="org56be02d"><span class="section-number-3">4.14</span> 使用流程</h3>
 <div class="outline-text-3" id="text-4-14">
 <pre class="example">
 |
@@ -1043,7 +1044,7 @@ blog具体见 hugo的文档
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2023-04-28 Fri 22:14</p>
+<p class="date">Created: 2023-05-23 Tue 09:06</p>
 <p class="validation"></p>
 </div>
 </body>
