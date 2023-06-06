@@ -21,7 +21,7 @@ jobs:
           path: ./emacs.d
 
       - run: |
-          sudo apt install emacs, texinfo -y
+          sudo apt install emacs texinfo -y
           mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
           emacs -u $USER --script ~/.emacs.d/script/export-org-to-md.el
           emacs -u $USER --script ~/.emacs.d/script/export-org-to-texi2html.el
