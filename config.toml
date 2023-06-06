@@ -48,7 +48,7 @@ theme = "LoveIt"
     pre = ""
     post = ""
     name = "Emacs"
-    url = "/org-info/emacs.html"
+    url = "/emacs/index.html"
     title = ""
     weight = 4
   [[menu.main]]
@@ -91,7 +91,7 @@ theme = "LoveIt"
 # LoveIt 更改 | 0.2.0 文章页面配置
   [params.page]
     # LoveIt 新增 | 0.2.0 是否在主页隐藏文章
-    hiddenFromHomePage = true    
+    hiddenFromHomePage = true
     # LoveIt 新增 | 0.2.0 目录配置
     [params.page.toc]
       # 是否使用目录
@@ -108,7 +108,7 @@ theme = "LoveIt"
       maxShownLines = 10
     # LoveIt 更改 | 0.2.0 文章页面的分享信息设置
     [params.page.share]
-    
+
 # LoveIt 新增 | 0.2.0 搜索配置
   [params.search]
     enable = true
@@ -169,4 +169,3 @@ theme = "LoveIt"
   name = "wcq"
   email = ""
   link = ""
-

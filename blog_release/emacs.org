@@ -1,20 +1,30 @@
 #+TITLE: emacs
-#+INFOJS_OPT: toc:t ltoc:t
-#+INFOJS_OPT: view:info mouse:underline buttons:nil
-#+INFOJS_OPT: path:/script/org-info.js
+#+AUTHOR: wcq
+#+OPTIONS: ^:nil, |:t
+
+* Legalese
+  :PROPERTIES:
+  :COPYING: t
+  :END:
+
+  This is a short example of a complete Texinfo file, version 1.0.
+
+  Copyright \copy 2016 Free Software Foundation, Inc.
+
+
 
 * emacs总览
 ** why use emacs
-   : 下面只是自己的理由
-   | 原因                           | 主要功能            |
+
+   | 具体事务                       | 所用emacs功能       |
    |--------------------------------+---------------------|
    | 项目管理 && 日常工作计划       | org-agenda          |
    |--------------------------------+---------------------|
    | blog写作                       | org-mode && ox-hugo |
    |--------------------------------+---------------------|
-   | shell环境                      | eshell              |
+   | shell环境                      | shell && eshell     |
    |--------------------------------+---------------------|
-   | cc(c,c++) programming language | [[*CC-IDE][CC-IDE]]              |
+   | cc(c,c++) programming language | [[CCIDE][CC-IDE]]              |
    |--------------------------------+---------------------|
    | other programming language     | TODO待补充          |
    |--------------------------------+---------------------|
@@ -22,7 +32,7 @@
 ** what is emacs
    emacs更像是一个可扩展的框架, 需要什么功能，扩展一下即可(添加package)
 ** how to use emacs
-   : 这里只是复述自己如何打造自己的emacs
+   : 这里只是复述自己打造emacs的过程
 
    1. 定制外在样式
       - frame的定制, init-frame
@@ -75,8 +85,9 @@
     - find-files
 *** how
     helm没有特意的去改变用户的使用习惯, 只是提升了用户体验. 操作使用与之前一样即可
-    其配置也非常简单, 具体见github或init-helm-mode.el
+    其配置也非常简单, 具体见 [[https://github.com/clay9/emacs.d/blob/master/lisp/init-helm-mode.el][github的init-helm-mode.el]]
 *** function
+
     | fun                 | key     | desc                                         |
     |---------------------+---------+----------------------------------------------|
     | helm-occur          | C-s a   | 当前buffer查找全部                           |
@@ -91,9 +102,9 @@
     |---------------------+---------+----------------------------------------------|
 
 ** switch-windows
-   mode: switch-window
    快捷键
-   1. C-x o -- switch-window 当window数量超过2个, 会使用快捷键选择窗口
+   1. C-x o
+      : 当window数量超过2个后, 会使用快捷键选择窗口
    2. 当处于C-x o窗口选择状态时候, 可以通过快捷键改变windows布局
       | key | desc                  |
       |-----+-----------------------|
@@ -117,14 +128,17 @@
 
 *** 任意目录中查找
     - find-grep
+
       实际是linux下的find+grep组合, 所以依赖linux下的find和grep命令
+
       如果是windows系统, 需要下载GnuWin32，并配置emacs认识他
       #+BEGIN_EXAMPLE shell
-      # exp1: 在当前目录下的所有文件中(含递归目录) 查找字符串'emacs'
+      # exp 在当前目录下的所有文件中(含递归目录) 查找字符串'emacs'
       find . -type f |xargs grep -n emacs
       #+END_EXAMPLE
-    - eshell/grep -- 仅在eshell-mode下生效
-      使用eshell(emacs内置)的grep
+    - eshell/grep
+
+      使用eshell(emacs内置)的grep, 所以仅在eshell-mode下生效
       #+BEGIN_EXAMPLE shell
       # TODO 待补充详细用法
       # 用法 grep 搜索内容 正则式(搜索目录)
@@ -141,7 +155,7 @@
     - 与elisp无缝结合
     - 语法特性方面比bash shell更有意思
       #+BEGIN_EXAMPLE eshell
-      # cd后的路径是tramp
+      # 可以与tramp无缝结合
       cd /method:user@host#port:path
       #+END_EXAMPLE
 *** how
@@ -161,8 +175,8 @@
     1. [[https://linuxtoy.org/archives/emacs-eshell.html][官方文档]]
 ** elisp
 *** how
-**** record
-     1. lisp没有重载一说, 直接覆盖; 因此为了方便出现了 advise 函数
+**** 日常记录
+     lisp没有重载一说, 直接覆盖; 因此为了方便出现了 advise 函数
 **** elisp 与 bash
 ***** bash调用elisp
       1. elisp代码写入el文件(eshell script)
@@ -187,8 +201,8 @@
 ** tramp
 *** what
     全程 transparent remote access multiple protocol
-    tramp是用来编辑远端文件的模块
-    支持多种协议 ssh, ftp, smb, adb等, 常用method
+
+    tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method
     - ssh
     - plink
       : putty的ssh client(与linux的ssh client作用一样)
@@ -201,8 +215,10 @@
 **** basic
      #+BEGIN_EXAMPLE shell
      /method:user@host#port:path/to/file
+
      # example 1
      /ssh:clay@192.1.1.1#22:~
+
      # example 2 windows下可以使用putty作为ssh的client
      /plink:clay@192.1.1.1:~
      #+END_EXAMPLE
@@ -225,6 +241,7 @@
      #+BEGIN_EXAMPLE shell
      # 使用sudo打开远程文件
      /-:clay@192.1.1.1|sudo::/path
+
      # 使用sudo打开本地文件
      # su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
      /su::local-path
@@ -233,7 +250,9 @@
      #+END_EXAMPLE
 **** use with bookmarks
      tramp使用的时候 需要使用到method user host path的组合，一般较长
+
      我们更希望使用较短的shortcut去远程打开某个file
+
      这里推荐的方法是bookmark. 理由:
      1. bookmark emacs内置, 而且非常方便
      2. bookmark 的配置信息 可以方便git管理
@@ -242,20 +261,24 @@
      #+BEGIN_EXAMPLE shell
      # 1.远程连接
      C-x f /ssh:clay@192.1.1.1:~
+
      # 2.添加到bookmark
      C-x C-f BOOK-NAME RET
+
      # 3.查看bookmark
      C-x C-f
+
      # 4.管理bookmark配置文件
      ~/.emacs.d/bookmarks
+
      # 5.管理auth信息文件
      ~/.emacs.d/authinfo
      #+END_EXAMPLE
 
 *** notice
     : TODO 这条notice待验证
-    Tramp 打开的远端文件和本地的文件没什么区别，
-    会被记录在 backup、autosave、recentf 等中。
+    Tramp 打开的远端文件和本地的文件没什么区别，会被记录在 backup、autosave、recentf等中.
+
     在今后重启 Emacs 时，如果这时无法连接远端机器，Emacs 可能会卡住，
     这是因为 tramp 会对之前打开的文件进行检查
 
@@ -267,7 +290,11 @@
     图形表达更直观, 形象.
 *** what
     artist-mode和graphviz-mode都可以完成绘图的功能.
-    不再推荐artist-mode. 手动绘图意义不大
+
+    但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装.
+
+    [[https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el][可参考笔者自用的线和矩形]], 提升artist-mode的使用体验
+
 
     | mode          | 简述      | 优点                          | 缺点                                      |
     |---------------+-----------+-------------------------------+-------------------------------------------|
@@ -277,6 +304,7 @@
     | graphviz-mode | dot绘图   | 1.只关注逻辑设计,布局自动生成 | 1.生成的为图片文件, 而非可嵌入的ASCII代码 |
     |               |           |                               | 2.需要学习dot语言                         |
     |---------------+-----------+-------------------------------+-------------------------------------------|
+
 *** how
 **** install
      1. emacs install graphviz-dot-mode
@@ -386,54 +414,774 @@
 
 * org与GTD
 ** org mode
-   [[file:emacs_com/emacs_org-mode.org][org-mode]]一直被称为神器, 据传很多人为了它转到了emacs.
-   主要功能:
-   - org自身强大的文本模式
-   - org-agent
+   org-mode一直被称为神器
 
-* cc IDE
+   主要有2大功能, 一是自身强大的文本模式, 另一个则是org-agenda
+
+   推荐阅读: [[http://doc.norang.ca/org-mode.html][org心得体会]]
+
+*** 配置
+    org作为文本模式配置较少, 更多的配置是为了org-agenda.
+
+    org文本模式下, [[https://github.com/clay9/emacs.d/blob/master/lisp/init-org-mode.el][可以配置一下简单的外观]]. 比如org-bullets.
+    org-bullets更改了heading的图标, 更改了折叠的block样式为⤵. 显示更为美观
+
+
+    org-agenda的配置可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-org-agenda-mode.el][init-org-agenda.el]]和[[https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-org-agenda-fun.el][一系列自定义函数]]
+*** 使用
+**** 基本语法
+***** 语法: time-stamp选择
+      添加time-stamp时, 不要在calendar中移动,效率太低
+      使用以下2种方式即可:
+      1. 使用简约的时间格式
+         17-1-1  => 2017-01-01
+      2. 使用时间间隔
+         now = [2016-12-28 Wed]
+         +1d  => 2016-12-29
+
+      具体见(dir) - Org mode - Dates and times - Creating timestamps - The date/time promt
+
+***** 语法: 时间repeate
+      org-mode repeate格式
+      +   .+   ++区别
+
+      1. "+"
+         backlog 可以积压的item
+      2. ".+"
+         specific date, no backlog 在特定日期完成的item
+         ep: call mother
+         每周六给mother打电话, 不可积压(或者说现在的操作不会影响之前)
+      3. "++"
+         specific interval, no backlog 在特定间隔完成的item
+         ep: change batteries
+         每隔1月更换电池, 不可积压
+***** 语法: table计算
+      @ 表示行； $表示列
+      < 表示第一;   > 表示最后；
+
+      例子:
+      @<  第一行
+      $>  最后一列
+      @<< 第二行(更建议使用 @2)
+
+      对table使用C-c} 可以查看行列值
+*** 导出 与 org-info
+    : org-info已弃用, 不再推荐, 建议使用gnu texinfo
+
+    org-mode有强大的导出功能, 具体可以参考官方文档.
+
+    这里只是介绍一下org-info.js
+
+    org-info.js 可以输出info-style xhtml, 可以作为org-mode导出html中的一种css样式补充 [[https://orgmode.org/worg/code/org-info-js/][官方文档]]
+
+    可以在info(m), over-view(m), ppt(x)三种模式间切换. (说实话, ppt模式, 真的没啥效果:)
+
+    拥有众多的属性值, 方便导出配置
+    - path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录
+      如果没有设置, 则默认从orgmode.org中读取
+      publish , export均生效
+    - home     整个org-file的根节点,  对应界面上的"HOME"按钮
+      1) export 时候, 设置有效
+      2) publish的时候, 设置无效
+    - up       整个org-file的上层节点,对应界面上的"UP"按钮
+      TODONOW 暂时不知道作用, 不设置正常使用, 界面上没有"UP"按钮
+    - view     html显示样式
+    - toc      整个org-file是否显示content
+      publish时候 设置无效
+    - ltoc     sub-heading是否显示content
+      publish时候 设置无效
+    - mouse    鼠标样式
+    - buttons
+
+
+    拥有简单的快捷键, 方便在文档node间移动. n, p, m, x, i, ?
+
+    org-info为org-mode自带, 无须额外安装. 使用的时候, 只需指定属性然后导出即可
+    #+BEGIN_EXAMPLE
+    #+INFOJS_OPT: home:http://wcq.life
+    #+INFOJS_OPT: view:info toc:t ltoc:t mouse:underline buttons:nil
+    #+END_EXAMPLE
+    org-file中的连接会被自动转换为html中的连接
+    #+BEGIN_EXAMPLE 1
+    # org-file:
+    file:test.org
+
+    在html中被转为
+    link:test.html
+    #+END_EXAMPLE
+
+*** MobileOrg
+    : 已弃用, 不再推荐, 建议使用iphone自带软件
+
+    方案流程
+    1. PC端配置MobileOrg
+       具体见.emacs
+    2. 寻找WebDAV server
+       现在使用的是坚果云
+    3. curl同步PC端到webDAV server
+       这一块非常纠结
+       起初使用的ssh的scp,发现scp貌似不支持https?
+       后来使用了curl, 结果发现curl不支持目录的上传.....
+       导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块!
+       方法有2:
+       1) 换一种工具取代curl  -- 更倾向于这一种方式
+       2) 使用regular expression -- 貌似curl支持的不好
+
+
+    总览图
+    #+BEGIN_EXAMPLE artist
+     +-----------+ push         +--------------+
+     | PC端      |-------------->| WwbDAV server|
+     |           |<--------------|              |
+     +-----------+ pull         +--------------+
+                                       |      ^ |
+                                       |        |
+                                       |        |
+                       v	  |
+                                 +--------------+
+                     | Mobile       |
+                                 |              |
+                                 +--------------+
+    #+END_EXAMPLE
+** GTD
+*** 为什么要用GTD
+    每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. 这些事情如果都存储在脑中, 轻则
+    焦虑不堪, 重则脑子爆炸. 而且脑中一旦塞满了这类事情, 非常不利于思考. 大脑应该是拿来思考的, 而不是用来存
+    储的. 假设一种情形, 大脑只用来思考, 而存储则放在大脑之外, 那么我们就不必因当下之外的事情而焦虑, 能够更
+    专一的处理当下的问题. 同时, 如果外在存储能够提醒我们何时该思考何问题, 那么我们也不会因错过了某事而悔恨
+    ,比如女友生日. 而这也是GTD的目的所在, 大脑只用来思考, 存储在脑外.
+*** GTD是什么
+**** 人生5楼
+     了解GTD之前, 必须了解人生5楼.
+
+     | 楼数 | 功能     | 说明    | 备注    |
+     |------+----------+---------+---------|
+     | 5楼  | 人生规划 |         |         |
+     |------+----------+---------+---------|
+     | 4楼  | 3年目标  |         |         |
+     |------+----------+---------+---------|
+     | 3楼  | 1年目标  |         |         |
+     |------+----------+---------+---------|
+     | 2楼  | 职责范围 |         |         |
+     |------+----------+---------+---------|
+     | 1楼  | 项目     |         | GTD管理 |
+     |------+----------+---------+---------|
+     | 地面 | 行动清单 | 归属1楼 | GTD管理 |
+     |------+----------+---------+---------|
+
+     把人生(或部分人生)比喻成一座大厦, 1楼是我们当下要做的事情, 2楼是我们的职责范围, 3楼是我们1年后的样
+     子, 4楼是我们3年后的样子, 5楼是我们人生(10年, 20年或一辈子)的规划.
+
+     _我们的人生是高层决定了低层_. 比如, 如果想成为计算机专家(5楼), 那么3年后要先成为工程师(4楼), 1年后
+     要先成为程序员(3楼). 为了要成为程序员, 也许我们需要去报班学习(2楼职责为学习),或者成为程序员助理(2楼职
+     责为搬砖). 而1楼则是我们当下要确确实实需要处理的事情, 比如看书, 工作, 与同事交流等, 所有一切能对我们有
+     提升的事情.
+
+     _大厦是由低到高建造的_. 千里之行, 始于足下. 1楼的行为直接决定了能否达到后面的楼层.
+
+     大厦最难的地方不在于实现5楼的规划, 而在于制定5楼的规划. 不过这也正是人生的魅力所在吧.
+**** GTD是什么
+     GTD全名Getting things done, 它只是一种思想, 所能管理的是大厦的1楼.
+     它的核心目的: 事物存储在脑外, 大脑用来思考.
+
+     GTD的工作流程(算法)甚至文件(结构)都是可以自定义的. 适合的才是最好的.
+
+     吐槽: 中文译本《Getting things done》满篇废话.
+*** GTD怎么实现
+    GTD的实现方式非常之多, 有很多软件工具. 最喜欢的还是org-mode(emacs 插件).
+
+** org mode怎么实现GTD
+*** 需求分析
+    所有的设计都是基于需求的, 应该先有需求, 再去设计.
+    当前的需求:
+    1. 有哪些task
+       - [X] 他们归属于哪个PROJECT
+       - [X] 他们的四象限: 紧急&&重要
+       - [X] 工作量预估
+       - [ ] 关联性 A task可能与B, C相关联
+         : TODO 该任务并未完成
+    2. 当前正在处理的任务
+       尽可能的关注当前, 忽略其他
+    3. 当某个task进行时, 快速capture我的想法, 并且自动refile
+    4. 看到自己花费的时间
+       - [X] 一天,一周都做了什么
+       - [X] 某个PROJECT总共花费的时间
+
+*** 思路的设计
+    5楼 到 地面视角
+    | 楼数 | 功能     | 说明    | 备注    |
+    |------+----------+---------+---------|
+    | 5楼  | 人生规划 |         |         |
+    |------+----------+---------+---------|
+    | 4楼  | 3年目标  |         |         |
+    |------+----------+---------+---------|
+    | 3楼  | 1年目标  |         |         |
+    |------+----------+---------+---------|
+    | 2楼  | 职责范围 |         |         |
+    |------+----------+---------+---------|
+    | 1楼  | 项目     |         | GTD管理 |
+    |------+----------+---------+---------|
+    | 地面 | 行动清单 | 隶属1楼 | GTD管理 |
+    |------+----------+---------+---------|
+    备注 : GTD管理的其实是 1楼 && 地面的清单
+
+*** 流程的设计
+    #+BEGIN_EXAMPLE artist-mode
+      -------------------------+------------------------
+                               |
+                               | capture (easy)
+                               |
+                               |
+                               v
+           archive        +---------+
+      +-------------------|  inbox  |
+      |                   +----+----+
+      |                        |
+      |                        | refile (auto)
+      |                        |
+      |                        |
+      |       |----------------+--------------------|
+      |       |                |                    |
+      |       |                v                    v
+      |       v           +---------+          +---------+
+      |  +---------+      | my/emacs|          | work/qy |
+      |  |  task   |      |  * emacs|          |  * ker  |
+      |  +----+----+      |  * org  |          |  * frame|
+      |       |           |  * ccIDE|          |  * sub  |
+      |       |           +---------+          +---------+
+      |       |
+      |       | archive (auto)
+      |       |
+      |       v
+      |  +---------+
+      +->| archive |
+         +----+----+
+    #+END_EXAMPLE
+*** 文件的设计
+    区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间
+
+    gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及一系列TODO任务.
+
+    而gtd_emacs与gtd_qygame则是已经明确分类的PROJECT.
+    比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
+    但即使都是emacs相关, 也可分为是emacs自身, org, 还是cc-IDE.
+    所以emacs.org中实际包含了上面三个PROJECT: emacs, org, ccIDE
+
+    #+CAPTION: gtd目录
+    | 目录       | 说明                 | 备注        |
+    |------------+----------------------+-------------|
+    | gtd_common | 通用gtd流程文件      | inbox.org   |
+    |            |                      | task.org    |
+    |            |                      | archive.org |
+    |------------+----------------------+-------------|
+    | gtd_emacs  | emacs project files  |             |
+    |------------+----------------------+-------------|
+    | gtd_qygame | qygame project files |             |
+    |------------+----------------------+-------------|
+
+    #+CAPTION: gtd_common中的文件
+    | 文件名      | 说明     | 备注                       |
+    |-------------+----------+----------------------------|
+    | inbox.org   | 收集箱   | 不区分时间, 不区分场景     |
+    |             |          | 灵光一闪即可扔进去保存     |
+    |-------------+----------+----------------------------|
+    | task.org    | 任务清单 | 1. priority标签            |
+    |             | task     | 2. 四象限约束              |
+    |-------------+----------+----------------------------|
+    |             | 项目清单 | 1. 凡是steps>1的都属于项目 |
+    |             | project  |                            |
+    |-------------+----------+----------------------------|
+    | archive.org | 参考资料 | 1. 有参考价值的东西        |
+    |             |          | 2. 垃圾箱                  |
+    |-------------+----------+----------------------------|
+
+    备注:
+    1. task 与 project的唯一区别
+       task只有one step,  project的steps > 1
+    2. 文件都是通过流程来操作的, 不应该手动去干预
+    3. 没增加一个工程, 应该增加一个对应的gtd_xx目录
+
+*** TODO的设计
+    | 名称     | 功能         | 备注 |
+    |----------+--------------+------|
+    | TODO     | 等待自己处理 |      |
+    |----------+--------------+------|
+    | WAITTING | 等待他人完成 |      |
+    |----------+--------------+------|
+    | DONE     | 完成         |      |
+    |----------+--------------+------|
+    | CANCEL   | 取消         |      |
+    |----------+--------------+------|
+    备注:
+    1. 针对的对象是下一步行动清单
+    2. project中的下一步行动即是最上层的行动;
+       task中的下一步行动是依据四象限法则来确定的.
+    3. TODO与WAITTING的含义, 表示该行动正在或即将处理
+
+*** TAGS的设计
+    四象限使用proirity来区分;
+    TAGS为之后快速查找使用
+
+*** PROPERTY的设计
+    当前主要使用的字段
+    1. P_UUID
+       PROEJCT item的标志, 主要影响auto refile
+    2. HIDE_WHEN_STUCK
+       PROJECT item的属性, 控制了是否在agenda中显示
+       有些PROJECT是长久开启的, 不会关闭. 比如emacs
+       当这类PROJECT没有task时, 就变成了STUCK项目. 但我们并不希望将这类PROJECT在agenda中显示.
+       所以有了HIDE_WHEN_STUCK.
+
+       #+BEGIN_EXAMPLE artist
+         +------------+----------------+
+         |  not stuck |  stuck project |
+         |            |                |
+         |            |   +---+        |
+         |            |   |   |        |
+         |            |   |   +--------+--------> stuck but also hide
+         |            |   +---+        |          HIDE_WHEN_STUCK
+         |            |                |
+         |            |                |
+         +------------+----------------+
+       #+END_EXAMPLE
+*** Effort的设计
+    effort是自己对某个task工作量的预估, 与clock-sum-time比对, 可以很好的进行分析.
+    为了方便的effort, 这里只在两处设计了提示:
+    1. capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过
+    2. clock-in的时候, 如果item effort还是0, 则会要求进入工作预估
+*** clock的设计
+    org的clock已经非常好用了. 这里只是做了一点点修改:
+    1. 快捷键快速clock-in, clock-out
+    2. 如果当前没有clock, 会在agenda界面做个提示
+
+*** capture设计
+    经常是在工作的时候, 突然有了某个想法. 这个想法也许值得记录, 但不要打断当前的思路. 所以需要capture
+    capture应该是快速的, 但又要明确的(归属要明确, 最好effort要明确)
+
+    为了快速capture, 所以不应该考虑这个想法应该放到哪个file. 统一放到inbox即可.
+    为了后面的auto refile, 这个想法或item 应该携带足够的信息, 可以完成auto refile.
+    这里的办法是给item一个tag.
+    比如 capture了一个item, 再给其增加对应的tag
+    : * org应该快速capture :org:
+    这样就表明了这是一个与org PROJECT有关的task
+*** refile的设计
+    refile应该是自动完成的, 不应该手动
+    为了自动完成, item已经给了相关信息(tag)
+    在gtd_my或gtd_work的PROJECT中, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
+    这里的办法是给PROJECT item一个Property (P_UUID)来实现
+    比如
+    #+BEGIN_EXAMPLE org
+    * PROJECT org                                                       :org:
+      :PROPERTIES:
+      :P_UUID:   org
+      :END:
+    #+END_EXAMPLE
+    当capute-item的tag 与 PROJECT-item的P_UUID相匹配的时候, 会自动refile
+*** archive的设计
+    对于gtd_my, gtd_work中的task, 没必要archive
+    对于gtd_common中的task, 应该自动archive
+
+*** Agent的设计
+    agent的目的有2个:
+    1. 查看各种代办事项
+       今天的, 未来的, TODO的, inbox中的
+    2. 统计信息
+       一是以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT
+       二是以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间
+
+
+    查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view 查看
+    查看统计信息, 主要是org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体
+
+
+    快捷键主要是为了方便.比如
+    - 空格滚动各种view
+    - tab在另一个窗口显示item narrow
+    - enter则进入item编辑
+    - 常用的功能都会放到C-j中处理 等等
+
+*** 使用流程
+    #+BEGIN_EXAMPLE
+      |
+      | capture with                                         add timestamp &&              add DONE &&
+      | template       +---------+ auto refile   +---------+   auto refile     +---------+ auto archive  +---------+
+      +--------------->|  inbxo  |-------------->|next step|------------------>|  agenda |-------------->| archive |
+      |  C-c c         +---+-----+               +---------+  C-j s,d          +---------+  C-j t        +---------+
+      |                    |                                                                                  ^
+      |                    |                       add DONE && auto refile                                    |
+      |                    +----------------------------------------------------------------------------------+
+      |                                                  C-j t
+    #+END_EXAMPLE
+
+    1. C-c c   -> inbox
+       : info, todo, waiting, project 都会放到inbox
+    2. 当打开org-agenda(主动调用"r")或者在org-agenda中按'r' 会自动把inbox中的文件refile到指定位置
+    3. 在org-agenda界面操控
+       C-j 以及常用的快捷键 t, space, tab, enter等
+    4. org-agenda界面的'r'动作, 不仅可以把inbox中的文件reflie, 也可以把task.org中完成的任务archive
+    5. 其实还有最后一步, 即把archive中的内容输出到blog中
+       : blog具体见 hugo的文档
+       : 不建议删除已完成或cancel的task. 后期统计可以使用
+
+* <<CCIDE>> cc IDE
 ** 说明
-   本文很大程度借鉴[[http://tuhdo.github.io/c-ide.html][参考文档(强烈建议阅读)]]
+   在emacs上打造c-common语言的开发环境, 是非常有吸引力的一件事, 也是live in emacs中非常重要的一块拼图.
+
+   看过很多打造教程, 有些非常的棒, 尽管与现在的开发流程有些不适配了, 但还是[[http://tuhdo.github.io/c-ide.html][推荐阅读]]. 方法在变化, 而背后的指导思想一直未有大的改变
+
 ** 合格的IDE功能
    - 编辑
-     所想即所得的编辑模式
+     : 所想即所得的编辑模式
    - 编译
    - 调试
    - 发布
 
 ** 编辑器
 
-   | 功能     | mode                         | 说明                                 | 备注   |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 格式规范 | [[file:emacs_IDE/emacs_cc-mode.org][cc-mode]]                      |                                      |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 自动补全 | [[file:emacs_IDE/emacs_company-mode.org][company-mode]](front-ends)     | 需要back-ends                        |        |
-   |          | company-c-headers(back-ends) | 针对头文件,直接安装即可使用,无需配置 |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 智能括号 | [[file:emacs_IDE/emacs_smartparens-mode.org][smartparens-mode]]             |                                      |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 代码折叠 | [[file:emacs_IDE/emacs_hs-mode.org][hs-minor-mode]]                |                                      |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 模板文件 | [[file:emacs_IDE/emacs_yasnippet-mode.org][yasnippet-mode]]               |                                      |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 代码跳转 | [[file:emacs_IDE/emacs_helm-gtags-mode][helm-gtags-mode]](front-ends)  | 需要back-ends                        |        |
-   | 查找引用 | global(back-ends)            | apt install global                   |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 拼写检查 | [[file:emacs_IDE/emacs_flyspell-mode.org][flyspell-mode]]                | 单词拼写                             | 已弃用 |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 语法检查 | flycheck-mode                | 动态,实时检查                        |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 目录列表 | [[file:emacs_IDE/emacs_speedbar-mode.org][speedbar-mode]]                | 显示目录,文件                        |        |
-   |----------+------------------------------+--------------------------------------+--------|
-   | 语法高亮 | symbol-overlay-mode          |                                      |        |
-   |----------+------------------------------+--------------------------------------+--------|
+   | 功能     | mode                     | 说明                       | 备注 |
+   |----------+--------------------------+----------------------------+------|
+   | 格式规范 | [[cc-mode][cc-mode]]                  |                            |      |
+   |----------+--------------------------+----------------------------+------|
+   | 智能括号 | [[smartparens-mode][smartparens-mode]]         |                            |      |
+   |----------+--------------------------+----------------------------+------|
+   | 高亮     | symbol-overlay-mode      |                            |      |
+   |----------+--------------------------+----------------------------+------|
+   | 代码折叠 | [[hs-minor-mode][hs-minor-mode]]            |                            |      |
+   |----------+--------------------------+----------------------------+------|
+   | 模板文件 | [[yasnippet-mode][yasnippet-mode]]           |                            |      |
+   |----------+--------------------------+----------------------------+------|
+   | 语法检查 | flymake-mode             | 动态,实时检查              |      |
+   |----------+--------------------------+----------------------------+------|
+   | 语法分析 | [[eglot][eglot-mode]](lsp-client)   | 需要lsp-server, 推荐clangd |      |
+   |----------+--------------------------+----------------------------+------|
+   | 自动补全 | [[company-mode][company-mode]](front-ends) | 需要back-ends              |      |
+   |          |                          | 使用lsp-server作为backend  |      |
+   |----------+--------------------------+----------------------------+------|
+
+
+*** <<cc-mode>>cc-mode
+**** 什么是
+     cc-mode是c-mode, c++-mode, objc-mode, java-mode和其他语法mode的统称.
+
+     主要功能为代码缩放和语法高亮.
+**** 配置
+***** 配置接口
+      #+BEGIN_EXAMPLE artist-mode
+         (setq  XXX)
+        破坏all-style, 不推荐
+           |
+           |
+           |           (c-add-style XXX) --推荐
+           |                 |
+           |                 |
+           |                 |                        (交互式)
+           |           +-------------+             临时性的, 不推荐
+           |           | style-list  |                  |
+           |           |             |                  |
+           |           +-------------+                  |
+           |                 |                          |
+           |                 |                          |
+           |         (c-set-style XXX)                  |
+           |  (add hook 'c-code-common-hook 'XXXX)      |
+           |                 |                          |
+          \| /              \| /                       \| /
+           \/                \/                         \/
+        ---------------------------------------------------------------------------
+
+         ,*****************************************************************
+         ,*  +----      -     -         X            +--        --\       *
+         ,*  |          |\   /|        / \          /          (          *
+         ,*  +---       | \ / |       o---o        |            +--+      *
+         ,*  |          |  X  |      /     \        \               )     *
+         ,*  +----      |     |     /       \        +--         \--      *
+         ,*                                                               *
+         ,*****************************************************************
+      #+END_EXAMPLE
+***** 具体配置
+      [[https://github.com/clay9/emacs.d/blob/master/lisp/init-cc-mode.el][可参考github上的init-cc-mode.el]]
+      #+BEGIN_EXAMPLE
+      ;;.h关联到c++ mode
+      (setq auto-mode-alist
+        (append '(("\\.h$" . c++-)) auto-mode-alist))
+
+      ;;定义自己的cc-mode风格
+      (defconst my-cpp-style
+        '((c-basic-offset . 4)
+          (c-tab-always-inde . t)
+          (c-hanging-braces-alist . ((brace-list-open)
+                                     (brace-entry-open)
+                                     (statement-cont)))
+         (c-offsets-alist . ((block-open  . 0)
+                            (block-close . 0)
+                (comment-intro . 0)
+                (case-label . +)
+                (substatement-open . 0))))
+        "My C++ Programming Style 2017.01.12")
+      (c-add-style "MY_CPP_STYLE" my-cpp-style)
+
+      ;;定义自己的hook函数,并与自定义的cc-mode风格关联
+      (defun my-cpp-mode-common-hook()
+        (c-set-style "MY_CPP_STYLE")
+        (setq tab-width 8
+          indent-tabs-mode nil))
+
+      ;;注册到c-mode-common-hook中
+      (add-hook 'c-mode-common-hook 'my-cpp-mode-common-hook)
+      #+END_EXAMPLE
+**** 使用
+     cc-mode配置完成后, 无需额外操作即可使用.
+     如果想进一步深入了解, 可以[[https://david.rothlis.net/emacs/customize_c.html][参考这个文档]].
+
+*** <<smartparens-mode>>smartparens-mode
+**** 什么是
+     smartparens mode是管理成对符号(pair)的工具, 包括显示与跳转.
+
+     如果想深入了解, 可以阅读[[https://github.com/Fuco1/smartparens/wiki#information-for-new-users][这篇文档]]
+
+     主要功能:
+     - 显示pair关系
+     - 书写pair
+       : wrap, rewrap, unwrap
+     - 在pair间跳转
+**** 配置
+     smartparens的配置非常简单, 可以[[https://github.com/clay9/emacs.d/blob/master/lisp/init-smartparens-mode.el][参考github的init-smartparents-mode.el]]
+**** 使用
+     安装即用, 无需特别注意
+
+*** <<hs-minor-mode>>hs-minor-mode
+    折叠代码块
+**** 什么是
+     hs-mode可以折叠代码块, 函数, 类
+**** 配置
+     无需配置,无需安装, emacs自带
+**** 使用
+     | 主要函数         | 快捷键 | 简述         | 备注 |
+     |------------------+--------+--------------+------|
+     | hs-hide-all      |        | 隐藏全部     |      |
+     |------------------+--------+--------------+------|
+     | hs-show-all      |        | 显示全部     |      |
+     |------------------+--------+--------------+------|
+     | hs-hide-block    |        | 隐藏代码块   |      |
+     |------------------+--------+--------------+------|
+     | hs-show-block    |        | 显示代码块   |      |
+     |------------------+--------+--------------+------|
+     | hs-hide-level    |        |              |      |
+     |------------------+--------+--------------+------|
+     | hs-toggle-hiding |        | 反转隐藏显示 |      |
+     |------------------+--------+--------------+------|
+
+*** <<yasnippet-mode>>yasnippet-mode
+**** 为什么需要模板
+     - 减少重复工作, 提升效率
+     - 标准化
+**** 什么是yasnippet-mode
+     一个好用的快速模板工具
+**** 配置
+     1. 下载yasnippet-mode
+        #+BEGIN_EXAMPLE
+        package-list-packages yasnippet-mode RET
+        #+END_EXAMPLE
+
+     2. 加载yasnippet-mode
+        #+BEGIN_EXAMPLE
+        (require 'yasnippet)
+        (yas-global-mode t)
+        #+END_EXAMPLE
+
+     3. 配置路径
+        #+BEGIN_EXAMPLE
+        ;; 重载路径文件
+        (setq yas-snippet-dirs
+          '("~/.emacs.d/yasnippets"))
+
+        ;; 加载路径文件
+        (yas-load-directory "~/.emacs.d/yasnippets/")
+        #+END_EXAMPLE
+        删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
+
+     4. 配置快捷键
+        #+BEGIN_EXAMPLE
+        (require 'yasnippet)
+
+        ;; 使用hydra-mode管理yasnippet快捷键
+        (defhydra hydra-yas-minor (:color blue
+                     :hint nil)
+        "
+        _j_: 扩展   _i_: 增加   _v_: 查看
+
+        "
+        ("j" yas-expand)  ;;<Tab>仍可使用
+        ("i" yas-new-snippet)
+        ("v" yas-visit-snippet-file))
+
+        ;;全局快捷键放到统一文件管理
+        ;(global-set-key (kbd "C-;")  'hydra-yas-minor/body) ;;写入init-global-shortkey中
+        #+END_EXAMPLE
+
+**** 使用
+     以使用org-mode在hexo下写blog 举例
+     #+BEGIN_EXAMPLE
+     # 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
+     # -*- mode: snippet -*-
+     # name: hexo : hexo博客
+     # key: hexo
+     # --
+
+     # 此处使用了org-mode的元数据
+     #+BEGIN_COMMENT
+     | 名称       | 简述         | 取值               | 备注                 |
+     |------------+--------------+--------------------+----------------------|
+     | TITLE      | 标题         |                    |                      |
+     |------------+--------------+--------------------+----------------------|
+     | LAYOUT     | hexo排版模式 | post               |                      |
+     |------------+--------------+--------------------+----------------------|
+     | CATEGORIES | 分类仓库     | IDE, gnu, protocal |                      |
+     |            |              | system, tool       |                      |
+     |------------+--------------+--------------------+----------------------|
+     | TAGS       | 标签         |                    | gnu仓库的要打gun标签 |
+     |------------+--------------+--------------------+----------------------|
+     #+END_COMMENT
+
+     # 此处为org-mode 与 hexo交互的元数据
+     #+TITLE: ${1}
+     #+LAYOUT: post
+     #+CATEGORIES: ${2}
+     #+TAGS: ${3}
+
+     ${4}
+
+     #+HTML: <!-- more -->
+     ${5}
+
+     # 按tab可以方便的从${n} 到 ${n+1}
+     #+END_EXAMPLE
+
+     当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
+
+*** <<eglot>>eglot-mode
+**** 什么是
+     eglot 是lsp-client, 与lsp-server一起完成语法分析的任务.
+
+     lsp是Language Server Protocol, 与传统的语法分析(gtags, semantic, clang)不同, lsp中的client, server可以部署在不同的机器上.
+     非常契合现在的开发模式.
+**** 配置
+     [[https://github.com/clay9/emacs.d/blob/master/lisp/init-lsp.el][详见github上的init-lsp.el]]
+
+*** <<company-mode>>company-mode
+**** 什么是
+     company-mode, 意思为complete anything, 是一个前端工具(front-ends).它可以提供候选词, 供用户选择,以
+     完成自动补全的功能. 但是具体提供什么词, 是依赖于后端(back-ends)做处理的. 可以认为company-mode只是
+     一个容器, 它只处理界面的事情, 不处理具体的代码分析等工作.
+
+     细节可以[[http://company-mode.github.io][参考这个文档]], 但没太大必要
+
+**** 配置
+     company mode的配置比较简单, 只需要指定启动时机和配置后端即可.
+     [[https://github.com/clay9/emacs.d/blob/master/lisp/init-company-mode.el][详见github的init-company-mode.el]]
+
+**** 使用
+     | 常用快捷键 | 功能说明             | 备注 |
+     |------------+----------------------+------|
+     | M-p        | 选择上一个候选词     |      |
+     |------------+----------------------+------|
+     | M-n        | 选择下一个候选词     |      |
+     |------------+----------------------+------|
+     | Tab        | 扩展当前提示的候选词 |      |
+     |------------+----------------------+------|
+     | Ret        | 扩展选择的候选词     |      |
+     |------------+----------------------+------|
 
 ** 编译器
-   compilation-mode
-   : front-ends, 依赖g++
+   emacs可以使用compile来调用外部的编译器工作.
+   而外部编译器会将结果通知到emacs的compilation buffer中.
+
+   complation buffer相比较编译器在shell中的输出, 拥有更直观的输出信息, 而且可以直接跳转到错误的源文件
+
+   [[https://github.com/clay9/emacs.d/blob/master/lisp/init-compile.el][具体配置可以参考github的init-compile.el]] 和 [[https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el][快捷键配置]]
 
 ** 调试器
-   gud
+   emacs使用gud来绘制gdb的调试信息.
+   gud可以认为是gdb的ui client.
+
+   具体可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-gdb.el][github的init-gdb.el]]和[[https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-gdb-fun.el][一些自定义gud函数]]
+
+*** gdb使用
+    | 指令       | 简写 | 描述                                                                             |
+    |------------+------+----------------------------------------------------------------------------------|
+    | attach     |      | 附加到已经运行的程序                                                             |
+    |------------+------+----------------------------------------------------------------------------------|
+    | run        | r    | 运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令           |
+    |------------+------+----------------------------------------------------------------------------------|
+    | continue   | c    | 继续执行，到下一个断点停止（或运行结束）                                         |
+    |------------+------+----------------------------------------------------------------------------------|
+    | next       | n    | 单步跟踪程序，当遇到函数调用时，也不进入此函数体                                 |
+    |------------+------+----------------------------------------------------------------------------------|
+    | step       | s    | 单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的           |
+    |------------+------+----------------------------------------------------------------------------------|
+    | until      | u    | 当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环             |
+    |------------+------+----------------------------------------------------------------------------------|
+    | until+行号 |      | 运行至某行，不仅仅用来跳出循环                                                   |
+    |------------+------+----------------------------------------------------------------------------------|
+    | finish     |      | 运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息 |
+    |------------+------+----------------------------------------------------------------------------------|
+    | quit       | q    | 退出gdb                                                                          |
+    |------------+------+----------------------------------------------------------------------------------|
+    | up         |      | 上个stack                                                                        |
+    |------------+------+----------------------------------------------------------------------------------|
+    | down       |      | 下个stack                                                                        |
+    |------------+------+----------------------------------------------------------------------------------|
+    | watch      |      | 变量监控                                                                         |
+    |------------+------+----------------------------------------------------------------------------------|
+    | breakpoint | b    | file :line_num   文件:行号                                                       |
+    |            |      | <fun_name>       函数名字                                                        |
+    |------------+------+----------------------------------------------------------------------------------|
+
+    run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败
+    continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行
+
+*** gud使用
+    | buffer名字 | 简述               | 备注                                 |
+    |------------+--------------------+--------------------------------------|
+    | gud        | gdb命令输入窗口    |                                      |
+    |------------+--------------------+--------------------------------------|
+    | source     | 调试时自动显示源码 | 不要edit, 否则导致source自动关联失效 |
+    |------------+--------------------+--------------------------------------|
+    | breakpoint | 断点               | 不会命中的断点显示为pending          |
+    |------------+--------------------+--------------------------------------|
+    | threads    | 线程               |                                      |
+    |------------+--------------------+--------------------------------------|
+    | stack      | 堆栈               |                                      |
+    |------------+--------------------+--------------------------------------|
+    | local      | local变量          |                                      |
+    |------------+--------------------+--------------------------------------|
+    | register   | 寄存器             |                                      |
+    |------------+--------------------+--------------------------------------|
+    | assembler  | 显示汇编           |                                      |
+    |------------+--------------------+--------------------------------------|
+    | memory     | 内存查看           |                                      |
+    |------------+--------------------+--------------------------------------|
+
+    为了显示方便,
+    breakpoint与threads buffer同在一个frame;
+    local与register buffer同在一个frame;
+    可以按"TAB"快速切换
+
+***** 例子
+      1. emacs: M-x gdb RET
+      2. gud: attch <program pid>
+      3. 设置breakpoint
+         - gud: b
+         - source: gud-break; gud-tbreak
+         - breakpoint: D 删除断点
+      4. 设置watch
+         - gud: watch
+         - souce: gud-watch
+***** 问题
+      1. gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.
+         简单来说, gud没有舍弃之前的无效输入, 而是等待机会, 使之生效
+      2. gdb continue之后 如何退出
+         1) gdb进程中可以使用C-c, 退出attach所关联的进程
+         2) emacs-gdb中如何退出 ?? TODONOW
 
 
 * 键位设置
@@ -446,9 +1194,9 @@
    1. 通用快捷键(比如search等与mode无关的) 或者是 所有mode都会使用的(比如yas)
       统一放到C-s中
    2. mode自身的快捷键, 放到C-j中
-   3. 因为使用hydra来管理快捷键, 因此可以通过查看hydra body 来查看快捷键设置
-** CFG
-   常用通用快捷键
+   3. 项目相关的快捷键, 放到C-SPC中
+** 快捷键
+   具体可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el:compilation-mode-map][局部快捷键]] 与 [[https://github.com/clay9/emacs.d/blob/master/lisp/init-global-shortkey.el][全局快捷键]]
 
    | key | C                  | M    | C-x      | C-c              |
    |-----+--------------------+------+----------+------------------|
@@ -480,22 +1228,11 @@
    | z   | =未使用=           |      |          |                  |
    | DEL |                    | 删除 |          |                  |
    |-----+--------------------+------+----------+------------------|
-** org-mode
-   只显示org-mode local keymap
-   | key   | desc                               |
-   |-------+------------------------------------|
-   | C-j   | 大部分快捷键                       |
-   |-------+------------------------------------|
-   | M-p   | 上一个heading                      |
-   |-------+------------------------------------|
-   | M-n   | 下一个heading                      |
-   |-------+------------------------------------|
-   | C-c j | edit block in special-buff && exit |
-   |-------+------------------------------------|
 
 * 有趣但没用
 ** figlet
-   把字符艺术化
+   把字符艺术化.
+
    emacs中的figlet package是front-end,
    依赖shell环境的back-ends figlet
 

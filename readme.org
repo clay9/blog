@@ -23,8 +23,8 @@
 
 * 修改记录
   1. 去除对本地emacs的依赖
-     当触发action的时候, 会执行以下动作
-     - 在action的ubuntu系统上安装emacs
+     使用github action触发并执行以下动作
+     - 在github action的ubuntu系统上安装emacs
      - 下载clay9/emacs
      - 执行init-org-publish.el, 完成blog到content(md)的转换
        : emacs -u clay --script ~/.emacs.d/script/init-org-publish.el

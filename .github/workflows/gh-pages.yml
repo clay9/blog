@@ -8,23 +8,23 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: clay9/emacs.d
           path: ./emacs.d
 
       - run: |
-          sudo apt install emacs -y
+          sudo apt install emacs, texinfo -y
           mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
-          emacs -u $USER --script ~/.emacs.d/script/init-org-publish.el
-          emacs -u $USER --script ~/.emacs.d/script/init-hugo-publish.el
+          emacs -u $USER --script ~/.emacs.d/script/export-org-to-md.el
+          emacs -u $USER --script ~/.emacs.d/script/export-org-to-texi2html.el
           rm -rf ~/emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
