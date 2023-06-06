@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is a short example of a complete Texinfo file, version 1.0.
+
+Copyright (C) 2016 Free Software Foundation, Inc. -->
+<title>gud使用 (emacs)</title>
+
+<meta name="description" content="gud使用 (emacs)">
+<meta name="keywords" content="gud使用 (emacs)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Diao-Shi-Qi-.html" rel="up" title="调试器">
+<link href="gdbShi-Yong-.html" rel="prev" title="gdb使用">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="gud_4f7f_7528">
+<div class="header">
+<p>
+Previous: <a href="gdbShi-Yong-.html" accesskey="p" rel="prev">gdb使用</a>, Up: <a href="Diao-Shi-Qi-.html" accesskey="u" rel="up">调试器</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="gudShi-Yong-"></span><h4 class="subsection">6.5.2 gud使用</h4>
+
+<table>
+<thead><tr><th>buffer名字</th><th>简述</th><th>备注</th></tr></thead>
+<tr><td>gud</td><td>gdb命令输入窗口</td><td></td></tr>
+<tr><td>source</td><td>调试时自动显示源码</td><td>不要edit, 否则导致source自动关联失效</td></tr>
+<tr><td>breakpoint</td><td>断点</td><td>不会命中的断点显示为pending</td></tr>
+<tr><td>threads</td><td>线程</td><td></td></tr>
+<tr><td>stack</td><td>堆栈</td><td></td></tr>
+<tr><td>local</td><td>local变量</td><td></td></tr>
+<tr><td>register</td><td>寄存器</td><td></td></tr>
+<tr><td>assembler</td><td>显示汇编</td><td></td></tr>
+<tr><td>memory</td><td>内存查看</td><td></td></tr>
+</table>
+
+<p>为了显示方便,
+breakpoint与threads buffer同在一个frame;
+local与register buffer同在一个frame;
+可以按&quot;TAB&quot;快速切换
+</p>
+<ol>
+<li> 例子
+
+
+<ol>
+<li> emacs: M-x gdb RET
+</li><li> gud: attch &lt;program pid&gt;
+</li><li> 设置breakpoint
+<ul>
+<li> gud: b
+</li><li> source: gud-break; gud-tbreak
+</li><li> breakpoint: D 删除断点
+</li></ul>
+</li><li> 设置watch
+<ul>
+<li> gud: watch
+</li><li> souce: gud-watch
+</li></ul>
+</li></ol>
+
+</li><li> 问题
+
+
+<ol>
+<li> gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.
+简单来说, gud没有舍弃之前的无效输入, 而是等待机会, 使之生效
+</li><li> gdb continue之后 如何退出
+<ol>
+<li> gdb进程中可以使用C-c, 退出attach所关联的进程
+</li><li> emacs-gdb中如何退出 ?? TODONOW
+</li></ol>
+</li></ol>
+</li></ol>
+
+</div>
+
+
+
+</body>
+</html>
