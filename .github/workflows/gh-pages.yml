@@ -28,7 +28,6 @@ jobs:
           rm -rf ~/emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
-          echo "ls content/org-info" && ls -al content/org-info
           echo "ls content/posts" && ls -al content/posts
           echo "ls ~" && ls -al ~
 
