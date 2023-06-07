@@ -59,9 +59,9 @@
    orgmode的连接可以在hugo中正常使用.
    #+BEGIN_EXAMPLE
    比如org mode中调用hugo目录下的record.png文件
-   file:hugo/record.png
+   file:hugo_blog/record.png
 
-   只需要在hugo.org的同级目录下创建hugo目录, 并放入record.png即可
+   只需要在hugo_blog.org的同级目录下创建hugo_blog目录, 并放入record.png即可
    #+END_EXAMPLE
 ** 自定义域名
    实现子域名www.wcq.life 与 顶域名 wcq.life均可访问
@@ -78,4 +78,4 @@
 
 
     例子:
-    [[file:hugo/record.png]]
+    [[file:hugo_blog/record.png]]
