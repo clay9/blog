@@ -55,8 +55,18 @@
    blog的更新流程由github action完成, 我们无须关心.
 
 * hugo使用事项
+** 连接
+   orgmode的连接可以在hugo中正常使用.
+   #+BEGIN_EXAMPLE
+   比如org mode中调用hugo目录下的record.png文件
+   file:hugo/record.png
+
+   只需要在hugo.org的同级目录下创建hugo目录, 并放入record.png即可
+   #+END_EXAMPLE
 ** 自定义域名
    实现子域名www.wcq.life 与 顶域名 wcq.life均可访问
+*** hugo配置
+    : 更改baseURL = "https://www.wcq.life"
 *** github配置
     在blog/static目录下新增CNAME文件, 其内容为域名, 比如 www.wcq.life
     : static目录下的内容, 会由hugo action自动放到网站根结点. 这符合github的要求
