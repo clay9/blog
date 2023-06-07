@@ -1,19 +1,25 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>linux - 飘</title><meta name=Description content><meta property="og:title" content="linux"><meta property="og:description" content="linux常用命令&&工具"><meta property="og:type" content="article"><meta property="og:url" content="https://clay9.github.io/posts/linux/"><meta property="article:published_time" content="2021-10-18T20:30:00+00:00"><meta property="article:modified_time" content="2023-06-07T06:31:24+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="linux"><meta name=twitter:description content="linux常用命令&&工具"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://clay9.github.io/posts/linux/><link rel=prev href=https://clay9.github.io/posts/docker-compose/><link rel=next href=https://clay9.github.io/posts/monitor/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"linux","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/clay9.github.io\/posts\/linux\/"},"genre":"posts","keywords":"linux","wordcount":3692,"url":"https:\/\/clay9.github.io\/posts\/linux\/","datePublished":"2021-10-18T20:30:00+00:00","dateModified":"2023-06-07T06:31:24+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':(''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
-<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/>所有文章</a><a class=menu-item href=/categories/>分类</a><a class=menu-item href=/tags/>标签</a><a class=menu-item href=/emacs/index.html>Emacs</a><a class=menu-item href=/about>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">linux</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/system/><i class="far fa-folder fa-fw"></i>system</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-18>2021-10-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3692 字&nbsp;
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>linux - 飘</title><meta name=Description content><meta property="og:title" content="linux"><meta property="og:description" content="linux常用命令&&工具"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/linux/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-10-18T20:30:00+00:00"><meta property="article:modified_time" content="2023-06-07T08:10:26+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="linux"><meta name=twitter:description content="linux常用命令&&工具"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/linux/><link rel=prev href=https://www.wcq.life/posts/docker-compose/><link rel=next href=https://www.wcq.life/posts/monitor/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"linux","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/linux\/"},"genre":"posts","keywords":"linux","wordcount":3689,"url":"https:\/\/www.wcq.life\/posts\/linux\/","datePublished":"2021-10-18T20:30:00+00:00","dateModified":"2023-06-07T08:10:26+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":""==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:""==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/emacs/index.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">linux</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>wcq</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/system/><i class="far fa-folder fa-fw"></i>system</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-18>2021-10-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3689 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a><ul><li><a href=#cpu>cpu</a></li><li><a href=#查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</a></li><li><a href=#fd>fd</a></li><li><a href=#socket>socket</a></li></ul></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>linux常用命令&&工具</p><h2 id=查看系统信息>查看系统信息</h2><h3 id=cpu>cpu</h3><p>cat /proc/cpuinfo| grep &ldquo;physical id"| sort| uniq| wc -l</p><p>cat /proc/cpuinfo| grep &ldquo;cpu cores"| uniq</p><p>cat /proc/cpuinfo| grep &ldquo;processor"| wc -l</p><p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p><h3 id=查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</h3><p>readelf
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a><ul><li><a href=#cpu>cpu</a></li><li><a href=#查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</a></li><li><a href=#fd>fd</a></li><li><a href=#socket>socket</a></li></ul></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>linux常用命令&&工具</p><h2 id=查看系统信息>查看系统信息</h2><h3 id=cpu>cpu</h3><p>cat /proc/cpuinfo| grep &ldquo;physical id&rdquo;| sort| uniq| wc -l</p><p>cat /proc/cpuinfo| grep &ldquo;cpu cores&rdquo;| uniq</p><p>cat /proc/cpuinfo| grep &ldquo;processor&rdquo;| wc -l</p><p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</p><h3 id=查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</h3><p>readelf
 nm
-objdump</p><h3 id=fd>fd</h3><h4 id=查询>查询</h4><ol><li>所有进程允许打开的最大fd数量。查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>/proc/sys/fs/file-max
-</code></pre></td></tr></table></div></div></li><li>所有进程已经打开的fd数量及允许的最大数量。查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>/proc/sys/fs/file-nr
-</code></pre></td></tr></table></div></div></li><li>单个进程允许打开的最大fd数量.查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>ulimit -n
-</code></pre></td></tr></table></div></div></li><li>单个进程（例如进程id为5454）已经打开的fd.查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>ls -l /proc/5454/fd/
-</code></pre></td></tr></table></div></div></li></ol><h4 id=设置>设置</h4><ol><li>单个进程允许打开的最大fd数量<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+objdump</p><h3 id=fd>fd</h3><h4 id=查询>查询</h4><ol><li>所有进程允许打开的最大fd数量。查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>/proc/sys/fs/file-max
+</span></span></code></pre></td></tr></table></div></div></li><li>所有进程已经打开的fd数量及允许的最大数量。查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>/proc/sys/fs/file-nr
+</span></span></code></pre></td></tr></table></div></div></li><li>单个进程允许打开的最大fd数量.查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>ulimit -n
+</span></span></code></pre></td></tr></table></div></div></li><li>单个进程（例如进程id为5454）已经打开的fd.查询语句：<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>ls -l /proc/5454/fd/
+</span></span></code></pre></td></tr></table></div></div></li></ol><h4 id=设置>设置</h4><ol><li>单个进程允许打开的最大fd数量<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -26,22 +32,22 @@ objdump</p><h3 id=fd>fd</h3><h4 id=查询>查询</h4><ol><li>所有进程允许�
 </span><span class=lnt>11
 </span><span class=lnt>12
 </span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># 用户单进程最大; 仅当前sesstion生效
-# ulimit -n 实际是 ulimit -Sn (Soft软件)
-#          H硬件是 ulimit -Hn
-ulimit -n xx
-
-# 用户单进程S(软件)最大 -- 需要重新登录生效
-echo &#39;* soft nofile 1048576&#39; &gt;&gt; /etc/security/limits.conf
-# 用户单进程H(硬件)最大 -- 需要重新登录生效
-# 该值一定不能大于fs.nr_open, 否则注销后将无法正常登录!!!
-echo &#39;* hard nofile 1048576&#39; &gt;&gt; /etc/security/limits.conf
-
-# 重点!!! 以上3个的配置数都受限于fs.nr_open -- 调用sysctl -p生效
-sysctl -w fs.nr_open=xxx
-</code></pre></td></tr></table></div></div></li></ol><h3 id=socket>socket</h3><p>命令: ss
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># 用户单进程最大; 仅当前sesstion生效
+</span></span><span class=line><span class=cl># ulimit -n 实际是 ulimit -Sn (Soft软件)
+</span></span><span class=line><span class=cl>#          H硬件是 ulimit -Hn
+</span></span><span class=line><span class=cl>ulimit -n xx
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 用户单进程S(软件)最大 -- 需要重新登录生效
+</span></span><span class=line><span class=cl>echo &#39;* soft nofile 1048576&#39; &gt;&gt; /etc/security/limits.conf
+</span></span><span class=line><span class=cl># 用户单进程H(硬件)最大 -- 需要重新登录生效
+</span></span><span class=line><span class=cl># 该值一定不能大于fs.nr_open, 否则注销后将无法正常登录!!!
+</span></span><span class=line><span class=cl>echo &#39;* hard nofile 1048576&#39; &gt;&gt; /etc/security/limits.conf
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 重点!!! 以上3个的配置数都受限于fs.nr_open -- 调用sysctl -p生效
+</span></span><span class=line><span class=cl>sysctl -w fs.nr_open=xxx
+</span></span></code></pre></td></tr></table></div></div></li></ol><h3 id=socket>socket</h3><p>命令: ss
 socket Statistics &ndash; socket统计信息
-比netstat 更快</p><h2 id=必备命令--软件>必备命令(软件)</h2><h3 id=top>top</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+比netstat 更快</p><h2 id=必备命令--软件>必备命令(软件)</h2><h3 id=top>top</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -76,42 +82,42 @@ socket Statistics &ndash; socket统计信息
 </span><span class=lnt>33
 </span><span class=lnt>34
 </span><span class=lnt>35
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># top      当前系统时间; 启动了3小时45分钟; user同时在线的用户; load average服务器1min, 5min, 15min的负载情况
-#          load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。
-#                      如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了
-# Tasks    总共开启了27个进程, 1个在run, 26个sleep, 0stoped, 0僵尸进程zombie
-# %cpu     总核数的平均值(不会大于100%), us用户占比, sy系统占比, ni用户进程空间内改变过优先级的进程占用CPU百分比
-#          id空闲cpu百分比, wa用户进程空间内改变过优先级的进程占用CPU百分比, hi硬件中断, si软件中断, st实时
-# MiB Mem  total系统物理总内存, free空闲内存, used已使用,    buff/cache缓冲区内存
-# MiB Swap total交换总内存,     free交换空闲, used交换已用,  avail 可用内存
-# 这一系列信息是系统的信息, docker容器内外是一致的
-top - 12:19:58 up  3:45,  1 user,  load average: 0.00, 0.02, 0.05
-Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
-%Cpu(s):  1.5 us,  1.1 sy,  0.0 ni, 97.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
-MiB Mem :  64348.3 total,  39305.2 free,  11285.5 used,  13757.6 buff/cache
-MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem
-
-
-# pid      pid
-# user     谁启动的该进程
-# PR       优先级
-# ni       nice值 负值表示高优先级，正值表示低优先级
-# VIRT     虚拟内存
-# RES      真实内存
-# SHR      共享内存
-# %CPU     单核cpu占比, 大于100%表示占用了多个cpu核, 不能大于100% * cpu核数
-# TIME+    进程运行总时间??占用cpu的总时间??
-# COMMAND  进程启动时的命令
-  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-
-  122 root      20   0   12936   7148   6648 S   1.0   0.0   2:32.20 cli
-  69  root      20   0   12928   7064   6572 S   0.7   0.0   2:07.64 svr
-  125 root      20   0   27728  17472   3944 S   0.3   0.0   1:01.14 cli
-  123 root      20   0   27728  17316   3880 S   0.3   0.0   1:01.08 cli
-  126 root      20   0   27728  17436   3948 S   0.3   0.0   1:01.07 cli
-  124 root      20   0   27728  17380   3852 S   0.3   0.0   1:00.94 cli
-  132 root      20   0   27728  17436   3948 S   0.7   0.0   0:59.75 cli
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># top      当前系统时间; 启动了3小时45分钟; user同时在线的用户; load average服务器1min, 5min, 15min的负载情况
+</span></span><span class=line><span class=cl>#          load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。
+</span></span><span class=line><span class=cl>#                      如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了
+</span></span><span class=line><span class=cl># Tasks    总共开启了27个进程, 1个在run, 26个sleep, 0stoped, 0僵尸进程zombie
+</span></span><span class=line><span class=cl># %cpu     总核数的平均值(不会大于100%), us用户占比, sy系统占比, ni用户进程空间内改变过优先级的进程占用CPU百分比
+</span></span><span class=line><span class=cl>#          id空闲cpu百分比, wa用户进程空间内改变过优先级的进程占用CPU百分比, hi硬件中断, si软件中断, st实时
+</span></span><span class=line><span class=cl># MiB Mem  total系统物理总内存, free空闲内存, used已使用,    buff/cache缓冲区内存
+</span></span><span class=line><span class=cl># MiB Swap total交换总内存,     free交换空闲, used交换已用,  avail 可用内存
+</span></span><span class=line><span class=cl># 这一系列信息是系统的信息, docker容器内外是一致的
+</span></span><span class=line><span class=cl>top - 12:19:58 up  3:45,  1 user,  load average: 0.00, 0.02, 0.05
+</span></span><span class=line><span class=cl>Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
+</span></span><span class=line><span class=cl>%Cpu(s):  1.5 us,  1.1 sy,  0.0 ni, 97.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
+</span></span><span class=line><span class=cl>MiB Mem :  64348.3 total,  39305.2 free,  11285.5 used,  13757.6 buff/cache
+</span></span><span class=line><span class=cl>MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># pid      pid
+</span></span><span class=line><span class=cl># user     谁启动的该进程
+</span></span><span class=line><span class=cl># PR       优先级
+</span></span><span class=line><span class=cl># ni       nice值 负值表示高优先级，正值表示低优先级
+</span></span><span class=line><span class=cl># VIRT     虚拟内存
+</span></span><span class=line><span class=cl># RES      真实内存
+</span></span><span class=line><span class=cl># SHR      共享内存
+</span></span><span class=line><span class=cl># %CPU     单核cpu占比, 大于100%表示占用了多个cpu核, 不能大于100% * cpu核数
+</span></span><span class=line><span class=cl># TIME+    进程运行总时间??占用cpu的总时间??
+</span></span><span class=line><span class=cl># COMMAND  进程启动时的命令
+</span></span><span class=line><span class=cl>  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  122 root      20   0   12936   7148   6648 S   1.0   0.0   2:32.20 cli
+</span></span><span class=line><span class=cl>  69  root      20   0   12928   7064   6572 S   0.7   0.0   2:07.64 svr
+</span></span><span class=line><span class=cl>  125 root      20   0   27728  17472   3944 S   0.3   0.0   1:01.14 cli
+</span></span><span class=line><span class=cl>  123 root      20   0   27728  17316   3880 S   0.3   0.0   1:01.08 cli
+</span></span><span class=line><span class=cl>  126 root      20   0   27728  17436   3948 S   0.3   0.0   1:01.07 cli
+</span></span><span class=line><span class=cl>  124 root      20   0   27728  17380   3852 S   0.3   0.0   1:00.94 cli
+</span></span><span class=line><span class=cl>  132 root      20   0   27728  17436   3948 S   0.7   0.0   0:59.75 cli
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -134,36 +140,32 @@ MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>1. 排序
-   &lt; -- 左移sort-field; 进入top时候默认sort-field是%cpu
-   &gt; -- 右移sort-field
-   R -- 反转排序
-
-   M -- (不推荐)根据%mem 排序
-   P -- (不推荐)根据%cpu 排序
-   T -- (不推荐)根据TIME+排序
-2. 高亮
-   b -- 是否高亮显示 &lt;R进程 或者 sort-field&gt;, 总开关
-   x -- 是否高亮 sort-field
-   y -- 是否高亮 R进程
-
-   z -- (不推荐)高亮显示
-   B -- (不推荐)加粗
-
-3. 其他
-   1 -- 显示所有逻辑cpu
-   k -- 关闭特定pid进程
-   s -- 设置刷新时间
-4. 内存
-   m -- 切换mem显示, 显示使用百分比&amp;&amp;总内存 --&gt;  (*used/total)% / total
-   t -- 切换cpu显示, 没看明白; 仍然推荐看%Cpu-&gt;id 或者1查看所有核心的
-
-
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>1. 最小单位为进程, 线程信息需要通过ps去查看
-</code></pre></td></tr></table></div></div><h3 id=free>free</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>1. 排序
+</span></span><span class=line><span class=cl>   &lt; -- 左移sort-field; 进入top时候默认sort-field是%cpu
+</span></span><span class=line><span class=cl>   &gt; -- 右移sort-field
+</span></span><span class=line><span class=cl>   R -- 反转排序
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>   M -- (不推荐)根据%mem 排序
+</span></span><span class=line><span class=cl>   P -- (不推荐)根据%cpu 排序
+</span></span><span class=line><span class=cl>   T -- (不推荐)根据TIME+排序
+</span></span><span class=line><span class=cl>2. 高亮
+</span></span><span class=line><span class=cl>   b -- 是否高亮显示 &lt;R进程 或者 sort-field&gt;, 总开关
+</span></span><span class=line><span class=cl>   x -- 是否高亮 sort-field
+</span></span><span class=line><span class=cl>   y -- 是否高亮 R进程
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>   z -- (不推荐)高亮显示
+</span></span><span class=line><span class=cl>   B -- (不推荐)加粗
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>3. 其他
+</span></span><span class=line><span class=cl>   1 -- 显示所有逻辑cpu
+</span></span><span class=line><span class=cl>   k -- 关闭特定pid进程
+</span></span><span class=line><span class=cl>   s -- 设置刷新时间
+</span></span><span class=line><span class=cl>4. 内存
+</span></span><span class=line><span class=cl>   m -- 切换mem显示, 显示使用百分比&amp;&amp;总内存 --&gt;  (*used/total)% / total
+</span></span><span class=line><span class=cl>   t -- 切换cpu显示, 没看明白; 仍然推荐看%Cpu-&gt;id 或者1查看所有核心的
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>1. 最小单位为进程, 线程信息需要通过ps去查看
+</span></span></code></pre></td></tr></table></div></div><h3 id=free>free</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -172,20 +174,20 @@ MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># total        系统总内存
-# used         已经使用的内存
-# free         空闲的内存 -- 不等于可用内存
-# shared       已经舍弃的内存???
-# buff/cache   io读写内存;内存紧张的时候,会自动释放; cache文件系统缓存; buff 裸设备相关缓存
-# available    可用内存. = free + buff/cache
-	      total        used        free      shared  buff/cache   available
-Mem:           62Gi        11Gi        38Gi        17Mi        13Gi        51Gi
-Swap:         8.0Gi          0B       8.0Gi
-</code></pre></td></tr></table></div></div><h3 id=ss>ss</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># total        系统总内存
+</span></span><span class=line><span class=cl># used         已经使用的内存
+</span></span><span class=line><span class=cl># free         空闲的内存 -- 不等于可用内存
+</span></span><span class=line><span class=cl># shared       已经舍弃的内存???
+</span></span><span class=line><span class=cl># buff/cache   io读写内存;内存紧张的时候,会自动释放; cache文件系统缓存; buff 裸设备相关缓存
+</span></span><span class=line><span class=cl># available    可用内存. = free + buff/cache
+</span></span><span class=line><span class=cl>	      total        used        free      shared  buff/cache   available
+</span></span><span class=line><span class=cl>Mem:           62Gi        11Gi        38Gi        17Mi        13Gi        51Gi
+</span></span><span class=line><span class=cl>Swap:         8.0Gi          0B       8.0Gi
+</span></span></code></pre></td></tr></table></div></div><h3 id=ss>ss</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>查看socket 统计信息
-这是system的统计信息, docker容器内外是一致的
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>查看socket 统计信息
+</span></span><span class=line><span class=cl>这是system的统计信息, docker容器内外是一致的
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -208,36 +210,34 @@ Swap:         8.0Gi          0B       8.0Gi
 </span><span class=lnt>21
 </span><span class=lnt>22
 </span><span class=lnt>23
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># every 100s 每100s刷新一次 ss-s  851d60ae4404是服务器名字  服务器当前时间
-# total:           这个数值是docker容器有关的, 每个单独计算;   貌似是inet + 1 TODONOW.
-# TCP: 2101        这个数值是docker容器无关的, 容器内外都一样; 貌似是state总和?? TODONOW
-#      estab    -- 这个数值是docker容器相关的, 每个单独计算
-#      closed   -- 这个数值是docker容器相关的, 每个单独计算
-#      orphaned --
-#      timewait --
-Every 100.0s: ss -s      851d60ae4404: Wed Oct 20 17:44:33 2021
-
-Total: 3
-TCP:   2101 (estab 0, closed 2100, orphaned 0, timewait 0)
-
-# RAW
-# UDP
-# TCP   这里的total是docker容器相关的, 每个单独计算
-# INET
-# FRAG
-Transport Total     IP        IPv6
-RAW       0         0         0
-UDP       1         1         0
-TCP       1         1         0
-INET      2         2         0
-FRAG      0         0         0
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># every 100s 每100s刷新一次 ss-s  851d60ae4404是服务器名字  服务器当前时间
+</span></span><span class=line><span class=cl># total:           这个数值是docker容器有关的, 每个单独计算;   貌似是inet + 1 TODONOW.
+</span></span><span class=line><span class=cl># TCP: 2101        这个数值是docker容器无关的, 容器内外都一样; 貌似是state总和?? TODONOW
+</span></span><span class=line><span class=cl>#      estab    -- 这个数值是docker容器相关的, 每个单独计算
+</span></span><span class=line><span class=cl>#      closed   -- 这个数值是docker容器相关的, 每个单独计算
+</span></span><span class=line><span class=cl>#      orphaned --
+</span></span><span class=line><span class=cl>#      timewait --
+</span></span><span class=line><span class=cl>Every 100.0s: ss -s      851d60ae4404: Wed Oct 20 17:44:33 2021
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Total: 3
+</span></span><span class=line><span class=cl>TCP:   2101 (estab 0, closed 2100, orphaned 0, timewait 0)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># RAW
+</span></span><span class=line><span class=cl># UDP
+</span></span><span class=line><span class=cl># TCP   这里的total是docker容器相关的, 每个单独计算
+</span></span><span class=line><span class=cl># INET
+</span></span><span class=line><span class=cl># FRAG
+</span></span><span class=line><span class=cl>Transport Total     IP        IPv6
+</span></span><span class=line><span class=cl>RAW       0         0         0
+</span></span><span class=line><span class=cl>UDP       1         1         0
+</span></span><span class=line><span class=cl>TCP       1         1         0
+</span></span><span class=line><span class=cl>INET      2         2         0
+</span></span><span class=line><span class=cl>FRAG      0         0         0
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># ss默认只显示state = established状态的, 可以通过-a或state参数来控制显示
--a  #显示所有状态的
-
-</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># ss默认只显示state = established状态的, 可以通过-a或state参数来控制显示
+</span></span><span class=line><span class=cl>-a  #显示所有状态的
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -258,32 +258,32 @@ FRAG      0         0         0
 </span><span class=lnt>19
 </span><span class=lnt>20
 </span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text># -4 ipv4
-# -6 ipv6
-# -t tcp协议
-# -u udp协议 等等
-ss -t                     # 匹配tcp连接
-
-# dst   -- 远端
-# src   -- 本地
-ss dst 192.168.1.5        # 匹配远程地址
-ss dst 192.168.1.5:443    # 匹配远程地址和端口
-
-# dport --
-# sport --
-# 可以通过比较参数来选择某个区间的端口号
-# le, ge, eq, ne, gt, lt -- 与sh的语法一致
-ss sport lt 50            # 匹配小于50的端口号
-
-# state 通过tcp连接状态进行过滤
-# 常用状态
-# established, SYN-SENT, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, listen, closing
-ss state listening        # 匹配listen状态
-</code></pre></td></tr></table></div></div><h3 id=netstat>netstat</h3><ul><li>s 统计信息</li><li>t tcp</li></ul><h3 id=watch>watch</h3><p>周期性的执行某个命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>watch ss -s # 定时刷新ss-s命令
-</code></pre></td></tr></table></div></div><h3 id=crontab>crontab</h3><p>定时任务, 具体见</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>man crontab
-</code></pre></td></tr></table></div></div><h3 id=tmux-and-and-screen>tmux && screen</h3><p>为什么使用tmux 和 screen: 远程登录操作时候, 因网络不稳定, 总是掉线, 导致东西无法保存
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl># -4 ipv4
+</span></span><span class=line><span class=cl># -6 ipv6
+</span></span><span class=line><span class=cl># -t tcp协议
+</span></span><span class=line><span class=cl># -u udp协议 等等
+</span></span><span class=line><span class=cl>ss -t                     # 匹配tcp连接
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># dst   -- 远端
+</span></span><span class=line><span class=cl># src   -- 本地
+</span></span><span class=line><span class=cl>ss dst 192.168.1.5        # 匹配远程地址
+</span></span><span class=line><span class=cl>ss dst 192.168.1.5:443    # 匹配远程地址和端口
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># dport --
+</span></span><span class=line><span class=cl># sport --
+</span></span><span class=line><span class=cl># 可以通过比较参数来选择某个区间的端口号
+</span></span><span class=line><span class=cl># le, ge, eq, ne, gt, lt -- 与sh的语法一致
+</span></span><span class=line><span class=cl>ss sport lt 50            # 匹配小于50的端口号
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># state 通过tcp连接状态进行过滤
+</span></span><span class=line><span class=cl># 常用状态
+</span></span><span class=line><span class=cl># established, SYN-SENT, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, listen, closing
+</span></span><span class=line><span class=cl>ss state listening        # 匹配listen状态
+</span></span></code></pre></td></tr></table></div></div><h3 id=netstat>netstat</h3><ul><li>s 统计信息</li><li>t tcp</li></ul><h3 id=watch>watch</h3><p>周期性的执行某个命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>watch ss -s # 定时刷新ss-s命令
+</span></span></code></pre></td></tr></table></div></div><h3 id=crontab>crontab</h3><p>定时任务, 具体见</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>man crontab
+</span></span></code></pre></td></tr></table></div></div><h3 id=tmux-and-and-screen>tmux && screen</h3><p>为什么使用tmux 和 screen: 远程登录操作时候, 因网络不稳定, 总是掉线, 导致东西无法保存
 讲解它们之前必须要先了解nohup 与 &</p><h4 id=nohup-与-and>nohup 与 &</h4><p>nohup与 &都是后台运行
 nohup会占用标准输出
 &则不会占用标准输出
@@ -323,15 +323,16 @@ C-b 数字 | n | p 切换窗口
 C-b C-z 挂起程序
 C-b d deatach类似于screen中的deatch
 deatch之后就可以回到正常的shell, 并使tmux运行在后台</p><p><span class=underline>为什么选择tmux</span>
-友好的界面, 友好的C-b ?帮助提示, 简单的操作</p><p><span class=underline>遗留问题</span></p><ol><li><i class="far fa-square fa-fw"></i>如果运行 tmux& (&后台运行), 会导致莫名其妙的问题</li><li><i class="far fa-check-square fa-fw"></i>如何使tmux在后台运行
+友好的界面, 友好的C-b ?帮助提示, 简单的操作</p><p><span class=underline>遗留问题</span></p><ol><li><i class="far fa-square fa-fw"></i> 如果运行 tmux& (&后台运行), 会导致莫名其妙的问题</li><li><i class="far fa-check-square fa-fw"></i> 如何使tmux在后台运行
 使用bg命令无效, 这与进程的状态有关&mldr;有时间再看
-C-b d 使当前session deatch运行在后台</li></ol><h3 id=ffmpeg>ffmpeg</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>强大的视频解码软件
-</code></pre></td></tr></table></div></div><p>ffmpeg -i <a href=https://%C3%97%C3%97%C3%97%C3%97%C3%97%C3%97%C3%97%C3%97/really.m3u8>https://××××××××/really.m3u8</a> -c copy xxx.mp4</p><h3 id=sort>sort</h3><p>根据ASCII进行排序, 默认为升序</p><ul><li><p>u 去除重复行</p></li><li><p>r 降序</p></li><li><p>n 根据数值进行排序</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+C-b d 使当前session deatch运行在后台</li></ol><h3 id=ffmpeg>ffmpeg</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>强大的视频解码软件
+</span></span></code></pre></td></tr></table></div></div><p>ffmpeg -i <a href=https://%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97/really.m3u8 target=_blank rel="noopener noreffer">https://××××××××/really.m3u8</a> -c copy xxx.mp4</p><h3 id=sort>sort</h3><p>根据ASCII进行排序, 默认为升序</p><ul><li><p>u 去除重复行</p></li><li><p>r 降序</p></li><li><p>n 根据数值进行排序</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-text data-lang=text>你有没有遇到过10比2小的情况。我反正遇到过。
-出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面
--n可以告诉sort根据数值进行排序, 而非ASCII
-</code></pre></td></tr></table></div></div></li><li><p>k, t k指定列数, t指定分隔符</p></li><li><p>f 会将小写字母都转换为大写字母来进行比较，亦即忽略大小写</p></li></ul><h3 id=wc-l>wc -l</h3><p>统计行数</p><h2 id=管道>管道</h2><h3 id=and-and-xargs>| && xargs</h3><ol><li>管道是实现“将前面的标准输出作为后面的标准输入”</li><li>xargs是实现“将标准输入作为命令的参数”</li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-06-07</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>linux</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/docker-compose/ class=prev rel=prev title=docker-compose><i class="fas fa-angle-left fa-fw"></i>docker-compose</a>
-<a href=/posts/monitor/ class=next rel=next title=monitor>monitor<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2023</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":100,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>你有没有遇到过10比2小的情况。我反正遇到过。
+</span></span><span class=line><span class=cl>出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面
+</span></span><span class=line><span class=cl>-n可以告诉sort根据数值进行排序, 而非ASCII
+</span></span></code></pre></td></tr></table></div></div></li><li><p>k, t k指定列数, t指定分隔符</p></li><li><p>f 会将小写字母都转换为大写字母来进行比较，亦即忽略大小写</p></li></ul><h3 id=wc-l>wc -l</h3><p>统计行数</p><h2 id=管道>管道</h2><h3 id=and-and-xargs>| && xargs</h3><ol><li>管道是实现“将前面的标准输出作为后面的标准输入”</li><li>xargs是实现“将标准输入作为命令的参数”</li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-06-07</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>linux</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/docker-compose/ class=prev rel=prev title=docker-compose><i class="fas fa-angle-left fa-fw"></i>docker-compose</a>
+<a href=/posts/monitor/ class=next rel=next title=monitor>monitor<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2023</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
