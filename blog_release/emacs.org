@@ -1,6 +1,8 @@
 #+TITLE: emacs
 #+AUTHOR: wcq
-#+OPTIONS: ^:nil, |:t
+#+OPTIONS: ^:nil
+#+OPTIONS: \n:t
+#+ATTR_HTML: :border 2 :rules all :frame border
 
 * Legalese
   :PROPERTIES:
