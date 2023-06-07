@@ -79,7 +79,7 @@
 
     [[file:hugo/record.png]]
 * 问题
-  1. hugo无法正常发布DATE=今天的blog
+  1. hugo无法正常发布DATE等于今天的blog
      暂时不知道如何处理, 修改了日期.
 
      猜测应该是hugo action中有对日期校验, 而中国与github action中有时差导致的
