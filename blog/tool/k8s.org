@@ -14,14 +14,14 @@ kubernetes, 简称k8s
   1. namespace 在所有抽象层之前
      : kubectl delete namespace <namespace-name>
      : 删除namespace会删除namespace下面所有的资源, 比如deployment,pods,svc等等
-     
+
      -n xx              -- 使用xx命名空间
      --all-namespaces   -- 显示所有的命名空间
 
      #+BEGIN_EXAMPLE sh 查看已有的命名空间
      kubectl get namespaces
      #+END_EXAMPLE
-     
+
      #+BEGIN_EXAMPLE sh 删除xx命名空间之下的某个pod
      kubectl delete pod <pod-name> --force -n xx
      #+END_EXAMPLE
@@ -29,13 +29,13 @@ kubernetes, 简称k8s
      - cluster 即k8s集群
      - master  控制节点
      - node    工作节点
-              
+
      - Namespace
      - CustomResourceDefinition 自定义类型资源crd
      - service
      - deployment -- rc -- pods
-     - ingress 
-  
+     - ingress
+
 * kubernetes 创建集群
 ** 安装
    #+BEGIN_EXAMPLE sh 下载依赖-CNI插件
@@ -91,7 +91,7 @@ kubernetes, 简称k8s
    #+END_EXAMPLE
 
    #+BEGIN_EXAMPLE sh 端口检测
-   控制平面节点 
+   控制平面节点
    协议	方向	端口范围	作用	使用者
    TCP	入站	6443	Kubernetes API 服务器	所有组件
    TCP	入站	2379-2380	etcd 服务器客户端 API	kube-apiserver, etcd
@@ -135,7 +135,7 @@ kubernetes, 简称k8s
    kubectl get nodes中发现Node的STATUS为NotReady, 需要安装网络插件.
    如果没有安装网络插件, pods/coredns的状态为pending
    这里选的是calico, 详见calico安装
-   
+
 * kubernetes 配置集群的
   主要配置deployment 与 service
   deployment会创建rc, rc会创建pod
@@ -197,7 +197,7 @@ kubernetes, 简称k8s
    # 如果想从外部可以访问, 我们可以使用nginx反向代理, 转发remote-port到9000
    # ingress同样的道理
    #+END_EXAMPLE
-     
+
 * 工具    - kubelet
   work-node 运行需要, master不建议运行
   配置文件在/var/lib/kubelet/config.yaml
@@ -223,7 +223,7 @@ kubernetes, 简称k8s
 
   # 2.如果本地地址在192.168.0.0/16, 需要设置calico的ip地址
   #  修改 CALICO_IPV4POOL_CIDR的value的值即可
-  
+
   # 3.执行插件的安装
   kubectl apply -f calico.yaml
 
@@ -253,13 +253,13 @@ kubernetes, 简称k8s
   # 不确定是否有用的时候, 可以 kubectl describe ingress <ingress-name>
 
   # 2. 编写ingress.yaml
-  ## 编写的时候注意 backend的命名空间 
+  ## 编写的时候注意 backend的命名空间
 
   # 3. apply
   kubectl apply -f ingress.yaml
 
   # 4. check 查看是否正常
-  kubectl describe ingress <ingress-name> 
+  kubectl describe ingress <ingress-name>
   #+END_EXAMPLE
 
   #+BEGIN_EXAMPLE sh ingress.yaml
@@ -271,7 +271,7 @@ metadata:
   # 需要增加annotations字段的内容, 否则会提示404, 不知道为什么
   annotations:
     ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: nginx  
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
   - http:
@@ -285,7 +285,7 @@ spec:
               number: 9090
 
   #+END_EXAMPLE
-  
+
   #+BEGIN_EXAMPLE sh 外部访问
   # 当ingress-controller与ingress-rule正确部署之后
   # 查看一下ingess-controller命名空间下的svc, 获取到port
@@ -319,7 +319,7 @@ metadata:
   name: test
   namespace: monitoring
   annotations:
-    kubernetes.io/ingress.class: nginx  
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
@@ -332,7 +332,7 @@ spec:
             name: grafana
             port:
               number: 3000
-   #+END_EXAMPLE  
+   #+END_EXAMPLE
    如果path配置了/app, curl ip:port/app的时候确实可以拉取到<herf/> 但是进不去
    如果path配置了/   , crul ip:port    的时候就是正常的
 
@@ -352,7 +352,7 @@ metadata:
   name: test
   namespace: monitoring
   annotations:
-    kubernetes.io/ingress.class: nginx  
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
@@ -394,9 +394,9 @@ spec:
    2. 修改kubelet configuration
       : cat /var/lib/kubelet/config.yaml查看
       - set config.yaml authentication.webhook.enabled to true.
-	或者 kubelet --authentication-token-webhook=true
+    或者 kubelet --authentication-token-webhook=true
       - set config.yaml  authorization.mode to Webhook.
-	或者 kubelet --authorization-mode=Webhook
+    或者 kubelet --authorization-mode=Webhook
    3. kubectl create -f manifests/setup
    4. 等待下面的镜像下载完成
       - quay.io/brancz/kube-rbac-proxy
@@ -483,7 +483,7 @@ Labels:         app=alpine
                 pod-template-hash=6b967c77f7
 Annotations:    <none>
 Status:         Pending
-IP:             
+IP:
 IPs:            <none>
 Controlled By:  ReplicaSet/alpine-6b967c77f7
 Containers:
@@ -496,7 +496,7 @@ Containers:
       /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kwqhc (ro)
 Conditions:
   Type           Status
-  PodScheduled   False 
+  PodScheduled   False
 Volumes:
   kube-api-access-kwqhc:
     Type:                    Projected (a volume that contains injected data from multiple sources)
@@ -531,26 +531,26 @@ Events:
        : 必须配置ingress.kubernetes.io/rewrite-target: /
      - 确定访问的方式正确
        1) 确定backend的pod-ip:port可以访问
-	  : 此处的port为backend自己的port(即backend所在的svc的port, backend pod是没有端口的?? TODONOW待确定)
+      : 此处的port为backend自己的port(即backend所在的svc的port, backend pod是没有端口的?? TODONOW待确定)
        2) 确定backend的svc-ip:port可以访问
-	  : 此处的port为backend自己的port
+      : 此处的port为backend自己的port
        3) 确定ingress-nginx的pod-ip:port可以访问
-	  : 此处的port为ingress-nginxd的port
+      : 此处的port为ingress-nginxd的port
        4) 确定ingress-nginx的svc-ip:port可以访问
-	  : 此处的port为ingress-nginx的port
-       5) 确定本地 http://localhost:port可以访问
-	  : 需要添加http标志, ingress-controler是对http的转发
-	  : 此处的port为ingress-nginx映射的port
-	  : 比如下方的话, 该port就是31468
-	  #+BEGIN_EXAMPLE sh
-	  root@ubt:/home/dev_wangchengqing# kubectl get svc -n ingress-nginx
-	  NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-	  ingress-nginx-controller             LoadBalancer   10.108.147.62   <pending>     80:31468/TCP,443:31055/TCP   22h
-	  ingress-nginx-controller-admission   ClusterIP      10.107.83.233   <none>        443/TCP                      22h
-	  #+END_EXAMPLE
+      : 此处的port为ingress-nginx的port
+       5) 确定本地 localhost:port 可以访问
+      : 需要添加http标志, ingress-controler是对http的转发
+      : 此处的port为ingress-nginx映射的port
+      : 比如下方的话, 该port就是31468
+      #+BEGIN_EXAMPLE sh
+      root@ubt:/home/dev_wangchengqing# kubectl get svc -n ingress-nginx
+      NAME                                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+      ingress-nginx-controller             LoadBalancer   10.108.147.62   <pending>     80:31468/TCP,443:31055/TCP   22h
+      ingress-nginx-controller-admission   ClusterIP      10.107.83.233   <none>        443/TCP                      22h
+      #+END_EXAMPLE
        6) 确定网络内其他主机可以访问 A-ip:port
-	  : A-ip是ingress-nginx所在的机器的ip
-	  : port是ingress-nginx隐射出来的port
+      : A-ip是ingress-nginx所在的机器的ip
+      : port是ingress-nginx隐射出来的port
   6. ingress-nginx svc 一直pending
      #+BEGIN_EXAMPLE sh 问
      root@ubt:/home/dev_wangchengqing# kubectl get svc -n ingress-nginx
