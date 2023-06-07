@@ -77,7 +77,7 @@
        : 创建www.wcq.life指向clay9.github.io的CNAME即可
 
 
-    : [[file:hugo/record.png]]
+    [[file:hugo/record.png]]
 * 问题
   1. hugo无法正常发布DATE=今天的blog
      暂时不知道如何处理, 修改了日期.
