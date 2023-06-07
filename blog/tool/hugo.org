@@ -78,4 +78,4 @@
 
 
     例子:
-    [[file:hugo_blog/record.png]]
+    : [[file:hugo_blog/record.png]]
