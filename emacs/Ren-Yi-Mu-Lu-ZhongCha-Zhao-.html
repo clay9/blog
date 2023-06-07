@@ -3,9 +3,11 @@
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This is a short example of a complete Texinfo file, version 1.0.
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
 
-Copyright (C) 2016 Free Software Foundation, Inc. -->
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
 <title>任意目录中查找 (emacs)</title>
 
 <meta name="description" content="任意目录中查找 (emacs)">
@@ -54,18 +56,18 @@ Next: <a href="Gong-Cheng-ZhongCha-Zhao-.html" accesskey="n" rel="next">工程�
 <span id="Ren-Yi-Mu-Lu-ZhongCha-Zhao-"></span><h4 class="subsection">3.3.2 任意目录中查找</h4>
 
 <ul>
-<li> find-grep
+<li> find-grep <br>
 
-<p>实际是linux下的find+grep组合, 所以依赖linux下的find和grep命令
+<p>实际是linux下的find+grep组合, 所以依赖linux下的find和grep命令 <br>
 </p>
-<p>如果是windows系统, 需要下载GnuWin32，并配置emacs认识他
+<p>如果是windows系统, 需要下载GnuWin32，并配置emacs认识他 <br>
 </p><div class="example">
 <pre class="example"># exp 在当前目录下的所有文件中(含递归目录) 查找字符串'emacs'
 find . -type f |xargs grep -n emacs
 </pre></div>
-</li><li> eshell/grep
+</li><li> eshell/grep <br>
 
-<p>使用eshell(emacs内置)的grep, 所以仅在eshell-mode下生效
+<p>使用eshell(emacs内置)的grep, 所以仅在eshell-mode下生效 <br>
 </p><div class="example">
 <pre class="example"># TODO 待补充详细用法
 # 用法 grep 搜索内容 正则式(搜索目录)

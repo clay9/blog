@@ -3,9 +3,11 @@
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This is a short example of a complete Texinfo file, version 1.0.
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
 
-Copyright (C) 2016 Free Software Foundation, Inc. -->
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
 <title>导出 与 org-info (emacs)</title>
 
 <meta name="description" content="导出 与 org-info (emacs)">
@@ -58,44 +60,44 @@ Next: <a href="MobileOrg.html" accesskey="n" rel="next">MobileOrg</a>, Previous:
 </pre></div>
 
 
-<p>org-mode有强大的导出功能, 具体可以参考官方文档.
+<p>org-mode有强大的导出功能, 具体可以参考官方文档. <br>
 </p>
-<p>这里只是介绍一下org-info.js
+<p>这里只是介绍一下org-info.js <br>
 </p>
-<p>org-info.js 可以输出info-style xhtml, 可以作为org-mode导出html中的一种css样式补充 <a href="https://orgmode.org/worg/code/org-info-js/">官方文档</a>
+<p>org-info.js 可以输出info-style xhtml, 可以作为org-mode导出html中的一种css样式补充 <a href="https://orgmode.org/worg/code/org-info-js/">官方文档</a> <br>
 </p>
-<p>可以在info(m), over-view(m), ppt(x)三种模式间切换. (说实话, ppt模式, 真的没啥效果:)
+<p>可以在info(m), over-view(m), ppt(x)三种模式间切换. (说实话, ppt模式, 真的没啥效果:) <br>
 </p>
-<p>拥有众多的属性值, 方便导出配置
+<p>拥有众多的属性值, 方便导出配置 <br>
 </p><ul>
-<li> path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录
-如果没有设置, 则默认从orgmode.org中读取
-publish , export均生效
-</li><li> home     整个org-file的根节点,  对应界面上的&quot;HOME&quot;按钮
+<li> path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录 <br>
+如果没有设置, 则默认从orgmode.org中读取 <br>
+publish , export均生效 <br>
+</li><li> home     整个org-file的根节点,  对应界面上的&quot;HOME&quot;按钮 <br>
 <ol>
-<li> export 时候, 设置有效
-</li><li> publish的时候, 设置无效
+<li> export 时候, 设置有效 <br>
+</li><li> publish的时候, 设置无效 <br>
 </li></ol>
-</li><li> up       整个org-file的上层节点,对应界面上的&quot;UP&quot;按钮
-TODONOW 暂时不知道作用, 不设置正常使用, 界面上没有&quot;UP&quot;按钮
-</li><li> view     html显示样式
-</li><li> toc      整个org-file是否显示content
-publish时候 设置无效
-</li><li> ltoc     sub-heading是否显示content
-publish时候 设置无效
-</li><li> mouse    鼠标样式
-</li><li> buttons
+</li><li> up       整个org-file的上层节点,对应界面上的&quot;UP&quot;按钮 <br>
+TODONOW 暂时不知道作用, 不设置正常使用, 界面上没有&quot;UP&quot;按钮 <br>
+</li><li> view     html显示样式 <br>
+</li><li> toc      整个org-file是否显示content <br>
+publish时候 设置无效 <br>
+</li><li> ltoc     sub-heading是否显示content <br>
+publish时候 设置无效 <br>
+</li><li> mouse    鼠标样式 <br>
+</li><li> buttons <br>
 </li></ul>
 
 
-<p>拥有简单的快捷键, 方便在文档node间移动. n, p, m, x, i, ?
+<p>拥有简单的快捷键, 方便在文档node间移动. n, p, m, x, i, ? <br>
 </p>
-<p>org-info为org-mode自带, 无须额外安装. 使用的时候, 只需指定属性然后导出即可
+<p>org-info为org-mode自带, 无须额外安装. 使用的时候, 只需指定属性然后导出即可 <br>
 </p><div class="example">
 <pre class="example">#+INFOJS_OPT: home:http://wcq.life
 #+INFOJS_OPT: view:info toc:t ltoc:t mouse:underline buttons:nil
 </pre></div>
-<p>org-file中的连接会被自动转换为html中的连接
+<p>org-file中的连接会被自动转换为html中的连接 <br>
 </p><div class="example">
 <pre class="example"># org-file:
 file:test.org

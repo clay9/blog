@@ -3,9 +3,11 @@
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This is a short example of a complete Texinfo file, version 1.0.
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
 
-Copyright (C) 2016 Free Software Foundation, Inc. -->
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
 <title>yasnippet-mode (emacs)</title>
 
 <meta name="description" content="yasnippet-mode (emacs)">
@@ -58,31 +60,31 @@ Next: <a href="eglot_002dmode.html" accesskey="n" rel="next">eglot-mode</a>, Pre
 
 
 <ul>
-<li> 减少重复工作, 提升效率
-</li><li> 标准化
+<li> 减少重复工作, 提升效率 <br>
+</li><li> 标准化 <br>
 </li></ul>
 
 </li><li> 什么是yasnippet-mode
 
 
-<p>一个好用的快速模板工具
+<p>一个好用的快速模板工具 <br>
 </p>
 </li><li> 配置
 
 
 <ol>
-<li> 下载yasnippet-mode
+<li> 下载yasnippet-mode <br>
 <div class="example">
 <pre class="example">package-list-packages yasnippet-mode RET
 </pre></div>
 
-</li><li> 加载yasnippet-mode
+</li><li> 加载yasnippet-mode <br>
 <div class="example">
 <pre class="example">(require 'yasnippet)
 (yas-global-mode t)
 </pre></div>
 
-</li><li> 配置路径
+</li><li> 配置路径 <br>
 <div class="example">
 <pre class="example">;; 重载路径文件
 (setq yas-snippet-dirs
@@ -91,9 +93,9 @@ Next: <a href="eglot_002dmode.html" accesskey="n" rel="next">eglot-mode</a>, Pre
 ;; 加载路径文件
 (yas-load-directory &quot;~/.emacs.d/yasnippets/&quot;)
 </pre></div>
-<p>删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板
+<p>删掉了package中的 yasnippet-snippet包, 这样yasnippet-mode就会只使用自己写的模板 <br>
 </p>
-</li><li> 配置快捷键
+</li><li> 配置快捷键 <br>
 <div class="example">
 <pre class="example">(require 'yasnippet)
 
@@ -116,7 +118,7 @@ _j_: 扩展   _i_: 增加   _v_: 查看
 </li><li> 使用
 
 
-<p>以使用org-mode在hexo下写blog 举例
+<p>以使用org-mode在hexo下写blog 举例 <br>
 </p><div class="example">
 <pre class="example"># 该处通过yasnippet命令自动生成, 声明了模板的名字name 和 模板相应的key
 # -*- mode: snippet -*-
@@ -153,7 +155,7 @@ ${5}
 # 按tab可以方便的从${n} 到 ${n+1}
 </pre></div>
 
-<p>当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :)
+<p>当需要新开一篇文章的时候, 我只需要输入hexo, 然后按下TAB即可 :) <br>
 </p></li></ol>
 
 </div>

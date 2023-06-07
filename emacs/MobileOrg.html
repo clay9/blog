@@ -3,9 +3,11 @@
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This is a short example of a complete Texinfo file, version 1.0.
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
 
-Copyright (C) 2016 Free Software Foundation, Inc. -->
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
 <title>MobileOrg (emacs)</title>
 
 <meta name="description" content="MobileOrg (emacs)">
@@ -57,26 +59,26 @@ Previous: <a href="Dao-Chu--Yu--org_002dinfo.html" accesskey="p" rel="prev">导�
 </pre></div>
 
 
-<p>方案流程
+<p>方案流程 <br>
 </p><ol>
-<li> PC端配置MobileOrg
-具体见.emacs
-</li><li> 寻找WebDAV server
-现在使用的是坚果云
-</li><li> curl同步PC端到webDAV server
-这一块非常纠结
-起初使用的ssh的scp,发现scp貌似不支持https?
-后来使用了curl, 结果发现curl不支持目录的上传&hellip;..
-导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块!
-方法有2:
+<li> PC端配置MobileOrg <br>
+具体见.emacs <br>
+</li><li> 寻找WebDAV server <br>
+现在使用的是坚果云 <br>
+</li><li> curl同步PC端到webDAV server <br>
+这一块非常纠结 <br>
+起初使用的ssh的scp,发现scp貌似不支持https? <br>
+后来使用了curl, 结果发现curl不支持目录的上传&hellip;.. <br>
+导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块! <br>
+方法有2: <br>
 <ol>
-<li> 换一种工具取代curl  &ndash; 更倾向于这一种方式
-</li><li> 使用regular expression &ndash; 貌似curl支持的不好
+<li> 换一种工具取代curl  &ndash; 更倾向于这一种方式 <br>
+</li><li> 使用regular expression &ndash; 貌似curl支持的不好 <br>
 </li></ol>
 </li></ol>
 
 
-<p>总览图
+<p>总览图 <br>
 </p><div class="example">
 <pre class="example">+-----------+ push          +--------------+
 | PC端      |--------------&gt;| WwbDAV server|

@@ -3,9 +3,11 @@
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This is a short example of a complete Texinfo file, version 1.0.
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
 
-Copyright (C) 2016 Free Software Foundation, Inc. -->
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
 <title>gud使用 (emacs)</title>
 
 <meta name="description" content="gud使用 (emacs)">
@@ -65,28 +67,28 @@ Previous: <a href="gdbShi-Yong-.html" accesskey="p" rel="prev">gdb使用</a>, Up
 <tr><td>memory</td><td>内存查看</td><td></td></tr>
 </table>
 
-<p>为了显示方便,
-breakpoint与threads buffer同在一个frame;
-local与register buffer同在一个frame;
-可以按&quot;TAB&quot;快速切换
+<p>为了显示方便, <br>
+breakpoint与threads buffer同在一个frame; <br>
+local与register buffer同在一个frame; <br>
+可以按&quot;TAB&quot;快速切换 <br>
 </p>
 <ol>
 <li> 例子
 
 
 <ol>
-<li> emacs: M-x gdb RET
-</li><li> gud: attch &lt;program pid&gt;
-</li><li> 设置breakpoint
+<li> emacs: M-x gdb RET <br>
+</li><li> gud: attch &lt;program pid&gt; <br>
+</li><li> 设置breakpoint <br>
 <ul>
-<li> gud: b
-</li><li> source: gud-break; gud-tbreak
-</li><li> breakpoint: D 删除断点
+<li> gud: b <br>
+</li><li> source: gud-break; gud-tbreak <br>
+</li><li> breakpoint: D 删除断点 <br>
 </li></ul>
-</li><li> 设置watch
+</li><li> 设置watch <br>
 <ul>
-<li> gud: watch
-</li><li> souce: gud-watch
+<li> gud: watch <br>
+</li><li> souce: gud-watch <br>
 </li></ul>
 </li></ol>
 
@@ -94,12 +96,12 @@ local与register buffer同在一个frame;
 
 
 <ol>
-<li> gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.
-简单来说, gud没有舍弃之前的无效输入, 而是等待机会, 使之生效
-</li><li> gdb continue之后 如何退出
+<li> gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令. <br>
+简单来说, gud没有舍弃之前的无效输入, 而是等待机会, 使之生效 <br>
+</li><li> gdb continue之后 如何退出 <br>
 <ol>
-<li> gdb进程中可以使用C-c, 退出attach所关联的进程
-</li><li> emacs-gdb中如何退出 ?? TODONOW
+<li> gdb进程中可以使用C-c, 退出attach所关联的进程 <br>
+</li><li> emacs-gdb中如何退出 ?? TODONOW <br>
 </li></ol>
 </li></ol>
 </li></ol>

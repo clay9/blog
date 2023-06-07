@@ -3,9 +3,11 @@
 <!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- This is a short example of a complete Texinfo file, version 1.0.
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
 
-Copyright (C) 2016 Free Software Foundation, Inc. -->
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
 <title>how (4) (emacs)</title>
 
 <meta name="description" content="how (4) (emacs)">
@@ -57,8 +59,8 @@ Previous: <a href="what-_00281_0029.html" accesskey="p" rel="prev">what</a>, Up:
 
 
 <ol>
-<li> emacs install graphviz-dot-mode
-</li><li> system install graphviz
+<li> emacs install graphviz-dot-mode <br>
+</li><li> system install graphviz <br>
 <div class="example">
 <pre class="example">brew install graphviz  #mac
 </pre></div>
@@ -68,32 +70,32 @@ Previous: <a href="what-_00281_0029.html" accesskey="p" rel="prev">what</a>, Up:
 
 
 <ol>
-<li> create .dot | .org file
-</li><li> write &quot;The DOT Language&quot;
-</li><li> M-x graphviz-dot-preview
+<li> create .dot | .org file <br>
+</li><li> write &quot;The DOT Language&quot; <br>
+</li><li> M-x graphviz-dot-preview <br>
 </li></ol>
 
 </li><li> dot language
 
 
-<p>DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程图.
+<p>DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程图. <br>
 </p>
 <ol>
 <li> graph
 
 
 <ul>
-<li> 有向图 digraph
-</li><li> 无向图 graph
-</li><li> 子图 subgraph
+<li> 有向图 digraph <br>
+</li><li> 无向图 graph <br>
+</li><li> 子图 subgraph <br>
 <div class="example">
 <pre class="example">可以进行和“父图”类似的设置，唯一注意的是子图必须以cluster做为名称的前缀
 </pre></div>
 </li></ul>
 
 
-<p>在图的开头使用graph []对图进行设置，如：graph [bgcolor=&quot;gray&quot;]将图背景色设置为灰色。
-属性设置语句也可以不包含在graph []中而直接使用。
+<p>在图的开头使用graph []对图进行设置，如：graph [bgcolor=&quot;gray&quot;]将图背景色设置为灰色。 <br>
+属性设置语句也可以不包含在graph []中而直接使用。 <br>
 </p><table>
 <thead><tr><th>属性名称</th><th>默认值</th><th>含义</th><th>备注</th></tr></thead>
 <tr><td>color</td><td>black</td><td>颜色</td><td>支持如red和#FF00000两种形式</td></tr>
@@ -113,10 +115,10 @@ Previous: <a href="what-_00281_0029.html" accesskey="p" rel="prev">what</a>, Up:
 </li><li> node
 
 
-<p>DOT中，节点可以不用声明直接使用，但如果需要设置节点的属性，则需声明节点并在声明处设
-置属性然后再使用。每个节点首次出现的名称做为该节点的唯一标识
+<p>DOT中，节点可以不用声明直接使用，但如果需要设置节点的属性，则需声明节点并在声明处设 <br>
+置属性然后再使用。每个节点首次出现的名称做为该节点的唯一标识 <br>
 </p>
-<p>node []用于设置节点默认属性（对设置位置之后的点有效），在节点后面用[]设置单独一个点的属性。
+<p>node []用于设置节点默认属性（对设置位置之后的点有效），在节点后面用[]设置单独一个点的属性。 <br>
 </p><table>
 <thead><tr><th>属性名称</th><th>默认值</th><th>含义</th><th>备注</th></tr></thead>
 <tr><td>color</td><td>black</td><td>颜色</td><td>支持如red和#FF00000两种形式</td></tr>
@@ -132,10 +134,10 @@ Previous: <a href="what-_00281_0029.html" accesskey="p" rel="prev">what</a>, Up:
 </li><li> edge
 
 
-<p>DOT中有有向边（使用-&gt;表示）和无向边（使用&ndash;表示）两种，有向边用于有向图，无向边用于无向图，不可混用。
+<p>DOT中有有向边（使用-&gt;表示）和无向边（使用&ndash;表示）两种，有向边用于有向图，无向边用于无向图，不可混用。 <br>
 </p>
-<p>和节点类似的，用edge []设置边默认属性，在边之后用[]设置单独一条边的属性。
-对于有向边，还可以设置边的起点/终点的位置（用n、e、s、w或它们的组合表示位置）。
+<p>和节点类似的，用edge []设置边默认属性，在边之后用[]设置单独一条边的属性。 <br>
+对于有向边，还可以设置边的起点/终点的位置（用n、e、s、w或它们的组合表示位置）。 <br>
 </p><table>
 <thead><tr><th>属性名称</th><th>默认值</th><th>含义</th><th>备注</th></tr></thead>
 <tr><td>color</td><td>black</td><td>颜色</td><td>支持如red和#FF00000两种形式</td></tr>
