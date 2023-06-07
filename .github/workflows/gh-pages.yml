@@ -23,12 +23,15 @@ jobs:
       - run: |
           sudo apt install emacs texinfo -y
           mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
+      - run: |
           emacs -u $USER --script ~/.emacs.d/script/export-org-to-md.el
           emacs -u $USER --script ~/.emacs.d/script/export-org-to-texi2html.el
           rm -rf ~/emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
           echo "ls content/posts" && ls -al content/posts
+          echo "ls pwd" && echo $PWD
+          echo "ls ~" && ls -al ~
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
