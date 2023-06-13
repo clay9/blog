@@ -19,6 +19,7 @@ jobs:
         with:
           repository: clay9/emacs.d
           path: ./emacs.d
+          submodules: true
 
       - run: |
           sudo apt install emacs texinfo -y
