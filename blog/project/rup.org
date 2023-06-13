@@ -5,6 +5,7 @@
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 RUP4+1架构图
 
@@ -17,6 +18,12 @@ RUP4+1架构图
   [[https://www.zhihu.com/question/30106392][参考文章02]]
 
 * logic view
+  这是一个测试
+  哈哈哈2
+  哈哈3
+  哈哈4
+  哈哈5
+  哈6
   逻辑视图. 逻辑视图关注功能. 在uml中由类图来表示 \\
   1. 用户可见的功能
   2. 为实现用户功能而必须提供的"辅助功能模块" \\
