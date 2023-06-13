@@ -2,7 +2,6 @@
 #+AUTHOR: wcq
 #+OPTIONS: ^:nil
 #+OPTIONS: \n:t
-#+ATTR_HTML: :border 2 :rules all :frame border
 
 * Legalese
   :PROPERTIES:
@@ -1185,6 +1184,7 @@
          1) gdb进程中可以使用C-c, 退出attach所关联的进程
          2) emacs-gdb中如何退出 ?? TODONOW
 
+
 * copilot
   之前的IDE大多是基于语法的分析, github copilot提供了基于自然语义的分析.
   效果非常的惊艳, 能更好的帮助编写文档与程序
@@ -1199,6 +1199,7 @@
    #+END_SRC
 ** 快捷键配置
    copilot 与company-mode的一些快捷键容易冲突, 可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el][init-local-shortkey.el]]
+
 
 * 键位设置
 ** 设计思路
