@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>c++历史 - 飘</title><meta name=Description content><meta property="og:title" content="c++历史"><meta property="og:description" content="通过C++历史, 更好的了解C++特性"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/c++/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-04-12T20:04:00+00:00"><meta property="article:modified_time" content="2023-06-07T11:00:19+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="c++历史"><meta name=twitter:description content="通过C++历史, 更好的了解C++特性"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/c++/><link rel=prev href=https://www.wcq.life/posts/calibre/><link rel=next href=https://www.wcq.life/posts/hugo/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"c++历史","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/c\u002b\u002b\/"},"genre":"posts","keywords":"c\u002b\u002b","wordcount":12860,"url":"https:\/\/www.wcq.life\/posts\/c\u002b\u002b\/","datePublished":"2023-04-12T20:04:00+00:00","dateModified":"2023-06-07T11:00:19+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":""==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:""==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>c++历史 - 飘</title><meta name=Description content><meta property="og:title" content="c++历史"><meta property="og:description" content="通过C++历史, 更好的了解C++特性"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/c++/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-04-12T20:04:00+00:00"><meta property="article:modified_time" content="2023-06-13T18:35:02+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="c++历史"><meta name=twitter:description content="通过C++历史, 更好的了解C++特性"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/c++/><link rel=prev href=https://www.wcq.life/posts/calibre/><link rel=next href=https://www.wcq.life/posts/hugo/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"c++历史","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/c\u002b\u002b\/"},"genre":"posts","keywords":"c\u002b\u002b","wordcount":12860,"url":"https:\/\/www.wcq.life\/posts\/c\u002b\u002b\/","datePublished":"2023-04-12T20:04:00+00:00","dateModified":"2023-06-13T18:35:02+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":""==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:""==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
 <a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
@@ -22,7 +22,7 @@ C++标准程序库主要包含 STL && C标准库的稍加修改版</p><p>语言�
 </span></span></code></pre></td></tr></table></div></div><h3 id=2006-c-plus-plus-性能技术报告>2006 C++性能技术报告</h3><h3 id=2007-c-plus-plus-技术报告-库扩展>2007 C++技术报告: 库扩展</h3><h3 id=2010-数学函数扩展>2010 数学函数扩展</h3><h3 id=2011-c-plus-plus-11-第三个c-plus-plus-标准>2011 C++11 第三个C++标准</h3><p>先前被称作C++0x, 本预计2000-2009间会发布, 结果一直拖到了2011年. 因此改名C++11. <a href=https://zh.wikipedia.org/wiki/C%2B%2B11 target=_blank rel="noopener noreffer">参考资料</a></p><p>相比于C++03，C++11标准包含核心语言的新机能，
 而且扩展C++标准程序库，并入了大部分的C++ Technical Report 1程序库（数学的特殊函数除外)</p><h4 id=设计原则>设计原则</h4><ol><li>维持稳定性和与C++98，可能的话还有C之间的兼容性；</li><li>尽可能不透过核心语言的扩展，而是透过标准程序库来引进新的特性；</li><li>能够演进编程技术的变更优先；</li><li>改进C++以帮助系统以及库设计，而不是引进只针对特别应用的新特性；</li><li>增进类别安全，提供对现行不安全的技术更安全的替代方案；</li><li>增进直接对硬件工作的能力与表现；</li><li>提供现实世界中问题的适当解决方案；</li><li>实行“zero-overhead”原则（某些功能要求的额外支持只有在该功能被使用时才能使用）；</li><li>使C++易于教授与学习</li></ol><h4 id=语言变更>语言变更</h4><p>C++委员会的主要作用之一是改善语言核心。核心语言将被大幅改善的领域包括</p><ul><li>多线程支持</li><li>泛型编程</li><li>统一的初始化</li><li>以及性能表现的加强</li></ul><p>在此分成4个区块来讨论核心语言的特色以及变更:
 执行期表现强化、构造期表现强化、可用性强化，还有新的功能。
-某些特性可能会同时属于多个区块，但在此仅于其最具代表性的区块描述</p><ul><li><p>执行期表现强化</p><p>提升某些性能表现, 像是内存或者速度上的提升</p><ul><li>右值引用 && std::move && std::forward</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+某些特性可能会同时属于多个区块，但在此仅于其最具代表性的区块描述</p><ul><li><p>执行期表现强化</p><p>提升某些性能表现, 像是内存或者速度上的提升</p><ul><li><p>右值引用 && std::move && std::forward</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>右值引用是语言特性,  std::move &amp;&amp; std::forward是stl中新增的函数 (头文件&lt;utility&gt;)
 </span></span><span class=line><span class=cl>符合设计原则2, 使用stl补充语言特性
@@ -144,7 +144,7 @@ C++标准程序库主要包含 STL && C标准库的稍加修改版</p><p>语言�
 </span></span><span class=line><span class=cl>  //对比旧版本, 这里少了深度copy这一层
 </span></span><span class=line><span class=cl>  return std::vector&lt;int&gt; (std::move(vec_data) );
 </span></span><span class=line><span class=cl>}
-</span></span></code></pre></td></tr></table></div></div></li></ol><p>注意事项</p><ol><li>对象被右值引用后, 再操作会导致不可预知的问题(内存相关信息已被置为null)</li><li>并非所有情形都合适. 应该使用在避免深度copy的场合</li></ol><ul><li>constexpr 泛化的常量表达式</li></ul><p>constexpr确保对象在编译期完成初始化操作, 因此加快运行期的效率</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div></li></ol><p>注意事项</p><ol><li>对象被右值引用后, 再操作会导致不可预知的问题(内存相关信息已被置为null)</li><li>并非所有情形都合适. 应该使用在避免深度copy的场合</li></ol></li></ul><ul><li><p>constexpr 泛化的常量表达式</p><p>constexpr确保对象在编译期完成初始化操作, 因此加快运行期的效率</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -236,12 +236,12 @@ C++标准程序库主要包含 STL && C标准库的稍加修改版</p><p>语言�
 </span></span><span class=line><span class=cl>constexpr complex cx3(xx, 0); //ok 编译期初始化
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>complex cx4(1.0, 2.0); //ok 运行期初始化
-</span></span></code></pre></td></tr></table></div></div><ul><li>对POD定义的修正</li></ul><p>?? 这是什么, 完全没有看懂 ??</p></li></ul><ul><li><p>构造期表现强化</p><ul><li>外部模版</li></ul><p>在标准C++中，只要在编译单元内遇到被完整定义的模板，编译器都必须将其实例化（instantiate）
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>对POD定义的修正</p><p>?? 这是什么, 完全没有看懂 ??</p></li></ul></li></ul><ul><li><p>构造期表现强化</p><ul><li><p>外部模版</p><p>在标准C++中，只要在编译单元内遇到被完整定义的模板，编译器都必须将其实例化（instantiate）
 这会大大增加编译时间，特别是模板在许多编译单元内使用相同的参数实例化。</p><p>C++11之前, 可以告诉编译器在特定位置开始实例化, 但无法告诉编译器不要引发模板实例化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>template class std::vector&lt;MyClass&gt;;
 </span></span></code></pre></td></tr></table></div></div><p>C++11增加了 阻止编译器在编译期间引发模板实例化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>extern template class std::vector&lt;MyClass&gt;;
-</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>可用性的加强</p><ul><li>初始化列表</li></ul><p>初始化列表的构想是 结构(或数组)的成员依据定义的顺序 由一串形参产生.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div></li></ul></li></ul><ul><li><p>可用性的加强</p><ul><li><p>初始化列表</p><p>初始化列表的构想是 结构(或数组)的成员依据定义的顺序 由一串形参产生.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -315,7 +315,7 @@ C++标准程序库主要包含 STL && C标准库的稍加修改版</p><p>语言�
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>//std::initializer_list除了可以在构造函数中使用, 也可用于普通函数
 </span></span><span class=line><span class=cl>void Fun(std::initializer_list&lt;int&gt; list);
 </span></span><span class=line><span class=cl>Fun(1, 2, 3);
-</span></span></code></pre></td></tr></table></div></div><ul><li>统一的初始化</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>统一的初始化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -345,11 +345,11 @@ C++标准程序库主要包含 STL && C标准库的稍加修改版</p><p>语言�
 </span></span><span class=line><span class=cl>//两者都可以采用一样的初始化样式
 </span></span><span class=line><span class=cl>BasicStruct val1 {5, 2.1f};
 </span></span><span class=line><span class=cl>AltStruct   val2 {2, 2.1f};
-</span></span></code></pre></td></tr></table></div></div><ul><li>auto && decltype</li></ul><p>C++03使用参数必须明确的指出其类别.
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>auto && decltype</p><p>C++03使用参数必须明确的指出其类别.
 然而随着模板类别的出现以及模板元编程的技巧, 某物的类别, 特被是函数定义明确的返回类别, 不容易表示.
 C++11提供了auto 自动类别推导, 来解决该问题</p><p>有被明确初始化的参数可以使用auto.
 对于指针类型, 使用auto 和 auto*是一样的.
-对于引用类型, 必须使用auto&. 因为auto总是推断出非引用类型</p><ul><li>基于范围的for循环</li></ul><p>简化了for循环. 可以使用在C型数组, 初始化列表, 和任何定义了begin(), end()的类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+对于引用类型, 必须使用auto&. 因为auto总是推断出非引用类型</p></li></ul><ul><li><p>基于范围的for循环</p><p>简化了for循环. 可以使用在C型数组, 初始化列表, 和任何定义了begin(), end()的类型</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -361,7 +361,7 @@ C++11提供了auto 自动类别推导, 来解决该问题</p><p>有被明确初�
 </span></span><span class=line><span class=cl>for (auto&amp; x : my_array){
 </span></span><span class=line><span class=cl>  x *= 2;
 </span></span><span class=line><span class=cl>}
-</span></span></code></pre></td></tr></table></div></div><ul><li>lambda函数表达式</li></ul><ul><li>返回类别后置的函数声明</li></ul><p>?? 看样子, 主要用于模板中函数的返回类别 ??</p><ul><li>class对象构造改良</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li>lambda函数表达式</li></ul><ul><li><p>返回类别后置的函数声明</p><p>?? 看样子, 主要用于模板中函数的返回类别 ??</p></li></ul><ul><li><p>class对象构造改良</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -435,7 +435,7 @@ C++11提供了auto 自动类别推导, 来解决该问题</p><p>有被明确初�
 </span></span><span class=line><span class=cl>  int m_val = 45;
 </span></span><span class=line><span class=cl>  int m_test {45}; //也可以使用列表初始化的样式
 </span></span><span class=line><span class=cl>};
-</span></span></code></pre></td></tr></table></div></div><ul><li>显示虚函数重载</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>显示虚函数重载</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -465,7 +465,7 @@ C++11提供了auto 自动类别推导, 来解决该问题</p><p>有被明确初�
 </span></span><span class=line><span class=cl>struct Derived : Base{
 </span></span><span class=line><span class=cl>  virtual void func(int);  //error: struct Base:func 禁止重载
 </span></span><span class=line><span class=cl>};
-</span></span></code></pre></td></tr></table></div></div><ul><li>空指针</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>空指针</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -487,9 +487,9 @@ C++11提供了auto 自动类别推导, 来解决该问题</p><p>有被明确初�
 </span></span><span class=line><span class=cl>//C++11引入了nullptr 用来表示指针
 </span></span><span class=line><span class=cl>//这样调用的就是 void foo(nullptr_t)
 </span></span><span class=line><span class=cl>foo(nullptr)
-</span></span></code></pre></td></tr></table></div></div><ul><li>强类型枚举</li></ul><p>?? 不是很明白 这个的意义在哪 ??
-?? 枚举不和int比较, 不会很限制使用场景吗 ??</p><ul><li>角括号</li></ul><p>C++03的分析器一律把 >> 视为右移运算符. 为了避免, 编码时候不能把>>连着写. 尤其在模板编码中
-C++11变更了分析器规则, 使其更加智能</p><ul><li>显式类别转换 explicit</li></ul><p>?? 完全没有印象 ??</p><ul><li>模板的别名</li></ul><p>?? 对模板 完全不熟悉 ??</p><ul><li>模板参数的缺省值</li></ul><ul><li>无限制的unions</li></ul><p>?? 需要详细了解一下 ??</p></li></ul><ul><li><p>能力的提升</p><p>这些特性让C++语言能够做一些以前做不到的，或者极其复杂的，或者需求一些不可移植的库的事情。</p><ul><li>可变参数模板</li></ul><p>?? 又是模板&mldr; ??</p><ul><li>字符串字面值</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>强类型枚举</p><p>?? 不是很明白 这个的意义在哪 ??
+?? 枚举不和int比较, 不会很限制使用场景吗 ??</p></li></ul><ul><li><p>角括号</p><p>C++03的分析器一律把 >> 视为右移运算符. 为了避免, 编码时候不能把>>连着写. 尤其在模板编码中
+C++11变更了分析器规则, 使其更加智能</p></li></ul><ul><li><p>显式类别转换 explicit</p><p>?? 完全没有印象 ??</p></li></ul><ul><li><p>模板的别名</p><p>?? 对模板 完全不熟悉 ??</p></li></ul><ul><li>模板参数的缺省值</li></ul><ul><li><p>无限制的unions</p><p>?? 需要详细了解一下 ??</p></li></ul></li></ul><ul><li><p>能力的提升</p><p>这些特性让C++语言能够做一些以前做不到的，或者极其复杂的，或者需求一些不可移植的库的事情。</p><ul><li><p>可变参数模板</p><p>?? 又是模板&mldr; ??</p></li></ul><ul><li><p>字符串字面值</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -529,10 +529,10 @@ C++11变更了分析器规则, 使其更加智能</p><ul><li>显式类别转换 
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>//R 可以和 u8/u/U组合使用
 </span></span><span class=line><span class=cl>u8R&#34;(I&#39;m a &#34;raw UTF-8&#34; string.)&#34;
-</span></span></code></pre></td></tr></table></div></div><ul><li>用户定义字面值</li></ul><p>C++11开放用户定义新的字面修饰符（literal modifier），利用自定义的修饰符完成由字面值构造对象。</p><p>字面值转换可以定义为两个阶段：原始与转换后（raw与cooked)
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>用户定义字面值</p><p>C++11开放用户定义新的字面修饰符（literal modifier），利用自定义的修饰符完成由字面值构造对象。</p><p>字面值转换可以定义为两个阶段：原始与转换后（raw与cooked)
 原始字面值指特定类型的字符序列，而转换后的字面值则代表另一种类别。
 如字面值1234，原始字面值是'1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;, &lsquo;4&rsquo;的字符序列；
-而转换后的字面值是整数值1234。另外，字面值0xA转换前是序列'0&rsquo;, &lsquo;x&rsquo;, &lsquo;A&rsquo;；转换后代表整数值10。</p><p>?? 如何使用 ??</p><ul><li>多线程编程支持</li></ul><p>C++标准委员会计划统一对多线程编程的支持. 这将涉及两个部分：</p><ol><li>设计一个可以使多个线程在一个进程中共存的内存模型；</li><li>为线程之间的交互提供支持. 这部分将由程序库提供支持</li></ol><p>在多个线程可能会访问相同内存的情形下，由一个内存模型对它们进行调度是非常有必要的。
+而转换后的字面值是整数值1234。另外，字面值0xA转换前是序列'0&rsquo;, &lsquo;x&rsquo;, &lsquo;A&rsquo;；转换后代表整数值10。</p><p>?? 如何使用 ??</p></li></ul><ul><li><p>多线程编程支持</p><p>C++标准委员会计划统一对多线程编程的支持. 这将涉及两个部分：</p><ol><li>设计一个可以使多个线程在一个进程中共存的内存模型；</li><li>为线程之间的交互提供支持. 这部分将由程序库提供支持</li></ol><p>在多个线程可能会访问相同内存的情形下，由一个内存模型对它们进行调度是非常有必要的。
 遵守模型规则的程序是被保证正确运行的，
 但违反规则的程序会发生不可预料的行为，这些行为依赖于编译器的优化和内存一致性的问题。</p><p>虽然C++11会在语言的定义上提供一个内存模型以支持线程，但线程的使用主要将以C++11标准库的方式呈现。
 C++11标准库会提供类别thread（std::thread）。若要执行一个线程，可以创建一个类别thread的实体，其初始参数为一个函数对象，以及该函数对象所需要的参数。透过成员函数std::thread::join()对线程会合的支持，一个线程可以暂停直到其它线程执行完毕。若有底层平台支持，成员函数std::thread::native_handle()将可提供对原生线程对象执行平台特定的操作。
@@ -540,7 +540,7 @@ C++11标准库会提供类别thread（std::thread）。若要执行一个线程�
 对于要求高性能，或是极底层的工作，有时或甚至是必须的，我们希望线程间的通信能避免互斥锁使用上的开销。以原子操作来访问内存可以达成此目的。针对不同情况，我们可以透过显性的内存屏障改变该访问内存动作的可见性。
 对于线程间异步的传输，C++11标准库加入了以及std::packaged_task用来包装一个会传回异步结果的函数调用。因为缺少结合数个future的功能，和无法判定一组promise集合中的某一个promise是否完成，futures此一提案因此而受到了批评。
 更高级的线程支持，如线程池，已经决定留待在未来的Technical Report加入此类支持。更高级的线程支持不会是C++11的一部分，但设想是其最终实现将创建在目前已有的线程支持之上。
-std::async提供了一个简便方法以用来执行线程，并将线程绑定在std::future。用户可以选择一个工作是要多个线程上异步的执行，或是在一个线程上执行并等待其所需要的资料。默认的情况，实现可以根据底层硬件选择前面两个选项的其中之一。另外在较简单的使用情形下，实现也可以利用线程池提供支持。</p><p>?? 后期重点查看 ??</p><ul><li>thread-local的存储期限</li></ul><ul><li>使用或禁用对象的默认函数</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+std::async提供了一个简便方法以用来执行线程，并将线程绑定在std::future。用户可以选择一个工作是要多个线程上异步的执行，或是在一个线程上执行并等待其所需要的资料。默认的情况，实现可以根据底层硬件选择前面两个选项的其中之一。另外在较简单的使用情形下，实现也可以利用线程池提供支持。</p><p>?? 后期重点查看 ??</p></li></ul><ul><li>thread-local的存储期限</li></ul><ul><li><p>使用或禁用对象的默认函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -578,9 +578,9 @@ std::async提供了一个简便方法以用来执行线程，并将线程绑定�
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>  NonCopyable () = default;
 </span></span><span class=line><span class=cl>}
-</span></span></code></pre></td></tr></table></div></div><ul><li>long long int类型</li></ul><p>在32位系统上，一个long long int是保有至少64个有效比特的整数类别。
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>long long int类型</p><p>在32位系统上，一个long long int是保有至少64个有效比特的整数类别。
 C99将这个类别引入了标准C中，目前大多数的C++编译器也支持这种类别。
-C++11将把这种类别添加到标准C++中。</p><ul><li>静态assertion</li></ul><ul><li>sizeof运算符可以作用于class的所有成员</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+C++11将把这种类别添加到标准C++中。</p></li></ul><ul><li>静态assertion</li></ul><ul><li><p>sizeof运算符可以作用于class的所有成员</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -596,7 +596,7 @@ C++11将把这种类别添加到标准C++中。</p><ul><li>静态assertion</li><
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl>sizeof(SomeType::member); //传回OtherType的大小
 </span></span><span class=line><span class=cl>//?? 如果成员是vector数组, 会是什么样 ??
-</span></span></code></pre></td></tr></table></div></div><ul><li>垃圾回收机制</li></ul><p>?? 没明白&mldr; ??</p></li></ul><h4 id=stl变更>stl变更</h4><ul><li><p>stl组件上的升级</p><p>基于C++11新特性, 实现stl的更优</p><ol><li>右值引用和其相关的move支持</li><li>支持UTF-16编码，和UTF-32字符集</li><li>变长参数模板（与右值引用搭配可以达成完美转发（perfect forwarding））</li><li>编译期常量表达式</li><li>Decltype</li><li>显式类别转换子</li><li>使用或禁用对象的默认函数</li></ol></li></ul><ul><li>线程支持</li></ul><ul><li>多元组类别</li></ul><ul><li>散列表</li></ul><ul><li>正则表达式</li></ul><ul><li>通用智能指针</li></ul><ul><li><p>可扩展的随机数功能</p><p>?? C++版本的 也太麻烦了把 &mldr; ??</p></li></ul><ul><li><p>包装引用</p><p>?? 与模板有关 ??</p></li></ul><ul><li>对函数对象的包装</li></ul><ul><li><p>用于元编程的类别属性</p><p>?? ?? ??</p></li></ul><ul><li>用于计算函数对象返回类型的统一方法</li></ul><ul><li><p>itoa函数</p><p>iota 函数可将给定区间的值设定为从某值开始的连续值，
+</span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>垃圾回收机制</p><p>?? 没明白&mldr; ??</p></li></ul></li></ul><h4 id=stl变更>stl变更</h4><ul><li><p>stl组件上的升级</p><p>基于C++11新特性, 实现stl的更优</p><ol><li>右值引用和其相关的move支持</li><li>支持UTF-16编码，和UTF-32字符集</li><li>变长参数模板（与右值引用搭配可以达成完美转发（perfect forwarding））</li><li>编译期常量表达式</li><li>Decltype</li><li>显式类别转换子</li><li>使用或禁用对象的默认函数</li></ol></li></ul><ul><li>线程支持</li></ul><ul><li>多元组类别</li></ul><ul><li>散列表</li></ul><ul><li>正则表达式</li></ul><ul><li>通用智能指针</li></ul><ul><li><p>可扩展的随机数功能</p><p>?? C++版本的 也太麻烦了把 &mldr; ??</p></li></ul><ul><li><p>包装引用</p><p>?? 与模板有关 ??</p></li></ul><ul><li>对函数对象的包装</li></ul><ul><li><p>用于元编程的类别属性</p><p>?? ?? ??</p></li></ul><ul><li>用于计算函数对象返回类型的统一方法</li></ul><ul><li><p>itoa函数</p><p>iota 函数可将给定区间的值设定为从某值开始的连续值，
 例如将连续十个整数设定为从 1 开始的连续整数（即 1、2、3、4、5、6、7、8、9、10）。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -690,7 +690,7 @@ C++14为一般的函数也提供了这个功能.</p><p>?? 真的完全想不通�
 </span></span><span class=line><span class=cl>//函数返回类型为const int&amp;
 </span></span><span class=line><span class=cl>decltype(auto) g (const int&amp; i) { return i; }
 </span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>constexpr函数放宽限制</p><p>C++11对constexpr函数做了严格的限制, 允许的语句非常少(基本就是一条return语句&mldr;)
-C++14放宽了该限制. 允许constexpr有以下内容:</p><ol><li>任何声明, 除了</li></ol><ul><li>static 或 thread_local变量</li><li>没有初始化的变量声明</li></ul><ol start=2><li>条件分支语句 if && switch</li><li>所有的循环语句, 包含range for 循环</li><li>表达式可以改变一个对象的值
+C++14放宽了该限制. 允许constexpr有以下内容:</p><ol><li>任何声明, 除了<ul><li>static 或 thread_local变量</li><li>没有初始化的变量声明</li></ul></li><li>条件分支语句 if && switch</li><li>所有的循环语句, 包含range for 循环</li><li>表达式可以改变一个对象的值
 需要该对象的生命期在声明为constexpr的函数内部开始, 包括对有constexpr声明的任何非const非静态成员函数的调用.</li></ol><p>此外，C++11指出，所有被声明为constexpr的非静态成员函数也隐含声明为const（即函数不能修改*this的值）
 C++14中这点已经被删除，非静态成员函数可以为非const</p></li></ul><ul><li><p>变量模板</p><p>C++14之前模板可以是函数模板或类模板
 C++14中引入了变量模板</p></li></ul><ul><li><p>class对象构造优化 (聚合类的成员初始化)</p><p>C++11中class的成员变量可以在声明的地方初始化. 但是如果构造函数中未定义该变量, 那么该class就不允许使用聚合初始化;
@@ -875,9 +875,9 @@ C++17允许使用*this捕获对象的副本</p></li></ul><ul><li><p>class 构造
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>//C++17以前
 </span></span><span class=line><span class=cl>namespace A{
 </span></span><span class=line><span class=cl>  namespace B{
-</span></span><span class=line><span class=cl>namespace C{
-</span></span><span class=line><span class=cl>  int i;
-</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>    namespace C{
+</span></span><span class=line><span class=cl>      int i;
+</span></span><span class=line><span class=cl>    }
 </span></span><span class=line><span class=cl>  }
 </span></span><span class=line><span class=cl>}
 </span></span><span class=line><span class=cl>
@@ -961,8 +961,8 @@ C++17允许使用*this捕获对象的副本</p></li></ul><ul><li><p>class 构造
 </span></span><span class=line><span class=cl>//例子1 串联view
 </span></span><span class=line><span class=cl>vector&lt;int&gt; data{1,2,3,4,5,6,7,8,9,10};
 </span></span><span class=line><span class=cl>auto result = data |
-</span></span><span class=line><span class=cl>	  views::remove_if([] (int i) { return i % 2 == 1;}) |
-</span></span><span class=line><span class=cl>	  views::transform([])(int i) { return to_string(i);});
+</span></span><span class=line><span class=cl>              views::remove_if([] (int i) { return i % 2 == 1;}) |
+</span></span><span class=line><span class=cl>              views::transform([])(int i) { return to_string(i);});
 </span></span><span class=line><span class=cl>//result = {&#34;2&#34;,&#34;4&#34;,&#34;6&#34;,&#34;8&#34;,&#34;10&#34;};
 </span></span><span class=line><span class=cl>//注意 以上操作被延迟, 只有便利result的时候才触发
 </span></span><span class=line><span class=cl>
@@ -977,9 +977,9 @@ C++17允许使用*this捕获对象的副本</p></li></ul><ul><li><p>class 构造
 </span></span><span class=line><span class=cl>//例子3 过滤和变换
 </span></span><span class=line><span class=cl>//所有的计算延迟到accumulate累加遍历的时候发生
 </span></span><span class=line><span class=cl>int total = accumulate( view::ints(1) |  //产生一个无限对整型数列
-</span></span><span class=line><span class=cl>		    view::transform([] (int i) { return i * i;}) | //平方
-</span></span><span class=line><span class=cl>		    view::take(10), //取前10个元素
-</span></span><span class=line><span class=cl>		    0); //累加
+</span></span><span class=line><span class=cl>                        view::transform([] (int i) { return i * i;}) | //平方
+</span></span><span class=line><span class=cl>                        view::take(10), //取前10个元素
+</span></span><span class=line><span class=cl>                        0); //累加
 </span></span></code></pre></td></tr></table></div></div></li></ul><ul><li><p>协程</p><p>意义:</p><ol><li>异步I/O</li><li>延迟计算</li><li>事件驱动的程序</li><li>generator</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
@@ -1040,8 +1040,8 @@ consteval只能在编译期执行</p></li></ul><ul><li><p>constinit</p><p>强制
 </span></span><span class=line><span class=cl>}
 </span></span><span class=line><span class=cl>constexpr const char* GetString(bool constInit) {
 </span></span><span class=line><span class=cl>  return constInit ?
-</span></span><span class=line><span class=cl>&#34;constant init&#34; :
-</span></span><span class=line><span class=cl>GetStringDyn();
+</span></span><span class=line><span class=cl>    &#34;constant init&#34; :
+</span></span><span class=line><span class=cl>    GetStringDyn();
 </span></span><span class=line><span class=cl>}
 </span></span><span class=line><span class=cl>constinit const char* a = GetString(true); // ✔
 </span></span><span class=line><span class=cl>constinit const char* b = GetString(false); // ❌
@@ -1114,6 +1114,6 @@ C++中很重要的功能, 必须要尽快了解常用的</li><li>新的概念
 C++20中增加了很多新概念</li><li>新的语言特性
 只需要学习常用的特性, 有些特性是为了配合模板而来的, 暂时不需要学习</li><li>其他常用的库
 比如网络库Asio, 格式库protobuf</li><li>模板
-模板的作用 更多的是用在stl的编写上, 日常开发使用的比较少, 可以暂时先不学习</li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-06-07</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/c++/>c++</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/calibre/ class=prev rel=prev title="calibre 图书管理软件"><i class="fas fa-angle-left fa-fw"></i>calibre 图书管理软件</a>
+模板的作用 更多的是用在stl的编写上, 日常开发使用的比较少, 可以暂时先不学习</li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-06-13</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/c++/>c++</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/calibre/ class=prev rel=prev title="calibre 图书管理软件"><i class="fas fa-angle-left fa-fw"></i>calibre 图书管理软件</a>
 <a href=/posts/hugo/ class=next rel=next title=hugo搭建blog>hugo搭建blog<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2023</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>

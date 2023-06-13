@@ -82,9 +82,9 @@ emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
 <div class="example">
 <pre class="example">(setq my-command
 (concat &quot;IFS=: read -ra dirs &lt;&lt;&lt;\&quot;$PATH\&quot;\n&quot;
-	&quot;for dir in ${dirs[@]}; do\n&quot;
-	&quot; echo got dir \&quot;$dir\&quot;\n&quot;
-	&quot;done\n&quot;))
+        &quot;for dir in ${dirs[@]}; do\n&quot;
+        &quot; echo got dir \&quot;$dir\&quot;\n&quot;
+        &quot;done\n&quot;))
 (shell-command (format &quot;bash -c %s&quot; (shell-quote-argument my-command)))
 </pre></div>
 </li></ol>

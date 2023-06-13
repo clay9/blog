@@ -1,4 +1,4 @@
-<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>k8s - 飘</title><meta name=Description content><meta property="og:title" content="k8s"><meta property="og:description" content="kubernetes, 简称k8s"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/k8s/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-11-08T10:43:00+00:00"><meta property="article:modified_time" content="2023-06-07T11:00:22+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="k8s"><meta name=twitter:description content="kubernetes, 简称k8s"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/k8s/><link rel=prev href=https://www.wcq.life/posts/monitor/><link rel=next href=https://www.wcq.life/posts/redis/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"k8s","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/k8s\/"},"genre":"posts","keywords":"k8s","wordcount":5540,"url":"https:\/\/www.wcq.life\/posts\/k8s\/","datePublished":"2021-11-08T10:43:00+00:00","dateModified":"2023-06-07T11:00:22+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":""==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:""==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>k8s - 飘</title><meta name=Description content><meta property="og:title" content="k8s"><meta property="og:description" content="kubernetes, 简称k8s"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/k8s/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-11-08T10:43:00+00:00"><meta property="article:modified_time" content="2023-06-13T18:35:04+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="k8s"><meta name=twitter:description content="kubernetes, 简称k8s"><meta name=application-name content="飘"><meta name=apple-mobile-web-app-title content="飘"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/k8s/><link rel=prev href=https://www.wcq.life/posts/monitor/><link rel=next href=https://www.wcq.life/posts/redis/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"k8s","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/k8s\/"},"genre":"posts","keywords":"k8s","wordcount":5540,"url":"https:\/\/www.wcq.life\/posts\/k8s\/","datePublished":"2021-11-08T10:43:00+00:00","dateModified":"2023-06-13T18:35:04+00:00","publisher":{"@type":"Organization","name":"wcq"},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body header-desktop header-mobile><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":""==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:""==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
 <a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
@@ -337,12 +337,12 @@ systemctl enable kubelet</p><p>systemctl status kubelet</p><div class=highlight>
 </span></span><span class=line><span class=cl>  - http:
 </span></span><span class=line><span class=cl>      paths:
 </span></span><span class=line><span class=cl>      - path: /
-</span></span><span class=line><span class=cl>	pathType: Prefix
-</span></span><span class=line><span class=cl>	backend:
-</span></span><span class=line><span class=cl>	  service:
-</span></span><span class=line><span class=cl>	    name: prometheus-k8s
-</span></span><span class=line><span class=cl>	    port:
-</span></span><span class=line><span class=cl>	      number: 9090
+</span></span><span class=line><span class=cl>        pathType: Prefix
+</span></span><span class=line><span class=cl>        backend:
+</span></span><span class=line><span class=cl>          service:
+</span></span><span class=line><span class=cl>            name: prometheus-k8s
+</span></span><span class=line><span class=cl>            port:
+</span></span><span class=line><span class=cl>              number: 9090
 </span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -406,12 +406,12 @@ ingress-rule, 需要与backend保持同一个namespace</p><h3 id=ingress-rule配
 </span></span><span class=line><span class=cl>  - http:
 </span></span><span class=line><span class=cl>      paths:
 </span></span><span class=line><span class=cl>      - path: /
-</span></span><span class=line><span class=cl>	pathType: Prefix
-</span></span><span class=line><span class=cl>	backend:
-</span></span><span class=line><span class=cl>	  service:
-</span></span><span class=line><span class=cl>	    name: grafana
-</span></span><span class=line><span class=cl>	    port:
-</span></span><span class=line><span class=cl>	      number: 3000
+</span></span><span class=line><span class=cl>        pathType: Prefix
+</span></span><span class=line><span class=cl>        backend:
+</span></span><span class=line><span class=cl>          service:
+</span></span><span class=line><span class=cl>            name: grafana
+</span></span><span class=line><span class=cl>            port:
+</span></span><span class=line><span class=cl>              number: 3000
 </span></span></code></pre></td></tr></table></div></div><p>如果path配置了/app, curl ip:port/app的时候确实可以拉取到&lt;herf/> 但是进不去
 如果path配置了/ , crul ip:port 的时候就是正常的</p><p>猜测原因
 当配置为/app的时候, 访问ip:port/app时候, 会被重定向为 backend:port/xxx
@@ -462,22 +462,22 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span></span><span class=line><span class=cl>    http:
 </span></span><span class=line><span class=cl>      paths:
 </span></span><span class=line><span class=cl>      - path: /
-</span></span><span class=line><span class=cl>	pathType: Prefix
-</span></span><span class=line><span class=cl>	backend:
-</span></span><span class=line><span class=cl>	  service:
-</span></span><span class=line><span class=cl>	    name: grafana
-</span></span><span class=line><span class=cl>	    port:
-</span></span><span class=line><span class=cl>	      number: 3000
+</span></span><span class=line><span class=cl>        pathType: Prefix
+</span></span><span class=line><span class=cl>        backend:
+</span></span><span class=line><span class=cl>          service:
+</span></span><span class=line><span class=cl>            name: grafana
+</span></span><span class=line><span class=cl>            port:
+</span></span><span class=line><span class=cl>              number: 3000
 </span></span><span class=line><span class=cl>  - host: p.mytest.com
 </span></span><span class=line><span class=cl>    http:
 </span></span><span class=line><span class=cl>      paths:
 </span></span><span class=line><span class=cl>      - path: /
-</span></span><span class=line><span class=cl>	pathType: Prefix
-</span></span><span class=line><span class=cl>	backend:
-</span></span><span class=line><span class=cl>	  service:
-</span></span><span class=line><span class=cl>	    name: prometheus-k8s
-</span></span><span class=line><span class=cl>	    port:
-</span></span><span class=line><span class=cl>	      number: 9090
+</span></span><span class=line><span class=cl>        pathType: Prefix
+</span></span><span class=line><span class=cl>        backend:
+</span></span><span class=line><span class=cl>          service:
+</span></span><span class=line><span class=cl>            name: prometheus-k8s
+</span></span><span class=line><span class=cl>            port:
+</span></span><span class=line><span class=cl>              number: 9090
 </span></span></code></pre></td></tr></table></div></div><h2 id=监控>监控</h2><p>使用grafana + prometheus来监控k8s
 使用kube-prometheus来配置监控系统</p><h3 id=安装>安装</h3><ol><li><p>替换被墙的镜像的源
 *-deployment.yaml中搜索image关键字, 可以看到需要下载那些镜像
@@ -599,7 +599,7 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span></span><span class=line><span class=cl>Priority:       0
 </span></span><span class=line><span class=cl>Node:           &lt;none&gt;
 </span></span><span class=line><span class=cl>Labels:         app=alpine
-</span></span><span class=line><span class=cl>	    pod-template-hash=6b967c77f7
+</span></span><span class=line><span class=cl>                pod-template-hash=6b967c77f7
 </span></span><span class=line><span class=cl>Annotations:    &lt;none&gt;
 </span></span><span class=line><span class=cl>Status:         Pending
 </span></span><span class=line><span class=cl>IP:
@@ -607,26 +607,26 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span></span><span class=line><span class=cl>Controlled By:  ReplicaSet/alpine-6b967c77f7
 </span></span><span class=line><span class=cl>Containers:
 </span></span><span class=line><span class=cl>  alpine:
-</span></span><span class=line><span class=cl>Image:        alpine
-</span></span><span class=line><span class=cl>Port:         &lt;none&gt;
-</span></span><span class=line><span class=cl>Host Port:    &lt;none&gt;
-</span></span><span class=line><span class=cl>Environment:  &lt;none&gt;
-</span></span><span class=line><span class=cl>Mounts:
-</span></span><span class=line><span class=cl>  /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kwqhc (ro)
+</span></span><span class=line><span class=cl>    Image:        alpine
+</span></span><span class=line><span class=cl>    Port:         &lt;none&gt;
+</span></span><span class=line><span class=cl>    Host Port:    &lt;none&gt;
+</span></span><span class=line><span class=cl>    Environment:  &lt;none&gt;
+</span></span><span class=line><span class=cl>    Mounts:
+</span></span><span class=line><span class=cl>      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kwqhc (ro)
 </span></span><span class=line><span class=cl>Conditions:
 </span></span><span class=line><span class=cl>  Type           Status
 </span></span><span class=line><span class=cl>  PodScheduled   False
 </span></span><span class=line><span class=cl>Volumes:
 </span></span><span class=line><span class=cl>  kube-api-access-kwqhc:
-</span></span><span class=line><span class=cl>Type:                    Projected (a volume that contains injected data from multiple sources)
-</span></span><span class=line><span class=cl>TokenExpirationSeconds:  3607
-</span></span><span class=line><span class=cl>ConfigMapName:           kube-root-ca.crt
-</span></span><span class=line><span class=cl>ConfigMapOptional:       &lt;nil&gt;
-</span></span><span class=line><span class=cl>DownwardAPI:             true
+</span></span><span class=line><span class=cl>    Type:                    Projected (a volume that contains injected data from multiple sources)
+</span></span><span class=line><span class=cl>    TokenExpirationSeconds:  3607
+</span></span><span class=line><span class=cl>    ConfigMapName:           kube-root-ca.crt
+</span></span><span class=line><span class=cl>    ConfigMapOptional:       &lt;nil&gt;
+</span></span><span class=line><span class=cl>    DownwardAPI:             true
 </span></span><span class=line><span class=cl>QoS Class:                   BestEffort
 </span></span><span class=line><span class=cl>Node-Selectors:              &lt;none&gt;
 </span></span><span class=line><span class=cl>Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-</span></span><span class=line><span class=cl>			 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+</span></span><span class=line><span class=cl>                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 </span></span><span class=line><span class=cl>Events:
 </span></span><span class=line><span class=cl>  Type     Reason            Age                  From               Message
 </span></span><span class=line><span class=cl>  ----     ------            ----                 ----               -------
@@ -641,9 +641,9 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span></span><span class=line><span class=cl>kubectl label node ubt node-role.kubernetes.io/master-
 </span></span><span class=line><span class=cl># 去除污点(无法调用schedule)
 </span></span><span class=line><span class=cl>kubectl taint node ubt node-role.kubernetes.io/master:NoSchedule-
-</span></span></code></pre></td></tr></table></div></div></li><li><p>ingress-nginx提示404</p><ul><li>确定ingress-controler启动</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div></li><li><p>ingress-nginx提示404</p><ul><li><p>确定ingress-controler启动</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>kubectl get svc -n ingress-nginx
-</span></span></code></pre></td></tr></table></div></div><ul><li>确定ingress-rule配置正确</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div></li><li><p>确定ingress-rule配置正确</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -651,7 +651,7 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span></span><span class=line><span class=cl>重点查看annotations的配置
 </span></span><span class=line><span class=cl>必须配置kubernetes.io/ingress.class: nginx
 </span></span><span class=line><span class=cl>必须配置ingress.kubernetes.io/rewrite-target: /
-</span></span></code></pre></td></tr></table></div></div><ul><li>确定访问的方式正确</li></ul><ol><li>确定backend的pod-ip:port可以访问</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div></li><li><p>确定访问的方式正确</p><ol><li>确定backend的pod-ip:port可以访问</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>此处的port为backend自己的port(即backend所在的svc的port, backend pod是没有端口的?? TODONOW待确定)
 </span></span></code></pre></td></tr></table></div></div><ol><li>确定backend的svc-ip:port可以访问</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>此处的port为backend自己的port
@@ -677,7 +677,7 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>A-ip是ingress-nginx所在的机器的ip
 </span></span><span class=line><span class=cl>port是ingress-nginx隐射出来的port
-</span></span></code></pre></td></tr></table></div></div></li><li><p>ingress-nginx svc 一直pending</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></span></code></pre></td></tr></table></div></div></li></ul></li><li><p>ingress-nginx svc 一直pending</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -745,6 +745,6 @@ xxx一般为backend service对外提供的, 比如 prometheus的为<a href=http:
 </span></span><span class=line><span class=cl>Events:              &lt;none&gt;
 </span></span><span class=line><span class=cl># 通过输出可以看到, cpu已经被占用到95%了, 所以导致有的pod无法启动, 对于这种情况, 可以通过增加node节点来解决
 </span></span><span class=line><span class=cl># k8s实际是对资源的管理, 资源包括cpu, 内存等等
-</span></span></code></pre></td></tr></table></div></div></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-06-07</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/k8s/>k8s</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/monitor/ class=prev rel=prev title=monitor><i class="fas fa-angle-left fa-fw"></i>monitor</a>
+</span></span></code></pre></td></tr></table></div></div></li></ol></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-06-13</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/k8s/>k8s</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/monitor/ class=prev rel=prev title=monitor><i class="fas fa-angle-left fa-fw"></i>monitor</a>
 <a href=/posts/redis/ class=next rel=next title=redis>redis<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2023</span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
 </a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:100,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
