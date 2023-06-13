@@ -1185,6 +1185,20 @@
          1) gdb进程中可以使用C-c, 退出attach所关联的进程
          2) emacs-gdb中如何退出 ?? TODONOW
 
+* copilot
+  之前的IDE大多是基于语法的分析, github copilot提供了基于自然语义的分析.
+  效果非常的惊艳, 能更好的帮助编写文档与程序
+** 使用
+   github copilot 没有emacs的官方插件, 使用的是第三方package [[https://github.com/zerolfx/copilot.el][copilot]].
+   安装与配置均比较简单, 可以参考copilot官方文档
+   : 其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便
+
+   #+BEGIN_SRC lisp
+     ;;国内可能无法访问github copilot, 可以配置一下代理
+     (setq copilot-network-proxy '(:host "127.0.0.1" :port "10887"))
+   #+END_SRC
+** 快捷键配置
+   copilot 与company-mode的一些快捷键容易冲突, 可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el][init-local-shortkey.el]]
 
 * 键位设置
 ** 设计思路
