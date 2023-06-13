@@ -25,8 +25,8 @@ jobs:
           sudo apt install emacs texinfo -y
           mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
       - run: |
-          emacs -u $USER --script ~/.emacs.d/script/export-org-to-md.el
-          emacs -u $USER --script ~/.emacs.d/script/export-org-to-texi2html.el
+          emacs -u $USER -l ~/.emacs.d/init-for-script.el --script ~/.emacs.d/script/export-org-to-md.el
+          emacs -u $USER -l ~/.emacs.d/init-for-script.el --script ~/.emacs.d/script/export-org-to-texi2html.el
           rm -rf ~/emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
