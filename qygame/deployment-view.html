@@ -50,6 +50,32 @@ Next: <a href="use-case-view.html" accesskey="n" rel="next">use case view</a>, P
 <hr>
 <span id="deployment-view-1"></span><h4 class="subsection">3.2.4 deployment view</h4>
 
+<div class="example">
+<pre class="example">@startuml
+actor client
+
+cloud gate_server {
+        node gate
+}
+cloud hot_server {
+        node hot_svr
+}
+cloud server {
+        node svr
+        node redis
+        database database
+        node prometheus
+}
+
+client-&gt;hot_server : internet
+client-&gt;gate_server: internet
+gate_server-&gt;server :LAN
+server-&gt;redis
+server-&gt;database
+
+@enduml
+</pre></div>
+
 </div>
 
 
