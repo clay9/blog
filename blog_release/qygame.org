@@ -187,21 +187,9 @@
 ** 服务器架构
 *** logic view
     #+BEGIN_SRC plantuml :file qygame/server_logic.png
-      title 服务器架构
-      hide footbox
-
-      client->gate
-      gate->center
-
-      logon->center
-      lobby->center
-      game->center
-      room->center
-
-      db->center
-      abcd->center
-      a->center
-      b->center
+      @startuml
+      client -> gate : test
+      @enduml
     #+END_SRC
 
     #+RESULTS:
@@ -209,6 +197,35 @@
 *** implementation view
 *** process view
 *** deployment view
+    #+begin_src plantuml :file qygame/server_deployment.png
+      @startuml
+      actor client
+
+      cloud gate_server {
+              node gate
+      }
+      cloud hot_server {
+              node hot_svr
+      }
+      cloud server {
+              node svr
+              node redis
+              database database
+              node prometheus
+      }
+
+      client->hot_server : internet
+      client->gate_server: internet
+      gate_server->server :LAN
+      server->redis
+      server->database
+
+      @enduml
+    #+end_src
+
+    #+RESULTS:
+    [[file:qygame/server_deployment.png]]
+
 *** use case view
 ** 服务器说明
    | 服务器名字 | 处理范围              | 有状态 | 状态量                        | 业务多线程 | 业务多线程原因   | 备注                           |
