@@ -199,26 +199,73 @@
 *** deployment view
     #+begin_src plantuml :file qygame/server_deployment.png
       @startuml
-      actor client
+      skinparam nodesep 10
 
-      cloud gate_server {
+      together {
+          actor client
+          actor 运维 as ops
+
+          client --[hidden]-> ops
+      }
+
+      together{
+          cloud gate_server{
               node gate
-      }
-      cloud hot_server {
-              node hot_svr
-      }
-      cloud server {
-              node svr
-              node redis
-              database database
+              node cadvisor_gate
+          }
+          cloud hot_server {
+              node hot
+              node cadvisor_hot
+          }
+
+          cloud monitor_server{
+              node node_exporter
               node prometheus
+              node grafana
+          }
+
+          'gate_server放在hot_server之上
+          gate_server --[hidden]> hot_server
+          hot_server --[hidden]> monitor_server
       }
 
-      client->hot_server : internet
-      client->gate_server: internet
-      gate_server->server :LAN
-      server->redis
-      server->database
+      cloud server {
+          frame server_list{
+              node center
+              node login
+              node game
+              node room
+              node match
+              node club
+              node rank
+              node task
+              node chat
+              node db
+              node "..."
+          }
+
+          frame data {
+              database database
+              node redis
+          }
+
+          node cadvisor_server
+
+          cadvisor_server -[hidden]u-> data
+      }
+
+      client->gate : internet
+      client->hot : internet
+      gate->center :LAN
+      server_list->redis
+      db-->database : test
+
+
+      ops->grafana : internet
+      note "<size 18>also receive all cadvisor data</size>" as N1
+      N1 -u-> prometheus
+      node_exporter->prometheus
+      prometheus->grafana
 
       @enduml
     #+end_src
