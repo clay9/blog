@@ -196,6 +196,9 @@
     [[file:qygame/test.png]]
 *** implementation view
 *** process view
+    #+begin_src plantuml :file qygame/server_process.png :exports results
+
+    #+end_src
 *** deployment view
     #+begin_src plantuml :file qygame/server_deployment.png :exports results
       @startuml

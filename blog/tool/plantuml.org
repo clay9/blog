@@ -1,0 +1,18 @@
+#+TITLE: plantuml
+#+DATE: 2023-06-16 00:26:14
+#+HUGO_CATEGORIES: tool
+#+HUGO_TAGS: plantuml
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+#+OPTIONS: \n:t
+
+使用plantuml绘制图形
+
+#+hugo: more
+
+* 功能
+
+* 安装
+* 配置
+* 使用
