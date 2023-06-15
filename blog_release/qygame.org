@@ -199,7 +199,7 @@
 *** deployment view
     #+begin_src plantuml :file qygame/server_deployment.png
       @startuml
-      title 服务器物理视图 (非k8s部署)
+      title deployment view (非k8s部署)
       skinparam nodesep 10
 
       together {
@@ -274,6 +274,8 @@
     #+RESULTS:
     [[file:qygame/server_deployment.png]]
 
+
+    : TODO 后期补充k8s部署下的 deployment view
 *** use case view
 ** 服务器说明
    | 服务器名字 | 处理范围              | 有状态 | 状态量                        | 业务多线程 | 业务多线程原因   | 备注                           |
