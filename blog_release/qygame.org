@@ -197,7 +197,7 @@
 *** implementation view
 *** process view
 *** deployment view
-    #+begin_src plantuml :file qygame/server_deployment.png
+    #+begin_src plantuml :file qygame/server_deployment.png :export both
       @startuml
       skinparam nodesep 10
 
