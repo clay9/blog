@@ -52,26 +52,73 @@ Next: <a href="use-case-view.html" accesskey="n" rel="next">use case view</a>, P
 
 <div class="example">
 <pre class="example">@startuml
-actor client
+skinparam nodesep 10
 
-cloud gate_server {
+together {
+    actor client
+    actor 运维 as ops
+
+    client --[hidden]-&gt; ops
+}
+
+together{
+    cloud gate_server{
         node gate
-}
-cloud hot_server {
-        node hot_svr
-}
-cloud server {
-        node svr
-        node redis
-        database database
+        node cadvisor_gate
+    }
+    cloud hot_server {
+        node hot
+        node cadvisor_hot
+    }
+
+    cloud monitor_server{
+        node node_exporter
         node prometheus
+        node grafana
+    }
+
+    'gate_server放在hot_server之上
+    gate_server --[hidden]&gt; hot_server
+    hot_server --[hidden]&gt; monitor_server
 }
 
-client-&gt;hot_server : internet
-client-&gt;gate_server: internet
-gate_server-&gt;server :LAN
-server-&gt;redis
-server-&gt;database
+cloud server {
+    frame server_list{
+        node center
+        node login
+        node game
+        node room
+        node match
+        node club
+        node rank
+        node task
+        node chat
+        node db
+        node &quot;...&quot;
+    }
+
+    frame data {
+        database database
+        node redis
+    }
+
+    node cadvisor_server
+
+    cadvisor_server -[hidden]u-&gt; data
+}
+
+client-&gt;gate : internet
+client-&gt;hot : internet
+gate-&gt;center :LAN
+server_list-&gt;redis
+db--&gt;database : test
+
+
+ops-&gt;grafana : internet
+note &quot;&lt;size 18&gt;also receive all cadvisor data&lt;/size&gt;&quot; as N1
+N1 -u-&gt; prometheus
+node_exporter-&gt;prometheus
+prometheus-&gt;grafana
 
 @enduml
 </pre></div>
