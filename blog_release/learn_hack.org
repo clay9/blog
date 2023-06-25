@@ -12,7 +12,9 @@
      brew install nmap
      #+END_SRC
 
+
   
+
 * 清空自己的痕迹
   linux系统
   1. 登录失败的痕迹  lastb
