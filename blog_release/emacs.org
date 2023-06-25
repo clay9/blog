@@ -1266,8 +1266,8 @@
     #+END_SRC
 *** 快捷键配置
     copilot 与company-mode的一些快捷键容易冲突, 可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el][init-local-shortkey.el]]
-
-
+*** 使用体验
+    1. github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验
 * 键位设置
 ** 设计思路
    原则
