@@ -1132,6 +1132,8 @@
      1. 创建如下脚本
      #+begin_src shell
        #!/bin/bash
+       # lsp server(clangd) 在qy-dev容器中
+       # source ~/.bashrc 是为了启动容器的时候 初始化环境, 这个根据容器的创建过程来判断是否需要
        docker exec -i qy-dev /bin/bash -c -i "source ~/.bashrc && clangd" $@
      #+end_src
      2. 调用eglot的时候, 使用脚本即可.
