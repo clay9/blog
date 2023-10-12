@@ -1125,6 +1125,23 @@
      非常契合现在的开发模式.
 **** 配置
      [[https://github.com/clay9/emacs.d/blob/master/lisp/init-lsp.el][详见github上的init-lsp.el]]
+**** 使用
+     使用eglot非常简单, 使用eglot命令连接即可.
+     如果lsp server在远端, 可以通过tramp连接;
+     如果lsp server在本地docker中, 则可以通过shell脚本来使用
+     1. 创建如下脚本
+     #+begin_src shell
+       #!/bin/bash
+       docker exec -i qy-dev /bin/bash -c -i "source ~/.bashrc && clangd" $@
+     #+end_src
+     2. 调用eglot的时候, 使用脚本即可.
+        也可以在init-eglot.el中添加配置, 直接使用
+        #+begin_src emacs-lisp
+          ;; call lsp-sever
+          (with-eval-after-load 'eglot
+            (add-to-list 'eglot-server-programs `(c++-mode .    ("~/.emacs.d/call_docker_clangd.sh")))
+          )
+        #+end_src
 
 *** <<company-mode>>company-mode
 **** 什么是
