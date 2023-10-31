@@ -1,0 +1,173 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>socket - 飘</title><meta name=Description content="This is my cool site"><meta property="og:title" content="socket">
+<meta property="og:description" content="socket相关网络编程"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/socket/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-08-28T15:17:00+00:00"><meta property="article:modified_time" content="2023-10-31T20:01:03+00:00"><meta property="og:site_name" content="My cool site"><meta name=twitter:card content="summary"><meta name=twitter:title content="socket"><meta name=twitter:description content="socket相关网络编程"><meta name=application-name content="My cool site"><meta name=apple-mobile-web-app-title content="My cool site"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/socket/><link rel=prev href=https://www.wcq.life/posts/sql/><link rel=next href=https://www.wcq.life/posts/thread/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css></noscript><link rel=preload href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"socket","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/socket\/"},"genre":"posts","keywords":"epoll, socket","wordcount":2577,"url":"https:\/\/www.wcq.life\/posts\/socket\/","datePublished":"2021-08-28T15:17:00+00:00","dateModified":"2023-10-31T20:01:03+00:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"作者"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"light"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"light"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>飘</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/emacs/index.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class="toc-content always-active" id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">socket</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>作者</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/net/><i class="far fa-folder fa-fw" aria-hidden=true></i>net</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;约 2577 字&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;预计阅读 6 分钟&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><a href=#基本概念>基本概念</a><ul><li><a href=#socket>socket</a></li><li><a href=#socket问题>socket问题</a></li><li><a href=#i-o模型>I/O模型</a></li><li><a href=#epoll使用>epoll使用</a></li></ul></li><li><a href=#socket属性>socket属性</a><ul><li><a href=#keep-live机制>keep live机制</a></li></ul></li><li><a href=#编程实例>编程实例</a><ul><li><a href=#原始socket模型-recv中处理分包粘包>原始socket模型, recv()中处理分包粘包</a></li></ul></li><li><a href=#ipv4>ipv4</a></li></ul></li></ul></nav></div></div><div class=content id=content><p>socket相关网络编程</p><h2 id=基本概念>基本概念</h2><h3 id=socket>socket</h3><p>socket是 [应用层] 与 [传输层, 网络层] 之间的一个抽象层
+它的出现是为了简化网络进程通信</p><h4 id=linux头文件>linux头文件</h4><ol><li>usr/include/x86_64-linux-gnu/sys/socket.h
+结构体
+sockaddr
+函数
+socket() connect() send() recv() shutdown()
+socket() bind() lisent() accept() recv() send() shutdown()
+g++的默认目录中已经包含了sys/的上层目录</li><li>usr/include/netinet/in.h
+结构体
+AF_INET 中的 sockaddr_in
+AF_INET6 中的 sockaddr_in6
+AF_UNIx 中的 sockaddr_un</li><li>user/include/arpa/inet.h
+函数
+htons()
+inet_addr()</li><li>unistd.h
+函数
+close()</li></ol><h4 id=socket函数>socket函数</h4><ol><li><p>socket(domain, socket_type, protol)
+domain
+socket_type
+protol
+socket()本质是创建了一个进程文件表, 返回的值为指向进程文件表的指针的索引.</p></li><li><p>bind(fd, sockaddr*, len)
+fd: socket()中的文件表指针的索引
+sockaddr: 地址, 端口
+len: sockaddr的长度
+&lt;1> 比较有意思的是sockaddr根据family的不同, 可以与不同的结构体互转
+比如
+AF_INET sockaddr_in
+AF_INET6 sockaddr_in6
+AF_UNIX sockaddr_un
+这几种结构体都与sockaddr可互转(字节对齐blabla)
+bind()本质是在补充socket()创建的文件表. socket()时候该文件表很多值都是空的, bind()来补充
+因为client 在connect的时候, 系统会自动分配端口,以及绑定本机ip, 所以client的socket一般不必要
+使用bind()</p></li><li><p>connet(fd, sockaddr*, len)
+连接到其他scokaddr</p></li><li><p>listen(fd, iMaxNum)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>iMaxNum是队列中的最大数, 并不是指可连接的socket数目
+</span></span></code></pre></div><p>一般只在server开启listen(), 监听指定的端口信息</p></li><li><p>accept()
+accept()会造成阻塞.
+它会将listen()中的sockaddr进行处理
+处理流程是 accept()会创建一个新的fd_connet, 此fd_connet公用server socket() fd的端口和地址
+但是fd_connect仅仅是用来传输数据的</p></li><li><p>recv(fd, msg) send(fd, msg)
+至accetp()时候, 一切操作就和在本地上操作一样,
+所以这里的recv() 和 send()操作与本机上的文件操作是一样的</p></li><li><p>close(fd) shutdown(fd, type)
+linux一切皆是file原则, fd可以关闭</p></li></ol><h4 id=ip-port-相关函数>[ip, port]相关函数</h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>点分十进制ip 是以字符串形式存储的
+</span></span><span class=line><span class=cl>网络字节序 即 32位的二进制
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>//in_addr
+</span></span><span class=line><span class=cl>struct in_addr
+</span></span><span class=line><span class=cl>{
+</span></span><span class=line><span class=cl>　　in_addr_t s_addr;
+</span></span><span class=line><span class=cl>};
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>//in_addr_t
+</span></span><span class=line><span class=cl>typedef unsigned long  in_addr_t
+</span></span></code></pre></div><ol><li><p>函数原型: in_addr_t inet_addr(const char* strptr);
+若字符串有效, 则将点分十进制IP字符串转换为网络字节序地址，否则为INADDR_NONE</p></li><li><p>函数原型：int inet_aton(const char *IP, struct in_addr *addr);
+将点分十进制IP地址转换为网络字节序存储在addr中，并且返回该网络字节序表示的无符号整数</p></li><li><p>函数原型：char *inet_ntoa(struct in_addr in);
+将网络字节序的IP地址（也就是结构体in_addr类型变量）转化为点分十进制的IP地址（字符串)</p></li></ol><h4 id=socket-fd本质>socket fd本质</h4><p>socket本质是维护了fd进程文件表, 如下:</p><table><thead><tr><th>名称</th><th>说明</th><th>备注</th></tr></thead><tbody><tr><td>fd</td><td>文件描述符, 表的索引</td><td></td></tr><tr><td>host</td><td>1. 域名(DNS /etc/hosts) 2. ip地址</td><td>兼容Ipv4 Ipv6是难点</td></tr><tr><td>服务</td><td>1. 服务名称(/etc/services) 2. 端口</td><td></td></tr><tr><td>协议</td><td>1. 传输层(/etc/protol) 2. 网络层</td><td>链路层用到的比较少</td></tr><tr><td>网络</td><td>1. 网络名称?(DNS /etc/networks) 2. ip地址</td><td>谁会使用到这些信息??</td></tr></tbody></table><p>期间用到的函数主要有</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>尽量使用ipv4, ipv6通用的函数
+</span></span></code></pre></div><ol><li>流程函数
+socket() bind() listen() connect() accept()等</li><li>字节处理函数
+处理大小字节序 htons() htonl() ntohs() ntohl()
+处理域名与十分数字 getaddrinfo() getnameinfo()</li><li>处理sockaddr结构体的函数
+getsockname() 返回local fd
+getpeername() 返回remote fd</li></ol><h3 id=socket问题>socket问题</h3><ol><li><p>阻塞</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>影响并发, 多路复用
+</span></span></code></pre></div><p>解决方案:</p><ol><li>使用非阻塞模型, 比如select, poll, epoll(linux下特有), IOCP(windows下特有)</li><li>多线程 &ndash; 不推荐使用</li><li>多进程 &ndash; 不推荐使用</li></ol></li><li><p>粘包
+解决方案:</p><ol><li>限制发送大小</li><li>每个消息增加长度标识</li></ol></li></ol><h3 id=i-o模型>I/O模型</h3><p><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1565671711&amp;ver=1787&amp;signature=-mLkqQr803XDHb4f3aj9Lf1dJl8uVOV9fCCMMTzs0zSuOYH-qof7nsYCdgho1XLdPQYQP6QL5-WHtI6g-MD9xIsJcuxzdH*idpCZqtzl85r9D4C3XRRuOcCXqLKDzi-i&amp;new=1" target=_blank rel="noopener noreffer">强烈建议阅读</a>
+(链接过期, 直接搜狗搜索epoll, &ldquo;epoll本质"即是)</p><ol><li>阻塞式</li><li>非阻塞</li><li>select</li><li>poll</li><li>epoll (linux特有)</li><li>IOCP (windows特有)</li></ol><h3 id=epoll使用>epoll使用</h3><h4 id=epoll本身为我们处理了什么>epoll本身为我们处理了什么</h4><ol><li>之前socket::recv()时, 导致我们的进程阻塞</li><li>现在socket::recv()时, 使epoll阻塞; epoll中断时, 告之进程</li></ol><h4 id=有了epoll我们还需要处理什么>有了epoll我们还需要处理什么</h4><ol><li>创建epoll对象</li><li>添加检视的fd对象 &ndash; op, epoll_event</li><li>检测是否有中断, 然后处理</li></ol><h2 id=socket属性>socket属性</h2><h3 id=keep-live机制>keep live机制</h3><p>当socket服务端开启keep live之后,
+服务器检测到 一定时间内 socket不活动的时候,
+就会每隔 固定时间 向该sockt发送 固定次数 的查询.
+如果一直没有回应, 服务端则关闭该socket</p><p>对应的字段为:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>tcp_keepalive_time（开启keepalive的闲置时长）
+</span></span><span class=line><span class=cl>tcp_keepalive_intvl（keepalive探测包的发送间隔）
+</span></span><span class=line><span class=cl>tcp_keepalive_probes （如果对方不予应答，探测包的发送次数）
+</span></span></code></pre></div><h2 id=编程实例>编程实例</h2><h3 id=原始socket模型-recv中处理分包粘包>原始socket模型, recv()中处理分包粘包</h3><p>原始socket模型, 考虑到tcp分包</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=line><span class=cl><span class=c1>//网络读取 -- 系统检测到网络I/O事件时, 调用该函数
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>LRESULT</span> <span class=n>CTCPSocketService</span><span class=o>::</span><span class=n>OnSocketNotifyRead</span><span class=p>(</span><span class=n>WPARAM</span> <span class=n>wParam</span><span class=p>,</span> <span class=n>LPARAM</span> <span class=n>lParam</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//读取数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//使用中间量m+cbRecvbuf来当做缓冲区
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//使用中间量m_wRecvsize来记录当前缓冲区中已读数据大小
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>iRetCode</span> <span class=o>=</span> <span class=n>recv</span><span class=p>(</span><span class=n>m_hSocket</span><span class=p>,</span> <span class=p>(</span><span class=kt>char</span> <span class=o>*</span><span class=p>)</span><span class=n>m_cbRecvBuf</span> <span class=o>+</span> <span class=n>m_wRecvSize</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>)</span> <span class=o>-</span> <span class=n>m_wRecvSize</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//读取失败, 则返回SOCKET_ERROR
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=p>(</span><span class=n>iRetCode</span> <span class=o>==</span> <span class=n>SOCKET_ERROR</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>ZeroMemory</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>m_wRecvSize</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>1</span><span class=p>;</span><span class=c1>//&#34;网络连接关闭，读取数据失败&#34;;
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//读取成功, 则返回读取到的数据的大小
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>m_wRecvSize</span> <span class=o>+=</span> <span class=n>iRetCode</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>//在tcp数据中, 增加包的大小, 用来校验是否读取完毕;
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=n>TCP_Head</span> <span class=o>*</span> <span class=n>pHead</span> <span class=o>=</span> <span class=p>(</span><span class=n>TCP_Head</span> <span class=o>*</span><span class=p>)</span><span class=n>m_cbRecvBuf</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>WORD</span> <span class=n>wPacketSize</span> <span class=o>=</span> <span class=n>pHead</span><span class=o>-&gt;</span><span class=n>TCPInfo</span><span class=p>.</span><span class=n>wPacketSize</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// //数据包大小校验
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span> <span class=p>(</span><span class=n>wPacketSize</span> <span class=o>&gt;</span> <span class=p>(</span><span class=n>SOCKET_TCP_BUFFER</span> <span class=o>+</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>TCP_Head</span><span class=p>)))</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//当发生错误时候, 缓冲区置位
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>ZeroMemory</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>m_wRecvSize</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>3</span><span class=p>;</span><span class=c1>//&#34;数据包太大&#34;;
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//解析数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=p>(</span><span class=n>m_wRecvSize</span> <span class=o>==</span> <span class=n>wPacketSize</span><span class=p>)</span>  <span class=c1>//数据全部接受完毕之后 再解析
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>	    <span class=c1>//拷贝数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=n>BYTE</span> <span class=n>cbDataBuffer</span><span class=p>[</span><span class=n>SOCKET_TCP_BUFFER</span><span class=o>+</span><span class=k>sizeof</span><span class=p>(</span><span class=n>TCP_Head</span><span class=p>)];</span>
+</span></span><span class=line><span class=cl>	    <span class=n>CopyMemory</span><span class=p>(</span><span class=n>cbDataBuffer</span><span class=p>,</span> <span class=n>m_cbRecvBuf</span><span class=p>,</span> <span class=n>wPacketSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	    <span class=c1>//置位缓冲信息 -- 缓冲区中只保存一条tcp信息
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=n>m_wRecvSize</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	    <span class=n>ZeroMemory</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>m_cbRecvBuf</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	    <span class=c1>//解密数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=n>WORD</span> <span class=n>wRealySize</span> <span class=o>=</span> <span class=n>CrevasseBuffer</span><span class=p>(</span><span class=n>cbDataBuffer</span><span class=p>,</span> <span class=n>wPacketSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	    <span class=k>if</span><span class=p>(</span><span class=n>wRealySize</span> <span class=o>&lt;</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>TCP_Head</span><span class=p>))</span> <span class=k>return</span> <span class=mi>4</span><span class=p>;</span> <span class=c1>//解析后的数据错误
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>	    <span class=c1>//获得TCP_Head
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=n>TCP_Command</span> <span class=n>Command</span> <span class=o>=</span> <span class=p>((</span><span class=n>TCP_Head</span> <span class=o>*</span><span class=p>)</span><span class=n>cbDataBuffer</span><span class=p>)</span><span class=o>-&gt;</span><span class=n>CommandInfo</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	    <span class=c1>//获得实际的数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=kt>void</span> <span class=o>*</span> <span class=n>pDataBuffer</span> <span class=o>=</span> <span class=n>cbDataBuffer</span> <span class=o>+</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>TCP_Head</span><span class=p>);</span> <span class=c1>//实际的数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=n>WORD</span> <span class=n>wRealDataSize</span> <span class=o>=</span> <span class=n>wRealySize</span> <span class=o>-</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>TCP_Head</span><span class=p>);</span>   <span class=c1>//实际的数据大小
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>	    <span class=c1>//内核命令
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=k>if</span> <span class=p>(</span><span class=n>Command</span><span class=p>.</span><span class=n>wMainCmdID</span> <span class=o>==</span> <span class=n>MDM_KN_COMMAND</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	    <span class=p>{</span>
+</span></span><span class=line><span class=cl>	    <span class=k>switch</span> <span class=p>(</span><span class=n>Command</span><span class=p>.</span><span class=n>wSubCmdID</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	    <span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>case</span> <span class=nl>SUB_KN_DETECT_SOCKET</span><span class=p>:</span>	<span class=c1>//网络检测
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>		    <span class=c1>//发送数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>		    <span class=n>SendData</span><span class=p>(</span><span class=n>MDM_KN_COMMAND</span><span class=p>,</span> <span class=n>SUB_KN_DETECT_SOCKET</span><span class=p>,</span> <span class=n>pDataBuffer</span><span class=p>,</span> <span class=n>wRealDataSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		    <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	    <span class=p>}</span>
+</span></span><span class=line><span class=cl>	    <span class=k>continue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	    <span class=c1>//处理数据
+</span></span></span><span class=line><span class=cl><span class=c1></span>	    <span class=kt>bool</span> <span class=n>bSuccess</span> <span class=o>=</span> <span class=n>m_QueueServiceEvent</span><span class=p>.</span><span class=n>PostTCPSocketReadEvent</span><span class=p>(</span><span class=n>m_wServiceID</span><span class=p>,</span> <span class=n>Command</span><span class=p>,</span> <span class=n>pDataBuffer</span><span class=p>,</span> <span class=n>wRealDataSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	    <span class=k>if</span> <span class=p>(</span><span class=n>bSuccess</span> <span class=o>==</span> <span class=nb>false</span><span class=p>)</span> <span class=k>return</span> <span class=mi>5</span><span class=p>;</span><span class=c1>//&#34;网络数据包处理失败&#34;;
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>};</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=ipv4>ipv4</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>系统文件在/proc/sys/net/ipv4下面
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>ip_local_port_range # 用户端口范围, [n, m)
+</span></span><span class=line><span class=cl>tcp_timestamp       # 针对TIME_WAIT状态的tcp连接; 0关闭,1开启
+</span></span><span class=line><span class=cl>tcp_tw_recycle      # 是否快速回收+ linux内核已删除该字段
+</span></span><span class=line><span class=cl>tcp_tw_reuse        # TIME_WAIT状态的tcp的port是否可以复用;0关闭,1开启
+</span></span><span class=line><span class=cl>                    # 需要开启tcp_timestamp;
+</span></span><span class=line><span class=cl>		    # 这是针对cli的设计,而非svr
+</span></span><span class=line><span class=cl>tcp_rmem            # tcp read缓冲区
+</span></span><span class=line><span class=cl>tcp_wmem            # tcp write缓冲区
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>ip_forward               0禁止ip转发, 1打开;
+</span></span><span class=line><span class=cl>ip_default_ttl           数据报的生存周期(time to live), 即最多经过多少路由器
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ip_no_pmtu_disc          关闭路径MTU探测
+</span></span><span class=line><span class=cl>min_pmtu                 最小路径MTU的大小
+</span></span><span class=line><span class=cl>mtu_expires              PMTU信息缓存多长时间
+</span></span></code></pre></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2023-10-31</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw" aria-hidden=true></i>&nbsp;<a href=/tags/epoll/>epoll</a>,&nbsp;<a href=/tags/socket/>socket</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/sql/ class=prev rel=prev title=数据库开发><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>数据库开发</a>
+<a href=/posts/thread/ class=next rel=next title=多线程总结>多线程总结<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:50},comment:{},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:20,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
