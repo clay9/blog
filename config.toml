@@ -1,42 +1,21 @@
 baseURL = "https://www.wcq.life"
-# 网站标题
 title = "飘"
-
-# 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
 
 defaultContentLanguage = "zh-cn"
-
 languageCode = 'zh-CN'
 languageName = '简体中文'
-
-# 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
-# [languages]
-#   [languages.zh-CN]
-#     languageCode = 'zh-CN'
-#     languageName = '简体中文'
-#     weight = 0
-#   [languages.en]
-#     contentDir = 'content/en'
-#     disabled = false
-#     languageCode = 'en-US'
-#     languageDirection = 'ltr'
-#     languageName = 'English'
-#     title = 'Project Documentation'
-#     weight = 2
 # 是否包括中日韩文字
 hasCJKLanguage = true
-# 是否使用 robots.txt
-#enableRobotsTXT = true
 
 # 忽略一些构建错误
 ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 # 作者配置
-[author]
-  name = "wcq"
-  email = ""
-  link = ""
+# [author]
+#   name = ""
+#   email = ""
+#   link = ""
   
 # 菜单配置
 [menu]
@@ -63,19 +42,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [[menu.main]]
     identifier = ""
     name = "关于"
-    url = "about" #对应content目录下的about.md文件 -- 必须是.md(org无效)
+    url = "about" #对应content目录下的about.md|about.org文件
     weight = 5
 
 [params]
   # 网站默认主题样式 ["auto", "light", "dark"]
   defaultTheme = "light"
-
   # 页面头部导航栏配置
   [params.header]
-    # 桌面端导航栏模式 ["fixed", "normal", "auto"]
-    desktopMode = "fixed"
-    # 移动端导航栏模式 ["fixed", "normal", "auto"]
-    mobileMode = "auto"
     [params.header.title]
       # 标题名称
       name = "飘"
@@ -124,7 +98,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # LoveIt 新增 | 0.2.9 是否保持使用文章前面的静态目录
       keepStatic = false
       # 是否使侧边目录自动折叠展开
-      auto = true
+      auto = false
     # LoveIt 新增 | 0.2.0 代码配置
     [params.page.code]
       # 是否显示代码块的复制按钮
