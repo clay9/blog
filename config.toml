@@ -98,7 +98,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       # LoveIt 新增 | 0.2.9 是否保持使用文章前面的静态目录
       keepStatic = false
       # 是否使侧边目录自动折叠展开
-      auto = false
+      auto = true
     # LoveIt 新增 | 0.2.0 代码配置
     [params.page.code]
       # 是否显示代码块的复制按钮
