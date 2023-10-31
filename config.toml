@@ -115,6 +115,12 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   [markup.highlight]
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+  # table展开控制  
+  [markup.tableOfContents]
+    ordered = false
+    startLevel = 1
+    endLevel = 3
+
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
