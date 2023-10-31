@@ -14,11 +14,6 @@ jobs:
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
 
-      - run: |
-          ls -al
-          ls -al themes
-          ls -al themes/LoveIt
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
