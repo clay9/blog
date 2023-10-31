@@ -1,0 +1,131 @@
+<!doctype html><html lang=zh-CN><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>web框架搭建 - 飘</title><meta name=Description content="This is my cool site"><meta property="og:title" content="web框架搭建">
+<meta property="og:description" content="使用docker搭建web, 包含web服务器(nginx), php7.4.7, lavarel7.12.0, mssql 基本信息 软件 版本 备注 docker desktop 2.0.0.3 sdocker engine 18.09.2 laravel 7.12.0 php php:7.4.7-fpm mssql 2017-CU13 架构分析 +-------------+ +-------------+ +--------------+ | nginx | -----> | php | ----->"><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/posts/project/web/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-08-28T15:14:38+00:00"><meta property="article:modified_time" content="2023-11-01T00:42:26+08:00"><meta property="og:site_name" content="My cool site"><meta name=twitter:card content="summary"><meta name=twitter:title content="web框架搭建"><meta name=twitter:description content="使用docker搭建web, 包含web服务器(nginx), php7.4.7, lavarel7.12.0, mssql 基本信息 软件 版本 备注 docker desktop 2.0.0.3 sdocker engine 18.09.2 laravel 7.12.0 php php:7.4.7-fpm mssql 2017-CU13 架构分析 +-------------+ +-------------+ +--------------+ | nginx | -----> | php | ----->"><meta name=application-name content="My cool site"><meta name=apple-mobile-web-app-title content="My cool site"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://www.wcq.life/posts/project/web/><link rel=prev href=https://www.wcq.life/posts/language/protobuf/><link rel=next href=https://www.wcq.life/posts/protocol/dll/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css></noscript><link rel=preload href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"web框架搭建","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.wcq.life\/posts\/project\/web\/"},"genre":"posts","wordcount":1006,"url":"https:\/\/www.wcq.life\/posts\/project\/web\/","datePublished":"2021-08-28T15:14:38+00:00","dateModified":"2023-11-01T00:42:26+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wcq"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=飘>My cool site</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>所有文章 </a><a class=menu-item href=/categories/>分类 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/emacs/index.html>Emacs </a><a class=menu-item href=/about>关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder="Search titles or contents..." id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i>
+</span></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=飘>My cool site</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder="Search titles or contents..." id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=Search><i class="fas fa-search fa-fw" aria-hidden=true></i>
+</a><a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=Clear><i class="fas fa-times-circle fa-fw" aria-hidden=true></i>
+</a><span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin" aria-hidden=true></i></span></div><a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>Cancel</a></div><a class=menu-item href=/posts/ title>所有文章</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/emacs/index.html title>Emacs</a><a class=menu-item href=/about title>关于</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">web框架搭建</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw" aria-hidden=true></i>wcq</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw" aria-hidden=true></i>&nbsp;<time datetime=2021-08-28>2021-08-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden=true></i>&nbsp;1006 words&nbsp;
+<i class="far fa-clock fa-fw" aria-hidden=true></i>&nbsp;3 minutes&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#headline-1>基本信息</a></li><li><a href=#headline-2>架构分析</a></li><li><a href=#headline-3>下载laravel && compose完成laravel的项目依赖</a></li><li><a href=#headline-4>编写dockerfile && docker-compose.yml</a></li><li><a href=#headline-5>安装docker-compose.yml中信息</a></li><li><a href=#headline-6>laravel打入到php载体中</a></li><li><a href=#headline-7>测试</a></li><li><a href=#headline-8>生产环境优化</a></li><li><a href=#headline-9>遗留问题</a></li></ul></nav></div></div><div class=content id=content><p>使用docker搭建web,
+包含web服务器(nginx), php7.4.7, lavarel7.12.0, mssql</p><div id=outline-container-headline-1 class=outline-2><h2 id=headline-1>基本信息</h2><div id=outline-text-headline-1 class=outline-text-2><table><thead><tr><th>软件</th><th>版本</th><th>备注</th></tr></thead><tbody><tr><td>docker desktop</td><td>2.0.0.3</td><td>sdocker engine 18.09.2</td></tr></tbody><tbody><tr><td>laravel</td><td>7.12.0</td><td></td></tr></tbody><tbody><tr><td>php</td><td>php:7.4.7-fpm</td><td></td></tr></tbody><tbody><tr><td>mssql</td><td>2017-CU13</td><td></td></tr></tbody></table></div></div><div id=outline-container-headline-2 class=outline-2><h2 id=headline-2>架构分析</h2><div id=outline-text-headline-2 class=outline-text-2><pre class=example>
+  +-------------+	 +-------------+       	+--------------+
+  |  nginx      | -----&gt; |  php        | -----&gt;	|   mssql      |
+  |             |      	 |             |    	|              |
+  +-------------+      	 +-------------+    	+--------------+
+  		       	    ^
+ 		       	    |
+ 	       	       	    | &lt;---
+		       	    |	  \------
+       	       	       	 +--+-------+  	 \---+------------+
+		       	 | laravel  |  	     | composer   |
+		       	 |          |	     |            |
+		       	 +----------+	     +------------+
+</pre><pre class=example>
+通过composer把laravel信息打入到php载体中(这里是docker容器)
+在docker_compose中设置转移信息, 使nginx的信息交由php处理
+开发环境需要laraverl &amp;&amp; composer,  生产环境不需要
+</pre></div></div><div id=outline-container-headline-3 class=outline-2><h2 id=headline-3>下载laravel && compose完成laravel的项目依赖</h2><div id=outline-text-headline-3 class=outline-text-2><ol><li><p>下载laravel</p><pre class=example>
+laravel对php有版本要求, 所以这里下载的是v7.12.0
+</pre><p><a href=https://github.com/laravel/laravel/releases/tag/v7.12.0>https://github.com/laravel/laravel/releases/tag/v7.12.0</a></p></li><li><p>完成laravel的依赖安装</p><pre class=example>
+这里compose直接安装在了本地mac环境上, 没有装在docker容器中, 效果一样
+不知道为什么, 有些文件下载会失败, 建议多敲几次该命令
+</pre><pre class=example>
+# 进入laravel项目目录, 并输入
+composer install
+</pre></li></ol></div></div><div id=outline-container-headline-4 class=outline-2><h2 id=headline-4>编写dockerfile && docker-compose.yml</h2><div id=outline-text-headline-4 class=outline-text-2><p><a href=https://learnku.com/laravel/t/38564>参考文档</a></p><pre class=example>
+dockerfile 与 docker-compose.yml应该在laravel项目的根目录下, 因为后续有把laravel打入到php载体的操作
+</pre><ol><li><p>docker-compose.yml</p><pre class=example>
+version: &#39;2&#39;
+services:
+
+# The Application  php-fpm
+app:
+# 这里通过app.dockerfile安装
+build:
+   context: ./
+dockerfile: app.dockerfile
+working_dir: /var/www
+volumes:
+   - ./:/var/www
+environment:
+   - &#34;DB_PORT=3306&#34;
+   - &#34;DB_HOST=database&#34;
+
+# The Web Server
+web:
+  build:
+     context: ./
+dockerfile: web.dockerfile
+  working_dir: /var/www
+  # 这里表示继承app中的设定
+  volumes_from:
+      - app
+ ports:
+     - 8080:80
+
+# The Database
+database:
+ image: mysql:5.6
+ volumes:
+   - dbdata:/var/lib/mysql
+ environment:
+   - &#34;MYSQL_DATABASE=homestead&#34;
+- &#34;MYSQL_USER=homestead&#34;
+- &#34;MYSQL_PASSWORD=secret&#34;
+- &#34;MYSQL_ROOT_PASSWORD=secret&#34;
+ ports:
+   - &#34;33061:3306&#34;
+ volumes:
+    dbdata:
+</pre></li><li><p>app.dockerfile</p><pre class=example>
+这里注释了php的扩展, 但仍然安装laravel成功了, 很奇怪
+</pre><pre class=example>
+# php -- 使用特定7.4.7
+From php:7.4.7-fpm
+
+#RUN apt-get update &amp;&amp; apt-get install -y libmcrypt-dev \
+#    mysql-client libmagickwand-dev --no-install-recommends \
+#     &amp;&amp; docker-php-ext-install mcrypt pdo_mysql
+</pre></li><li><p>web.dockerfile</p><pre class=example>
+FROM nginx:1.10
+ADD vhost.conf /etc/nginx/conf.d/default.confx
+</pre></li><li><p>nginx config配置</p><pre class=example>
+server {
+listen 80;
+index index.php index.html;
+root /var/www/public;
+
+location / {
+    try_files $uri /index.php?$args;
+}
+
+location ~ \.php$ {
+   fastcgi_split_path_info ^(.+\.php)(/.+)$;
+# 这里表示把信息转移给app即php处理
+   fastcgi_pass app:9000;
+   fastcgi_index index.php;
+   include fastcgi_params;
+   fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+   fastcgi_param PATH_INFO $fastcgi_path_info;
+  }
+}
+</pre></li></ol></div></div><div id=outline-container-headline-5 class=outline-2><h2 id=headline-5>安装docker-compose.yml中信息</h2><div id=outline-text-headline-5 class=outline-text-2><pre class=example>
+# 进入到docker-compose-yml的目录
+docker-compose up
+</pre></div></div><div id=outline-container-headline-6 class=outline-2><h2 id=headline-6>laravel打入到php载体中</h2><div id=outline-text-headline-6 class=outline-text-2><ol><li><p>laravel环境配置</p><pre class=example>
+# 进入到laravel的根目录
+mv .env.example .env
+</pre></li><li><p>应用程序密钥和优化</p><pre class=example>
+docker-compose exec app php artisan key:generate
+docker-compose exec app php artisan optimize
+</pre></li></ol></div></div><div id=outline-container-headline-7 class=outline-2><h2 id=headline-7>测试</h2><div id=outline-text-headline-7 class=outline-text-2><p>访问<a href=http://0.0.0.0:8080>http://0.0.0.0:8080</a> 应该能看到laravel的标志</p></div></div><div id=outline-container-headline-8 class=outline-2><h2 id=headline-8>生产环境优化</h2><div id=outline-text-headline-8 class=outline-text-2><p>可以把已经配置好的容器打包为镜像, 并保存为镜像文件.
+这样生产环境搭建的时候, 就无需再配置环境(php载体的laravel环境),
+同时生成环境可以通过镜像文件加载, 免除了网络问题卡下载的问题.</p></div></div><div id=outline-container-headline-9 class=outline-2><h2 id=headline-9>遗留问题</h2><div id=outline-text-headline-9 class=outline-text-2><ol><li>docker php容器映射问题
+如何把php容器的路径 映射出来</li><li>生产环境 docker-compse.yml编写问题</li></ol></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2023-11-01&nbsp;<a class=git-hash href=#ZgotmplZ target=_blank title="commit by wcq(3@q.com) 7f674bea7d70d6f9bdd14329d51b6b1007f111fe: t">
+<i class="fas fa-hashtag fa-fw" aria-hidden=true></i>7f674be</a></span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://www.wcq.life/posts/project/web/ data-title=web框架搭建><i class="fab fa-twitter fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://www.wcq.life/posts/project/web/><i class="fab fa-facebook-square fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Hacker News" data-sharer=hackernews data-url=https://www.wcq.life/posts/project/web/ data-title=web框架搭建><i class="fab fa-hacker-news fa-fw" aria-hidden=true></i></a><a href=javascript:void(0); title="Share on Line" data-sharer=line data-url=https://www.wcq.life/posts/project/web/ data-title=web框架搭建><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg aria-hidden=true></i></a><a href=javascript:void(0); title="Share on 微博" data-sharer=weibo data-url=https://www.wcq.life/posts/project/web/ data-title=web框架搭建><i class="fab fa-weibo fa-fw" aria-hidden=true></i></a></span></div></div></div><div class=post-info-more><section class=post-tags></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/posts/language/protobuf/ class=prev rel=prev title=protobuf><i class="fas fa-angle-left fa-fw" aria-hidden=true></i>protobuf</a>
+<a href=/posts/protocol/dll/ class=next rel=next title="静态库 && 动态库">静态库 && 动态库<i class="fas fa-angle-right fa-fw" aria-hidden=true></i></a></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.120.1">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw" aria-hidden=true></i><span itemprop=copyrightYear>2022 - 2023</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>wcq</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up fa-fw" aria-hidden=true></i>
+</a><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment fa-fw" aria-hidden=true></i></a></div><script type=text/javascript src=https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:50},comment:{},search:{highlightTag:"em",maxResultLength:20,noResultsFound:"No results found",snippetLength:50}}</script><script type=text/javascript src=/js/theme.min.js></script></body></html>
