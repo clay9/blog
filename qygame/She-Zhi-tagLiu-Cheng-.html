@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>设置tag流程 (游戏)</title>
+
+<meta name="description" content="设置tag流程 (游戏)">
+<meta name="keywords" content="设置tag流程 (游戏)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Dai-Ma-Guan-Li-.html" rel="up" title="代码管理">
+<link href="qygame_002fsvr_002dpublishCang-Ku-.html" rel="prev" title="qygame/svr-publish仓库">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="g_t_8bbe_7f6etag_6d41_7a0b">
+<div class="header">
+<p>
+Previous: <a href="qygame_002fsvr_002dpublishCang-Ku-.html" accesskey="p" rel="prev">qygame/svr-publish仓库</a>, Up: <a href="Dai-Ma-Guan-Li-.html" accesskey="u" rel="up">代码管理</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="She-Zhi-tagLiu-Cheng-"></span><h4 class="subsection">2.2.2 设置tag流程</h4>
+
+<div class="example">
+<pre class="example">mygit.sh addtag $tag
+</pre></div>
+
+<p><strong>流程</strong> <br>
+</p><ol>
+<li> mygit.sh addtag $tag可以自动对所有的qygame code仓库进行添加tag <br>
+</li><li> 触发code仓库的.github/workflows/main.yml <br>
+</li><li> main.yml中触发qydocker/qyaction <br>
+</li><li> 之后详见 qydocker/qyaction的流程 <br>
+</li><li> 最终结果是把server仓库的编译结果提交到svr-publish中 <br>
+</li></ol>
+
+<p><strong>待处理</strong> <br>
+</p><ol>
+<li> 修改tag设置流程, 没必要统一设置tag <br>
+</li><li> 修改qydocker/qyaction中修改对svr-publish的push. 使用latest而非tag来处理 <br>
+</li></ol>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>qycompiler (游戏)</title>
+
+<meta name="description" content="qycompiler (游戏)">
+<meta name="keywords" content="qycompiler (游戏)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Huan-Jing-Guan-Li-.html" rel="up" title="环境管理">
+<link href="docker_002dcompose.html" rel="next" title="docker-compose">
+<link href="qyaction.html" rel="prev" title="qyaction">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="qycompiler">
+<div class="header">
+<p>
+Next: <a href="docker_002dcompose.html" accesskey="n" rel="next">docker-compose</a>, Previous: <a href="qyaction.html" accesskey="p" rel="prev">qyaction</a>, Up: <a href="Huan-Jing-Guan-Li-.html" accesskey="u" rel="up">环境管理</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="qycompiler-1"></span><h4 class="subsection">2.1.2 qycompiler</h4>
+
+<p><strong>目标</strong> <br>
+使用docker image来管理qygame的运行环境, 并将结果放到dockerhub clay2019/qy_dev <br>
+</p>
+<p><strong>流程</strong> <br>
+</p><ol>
+<li> 添加tag, 触发.github/workflow/main.yml <br>
+</li><li> main.yml中调用docker, docker根据Dockerfile启动 <br>
+</li><li> Dockerfile中控制了程序运行环境 (第三方库及其配置) <br>
+同时Dockerfile会启动env.sh, 配置docker image的环境配置 <br>
+</li><li> main.yml把docker image push到dockerhub clay2019/qy_dev <br>
+</li></ol>
+
+<ol>
+<li> 已接入的第三方
+
+
+<table>
+<thead><tr><th>名字</th><th>git地址</th><th>作用</th><th>说明</th><th>备注</th></tr></thead>
+<tr><td>protobuf</td><td></td><td>协议格式</td><td></td><td></td></tr>
+<tr><td>glog</td><td></td><td>日志</td><td></td><td></td></tr>
+<tr><td>odbc</td><td></td><td>数据库驱动</td><td></td><td></td></tr>
+<tr><td>mssql drive for odbc</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>hiredis</td><td></td><td>redis api for c</td><td></td><td></td></tr>
+<tr><td>redis-plus-plus</td><td></td><td>redis api for c++</td><td>依赖hiredis</td><td></td></tr>
+<tr><td>qynet</td><td></td><td>网络库</td><td></td><td></td></tr>
+<tr><td>lsp server:clangd</td><td></td><td>lsp server, IDE语法分析</td><td></td><td></td></tr>
+</table>
+</li></ol>
+
+</div>
+
+
+
+</body>
+</html>

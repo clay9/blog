@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
+
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
+<title>文件的设计 (emacs)</title>
+
+<meta name="description" content="文件的设计 (emacs)">
+<meta name="keywords" content="文件的设计 (emacs)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="org-modeZen-Yao-Shi-Xian-GTD.html" rel="up" title="org mode怎么实现GTD">
+<link href="TODODe-She-Ji-.html" rel="next" title="TODO的设计">
+<link href="Liu-Cheng-De-She-Ji-.html" rel="prev" title="流程的设计">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="g_t_6587_4ef6_7684_8bbe_8ba1">
+<div class="header">
+<p>
+Next: <a href="TODODe-She-Ji-.html" accesskey="n" rel="next">TODO的设计</a>, Previous: <a href="Liu-Cheng-De-She-Ji-.html" accesskey="p" rel="prev">流程的设计</a>, Up: <a href="org-modeZen-Yao-Shi-Xian-GTD.html" accesskey="u" rel="up">org mode怎么实现GTD</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="WenJian-De-She-Ji-"></span><h4 class="subsection">5.3.4 文件的设计</h4>
+
+<p>区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda &lsquo;R统计时间 <br>
+</p>
+<p>gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及一系列TODO任务. <br>
+</p>
+<p>而gtd_emacs与gtd_qygame则是已经明确分类的PROJECT. <br>
+比如gtd_emacs/emacs.org明确的是与emacs有关的任务. <br>
+但即使都是emacs相关, 也可分为是emacs自身, org, 还是cc-IDE. <br>
+所以emacs.org中实际包含了上面三个PROJECT: emacs, org, ccIDE <br>
+</p>
+<div class="float"><span id="org26538d4"></span>
+<table>
+<thead><tr><th>目录</th><th>说明</th><th>备注</th></tr></thead>
+<tr><td>gtd_common</td><td>通用gtd流程文件</td><td>inbox.org</td></tr>
+<tr><td></td><td></td><td>task.org</td></tr>
+<tr><td></td><td></td><td>archive.org</td></tr>
+<tr><td>gtd_emacs</td><td>emacs project files</td><td></td></tr>
+<tr><td>gtd_qygame</td><td>qygame project files</td><td></td></tr>
+</table>
+
+<div class="float-caption"><p><strong>Table 5.1: </strong>gtd目录</p></div></div>
+<div class="float"><span id="orga2e72ad"></span>
+<table>
+<thead><tr><th>文件名</th><th>说明</th><th>备注</th></tr></thead>
+<tr><td>inbox.org</td><td>收集箱</td><td>不区分时间, 不区分场景</td></tr>
+<tr><td></td><td></td><td>灵光一闪即可扔进去保存</td></tr>
+<tr><td>task.org</td><td>任务清单</td><td>1. priority标签</td></tr>
+<tr><td></td><td>task</td><td>2. 四象限约束</td></tr>
+<tr><td></td><td>项目清单</td><td>1. 凡是steps&gt;1的都属于项目</td></tr>
+<tr><td></td><td>project</td><td></td></tr>
+<tr><td>archive.org</td><td>参考资料</td><td>1. 有参考价值的东西</td></tr>
+<tr><td></td><td></td><td>2. 垃圾箱</td></tr>
+</table>
+
+
+<div class="float-caption"><p><strong>Table 5.2: </strong>gtd_common中的文件</p></div></div>
+<p>备注: <br>
+</p><ol>
+<li> task 与 project的唯一区别 <br>
+task只有one step,  project的steps &gt; 1 <br>
+</li><li> 文件都是通过流程来操作的, 不应该手动去干预 <br>
+</li><li> 没增加一个工程, 应该增加一个对应的gtd_xx目录 <br>
+</li></ol>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
+
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
+<title>Agent的设计 (emacs)</title>
+
+<meta name="description" content="Agent的设计 (emacs)">
+<meta name="keywords" content="Agent的设计 (emacs)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="org-modeZen-Yao-Shi-Xian-GTD.html" rel="up" title="org mode怎么实现GTD">
+<link href="Shi-Yong-Liu-Cheng-.html" rel="next" title="使用流程">
+<link href="archiveDe-She-Ji-.html" rel="prev" title="archive的设计">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="Agent_7684_8bbe_8ba1">
+<div class="header">
+<p>
+Next: <a href="Shi-Yong-Liu-Cheng-.html" accesskey="n" rel="next">使用流程</a>, Previous: <a href="archiveDe-She-Ji-.html" accesskey="p" rel="prev">archive的设计</a>, Up: <a href="org-modeZen-Yao-Shi-Xian-GTD.html" accesskey="u" rel="up">org mode怎么实现GTD</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="AgentDe-She-Ji-"></span><h4 class="subsection">5.3.13 Agent的设计</h4>
+
+<p>agent的目的有2个: <br>
+</p><ol>
+<li> 查看各种代办事项 <br>
+今天的, 未来的, TODO的, inbox中的 <br>
+</li><li> 统计信息 <br>
+一是以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT <br>
+二是以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间 <br>
+</li></ol>
+
+
+<p>查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view 查看 <br>
+查看统计信息, 主要是org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体 <br>
+</p>
+
+<p>快捷键主要是为了方便.比如 <br>
+</p><ul>
+<li> 空格滚动各种view <br>
+</li><li> tab在另一个窗口显示item narrow <br>
+</li><li> enter则进入item编辑 <br>
+</li><li> 常用的功能都会放到C-j中处理 等等 <br>
+</li></ul>
+
+</div>
+
+
+
+</body>
+</html>

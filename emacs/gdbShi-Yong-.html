@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
+
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
+<title>gdb使用 (emacs)</title>
+
+<meta name="description" content="gdb使用 (emacs)">
+<meta name="keywords" content="gdb使用 (emacs)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Diao-Shi-Qi-.html" rel="up" title="调试器">
+<link href="gudShi-Yong-.html" rel="next" title="gud使用">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection" id="gdb_4f7f_7528">
+<div class="header">
+<p>
+Next: <a href="gudShi-Yong-.html" accesskey="n" rel="next">gud使用</a>, Up: <a href="Diao-Shi-Qi-.html" accesskey="u" rel="up">调试器</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="gdbShi-Yong-"></span><h4 class="subsection">6.5.1 gdb使用</h4>
+
+<table>
+<thead><tr><th>指令</th><th>简写</th><th>描述</th></tr></thead>
+<tr><td>attach</td><td></td><td>附加到已经运行的程序</td></tr>
+<tr><td>run</td><td>r</td><td>运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令</td></tr>
+<tr><td>continue</td><td>c</td><td>继续执行，到下一个断点停止（或运行结束）</td></tr>
+<tr><td>next</td><td>n</td><td>单步跟踪程序，当遇到函数调用时，也不进入此函数体</td></tr>
+<tr><td>step</td><td>s</td><td>单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的</td></tr>
+<tr><td>until</td><td>u</td><td>当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环</td></tr>
+<tr><td>until+行号</td><td></td><td>运行至某行，不仅仅用来跳出循环</td></tr>
+<tr><td>finish</td><td></td><td>运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息</td></tr>
+<tr><td>quit</td><td>q</td><td>退出gdb</td></tr>
+<tr><td>up</td><td></td><td>上个stack</td></tr>
+<tr><td>down</td><td></td><td>下个stack</td></tr>
+<tr><td>watch</td><td></td><td>变量监控</td></tr>
+<tr><td>breakpoint</td><td>b</td><td>file :line_num   文件:行号</td></tr>
+<tr><td></td><td></td><td>&lt;fun_name&gt;       函数名字</td></tr>
+</table>
+
+<p>run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败 <br>
+continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 <br>
+</p>
+</div>
+
+
+
+</body>
+</html>

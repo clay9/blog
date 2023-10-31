@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
+
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
+<title>设计思路 (emacs)</title>
+
+<meta name="description" content="设计思路 (emacs)">
+<meta name="keywords" content="设计思路 (emacs)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Jian-Wei-She-Zhi-.html" rel="up" title="键位设置">
+<link href="Kuai-Jie-Jian-.html" rel="next" title="快捷键">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section" id="g_t_8bbe_8ba1_601d_8def">
+<div class="header">
+<p>
+Next: <a href="Kuai-Jie-Jian-.html" accesskey="n" rel="next">快捷键</a>, Up: <a href="Jian-Wei-She-Zhi-.html" accesskey="u" rel="up">键位设置</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="She-Ji-Si-Lu-"></span><h3 class="section">8.1 设计思路</h3>
+
+<p>原则 <br>
+</p><ol>
+<li> 尽量保留默认常用快捷键 <br>
+</li><li> 不同mode, 尽量使用相似的快捷键 <br>
+</li></ol>
+
+<p>思路 <br>
+</p><ol>
+<li> 通用快捷键(比如search等与mode无关的) 或者是 所有mode都会使用的(比如yas) <br>
+统一放到C-s中 <br>
+</li><li> mode自身的快捷键, 放到C-j中 <br>
+</li><li> 项目相关的快捷键, 放到C-SPC中 <br>
+</li></ol>
+
+</div>
+
+
+
+</body>
+</html>
