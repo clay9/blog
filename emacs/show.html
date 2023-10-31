@@ -8,10 +8,10 @@
 
 Copyright (C) 2016 Free Software Foundation, Inc. 
  -->
-<title>任意目录中查找 (emacs)</title>
+<title>show (emacs)</title>
 
-<meta name="description" content="任意目录中查找 (emacs)">
-<meta name="keywords" content="任意目录中查找 (emacs)">
+<meta name="description" content="show (emacs)">
+<meta name="keywords" content="show (emacs)">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -19,9 +19,8 @@ Copyright (C) 2016 Free Software Foundation, Inc.
 
 <link href="index.html" rel="start" title="Top">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="seach.html" rel="up" title="seach">
-<link href="Gong-Cheng-ZhongCha-Zhao-.html" rel="next" title="工程中查找">
-<link href="Dang-Qian-bufferCha-Zhao-.html" rel="prev" title="当前buffer查找">
+<link href="text-editor.html" rel="up" title="text editor">
+<link href="move_002dand_002dkill.html" rel="next" title="move-and-kill">
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -47,35 +46,17 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="subsection" id="g_t_4efb_610f_76ee_5f55_4e2d_67e5_627e">
+<div class="section" id="show">
 <div class="header">
 <p>
-Next: <a href="Gong-Cheng-ZhongCha-Zhao-.html" accesskey="n" rel="next">工程中查找</a>, Previous: <a href="Dang-Qian-bufferCha-Zhao-.html" accesskey="p" rel="prev">当前buffer查找</a>, Up: <a href="seach.html" accesskey="u" rel="up">seach</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="move_002dand_002dkill.html" accesskey="n" rel="next">move-and-kill</a>, Up: <a href="text-editor.html" accesskey="u" rel="up">text editor</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <hr>
-<span id="Ren-Yi-Mu-Lu-ZhongCha-Zhao-"></span><h4 class="subsection">3.3.2 任意目录中查找</h4>
+<span id="show-1"></span><h3 class="section">3.1 show</h3>
 
-<ul>
-<li> find-grep <br>
-
-<p>实际是linux下的find+grep组合, 所以依赖linux下的find和grep命令 <br>
+<p>text editor最基本的配置, 文本在buffer中显示的样子. <br>
+比如行号, break-line, column indicator等 <br>
 </p>
-<p>如果是windows系统, 需要下载GnuWin32，并配置emacs认识他 <br>
-</p><div class="example">
-<pre class="example"># exp 在当前目录下的所有文件中(含递归目录) 查找字符串'emacs'
-find . -type f |xargs grep -n emacs
-</pre></div>
-</li><li> eshell/grep <br>
-
-<p>使用eshell(emacs内置)的grep, 所以仅在eshell-mode下生效 <br>
-</p><div class="example">
-<pre class="example"># TODO 待补充详细用法
-# 用法 grep 搜索内容 正则式(搜索目录)
-# 在当前目录的文件中 查找字符串'emacs'
-grep emacs *
-</pre></div>
-</li></ul>
-
 </div>
 
 

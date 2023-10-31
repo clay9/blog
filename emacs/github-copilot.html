@@ -45,20 +45,43 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="section" id="github-copilot">
+<div class="subsection" id="github-copilot">
 <div class="header">
 <p>
 Up: <a href="AI-Code-Assistants.html" accesskey="u" rel="up">AI Code Assistants</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <hr>
-<span id="github-copilot-1"></span><h3 class="section">7.1 github copilot</h3>
+<span id="github-copilot-1"></span><h4 class="subsection">8.7.1 github copilot</h4>
+
+<ol>
+<li> 使用
 
 
-<ul class="section-toc">
-<li><a href="Shi-Yong--_00281_0029.html" accesskey="1">使用</a></li>
-<li><a href="Kuai-Jie-Jian-Pei-Zhi-.html" accesskey="2">快捷键配置</a></li>
-<li><a href="Shi-Yong-Ti-Yan-.html" accesskey="3">使用体验</a></li>
-</ul>
+<p>github copilot 没有emacs的官方插件, 使用的是第三方package <a href="https://github.com/zerolfx/copilot.el">copilot</a>. <br>
+安装与配置均比较简单, 可以参考copilot官方文档 <br>
+</p><div class="example">
+<pre class="example">其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
+</pre></div>
+
+
+<div class="example lisp">
+<pre class="lisp">;;国内可能无法访问github copilot, 可以配置一下代理
+(setq copilot-network-proxy '(:host &quot;127.0.0.1&quot; :port &quot;10887&quot;))
+</pre></div>
+
+</li><li> 快捷键配置
+
+
+<p>copilot 与company-mode的一些快捷键容易冲突, 可以参考<a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el">init-local-shortkey.el</a> <br>
+</p>
+</li><li> 使用体验
+
+
+<ol>
+<li> github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验 <br>
+</li></ol>
+</li></ol>
+
 </div>
 
 

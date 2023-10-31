@@ -19,8 +19,8 @@ Copyright (C) 2016 Free Software Foundation, Inc.
 
 <link href="index.html" rel="start" title="Top">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="helm.html" rel="up" title="helm">
-<link href="function.html" rel="next" title="function">
+<link href="eshell.html" rel="up" title="eshell">
+<link href="manual.html" rel="next" title="manual">
 <link href="why.html" rel="prev" title="why">
 <style type="text/css">
 <!--
@@ -50,14 +50,36 @@ ul.no-bullet {list-style: none}
 <div class="subsection" id="how">
 <div class="header">
 <p>
-Next: <a href="function.html" accesskey="n" rel="next">function</a>, Previous: <a href="why.html" accesskey="p" rel="prev">why</a>, Up: <a href="helm.html" accesskey="u" rel="up">helm</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="manual.html" accesskey="n" rel="next">manual</a>, Previous: <a href="why.html" accesskey="p" rel="prev">why</a>, Up: <a href="eshell.html" accesskey="u" rel="up">eshell</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <hr>
-<span id="how-1"></span><h4 class="subsection">3.1.2 how</h4>
+<span id="how-1"></span><h4 class="subsection">8.1.2 how</h4>
 
-<p>helm没有特意的去改变用户的使用习惯, 只是提升了用户体验. 操作使用与之前一样即可 <br>
-其配置也非常简单, 具体见 <a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-helm-mode.el">github的init-helm-mode.el</a> <br>
+<ol>
+<li> eshell script
+
+
+<p>官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾 <br>
 </p>
+<ol>
+<li> 变量赋值
+
+
+<p>eshell 脚本中使用elisp语法给变量赋值 <br>
+</p><div class="example">
+<pre class="example">(setq remote_temp &quot;/ssh:clay@192.168.0.97:~/temp&quot;)
+</pre></div>
+
+</li><li> 变量使用 $
+
+
+<p>基本与shell相同, 具体可以详见官方说明 <br>
+</p><div class="example">
+<pre class="example">eshell/rm -r $remote_temp
+</pre></div>
+</li></ol>
+</li></ol>
+
 </div>
 
 

@@ -19,9 +19,8 @@ Copyright (C) 2016 Free Software Foundation, Inc.
 
 <link href="index.html" rel="start" title="Top">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="tramp.html" rel="up" title="tramp">
-<link href="notice.html" rel="next" title="notice">
-<link href="what.html" rel="prev" title="what">
+<link href="graph.html" rel="up" title="graph">
+<link href="what-_00281_0029.html" rel="prev" title="what (1)">
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -50,89 +49,111 @@ ul.no-bullet {list-style: none}
 <div class="subsection" id="how-_00283_0029">
 <div class="header">
 <p>
-Next: <a href="notice.html" accesskey="n" rel="next">notice</a>, Previous: <a href="what.html" accesskey="p" rel="prev">what</a>, Up: <a href="tramp.html" accesskey="u" rel="up">tramp</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="what-_00281_0029.html" accesskey="p" rel="prev">what</a>, Up: <a href="graph.html" accesskey="u" rel="up">graph</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <hr>
-<span id="how-4"></span><h4 class="subsection">4.3.2 how</h4>
+<span id="how-4"></span><h4 class="subsection">8.4.3 how</h4>
 
 <ol>
-<li> basic
+<li> install
 
 
+<ol>
+<li> emacs install graphviz-dot-mode <br>
+</li><li> system install graphviz <br>
 <div class="example">
-<pre class="example">/method:user@host#port:path/to/file
-
-# example 1
-/ssh:clay@192.1.1.1#22:~
-
-# example 2 windows下可以使用putty作为ssh的client
-/plink:clay@192.1.1.1:~
+<pre class="example">brew install graphviz  #mac
 </pre></div>
-
-</li><li> set default method
-
-
-<div class="example">
-<pre class="example">(setq tramp-default-method &quot;plink&quot;)
-
-; 设置之后的例子
-; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
-/-:clay@192.1.1.1:~
-</pre></div>
-
-</li><li> multiple hop
-
-
-<div class="example">
-<pre class="example"># 在本机上,    通过clay用户登录到host1
-# 再在host1上, 通过admin登录到host2
-/ssh:clay@host1|ssh:admin@host2:/path
-</pre></div>
-
-</li><li> su | sudo
-
-
-<div class="example">
-<pre class="example"># 使用sudo打开远程文件
-/-:clay@192.1.1.1|sudo::/path
-
-# 使用sudo打开本地文件
-# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
-/su::local-path
-/su:user@localhost:/local-path
-/sudo:root@localhost:/local-path
-</pre></div>
-
-</li><li> use with bookmarks
-
-
-<p>tramp使用的时候 需要使用到method user host path的组合，一般较长 <br>
-</p>
-<p>我们更希望使用较短的shortcut去远程打开某个file <br>
-</p>
-<p>这里推荐的方法是bookmark. 理由: <br>
-</p><ol>
-<li> bookmark emacs内置, 而且非常方便 <br>
-</li><li> bookmark 的配置信息 可以方便git管理 <br>
 </li></ol>
 
-<p>使用方法: <br>
-</p><div class="example">
-<pre class="example"># 1.远程连接
-C-x f /ssh:clay@192.1.1.1:~
+</li><li> use
 
-# 2.添加到bookmark
-C-x C-f BOOK-NAME RET
 
-# 3.查看bookmark
-C-x C-f
+<ol>
+<li> create .dot | .org file <br>
+</li><li> write &quot;The DOT Language&quot; <br>
+</li><li> M-x graphviz-dot-preview <br>
+</li></ol>
 
-# 4.管理bookmark配置文件
-~/.emacs.d/bookmarks
+</li><li> dot language
 
-# 5.管理auth信息文件
-~/.emacs.d/authinfo
+
+<p>DOT中使用图(digraph/graph), 节点(node)和边(edge)来描述关系和流程图. <br>
+</p>
+<ol>
+<li> graph
+
+
+<ul>
+<li> 有向图 digraph <br>
+</li><li> 无向图 graph <br>
+</li><li> 子图 subgraph <br>
+<div class="example">
+<pre class="example">可以进行和“父图”类似的设置，唯一注意的是子图必须以cluster做为名称的前缀
 </pre></div>
+</li></ul>
+
+
+<p>在图的开头使用graph []对图进行设置，如：graph [bgcolor=&quot;gray&quot;]将图背景色设置为灰色。 <br>
+属性设置语句也可以不包含在graph []中而直接使用。 <br>
+</p><table>
+<thead><tr><th>属性名称</th><th>默认值</th><th>含义</th><th>备注</th></tr></thead>
+<tr><td>color</td><td>black</td><td>颜色</td><td>支持如red和#FF00000两种形式</td></tr>
+<tr><td>fontcolor</td><td>black</td><td>文本颜色</td><td></td></tr>
+<tr><td>fontsiez</td><td>14</td><td>字体大小</td><td></td></tr>
+<tr><td>label</td><td></td><td>显示的标签</td><td>对于节点, 默认为节点名称</td></tr>
+<tr><td>style</td><td></td><td>样式</td><td></td></tr>
+<tr><td>bgcolor</td><td></td><td>背景颜色</td><td></td></tr>
+<tr><td>nodesep</td><td>.25</td><td>节点间隔(英寸)</td><td></td></tr>
+<tr><td>rank</td><td></td><td>节点顺序</td><td>same, min, source, max, sink</td></tr>
+<tr><td>rankdir</td><td>TB</td><td>排序方向</td><td>TB(top-&gt;bottom)</td></tr>
+<tr><td>size</td><td></td><td>图的大小</td><td></td></tr>
+<tr><td>labelloc</td><td></td><td>调整图或子图的 标签的上下位置</td><td></td></tr>
+<tr><td>labeljust</td><td></td><td>调整图或子图的 标签的左右位置</td><td></td></tr>
+</table>
+
+</li><li> node
+
+
+<p>DOT中，节点可以不用声明直接使用，但如果需要设置节点的属性，则需声明节点并在声明处设 <br>
+置属性然后再使用。每个节点首次出现的名称做为该节点的唯一标识 <br>
+</p>
+<p>node []用于设置节点默认属性（对设置位置之后的点有效），在节点后面用[]设置单独一个点的属性。 <br>
+</p><table>
+<thead><tr><th>属性名称</th><th>默认值</th><th>含义</th><th>备注</th></tr></thead>
+<tr><td>color</td><td>black</td><td>颜色</td><td>支持如red和#FF00000两种形式</td></tr>
+<tr><td>fontcolor</td><td>black</td><td>文本颜色</td><td></td></tr>
+<tr><td>fontsiez</td><td>14</td><td>字体大小</td><td></td></tr>
+<tr><td>label</td><td></td><td>显示的标签</td><td>对于节点, 默认为节点名称</td></tr>
+<tr><td>style</td><td></td><td>样式</td><td></td></tr>
+<tr><td>shape</td><td>ellipse</td><td>节点形状</td><td></td></tr>
+<tr><td>fillcolor</td><td>lightgrey/black</td><td>节点填充颜色</td><td></td></tr>
+<tr><td>fixedsize</td><td>false</td><td>标签是否影响节点大小</td><td></td></tr>
+</table>
+
+</li><li> edge
+
+
+<p>DOT中有有向边（使用-&gt;表示）和无向边（使用&ndash;表示）两种，有向边用于有向图，无向边用于无向图，不可混用。 <br>
+</p>
+<p>和节点类似的，用edge []设置边默认属性，在边之后用[]设置单独一条边的属性。 <br>
+对于有向边，还可以设置边的起点/终点的位置（用n、e、s、w或它们的组合表示位置）。 <br>
+</p><table>
+<thead><tr><th>属性名称</th><th>默认值</th><th>含义</th><th>备注</th></tr></thead>
+<tr><td>color</td><td>black</td><td>颜色</td><td>支持如red和#FF00000两种形式</td></tr>
+<tr><td>fontcolor</td><td>black</td><td>文本颜色</td><td></td></tr>
+<tr><td>fontsiez</td><td>14</td><td>字体大小</td><td></td></tr>
+<tr><td>label</td><td></td><td>显示的标签</td><td>对于节点, 默认为节点名称</td></tr>
+<tr><td>style</td><td></td><td>样式</td><td></td></tr>
+<tr><td>arrowhead</td><td>normal</td><td>箭头头部形状</td><td></td></tr>
+<tr><td>arrowtail</td><td>normal</td><td>箭头尾部形状</td><td></td></tr>
+<tr><td>constraint</td><td>ture</td><td>是否根据边来影响节点的排序</td><td></td></tr>
+<tr><td>decorate</td><td></td><td>设置之后会用一条线来连接edge和label</td><td></td></tr>
+<tr><td>dir</td><td>forward</td><td>边的设置方向</td><td>forward,bcak,both,none</td></tr>
+<tr><td>headlabel</td><td></td><td>边的头部显示的标签</td><td></td></tr>
+<tr><td>taillabel</td><td></td><td>边的尾部显示的标签</td><td></td></tr>
+</table>
+</li></ol>
 </li></ol>
 
 </div>

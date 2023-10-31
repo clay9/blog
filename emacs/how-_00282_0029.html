@@ -19,8 +19,9 @@ Copyright (C) 2016 Free Software Foundation, Inc.
 
 <link href="index.html" rel="start" title="Top">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="elisp.html" rel="up" title="elisp">
-<link href="manual-_00281_0029.html" rel="next" title="manual (1)">
+<link href="tramp.html" rel="up" title="tramp">
+<link href="notice.html" rel="next" title="notice">
+<link href="what.html" rel="prev" title="what">
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -49,45 +50,89 @@ ul.no-bullet {list-style: none}
 <div class="subsection" id="how-_00282_0029">
 <div class="header">
 <p>
-Next: <a href="manual-_00281_0029.html" accesskey="n" rel="next">manual</a>, Up: <a href="elisp.html" accesskey="u" rel="up">elisp</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="notice.html" accesskey="n" rel="next">notice</a>, Previous: <a href="what.html" accesskey="p" rel="prev">what</a>, Up: <a href="tramp.html" accesskey="u" rel="up">tramp</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <hr>
-<span id="how-3"></span><h4 class="subsection">4.2.1 how</h4>
+<span id="how-3"></span><h4 class="subsection">8.3.2 how</h4>
 
 <ol>
-<li> 日常记录
+<li> basic
 
 
-<p>lisp没有重载一说, 直接覆盖; 因此为了方便出现了 advise 函数 <br>
+<div class="example">
+<pre class="example">/method:user@host#port:path/to/file
+
+# example 1
+/ssh:clay@192.1.1.1#22:~
+
+# example 2 windows下可以使用putty作为ssh的client
+/plink:clay@192.1.1.1:~
+</pre></div>
+
+</li><li> set default method
+
+
+<div class="example">
+<pre class="example">(setq tramp-default-method &quot;plink&quot;)
+
+; 设置之后的例子
+; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+/-:clay@192.1.1.1:~
+</pre></div>
+
+</li><li> multiple hop
+
+
+<div class="example">
+<pre class="example"># 在本机上,    通过clay用户登录到host1
+# 再在host1上, 通过admin登录到host2
+/ssh:clay@host1|ssh:admin@host2:/path
+</pre></div>
+
+</li><li> su | sudo
+
+
+<div class="example">
+<pre class="example"># 使用sudo打开远程文件
+/-:clay@192.1.1.1|sudo::/path
+
+# 使用sudo打开本地文件
+# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+/su::local-path
+/su:user@localhost:/local-path
+/sudo:root@localhost:/local-path
+</pre></div>
+
+</li><li> use with bookmarks
+
+
+<p>tramp使用的时候 需要使用到method user host path的组合，一般较长 <br>
 </p>
-</li><li> elisp 与 bash
-
-
-<ol>
-<li> bash调用elisp
-
-
-<ol>
-<li> elisp代码写入el文件(eshell script) <br>
-</li><li> bash调用emacs执行el文件 <br>
-<div class="example">
-<pre class="example"># 实际还是emacs 执行的elisp代码
-emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
-</pre></div>
+<p>我们更希望使用较短的shortcut去远程打开某个file <br>
+</p>
+<p>这里推荐的方法是bookmark. 理由: <br>
+</p><ol>
+<li> bookmark emacs内置, 而且非常方便 <br>
+</li><li> bookmark 的配置信息 可以方便git管理 <br>
 </li></ol>
 
-</li><li> elisp 调用bashe
+<p>使用方法: <br>
+</p><div class="example">
+<pre class="example"># 1.远程连接
+C-x f /ssh:clay@192.1.1.1:~
 
+# 2.添加到bookmark
+C-x C-f BOOK-NAME RET
 
-<div class="example">
-<pre class="example">(setq my-command
-(concat &quot;IFS=: read -ra dirs &lt;&lt;&lt;\&quot;$PATH\&quot;\n&quot;
-        &quot;for dir in ${dirs[@]}; do\n&quot;
-        &quot; echo got dir \&quot;$dir\&quot;\n&quot;
-        &quot;done\n&quot;))
-(shell-command (format &quot;bash -c %s&quot; (shell-quote-argument my-command)))
+# 3.查看bookmark
+C-x C-f
+
+# 4.管理bookmark配置文件
+~/.emacs.d/bookmarks
+
+# 5.管理auth信息文件
+~/.emacs.d/authinfo
 </pre></div>
-</li></ol>
 </li></ol>
 
 </div>

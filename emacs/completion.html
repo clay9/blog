@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This is a short example of a complete Texinfo file, version 1.0. 
+
+
+Copyright (C) 2016 Free Software Foundation, Inc. 
+ -->
+<title>completion (emacs)</title>
+
+<meta name="description" content="completion (emacs)">
+<meta name="keywords" content="completion (emacs)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="prog-editor.html" rel="next" title="prog editor">
+<link href="text-editor.html" rel="prev" title="text editor">
+<style type="text/css">
+<!--
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/emacs/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="chapter" id="completion">
+<div class="header">
+<p>
+Next: <a href="prog-editor.html" accesskey="n" rel="next">prog editor</a>, Previous: <a href="text-editor.html" accesskey="p" rel="prev">text editor</a>, Up: <a href="index.html" accesskey="u" rel="up">emacs</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<span id="completion-1"></span><h2 class="chapter">4 completion</h2>
+
+<p>text editor的配置使我们可以高效的编辑文本. <br>
+而completion则可以使emacs更聪明的理解我们的动作. <br>
+</p>
+<p>emacs有非常多的completion前端和后端, 也有前后端大杂烩. <br>
+没必要都了解, 选一个常用的即可. <br>
+</p>
+<p>completion流程: <br>
+complete根据我们动作提供候选者 -&gt; 前端显示候选者 -&gt; 我们选择合适的候选 <br>
+流程本身非常简单, 涉及到的package也很少, 比较复杂的是候选者的提供, 而这个不需要我们自己去做. <br>
+现在的方案 (<em>[2023-11-01 Wed]</em>): <br>
+consult提供候选, vertico &amp;&amp; corfu作为前端显示, marginalia补充候选者信息, orderless提供选择规则. <br>
+embark提供对候选者的操作. <br>
+</p>
+<p>几个package提供了功能的最小合集, 且与emacs兼容性良好. 因此不再建议使用helm等大杂烩包 <br>
+其他一些package也是在提供候选, 比如yasnippet, eglot, copilot等. 只是因为针对的场景不同, 所以暂时不再这里介绍 <br>
+</p>
+</div>
+
+
+
+</body>
+</html>
