@@ -14,6 +14,18 @@ jobs:
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
 
+      - run: |
+          sudo apt install emacs texinfo -y
+          mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
+      - run: |
+          emacs -Q --script ~/.emacs.d/script/init-for-script.el
+          rm -rf ~/emacs.d
+          mv content/posts/about.md content/
+          echo "ls content" && ls -al content
+          echo "ls content/posts" && ls -al content/posts
+          echo "ls pwd" && echo $PWD
+          echo "ls ~" && ls -al ~
+          
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
