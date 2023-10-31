@@ -19,8 +19,14 @@ jobs:
           repository: clay9/emacs.d
           path: ./emacs.d
 
+      - uses: actions/checkout@v4
+        with:
+          repository: kaushalmodi/ox-hugo
+          path: ./ox-hugo
+          
       - run: |
           sudo apt install emacs texinfo -y
+          mv ./ox-hugo ./emacs.d/site-lisp
           mv ./emacs.d ~/emacs.d && ln -s ~/emacs.d ~/.emacs.d
       - run: |
           emacs --version
