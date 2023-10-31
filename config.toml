@@ -10,12 +10,6 @@ hasCJKLanguage = true
 
 # 忽略一些构建错误
 ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
-
-# 作者配置
-# [author]
-#   name = ""
-#   email = ""
-#   link = ""
   
 # 菜单配置
 [menu]
