@@ -16,11 +16,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: clay9/emacs.d
-          path: ~/.emacs.d
+          path: emacs.d
           
       - run: |
           sudo apt install emacs -y
-      - run: |
+          mv emacs.d ~/.emacs.d
+      - run: |          
           emacs -Q --script ~/.emacs.d/script/init-for-script.el
           rm -rf ~/.emacs.d
           mv content/posts/about.md content/
