@@ -1,4 +1,4 @@
-#+TITLE: About
+#+TITLE: 简介
 #+DATE: 2021-08-28 15:01:56
 #+HUGO_CATEGORIES: 
 #+HUGO_TAGS: 
@@ -8,9 +8,9 @@
 
 * 个人简介
   - 昵称: wcq
-  - 地址: 深圳
-  - 邮箱: 377133665@qq.com
-  - 描述: Emacs重度患者
+  - 地址: 
+  - 邮箱: 
+  - 描述: Hello world!
 
 * 关于本站
   - 梳理自身知识体系

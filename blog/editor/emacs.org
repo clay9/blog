@@ -1,5 +1,9 @@
 #+TITLE: emacs
-#+AUTHOR: wcq
+#+DATE: 2023-11-10 22:54:27
+#+HUGO_CATEGORIES: editor
+#+HUGO_TAGS: gnu
+#+HUGO_DRAFT: false
+#+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 #+OPTIONS: \n:t
 
@@ -9,7 +13,6 @@
   :END:
 
   This is a short example of a complete Texinfo file, version 1.0.
-
   Copyright \copy 2016 Free Software Foundation, Inc.
 
 

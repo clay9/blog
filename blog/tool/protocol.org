@@ -5,6 +5,7 @@
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 协议太多, 不好分类, 真是乱七八糟
 #+hugo: more

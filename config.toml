@@ -34,14 +34,9 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     weight = 3
   [[menu.main]]
     identifier = ""
-    name = "Emacs"
-    url = "/emacs/index.html"
-    weight = 4
-  [[menu.main]]
-    identifier = ""
     name = "关于"
     url = "about" #对应content目录下的about.md|about.org文件
-    weight = 5
+    weight = 4
 
 [params]
   # 网站默认主题样式 ["auto", "light", "dark"]

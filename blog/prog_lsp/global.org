@@ -1,12 +1,13 @@
 #+TITLE: global
 #+DATE: 2022-11-20 19:19:31
-#+HUGO_CATEGORIES: gnu 
-#+HUGO_TAGS: 
+#+HUGO_CATEGORIES: prog_lsp
+#+HUGO_TAGS: gnu
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
 
 在project中生成TAGS文件, 方便索引
+: 建议使用lsp代替, global响应虽然快速, 但是不如lsp实时定位方便
 
 #+hugo: more
 

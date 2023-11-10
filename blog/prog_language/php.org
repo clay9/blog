@@ -1,10 +1,11 @@
 #+TITLE: php
 #+DATE: 2021-08-28 15:13:45
-#+HUGO_CATEGORIES: language
+#+HUGO_CATEGORIES: prog_language
 #+HUGO_TAGS: 
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 php && php框架
 #+hugo: more

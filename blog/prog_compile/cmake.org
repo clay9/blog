@@ -1,10 +1,11 @@
 #+TITLE: cmake
 #+DATE: 2021-10-08 13:44:11
-#+HUGO_CATEGORIES: 
-#+HUGO_TAGS:
+#+HUGO_CATEGORIES: prog_compile
+#+HUGO_TAGS: gnu
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 cmake
 

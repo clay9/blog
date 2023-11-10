@@ -1,10 +1,11 @@
 #+TITLE: linux
 #+DATE: 2021-10-18 20:30:33
-#+HUGO_CATEGORIES: system
-#+HUGO_TAGS: linux
+#+HUGO_CATEGORIES: os
+#+HUGO_TAGS:
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 linux常用命令&&工具
 

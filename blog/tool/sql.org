@@ -1,10 +1,11 @@
 #+TITLE: 数据库开发
 #+DATE: 2021-08-28 15:17:52
-#+HUGO_CATEGORIES: protocol
+#+HUGO_CATEGORIES:
 #+HUGO_TAGS: 
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 数据库开发
 #+hugo: more

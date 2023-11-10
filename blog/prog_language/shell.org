@@ -1,10 +1,11 @@
 #+TITLE: shell
 #+DATE: 2021-10-03 01:02:06
-#+HUGO_CATEGORIES: tool
+#+HUGO_CATEGORIES: prog_language
 #+HUGO_TAGS: shell
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 bash-shell
 

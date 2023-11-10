@@ -1,10 +1,11 @@
 #+TITLE: ssh
 #+DATE: 2021-08-28 15:18:15
-#+HUGO_CATEGORIES: protocol
+#+HUGO_CATEGORIES:
 #+HUGO_TAGS: 
 #+HUGO_DRAFT: false
 #+hugo_auto_set_lastmod: t
 #+OPTIONS: ^:nil
+#+OPTIONS: \n:t
 
 ssh简述
 #+hugo: more

@@ -7,6 +7,7 @@
 #+OPTIONS: ^:nil
 
 docker安装gitlab
+: 不再建议使用gitlab.  github私人仓库可以免费设置private
 
 #+hugo: more
 
