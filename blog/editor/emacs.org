@@ -1,5 +1,5 @@
 #+TITLE: emacs
-#+DATE: 2023-11-10 22:54:27
+#+DATE: 2023-11-09 22:54:27
 #+HUGO_CATEGORIES: editor
 #+HUGO_TAGS: gnu
 #+HUGO_DRAFT: false
