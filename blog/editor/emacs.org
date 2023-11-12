@@ -81,9 +81,10 @@
   合格的IDE需要有以下功能: 编辑, 编译, 调试, +发布+
 
   我常遇到的工作场景是这样的: 工程项目在本地mac, 项目运行编译环境在mac的docker容器中.
-  1. 通过lsp server连接编译环境与mac emacs. 这样在mac emacs上编辑, 也会有运行环境的信息, 方便排错与completion
-  2. 需要编译的时候, 直接remote compile, 并在mac emacs接收编译错误
-  3. 调试使用gdb的远程调试. (TODO: 待处理. 最近很少使用到调试功能了)
+  +1. 通过lsp server连接编译环境与mac emacs. 这样在mac emacs上编辑, 也会有运行环境的信息, 方便排错与completion+
+  +2. 需要编译的时候, 直接remote compile, 并在mac emacs接收编译错误+
+  +3. 调试使用gdb的远程调试. (TODO: 待处理. 最近很少使用到调试功能了)+
+  使用tramp到远端, 可以直接调用远端的环境, 比如compile, lsp(eglot, clangd), gdb(这个未测试).
 
 
   emacs内置了lsp client: eglot. 而且eglot与错误处理flymake搭配良好.
@@ -407,11 +408,11 @@
     当前主要使用的字段
     1. P_UUID
        PROEJCT item的标志, 主要影响auto refile
-    2. HIDE_WHEN_STUCK
-       PROJECT item的属性, 控制了是否在agenda中显示
-       有些PROJECT是长久开启的, 不会关闭. 比如emacs
-       当这类PROJECT没有task时, 就变成了STUCK项目. 但我们并不希望将这类PROJECT在agenda中显示.
-       所以有了HIDE_WHEN_STUCK.
+    2. +HIDE_WHEN_STUCK+
+       +PROJECT item的属性, 控制了是否在agenda中显示+
+       +有些PROJECT是长久开启的, 不会关闭. 比如emacs+
+       +当这类PROJECT没有task时, 就变成了STUCK项目. 但我们并不希望将这类PROJECT在agenda中显示.+
+       +所以有了HIDE_WHEN_STUCK.+
 
        #+BEGIN_EXAMPLE artist
          +------------+----------------+
@@ -425,6 +426,10 @@
          |            |                |
          +------------+----------------+
        #+END_EXAMPLE
+
+       暂时不再使用HIDE_WHEN_STUCK, 因为需要hide的projects只有emacs.org projects.
+       因此在org-agenda-custom-commands中单独设置org-agenda-files即可.
+       
 *** Effort的设计
     effort是自己对某个task工作量的预估, 与clock-sum-time比对, 可以很好的进行分析.
     为了方便的effort, 这里只在两处设计了提示:
@@ -465,15 +470,20 @@
 *** Agent的设计
     agent的目的有2个:
     1. 查看各种代办事项
-       今天的, 未来的, TODO的, inbox中的
+       今天的, 未来的, TODO的, inbox中的, 五年规划
     2. 统计信息
        一是以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT
        二是以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间
 
 
-    查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view 查看
+    
+    查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view, org-life-view 查看
     查看统计信息, 主要是org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体
 
+    org-next-view 显示todo|waiting items && tuck project
+    
+    org-project-view中没必要包含gtd_common中的item
+    org-archive-view中包含gtd_common中的TODO, PROJECT items    
 
     快捷键主要是为了方便.比如
     - 空格滚动各种view
