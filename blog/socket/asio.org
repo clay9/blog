@@ -1,0 +1,22 @@
+#+TITLE: 
+#+DATE: 2023-12-15 22:04:48
+#+HUGO_CATEGORIES: 
+#+HUGO_TAGS: 
+#+HUGO_DRAFT: true
+#+hugo_auto_set_lastmod: t
+#+OPTIONS: ^:nil
+#+OPTIONS: \n:t
+
+
+
+#+hugo: more
+
+* 参考文档
+  https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/
+  http://blog.jqian.net/post/boost-asio.html
+  https://www.limerence2017.com/2023/06/07/asio20/
+* 功能
+  
+* 安装
+* 配置
+* 使用
