@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,9 +30,6 @@ jobs:
           rm -rf ~/.emacs.d
           mv content/posts/about.md content/
           echo "ls content" && ls -al content
-          echo "ls content/posts" && ls -al content/posts
-          echo "ls pwd" && echo $PWD
-          echo "ls ~" && ls -al ~
           
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
