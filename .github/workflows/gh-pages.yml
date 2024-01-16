@@ -3,7 +3,7 @@ name: github pages
 on:
   push:
     branches:
-      - master  # Set a branch to deploy
+      - master
 
 jobs:
   deploy:
@@ -29,7 +29,8 @@ jobs:
           emacs -Q --script ~/.emacs.d/script/init-for-script.el
           rm -rf ~/.emacs.d
           mv content/posts/about.md content/
-          echo "ls content" && ls -al content
+      - run: |          
+          echo "ls -alR content" && ls -alR content
           
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -38,7 +39,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: hugo --minify --buildFuture
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
