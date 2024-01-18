@@ -14,8 +14,6 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
           
       - uses: actions/checkout@v4
         with:
@@ -25,10 +23,9 @@ jobs:
       - run: |
           sudo apt install emacs -y
           mv emacs.d ~/.emacs.d
-      - run: |          
+      - run: |
           emacs -Q --script ~/.emacs.d/script/init-for-script.el
           rm -rf ~/.emacs.d
-          mv content/posts/about.md content/
       - run: |          
           echo "ls -alR content" && ls -alR content
           
@@ -40,7 +37,7 @@ jobs:
 
       - name: Build
         run: hugo --minify --buildFuture
-
+        
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'

@@ -1,17 +1,15 @@
-#+TITLE: make
-#+DATE: 2021-09-23 22:27:35
-#+HUGO_CATEGORIES: prog_compile
-#+HUGO_TAGS: gnu
-#+HUGO_DRAFT: false
+#+title: make
+#+date: 2024-01-18 19:02:51
+#+hugo_section: docs
+#+hugo_bundle: prog_compile
+#+export_file_name: make
+#+hugo_weight: 5
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 make记录
 
 #+hugo: more
-
-
 * 常用
   make
   make clean
@@ -26,7 +24,6 @@ make记录
   : 生成发布软件包并对其进行测试检查，以确定发布包的正确性
   : 这个操作将自动把压缩包文件解开，然后执行configure命令，并且执行make，来确认编译不出现错误
   : 最后提示你软件包已经准备好，可以发布了
-
 
 * make
   1. -j num  同时启动多少个jobs一起编译, 一般为系统内核数的2倍

@@ -1,14 +1,14 @@
-#+TITLE: 静态库 && 动态库
-#+DATE: 2021-08-28 15:15:13
-#+HUGO_CATEGORIES: os
-#+HUGO_TAGS: 
-#+HUGO_DRAFT: false
+#+title: 静态库 && 动态库
+#+date: 2024-01-18 18:55:57
+#+hugo_section: docs
+#+hugo_bundle: os
+#+export_file_name: dll
+#+hugo_weight: 10
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 linux下静态库 && 动态库
-#+hugo: more
+
 * 差异区别
   1. 编译连接静态库时, 会copy一份静态库镜像到目标文件;
      编译连接动态库时, 不会copy
@@ -48,9 +48,7 @@ linux下静态库 && 动态库
         : RTLD_NOW表示马上检查是否存在未定义的函数，若存在，则dlopen以失败告终。
 
 
-  
 * 动态库再认知
-
 ** 结论
    动态库允许延迟定义,
    但是在连接为可执行文件时, 所有动态库的声明必须有定义

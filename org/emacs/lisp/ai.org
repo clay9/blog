@@ -1,0 +1,36 @@
+#+title: AI
+#+date: 2024-01-18 18:44:16
+#+hugo_section: docs
+#+hugo_bundle: emacs/lisp
+#+export_file_name: ai
+#+hugo_weight: 7
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+* 简述
+  之前的IDE大多是基于语法的分析, AI代码助手提供了基于自然语义的分析.
+  效果非常的惊艳, 能更好的帮助编写文档与程序
+
+  当下流行的(2023-6)主要有:
+  Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium
+  具体可以参考 [[https://codeium.com/blog/code-assistant-comparison-copilot-tabnine-ghostwriter-codeium][测评文章]]
+
+  基于以下原因, 暂时使用了github copilot:
+  1. 配置方便, emacs使用体验良好
+
+* github copilot
+** 使用
+   github copilot 没有emacs的官方插件, 使用的是第三方package [[https://github.com/zerolfx/copilot.el][copilot]].
+   安装与配置均比较简单, 可以参考copilot官方文档
+   : 其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
+
+   #+BEGIN_SRC lisp
+     ;;国内可能无法访问github copilot, 可以配置一下代理
+     (setq copilot-network-proxy '(:host "127.0.0.1" :port "10887"))
+   #+END_SRC
+** 快捷键配置
+   copilot 与company-mode的一些快捷键容易冲突, 可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el][init-local-shortkey.el]]
+** 使用体验
+   1. github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验
+
+

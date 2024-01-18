@@ -1,10 +1,11 @@
-#+TITLE: docker
-#+DATE: 2021-08-28 15:19:45
-#+HUGO_CATEGORIES: tool
-#+HUGO_TAGS: docker
-#+HUGO_DRAFT: false
+#+title: docker
+#+date: 2024-01-18 19:15:46
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: docker
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
 
 docker容器
 

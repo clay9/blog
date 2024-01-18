@@ -1,0 +1,31 @@
+#+title: elisp
+#+date: 2024-01-18 18:34:47
+#+hugo_section: docs
+#+hugo_bundle: emacs/lisp
+#+export_file_name: elisp
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+参考文档
+1. [[http://smacs.github.io/elisp/02-elisp-basic.html][水木社区Emacs版]]
+2. [[https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp][lisp的本质]]
+* 语法
+  1. lisp没有重载一说, 直接覆盖; 因此为了方便出现了 advise 函数
+* elisp && shell
+** bash调用elisp
+   1. elisp代码写入el文件(eshell script)
+   2. bash调用emacs执行el文件
+      #+BEGIN_EXAMPLE shell
+      # 实际还是emacs 执行的elisp代码
+      emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
+      #+END_EXAMPLE
+** elisp 调用bashe
+   #+BEGIN_EXAMPLE elisp
+   (setq my-command
+   (concat "IFS=: read -ra dirs <<<\"$PATH\"\n"
+           "for dir in ${dirs[@]}; do\n"
+           " echo got dir \"$dir\"\n"
+           "done\n"))
+   (shell-command (format "bash -c %s" (shell-quote-argument my-command)))
+   #+END_EXAMPLE

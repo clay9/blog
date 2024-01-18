@@ -1,10 +1,11 @@
-#+TITLE: monitor
-#+DATE: 2021-10-28 23:03:18
-#+HUGO_CATEGORIES: tool
-#+HUGO_TAGS: influxdb cadvisor grafana
-#+HUGO_DRAFT: false
+#+title: monitor
+#+date: 2024-01-18 19:18:43
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: monitor
+#+hugo_weight: 3
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
 
 cadvisor, influxdb, grafana 组成的监控系统
 

@@ -1,10 +1,11 @@
-#+TITLE: k8s
-#+DATE: 2021-11-08 10:43:52
-#+HUGO_CATEGORIES: tool
-#+HUGO_TAGS: k8s
-#+HUGO_DRAFT: false
+#+title: k8s
+#+date: 2024-01-18 19:18:28
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: k8s
+#+hugo_weight: 2
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
 
 kubernetes, 简称k8s
 

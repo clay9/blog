@@ -1,21 +1,19 @@
-#+TITLE: cmake
-#+DATE: 2021-10-08 13:44:11
-#+HUGO_CATEGORIES: prog_compile
-#+HUGO_TAGS: gnu
-#+HUGO_DRAFT: false
+#+title: cmake
+#+date: 2024-01-18 19:03:10
+#+hugo_section: docs
+#+hugo_bundle: prog_compile
+#+export_file_name: cmake
+#+hugo_weight: 6
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 cmake
 
 #+hugo: more
-
 * 参数
   -S path_to_source
   -B path_to_build
   -G generator-name
-
 
 * F&Q
   1. err:

@@ -1,11 +1,11 @@
-#+TITLE: 数据库开发
-#+DATE: 2021-08-28 15:17:52
-#+HUGO_CATEGORIES:
-#+HUGO_TAGS: 
-#+HUGO_DRAFT: false
+#+title: 数据库
+#+date: 2024-01-18 19:19:56
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: sql
+#+hugo_weight: 12
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 数据库开发
 #+hugo: more

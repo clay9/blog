@@ -1,11 +1,11 @@
-#+TITLE: git
-#+DATE: 2021-08-28 15:12:12
-#+HUGO_CATEGORIES: prog_vc
-#+HUGO_TAGS: gnu
-#+HUGO_DRAFT: false
+#+title: git
+#+date: 2024-01-18 19:11:34
+#+hugo_section: docs
+#+hugo_bundle: prog_vc
+#+export_file_name: git
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 git简易指导, 个人使用心得
 

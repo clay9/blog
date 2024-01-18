@@ -1,10 +1,11 @@
-#+TITLE: redis
-#+DATE: 2021-12-20 09:40:38
-#+HUGO_CATEGORIES: tool
-#+HUGO_TAGS: redis
-#+HUGO_DRAFT: false
+#+title: redis
+#+date: 2024-01-18 19:19:31
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: redis
+#+hugo_weight: 11
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
 
 redis学习记录
 

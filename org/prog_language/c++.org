@@ -1,11 +1,11 @@
-#+TITLE: c++历史
-#+DATE: 2023-04-12 20:04:50
-#+HUGO_CATEGORIES: prog_language
-#+HUGO_TAGS:
-#+HUGO_DRAFT: false
+#+title: c++历史
+#+date: 2024-01-18 19:06:11
+#+hugo_section: docs
+#+hugo_bundle: prog_language
+#+export_file_name: c++
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 通过C++历史, 更好的了解C++特性
 

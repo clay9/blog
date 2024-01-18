@@ -1,0 +1,67 @@
+#+title: mail
+#+date: 2024-01-18 18:40:55
+#+hugo_section: docs
+#+hugo_bundle: emacs/lisp
+#+export_file_name: mail
+#+hugo_weight: 5
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+不建议使用, 没啥意义
+
+* 简述
+  emacs 流行的email client 有mu4e, notmuch, gnus等
+  因为对email不是刚需, 只是轻度使用, 所以这里选了内置对gnus. 理由如下:
+  1. emacs 内置
+  2. 顺便尝试 newsgroup
+  3. 轻度使用email
+     : 反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
+
+     
+  gnus的缺点:
+  1. 配置复杂, 花了24h才看完官方文档. 发现实际用到的也就5% ?
+  2. gnus是单线程, 所以如果网络不好, 非常容易把emacs卡住, 比如访问gmail
+
+* 基本概念
+  gnus概念划分比较友好, server, group, summary, article
+  各司其职, 又互相联系, 比较方便, 具体可以参考官方文档
+
+* 操作流程
+  1. 设置server
+  2. subscribe group
+  3. enter group. show summary
+  4. read article
+
+* group level
+  group在gnus中是比较重要的概念. 而group level 可以更好的理解group
+
+  官方描述中:
+  subscribe  : 1 - guns-level-subscribed (5)
+  unsubscribe: gnus-level-unsubscribed (7)
+  zommbie: 8
+  killed: 9
+  : level越高越不重要
+
+  可以发现killed group有最高的level, 而unsubscribe level 和 subscribe level实际在gnus中处理差异不大.
+  所以如果不想看到某个组, 直接kill.
+  因为Gnus 不会向server询问zoomibe && killed group的数据
+
+  gnus-group-list-group 显示 unread subscribe
+  gnus-group-list-all-group 显示 subscribe && unsubscribe
+
+* mail
+  mail 在gnus中是一种特殊的group. 特殊在哪...TODO 待补充
+  mail的设置非常简单, 因为我的需求只是阅读邮件, 所以使用了nnimap作为backend.
+  实际上gnus支持的mail back非常的多, 功能也非常强大
+
+** gmail 或者 国外的mail
+   不建议使用国外mail, 网络不好会卡住emacs
+   如果一定要用, 推荐使用代理. 代理可以在emacs中配置, 也可以在代理软件中配置.
+   比如gmail:
+   imap.gmail.com:993
+   smtp.gmail.com:587
+
+   : 下面的为个人猜测, 未验证
+   如果设置了代理, 还是无法连接, 有可能是短时间连接次数过多, 被gamil服务器暂时拦截了
+   等一段时间再试即可
+

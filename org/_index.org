@@ -1,0 +1,16 @@
+#+title: 简介
+#+date: 2024-01-18 18:00:06
+#+hugo_section: .
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_front_matter_format: yaml
+#+hugo_custom_front_matter: :type docs
+
+
+* 个人简介
+  - 昵称: wcq
+  - 描述: Hello world!
+
+* 关于本站
+  - 梳理自身知识体系
+  - 分享

@@ -1,38 +1,34 @@
-#+TITLE: gcc
-#+DATE: 2021-08-28 00:53:01
-#+HUGO_CATEGORIES: prog_compile
-#+HUGO_TAGS: gnu
-#+HUGO_DRAFT: false
+#+title: gcc
+#+date: 2024-01-18 19:03:32
+#+hugo_section: docs
+#+hugo_bundle: prog_compile
+#+export_file_name: gcc
+#+hugo_weight: 10
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 gcc
 
 #+hugo: more
 
-* 安装
-* 配置
-** gcc
-    1. 查看搜索路径
-       g++ | gcc -print-serach-dirs (可通过--help查看)
-    2. 头文件搜索路径
-       gcc  C_INCLUDE_PATH
-       g++  CPLUS_INCLUDE_PATH
 
-       ep: export CPLUS_INCLUDE_PATH=/usr/lib/
-       _扩展1_
-       1) 输出 echo $C_INCLUDE_PATH
-       2) 调用 $C_INCLUDE_PATH
-       3) 赋值 export C_INCLUDE_PATH
-       4) 删除变量 unset C_INCLUDE_PATH
-       5) C++调用 string strValue(getenv("C_INCLUDE_PATH")
-    3. 库文件搜索路径
-       1) LIBRARY_PATH
-	  gcc编译时候需要
+* gcc
+   1. 查看搜索路径
+      g++ | gcc -print-serach-dirs (可通过--help查看)
+   2. 头文件搜索路径
+      gcc  C_INCLUDE_PATH
+      g++  CPLUS_INCLUDE_PATH
+
+      ep: export CPLUS_INCLUDE_PATH=/usr/lib/
+      _扩展1_
+      1) 输出 echo $C_INCLUDE_PATH
+      2) 调用 $C_INCLUDE_PATH
+      3) 赋值 export C_INCLUDE_PATH
+      4) 删除变量 unset C_INCLUDE_PATH
+      5) C++调用 string strValue(getenv("C_INCLUDE_PATH")
+   3. 库文件搜索路径
+      1) LIBRARY_PATH
+	 gcc编译时候需要
           
-       2) LD_LIBRARY_PATH
-	  程序运行时候需要
-	  
-* 使用
-  
+      2) LD_LIBRARY_PATH
+	 程序运行时候需要

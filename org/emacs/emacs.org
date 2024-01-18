@@ -1,0 +1,98 @@
+#+title: emacs
+#+date: 2023-11-09 22:54:27
+#+hugo_section: docs
+#+hugo_bundle: emacs
+#+export_file_name: emacs
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+* 简述
+** emacs是什么
+  1. emacs最原始,最纯粹的功能: text editor
+  2. 也可以作为优秀的 prog editor
+  3. 一款不错的文本gtd软件
+  4. 集成了简单好用的tramp, eshell, graph等软件
+  5. 优秀的扩展性和自定义
+
+  综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务.
+  同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本
+  
+** 日常使用功能
+   | 具体事务                               | 所用emacs功能    |
+   |----------------------------------------+------------------|
+   | 文本编辑                               |                  |
+   |----------------------------------------+------------------|
+   | 代码编写, c++, elisp, shell, docker... |                  |
+   |----------------------------------------+------------------|
+   | gtd                                    | org-agenda-mode  |
+   |----------------------------------------+------------------|
+   | blog                                   | org-mode && hugo |
+   |----------------------------------------+------------------|
+   | 其他杂项                               |                  |
+   |----------------------------------------+------------------|
+
+
+* emacs-程序
+  emacs作为程序最基本的配置.
+  比如frame, window, mode-line的显示与控制等. 
+
+* text editor
+  文本编辑器是emacs最原始, 最纯粹, 最重要的功能.
+  大部分配置都是在处理该项, 使其更符合个人习惯.
+  配置繁琐, 但不复杂
+  
+** show
+   text editor最基本的配置, 文本在buffer中显示的样子.
+   比如行号, break-line, column indicator等
+   
+** move-and-kill
+   即是text editor, 也是emacs最基础的操作.
+   delete, kill, yank, select. 这是emacs中最基础的操作
+** hide-show
+   hide, show 方便控制sexp的显示隐藏
+* completion
+  text editor的配置使我们可以高效的编辑文本.
+  而completion则可以使emacs更聪明的理解我们的动作.
+
+  emacs有非常多的completion前端和后端, 也有前后端大杂烩.
+  没必要都了解, 选一个常用的即可.
+
+  completion流程:
+  complete根据我们动作提供候选者 -> 前端显示候选者 -> 我们选择合适的候选
+  流程本身非常简单, 涉及到的package也很少, 比较复杂的是候选者的提供, 而这个不需要我们自己去做.
+  现在的方案 ([2023-11-01 Wed]):
+  consult提供候选, vertico && corfu作为前端显示, marginalia补充候选者信息, orderless提供选择规则.
+  embark提供对候选者的操作.
+
+  几个package提供了功能的最小合集, 且与emacs兼容性良好. 因此不再建议使用helm等大杂烩包
+  其他一些package也是在提供候选, 比如yasnippet, eglot, copilot等. 只是因为针对的场景不同, 所以暂时不再这里介绍
+* prog editor
+  emacs可以配置为优秀的IDE. 而且因为定制性强, 配置的IDE更能符合个人的工作流程.
+  合格的IDE需要有以下功能: 编辑, 编译, 调试, +发布+
+
+  我常遇到的工作场景是这样的: 工程项目在本地mac, 项目运行编译环境在mac的docker容器中.
+  +1. 通过lsp server连接编译环境与mac emacs. 这样在mac emacs上编辑, 也会有运行环境的信息, 方便排错与completion+
+  +2. 需要编译的时候, 直接remote compile, 并在mac emacs接收编译错误+
+  +3. 调试使用gdb的远程调试. (TODO: 待处理. 最近很少使用到调试功能了)+
+  使用tramp到远端, 可以直接调用远端的环境, 比如compile, lsp(eglot, clangd), gdb(这个未测试).
+
+
+  emacs内置了lsp client: eglot. 而且eglot与错误处理flymake搭配良好.
+  eglot可以把lsp server中的错误信息给到flymake, completion信息给到corfu(实际是给到emacs completion通用接口), symbol信息给到xerf
+
+  emacs本身有对local compile的支持, 可以使用ppcompile来增加到对remote compile的处理
+
+  实际上, 对于我的工作场景, emacs有不止一种处理手段, 比如可以直接tramp到docker project来处理. 因此选择适合的就行.
+  
+
+* 键位设置
+  原则
+  1. 尽量保留默认常用快捷键
+  2. 不同mode, 尽量使用相似的快捷键
+
+     
+  思路
+  1. 通用快捷键(比如search等与mode无关的)或者是所有mode都会使用的统一放到C-s中
+  2. mode自身的快捷键, 放到C-j中
+  3. 项目相关的快捷键, 放到C-d中

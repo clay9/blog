@@ -1,14 +1,11 @@
-#+TITLE: gdb
-#+DATE: 2021-08-28 15:11:41
-#+HUGO_CATEGORIES: prog_debug
-#+HUGO_TAGS: gnu
-#+HUGO_DRAFT: false
+#+title: gdb
+#+date: 2024-01-18 19:05:06
+#+hugo_section: docs
+#+hugo_bundle: prog_debug
+#+export_file_name: gdb
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
-
-gdb学习
-#+hugo: more
 
 * 附加命令
   1. attach thread_id 附加到进程

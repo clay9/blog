@@ -1,15 +1,14 @@
-#+TITLE: linux
-#+DATE: 2021-10-18 20:30:33
-#+HUGO_CATEGORIES: os
-#+HUGO_TAGS:
-#+HUGO_DRAFT: false
+#+title: linux
+#+date: 2024-01-18 18:56:48
+#+hugo_section: docs
+#+hugo_bundle: os
+#+export_file_name: linux
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
+#+hugo_custom_front_matter: :bookCollapseSection true
 
 linux常用命令&&工具
-
-#+hugo: more
 
 * 查看系统信息
 ** cpu

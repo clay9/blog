@@ -1,10 +1,11 @@
-#+TITLE: valgrind
-#+DATE: 2021-08-28 15:21:21
-#+HUGO_CATEGORIES: prog_debug
-#+HUGO_TAGS:
-#+HUGO_DRAFT: false
+#+title: valgrind
+#+date: 2024-01-18 19:05:20
+#+hugo_section: docs
+#+hugo_bundle: prog_debug
+#+export_file_name: valgrind
+#+hugo_weight: 2
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
 
 程序检测工具
 #+hugo: more

@@ -1,21 +1,16 @@
-#+TITLE: shell
-#+DATE: 2021-10-03 01:02:06
-#+HUGO_CATEGORIES: prog_language
-#+HUGO_TAGS: shell
-#+HUGO_DRAFT: false
+#+title: shell
+#+date: 2024-01-18 19:09:26
+#+hugo_section: docs
+#+hugo_bundle: prog_language
+#+export_file_name: shell
+#+hugo_weight: 5
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
-bash-shell
+shell 记录
 
 #+hugo: more
 
-* 功能
-  
-* 安装
-* 配置
-* 使用
 * 记录
      1. exit 与 return
 	return 退出函数; 在非函数地方, 无效

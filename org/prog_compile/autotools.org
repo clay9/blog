@@ -1,11 +1,11 @@
-#+TITLE: autotools个人心得
-#+DATE: 2021-08-28 00:53:01
-#+HUGO_CATEGORIES: prog_compile
-#+HUGO_TAGS: gnu
-#+HUGO_DRAFT: false
+#+title: autotools
+#+date: 2024-01-18 19:02:24
+#+hugo_section: docs
+#+hugo_bundle: prog_compile
+#+export_file_name: autotools
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:t
 
 初学autotools
 #+hugo: more

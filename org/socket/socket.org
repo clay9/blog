@@ -1,11 +1,11 @@
-#+TITLE: socket
-#+DATE: 2021-08-28 15:17:19
-#+HUGO_CATEGORIES: socket
-#+HUGO_TAGS: 
-#+HUGO_DRAFT: false
+#+title: socket base
+#+date: 2024-01-18 19:13:58
+#+hugo_section: docs
+#+hugo_bundle: socket
+#+export_file_name: socket
+#+hugo_weight: 1
+#+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+OPTIONS: ^:nil
-#+OPTIONS: \n:tf
 
 socket相关网络编程
 #+hugo: more
