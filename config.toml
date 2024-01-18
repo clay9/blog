@@ -6,6 +6,7 @@ hardWraps = true
 unsafe = true
 
 [markup.highlight]
+codeFences = false
 style = 'emacs'
 
 [module]
