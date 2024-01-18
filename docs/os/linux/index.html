@@ -1,0 +1,181 @@
+<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="linux常用命令&&工具 查看系统信息 # cpu # cat /proc/cpuinfo| grep &ldquo;physical id&rdquo;| sort| uniq| wc -l cat /proc/cpuinfo| grep &ldquo;cpu cores&rdquo;| uniq cat /proc/cpuinfo| grep &ldquo;processor&rdquo;| wc -l cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c 查看库 (动态库, 静态库)的封装信息 # readelf nm objdump fd # 查询 # 所有进程允许打开的最大fd数量。查询语句： /proc/sys/fs/file-max 所有进程已经打开的fd数量及允许的最大数量。查询语句： /proc/sys/fs/file-nr 单个进程允许打开的最大fd数量.查询语句： ulimit -n 单个进程（例如进程id为5454）已经打开的fd.查询语句： ls -l /proc/5454/fd/ 设置 # 单个进程允许打开的最大fd数量 # 用户单进程最大; 仅当前sesstion生效 # ulimit -n 实际是 ulimit -Sn (Soft软件) # H硬件是 ulimit -Hn ulimit -n xx # 用户单进程S(软件)最大 -- 需要重新登录生效 echo '* soft nofile 1048576' >> /etc/security/limits."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:title" content="linux"><meta property="og:description" content="linux常用命令&&工具 查看系统信息 # cpu # cat /proc/cpuinfo| grep &ldquo;physical id&rdquo;| sort| uniq| wc -l cat /proc/cpuinfo| grep &ldquo;cpu cores&rdquo;| uniq cat /proc/cpuinfo| grep &ldquo;processor&rdquo;| wc -l cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c 查看库 (动态库, 静态库)的封装信息 # readelf nm objdump fd # 查询 # 所有进程允许打开的最大fd数量。查询语句： /proc/sys/fs/file-max 所有进程已经打开的fd数量及允许的最大数量。查询语句： /proc/sys/fs/file-nr 单个进程允许打开的最大fd数量.查询语句： ulimit -n 单个进程（例如进程id为5454）已经打开的fd.查询语句： ls -l /proc/5454/fd/ 设置 # 单个进程允许打开的最大fd数量 # 用户单进程最大; 仅当前sesstion生效 # ulimit -n 实际是 ulimit -Sn (Soft软件) # H硬件是 ulimit -Hn ulimit -n xx # 用户单进程S(软件)最大 -- 需要重新登录生效 echo '* soft nofile 1048576' >> /etc/security/limits."><meta property="og:type" content="article"><meta property="og:url" content="https://www.wcq.life/docs/os/linux/"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-01-18T18:56:00+00:00"><meta property="article:modified_time" content="2024-01-18T11:35:23+00:00"><title>linux | 飘</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script><script defer src=/en.search.min.4e5c732c5da2f2860ddb3871b5ec7afcb8c7a6418d50f27a8f34fff8864557f3.js integrity="sha256-TlxzLF2i8oYN2zhxtex6/LjHpkGNUPJ6jzT/+IZFV/M=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>飘</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-708f0dc81b7f5419c74b48a85bd8146c class=toggle checked>
+<label for=section-708f0dc81b7f5419c74b48a85bd8146c class="flex justify-between"><a role=button>os</a></label><ul><li><input type=checkbox id=section-79330aa2b633081416a3292066b69060 class=toggle checked>
+<label for=section-79330aa2b633081416a3292066b69060 class="flex justify-between"><a href=/docs/os/linux/ class=active>linux</a></label></li><li><input type=checkbox id=section-bc761361f475fd69bbc73d5bf460a7c6 class=toggle>
+<label for=section-bc761361f475fd69bbc73d5bf460a7c6 class="flex justify-between"><a href=/docs/os/mac/>mac</a></label></li><li><a href=/docs/os/dll/>静态库 && 动态库</a></li></ul></li><li><input type=checkbox id=section-26e54d0210cc81265d821ec3190ad630 class=toggle>
+<label for=section-26e54d0210cc81265d821ec3190ad630 class="flex justify-between"><a role=button>emacs</a></label><ul><li><a href=/docs/emacs/emacs/>emacs</a></li><li><input type=checkbox id=section-a2752377452f4bca58ff853486780e25 class=toggle>
+<label for=section-a2752377452f4bca58ff853486780e25 class="flex justify-between"><a role=button>org && gtd</a></label><ul><li><a href=/docs/emacs/org/org/>org</a></li><li><a href=/docs/emacs/org/gtd/>gtd</a></li><li><a href=/docs/emacs/org/org_gtd/>org && gtd</a></li></ul></li><li><input type=checkbox id=section-b057268f183bbbd8fd2b51c0f08a3d89 class=toggle>
+<label for=section-b057268f183bbbd8fd2b51c0f08a3d89 class="flex justify-between"><a role=button>常用扩展</a></label><ul><li><a href=/docs/emacs/lisp/eshell/>eshell</a></li><li><a href=/docs/emacs/lisp/elisp/>elisp</a></li><li><a href=/docs/emacs/lisp/tramp/>tramp</a></li><li><a href=/docs/emacs/lisp/graph/>artist && plantuml</a></li><li><a href=/docs/emacs/lisp/mail/>mail</a></li><li><a href=/docs/emacs/lisp/gdb/>gdb && gud</a></li><li><a href=/docs/emacs/lisp/ai/>AI</a></li></ul></li></ul></li><li><input type=checkbox id=section-42c81085db59b939687e384dc1a68b89 class=toggle>
+<label for=section-42c81085db59b939687e384dc1a68b89 class="flex justify-between"><a role=button>socket</a></label><ul><li><a href=/docs/socket/socket/>socket base</a></li><li><a href=/docs/socket/asio/>asio</a></li></ul></li><li><input type=checkbox id=section-67300b3ac7f08e26e6051c28bff48862 class=toggle>
+<label for=section-67300b3ac7f08e26e6051c28bff48862 class="flex justify-between"><a role=button>prog language</a></label><ul><li><a href=/docs/prog_language/c++/>c++历史</a></li><li><input type=checkbox id=section-8ed743bf8ec9fea857c815b046c50755 class=toggle>
+<label for=section-8ed743bf8ec9fea857c815b046c50755 class="flex justify-between"><a href=/docs/prog_language/stl/>C && C++ 常见库</a></label></li><li><a href=/docs/prog_language/shell/>shell</a></li></ul></li><li><input type=checkbox id=section-dcb54a6e72bd2dde7f84b9f427340e6a class=toggle>
+<label for=section-dcb54a6e72bd2dde7f84b9f427340e6a class="flex justify-between"><a role=button>prog lsp</a></label><ul><li><a href=/docs/prog_lsp/global/>global</a></li></ul></li><li><input type=checkbox id=section-f5995d6b6281914977a4b415fe409237 class=toggle>
+<label for=section-f5995d6b6281914977a4b415fe409237 class="flex justify-between"><a role=button>prog compile</a></label><ul><li><a href=/docs/prog_compile/autotools/>autotools</a></li><li><a href=/docs/prog_compile/make/>make</a></li><li><a href=/docs/prog_compile/cmake/>cmake</a></li><li><a href=/docs/prog_compile/gcc/>gcc</a></li></ul></li><li><input type=checkbox id=section-0a19098373105935c99097cc21a739f2 class=toggle>
+<label for=section-0a19098373105935c99097cc21a739f2 class="flex justify-between"><a role=button>debug</a></label><ul><li><a href=/docs/prog_debug/gdb/>gdb</a></li><li><a href=/docs/prog_debug/valgrind/>valgrind</a></li></ul></li><li><input type=checkbox id=section-eda0a8fcd7e426fd95136363a63238ac class=toggle>
+<label for=section-eda0a8fcd7e426fd95136363a63238ac class="flex justify-between"><a role=button>tools</a></label><ul><li><a href=/docs/tool/docker/>docker</a></li><li><a href=/docs/tool/k8s/>k8s</a></li><li><a href=/docs/tool/monitor/>monitor</a></li><li><a href=/docs/tool/hugo/>hugo</a></li><li><a href=/docs/tool/redis/>redis</a></li><li><a href=/docs/tool/sql/>数据库</a></li><li><a href=/docs/tool/protocol/>乱七八糟的协议合集</a></li></ul></li><li><input type=checkbox id=section-ae64cb93934d0a7c04532d36100c8658 class=toggle>
+<label for=section-ae64cb93934d0a7c04532d36100c8658 class="flex justify-between"><a role=button>prog vc</a></label><ul><li><a href=/docs/prog_vc/git/>git</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>linux</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a><ul><li><a href=#cpu>cpu</a></li><li><a href=#查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</a></li><li><a href=#fd>fd</a></li><li><a href=#socket>socket</a></li></ul></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><p>linux常用命令&&工具<br></p><h2 id=查看系统信息>查看系统信息
+<a class=anchor href=#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e4%bf%a1%e6%81%af>#</a></h2><h3 id=cpu>cpu
+<a class=anchor href=#cpu>#</a></h3><p>cat /proc/cpuinfo| grep &ldquo;physical id&rdquo;| sort| uniq| wc -l<br></p><p>cat /proc/cpuinfo| grep &ldquo;cpu cores&rdquo;| uniq<br></p><p>cat /proc/cpuinfo| grep &ldquo;processor&rdquo;| wc -l<br></p><p>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c<br></p><h3 id=查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息
+<a class=anchor href=#%e6%9f%a5%e7%9c%8b%e5%ba%93--%e5%8a%a8%e6%80%81%e5%ba%93-%e9%9d%99%e6%80%81%e5%ba%93--%e7%9a%84%e5%b0%81%e8%a3%85%e4%bf%a1%e6%81%af>#</a></h3><p>readelf<br><br>nm<br><br>objdump<br></p><h3 id=fd>fd
+<a class=anchor href=#fd>#</a></h3><h4 id=查询>查询
+<a class=anchor href=#%e6%9f%a5%e8%af%a2>#</a></h4><ol><li>所有进程允许打开的最大fd数量。查询语句：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>/proc/sys/fs/file-max
+</span></span></code></pre></div></li><li>所有进程已经打开的fd数量及允许的最大数量。查询语句：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>/proc/sys/fs/file-nr
+</span></span></code></pre></div></li><li>单个进程允许打开的最大fd数量.查询语句：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>ulimit -n
+</span></span></code></pre></div></li><li>单个进程（例如进程id为5454）已经打开的fd.查询语句：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>ls -l /proc/5454/fd/
+</span></span></code></pre></div></li></ol><h4 id=设置>设置
+<a class=anchor href=#%e8%ae%be%e7%bd%ae>#</a></h4><ol><li>单个进程允许打开的最大fd数量<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># 用户单进程最大; 仅当前sesstion生效
+</span></span><span style=display:flex><span># ulimit -n 实际是 ulimit -Sn (Soft软件)
+</span></span><span style=display:flex><span>#          H硬件是 ulimit -Hn
+</span></span><span style=display:flex><span>ulimit -n xx 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 用户单进程S(软件)最大 -- 需要重新登录生效
+</span></span><span style=display:flex><span>echo &#39;* soft nofile 1048576&#39; &gt;&gt; /etc/security/limits.conf
+</span></span><span style=display:flex><span># 用户单进程H(硬件)最大 -- 需要重新登录生效
+</span></span><span style=display:flex><span># 该值一定不能大于fs.nr_open, 否则注销后将无法正常登录!!!
+</span></span><span style=display:flex><span>echo &#39;* hard nofile 1048576&#39; &gt;&gt; /etc/security/limits.conf 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 重点!!! 以上3个的配置数都受限于fs.nr_open -- 调用sysctl -p生效
+</span></span><span style=display:flex><span>sysctl -w fs.nr_open=xxx
+</span></span></code></pre></div></li></ol><h3 id=socket>socket
+<a class=anchor href=#socket>#</a></h3><p>命令: ss<br><br>socket Statistics &ndash; socket统计信息<br><br>比netstat 更快<br></p><h2 id=必备命令--软件>必备命令(软件)
+<a class=anchor href=#%e5%bf%85%e5%a4%87%e5%91%bd%e4%bb%a4--%e8%bd%af%e4%bb%b6>#</a></h2><h3 id=top>top
+<a class=anchor href=#top>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># top      当前系统时间; 启动了3小时45分钟; user同时在线的用户; load average服务器1min, 5min, 15min的负载情况
+</span></span><span style=display:flex><span>#          load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。
+</span></span><span style=display:flex><span>#                      如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了
+</span></span><span style=display:flex><span># Tasks    总共开启了27个进程, 1个在run, 26个sleep, 0stoped, 0僵尸进程zombie
+</span></span><span style=display:flex><span># %cpu     总核数的平均值(不会大于100%), us用户占比, sy系统占比, ni用户进程空间内改变过优先级的进程占用CPU百分比
+</span></span><span style=display:flex><span>#          id空闲cpu百分比, wa用户进程空间内改变过优先级的进程占用CPU百分比, hi硬件中断, si软件中断, st实时
+</span></span><span style=display:flex><span># MiB Mem  total系统物理总内存, free空闲内存, used已使用,    buff/cache缓冲区内存
+</span></span><span style=display:flex><span># MiB Swap total交换总内存,     free交换空闲, used交换已用,  avail 可用内存
+</span></span><span style=display:flex><span># 这一系列信息是系统的信息, docker容器内外是一致的
+</span></span><span style=display:flex><span>top - 12:19:58 up  3:45,  1 user,  load average: 0.00, 0.02, 0.05
+</span></span><span style=display:flex><span>Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
+</span></span><span style=display:flex><span>%Cpu(s):  1.5 us,  1.1 sy,  0.0 ni, 97.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
+</span></span><span style=display:flex><span>MiB Mem :  64348.3 total,  39305.2 free,  11285.5 used,  13757.6 buff/cache
+</span></span><span style=display:flex><span>MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># pid      pid
+</span></span><span style=display:flex><span># user     谁启动的该进程
+</span></span><span style=display:flex><span># PR       优先级
+</span></span><span style=display:flex><span># ni       nice值 负值表示高优先级，正值表示低优先级
+</span></span><span style=display:flex><span># VIRT     虚拟内存
+</span></span><span style=display:flex><span># RES      真实内存
+</span></span><span style=display:flex><span># SHR      共享内存
+</span></span><span style=display:flex><span># %CPU     单核cpu占比, 大于100%表示占用了多个cpu核, 不能大于100% * cpu核数
+</span></span><span style=display:flex><span># TIME+    进程运行总时间??占用cpu的总时间??
+</span></span><span style=display:flex><span># COMMAND  进程启动时的命令
+</span></span><span style=display:flex><span>  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  122 root      20   0   12936   7148   6648 S   1.0   0.0   2:32.20 cli                                                                            
+</span></span><span style=display:flex><span>  69  root      20   0   12928   7064   6572 S   0.7   0.0   2:07.64 svr                                                                            
+</span></span><span style=display:flex><span>  125 root      20   0   27728  17472   3944 S   0.3   0.0   1:01.14 cli                                                                            
+</span></span><span style=display:flex><span>  123 root      20   0   27728  17316   3880 S   0.3   0.0   1:01.08 cli                                                                            
+</span></span><span style=display:flex><span>  126 root      20   0   27728  17436   3948 S   0.3   0.0   1:01.07 cli                                                                            
+</span></span><span style=display:flex><span>  124 root      20   0   27728  17380   3852 S   0.3   0.0   1:00.94 cli                                                                            
+</span></span><span style=display:flex><span>  132 root      20   0   27728  17436   3948 S   0.7   0.0   0:59.75 cli      
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>1. 排序
+</span></span><span style=display:flex><span>   &lt; -- 左移sort-field; 进入top时候默认sort-field是%cpu
+</span></span><span style=display:flex><span>   &gt; -- 右移sort-field
+</span></span><span style=display:flex><span>   R -- 反转排序
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   M -- (不推荐)根据%mem 排序
+</span></span><span style=display:flex><span>   P -- (不推荐)根据%cpu 排序
+</span></span><span style=display:flex><span>   T -- (不推荐)根据TIME+排序
+</span></span><span style=display:flex><span>2. 高亮
+</span></span><span style=display:flex><span>   b -- 是否高亮显示 &lt;R进程 或者 sort-field&gt;, 总开关
+</span></span><span style=display:flex><span>   x -- 是否高亮 sort-field
+</span></span><span style=display:flex><span>   y -- 是否高亮 R进程
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>   z -- (不推荐)高亮显示
+</span></span><span style=display:flex><span>   B -- (不推荐)加粗
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>3. 其他
+</span></span><span style=display:flex><span>   1 -- 显示所有逻辑cpu
+</span></span><span style=display:flex><span>   k -- 关闭特定pid进程
+</span></span><span style=display:flex><span>   s -- 设置刷新时间
+</span></span><span style=display:flex><span>4. 内存
+</span></span><span style=display:flex><span>   m -- 切换mem显示, 显示使用百分比&amp;&amp;总内存 --&gt;  (*used/total)% / total
+</span></span><span style=display:flex><span>   t -- 切换cpu显示, 没看明白; 仍然推荐看%Cpu-&gt;id 或者1查看所有核心的
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>1. 最小单位为进程, 线程信息需要通过ps去查看
+</span></span></code></pre></div><h3 id=free>free
+<a class=anchor href=#free>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># total        系统总内存
+</span></span><span style=display:flex><span># used         已经使用的内存
+</span></span><span style=display:flex><span># free         空闲的内存 -- 不等于可用内存
+</span></span><span style=display:flex><span># shared       已经舍弃的内存???
+</span></span><span style=display:flex><span># buff/cache   io读写内存;内存紧张的时候,会自动释放; cache文件系统缓存; buff 裸设备相关缓存
+</span></span><span style=display:flex><span># available    可用内存. = free + buff/cache
+</span></span><span style=display:flex><span>	      total        used        free      shared  buff/cache   available
+</span></span><span style=display:flex><span>Mem:           62Gi        11Gi        38Gi        17Mi        13Gi        51Gi
+</span></span><span style=display:flex><span>Swap:         8.0Gi          0B       8.0Gi
+</span></span></code></pre></div><h3 id=ss>ss
+<a class=anchor href=#ss>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>查看socket 统计信息
+</span></span><span style=display:flex><span>这是system的统计信息, docker容器内外是一致的
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># every 100s 每100s刷新一次 ss-s  851d60ae4404是服务器名字  服务器当前时间
+</span></span><span style=display:flex><span># total:           这个数值是docker容器有关的, 每个单独计算;   貌似是inet + 1 TODONOW.
+</span></span><span style=display:flex><span># TCP: 2101        这个数值是docker容器无关的, 容器内外都一样; 貌似是state总和?? TODONOW
+</span></span><span style=display:flex><span>#      estab    -- 这个数值是docker容器相关的, 每个单独计算
+</span></span><span style=display:flex><span>#      closed   -- 这个数值是docker容器相关的, 每个单独计算
+</span></span><span style=display:flex><span>#      orphaned --
+</span></span><span style=display:flex><span>#      timewait --   
+</span></span><span style=display:flex><span>Every 100.0s: ss -s      851d60ae4404: Wed Oct 20 17:44:33 2021
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Total: 3
+</span></span><span style=display:flex><span>TCP:   2101 (estab 0, closed 2100, orphaned 0, timewait 0)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># RAW
+</span></span><span style=display:flex><span># UDP
+</span></span><span style=display:flex><span># TCP   这里的total是docker容器相关的, 每个单独计算
+</span></span><span style=display:flex><span># INET
+</span></span><span style=display:flex><span># FRAG
+</span></span><span style=display:flex><span>Transport Total     IP        IPv6
+</span></span><span style=display:flex><span>RAW       0         0         0
+</span></span><span style=display:flex><span>UDP       1         1         0
+</span></span><span style=display:flex><span>TCP       1         1         0
+</span></span><span style=display:flex><span>INET      2         2         0
+</span></span><span style=display:flex><span>FRAG      0         0         0
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># ss默认只显示state = established状态的, 可以通过-a或state参数来控制显示
+</span></span><span style=display:flex><span>-a  #显示所有状态的
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># -4 ipv4
+</span></span><span style=display:flex><span># -6 ipv6
+</span></span><span style=display:flex><span># -t tcp协议
+</span></span><span style=display:flex><span># -u udp协议 等等
+</span></span><span style=display:flex><span>ss -t                     # 匹配tcp连接
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># dst   -- 远端
+</span></span><span style=display:flex><span># src   -- 本地   
+</span></span><span style=display:flex><span>ss dst 192.168.1.5        # 匹配远程地址
+</span></span><span style=display:flex><span>ss dst 192.168.1.5:443    # 匹配远程地址和端口
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># dport --
+</span></span><span style=display:flex><span># sport --
+</span></span><span style=display:flex><span># 可以通过比较参数来选择某个区间的端口号
+</span></span><span style=display:flex><span># le, ge, eq, ne, gt, lt -- 与sh的语法一致
+</span></span><span style=display:flex><span>ss sport lt 50            # 匹配小于50的端口号
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># state 通过tcp连接状态进行过滤
+</span></span><span style=display:flex><span># 常用状态
+</span></span><span style=display:flex><span># established, SYN-SENT, syn-recv, fin-wait-1, fin-wait-2, time-wait, closed, close-wait, listen, closing
+</span></span><span style=display:flex><span>ss state listening        # 匹配listen状态
+</span></span></code></pre></div><h3 id=netstat>netstat
+<a class=anchor href=#netstat>#</a></h3><ul><li>s 统计信息</li><li>t tcp</li></ul><h3 id=watch>watch
+<a class=anchor href=#watch>#</a></h3><p>周期性的执行某个命令<br></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>watch ss -s # 定时刷新ss-s命令
+</span></span></code></pre></div><h3 id=crontab>crontab
+<a class=anchor href=#crontab>#</a></h3><p>定时任务, 具体见<br></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>man crontab
+</span></span></code></pre></div><h3 id=tmux-and-and-screen>tmux && screen
+<a class=anchor href=#tmux-and-and-screen>#</a></h3><p>为什么使用tmux 和 screen: 远程登录操作时候, 因网络不稳定, 总是掉线, 导致东西无法保存<br><br>讲解它们之前必须要先了解nohup 与 &<br></p><h4 id=nohup-与-and>nohup 与 &
+<a class=anchor href=#nohup-%e4%b8%8e-and>#</a></h4><p>nohup与 &都是后台运行<br><br>nohup会占用标准输出<br><br>&则不会占用标准输出<br><br>它们的作用都是为了防止session关闭后, 程序无法运行<br></p><p>但每个程序都要加上 nohup前缀 或者 &后缀, 则会特别麻烦, 因此出现了screen与tmux<br></p><h4 id=screen>screen
+<a class=anchor href=#screen>#</a></h4><p>screen属于GNU计划<br><br>然其操作什么的并不友善, 个人更倾向于tmux<br></p><p>【基本指令】<br><br>screen | screen -S &lt;name> 创建screen<br><br>screen -d detach screen 只有deatch之后 其他人才能attach<br><br>screen -r reatach screen 链接screen<br><br>screen -ls | screen -list 列出所有的screen<br></p><p>【快捷键操作】<br><br>screen的一个弊端就是将太多功能放在了快捷键上 而不是放在CMD上<br><br>C-a 为screen指令的前缀<br><br>C-a k kill<br><br>C-a w 列出所有的screen窗口 &ndash; 亲测无效???<br><br>C-a p |C-a n 切换到上一个或下一个窗口 &ndash; 亲测无效??<br><br>C-a z 类似于emacs的C-z 将程序放入后台 可以通过jobs 和fg操作<br><br>通过C-a z可以了解screen的工作原理 &ndash; screen就是新开了一个shell, 在里面有不同的窗口windows<br><br>然后可以在windows间切换, 或者是回到原先的shell中<br></p><p>【为什么放弃screen】<br><br>虽然查看教程, 发现screen还有很多高级功能, 然而screen的窗口功能太不友好, 导致我经常不知道自己工作<br><br>在哪个窗口下, 而且因为C-a w的无效, 很难有一览全局, 所以最后选择放弃screen, 改投tmux<br></p><h4 id=tmux>tmux
+<a class=anchor href=#tmux>#</a></h4><p><span class=underline>框架</span><br></p><p>server -> session 01 |<br><br>-> session 02 | &ndash;> socket 01(默认socket)<br>-> session 03 &ndash;> socket 02(通过-L | -S生成的新的socket)<br>&mldr;<br><br>&mldr;<br><br>即一个server 多个session, session又属于socket<br></p><p><span class=underline>基本指令</span><br><br>tmux<br><br>tmux ls 列出所有的tmux session, 注意没有- &ndash;<br><br>tmux attach attch到上次的tmux session<br><br>tmux attach -t session attch到指定的tmux session<br><br>tmux kill-session -t 关闭session<br><br>tmux kill-server -t 关闭server<br><br>注: 关闭server 将导致tmux关闭, tmux中的程序也会关闭<br><br>如果session退出之前, tmux是挂起状态stopped,那么下次session重新链接后, 将导致tmux关闭<br><br>tmux new -s $sessionName 创建一个新的session, 并指定其名称, 不然就是递增数字<br></p><p><span class=underline>快捷键操作</span><br><br>tmux以C-b作为快捷键的前缀<br><br>C-b ? 列出所有的命令<br><br>C-b 数字 | n | p 切换窗口<br><br>C-b C-z 挂起程序<br><br>C-b d deatach类似于screen中的deatch<br><br>deatch之后就可以回到正常的shell, 并使tmux运行在后台<br></p><p><span class=underline>为什么选择tmux</span><br><br>友好的界面, 友好的C-b ?帮助提示, 简单的操作<br></p><p><span class=underline>遗留问题</span><br></p><ol><li><input disabled type=checkbox> 如果运行 tmux& (&后台运行), 会导致莫名其妙的问题</li><li><input checked disabled type=checkbox> 如何使tmux在后台运行<br>使用bg命令无效, 这与进程的状态有关&mldr;有时间再看<br><br>C-b d 使当前session deatch运行在后台<br></li></ol><h3 id=ffmpeg>ffmpeg
+<a class=anchor href=#ffmpeg>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>强大的视频解码软件
+</span></span></code></pre></div><p>ffmpeg -i <a href=https://%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97%c3%97/really.m3u8>https://××××××××/really.m3u8</a> -c copy xxx.mp4<br></p><h3 id=sort>sort
+<a class=anchor href=#sort>#</a></h3><p>根据ASCII进行排序, 默认为升序<br></p><ul><li><p>u 去除重复行</p></li><li><p>r 降序</p></li><li><p>n 根据数值进行排序</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>你有没有遇到过10比2小的情况。我反正遇到过。
+</span></span><span style=display:flex><span>出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面
+</span></span><span style=display:flex><span>-n可以告诉sort根据数值进行排序, 而非ASCII
+</span></span></code></pre></div></li><li><p>k, t k指定列数, t指定分隔符</p></li><li><p>f 会将小写字母都转换为大写字母来进行比较，亦即忽略大小写</p></li></ul><h3 id=wc-l>wc -l
+<a class=anchor href=#wc-l>#</a></h3><p>统计行数<br></p><h2 id=管道>管道
+<a class=anchor href=#%e7%ae%a1%e9%81%93>#</a></h2><h3 id=and-and-xargs>| && xargs
+<a class=anchor href=#and-and-xargs>#</a></h3><ol><li>管道是实现“将前面的标准输出作为后面的标准输入”</li><li>xargs是实现“将标准输入作为命令的参数”</li></ol></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a><ul><li><a href=#cpu>cpu</a></li><li><a href=#查看库--动态库-静态库--的封装信息>查看库 (动态库, 静态库)的封装信息</a></li><li><a href=#fd>fd</a></li><li><a href=#socket>socket</a></li></ul></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></div></aside></main></body></html>
