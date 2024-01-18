@@ -7,8 +7,7 @@ unsafe = true
 
 [markup.highlight]
 codeFences = false
-style = 'github'
-noClasses = false
+style = 'manni'
 
 [module]
 [[module.imports]]
