@@ -2,7 +2,6 @@ baseURL = "https://www.wcq.life"
 title = "飘"
 
 [markup.goldmark.renderer]
-hardWraps = true
 unsafe = true
 
 [markup.highlight]
