@@ -7,7 +7,8 @@ unsafe = true
 
 [markup.highlight]
 codeFences = false
-style = 'emacs'
+style = 'github'
+noClasses = false
 
 [module]
 [[module.imports]]
