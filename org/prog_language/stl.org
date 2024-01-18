@@ -19,10 +19,10 @@ C++ 常见库
         而std::fromat类型安全, 效率也高
   备注: C++20中首次加入
 
-  #+BEGIN_EXAMPLE C++ format()函数声明
+  #+begin_src c++ -n 
   template<typename... Args>
   std::string fromat(string_view fmt, const Args&... args);
-  #+END_EXAMPLE
+  #+end_src
   #+BEGIN_EXAMPLE C++ format()函数使用
   //例子1
   //format()返回类型或值的字符串表示形式
