@@ -1,4 +1,4 @@
-#+title: debug
+#+title: prog debug
 #+date: 2024-01-18 19:04:36
 #+hugo_section: docs
 #+hugo_bundle: prog_debug

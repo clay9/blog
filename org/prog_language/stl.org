@@ -6,7 +6,6 @@
 #+hugo_weight: 2
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+hugo_custom_front_matter: :bookCollapseSection true
 
 
 C++ 常见库

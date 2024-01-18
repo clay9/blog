@@ -6,7 +6,6 @@
 #+hugo_weight: 1
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-#+hugo_custom_front_matter: :bookCollapseSection true
 
 linux常用命令&&工具
 
