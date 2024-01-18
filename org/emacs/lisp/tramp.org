@@ -20,7 +20,7 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 * 用法
 ** basic
    #+BEGIN_EXAMPLE shell
-   /method:user@host#port:path/to/file
+   /method:user@host#port:/path/to/file
 
    # example 1
    /ssh:clay@192.1.1.1#22:~
