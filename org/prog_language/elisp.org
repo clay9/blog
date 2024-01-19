@@ -1,9 +1,9 @@
 #+title: elisp
 #+date: 2024-01-18 18:34:47
 #+hugo_section: docs
-#+hugo_bundle: emacs/lisp
+#+hugo_bundle: prog_language
 #+export_file_name: elisp
-#+hugo_weight: 2
+#+hugo_weight: 3
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 
