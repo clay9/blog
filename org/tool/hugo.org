@@ -16,15 +16,11 @@
   - 利己, 整理自身知识体系 或作记录
   - 利人, 分享的精神
 
-  blog好处很多, 却也增加了使用者的难度, 比如要理解html, css等. \
-  同时, 外在的表现(CSS等)往往会导致bloger的重心偏差, 去追求外在的东西.
+  blog好处很多, 却也增加了使用者的难度, 比如要理解html, css等.同时, 外在的表现(CSS等)往往会导致bloger的重心偏差, 去追求外在的东西.
 
-  我们需要一个能让我们专注于文章知识本身, 而无需去关心外在或其他知识的工具, \
-  来帮助我们搭建自己的blog.
+  我们需要一个能让我们专注于文章知识本身, 而无需去关心外在或其他知识的工具,来帮助我们搭建自己的blog.
 
-  当下, 一个不错的选择就是hugo.\
-  hugo不拘束我们的文章语言(markdown, org等), 自动将语言转化为html, 并且提供不错的主题外观. \
-  使我们可以专注文章本身.
+  当下, 一个不错的选择就是hugo. hugo不拘束我们的文章语言(markdown, org等), 自动将语言转化为html, 并且提供不错的主题外观, 使我们可以专注文章本身.  
 
 * hugo是什么
   如上所言, hugo是一款不错的blog框架
@@ -48,12 +44,10 @@
    这里是把org的blog转换为了md和texi2html, 可以自行根据自己blog的语言来设计github action
 
 ** 使用
-   hugo的官方guthub action是把content目录下的md文件, 转换为静态的html文件来展示.\
-   所以我们只要把自己的blog文件在官方动作之前, 转换为md文件放到content目录下面即可.\
-   同样的, 我们也可以把自己生成的html文件直接放到content目录
+   hugo的官方guthub action是把content目录下的md文件, 转换为静态的html文件来展示. 所以我们只要把自己的blog文件在官方动作之前, 转换为md文件放到content目录下面即可.同样的, 我们也可以把自己生成的html文件直接放到content目录
 
-   虽然github action做了很多动作, 但我们需要做的只是维护自己的blog文件, 并git push即可.\
-   blog的更新流程由github action完成, 我们无须关心.
+   虽然github action做了很多动作, 但我们需要做的只是维护自己的blog文件, 并git push即可.blog的更新流程由github action完成, 我们无须关心.
+   
 * section && bundle && menu
   | key     | desc                                     |
   |---------+------------------------------------------|
