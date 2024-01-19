@@ -58,51 +58,6 @@ org-mode一直被称为神器
 
     对table使用C-c} 可以查看行列值
 
-* +导出 与 org-info+
-  : org-info已弃用, 不再推荐, 建议使用gnu texinfo或者ox-hugo
-
-  org-mode有强大的导出功能, 具体可以参考官方文档.
-
-  这里只是介绍一下org-info.js
-
-  org-info.js 可以输出info-style xhtml, 可以作为org-mode导出html中的一种css样式补充 [[https://orgmode.org/worg/code/org-info-js/][官方文档]]
-
-  可以在info(m), over-view(m), ppt(x)三种模式间切换. (说实话, ppt模式, 真的没啥效果:)
-
-  拥有众多的属性值, 方便导出配置
-  - path     org-info.js脚本所在路径, 可以是绝对路径或相对路径, 但必须是目录
-    如果没有设置, 则默认从orgmode.org中读取
-    publish , export均生效
-  - home     整个org-file的根节点,  对应界面上的"HOME"按钮
-    1) export 时候, 设置有效
-    2) publish的时候, 设置无效
-  - up       整个org-file的上层节点,对应界面上的"UP"按钮
-    TODONOW 暂时不知道作用, 不设置正常使用, 界面上没有"UP"按钮
-  - view     html显示样式
-  - toc      整个org-file是否显示content
-    publish时候 设置无效
-  - ltoc     sub-heading是否显示content
-    publish时候 设置无效
-  - mouse    鼠标样式
-  - buttons
-
-
-  拥有简单的快捷键, 方便在文档node间移动. n, p, m, x, i, ?
-
-  org-info为org-mode自带, 无须额外安装. 使用的时候, 只需指定属性然后导出即可
-  #+BEGIN_EXAMPLE
-  #+INFOJS_OPT: home:http://wcq.life
-  #+INFOJS_OPT: view:info toc:t ltoc:t mouse:underline buttons:nil
-  #+END_EXAMPLE
-  org-file中的连接会被自动转换为html中的连接
-  #+BEGIN_EXAMPLE 1
-  # org-file:
-  file:test.org
-
-  在html中被转为
-  link:test.html
-  #+END_EXAMPLE
-
 
 * +MobileOrg+
   : 已弃用, 不再推荐, 建议使用iphone自带软件

@@ -10,8 +10,23 @@
 参考文档
 1. [[http://smacs.github.io/elisp/02-elisp-basic.html][水木社区Emacs版]]
 2. [[https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp][lisp的本质]]
-* 语法
-  1. lisp没有重载一说, 直接覆盖; 因此为了方便出现了 advise 函数
+
+* 基础语法
+** 函数重载
+   elisp没有重载的概念, 直接覆盖原定义即可. 相关函数:
+   1. advice-add
+      根据key来决定old_fun 与 new_fun的关系
+      | key           | desc                                          |
+      |---------------+-----------------------------------------------|
+      | filter-return | 先执行old. new对old的结果再处理               |
+      |---------------+-----------------------------------------------|
+      | before        | 先执行new, 过滤一下数据, 再把结果给old        |
+      |---------------+-----------------------------------------------|
+      | arround       | 先执行new, 并在new中主动调用old(也可以不调用) |
+      |---------------+-----------------------------------------------|
+   2. 使用defune 覆盖原函数定义
+      如果只是重载, 应该使用这种方法. advice-add的本意不是用来override
+     
 * elisp && shell
 ** bash调用elisp
    1. elisp代码写入el文件(eshell script)

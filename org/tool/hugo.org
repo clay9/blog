@@ -16,13 +16,15 @@
   - 利己, 整理自身知识体系 或作记录
   - 利人, 分享的精神
 
-  blog好处很多, 却也增加了使用者的难度, 比如要理解html, css等. 同时, 外在的表现(CSS等)往往会导致bloger的重心偏差, 去追求外在的东西.
+  blog好处很多, 却也增加了使用者的难度, 比如要理解html, css等. \
+  同时, 外在的表现(CSS等)往往会导致bloger的重心偏差, 去追求外在的东西.
 
-  我们需要一个能让我们专注于文章知识本身, 而无需去关心外在或其他知识的工具, 来帮助我们搭建自己的blog.
+  我们需要一个能让我们专注于文章知识本身, 而无需去关心外在或其他知识的工具, \
+  来帮助我们搭建自己的blog.
 
-  当下, 一个不错的选择就是hugo.
-
-  hugo不拘束我们的文章语言(markdown, org等), 自动将语言转化为html, 并且提供不错的主题外观. 使我们可以专注文章本身.
+  当下, 一个不错的选择就是hugo.\
+  hugo不拘束我们的文章语言(markdown, org等), 自动将语言转化为html, 并且提供不错的主题外观. \
+  使我们可以专注文章本身.
 
 * hugo是什么
   如上所言, hugo是一款不错的blog框架
@@ -38,22 +40,63 @@
 * hugo怎么使用
 ** 安装
    不建议在本地搭建hugo环境. 如果blog托管在github, 强力推荐使用github action来部署.
-
    这样本地只需要维护hugo的配置文件和自身的blog文件即可
 
 ** 配置
    hugo配置非常简单, 可以参考[[https://github.com/clay9/clay9.github.io/blob/master/hugo.toml][hugo.toml]]
-
    github action的配置, 可以参考[[https://github.com/clay9/clay9.github.io/blob/master/.github/workflows/gh-pages.yml][yml]].
-   : 这里是把org的blog转换为了md和texi2html, 可以自行根据自己blog的语言来设计github action
+   这里是把org的blog转换为了md和texi2html, 可以自行根据自己blog的语言来设计github action
 
 ** 使用
-   hugo的官方guthub action是把content目录下的md文件, 转换为静态的html文件来展示.
-   所以我们只要把自己的blog文件在官方动作之前, 转换为md文件放到content目录下面即可.
+   hugo的官方guthub action是把content目录下的md文件, 转换为静态的html文件来展示.\
+   所以我们只要把自己的blog文件在官方动作之前, 转换为md文件放到content目录下面即可.\
    同样的, 我们也可以把自己生成的html文件直接放到content目录
 
-   虽然github action做了很多动作, 但我们需要做的只是维护自己的blog文件, 并git push即可.
+   虽然github action做了很多动作, 但我们需要做的只是维护自己的blog文件, 并git push即可.\
    blog的更新流程由github action完成, 我们无须关心.
+* section && bundle && menu
+  | key     | desc                                     |
+  |---------+------------------------------------------|
+  | menu    | top navigation (所有文章\vert{}分类\vert{}标签\vert{}关于) |
+  |---------+------------------------------------------|
+  | section | post\vert{}docs\vert{}menu等                         |
+  |---------+------------------------------------------|
+  | bundle  | 文件资源的管理方式                       |
+  |---------+------------------------------------------|
+* module
+  hugo module可以代替主题
+  使用步骤:
+  1. 把自身仓库变为hugo module
+     实际就是增加了一个go.mod文件
+  2. 在config.toml中增加module import
+     代替了theme, 所以这里的theme要删除, 否则hugo执行的时候会提示找不到theme
+  3. 调用hugo时, hugo会主动下载module, 并且把它认定为theme文件
+
+
+  vs gitsubmodule 优势
+  1. gitsubmodule还需要管理使用的theme的信息, module完全不需要管理
+     gitsubmodule 可以使用 update --remote来指定使用远程仓库信息, 但是繁琐, 不如go.mod方便  
+* hugo book theme
+** 基本概念
+  hugo-book-theme 的file-tree-menu (这里的file-tree-menu 不是上面的menu)
+  server - _index
+  - page_1
+  - page_2
+  - view/_index
+  - view/page_3
+  - view/page_4
+
+  server/_index 是server的信息显示
+  server/view/_index是server/view的信息显示 (也可以没有)
+  page_1, page_2在server下面
+  page_3, page_4在server/view下面
+  page_1, page_2的weight只影响自身节点(server节点)下的排序, 不会影响server/view节
+
+  hugo_book 简介的显示, 需要放到content/_index.md中
+** 参考文档
+   可以参考官方的例子去做
+   https://hugo-book-demo.netlify.app/tags/hugo/
+   https://github.com/alex-shpak/hugo-book
 
 * hugo使用事项
 ** 连接
@@ -79,8 +122,19 @@
 
 
     [[file:hugo/record.png]]
+** blank-line
+   hugo 默认使用goldmark作为md的解析器
+   设置markup.goldmark.renderer.hardWraps为true, goldmark 会把 \n => <br />
+   如果在emacs中设置(setq org-export-preserve-breaks t), ox-hugo也会把 \n => <br />
+   所以两者只需要设置一个, 这里建议设置emacs中的
 * 问题
-  1. hugo无法正常发布DATE等于今天的blog
-     暂时不知道如何处理, 修改了日期.
+  1. buildFuture: hugo无法正常发布DATE等于今天的blog
+     date导致的发布时间问题. 与github(美国时间)有时差, 导致发布的贴子无法立刻查看.
 
-     猜测应该是hugo action中有对日期校验, 而中国与github action中有时差导致的
+     date的本意是 创作时间.
+     但是publishData为空的时候, 猜测使用了date时间.
+     而date又有时差, 导致帖子无法立刻被查看.
+
+     解决方案: 在gh-pages.yml中为hugo增加参数
+     hugo --minify --buildFuture     
+

@@ -1,0 +1,52 @@
+#+title: org export && ox-hugo
+#+date: 2024-01-19 12:02:51
+#+hugo_section: docs
+#+hugo_bundle: emacs/org
+#+export_file_name: org_export
+#+hugo_weight: 10
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+org自带强大的export功能.
+但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
+
+* ox-hugo
+** 图片导出逻辑
+   #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
+     @startuml
+     /'
+     line direct:  -le|ri|up|do->
+     line style :  #line:color;line.[bold|dashed|dotted];text:color
+     '/
+
+     'top to bottom direction
+     'left to right direction
+
+     'skinparam linetype polyline
+     'skinparam linetype ortho
+
+     'skinparam nodesep 10
+
+     title export pics
+
+     start
+     if (in hugo static-dir) then (yes)
+         stop
+     else (no)
+         if (bundle) then (yes)
+             : export pics with bundle;
+         else (no)
+             if (open_copy) then (yes)
+                 : copy to hugo static-dir;
+             else (no)
+                 stop
+             endif
+         endif
+     endif
+
+     stop
+     @enduml
+   #+end_src
+
+   #+RESULTS:
+   [[file:ox-hugo-export.png]]
