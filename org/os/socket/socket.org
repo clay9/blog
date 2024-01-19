@@ -1,7 +1,7 @@
 #+title: socket base
 #+date: 2024-01-18 19:13:58
 #+hugo_section: docs
-#+hugo_bundle: socket
+#+hugo_bundle: os/socket
 #+export_file_name: socket
 #+hugo_weight: 1
 #+hugo_draft: false
