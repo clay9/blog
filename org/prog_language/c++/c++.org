@@ -1,7 +1,7 @@
 #+title: c++历史
 #+date: 2024-01-18 19:06:11
 #+hugo_section: docs
-#+hugo_bundle: prog_language
+#+hugo_bundle: prog_language/c++
 #+export_file_name: c++
 #+hugo_weight: 1
 #+hugo_draft: false
