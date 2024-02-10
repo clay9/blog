@@ -1,0 +1,30 @@
+#+title: nmap
+#+date: 2024-02-10 21:49:01
+#+hugo_section: docs
+#+hugo_bundle: draft/nmap
+#+export_file_name: index
+#+hugo_weight: 122
+#+hugo_draft: true
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+* 推荐文章
+  1. [[https://nmap.org/man/zh/man-port-scanning-basics.html][端口扫描 -- nmap]]
+
+* 端口扫描
+  1. 安装并使用nmap (macOS)
+     #+BEGIN_SRC sh
+     brew install nmap
+     #+END_SRC
+
+
+  
+
+* 清空自己的痕迹
+  linux系统
+  1. 登录失败的痕迹  lastb
+     echo > /var/log/btmp     
+  2. 登录成功的痕迹 last
+     echo > /var/log/wtmp
+  3. 历史命令痕迹 history -c 
+     echo > ./.bash_history //或清空用户目录下的这个文件即可

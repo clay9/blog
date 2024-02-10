@@ -1,0 +1,651 @@
+#+title: c++网络库 handy学习
+#+date: 2024-02-10 21:49:28
+#+hugo_section: docs
+#+hugo_bundle: draft/handy
+#+export_file_name: index
+#+hugo_weight: 100
+#+hugo_draft: true
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+* qybase9/net
+  qybase9/net 是qyserver/kernel的最底层依赖,
+  其base-line是handy网络库
+** 目录说明
+   | 目录               | 意义       | 备注                         |
+   |--------------------+------------+------------------------------|
+   | net                | 网络库核心 |                              |
+   |--------------------+------------+------------------------------|
+   | net_tools          | 网络库工具 |                              |
+   |--------------------+------------+------------------------------|
+   | tools              | 其他工具   | 部分是供上层(svr-kernel)使用 |
+   |                    |            | 而非自己使用                 |
+   |--------------------+------------+------------------------------|
+   | define             | 定义文件   |                              |
+   |--------------------+------------+------------------------------|
+   | test_performance   | 性能测试   | 这里测试了千万并发           |
+   |--------------------+------------+------------------------------|
+   | test_unit          | 单元测试   |                              |
+   |--------------------+------------+------------------------------|
+   | Makefile           |            |                              |
+   |--------------------+------------+------------------------------|
+   | generate_depend.sh |            |                              |
+   |--------------------+------------+------------------------------|
+   | version.sh         |            |                              |
+   |--------------------+------------+------------------------------|
+
+** 文件解读
+    | dir       | file           | desc                       | 备注                                     |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    | net       | event_base     | 事件派发器                 | 单线程 && 多线程事件派发器               |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | event_imp      | event_base具体实现         |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | channel        | 事件                       | 封装了fd, 被epoll管理                    |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | tcpsvr         | tcp socket::server         |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | tcpconn        | tcp socket::client         |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | http           | http 协议                  | http实际是封装了一层tcp                  |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | stat-svr       | stat 协议(自定义)          | stat实际是封装了一层http                 |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |-----------+----------------+----------------------------+------------------------------------------|
+    | net_tools | codec          | 消息解析(多种格式的data)   | LineCodec, LengthCodec, TcpHeadCodec等   |
+    |           |                |                            | 需要什么类型的数据格式, 在这里自定义     |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | poller         | epoll的封装                | 用epoll来管理所有事件                    |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | port_posix     | 字节序转换                 | 大小字节                                 |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | net            | socket辅助                 | socket属性设置, ip地址转换, 缓冲区buffer |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |-----------+----------------+----------------------------+------------------------------------------|
+    | tools     | conf           | 配置文件解析               |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | convert        | hex-string与普通string转换 |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | daemon         | 守护进程                   |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | dll            | dll调用                    |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | file           | 文件&&目录的操作           |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | logging        | 日志系统                   |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | qyfuncost      | 函数运行时间统计           |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | qysignal       | 信号设置                   |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | qytime         | 时间相关函数               |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | shell          | C++ 调用shell              |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | slice          | 字符串切片                 |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | status         |                            |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | threads        | 线程池                     |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | util           | 工具函数                   | 时间获取                                 |
+    |           |                |                            | int, char*转换                           |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | uuid           | 创建uuid                   |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |-----------+----------------+----------------------------+------------------------------------------|
+    | define    | heads.h        | 自身使用的头文件           |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | heads_qybase.h | 对外提供的头文件           |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+    |           | net_struct.h   |                            |                                          |
+    |-----------+----------------+----------------------------+------------------------------------------|
+
+    : 与原handy相比, 去掉了udp协议
+
+** 设计说明
+   一个(或多个)线程 处理事件分发器
+   有事件的话, 事件分发器通知 一个线程池(或自身线程)处理具体事件
+
+   一个事件可能是tcp|upd|http 读|写|连接|关闭, 也可能是定时器, 也可能是io操作
+   这源于linux 一切皆文件的原因
+   而epoll可以管理事件, 而事件分发器实际也是封装了epoll处理
+
+   一般事件分发器可以用单线程处理, 也可以使用多线程处理
+   遵循per thread per epoll (或loop, 或base. 三者指代同一个东西)
+
+   : 单线程事件派发器 EventBase
+   : 多线程事件派发器 MultiBase
+   : 事件 Channel
+
+*** 设计理念
+    1. 一切皆文件(fd), channel=fd+读写属性, poller管理channel(实际管理的是fd)
+    2. server 与 conn关系
+       server本身是维护了一系列conn
+       管理手段是在创建conn时, 通过各种回调函数来控制conn的行为
+
+       client只是一个conn而已
+    3. 每个tcpserver或者tcpconn都有一个fd, 每个fd关注的属性(读或者写)会注册到一个channel
+       : 要先看fd是什么, 再看fd关注的属性, 再看channel
+    4. poller管理channel, channel中封装了fd, 而fd对应的可能是tcpconn或tcpserver
+       所以channel是中间件, 最关键的还是看fd
+
+*** 多线程的处理
+    当其他线程需要操作conn连接的时候, 应当通过safeCall把操作交给conn的io线程来做
+    safeCall是调用了io线程去处理数据
+    #+BEGIN_EXAMPLE c++
+      int main(int argc, const char* argv[]) {
+          EventBase base;
+          Signal::signal(SIGINT, [&]{ base.exit(); });
+          TcpServerPtr svr = TcpServer::startServer(&base, "", 99);
+          exitif(svr == NULL, "start tcp server failed");
+
+          TcpConnPtr con = TcpConn::createConnection(&base, "localhost", 99);
+          std::thread th([con,&base](){
+              sleep(1);
+              info("thread want to close an connection");
+              base.safeCall([con](){ con->close(); }); //其他线程需要操作连接，应当通过safeCall把操作交给io线程来做
+          });
+          base.runAfter(1500, [&base](){base.exit();});
+          base.loop();
+          th.join();
+      }
+    #+END_EXAMPLE
+
+*** 打印设计
+    1. poller打印(INFO) fd的一生; 其他打印只有在发生错误的时候打印(WARNING,ERROR,FATAL)
+       : fd一生 add, notify(read, write), modify, delete
+    2. poller调用channel的info()函数详细描述fd信息
+       - 创建channel的时候, 增加fd_type,表示fd对象的属性
+       : fd_type 0->pipe fd; 1->tcpserver; 2->tcpconn; 3->httpSvr; ...
+       - channel中的info()函数, 返回信息string信息
+       #+BEGIN_EXAMPLE c++ fd信息
+       //fd, fd_type, readable, writeable,
+       "5 tcpserver, readable y, writeable n"
+       #+END_EXAMPLE
+       - poller调用info()打印
+       #+BEGIN_EXAMPLE c++ poller打印
+       LOG(INFO) << "add " << ch->info()
+       //输出信息
+       //"add 5 tcpserver, readable y, writeable n"
+       #+END_EXAMPLE
+
+*** TcpConn
+**** socket相关
+     调用socket的 writeImp 和 readImp来读写socket数据
+
+     readImp --
+     : onMsg()流程; onRead()的时候没有cb函数
+     1. readImp把socket缓冲区中的数据 读取到自己的缓冲区input_
+     2. 读取完毕之后, 调用自定义的readcb_回调函数
+     : 现在的readcb_是在TcpConn::onMsg()中设置, 通过调用TcpConn::onRead()设置
+     : 也可以自己调用TcpConn::onRead()来设置readcb_, 但是onRead()和onMSg()只有一个生效
+     3. 调用readcb_函数
+     : onMsg()中的readcb_中会先去解析数据codec_->tryDecode(CodeBase*), 然后调用cb回调函数
+     : cb回调函数是上层程序调用onMsg()时候传递的
+     4. 调用cb回调函数
+
+
+     writeImp
+     1. 如果channel可write, 则数据给output_
+     2. 如果现在channel不可write, 则调用writeImp发送消息buff
+     3. 如果消息buff没有发送完, 剩余的buff会给output_, 然后开启channel的write标志
+
+**** 主要函数
+     getInput()   获取输入缓冲区
+     getOutput()  获取输出缓冲区
+
+
+     TcpConn 回调接口
+     - onRead      数据到达时回调
+     - onWritable  缓冲区可写时回调
+     - onState     tcp状态改变时回调
+     - addIdleCB   tcp空闲时回调
+     - onMsg       消息回调, 与onRead冲突
+
+     TcpServer回调接口
+     - onConnCreate 有client连接时, 创建一个TcpConn
+     - onConnState  tcp状态改变回调
+     - onConnRead   数据到达时回调
+     - onConnMsg    消息回调, 与onConnRead冲突
+**** onMsg()函数解析
+     TcpConn读取socket缓冲区完成之后 通知上层的办法:
+     readImp读取完成之后, 会调用回调函数readcb_
+
+     readcb_可以通过onRead()来设置回调
+
+     所以:
+     1. 可以自己调用TcpConn::onRead()来设置其回调
+     2. 可以调用onMsg()来设置cb_回调
+     - onMsg()中通过调用onRead()定义了readcb_
+     - onMsg()中定义的回调函数readcb_又调用了回调cb_
+       而cb_可以通过调用onMsg()来设置
+       这样就可以形成 readimp->readcb_->cb_
+
+*** HttpConn
+    HttpConn实际是封装了TcpConn
+
+    HttpConnPtr回调接口
+    - onHttpMsg
+
+    HttpServer回调接口
+    - onGet      -- 设置method "GET" 中的uri的回调
+    - onRequest  -- 有client消息到达时调用
+    - onDefault  -- 当找不到onRequest的时候调用
+*** State
+    状态服务器, 封装了HttpConn
+
+*** 记录
+    1. EventsImp中使用pipe()创建了管道
+    2. PollerEpoll中封装了一个fd, poller自身的fd
+    3. TcpConn的可写标志情形
+       - 自己的缓冲区_output中有数据的时候. 设置为可写
+
+*** socket数据格式
+    这里是qygame/kernel中使用的socket数据格式.
+    qybase/net本身不对数据格式做出限制. 需要什么格式, 在codec中定义即可
+    #+BEGIN_EXAMPLE
+      +-------+	-------------------------------+ ---------------+
+      | short |	---> check code	   校验字段    |  TCP_Info      |   TCP_Head
+      | uint  |	---> data  size	   数据大小    |                |
+      +-------+	-------------------------------+                |
+      +-------+	-------------------------------+                |
+      | short |	---> main cmd      主命令      | TCP_Command    |
+      | short |	---> sub  cmd      子命令      |                |
+      | int64 |	---> user          玩家标识    |                |
+      | int64 |	---> msgid         消息标识    |                |
+      +-------+	-------------------------------+ ---------------+
+      +-------+	------------------------------------------------>  具体数据, 大小为data size
+      |       |
+      |       |
+      |       |
+      +-------+
+    #+END_EXAMPLE
+
+** 千万并发测试
+*** 分析 硬性条件
+    需要达到千万连接
+    1. 首先, fd要满足
+       - 操作系统 总fd需要达到千万
+       - 其次用户单进程fd的数量也要放大
+         : 假设用户fd数量设置为1m, 那么就至少需要10个进程才能满足10m
+
+    2. fd满足之后, ip+端口也需要满足
+       一个tcp下的fd 可以认为是 source_ip:source_port + target_ip:tartget_port
+       如果是cli与svr都是在单个机器上, 那么就需要配置port满足 source_port*target_port = 10m
+       假设给svr200个port, 那么cli需要的port数量为:
+       10 000 000 / 200 =50 000 = 50K
+       系统端口为unsigned short 最大值为65535, 其中0-1024为系统使用, 所以剩余的port为64K, 满足要求
+
+    3. fd与port都满足之后, 考虑内存mem, cpu, 带宽等硬件信息
+       : 一条tcp消耗内存约为3K, 10m连接内存需求为30G
+       : 通过设置tcp的read和write缓冲区来满足内存的使用情况
+
+    4. 环境配置好了之后, 再设计代码
+       - svr开启了10个进程, 共同监听cli的连接, 是因为svr内部已经做好了处理
+         : nginx用的是锁. 而tcpsvr使用了更高级的内核XX...TODO 待学习
+
+       - cli因为千万连接同时进行, 会导致大部分连接fd创建失败, 所以进行了分时连接,每100ms 2000个
+
+
+    重点说明!!!
+    这里千万测试 其实只是通道fd的创建,没有携带业务. 根据业务复杂程度, 会对fd的上限有影响.
+    类比我与100个产品经理产生了业务关联, 但不代表我可以同时满足100个产品经理的需求..可能只能满足1个...
+    所以最大连接数是与具体的业务关联的
+
+*** 分析 并发条件
+    直接影响
+    1. 物理机     -- cpu
+    2. 物理机     -- 内存
+    3. 物理机     -- 带宽
+
+*** svr 设计
+    1. 开启了10个子进程
+    2. 主进程开启一个tcpsvr, 用来获取子进程tcpsvrs的情形
+    3. 每个子进程开启200个tcpsvr, 监听端口[100, 300)
+    4. 每个子进程开启一个tcpconn, 向主进程的tcpsvr传递自身tcpsvrs的情形
+       : 子进程延迟了100*1000 微妙 = 100毫秒, 方便主进程开启tcpsvr
+
+*** cli 设计
+    cli 需要完成50K * 200 = 10m
+    1. 如果开启10个进程, 那么每个进程需要处理10m/10 = 1m
+
+    2. 再来分析cli创建tcpconn的时间
+       我们以100ms为粒度进行创建, 假设每100ms创建2000个, 那么总时间就是
+       1m/2k = 1 000 000 / 2 000 = 500
+       也就是说需要500个100ms 即50s可以全部创建完成
+
+
+    cli 实际设计
+    1. 开启了10个子进程
+    2. 主进程开启一个tcpsvr, 用来获取子进程tcpsvrs的情形
+    3. 每个子进程开启一个tcpconn, 向主进程的tcpsvr传递自身tcpsvrs的形情
+    4. 每个子进程根据创建总数和创建时间, 获得x时间创建x个连接, 并去连接svr
+
+*** 分析 socket_fd
+    : ss -s 查看socket fd统计信息
+
+    1. svr 内耗的socket_fd数量
+       master    1tcpsvr
+       : report tcpsvr
+       sub *10   200 tcpsvr + 1tcpcon
+       : 1tcpcon为 report tcpconn
+
+       master  消耗的总数为 sub个数 10 + 1
+       单个sub 消耗的总数为 200 + 1 = 201
+       总数: 201*10 + 11 = 2021
+    2. cli 内耗的socket_fd数量
+       master    1tcpsvr
+       sub *10   500tcpconn + 1tcpconn
+
+       master  消耗的总数为 1 + 10
+       单个sub 消耗的总数为 1万 + 1
+       : cli总连接数为10万的情形
+
+       总数: 10万 + 10 + 11 = 10万 + 21 = 100021
+    3. cli连接在svr产生的socket_fd
+       10 万
+    4. socket_fd总数
+       cli: 10万 + 21
+       svr: 10万 + 2021
+
+    测试
+    初始tcp =1
+    开完svr后 变为2022      -- 与svr预期一样
+    开完cli后 变为202043    -- 与cli预期一样
+
+*** 分析 内存
+**** 内存受什么影响:
+     直接影响
+     1. 缓冲区           -- 影响cache/buff
+        : read && write
+     2. 进程本身数据     -- 影响used
+
+
+     间接影响
+     1. 协议类型         -- 影响缓冲区
+     2. 业务包           -- 影响缓冲区 && 进程本身数据内存
+     3. 并发数量         -- 影响缓冲区
+
+**** 内存分析工具
+     1. top    --  cpu,mem,progress总览
+     2. free   --  mem总览
+        : free -h 一目了然
+     3. pmap pid
+        #+BEGIN_EXAMPLE sh 查看进程内存情况
+        # 查看进程内存, 并降序显示
+        pmap <gid> | sort -n -k 2 -r
+        #+END_EXAMPLE
+*** 分析 cpu
+**** cpu分析工具
+     1. top    -- 推荐
+*** 分析 网络
+    : ss
+*** 10万, 100万, 10m 对比测试
+    #+BEGIN_EXAMPLE sh 物理机配置
+    cpu:   Intel(R) Xeon(R) CPU E5-2430 0 @ 2.20GHz
+           2cpu * 6核 * 2超线程
+    mem:   62Gi
+    带宽:  同一机器测试, 无视带宽
+    #+END_EXAMPLE
+
+    #+BEGIN_EXAMPLE sh 开始之前的状态
+    # cpu.id 99.3; mem.avail 53583.8; load average 0.49 0.46 0.44
+    top - 17:32:01 up 43 days,  2:16,  0 users,  load average: 0.49, 0.46, 0.44
+    Tasks:   5 total,   1 running,   4 sleeping,   0 stopped,   0 zombie
+    %Cpu(s):  0.5 us,  0.2 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+    MiB Mem :  64348.3 total,  40271.2 free,  10404.8 used,  13672.4 buff/cache
+    MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  53583.8 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0    2384    764    696 S   0.0   0.0   0:00.02 sh
+      7 root      20   0    3996   3340   2808 S   0.0   0.0   0:00.01 bash
+     14 root      20   0    3996   3168   2852 S   0.0   0.0   0:00.01 bash
+     21 root      20   0    3996   3320   2788 S   0.0   0.0   0:00.01 bash
+     32 root      20   0    8060   3272   2776 R   0.0   0.0   0:00.01 top
+    #+END_EXAMPLE
+
+    #+BEGIN_EXAMPLE sh 只开启svr
+    # 总结
+    # cpu基本无变化, tcpsvr处于sleep状态;
+    # 内存减少28KB,  tcpsvr还处在sleep状态
+    # log日志速度非常夸张, 7分钟的时候已经8G+
+    #
+    # cpu.id 99.3; mem.avail 53555.4; load average 0.65,0.54,0.47
+    top - 17:36:04 up 43 days,  2:20,  0 users,  load average: 0.65, 0.54, 0.47
+    Tasks:  16 total,   1 running,  15 sleeping,   0 stopped,   0 zombie
+    %Cpu(s):  0.3 us,  0.3 sy,  0.0 ni, 99.4 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+    MiB Mem :  64348.3 total,  40242.1 free,  10426.0 used,  13680.2 buff/cache
+    MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  53555.1 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+     35 root      20   0   12928   6728   6252 S   1.3   0.0   0:01.27 svr
+     40 root      20   0   12928   4172   3608 S   0.7   0.0   0:00.20 svr
+     36 root      20   0   12928   4256   3692 S   0.3   0.0   0:00.22 svr
+     37 root      20   0   12928   4256   3692 S   0.3   0.0   0:00.19 svr
+     38 root      20   0   12928   2652   2168 S   0.3   0.0   0:00.19 svr
+     41 root      20   0   12928   4028   3468 S   0.3   0.0   0:00.19 svr
+     42 root      20   0   12928   2652   2168 S   0.3   0.0   0:00.20 svr
+      1 root      20   0    2384    764    696 S   0.0   0.0   0:00.02 sh
+      7 root      20   0    3996   3340   2808 S   0.0   0.0   0:00.01 bash
+     14 root      20   0    3996   3392   2852 S   0.0   0.0   0:00.02 bash
+     21 root      20   0    3996   3320   2788 S   0.0   0.0   0:00.01 bash
+     39 root      20   0   12928   4176   3612 S   0.0   0.0   0:00.19 svr
+     43 root      20   0   12928   3968   3412 S   0.0   0.0   0:00.19 svr
+     44 root      20   0   12928   2652   2168 S   0.0   0.0   0:00.19 svr
+     45 root      20   0   12928   2652   2168 S   0.0   0.0   0:00.18 svr
+     47 root      20   0    8060   3264   2772 R   0.0   0.0   0:00.04 top
+    #+END_EXAMPLE
+
+    #+BEGIN_EXAMPLE sh [./cli localhost 1m 5000 60] ==> 1m只成功524288/2 - 10 - 10 = 262124
+    # 总结
+    # cpu减少了30.9%
+    # 内存减少了6.3m
+    #
+    # cpu.id 68.4;  mem.avail 47107.6;  load average 6.16, 4.71, 2.45
+    top - 18:11:52 up 43 days,  2:55,  0 users,  load average: 6.16, 4.71, 2.45
+    Tasks:  29 total,   7 running,  22 sleeping,   0 stopped,   0 zombie
+    %Cpu(s): 15.8 us, 12.5 sy,  0.0 ni, 68.4 id,  0.0 wa,  0.0 hi,  3.4 si,  0.0 st
+    MiB Mem :  64348.3 total,  29513.6 free,  16936.0 used,  17898.7 buff/cache
+    MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  47107.6 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+     52 root      20   0  185092 160752   3880 R  64.0   0.2   3:32.07 cli
+     56 root      20   0  185092 160288   3844 R  60.7   0.2   3:30.05 cli
+     59 root      20   0  185092 160600   3884 R  59.8   0.2   3:31.48 cli
+     54 root      20   0  185092 160168   3884 S  57.9   0.2   3:30.53 cli
+     55 root      20   0  185092 160576   3848 R  57.5   0.2   3:32.98 cli
+     60 root      20   0  185092 160376   3884 S  56.1   0.2   3:09.15 cli
+     51 root      20   0  185092 160664   3880 R  54.2   0.2   3:11.86 cli
+     53 root      20   0  185092 160564   3884 R  52.8   0.2   3:31.44 cli
+     58 root      20   0  185092 160180   3884 S  52.8   0.2   3:28.83 cli
+     57 root      20   0  185092 160508   3884 S  52.3   0.2   3:09.76 cli
+     50 root      20   0   12936   7088   6588 S   1.4   0.0   0:04.81 cli
+     35 root      20   0   12928   7072   6580 S   0.9   0.0   0:24.70 svr
+     36 root      20   0   35632  26956   3756 S   0.5   0.0   0:23.80 svr
+     41 root      20   0   35368  26632   3608 S   0.5   0.0   0:22.88 svr
+     44 root      20   0   35368  26792   3764 S   0.5   0.0   0:22.98 svr
+      1 root      20   0    2384    764    696 S   0.0   0.0   0:00.02 sh
+      7 root      20   0    3996   3340   2808 S   0.0   0.0   0:00.01 bash
+     14 root      20   0    3996   3392   2852 S   0.0   0.0   0:00.02 bash
+     21 root      20   0    3996   3332   2788 S   0.0   0.0   0:00.02 bash
+     37 root      20   0   35500  26940   3756 S   0.0   0.0   0:23.05 svr
+     38 root      20   0   35368  26716   3764 S   0.0   0.0   0:24.06 svr
+     39 root      20   0   35368  26752   3736 S   0.0   0.0   0:24.01 svr
+     40 root      20   0   35368  26748   3740 S   0.0   0.0   0:23.14 svr
+     42 root      20   0   35500  26868   3764 S   0.0   0.0   0:24.12 svr
+     43 root      20   0   35500  26776   3648 S   0.0   0.0   0:23.36 svr
+     45 root      20   0   35632  27004   3764 S   0.0   0.0   0:22.89 svr
+     47 root      20   0    8060   3264   2772 S   0.0   0.0   0:01.34 top
+     61 root      20   0    3996   3324   2800 S   0.0   0.0   0:00.02 bash
+    458 root      20   0    8060   3276   2780 R   0.0   0.0   0:00.07 top
+
+    #+END_EXAMPLE
+*** F&Q
+    1. 问: tcp连接数量上不去
+       答: 根据下面顺序进行排查
+       #+BEGIN_EXAMPLE org 硬性条件
+       1) 查看fd
+          - 系统总fd
+          - 单进程最大fd
+       2) ip + port; 看tcp中的四元项的最大组合是否满足
+       3) 查看mem, cpu, 带宽硬件信息
+       #+END_EXAMPLE
+
+       #+BEGIN_EXAMPLE org cli端信息
+       1) connect的时候是否有错误信息, 最常见的(ip+port)不够用了
+      99 Cannot assign requested address
+      解决方案
+      - env设置TIME_WAIT状态的快速回收
+      - 代码中port复用 SO_REUSEPORT
+       2) 如果connect的时候没有报错, 查看系统tcp状态 ss -a
+          记得加-a, 否则查看的只是established状态的tcp. 我们需要找SYN-SENT
+      SYN-SENT表示一直在等待发送
+       #+END_EXAMPLE
+
+       #+BEGIN_EXAMPLE org svr端信息
+       1) 查看tcp半连接队列, 也称SYN队列
+          服务端收到客户端发起的SYN请求后，内核会把该连接存储到半连接队列，并向客户端响应 SYN+ACK
+      接着客户端会返回 ACK，
+      服务端收到第三次握手的 ACK 后，内核会把连接从半连接队列移除，
+      然后创建新的完全的连接，并将其添加到 accept 队列，
+      等待进程调用 accept 函数时把连接取出来
+
+      # 观察socket overflow 和 socket droped。
+      # 如果应用处理全连接队列(accept queue)过慢则会导致socket overflow，影响半连接队列(syn queue)溢出而导致socket dropped
+
+      # 查看半连接溢出情况
+      netstat -s | grep -i listen
+      # 645870725 times the listen queue of a socket overflowed # 全连接队列
+      # 645990109 SYNs to LISTEN sockets ignored                # 半连接队列
+
+      # 解决方案
+      - 增加tcp半连接队列大小
+        net.ipv4.tcp_max_syn_backlog   # syn queue上限
+        # 同时需要增加全队列的大小, 半连接队列丢弃drop流程依赖全连接
+      - 启动cook
+        net.ipv4.tcp_syncookies=1:表示开启SYN Cookies。当出现SYN等待队列溢出的时候，启用cookies来处理少量的SYN×××。
+
+       2) 查看tcp全连接队列, 也称accepet队列
+      # -l 查看listen状态的tcpsvr
+      # Recv-Q 当前SYN队列中的排队数
+      # Send-Q 全队列最大值
+      ss -l sport 100
+
+      # 查看全连接溢出情况
+      netstat -s | grep -i listen
+      # 645870725 times the listen queue of a socket overflowed # 全连接队列
+      # 645990109 SYNs to LISTEN sockets ignored                # 半连接队列
+
+      # 解决方案:
+      - 增加tcp全连接队列大小
+        tcp全连接队列取决于min(somaxconn, backlog), 即ss -l 中的Send-Q
+        somaxconn -- /proc/sys/net/core/somaxconn, 默认值为128
+        backlog是代码tcpsvr listen(int fd, int backlog)中设置的, 这里写了20
+        所以增大这2个值的最小者可以增加tcp全连接队列
+      - 修改队列上限之后的 处理
+        /proc/sys/net/ipv4/tcp_abort_on_overflow
+        0:表示如果三次握手第三步的时候全连接队列满了那么server扔掉client发过来的ack(在server端则会认为连接没有建立起来)
+        1:表示如果三次握手第三步的时候全连接队列满了，server端就会发送一个reset包给client端，表示废弃这个握手过程和这个链接。(在server端也会认为连接没有建立起来)
+
+       3) 查看tcp状态 ss -a
+          重点关注SYN-RECV
+      SYN-RECV表示有大量未完成的握手请求, 可能是遭遇了SYN-RECV攻击(ddos攻击)
+       #+END_EXAMPLE
+
+** 单元测试
+*** 测试 -- protobuf
+    官方:
+    1. 自定义了codec -- ProtoMsgCodec
+       数据格式为4bytes空 + 4bytes类型名大小 + 类型名 + 序列化之后的数据
+    2. 使用buffer来管理data内存
+
+    自己的:
+    1. 序列化之后放到了TCPHead的头处理, 没有处理名字
+
+*** 测试 -- chat.cc
+    官方:
+    测试聊天功能
+
+*** 测试 -- codec-cli.cc && code-svr.cc
+    官方:
+    1. 测试 LengthCodec
+
+    疑问:
+    1. 没有标明使用哪种codec的时候, 默认是LengthCodec?? TODONOW
+
+
+*** 测试 -- daemon.cc && daemon.conf
+    官方:
+    1. 测试daemon功能
+    2. 测试conf功能
+
+*** 测试 -- echo.cc
+    官方:
+    1. ping-pong的svr实现
+*** 测试 -- hsha.cc
+    官方:
+    1. 测试半同步半异步服务器
+*** 测试 -- http-hello.cc
+    官方:
+    1. 测试httpServer
+*** 测试 -- idle-close.cc
+    官方:
+    1. 测试tcpConn空闲时回调功能
+*** 测试 -- reconnect.cc
+    官方:
+    1. 测试tcpConn重连功能
+*** 测试 -- safe-close.cc
+    官方:
+    1. 测试多线程情形中, 关闭conn
+*** 测试 -- stat.cc
+    官方:
+    1. 状态服务器
+*** 测试 -- timer.cc
+    官方:
+    定时器测试
+*** 测试 -- udp-cli.cc && udp-svr.cc
+*** 测试 -- udp-hsha.cc
+*** 测试 -- write-on-empty.cc
+
+
+*** 测试 -- raw-examples/epoll.cc
+    官方:
+    测试epoll
+*** 测试 -- raw-examples/epoll-et.cc
+    官方:
+    测试epoll的 ET模式
+*** 测试 -- raw-examples/kqueue.cc
+    测试?? TODONOW
+
+
+*** 测试 -- 10m
+
+*** 测试 -- test
+    ut.cc                 --  main函数
+    test_harness          --  测试管理类
+    - 提供比较函数的宏接口
+      比较函数会构造Tester对象, 在该析构的时候, 如果比较未通过, 则会直接调用exit(1)退出程序
+    - 提供测试类宏定义, 实现测试注册和运行函数
+*** 测试 -- test/conf.ut.cc
+    官方:
+    1. 测试conf 读取init文件 功能
+*** 测试 -- test/handy.ut.cc
+    官方:
+    1. 测试Ip4Addr函数
+    2. 测试EventBase
+    3. 测试定时器
+    4. 测试TcpServer 在多线程中的表现
+    5. 测试TcpServer
+*** 测试 -- test/tcpcli.ut.cc
+    官方
+    1. 测试tcp的连接状态
+*** 测试 -- test/threads.ut.cc
+    官方:
+    1. 测试线程池
+    2. 测试多线程中SafeQueue队列
+*** 测试 -- test/util.ut.cc
+    官方:
+    1. 测试util::format
+    2. 测试ExitCaller
+
