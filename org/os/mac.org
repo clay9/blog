@@ -172,7 +172,10 @@ mac 记录
    Annotate (App Store下载) 是非常好用的截屏软件, 同时支持gif
 ** IINA
    [[https://www.iina.io][IINA]] 是mac下最好用的视频软件
-
+** Better Display
+   更好的控制显示器. 尤其是对于2K显示器
+   https://github.com/waydabber/BetterDisplay
+   
 * mac实用技巧
 ** Dock上隐藏运行的程序
    1. 进入要隐藏的程序的Contents目录
