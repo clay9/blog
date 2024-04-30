@@ -17,7 +17,7 @@
 
   综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务.
   同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本
-  
+
 ** 日常使用功能
    | 具体事务                               | 所用emacs功能    |
    |----------------------------------------+------------------|
@@ -35,17 +35,17 @@
 
 * emacs-程序
   emacs作为程序最基本的配置.
-  比如frame, window, mode-line的显示与控制等. 
+  比如frame, window, mode-line的显示与控制等.
 
 * text editor
   文本编辑器是emacs最原始, 最纯粹, 最重要的功能.
   大部分配置都是在处理该项, 使其更符合个人习惯.
   配置繁琐, 但不复杂
-  
+
 ** show
    text editor最基本的配置, 文本在buffer中显示的样子.
    比如行号, break-line, column indicator等
-   
+
 ** move-and-kill
    即是text editor, 也是emacs最基础的操作.
    delete, kill, yank, select. 这是emacs中最基础的操作
@@ -84,15 +84,44 @@
   emacs本身有对local compile的支持, 可以使用ppcompile来增加到对remote compile的处理
 
   实际上, 对于我的工作场景, emacs有不止一种处理手段, 比如可以直接tramp到docker project来处理. 因此选择适合的就行.
-  
+
 
 * 键位设置
   原则
   1. 尽量保留默认常用快捷键
   2. 不同mode, 尽量使用相似的快捷键
 
-     
+
   思路
   1. 通用快捷键(比如search等与mode无关的)或者是所有mode都会使用的统一放到C-s中
   2. mode自身的快捷键, 放到C-j中
   3. 项目相关的快捷键, 放到C-d中
+** tty keys
+   | step                          | remap                              |
+   |-------------------------------+------------------------------------|
+   | tty(console)                  | 物理code => Sequences Event code   |
+   |-------------------------------+------------------------------------|
+   | emacs: input-decode-map       | Sequences Event code => 第一层转换 |
+   |-------------------------------+------------------------------------|
+   | emacs: local-function-key-map | 第一层转换 => emacs可识别的        |
+   |-------------------------------+------------------------------------|
+   | emacs : global-set-key等      | eamcs可识别的 => function          |
+   |-------------------------------+------------------------------------|
+
+   由于tty(console)对于有些key(比如C-backspace)等未作Sequences Event code.
+   所以其(C-backspace)的表现和backspace可能是一样的.
+   第一步, 先在console中对需要的key 设定Sequences Event code.
+
+   第二部, 在emacs的input-decode-map中将这些Sequences Event code映射为我们的按键
+   详见init-tty-keys.el
+
+* compile
+  #+begin_src shell 编译选项
+    # --without-all 最小化编译 (但是包含了x)
+    # --without-x   不使用x
+    # --with-gnutls=ifavailable 移除configure警告 (实际并未编译)
+    # --with-tree-sittter 开启tree-sitter
+    # --with-xml2 package::devdocs依赖
+    # --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)
+    ./configure --without-all --without-x --with-gnutls=ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
+  #+end_src
