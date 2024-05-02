@@ -8,8 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -24,9 +22,6 @@ jobs:
         with:
           version: 29.3
 
-      # - run: |
-      #     sudo apt install emacs -y
-      #     mv emacs.d ~/.emacs.d
       - run: |
           mv emacs.d ~/.emacs.d
           emacs -Q --script ~/.emacs.d/script/init-for-script.el
