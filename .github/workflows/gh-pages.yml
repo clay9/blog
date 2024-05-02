@@ -26,7 +26,6 @@ jobs:
           mv emacs.d ~/.emacs.d
           emacs -Q --script ~/.emacs.d/script/init-for-script.el
           rm -rf ~/.emacs.d
-      - run: |
           echo "ls -alR content" && ls -alR content
 
       - name: Setup Hugo
