@@ -14,30 +14,35 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - uses: actions/checkout@v4
-          
+
       - uses: actions/checkout@v4
         with:
           repository: clay9/emacs.d
           path: emacs.d
-          
+
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 29.3
+
+      # - run: |
+      #     sudo apt install emacs -y
+      #     mv emacs.d ~/.emacs.d
       - run: |
-          sudo apt install emacs -y
           mv emacs.d ~/.emacs.d
-      - run: |
           emacs -Q --script ~/.emacs.d/script/init-for-script.el
           rm -rf ~/.emacs.d
-      - run: |          
+      - run: |
           echo "ls -alR content" && ls -alR content
-          
+
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
 
       - name: Build
         run: hugo --minify --buildFuture
-        
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
