@@ -15,6 +15,9 @@ cmake
   -B path_to_build
   -G generator-name
 
+  # 列出所有的编译选项
+   cmake . -LH 
+  
 * F&Q
   1. err:
     #+BEGIN_EXAMPLE 1

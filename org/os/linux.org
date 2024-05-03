@@ -10,6 +10,13 @@
 linux常用命令&&工具
 
 * 查看系统信息
+** linux 发行版
+   cat /etc/issue
+** 内核信息查看
+   cat /proc/version
+   uname -a
+** debian系 已安装的包
+   apt list --installed
 ** cpu
    # 总核数 = 物理CPU个数 X 每颗物理CPU的核数
    # 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
@@ -318,6 +325,7 @@ linux常用命令&&工具
    
 ** wc -l
    统计行数
+
 * 管道
 ** | && xargs
    1. 管道是实现“将前面的标准输出作为后面的标准输入”

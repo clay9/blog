@@ -74,3 +74,8 @@ gcc
    main.cpp : 12
 ** 总结
    建议去掉-rdynamic, 增加-g
+* 指定静态库
+  1) -static 所有的-l都指定静态库, 找不到则报错
+  2) -Bstatic 对跟在后面的所有库执行静态链接
+  3) -l:<filename>  -l:libmylib.a 只针对于-l的参数
+
