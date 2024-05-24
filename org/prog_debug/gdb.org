@@ -7,9 +7,12 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 
-* 附加命令
-  1. attach thread_id 附加到进程
-  2. gdb ./a.out 使用gdb启动程序
+* process view
+** memory
+   info process mapping
+** thread
+** PCB | TCB
+   
 
 * 调试命令
   1. bt (backtrace) 查看函数栈
@@ -18,7 +21,10 @@
      f 0 表示查看栈顶;  f n查看第n+1层
      down 查看下一栈
      up 查看上一栈
-  3. i (info) 
+  3. i (info)
+     i program 查看当前进程运行信息
+     i threads 查看当前线程运行信息
+     
      i f 查看当前栈所在层的具体信息
      i args 当前函数的参数名及其值
      i locals 当前函数中所有局部变量及其值
@@ -34,7 +40,6 @@
  
 
 
-
 * 调试方法
   以调试core文件为例
   1. gdb  ./a.out core
@@ -46,4 +51,6 @@
 * gcore
   gcore #进程pid
   执行命令后，会在当前目录下生成一个该进程的core dump文件了
-
+* Q & A
+  1. gdb 需不需要可视化?
+     
