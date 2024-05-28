@@ -55,6 +55,7 @@
    |---------+------------------------------------------|
 
    bundle 只能是index.md 或者_index.md. 其他后缀名无效
+   TODO 增加bundle的详细解释
   
 ** module
    hugo module可以代替主题
@@ -70,8 +71,8 @@
    1. gitsubmodule还需要管理使用的theme的信息, module完全不需要管理
       gitsubmodule 可以使用 update --remote来指定使用远程仓库信息, 但是繁琐, 不如go.mod方便  
 ** highlight
-   代码高亮风格:
-   [[https://xyproto.github.io/splash/docs/index.html][hightlight style]]
+   代码高亮风格: [[https://xyproto.github.io/splash/docs/index.html][hightlight style]]
+   
 ** 自定义域名
    实现子域名www.wcq.life 与 顶域名 wcq.life均可访问
 *** hugo配置
@@ -100,8 +101,7 @@
 ** 基本概念
   hugo-book-theme 的file-tree-menu (这里的file-tree-menu 不是上面的menu)
 
-
-  #+begin_src artist -n
+  #+begin_src artist
     server
     \_ _index
     \_ view
@@ -114,9 +114,7 @@
   
   server/_index 是server的信息显示
   server/view/_index是server/view的信息显示 (也可以没有)
-  page_1, page_2在server下面
-  page_3, page_4在server/view下面
-  page_1, page_2的weight只影响自身节点(server节点)下的排序, 不会影响server/view节
+  page_1, page_2的weight只影响自身节点(server节点)下的排序, 不会影响server/view节点
 
   hugo_book 简介的显示, 需要放到content/_index.md中
 ** 参考文档
