@@ -23,6 +23,15 @@ org自带强大的export功能.
     - 太奇怪了, 还需要这么处理
     - 哈哈
 
+
+    normal
+    /italics/
+    =monospace=
+    ~key-binding~
+    +strike through+
+    _underline_
+
+    
     this is content test
     another list
     1. 1111
