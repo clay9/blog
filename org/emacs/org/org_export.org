@@ -1,14 +1,17 @@
-#+title: org export && ox-hugo
-#+date: 2024-01-19 12:02:51
+#+title: org exprot && ox-hugo
+#+date: 2024-05-29 15:11:36
 #+hugo_section: docs
-#+hugo_bundle: emacs/org
-#+export_file_name: org_export
+#+hugo_bundle: emacs/org/org_export
+#+export_file_name: index
 #+hugo_weight: 10
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
+
+#+hugo: more
 
 * ox-hugo
 ** 图片导出逻辑
