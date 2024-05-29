@@ -14,6 +14,22 @@ org自带强大的export功能.
 #+hugo: more
 
 * ox-hugo
+** 常用样式
+   #+begin_details
+   #+begin_summary
+   summary
+   #+end_summary
+   this is details
+   #+end_details
+
+   #+begin_expand
+   #+begin_summary
+   summary2
+   #+end_summary
+   this is expand
+   #+end_expand
+
+   
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
