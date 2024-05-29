@@ -7,6 +7,7 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
+#+HTML_DOCTYPE: html5
 #+HTML_CONTAINER: aside
 
 org自带强大的export功能.
@@ -103,7 +104,7 @@ org自带强大的export功能.
     video
     #+end_video
     
-    
+
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
