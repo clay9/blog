@@ -19,8 +19,16 @@ org自带强大的export功能.
 *** test
     #+attr_shortcode: "这就是个测试"
     #+begin_expand
-    ## 太奇怪了, 还需要这么处理 
+    - 哈哈1
+    - 太奇怪了, 还需要这么处理
+    - 哈哈
+
     this is content test
+    another list
+    1. 1111
+    2. 22222
+    3. 3333
+    
     #+end_expand
 *** basic
     normal
