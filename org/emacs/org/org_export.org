@@ -17,9 +17,10 @@ org自带强大的export功能.
 * ox-hugo
 ** 常用样式
 *** test
+    #+attr_shortcode: "这就是个测试"
     #+begin_expand
-**** title
-     this is content test
+    ## 太奇怪了, 还需要这么处理
+    this is content test
     #+end_expand
 *** basic
     normal
