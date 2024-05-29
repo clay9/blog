@@ -17,6 +17,17 @@ org自带强大的export功能.
 
 * ox-hugo
 ** 常用样式
+*** test
+    #+begin_mermaid
+    start --> stop
+    #+end_mermaid
+*** basic
+    normal
+    /italics/
+    =monospace=
+    ~key-binding~
+    +strike through+
+    _underline_
 *** in
 
     #+begin_aside
@@ -103,13 +114,6 @@ org自带强大的export功能.
     #+begin_video
     video
     #+end_video
-*** markdown
-    #+begin_src markdown
-      {{< expand >}}
-      ## markdown content
-      lsfasddfsf s
-      {{< /expand >}}
-    #+end_src
 
     
 ** 图片导出逻辑
