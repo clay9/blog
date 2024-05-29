@@ -16,7 +16,7 @@ org自带强大的export功能.
 * ox-hugo
 ** 常用样式
 *** in
-    aside before
+
     #+begin_aside
     aside
     #+end_aside
