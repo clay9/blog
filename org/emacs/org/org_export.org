@@ -7,7 +7,7 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: expand
+#+hugo_paired_shortcodes: %expand
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
@@ -19,7 +19,7 @@ org自带强大的export功能.
 *** test
     #+attr_shortcode: "这就是个测试"
     #+begin_expand
-    ## 太奇怪了, 还需要这么处理
+    ## 太奇怪了, 还需要这么处理 
     this is content test
     #+end_expand
 *** basic
