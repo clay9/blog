@@ -7,6 +7,7 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
+#+HTML_CONTAINER: aside
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
