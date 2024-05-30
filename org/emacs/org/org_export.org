@@ -19,7 +19,7 @@ org自带强大的export功能.
 * ox-hugo
 ** 常用样式
 *** test
-    #+attr_shortcode: 这就是个测试 ...
+    #+attr_shortcode: 这就是个测试 "..."
     #+begin_expand
     - 哈哈1
     - 太奇怪了, 还需要这么处理
@@ -56,8 +56,10 @@ org自带强大的export功能.
     # right
     right
     #+end_columns
-
-
+*** test4
+    #+begin_aside
+    this is a test
+    #+end_aside
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
