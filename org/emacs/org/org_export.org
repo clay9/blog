@@ -50,7 +50,7 @@ org自带强大的export功能.
 *** test4
     #+begin_export html
     <style>
-      aside {
+      aside2 {
       width: 40%;
       padding-left: .5rem;
       margin-left: .5rem;
@@ -60,14 +60,14 @@ org自带强大的export功能.
       color: #29627e;
       }
 
-      aside > p {
+      aside2 > p {
       margin: .5rem;
       }
     </style>
 #+end_export
-    #+begin_aside
+    #+begin_aside2
     this is a test
-    #+end_aside
+    #+end_aside2
     asdfsf
     
 ** 图片导出逻辑
