@@ -19,21 +19,17 @@ org自带强大的export功能.
     | key | format         |
     |-----+----------------|
     |     | normal         |
-    | //  | /italics/        |
-    | /=  | =monospace=      |
+    | /   | /italics/        |
+    | =   | =monospace=      |
     | ~   | key-binding    |
     | +   | +strike-through+ |
-    | /_  | _underline_      |
+    | _   | _underline_      |
     |-----+----------------|
 *** literal
     org 自带, literal相关
-    
-    | key     | desc |
-    |---------+------|
-    | example |      |
-    | center  |      |
-    | quote   |      |
-    |---------+------|
+    - example
+    - center
+    - quote
 *** html
     org 自带, html或html5
     基本不怎么使用, 容易影响hugo theme的布局 (存疑)
@@ -41,12 +37,9 @@ org自带强大的export功能.
     使用的是 =hugo book theme=, 所以这里只列出与之相关的
     [[https://hugo-book-demo.netlify.app/docs/shortcodes/columns/][官方具体例子]]
 
-    | key     | desc |
-    |---------+------|
-    | columns |      |
-    | expand  |      |
-    | hints   |      |
-    |---------+------|
+    - columns
+    - expand
+    - hints
     
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png

@@ -51,16 +51,21 @@ os中内存段页发展
 
     frame cpu {
         card cpu控制器 as c
-        frame register {
-            interface CS 
-            interface DS
-            interface SS
-            interface ES        
-        }
+        card register [
+        CS
+        ----
+        DS
+        ---
+        SS 
+        ----
+        ES
+        ]
         c -[hidden]-> register
     }
 
-    agent 地址总线20
+    agent 地址总线20 as addr
+
+    cpu -ri[hidden]-> addr
 
     @enduml
   #+end_src

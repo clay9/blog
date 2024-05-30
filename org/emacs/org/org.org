@@ -1,26 +1,35 @@
 #+title: org
-#+date: 2024-01-18 18:10:47
+#+date: 2024-05-30 20:33:43
 #+hugo_section: docs
-#+hugo_bundle: emacs/org
-#+export_file_name: org
+#+hugo_bundle: emacs/org/org
+#+export_file_name: index
 #+hugo_weight: 1
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
 
 org-mode一直被称为神器
-主要有2大功能, 一是自身强大的文本模式, 另一个则是org-agenda
+主要有2大功能, 一是自身强大的文本模式(依赖 =org-mode=), 另一个则是 =org-agenda=
 推荐阅读: [[http://doc.norang.ca/org-mode.html][org心得体会]]
 
 * 配置
-  org作为文本模式配置较少, 更多的配置是为了org-agenda.
+  org作为文本模式配置较少, 更多的是配置org-agenda为GTD管理工具.
 
-  org文本模式下, [[https://github.com/clay9/emacs.d/blob/master/lisp/init-org-mode.el][可以配置一下简单的外观]]. 比如org-bullets.
-  org-bullets更改了heading的图标, 更改了折叠的block样式为⤵. 显示更为美观
-
-
-  org-agenda的配置可以参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-org-agenda-mode.el][init-org-agenda.el]]和[[https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-org-agenda-fun.el][一系列自定义函数]]
+  org文本模式下, [[https://github.com/clay9/emacs.d/blob/master/lisp/init-org-mode.el][配置简单外观 以及 Babel-languages]]
+  org-agenda的配置可参考[[https://github.com/clay9/emacs.d/blob/master/lisp/init-org-agenda-mode.el][init-org-agenda.el]]和[[https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-org-agenda-fun.el][一系列自定义函数]]
 
 * 使用
+** font format
+   | key | format         |
+   |-----+----------------|
+   |     | normal         |
+   | /   | /italics/        |
+   | =   | =monospace=      |
+   | ~   | key-binding    |
+   | +   | +strike-through+ |
+   | _   | _underline_      |
+   |-----+----------------|
+
 ** 基本语法
 *** 语法: time-stamp选择
     添加time-stamp时, 不要在calendar中移动,效率太低
@@ -58,37 +67,3 @@ org-mode一直被称为神器
 
     对table使用C-c} 可以查看行列值
 
-
-* +MobileOrg+
-  : 已弃用, 不再推荐, 建议使用iphone自带软件
-
-  方案流程
-  1. PC端配置MobileOrg
-     具体见.emacs
-  2. 寻找WebDAV server
-     现在使用的是坚果云
-  3. curl同步PC端到webDAV server
-     这一块非常纠结
-     起初使用的ssh的scp,发现scp貌似不支持https?
-     后来使用了curl, 结果发现curl不支持目录的上传.....
-     导致.emacs中mobileorg的配置十分难看, 有机会应该改掉这块!
-     方法有2:
-     1) 换一种工具取代curl  -- 更倾向于这一种方式
-     2) 使用regular expression -- 貌似curl支持的不好
-
-
-  总览图
-  #+BEGIN_EXAMPLE artist
-    +-----------+ push          +--------------+
-    | PC端      |-------------->| WwbDAV server|
-    |           |<--------------|              |
-    +-----------+ pull          +--------------+
-                                    |      ^
-                                    |      |
-                                    |      |
-                                    v      |
-                                +--------------+
-                                | Mobile       |
-                                |              |
-                                +--------------+
-  #+END_EXAMPLE
