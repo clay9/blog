@@ -7,8 +7,9 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: expand
 #+hugo_paired_shortcodes: columns
+#+hugo_paired_shortcodes: expand
+#+hugo_paired_shortcodes: hint
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
@@ -40,7 +41,7 @@ org自带强大的export功能.
     3. 3333
     
     #+end_expand        
-
+*** test3
     #+begin_columns
     # left
     left yyyyyy
@@ -68,6 +69,37 @@ org自带强大的export功能.
     right
     #+end_columns
 
+    #+attr_shortcode: 
+    #+begin_columns
+    # left
+    left yyyyyy
+    
+    <--->
+    
+    # middle
+    midle yyyyy
+    
+    <--->
+    
+    # right
+    right
+    #+end_columns
+
+*** test2
+    #+attr_shortcode: info
+    #+begin_hint
+    info yyyy
+    #+end_hint
+
+    #+attr_shortcode: warning 
+    #+begin_hint
+    warning yyy
+    #+end_hint
+
+    #+attr_shortcode: danger
+    #+begin_hint
+    danger yyyy
+    #+end_hint
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
