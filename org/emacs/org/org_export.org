@@ -21,55 +21,12 @@ org自带强大的export功能.
     # left
     left yyyyyy
     
-    ,<--->
-    
-    # middle
-    midle yyyyy
-    
-    ,<--->
-    
+    =<--->=
+        
     # right
     right
     #+end_columns
 
-    #+begin_columns
-    # left
-    left yyyyyy
-
-    <--->
-    
-    # middle
-    midle yyyyy
-
-    <--->
-    
-    # right
-    right
-    #+end_columns
-
-*** test4
-    #+begin_export html
-    <style>
-      aside2 {
-      width: 40%;
-      padding-left: .5rem;
-      margin-left: .5rem;
-      float: right;
-      box-shadow: inset 5px 0 5px -5px #29627e;
-      font-style: italic;
-      color: #29627e;
-      }
-
-      aside2 > p {
-      margin: .5rem;
-      }
-    </style>
-#+end_export
-    #+begin_aside2
-    this is a test
-    #+end_aside2
-    asdfsf
-    
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
