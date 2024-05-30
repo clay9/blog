@@ -46,20 +46,42 @@ org自带强大的export功能.
     # left
     left yyyyyy
     
-    <--->
+    =<--->=
     
     # middle
     midle yyyyy
     
-    <--->
+    =<--->=
     
     # right
     right
     #+end_columns
+
+    #+begin_columns
+    # left
+    left yyyyyy
+
+    #+begin_example
+    <--->
+    #+end_example
+    
+    # middle
+    midle yyyyy
+
+    #+begin_example
+    <--->
+    #+end_example
+    
+    
+    # right
+    right
+    #+end_columns
+
 *** test4
     #+begin_aside
     this is a test
     #+end_aside
+    We can even make the asdfasf
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
