@@ -19,11 +19,7 @@ org自带强大的export功能.
 *** test3
     #+begin_columns
     # left
-    left yyyyyy
-
     @@hugo:<--->@@
-        
-    # right
     right
     #+end_columns
 
