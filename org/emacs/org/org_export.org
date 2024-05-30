@@ -7,7 +7,7 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: %expand
+#+hugo_paired_shortcodes: %expand %columns
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
@@ -38,100 +38,15 @@ org自带强大的export功能.
     2. 22222
     3. 3333
     
-    #+end_expand
-*** basic
-    normal
-    /italics/
-    =monospace=
-    ~key-binding~
-    +strike through+
-    _underline_
-*** in
+    #+end_expand        
 
-    #+begin_aside
-    aside
-    #+end_aside
-    aside after
-
-    #+begin_details
-    #+begin_summary
-    summary
-    #+end_summary
-    this is details
-    #+end_details
-   
-*** not in
-    #+begin_mark
-    mark
-    #+end_mark
-
-    #+begin_description
-    description
-    #+end_description
-
-    #+begin_blocktag
-    blocktag
-    #+end_blocktag
-
-    #+begin_inlinetag
-    inlinetag
-    #+end_inlinetag
-*** in 2
-    #+begin_article
-    article
-    #+end_article
-
-    #+begin_audio
-    audio
-    #+end_audio
-
-    #+begin_canvas
-    canvas
-    #+end_canvas
-
-    #+begin_figcaption
-    figcaption
-    #+end_figcaption
-    
-    #+begin_figure
-    figure
-    #+end_figure
-
-    #+begin_footer
-    footer
-    #+end_footer
-
-    #+begin_header
-    header
-    #+end_header
-
-    #+begin_menu
-    menu
-    #+end_menu
-
-    #+begin_meter
-    meter
-    #+end_meter
-
-    #+begin_nav
-    nav
-    #+end_nav
-
-    #+begin_output
-    output
-    #+end_output
-
-    #+begin_progress
-    progress
-    #+end_progress
-
-    #+begin_section
-    section
-    #+end_section
-
-    #+begin_video
-    video
-    #+end_video
+    #+begin_columns
+    left
+    <--->
+    middle
+    <--->
+    right
+    #+end_columns
 
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
