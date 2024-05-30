@@ -57,24 +57,6 @@ org自带强大的export功能.
     right
     #+end_columns
 
-    #+begin_columns
-    # left
-    left yyy
-
-    #+begin_example
-    <--->
-    #+end_example
-
-    middle
-
-    #+begin_example
-    <--->
-    #+end_example
-
-    # righ
-    rrrrrr yyy
-    right
-    #+end_columns
 *** test2
     #+attr_shortcode: info
     #+begin_hint
