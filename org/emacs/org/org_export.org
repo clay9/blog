@@ -19,10 +19,8 @@ org自带强大的export功能.
 *** test3
     #+begin_columns
     left
-    @@hugo:<--->@@
-    right
+    @@hugo:<--->@@right
     #+end_columns
-
 
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
