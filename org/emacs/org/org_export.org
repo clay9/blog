@@ -8,8 +8,6 @@
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
 #+hugo_paired_shortcodes: columns
-#+hugo_paired_shortcodes: expand
-#+hugo_paired_shortcodes: hint
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
@@ -18,40 +16,17 @@ org自带强大的export功能.
 
 * ox-hugo
 ** 常用样式
-*** test
-    #+attr_shortcode: 这就是个测试 "..."
-    #+begin_expand
-    - 哈哈1
-    - 太奇怪了, 还需要这么处理
-    - 哈哈
-
-
-    normal
-    /italics/
-    =monospace=
-    ~key-binding~
-    +strike through+
-    _underline_
-
-    
-    this is content test
-    another list
-    1. 1111
-    2. 22222
-    3. 3333
-    
-    #+end_expand        
 *** test3
     #+begin_columns
     # left
     left yyyyyy
     
-    =<--->=
+    ,<--->
     
     # middle
     midle yyyyy
     
-    =<--->=
+    ,<--->
     
     # right
     right
@@ -61,27 +36,40 @@ org自带强大的export功能.
     # left
     left yyyyyy
 
-    #+begin_example
     <--->
-    #+end_example
     
     # middle
     midle yyyyy
 
-    #+begin_example
     <--->
-    #+end_example
-    
     
     # right
     right
     #+end_columns
 
 *** test4
+    #+begin_export html
+    <style>
+      aside {
+      width: 40%;
+      padding-left: .5rem;
+      margin-left: .5rem;
+      float: right;
+      box-shadow: inset 5px 0 5px -5px #29627e;
+      font-style: italic;
+      color: #29627e;
+      }
+
+      aside > p {
+      margin: .5rem;
+      }
+    </style>
+#+end_export
     #+begin_aside
     this is a test
     #+end_aside
-    We can even make the asdfasf
+    asdfsf
+    
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
