@@ -1,0 +1,29 @@
+#+title: memory 01
+#+date: 2024-05-30 17:36:24
+#+hugo_section: docs
+#+hugo_bundle: os/os/memory_01
+#+export_file_name: index
+#+hugo_weight: 10
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+os中内存段页发展
+
+#+hugo: more
+
+
+#+begin_columns
+x86(8086)之前
+处理器4bits
+: TODO 也许补充一下
+@@hugo:<--->@@x86
+处理器变为16bits, 地址总线变为20根
+为了能访问到所有的地址空间, 引入了段寄存器(CS,DS,SS,ES)
+@@hugo:<--->@@32bits
+处理器变为32bits, 地址总线变为32根
+为了能访问到所有的地址空间, 同时又要兼容x86,
+引入了段描述表(GDTR, LDTR)
+@@hugo:<--->@@64bits
+处理器变为64bits, 地址总线在40-48根
+#+end_columns
