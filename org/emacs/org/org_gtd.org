@@ -24,20 +24,6 @@
      - [X] 一天,一周都做了什么
      - [X] 某个PROJECT总共花费的时间
 
-* 思路的设计
-  5楼到地面视角:
-  
-  | 楼数 | 功能     | 说明    | 备注    |
-  |------+----------+---------+---------|
-  | 5楼  | 人生规划 |         |         |
-  | 4楼  | 3年目标  |         |         |
-  | 3楼  | 1年目标  |         |         |
-  | 2楼  | 职责范围 |         |         |
-  | 1楼  | 项目     |         | GTD管理 |
-  | 地面 | 行动清单 | 隶属1楼 | GTD管理 |
-  |------+----------+---------+---------|
-  /GTD管理的其实是 1楼 && 地面的清单/
-
 * 流程的设计
   #+BEGIN_EXAMPLE artist-mode
     -------------------------+------------------------
@@ -73,46 +59,28 @@
 * 文件的设计
   区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间
 
-  gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及一系列TODO任务.
-
-  而gtd_emacs与gtd_qygame则是已经明确分类的PROJECT.
+  #+begin_example
+    gtd
+    \_ gtd_common     通用gtd流程文件
+       \_ inbox       收集箱
+       \_ task        任务清单
+       \_ archive     归档文件
+    \_ gtd_emacs      emacs project file
+    \_ gtd_qygame     qygame project file
+  #+end_example
+  gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及TODO
+  - inbox.org :: 不区分时间,场景, 灵光一闪即可扔进去
+  - task.org :: 任务清单
+    TODO: priority标签 四象限约束
+    PROEJCT: step>1都属于项目
+  - archive.org :: 归档文件
+    
+  gtd_emacs与gtd_qygame则是已经明确分类的PROJECT.
   比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
-  但即使都是emacs相关, 也可分为是emacs自身, org, 还是IDE.
-  所以emacs.org中实际包含了上面三个PROJECT: emacs, org, IDE
-
-  #+CAPTION: gtd目录
-  | 目录       | 说明                 | 备注        |
-  |------------+----------------------+-------------|
-  | gtd_common | 通用gtd流程文件      | inbox.org   |
-  |            |                      | task.org    |
-  |            |                      | archive.org |
-  |------------+----------------------+-------------|
-  | gtd_emacs  | emacs project files  |             |
-  |------------+----------------------+-------------|
-  | gtd_qygame | qygame project files |             |
-  |------------+----------------------+-------------|
-
-  #+CAPTION: gtd_common中的文件
-  | 文件名      | 说明     | 备注                       |
-  |-------------+----------+----------------------------|
-  | inbox.org   | 收集箱   | 不区分时间, 不区分场景     |
-  |             |          | 灵光一闪即可扔进去保存     |
-  |-------------+----------+----------------------------|
-  | task.org    | 任务清单 | 1. priority标签            |
-  |             | task     | 2. 四象限约束              |
-  |-------------+----------+----------------------------|
-  |             | 项目清单 | 1. 凡是steps>1的都属于项目 |
-  |             | project  |                            |
-  |-------------+----------+----------------------------|
-  | archive.org | 参考资料 | 1. 有参考价值的东西        |
-  |             |          | 2. 垃圾箱                  |
-  |-------------+----------+----------------------------|
 
   #+begin_quote
-  1. task 与 project的唯一区别
-     task只有one step,  project的steps > 1
-  2. 文件都是通过流程来操作的, 不应该手动去干预
-  3. 没增加一个工程, 应该增加一个对应的gtd_xx目录
+  但即使都是emacs相关, 也可分为是emacs自身, org, 还是IDE.
+  所以emacs.org中实际包含了三个PROJECT: emacs, org, IDE
   #+end_quote
   
 * TODO的设计
