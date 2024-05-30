@@ -20,8 +20,8 @@ org自带强大的export功能.
     #+begin_columns
     # left
     left yyyyyy
-    
-    : <--->
+
+    @@hugo:<--->@@
         
     # right
     right
