@@ -42,17 +42,29 @@ org自带强大的export功能.
     #+end_expand        
 
     #+begin_columns
-    left
+    # left
+    left yyyyyy
+    
     <--->
-    middle
+    
+    # middle
+    midle yyyyy
+    
     <--->
+    
+    # right
     right
     #+end_columns
 
 
     #+begin_columns
-    left
+    # left
+    left yyy
+    
     <--->
+
+    # righ
+    rrrrrr yyy
     right
     #+end_columns
 
