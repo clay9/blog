@@ -7,7 +7,6 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: columns
 
 org自带强大的export功能.
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
@@ -16,12 +15,39 @@ org自带强大的export功能.
 
 * ox-hugo
 ** 常用样式
-*** test3
-    #+begin_columns
-    left
-    @@hugo:<--->@@right
-    #+end_columns
+*** basic
+    | key | format         |
+    |-----+----------------|
+    |     | normal         |
+    | //  | /italics/        |
+    | /=  | =monospace=      |
+    | ~   | key-binding    |
+    | +   | +strike-through+ |
+    | /_  | _underline_      |
+    |-----+----------------|
+*** literal
+    org 自带, literal相关
+    
+    | key     | desc |
+    |---------+------|
+    | example |      |
+    | center  |      |
+    | quote   |      |
+    |---------+------|
+*** html
+    org 自带, html或html5
+    基本不怎么使用, 容易影响hugo theme的布局 (存疑)
+*** hugo shortcode
+    使用的是 =hugo book theme=, 所以这里只列出与之相关的
+    [[https://hugo-book-demo.netlify.app/docs/shortcodes/columns/][官方具体例子]]
 
+    | key     | desc |
+    |---------+------|
+    | columns |      |
+    | expand  |      |
+    | hints   |      |
+    |---------+------|
+    
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml

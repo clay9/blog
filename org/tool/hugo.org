@@ -72,6 +72,10 @@
       gitsubmodule 可以使用 update --remote来指定使用远程仓库信息, 但是繁琐, 不如go.mod方便  
 ** highlight
    代码高亮风格: [[https://xyproto.github.io/splash/docs/index.html][hightlight style]]
+** shortcode
+   TODO 待补充
+   简单理解, 每个hugo theme可以定义自己的shortcode
+   这样可以充分扩展 markdown的语法
    
 ** 自定义域名
    实现子域名www.wcq.life 与 顶域名 wcq.life均可访问
