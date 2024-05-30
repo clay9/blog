@@ -19,7 +19,7 @@ org自带强大的export功能.
 * ox-hugo
 ** 常用样式
 *** test
-    #+attr_shortcode: 这就是个测试
+    #+attr_shortcode: 这就是个测试 ...
     #+begin_expand
     - 哈哈1
     - 太奇怪了, 还需要这么处理
@@ -46,45 +46,35 @@ org自带强大的export功能.
     # left
     left yyyyyy
     
-    <--->
+    =<--->=
     
     # middle
     midle yyyyy
     
-    <--->
+    =<--->=
     
     # right
     right
     #+end_columns
 
-
     #+begin_columns
     # left
     left yyy
-    
+
+    #+begin_example
     <--->
+    #+end_example
+
+    middle
+
+    #+begin_example
+    <--->
+    #+end_example
 
     # righ
     rrrrrr yyy
     right
     #+end_columns
-
-    #+attr_shortcode: 
-    #+begin_columns
-    # left
-    left yyyyyy
-    
-    <--->
-    
-    # middle
-    midle yyyyy
-    
-    <--->
-    
-    # right
-    right
-    #+end_columns
-
 *** test2
     #+attr_shortcode: info
     #+begin_hint
