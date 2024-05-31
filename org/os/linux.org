@@ -44,6 +44,10 @@ linux常用命令&&工具
   |----------------------+---------------------------------------------|
   | xargs                | 将 =前面的标准输出= 作为 =后面命令的参数=       |
   |----------------------+---------------------------------------------|
+  | nohup                | 程序后台运行, 前缀, 占用标准输出            |
+  |----------------------+---------------------------------------------|
+  | &                    | 程序后台运行, 后缀, 不占用标准输出          |
+  |----------------------+---------------------------------------------|
   | watch                | 周期性执行某个命令                          |
   |----------------------+---------------------------------------------|
   | crontab              | 定时任务                                    |
@@ -61,18 +65,14 @@ linux常用命令&&工具
    #+begin_hint
    很少远程工作了, 不再使用
    #+end_hint
-   为什么使用tmux 和 screen :: 远程登录操作时候, 因网络不稳定, 总是掉线, 丢失环境
-   讲解它们之前必须要先了解nohup 与 &
-*** nohup 与 &
-    nohup与 &都是后台运行
-    nohup会占用标准输出, &则不会占用标准输出
-    它们的作用都是为了防止session关闭后, 程序无法运行
 
-    但每个程序都要加上nohup前缀或&后缀, 则会特别麻烦, 因此出现了screen与tmux
+   linux下很多process是与当前shell绑定的(前台运行),
+   如果丢失shell环境(比如远程连接时断网), 就会导致process被关闭.
+   
+   虽然在call process时候使用nohup,& 可以使process变为后台.
+   但每个process都这么处理, 非常不方便, 因此出现了screen与tmux
 
 *** screen
-    screen属于GNU计划
-
     #+attr_shortcode: 基本命令 "..."
     #+begin_expand
     - screen, screen -S <name>
@@ -105,7 +105,6 @@ linux常用命令&&工具
     通过C-a z可以了解screen的工作原理 :: screen就是新开了一个shell, 在里面有不同的窗口windows.
     然后可以在windows间切换, 或者是回到原先的shell中
     #+end_hint
-    #+end_expand
 
     #+attr_shortcode: info
     #+begin_hint
@@ -113,8 +112,11 @@ linux常用命令&&工具
     虽然查看教程, 发现screen还有很多高级功能, 然而screen的窗口功能太不友好, 导致我经常不知道自己工作
     在哪个窗口下, 而且因为C-a w的无效, 很难有一览全局, 所以最后选择放弃screen, 改投tmux
     #+end_hint
+    #+end_expand
 
 *** tmux
+    #+attr_shortcode: 基本概念 "..."
+    #+begin_expand
     #+begin_example
       server
       \_ session1
@@ -123,7 +125,8 @@ linux常用命令&&工具
       \_ session3
          \_ socket2    通过-L,-S生成的新socket              
     #+end_example
-    一个server 多个session, session又属于socket
+    一个server 多个session, session又属于socket    
+    #+end_expand
 
     #+attr_shortcode: 基本命令 "..."
     #+begin_expand
@@ -161,7 +164,6 @@ linux常用命令&&工具
       deatach类似于screen中的deatch
       deatch之后就可以回到正常的shell, 并使tmux运行在后台
     #+end_expand
-
 
 * 命令说明
 ** /proc/cpuinfo
