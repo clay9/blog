@@ -123,7 +123,7 @@ linux常用命令&&工具
       \_ session2
          \_ socket1    默认socket
       \_ session3
-         \_ socket2    通过-L,-S生成的新socket              
+         \_ socket2    通过-L,-S生成的新socket
     #+end_example
     一个server 多个session, session又属于socket    
     #+end_expand
@@ -167,11 +167,11 @@ linux常用命令&&工具
 
 * 命令说明
 ** /proc/cpuinfo
-  #+attr_shortcode: cpuinfo "..."  
+  #+attr_shortcode: cpuinfo "..."
   #+begin_expand
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
   总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
-
+  
   查看物理CPU个数
   cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
 
@@ -221,7 +221,7 @@ linux常用命令&&工具
    load average数据是每隔5秒钟检查一次活跃的进程数，然后按特定算法计算出的数值。
    如果这个数除以逻辑CPU的数量，结果高于5的时候就表明系统在超负荷运转了
    #+end_hint
-
+   
    #+attr_shortcode: info
    #+begin_hint
    这一系列信息是系统的信息, docker容器内外是一致的
