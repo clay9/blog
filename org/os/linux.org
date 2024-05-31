@@ -16,7 +16,7 @@ linux常用命令&&工具
 
   | 信息               | 命令                       |
   |--------------------+----------------------------|
-  | cpu                | [[cpu_info][查看]]                       |
+  | cpu                | [[cpu_info][查看命令]]                   |
   |--------------------+----------------------------|
   | linux发行版信息    | cat /etc/issue             |
   |--------------------+----------------------------|
@@ -24,14 +24,13 @@ linux常用命令&&工具
   |--------------------+----------------------------|
   | debian系已安装的包 | apt list --installed       |
   |--------------------+----------------------------|
-  | fd                 | [[fd_info][查看]]  [[fd_set][设置]]                 |
+  | fd                 | [[fd_info][查看命令]]  [[fd_set][设置命令]]         |
   |--------------------+----------------------------|
   | socket             | ss(socket statistics)      |
   |--------------------+----------------------------|
   | 查看库的封装信息   | readelf, nm, objdump       |
   |--------------------+----------------------------|
-
-  <<cpu_info>>
+  
   #+attr_shortcode: cpu查看 "..."
   #+begin_expand
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
@@ -50,7 +49,7 @@ linux常用命令&&工具
   cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
   #+end_expand
   
-  #+attr_shortcode: fd查询 "..." <<fd_info>>
+  #+attr_shortcode: fd查询 "..."
   #+begin_expand
   + 所有进程允许打开的最大fd数量 :: /proc/sys/fs/file-max
   + 所有进程已经打开的fd数量及允许的最大数量 :: /proc/sys/fs/file-nr
@@ -58,7 +57,7 @@ linux常用命令&&工具
   + 单个进程(例如pid为5454)已打开的fd :: ls -l /proc/5454/fd/
   #+end_expand
 
-  #+attr_shortcode: fd命令 "..."
+  #+attr_shortcode: fd设置 "..."
   #+begin_expand <<fd_set>>  
   # 用户单进程最大; 仅当前sesstion生效
   # ulimit -n 实际是 ulimit -Sn (Soft软件)
