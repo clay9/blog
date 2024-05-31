@@ -18,7 +18,7 @@ linux常用命令&&工具
   |--------------------+-----------------------|
   | linux发行版信息    | cat /etc/issue        |
   |--------------------+-----------------------|
-  | kernel信息         | cat /proc/version     |
+  | kernel信息         | cat /proc/version \\  |
   |                    | uname -a              |
   |--------------------+-----------------------|
   | debian系已安装的包 | apt list --installed  |
