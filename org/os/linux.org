@@ -32,9 +32,9 @@ linux常用命令&&工具
   |--------------------+----------------------------|
   | memory             | [[*free][free]]                       |
   |--------------------+----------------------------|
-  | fd                 | [[*fd][查看与设置]]                     |
+  | fd                 | [[*fd][查看与设置]]                 |
   |--------------------+----------------------------|
-  | socket             | [[*ss][ss]], netstat                   |
+  | socket             | [[*ss][ss]], netstat                |
   |--------------------+----------------------------|
   | 查看库的封装信息   | readelf, nm, objdump       |
   |--------------------+----------------------------|
@@ -52,7 +52,7 @@ linux常用命令&&工具
   |---------+---------------------------------------------|
   | crontab | 定时任务                                    |
   |---------+---------------------------------------------|
-  | sort    | [[*sort][排序]]                                          |
+  | sort    | [[*sort][排序]]                                        |
   |---------+---------------------------------------------|
   | wc      | 统计行数                                    |
   |---------+---------------------------------------------|
@@ -101,13 +101,13 @@ linux常用命令&&工具
       切换到上一个或下一个窗口 -- 亲测无效??
     - C-a z
       类似于emacs的C-z 将程序放入后台 可以通过jobs 和fg操作
-    #+end_expand
 
     #+attr_shortcode: info
     #+begin_hint
     通过C-a z可以了解screen的工作原理 :: screen就是新开了一个shell, 在里面有不同的窗口windows.
     然后可以在windows间切换, 或者是回到原先的shell中
     #+end_hint
+    #+end_expand
 
     #+attr_shortcode: info
     #+begin_hint
@@ -139,8 +139,7 @@ linux常用命令&&工具
     - tmux kill-session -t
       关闭session
     - tmux kill-server -t
-      关闭server      
-    #+end_expand
+      关闭server
 
     #+attr_shortcode: info
     #+begin_hint
@@ -148,6 +147,7 @@ linux常用命令&&工具
     如果session退出之前, tmux是挂起状态stopped,那么下次session重新链接后, 将导致tmux关闭
     tmux new -s $sessionName 创建一个新的session, 并指定其名称, 不然就是递增数字
     #+end_hint
+    #+end_expand
 
     #+attr_shortcode: 快捷键 "..."
     #+begin_expand
@@ -163,11 +163,6 @@ linux常用命令&&工具
       deatach类似于screen中的deatch
       deatch之后就可以回到正常的shell, 并使tmux运行在后台
     #+end_expand
-
-    #+attr_shortcode: info
-    #+begin_hint
-    tmux有友好的界面, 友好的C-b ?帮助提示, 简单的操作
-    #+end_hint
 
 * 命令说明
 ** /proc/cpuinfo
@@ -189,7 +184,7 @@ linux常用命令&&工具
   cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
   #+end_expand
 ** top
-   #+attr_shortcode: top header "..."
+   #+attr_shortcode: "top header" "..."
    #+begin_expand
    | key      | desc                                            |
    |----------+-------------------------------------------------|
@@ -232,7 +227,7 @@ linux常用命令&&工具
    #+end_hint
    #+end_expand
 
-   #+attr_shortcode: top body "..."
+   #+attr_shortcode: "top body" "..."
    #+begin_expand
    | key     | desc                                      |
    |---------+-------------------------------------------|
