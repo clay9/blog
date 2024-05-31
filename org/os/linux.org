@@ -13,15 +13,15 @@ linux常用命令&&工具
 #+hugo: more
 * 查看硬件信息
 
-  #+name: table
   | 信息 | 命令              |
   |------+-------------------|
   | cpu  | [[cpu_info][cat /proc/cpuinfo]] |
   |------+-------------------|
-    
-  #+attr_shortcode: cpuinfo "..."
-  #+begin_expand
+
   #+name: cpu_info
+  #+begin_example
+  #+attr_shortcode: cpuinfo "..."  
+  #+begin_expand
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
   总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
 
@@ -37,6 +37,7 @@ linux常用命令&&工具
   查看CPU信息（型号）
   cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
   #+end_expand
+  #+end_example
 
 * 查看os信息
 
@@ -59,7 +60,8 @@ linux常用命令&&工具
   | 查看库的封装信息   | readelf, nm, objdump       |
   |--------------------+----------------------------|
 
-  <<fd_info>>
+  #+name: fd_info
+  #+begin_quote
   #+attr_shortcode: fd查询 "..."
   #+begin_expand
   + 所有进程允许打开的最大fd数量 :: /proc/sys/fs/file-max
@@ -67,7 +69,10 @@ linux常用命令&&工具
   + 单个进程允许打开的最大fd数量 :: ulimit -n
   + 单个进程(例如pid为5454)已打开的fd :: ls -l /proc/5454/fd/
   #+end_expand
-  <<fd_set>>
+  #+end_quote
+
+  #+name: fd_set
+  #+begin_center
   #+attr_shortcode: fd设置 "..."
   #+begin_expand
   # 用户单进程最大; 仅当前sesstion生效
@@ -84,6 +89,7 @@ linux常用命令&&工具
   # 重点!!! 以上3个的配置数都受限于fs.nr_open -- 调用sysctl -p生效
   sysctl -w fs.nr_open=xxx
   #+end_expand
+  #+end_center
 
   <<top_info>>
   #+attr_shortcode: top输出解释 "..."
