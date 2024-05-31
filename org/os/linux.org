@@ -18,9 +18,9 @@ linux常用命令&&工具
   | cpu  | [[cpu_info][cat /proc/cpuinfo]] |
   |------+-------------------|
 
-  :: test1
+  : test1
   this is break line
-  :: test ya <<cpu_info>>
+  : test ya <<cpu_info>>
   #+attr_shortcode: cpu查看 "..."
   #+begin_expand  
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
