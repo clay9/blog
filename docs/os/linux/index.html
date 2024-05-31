@@ -1,5 +1,5 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="linux常用命令&&工具 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://www.wcq.life/docs/os/linux/"><meta property="og:site_name" content="飘"><meta property="og:title" content="linux"><meta property="og:description" content="linux常用命令&&工具 "><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-05-31T10:36:00+00:00"><meta property="article:modified_time" content="2024-05-31T03:32:39+00:00"><title>linux | 飘</title>
-<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=canonical href=https://www.wcq.life/docs/os/linux/><link rel=stylesheet href=/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.e91e40a3308fe5f66ff0150d0f1153332996a1457bf93cf7bb1c9cb85eabcd0b.js integrity="sha256-6R5AozCP5fZv8BUNDxFTMymWoUV7+Tz3uxycuF6rzQs=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="linux常用命令&&工具 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://www.wcq.life/docs/os/linux/"><meta property="og:site_name" content="飘"><meta property="og:title" content="linux"><meta property="og:description" content="linux常用命令&&工具 "><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-05-31T10:36:00+00:00"><meta property="article:modified_time" content="2024-05-31T03:38:43+00:00"><title>linux | 飘</title>
+<link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png><link rel=canonical href=https://www.wcq.life/docs/os/linux/><link rel=stylesheet href=/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css integrity="sha256-MJt+0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.5b50216625a866e54d60784c2f9b21c4a75bc8bd99d89c7c4ef42a8e5748b135.js integrity="sha256-W1AhZiWoZuVNYHhML5shxKdbyL2Z2Jx8TvQqjldIsTU=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>飘</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><input type=checkbox id=section-b352899f7eb963a33da348c348027b65 class=toggle checked>
 <label for=section-b352899f7eb963a33da348c348027b65 class="flex justify-between"><a role=button>os</a></label><ul><li><a href=/docs/os/linux/ class=active>linux</a></li><li><a href=/docs/os/mac/>mac</a></li><li><input type=checkbox id=section-fdd1425db5172488eb2e50bb0694ce90 class=toggle>
 <label for=section-fdd1425db5172488eb2e50bb0694ce90 class="flex justify-between"><a role=button>os</a></label><ul><li><a href=/docs/os/os/memory_01/>memory 01</a></li></ul></li><li><a href=/docs/os/dll/>静态库 && 动态库</a></li><li><input type=checkbox id=section-0bd5f096bee3fdfea967307d0cc58cea class=toggle>
@@ -16,18 +16,59 @@
 <label for=section-20aa46c2af4c93307791bb24c1eee293 class="flex justify-between"><a role=button>prog base</a></label><ul><li><a href=/docs/prog_base/algorithm/>数据结构与算法分析</a></li></ul></li><li><input type=checkbox id=section-c668332d51475947ad4001c53594cdb9 class=toggle>
 <label for=section-c668332d51475947ad4001c53594cdb9 class="flex justify-between"><a role=button>tools</a></label><ul><li><a href=/docs/tool/docker/>docker</a></li><li><a href=/docs/tool/k8s/>k8s</a></li><li><a href=/docs/tool/monitor/>monitor</a></li><li><a href=/docs/tool/hugo/>hugo</a></li><li><a href=/docs/tool/redis/>redis</a></li><li><a href=/docs/tool/sql/>数据库</a></li><li><a href=/docs/tool/protocol/>乱七八糟的协议合集</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu>
 </label><strong>linux</strong>
-<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a><ul><li><a href=#linux发行版信息-cat-etc-issue>linux发行版信息 :: cat /etc/issue</a></li><li><a href=#kernel信息-cat-proc-version-uname-a>kernel信息 :: cat /proc/version | uname -a</a></li><li><a href=#debian系-已安装的包-apt-list-installed>debian系 已安装的包 :: apt list &ndash;installed</a></li><li><a href=#cpu>cpu</a></li><li><a href=#fd>fd</a></li><li><a href=#socket-ss--socket-statistics>socket :: ss(socket statistics)</a></li><li><a href=#查看库的封装信息-readelf-nm-objdump>查看库的封装信息 :: readelf, nm, objdump</a></li></ul></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><p>linux常用命令&&工具<br></p><h2 id=查看系统信息>查看系统信息
-<a class=anchor href=#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e4%bf%a1%e6%81%af>#</a></h2><h3 id=linux发行版信息-cat-etc-issue>linux发行版信息 :: cat /etc/issue
-<a class=anchor href=#linux%e5%8f%91%e8%a1%8c%e7%89%88%e4%bf%a1%e6%81%af-cat-etc-issue>#</a></h3><h3 id=kernel信息-cat-proc-version-uname-a>kernel信息 :: cat /proc/version | uname -a
-<a class=anchor href=#kernel%e4%bf%a1%e6%81%af-cat-proc-version-uname-a>#</a></h3><h3 id=debian系-已安装的包-apt-list-installed>debian系 已安装的包 :: apt list &ndash;installed
-<a class=anchor href=#debian%e7%b3%bb-%e5%b7%b2%e5%ae%89%e8%a3%85%e7%9a%84%e5%8c%85-apt-list-installed>#</a></h3><h3 id=cpu>cpu
-<a class=anchor href=#cpu>#</a></h3><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>详细命令</span>
-<span>...</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><p>总核数 = 物理CPU个数 X 每颗物理CPU的核数<br>总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数<br></p><p>查看物理CPU个数<br>cat /proc/cpuinfo| grep &ldquo;physical id&rdquo;| sort| uniq| wc -l<br></p><p>查看每个物理CPU中core的个数(即核数)<br>cat /proc/cpuinfo| grep &ldquo;cpu cores&rdquo;| uniq<br></p><p>查看逻辑CPU的个数<br>cat /proc/cpuinfo| grep &ldquo;processor&rdquo;| wc -l<br></p><p>查看CPU信息（型号）<br>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c<br></p></div></label></div><h3 id=fd>fd
-<a class=anchor href=#fd>#</a></h3><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>查询命令</span>
-<span>...</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><dl><dt>所有进程允许打开的最大fd数量</dt><dd>/proc/sys/fs/file-max<br></dd><dt>所有进程已经打开的fd数量及允许的最大数量</dt><dd>/proc/sys/fs/file-nr<br></dd><dt>单个进程允许打开的最大fd数量</dt><dd>ulimit -n<br></dd><dt>单个进程(例如pid为5454)已打开的fd</dt><dd>ls -l <em>proc/5454/fd</em><br></dd></dl></div></label></div><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>设置命令</span>
-<span>...</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><p>ulimit -n xx<br></p><p>echo &lsquo;* soft nofile 1048576&rsquo; >> /etc/security/limits.conf<br></p><p>echo &lsquo;* hard nofile 1048576&rsquo; >> /etc/security/limits.conf<br></p><p>sysctl -w fs.nr_open=xxx<br></p></div></label></div><h3 id=socket-ss--socket-statistics>socket :: ss(socket statistics)
-<a class=anchor href=#socket-ss--socket-statistics>#</a></h3><h3 id=查看库的封装信息-readelf-nm-objdump>查看库的封装信息 :: readelf, nm, objdump
-<a class=anchor href=#%e6%9f%a5%e7%9c%8b%e5%ba%93%e7%9a%84%e5%b0%81%e8%a3%85%e4%bf%a1%e6%81%af-readelf-nm-objdump>#</a></h3><h2 id=必备命令--软件>必备命令(软件)
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><p>linux常用命令&&工具<br></p><h2 id=查看系统信息>查看系统信息
+<a class=anchor href=#%e6%9f%a5%e7%9c%8b%e7%b3%bb%e7%bb%9f%e4%bf%a1%e6%81%af>#</a></h2><dl><dt>linux发行版信息</dt><dd>cat /etc/issue<br></dd><dt>kernel信息</dt><dd>cat /proc/version<br>uname -a<br></dd><dt>debian系 已安装的包</dt><dd>apt list &ndash;installed<br></dd></dl><p>cpu<br></p><pre><code>
+<div class=book-expand>
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>详细命令</span>
+      <span>...</span>
+    </div>
+    <input type=checkbox class=hidden>
+    <div class="book-expand-content markdown-inner">
+      <pre><code>总核数 = 物理CPU个数 X 每颗物理CPU的核数 &lt;br/&gt;
+总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数 &lt;br/&gt;
+
+查看物理CPU个数 &lt;br/&gt;
+cat /proc/cpuinfo| grep &quot;physical id&quot;| sort| uniq| wc -l &lt;br/&gt;
+
+查看每个物理CPU中core的个数(即核数) &lt;br/&gt;
+cat /proc/cpuinfo| grep &quot;cpu cores&quot;| uniq &lt;br/&gt;
+
+查看逻辑CPU的个数 &lt;br/&gt;
+cat /proc/cpuinfo| grep &quot;processor&quot;| wc -l &lt;br/&gt;
+
+查看CPU信息（型号） &lt;br/&gt;
+cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c &lt;br/&gt;
+</code></pre></div></label></div></code></pre><p>fd<br></p><pre><code>
+<div class=book-expand>
+  <label>
+    <div class="book-expand-head flex justify-between">
+      <span>查询命令</span>
+      <span>...</span>
+    </div>
+    <input type=checkbox class=hidden>
+    <div class="book-expand-content markdown-inner">
+      <pre><code>所有进程允许打开的最大fd数量
+: /proc/sys/fs/file-max &lt;br/&gt;
+
+所有进程已经打开的fd数量及允许的最大数量
+: /proc/sys/fs/file-nr &lt;br/&gt;
+
+单个进程允许打开的最大fd数量
+: ulimit -n &lt;br/&gt;
+
+单个进程(例如pid为5454)已打开的fd
+: ls -l _proc/5454/fd_ &lt;br/&gt;
+</code></pre></div></label></div><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>设置命令</span>
+<span>...</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><pre><code>ulimit -n xx &lt;br/&gt;
+
+echo '\* soft nofile 1048576' &amp;gt;&amp;gt; /etc/security/limits.conf &lt;br/&gt;
+
+echo '\* hard nofile 1048576' &amp;gt;&amp;gt; /etc/security/limits.conf &lt;br/&gt;
+
+sysctl -w fs.nr_open=xxx &lt;br/&gt;
+</code></pre></div></label></div></code></pre><dl><dt>socket</dt><dd>ss(socket statistics)<br></dd><dt>查看库的封装信息</dt><dd>readelf, nm, objdump<br></dd></dl><h2 id=必备命令--软件>必备命令(软件)
 <a class=anchor href=#%e5%bf%85%e5%a4%87%e5%91%bd%e4%bb%a4--%e8%bd%af%e4%bb%b6>#</a></h2><h3 id=top>top
 <a class=anchor href=#top>#</a></h3><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>top输出解释</span>
 <span>...</span></div><input type=checkbox class=hidden><div class="book-expand-content markdown-inner"><p>top - 12:19:58 up 3:45, 1 user, load average: 0.00, 0.02, 0.05<br>Tasks: 27 total, 1 running, 26 sleeping, 0 stopped, 0 zombie<br>%Cpu(s): 1.5 us, 1.1 sy, 0.0 ni, 97.2 id, 0.0 wa, 0.0 hi, 0.2 si, 0.0 st<br>MiB Mem : 64348.3 total, 39305.2 free, 11285.5 used, 13757.6 buff/cache<br>MiB Swap: 8192.0 total, 8192.0 free, 0.0 used. 52690.6 avail Mem<br></p><p>PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND<br></p><p>122 root 20 0 12936 7148 6648 S 1.0 0.0 2:32.20 cli<br>69 root 20 0 12928 7064 6572 S 0.7 0.0 2:07.64 svr<br></p></div></label></div><div class=book-expand><label><div class="book-expand-head flex justify-between"><span>top快捷键</span>
@@ -51,4 +92,4 @@
 </code></pre></li><li>k, t k指定列数, t指定分隔符<br></li><li>f 会将小写字母都转换为大写字母来进行比较，亦即忽略大小写<br></li></ul><h3 id=wc-l>wc -l
 <a class=anchor href=#wc-l>#</a></h3><p>统计行数<br></p><h2 id=管道>管道
 <a class=anchor href=#%e7%ae%a1%e9%81%93>#</a></h2><h3 id=and-and-xargs>| && xargs
-<a class=anchor href=#and-and-xargs>#</a></h3><ul><li>管道是实现将 <code>前面的标准输出</code> 作为 <code>后面的标准输入</code><br></li><li>xargs是实现将 <code>前面的标准输出</code> 作为 <code>后面命令的参数</code><br></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a><ul><li><a href=#linux发行版信息-cat-etc-issue>linux发行版信息 :: cat /etc/issue</a></li><li><a href=#kernel信息-cat-proc-version-uname-a>kernel信息 :: cat /proc/version | uname -a</a></li><li><a href=#debian系-已安装的包-apt-list-installed>debian系 已安装的包 :: apt list &ndash;installed</a></li><li><a href=#cpu>cpu</a></li><li><a href=#fd>fd</a></li><li><a href=#socket-ss--socket-statistics>socket :: ss(socket statistics)</a></li><li><a href=#查看库的封装信息-readelf-nm-objdump>查看库的封装信息 :: readelf, nm, objdump</a></li></ul></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></div></aside></main></body></html>
+<a class=anchor href=#and-and-xargs>#</a></h3><ul><li>管道是实现将 <code>前面的标准输出</code> 作为 <code>后面的标准输入</code><br></li><li>xargs是实现将 <code>前面的标准输出</code> 作为 <code>后面命令的参数</code><br></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#查看系统信息>查看系统信息</a></li><li><a href=#必备命令--软件>必备命令(软件)</a><ul><li><a href=#top>top</a></li><li><a href=#free>free</a></li><li><a href=#ss>ss</a></li><li><a href=#netstat>netstat</a></li><li><a href=#watch>watch</a></li><li><a href=#crontab>crontab</a></li><li><a href=#tmux-and-and-screen>tmux && screen</a></li><li><a href=#ffmpeg>ffmpeg</a></li><li><a href=#sort>sort</a></li><li><a href=#wc-l>wc -l</a></li></ul></li><li><a href=#管道>管道</a><ul><li><a href=#and-and-xargs>| && xargs</a></li></ul></li></ul></nav></div></aside></main></body></html>
