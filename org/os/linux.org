@@ -18,11 +18,10 @@ linux常用命令&&工具
   |------+-------------------|
   | cpu  | [[cpu_info][cat /proc/cpuinfo]] |
   |------+-------------------|
-
+    
+  #+attr_shortcode: cpuinfo "..."
+  #+begin_expand
   #+name: cpu_info
-  @@hugo:<span class="org-target" id="org-target--top-cpu-info"></span>@@
-  #+attr_shortcode: cpu信息 "..."
-  #+begin_expand  
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
   总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
 
