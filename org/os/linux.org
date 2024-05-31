@@ -31,7 +31,7 @@ linux常用命令&&工具
   | 查看库的封装信息   | readelf, nm, objdump       |
   |--------------------+----------------------------|
 
-  #+name: cpu_info
+  <<cpu_info>>
   #+attr_shortcode: cpu查看 "..."
   #+begin_expand
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
@@ -49,7 +49,7 @@ linux常用命令&&工具
   查看CPU信息（型号）
   cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
   #+end_expand
-  
+  <<fd_info>>
   #+attr_shortcode: fd查询 "..."
   #+begin_expand
   + 所有进程允许打开的最大fd数量 :: /proc/sys/fs/file-max
@@ -57,7 +57,7 @@ linux常用命令&&工具
   + 单个进程允许打开的最大fd数量 :: ulimit -n
   + 单个进程(例如pid为5454)已打开的fd :: ls -l /proc/5454/fd/
   #+end_expand
-
+  <<fd_set>>
   #+attr_shortcode: fd设置 "..."
   #+begin_expand
   # 用户单进程最大; 仅当前sesstion生效
