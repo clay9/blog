@@ -13,10 +13,13 @@ linux常用命令&&工具
 #+hugo: more
 
 * 查看系统信息
-  - linux发行版信息 :: cat /etc/issue
-  - kernel信息 :: cat /proc/version
+  - linux发行版信息
+    cat /etc/issue
+  - kernel信息
+    cat /proc/version
     uname -a
-  - debian系 已安装的包 :: apt list --installed
+  - debian系 已安装的包
+    apt list --installed
   - cpu
     #+attr_shortcode: 详细命令 "..."
     #+begin_expand
@@ -60,8 +63,10 @@ linux常用命令&&工具
     # 重点!!! 以上3个的配置数都受限于fs.nr_open -- 调用sysctl -p生效
     sysctl -w fs.nr_open=xxx
     #+end_expand
-  - socket :: ss(socket statistics)
-  - 查看库的封装信息 :: readelf, nm, objdump 
+  - socket
+    ss(socket statistics)
+  - 查看库的封装信息
+    readelf, nm, objdump 
 
 * 必备命令(软件)
 ** top
