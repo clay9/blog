@@ -12,15 +12,17 @@ linux常用命令&&工具
 
 #+hugo: more
 * 查看硬件信息
-  
+
   | 信息 | 命令              |
   |------+-------------------|
   | cpu  | [[cpu_info][cat /proc/cpuinfo]] |
   |------+-------------------|
-  
+
+  :: test1
+  this is break line
+  :: test ya <<cpu_info>>
   #+attr_shortcode: cpu查看 "..."
-  #+begin_expand
-  <<cpu_info>>
+  #+begin_expand  
   总核数 = 物理CPU个数 X 每颗物理CPU的核数
   总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
 
