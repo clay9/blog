@@ -1,53 +1,29 @@
 #+title: mac
-#+date: 2024-01-18 18:57:07
+#+date: 2024-06-04 14:36:29
 #+hugo_section: docs
-#+hugo_bundle: os
-#+export_file_name: mac
+#+hugo_bundle: os/mac
+#+export_file_name: index
 #+hugo_weight: 2
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-
-mac 记录
-
-#+hugo: more
-
-* mac系统怎么样
-  之前是为了学习linux命令行, 后来是开发环境使用到了xcode, 现在是emacs+alfred.
-  mac是一款很稳定的系统, 但是稳定的代价是, 对于大部分游戏都不支持. 所以如果有游戏需求, 非常不建议使用mac.
-  17年开始使用mac, 缺点很明显, 对游戏的支持差. 优点也不少:
-  1. 稳定
-  2. 广告少! 广告少! 广告少!
-  3. 命令行学习使用方便
-  4. 原生软件xcode
-  5. alfred
+#+hugo_custom_front_matter: :bookCollapseSection false
 
 * mac初步整理
-  笔者有严重的强迫症, 新上手的东西必须整理一遍才去使用.
-  习惯性由大到小, 由外而内的整理方式.
-** os系统选择
-   不是最新的os系统就是最好的!!!
-   应该根据不同的mac机型选择不同的os
-   比如mbp2017 intel处理器可以选择Mojave
 ** 界面的整理
    1. launchpad图标大小整理
-      1) 每一列图标数量
-     #+BEGIN_EXAMPLE
-     defaults write com.apple.dock springboard-rows -int 7
-     #+END_EXAMPLE
-      2) 每一行图标数量
-     #+BEGIN_EXAMPLE
-     defaults write com.apple.dock springboard-columns -int 7
-     #+END_EXAMPLE
-      3) 重启Launchpad
-     #+BEGIN_EXAMPLE
-     defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-     #+END_EXAMPLE
-     慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!
+      - 每一列图标数量
+         : defaults write com.apple.dock springboard-rows -int 7
+      - 每一行图标数量
+        : defaults write com.apple.dock springboard-columns -int 7
+      - 重启Launchpad
+        : defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+        #+attr_shortcode: warning
+        #+begin_hint
+        慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!
+        #+end_hint
    2. 添加空白到Dock栏
       空白能使Dock中的程序更好的归类. 按住Option可以拖动
-      #+BEGIN_EXAMPLE
-      defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
-      #+END_EXAMPLE
+      : defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
 ** 状态栏调整
    按住Command之后, 鼠标可以拖动状态栏图标
 ** mac自带输入法 -- 简体拼音
@@ -55,10 +31,13 @@ mac 记录
    1. TAB -- 短按切换ABC与简体中文, 长按大小写
    2. 建议设置选词为竖屏, 横屏容易遮挡输入
 
-
+   #+attr_shortcode: info
+   #+begin_hint
    不舒服的地方
-   1. 输入的时候无法使用shift来切换为英文, 必须使用Enter或者Ctrl+任意健
-   2. 候选词为横屏的时候, 会遮挡住输入区域
+   1. 输入的时候无法使用shift来切换为英文, 必须使用Fn+TAB
+   2. 候选词为横屏的时候, 会遮挡住输入区域      
+   #+end_hint
+
 ** 关闭内置键盘
    苹果内置键盘不好用, 但是触控板非常好用.
    习惯把HHKB放在苹果键盘上, 这样可以使用HHKB+苹果触控版
@@ -119,9 +98,9 @@ mac 记录
        #+END_EXAMPLE
     3. 根据功能, plist文件放到不同的目录
     4. load plist
-       sudo launchctl load -w ~/Library/LaunchAgents/com.service.name.plist
+       : sudo launchctl load -w ~/Library/LaunchAgents/com.service.name.plist
     5. test
-       launchctl start com.user.loginscript
+       : launchctl start com.user.loginscript
 *** 实例
     功能: 苹果开机时候 禁用内置键盘
 
@@ -158,62 +137,30 @@ mac 记录
 * mac好用的软件
 ** Alfred
    [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索, 支持自定义编程, 非常强大
-   #+BEGIN_EXAMPLE
+   #+attr_shortcode: info
+   #+begin_hint
    之前先买了Manico, paster
-   发现这些功能Alfred都可以更好的完成...
-   #+END_EXAMPLE
-** +Karabiner+ 不推荐的原因是会导致部分电脑发热严重
+   发现这些功能Alfred都可以更好的完成😓
+   #+end_hint
+** Karabiner
    [[https://pqrs.org/index.html][Karabiner]] 是一款好用的键位映射软件
+   /会导致部分电脑发热严重, 不知道是不是个例/
 ** HomeBrew
    [[https://brew.sh/index_zh-cn][HomeBrew]] 是一款包管理软件, 类似于ubuntu下的apt
-** Oh My Zsh
-   [[https://github.com/ohmyzsh/ohmyzsh][Oh My Zsh]]让终端显示更加丰富多彩
 ** Annotate
    Annotate (App Store下载) 是非常好用的截屏软件, 同时支持gif
 ** IINA
-   [[https://www.iina.io][IINA]] 是mac下最好用的视频软件
+   [[https://www.iina.io][IINA]] 是mac下好用的视频软件
 ** Better Display
-   更好的控制显示器. 尤其是对于2K显示器
-   https://github.com/waydabber/BetterDisplay
+   [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器.
    
-* mac实用技巧
-** Dock上隐藏运行的程序
-   1. 进入要隐藏的程序的Contents目录
-      #+BEGIN_EXAMPLE
-      cd App_Path/Contents
-      #+END_EXAMPLE
-   2. 编辑info.plist文件
-      #+BEGIN_EXAMPLE
-      sudo vim info.plist
-      #+END_EXAMPLE
-   3. 添加下面的代码
-      #+BEGIN_EXAMPLE
-      <key>LSUIElement</key>
-      <true/>
-      #+END_EXAMPLE
-   4. 上面的方法并不是万能的，有些软件并不能这么设置，设置了会导致打不开，例如teamview，应该还要修改其他设置，但是大多数软件都可以通过此方法进行修改，如果出错了按此方法修改回去就可以了
-   5. 关于teamviewer的隐藏，需要在终端执行下面的命令
-      #+BEGIN_EXAMPLE
-      sudo bash -c 'killall TeamViewer_Service; killall TeamViewer; killall TeamViewer_Desktop; perl -i -0pe "s/<\/dict>\n<\/plist>/\t<key>LSUIElement<\/key>\n\t<string>1<\/string>\n<\/dict>\n<\/plist>/g" /Applications/TeamViewer.app/Contents/Info.plist; codesign -f -s - /Applications/TeamViewer.app; launchctl unload /Library/LaunchDaemons/com.teamviewer.teamviewer_service.plist; launchctl load /Library/LaunchDaemons/com.teamviewer.teamviewer_service.plist'
-      #+END_EXAMPLE
+* Q & A
 ** mac卡顿处理
    1. 删除Macintosh HD/系统/资源库/Caches中的文件
    2. 删除Macintosh HD/资源库/Caches中的文件
    3. 如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave
 ** 快捷键
    系统偏好 -- 键盘 -- 快捷键 中修改快捷键
-** 无用程序关闭
-   1. 聚焦
-      作用: Command+空格的 聚焦搜索
-      影响进程: mds、mds_stores、mdworker
-      关闭原因: 实际没必要, 追求效率的, 可以关掉
-      #+BEGIN_EXAMPLE
-      #关闭
-      sudo mdutil -a -i off
-
-      #打开
-      sudo mdutil -a -i on
-      #+END_EXAMPLE
 ** ssh远程连接mac os, 中文乱码
    这种情况一般是终端和服务器的字符集不匹配，MacOSX下默认的是utf8字符集。输入locale可以查看字符编码设置情况，而我的对应值是空的。因为我在本地和服务器都用zsh替代了bash，而且使用了oh-my-zsh，而默认的.zshrc没有设置为utf-8编码，所以本地和服务器端都要在.zshrc设置，步骤如下，bash对应.bash_profile或.bashrc文件。
 
@@ -225,12 +172,11 @@ mac 记录
    2. source .bash_profile
    3. locale 查看下是否设置成功
    4. 完成
-* 查找错误
-  1. mac崩溃原因查找
-     #+BEGIN_EXAMPLE shell
-     # 会打印mac 24小时崩溃的原因
-     # 常见原因
-     # 5 -- 正常关机
-     # 3 -- 硬件关机 (holding the power button)
-     log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
-     #+END_EXAMPLE
+** mac崩溃原因查找
+   #+BEGIN_EXAMPLE shell
+   # 会打印mac 24小时崩溃的原因
+   # 常见原因
+   # 5 -- 正常关机
+   # 3 -- 硬件关机 (holding the power button)
+   log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
+   #+END_EXAMPLE
