@@ -17,10 +17,7 @@
         : defaults write com.apple.dock springboard-columns -int 7
       - 重启Launchpad
         : defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-        #+attr_shortcode: warning
-        #+begin_hint
-        慎用: 该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!
-        #+end_hint
+        /该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!/
    2. 添加空白到Dock栏
       空白能使Dock中的程序更好的归类. 按住Option可以拖动
       : defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
@@ -101,47 +98,11 @@
        : sudo launchctl load -w ~/Library/LaunchAgents/com.service.name.plist
     5. test
        : launchctl start com.user.loginscript
-*** 实例
-    功能: 苹果开机时候 禁用内置键盘
-
-    1. 创建mac_startup.sh && 设置权限为777
-       #+BEGIN_EXAMPLE shell
-       #!/bin/bash
-
-       ## disable mac internal keyboard
-       sudo -S kextunload -b com.apple.driver.AppleHIDKeyboard > /dev/null
-       #+END_EXAMPLE
-    2. 创建mac_startup.plist && 放到/Library/LaunchDaemons
-       #+BEGIN_EXAMPLE xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>com.mac.startup</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>/Users/clay/mac_startup.sh</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
-</plist>
-      #+END_EXAMPLE
-    3. load plist
-       #+BEGIN_EXAMPLE shell
-       sudo launchctl load -w /Library/LaunchDaemons/mac_startup.plist
-       #+END_EXAMPLE
-    4. 登陆测试
-
 * mac好用的软件
 ** Alfred
    [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索, 支持自定义编程, 非常强大
-   #+attr_shortcode: info
-   #+begin_hint
-   之前先买了Manico, paster
-   发现这些功能Alfred都可以更好的完成😓
-   #+end_hint
+   /之前先买了Manico, paster, 发现这些功能Alfred都可以更好的完成/ 😓
+
 ** Karabiner
    [[https://pqrs.org/index.html][Karabiner]] 是一款好用的键位映射软件
    /会导致部分电脑发热严重, 不知道是不是个例/
@@ -162,7 +123,8 @@
 ** 快捷键
    系统偏好 -- 键盘 -- 快捷键 中修改快捷键
 ** ssh远程连接mac os, 中文乱码
-   这种情况一般是终端和服务器的字符集不匹配，MacOSX下默认的是utf8字符集。输入locale可以查看字符编码设置情况，而我的对应值是空的。因为我在本地和服务器都用zsh替代了bash，而且使用了oh-my-zsh，而默认的.zshrc没有设置为utf-8编码，所以本地和服务器端都要在.zshrc设置，步骤如下，bash对应.bash_profile或.bashrc文件。
+   这种情况一般是终端和服务器的字符集不匹配.
+   MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的.
 
    1. 在.bash_profile中增加
       #+BEGIN_EXAMPLE
@@ -171,10 +133,9 @@
       #+END_EXAMPLE
    2. source .bash_profile
    3. locale 查看下是否设置成功
-   4. 完成
 ** mac崩溃原因查找
    #+BEGIN_EXAMPLE shell
-   # 会打印mac 24小时崩溃的原因
+   # 打印mac 24小时崩溃的原因
    # 常见原因
    # 5 -- 正常关机
    # 3 -- 硬件关机 (holding the power button)
