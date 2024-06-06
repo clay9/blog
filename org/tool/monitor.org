@@ -1,99 +1,94 @@
-#+title: monitor
-#+date: 2024-01-18 19:18:43
+#+title: cadvisor, prometheus, grafana
+#+date: 2024-06-05 16:40:03
 #+hugo_section: docs
-#+hugo_bundle: tool
-#+export_file_name: monitor
+#+hugo_bundle: tool/monitor
+#+export_file_name: index
 #+hugo_weight: 3
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
 
-cadvisor, influxdb, grafana 组成的监控系统
+cadvisor, prometheus, grafana 组成的监控系统
 
 #+hugo: more
+* 总览
+  - cadvisor :: 收集docker容器数据
+  - nodex_exporter :: 收集主机数据
+  - prometheus :: 数据库
+  - grafana :: 数据展示
 
-cadvisor 负责docker容器数据的收集
-: 默认只显示2分钟的数据, 而且还没有保存, 因此需要数据库保存数据
-
-influxdb 负责数据的保存
-
-grafana  负责数据的展示, 其图表做的非常好
-
-
-* influxdb2.0
-  记录
-  1. 创建流程
-     1) 创建的时候需要先创建超级用户与组织org
-	: 这里的超级用户有web的权限, 貌似是web管理员
-     2) 再创建bucket
-	: bucket = db + rp + ...
-     3) 再创建数据库<db,rp>, 需要关联到bucket与org
-     4) 再创建数据库用户 关联到bucket与org
-	: 这里的用户只是数据库的, 没有web的权限
-** 常用命令
-   查看用户
-   influx user list     -- 这里看到的是上面的超级用户, 有web权限的
-   influx v1 auth list  -- 这里是查看数据库的, v1是1.0的接口
-
-   查看数据库
-   influx v1 dbrp list  -- 可以看到db及其相关联的bucket等map信息
 
 * cadvisor
-** 写入influxdb中的数据格式
-   1) _measurement     -- 表
-      - cpu_usage_per_cpu
-      - cpu_usage_system
-      - cpu_usage_total
-      - cpu_usage_user
-      - fs_limit
-      - fs_usage
-      - load_average
-      - memory_cache
-      - memory_failcnt
-      - memory_failure
-      - memory_mapped_file
-      - memory_max_usage
-      - memory_rss
-      - memory_swap
-      - memory_usage
-      - memory_working_set
-      - referenced_momory
-      - rx_bytes
-      - rx_erros
-      - tx_bytes
-      - tx_erros
-   2) _field           -- key
-      - value
-   3) instance         -- per_cpu的编号(cpu核)
-   4) machine          -- 物理机器名字
-   5) container_name   -- 容器名字
-   6) device
-   7) failure_type
-      - pgmajfault
-   8) scope
-      - hierarchical
-   9) type
-      - limit
-      - usage
+  [[https://github.com/google/cadvisor][cadvisor]]负责收集docker容器的运行信息,
+  prometheus下的[[https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md][cadvisor metrics指标]].
 
-	//确认
-	Group下面有:
-	_start
-	_stop
-	_time
-	_measurement
+  /cadvisor开箱即用, 不需要专门配置/
+* node exporter
+  [[https://github.com/prometheus/node_exporter][node exporter]]是prometheus的收集器, 收集linux的硬件和os信息.
 
+  /node exporter开箱即用, 不需要专门配置/
+* prometheus
+  [[https://github.com/prometheus/prometheus][prometheus]]不仅仅是数据库, 还是一套完整的监控系统.
+** 配置
+   prometheus的配置非常简单, 一个 =prometheus.yml= 即可. 适合集群部署
+   #+begin_src yaml
+     global:
+       scrape_interval: 15s # By default, scrape targets every 15 seconds.
+
+       # Attach these labels to any time series or alerts when communicating with
+       # external systems (federation, remote storage, Alertmanager).
+       external_labels:
+         monitor: 'codelab-monitor'
+
+     # A scrape configuration containing exactly one endpoint to scrape:
+     scrape_configs:
+       # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+       - job_name: 'nodeexporter'
+         # Override the global default and scrape targets from this job every 5 seconds.
+         scrape_interval: 5s
+         static_configs:
+           # - targets: ['host.docker.internal:9100']
+           - targets: ['node_exporter:9100']
+
+       - job_name: 'cadvisor'
+         scrape_interval: 5s
+         static_configs:
+           - targets: ['cadvisor:8080']
+
+       - job_name: 'prometheus'
+         scrape_interval: 10s
+         static_configs:
+           - targets: ['localhost:9090']
+   #+end_src
+   
 * grafana
-** 使用Flux查询influxdb注意事项
-   1. from 前面不能加data =, 否则数据会流向data
-   2. 不能加yield(),  否则数据不显示
-   #+BEGIN_EXAMPLE FLUX 查询语法
-   from(bucket: "qybucket")
-     |> range(start: v.timeRangeStart, stop:v.timeRangeStop)
-     |> filter(fn: (r) =>
-       r._measurement == "cpu_usage_total" and
-       r._field == "value"
-     )
-   #+END_EXAMPLE   
+  [[https://github.com/grafana/grafana][grafana]]用于数据可视化 && 监控
+
+  /TODO 补充 =Provision= 逻辑/
+  
+** datasource
+   #+begin_src yaml -n
+     apiVersion: 1
+
+     datasources:
+       - name: Prometheus
+         type: prometheus
+         # Access mode - proxy (server in the UI) or direct (browser in the UI).
+         access: proxy
+         url: http://prometheus:9090
+         jsonData:
+           httpMethod: POST
+           exemplarTraceIdDestinations:
+             # Field with internal link pointing to data source in Grafana.
+             # datasourceUid value can be anything, but it should be unique across all defined data source uids.
+             - datasourceUid: my_jaeger_uid
+               name: traceID
+
+             # Field with external link.
+             - name: traceID
+               url: 'http://localhost:3000/explore?orgId=1&left=%5B%22now-1h%22,%22now%22,%22Jaeger%22,%7B%22query%22:%22$${__value.raw}%22%7D%5D'
+     
+   #+end_src
 ** dashboard
    一个dashboard 由1个多个panel面板组成,  可以有多个dashboard
    每个dashboard对应一个xx.yaml
@@ -108,4 +103,12 @@ grafana  负责数据的展示, 其图表做的非常好
    子目录下的xx.json会变为该dashboard下的panel面板
 
    这样我们只需要配置一个总的yaml, 然后规划path下的目录层级即可, 方便进行统一的管理
-* prometheus
+
+   /面板的配置文件 =xx.json= 可以找一些经典的, 在此基础上修改为适合自己的/
+
+** alerting
+
+   - alter rule
+   - contact point
+   - notification policy
+   

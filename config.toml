@@ -1,4 +1,4 @@
-baseURL = "https://www.wcq.life"
+baseURL = "https://clay9.github.io/blog"
 title = "飘"
 
 [markup.goldmark.renderer]
