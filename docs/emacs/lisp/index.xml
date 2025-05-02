@@ -1,1 +1,319 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 06 Jun 2024 10:24:30 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) 官方文档 优势: emacs自带, 不同os环境统一 语法支持tramp cd /method:user@host#22:/patheshell &amp;amp;&amp;amp; elisp # defun为 eshell/xxx的函数, 可以在eshell中直接调用xxx eshell script # 官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾 变量赋值 # eshell 脚本中使用elisp语法给变量赋值 (setq remote_temp &amp;quot;/ssh:clay@192.168.0.97:~/temp&amp;quot;)变量使用 $ # 基本与shell相同, 具体可以详见官方说明 eshell/rm -r $remote_temp</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>全称 transparent remote access multiple protocol tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method ssh su | sudo # 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件/su:root:path/用法 # basic # /method:user@host#port:/path/to/file# example 1/ssh:clay@192.1.1.1#22:~# example 2 windows下可以使用putty作为ssh的client/plink:clay@192.1.1.1:~set default method # (setq tramp-default-method &amp;quot;plink&amp;quot;); 设置之后的例子; 可以设置linux和windows下默认的method，之后就无需考虑操作系统/-:clay@192.1.1.1:~multiple hop # # 在本机上, 通过clay用户登录到host1# 再在host1上, 通过admin登录到host2/ssh:clay@host1|ssh:admin@host2:/pathsu | sudo # # 使用sudo打开远程文件/-:clay@192.1.1.1|sudo::/path# 使用sudo打开本地文件# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist/su::local-path/su:user@localhost:/local-path/sudo:root@localhost:/local-pathuse with bookmarks # tramp使用的时候 需要使用到method user host path的组合，一般较长 我们更希望使用较短的shortcut去远程打开某个file 这里推荐的方法是bookmark.</description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description> what # artist-mode和graphviz-mode都可以完成绘图的功能. 但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. 可参考笔者自用的线和矩形, 提升artist-mode的使用体验 mode 简述 优点 缺点 artist-mode ASCII绘图 1.ASCII代码表示图形 1.功能少 2.短小精悍 2.需要手动绘制图形 graphviz-mode dot绘图 1.只关注逻辑设计,布局自动生成 1.生成的为图片文件, 而非可嵌入的ASCII代码 2.需要学习dot语言</description></item><item><title>mail</title><link>https://clay9.github.io/blog/docs/emacs/lisp/mail/</link><pubDate>Thu, 18 Jan 2024 18:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/mail/</guid><description>不建议使用, 没啥意义 简述 # emacs 流行的email client 有mu4e, notmuch, gnus等 因为对email不是刚需, 只是轻度使用, 所以这里选了内置对gnus. 理由如下: emacs 内置 顺便尝试 newsgroup 轻度使用email 反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好gnus的缺点: 配置复杂, 花了24h才看完官方文档. 发现实际用到的也就5% ? gnus是单线程, 所以如果网络不好, 非常容易把emacs卡住, 比如访问gmail 基本概念 # gnus概念划分比较友好, server, group, summary, article 各司其职, 又互相联系, 比较方便, 具体可以参考官方文档 操作流程 # 设置server subscribe group enter group. show summary read article group level # group在gnus中是比较重要的概念. 而group level 可以更好的理解group 官方描述中: subscribe : 1 - guns-level-subscribed (5) unsubscribe: gnus-level-unsubscribed (7) zommbie: 8 killed: 9 level越高越不重要可以发现killed group有最高的level, 而unsubscribe level 和 subscribe level实际在gnus中处理差异不大.</description></item><item><title>gdb &amp;&amp; gud</title><link>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</link><pubDate>Thu, 18 Jan 2024 18:43:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</guid><description>简述 # emacs使用gud来绘制gdb的调试信息. gud可以认为是gdb的ui client. 具体可以参考github的init-gdb.el和一些自定义gud函数 gdb使用 # 指令 简写 描述 attach 附加到已经运行的程序 run r 运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令 continue c 继续执行，到下一个断点停止（或运行结束） next n 单步跟踪程序，当遇到函数调用时，也不进入此函数体 step s 单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的 until u 当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环 until+行号 运行至某行，不仅仅用来跳出循环 finish 运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息 quit q 退出gdb up 上个stack down 下个stack watch 变量监控 breakpoint b file :line_num 文件:行号 &amp;lt;fun_name&amp;gt; 函数名字 run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败 continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 gud使用 # buffer名字 简述 备注 gud gdb命令输入窗口 source 调试时自动显示源码 不要edit, 否则导致source自动关联失效 breakpoint 断点 不会命中的断点显示为pending threads 线程 stack 堆栈 local local变量 register 寄存器 assembler 显示汇编 memory 内存查看 为了显示方便, breakpoint与threads buffer同在一个frame; local与register buffer同在一个frame; 可以按&amp;quot;TAB&amp;quot;快速切换 例子 # emacs: M-x gdb RET gud: attch &amp;lt;program pid&amp;gt; 设置breakpoint gud: b source: gud-break; gud-tbreak breakpoint: D 删除断点 设置watch gud: watch souce: gud-watch 问题 # gud中在continue之后, 程序运行; 此时输入, gud并没有反应; 但是在程序运行到断点的时候, 之前的输入全部变成了命令.</description></item><item><title>AI</title><link>https://clay9.github.io/blog/docs/emacs/lisp/ai/</link><pubDate>Thu, 18 Jan 2024 18:44:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/ai/</guid><description> 简述 # 之前的IDE大多是基于语法的分析, AI代码助手提供了基于自然语义的分析. 效果非常的惊艳, 能更好的帮助编写文档与程序 当下流行的(2023-6)主要有: Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium 具体可以参考 测评文章 基于以下原因, 暂时使用了github copilot: 配置方便, emacs使用体验良好 github copilot # 使用 # github copilot 没有emacs的官方插件, 使用的是第三方package copilot. 安装与配置均比较简单, 可以参考copilot官方文档 其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号;;国内可能无法访问github copilot, 可以配置一下代理(setq copilot-network-proxy '(:host &amp;quot;127.0.0.1&amp;quot; :port &amp;quot;10887&amp;quot;))快捷键配置 # copilot 与company-mode的一些快捷键容易冲突, 可以参考init-local-shortkey.el 使用体验 # github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 02 May 2025 10:50:05 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p>emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/>
+&lt;a href="https://linuxtoy.org/archives/emacs-eshell.html">官方文档&lt;/a> &lt;br/>&lt;/p>
+&lt;p>优势: &lt;br/>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>emacs自带, 不同os环境统一 &lt;br/>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>语法支持tramp &lt;br/>&lt;/p>
+&lt;pre>&lt;code class="language-text">cd /method:user@host#22:/path
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="eshell-and-and-elisp">
+ eshell &amp;amp;&amp;amp; elisp
+ &lt;a class="anchor" href="#eshell-and-and-elisp">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>defun为 eshell/xxx的函数, 可以在eshell中直接调用xxx &lt;br/>&lt;/li>
+&lt;/ol>
+&lt;h2 id="eshell-script">
+ eshell script
+ &lt;a class="anchor" href="#eshell-script">#&lt;/a>
+&lt;/h2>
+&lt;p>官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾 &lt;br/>&lt;/p>
+&lt;h3 id="变量赋值">
+ 变量赋值
+ &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e8%b5%8b%e5%80%bc">#&lt;/a>
+&lt;/h3>
+&lt;p>eshell 脚本中使用elisp语法给变量赋值 &lt;br/>&lt;/p>
+&lt;pre>&lt;code class="language-text">(setq remote_temp &amp;quot;/ssh:clay@192.168.0.97:~/temp&amp;quot;)
+&lt;/code>&lt;/pre>
+&lt;h3 id="变量使用">
+ 变量使用 $
+ &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8">#&lt;/a>
+&lt;/h3>
+&lt;p>基本与shell相同, 具体可以详见官方说明 &lt;br/>&lt;/p>
+&lt;pre>&lt;code class="language-text">eshell/rm -r $remote_temp
+&lt;/code>&lt;/pre></description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p>全称 transparent remote access multiple protocol &lt;br/>
+tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method &lt;br/>&lt;/p>
+&lt;ul>
+&lt;li>ssh &lt;br/>&lt;/li>
+&lt;li>su | sudo &lt;br/>
+&lt;pre>&lt;code class="language-text"># 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+/su:root:path/
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="用法">
+ 用法
+ &lt;a class="anchor" href="#%e7%94%a8%e6%b3%95">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="basic">
+ basic
+ &lt;a class="anchor" href="#basic">#&lt;/a>
+&lt;/h3>
+&lt;pre>&lt;code class="language-text">/method:user@host#port:/path/to/file
+
+# example 1
+/ssh:clay@192.1.1.1#22:~
+
+# example 2 windows下可以使用putty作为ssh的client
+/plink:clay@192.1.1.1:~
+&lt;/code>&lt;/pre>
+&lt;h3 id="set-default-method">
+ set default method
+ &lt;a class="anchor" href="#set-default-method">#&lt;/a>
+&lt;/h3>
+&lt;pre>&lt;code class="language-text">(setq tramp-default-method &amp;quot;plink&amp;quot;)
+
+; 设置之后的例子
+; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+/-:clay@192.1.1.1:~
+&lt;/code>&lt;/pre>
+&lt;h3 id="multiple-hop">
+ multiple hop
+ &lt;a class="anchor" href="#multiple-hop">#&lt;/a>
+&lt;/h3>
+&lt;pre>&lt;code class="language-text"># 在本机上, 通过clay用户登录到host1
+# 再在host1上, 通过admin登录到host2
+/ssh:clay@host1|ssh:admin@host2:/path
+&lt;/code>&lt;/pre>
+&lt;h3 id="su-sudo">
+ su | sudo
+ &lt;a class="anchor" href="#su-sudo">#&lt;/a>
+&lt;/h3>
+&lt;pre>&lt;code class="language-text"># 使用sudo打开远程文件
+/-:clay@192.1.1.1|sudo::/path
+
+# 使用sudo打开本地文件
+# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+/su::local-path
+/su:user@localhost:/local-path
+/sudo:root@localhost:/local-path
+&lt;/code>&lt;/pre>
+&lt;h3 id="use-with-bookmarks">
+ use with bookmarks
+ &lt;a class="anchor" href="#use-with-bookmarks">#&lt;/a>
+&lt;/h3>
+&lt;p>tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/>&lt;/p></description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what">
+ what
+ &lt;a class="anchor" href="#what">#&lt;/a>
+&lt;/h2>
+&lt;p>artist-mode和graphviz-mode都可以完成绘图的功能. &lt;br/>
+但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. &lt;br/>
+&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el">可参考笔者自用的线和矩形&lt;/a>, 提升artist-mode的使用体验 &lt;br/>&lt;/p>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>mode&lt;/th>
+ &lt;th>简述&lt;/th>
+ &lt;th>优点&lt;/th>
+ &lt;th>缺点&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>artist-mode&lt;/td>
+ &lt;td>ASCII绘图&lt;/td>
+ &lt;td>1.ASCII代码表示图形&lt;/td>
+ &lt;td>1.功能少&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>2.短小精悍&lt;/td>
+ &lt;td>2.需要手动绘制图形&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>graphviz-mode&lt;/td>
+ &lt;td>dot绘图&lt;/td>
+ &lt;td>1.只关注逻辑设计,布局自动生成&lt;/td>
+ &lt;td>1.生成的为图片文件, 而非可嵌入的ASCII代码&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>2.需要学习dot语言&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>mail</title><link>https://clay9.github.io/blog/docs/emacs/lisp/mail/</link><pubDate>Thu, 18 Jan 2024 18:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/mail/</guid><description>&lt;p>不建议使用, 没啥意义 &lt;br/>&lt;/p>
+&lt;h2 id="简述">
+ 简述
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
+&lt;/h2>
+&lt;p>emacs 流行的email client 有mu4e, notmuch, gnus等 &lt;br/>
+因为对email不是刚需, 只是轻度使用, 所以这里选了内置对gnus. 理由如下: &lt;br/>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>emacs 内置 &lt;br/>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>顺便尝试 newsgroup &lt;br/>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>轻度使用email &lt;br/>&lt;/p>
+&lt;pre>&lt;code class="language-text">反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
+&lt;/code>&lt;/pre>
+&lt;/li>
+&lt;/ol>
+&lt;p>gnus的缺点: &lt;br/>&lt;/p>
+&lt;ol>
+&lt;li>配置复杂, 花了24h才看完官方文档. 发现实际用到的也就5% ? &lt;br/>&lt;/li>
+&lt;li>gnus是单线程, 所以如果网络不好, 非常容易把emacs卡住, 比如访问gmail &lt;br/>&lt;/li>
+&lt;/ol>
+&lt;h2 id="基本概念">
+ 基本概念
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">#&lt;/a>
+&lt;/h2>
+&lt;p>gnus概念划分比较友好, server, group, summary, article &lt;br/>
+各司其职, 又互相联系, 比较方便, 具体可以参考官方文档 &lt;br/>&lt;/p>
+&lt;h2 id="操作流程">
+ 操作流程
+ &lt;a class="anchor" href="#%e6%93%8d%e4%bd%9c%e6%b5%81%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>设置server &lt;br/>&lt;/li>
+&lt;li>subscribe group &lt;br/>&lt;/li>
+&lt;li>enter group. show summary &lt;br/>&lt;/li>
+&lt;li>read article &lt;br/>&lt;/li>
+&lt;/ol>
+&lt;h2 id="group-level">
+ group level
+ &lt;a class="anchor" href="#group-level">#&lt;/a>
+&lt;/h2>
+&lt;p>group在gnus中是比较重要的概念. 而group level 可以更好的理解group &lt;br/>&lt;/p></description></item><item><title>gdb &amp;&amp; gud</title><link>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</link><pubDate>Thu, 18 Jan 2024 18:43:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</guid><description>&lt;h2 id="简述">
+ 简述
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
+&lt;/h2>
+&lt;p>emacs使用gud来绘制gdb的调试信息. &lt;br/>
+gud可以认为是gdb的ui client. &lt;br/>&lt;/p>
+&lt;p>具体可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-gdb.el">github的init-gdb.el&lt;/a>和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-gdb-fun.el">一些自定义gud函数&lt;/a> &lt;br/>&lt;/p>
+&lt;h2 id="gdb使用">
+ gdb使用
+ &lt;a class="anchor" href="#gdb%e4%bd%bf%e7%94%a8">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>指令&lt;/th>
+ &lt;th>简写&lt;/th>
+ &lt;th>描述&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>attach&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>附加到已经运行的程序&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>run&lt;/td>
+ &lt;td>r&lt;/td>
+ &lt;td>运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>continue&lt;/td>
+ &lt;td>c&lt;/td>
+ &lt;td>继续执行，到下一个断点停止（或运行结束）&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>next&lt;/td>
+ &lt;td>n&lt;/td>
+ &lt;td>单步跟踪程序，当遇到函数调用时，也不进入此函数体&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>step&lt;/td>
+ &lt;td>s&lt;/td>
+ &lt;td>单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>until&lt;/td>
+ &lt;td>u&lt;/td>
+ &lt;td>当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>until+行号&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>运行至某行，不仅仅用来跳出循环&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>finish&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>quit&lt;/td>
+ &lt;td>q&lt;/td>
+ &lt;td>退出gdb&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>up&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>上个stack&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>down&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>下个stack&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>watch&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>变量监控&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>breakpoint&lt;/td>
+ &lt;td>b&lt;/td>
+ &lt;td>file :line_num 文件:行号&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>&amp;lt;fun_name&amp;gt; 函数名字&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败 &lt;br/>
+continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 &lt;br/>&lt;/p></description></item><item><title>AI</title><link>https://clay9.github.io/blog/docs/emacs/lisp/ai/</link><pubDate>Thu, 18 Jan 2024 18:44:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/ai/</guid><description>&lt;h2 id="简述">
+ 简述
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
+&lt;/h2>
+&lt;p>之前的IDE大多是基于语法的分析, AI代码助手提供了基于自然语义的分析. &lt;br/>
+效果非常的惊艳, 能更好的帮助编写文档与程序 &lt;br/>&lt;/p>
+&lt;p>当下流行的(2023-6)主要有: &lt;br/>
+Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &lt;br/>
+具体可以参考 &lt;a href="https://codeium.com/blog/code-assistant-comparison-copilot-tabnine-ghostwriter-codeium">测评文章&lt;/a> &lt;br/>&lt;/p>
+&lt;p>基于以下原因, 暂时使用了github copilot: &lt;br/>&lt;/p>
+&lt;ol>
+&lt;li>配置方便, emacs使用体验良好 &lt;br/>&lt;/li>
+&lt;/ol>
+&lt;h2 id="github-copilot">
+ github copilot
+ &lt;a class="anchor" href="#github-copilot">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="使用">
+ 使用
+ &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8">#&lt;/a>
+&lt;/h3>
+&lt;p>github copilot 没有emacs的官方插件, 使用的是第三方package &lt;a href="https://github.com/zerolfx/copilot.el">copilot&lt;/a>. &lt;br/>
+安装与配置均比较简单, 可以参考copilot官方文档 &lt;br/>&lt;/p>
+&lt;pre>&lt;code class="language-text">其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-lisp">;;国内可能无法访问github copilot, 可以配置一下代理
+(setq copilot-network-proxy '(:host &amp;quot;127.0.0.1&amp;quot; :port &amp;quot;10887&amp;quot;))
+&lt;/code>&lt;/pre>
+&lt;h3 id="快捷键配置">
+ 快捷键配置
+ &lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae">#&lt;/a>
+&lt;/h3>
+&lt;p>copilot 与company-mode的一些快捷键容易冲突, 可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el">init-local-shortkey.el&lt;/a> &lt;br/>&lt;/p>
+&lt;h3 id="使用体验">
+ 使用体验
+ &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e4%bd%93%e9%aa%8c">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验 &lt;br/>&lt;/li>
+&lt;/ol></description></item></channel></rss>

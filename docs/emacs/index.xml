@@ -1,1 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 06 Jun 2024 10:24:30 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>简述 # emacs是什么 # emacs最原始,最纯粹的功能: text editor 也可以作为优秀的 program editor 优秀的文本 gtd 软件 良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等 综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. 同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 日常使用功能 # 文本编辑 因为emacs跑在wsl中, 日常很少用来文本编辑了 代码编写 公司使用vs工程, 日常很少使用emacs编码了 gtd blog 现在使用emacs, 大部分是在使用 org-mode 写blog, 使用 org-agenda 作GTD管理 emacs-程序 # emacs作为程序最基本的配置. themes ui界面显示 frame window font file recentf files buffers sessions text editor # 文本编辑器是emacs最原始, 最纯粹, 最重要的功能. 大部分配置都是在处理该项, 使其更符合个人习惯. 配置繁琐, 但不复杂 show # text editor最基本的配置, 文本在buffer中显示的样子. 比如行号, break-line, column indicator等 move-and-kill # 即是text editor, 也是emacs最基础的操作.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 02 May 2025 10:50:06 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述">
+ 简述
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="emacs是什么">
+ emacs是什么
+ &lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>emacs最原始,最纯粹的功能: &lt;code>text editor&lt;/code> &lt;br/>&lt;/li>
+&lt;li>也可以作为优秀的 &lt;code>program editor&lt;/code> &lt;br/>&lt;/li>
+&lt;li>优秀的文本 &lt;code>gtd&lt;/code> 软件 &lt;br/>&lt;/li>
+&lt;li>良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等 &lt;br/>&lt;/li>
+&lt;/ol>
+&lt;p>综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/>
+同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/>&lt;/p>
+&lt;h3 id="日常使用功能">
+ 日常使用功能
+ &lt;a class="anchor" href="#%e6%97%a5%e5%b8%b8%e4%bd%bf%e7%94%a8%e5%8a%9f%e8%83%bd">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;del>文本编辑&lt;/del> &lt;br/>
+&lt;em>因为emacs跑在wsl中, 日常很少用来文本编辑了&lt;/em> &lt;br/>&lt;/li>
+&lt;li>&lt;del>代码编写&lt;/del> &lt;br/>
+&lt;em>公司使用vs工程, 日常很少使用emacs编码了&lt;/em> &lt;br/>&lt;/li>
+&lt;li>gtd &lt;br/>&lt;/li>
+&lt;li>blog &lt;br/>&lt;/li>
+&lt;/ul>
+&lt;blockquote class="book-hint info">
+ 
+现在使用emacs, 大部分是在使用 `org-mode` 写blog, 使用 `org-agenda` 作GTD管理 &lt;br/>
+
+&lt;/blockquote>
+
+&lt;h2 id="emacs-程序">
+ emacs-程序
+ &lt;a class="anchor" href="#emacs-%e7%a8%8b%e5%ba%8f">#&lt;/a>
+&lt;/h2>
+&lt;p>emacs作为程序最基本的配置. &lt;br/>&lt;/p>
+&lt;ul>
+&lt;li>themes &lt;br/>&lt;/li>
+&lt;li>ui界面显示 &lt;br/>
+&lt;ul>
+&lt;li>frame &lt;br/>&lt;/li>
+&lt;li>window &lt;br/>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>font &lt;br/>&lt;/li>
+&lt;li>file &lt;br/>
+&lt;ul>
+&lt;li>recentf files &lt;br/>&lt;/li>
+&lt;li>buffers &lt;br/>&lt;/li>
+&lt;li>sessions &lt;br/>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="text-editor">
+ text editor
+ &lt;a class="anchor" href="#text-editor">#&lt;/a>
+&lt;/h2>
+&lt;p>文本编辑器是emacs最原始, 最纯粹, 最重要的功能. &lt;br/>
+大部分配置都是在处理该项, 使其更符合个人习惯. &lt;br/>
+配置繁琐, 但不复杂 &lt;br/>&lt;/p></description></item></channel></rss>

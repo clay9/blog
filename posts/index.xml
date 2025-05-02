@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 飘</title><link>https://clay9.github.io/blog/posts/</link><description>Recent content in Posts on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 06 Jun 2024 10:24:29 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>rup架构图</title><link>https://clay9.github.io/blog/posts/rup/</link><pubDate>Tue, 13 Jun 2023 00:56:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/rup/</guid><description>&lt;p>RUP4+1架构图 &lt;br/>&lt;/p></description></item><item><title/><link>https://clay9.github.io/blog/posts/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/readme/</guid><description> 目录说明 # path desc org blog org源码 static hugo静态文件 config.toml hugo配置文件 流程 # push触发github action 下载 clay9/emacs.git 执行init-for-script.el, export org to md 执行hugo的编译, export md to html 执行hugo的发布</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on 飘</title><link>https://clay9.github.io/blog/posts/</link><description>Recent content in Posts on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 02 May 2025 10:50:05 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>rup架构图</title><link>https://clay9.github.io/blog/posts/rup/</link><pubDate>Tue, 13 Jun 2023 00:56:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/rup/</guid><description>&lt;p>RUP4+1架构图 &lt;br/>&lt;/p></description></item><item><title/><link>https://clay9.github.io/blog/posts/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/readme/</guid><description>&lt;h2 id="目录说明">
+ 目录说明
+ &lt;a class="anchor" href="#%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e">#&lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>path&lt;/th>
+ &lt;th>desc&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>org&lt;/td>
+ &lt;td>blog org源码&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>static&lt;/td>
+ &lt;td>hugo静态文件&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>config.toml&lt;/td>
+ &lt;td>hugo配置文件&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="流程">
+ 流程
+ &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>push触发github action &lt;br/>&lt;/p>
+&lt;ul>
+&lt;li>下载 clay9/emacs.git &lt;br/>&lt;/li>
+&lt;li>执行init-for-script.el, export org to md &lt;br/>&lt;/li>
+&lt;li>执行hugo的编译, export md to html &lt;br/>&lt;/li>
+&lt;li>执行hugo的发布 &lt;br/>&lt;/li>
+&lt;/ul></description></item></channel></rss>
