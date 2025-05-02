@@ -7,7 +7,6 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: details
 
 linux常用命令&&工具
 
@@ -74,8 +73,11 @@ linux常用命令&&工具
    但每个process都这么处理, 非常不方便, 因此出现了screen与tmux
 
 *** screen
-    #+attr_shortcode: 基本命令
     #+begin_details
+    #+begin_summary
+    基本命令
+    #+end_summary
+
     | 命令                     | 作用                                         |
     |--------------------------+----------------------------------------------|
     | screen, screen -S <name> | 创建screen                                   |
@@ -85,38 +87,41 @@ linux常用命令&&工具
     |--------------------------+----------------------------------------------|
     #+end_details
 
-    #+attr_shortcode: 快捷键
     #+begin_details
-    screen的一个弊端就是将太多功能放在了快捷键上 而不是放在CMD上
+    #+begin_summary
+    快捷键
+    #+end_summary
 
-    - C-a
-      为screen指令的前缀
-    - C-a k
-      kill
-    - C-a w
-      列出所有的screen窗口  -- 亲测无效???
-    - C-a p, C-a n
-      切换到上一个或下一个窗口 -- 亲测无效??
-    - C-a z
-      类似于emacs的C-z 将程序放入后台 可以通过jobs 和fg操作
+    | 快捷键       | 作用                                        |
+    |--------------+---------------------------------------------|
+    | C-a          | screen指令的前缀                            |
+    | C-a k        | kill                                        |
+    | C-a w        | list all screen windows (无效?)             |
+    | C-a p, C-a n | swith to privious/next window (无效?)       |
+    | C-a z        | like C-z in emacs. then can use 'jobs' 'fg' |
+    |--------------+---------------------------------------------|
 
     #+attr_shortcode: info
     #+begin_hint
-    通过C-a z可以了解screen的工作原理 :: screen就是新开了一个shell, 在里面有不同的窗口windows.
+    通过C-a z可以了解screen的工作原理 :: screen就是新开了一个shell, 在里面有不同的窗口.
     然后可以在windows间切换, 或者是回到原先的shell中
     #+end_hint
 
     #+attr_shortcode: info
     #+begin_hint
     为什么不喜欢screen
-    虽然查看教程, 发现screen还有很多高级功能, 然而screen的窗口功能太不友好, 导致我经常不知道自己工作
-    在哪个窗口下, 而且因为C-a w的无效, 很难有一览全局, 所以最后选择放弃screen, 改投tmux
+    - 虽然查看教程, 发现screen还有很多高级功能, 然而screen的窗口功能太不友好.
+      导致我经常不知道自己工作在哪个窗口下, 而且因为C-a w的无效, 很难有一览全局
+    - screen的一个弊端就是将太多功能放在了快捷键上 而不是放在CMD上
     #+end_hint
     #+end_details
 
 *** tmux
-    #+attr_shortcode: 基本概念
     #+begin_details
+    #+begin_summary
+    基本概念
+    #+end_summary
+
     #+begin_example
       server
       \_ session1
@@ -128,8 +133,12 @@ linux常用命令&&工具
     一个server 多个session, session又属于socket
     #+end_details
 
-    #+attr_shortcode: 基本命令
     #+begin_details
+    #+begin_summary
+    基本命令
+    #+end_summary
+
+
     - tmux
     - tmux ls
       列出所有的tmux session, 注意没有 =-=  =--=
