@@ -20,7 +20,7 @@ jobs:
 
       - uses: purcell/setup-emacs@master
         with:
-          version: 29.3
+          version: 30.1
 
       - run: |
           mv emacs.d ~/.emacs.d
@@ -38,7 +38,7 @@ jobs:
         run: hugo --minify --buildFuture
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
