@@ -99,30 +99,22 @@
     5. test
        : launchctl start com.user.loginscript
 * mac好用的软件
-** Alfred
-   [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索, 支持自定义编程, 非常强大
-   /之前先买了Manico, paster, 发现这些功能Alfred都可以更好的完成/ 😓
-
-** Karabiner
-   [[https://pqrs.org/index.html][Karabiner]] 是一款好用的键位映射软件
-   /会导致部分电脑发热严重, 不知道是不是个例/
-** HomeBrew
-   [[https://brew.sh/index_zh-cn][HomeBrew]] 是一款包管理软件, 类似于ubuntu下的apt
-** Annotate
-   Annotate (App Store下载) 是非常好用的截屏软件, 同时支持gif
-** IINA
-   [[https://www.iina.io][IINA]] 是mac下好用的视频软件
-** Better Display
-   [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器.
+  | 软件           | 介绍                                                   | 备注   |
+  |----------------+--------------------------------------------------------+--------|
+  | Alfred         | [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索                              |        |
+  | +Karabiner+      | [[https://pqrs.org/index.html][Karabiner]] 是键位映射软件                               | 已舍弃 |
+  | HomeBrew       | [[https://brew.sh/index_zh-cn][HomeBrew]] 是包管理软件(类似于ubuntu下的apt)             |        |
+  | Annotate       | Annotate(AppStore下载)是截屏软件, 同时支持gif录制      |        |
+  | +IINA+           | [[https://www.iina.io][IINA]] 是mac下好用的视频软件                             | 已舍弃 |
+  | Better Display | [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器 |        |
+  |----------------+--------------------------------------------------------+--------|
 
 * Q & A
 ** mac卡顿处理
    1. 删除Macintosh HD/系统/资源库/Caches中的文件
    2. 删除Macintosh HD/资源库/Caches中的文件
    3. 如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave
-** 快捷键
-   系统偏好 -- 键盘 -- 快捷键 中修改快捷键
-** ssh远程连接mac os, 中文乱码
+** ssh远程连接macos, 中文乱码
    这种情况一般是终端和服务器的字符集不匹配.
    MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的.
 

@@ -32,13 +32,13 @@ org自带强大的export功能.
     - quote
 *** html
     org 自带, html或html5
-    基本不怎么使用, 容易影响hugo theme的布局 (存疑)
+    - details :: 注意与hugo自带的shortcode 'deatails'区分
+    - summary
 *** hugo shortcode
     使用的是 =hugo book theme=, 所以这里只列出与之相关的
     [[https://hugo-book-demo.netlify.app/docs/shortcodes/columns/][官方具体例子]]
 
     - columns
-    - expand
     - hints
 
 ** 图片导出逻辑

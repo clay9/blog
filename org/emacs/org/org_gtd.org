@@ -69,41 +69,37 @@
     \_ gtd_qygame     qygame project file
   #+end_example
   gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及TODO
-  - inbox.org :: 不区分时间,场景, 灵光一闪即可扔进去
-  - task.org :: 任务清单
-    TODO: priority标签 四象限约束
-    PROEJCT: step>1都属于项目
-  - archive.org :: 归档文件
-    
-  gtd_emacs与gtd_qygame则是已经明确分类的PROJECT.
-  比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
+  | file        | desc                                |
+  |-------------+-------------------------------------|
+  | inbox.org   | 不区分时间,场景, 灵光一闪即可扔进去 |
+  | task.org    | 任务清单                            |
+  | archive.org | 归档文件                            |
 
-  #+begin_quote
-  但即使都是emacs相关, 也可分为是emacs自身, org, 还是IDE.
-  所以emacs.org中实际包含了三个PROJECT: emacs, org, IDE
-  #+end_quote
-  
+  gtd_emacs与gtd_qygame则是已经明确分类的PROJECT. 比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
+  但即使都是emacs相关, 也可分为是emacs自身, org, 还是IDE. 所以emacs.org中实际包含了三个PROJECT: emacs, org, IDE
+
 * TODO的设计
-  - TODO 等待自己处理
-  - WAITTING 等待他人完成
-  - PROJECT 项目
-  - DONE 完成
-  - CANCEL 取消
+  | key      | desc         |
+  |----------+--------------|
+  | TODO     | 等待自己处理 |
+  | WAITTING | 等待他人完成 |
+  | PROJECT  | 项目         |
+  | DONE     | 完成         |
+  | CANCEL   | 取消         |
+  |----------+--------------|
 
 * TAGS的设计
   四象限使用proirity来区分;
   TAGS为之后快速查找使用
 
-* PROPERTY的设计
-  暂未使用
 * Effort的设计
   effort是自己对某个task工作量的预估.
   与task完成时的clock-sum-time比对, 可以更好的进行分析.
-  
+
   为了方便的effort, 这里只在两处设计了提示:
   1. capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过
   2. clock-in的时候, 如果item effort还是0, 则会要求进入工作预估
-     
+
 * clock的设计
   org的clock已经非常好用了. 这里只是做了一点点修改:
   1. 快捷键快速clock-in, clock-out
@@ -136,7 +132,7 @@
   - 后期统计
   - 归档
 
-    
+
   现在方案:
   对于gtd_my, gtd_work中的task, archive到PROEJCT/archive下面
   对于gtd_common中的task, archive到archive.org
@@ -149,19 +145,19 @@
      一是以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT
      二是以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间
 
-    
+
   查看代办事项, 主要是org-agenda-view, org-next-view, org-inbox-view 查看
   查看统计信息, 主要是org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体
 
   org-next-view 显示todo|waiting items && tuck project
-    
+
   org-project-view中没必要包含gtd_common中的item
-  org-archive-view中包含gtd_common中的TODO, PROJECT items    
+  org-archive-view中包含gtd_common中的TODO, PROJECT items
 
 * 使用流程
   #+BEGIN_EXAMPLE
     |
-    | capture with                                         add timestamp &&              
+    | capture with                                         add timestamp &&
     | template       +---------+ auto refile   +---------+   auto refile     +---------+ archive       +---------+
     +--------------->|  inbxo  |-------------->|next step|------------------>|  agenda |-------------->| archive |
     |  C-s C-s       +---+-----+               +---------+  C-j s            +---------+  C-j d        +---------+
