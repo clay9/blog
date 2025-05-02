@@ -74,7 +74,7 @@ socket相关网络编程
     : 网络字节序 即 32位的二进制
     #+BEGIN_EXAMPLE
     //in_addr
-    struct in_addr 
+    struct in_addr
     {
     　　in_addr_t s_addr;
     };
@@ -120,7 +120,7 @@ socket相关网络编程
        getpeername() 返回remote fd
 
 ** socket问题
-   1. 阻塞 
+   1. 阻塞
       : 影响并发, 多路复用
       解决方案:
       1) 使用非阻塞模型, 比如select, poll, epoll(linux下特有), IOCP(windows下特有)
@@ -133,32 +133,32 @@ socket相关网络编程
 ** I/O模型
    [[https://mp.weixin.qq.com/s?src=11&timestamp=1565671711&ver=1787&signature=-mLkqQr803XDHb4f3aj9Lf1dJl8uVOV9fCCMMTzs0zSuOYH-qof7nsYCdgho1XLdPQYQP6QL5-WHtI6g-MD9xIsJcuxzdH*idpCZqtzl85r9D4C3XRRuOcCXqLKDzi-i&new=1][强烈建议阅读]]
    (链接过期, 直接搜狗搜索epoll, "epoll本质"即是)
-   1. 阻塞式      
+   1. 阻塞式
    2. 非阻塞
    3. select
    4. poll
    5. epoll (linux特有)
    6. IOCP (windows特有)
-     
+
 ** epoll使用
 *** epoll本身为我们处理了什么
     1. 之前socket::recv()时, 导致我们的进程阻塞
     2. 现在socket::recv()时, 使epoll阻塞; epoll中断时, 告之进程
 *** 有了epoll我们还需要处理什么
     1. 创建epoll对象
-    2. 添加检视的fd对象 -- op, epoll_event 
+    2. 添加检视的fd对象 -- op, epoll_event
     3. 检测是否有中断, 然后处理
 * socket属性
 ** keep live机制
-   当socket服务端开启keep live之后, 
+   当socket服务端开启keep live之后,
    服务器检测到 _一定时间内_ socket不活动的时候,
    就会每隔 _固定时间_ 向该sockt发送 _固定次数_ 的查询.
    如果一直没有回应, 服务端则关闭该socket
-   
+
    对应的字段为:
    #+BEGIN_EXAMPLE
-   tcp_keepalive_time（开启keepalive的闲置时长） 
-   tcp_keepalive_intvl（keepalive探测包的发送间隔） 
+   tcp_keepalive_time（开启keepalive的闲置时长）
+   tcp_keepalive_intvl（keepalive探测包的发送间隔）
    tcp_keepalive_probes （如果对方不予应答，探测包的发送次数）
    #+END_EXAMPLE
 * 编程实例
@@ -197,14 +197,14 @@ socket相关网络编程
 
 	     //解析数据
 	     if (m_wRecvSize == wPacketSize)  //数据全部接受完毕之后 再解析
-	     {		
+	     {
 		 //拷贝数据
-		 BYTE cbDataBuffer[SOCKET_TCP_BUFFER+sizeof(TCP_Head)];		
+		 BYTE cbDataBuffer[SOCKET_TCP_BUFFER+sizeof(TCP_Head)];
 		 CopyMemory(cbDataBuffer, m_cbRecvBuf, wPacketSize);
 
 		 //置位缓冲信息 -- 缓冲区中只保存一条tcp信息
 		 m_wRecvSize = 0;
-		 ZeroMemory(m_cbRecvBuf, sizeof(m_cbRecvBuf));		
+		 ZeroMemory(m_cbRecvBuf, sizeof(m_cbRecvBuf));
 
 		 //解密数据
 		 WORD wRealySize = CrevasseBuffer(cbDataBuffer, wPacketSize);
@@ -254,7 +254,7 @@ socket相关网络编程
   tcp_rmem            # tcp read缓冲区
   tcp_wmem            # tcp write缓冲区
   #+END_EXAMPLE
-  
+
   #+BEGIN_EXAMPLE sh 文件含义
   ip_forward               0禁止ip转发, 1打开;
   ip_default_ttl           数据报的生存周期(time to live), 即最多经过多少路由器

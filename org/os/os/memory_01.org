@@ -13,7 +13,7 @@ os中内存段页发展
 #+hugo: more
 * 参考文章
   [[https://zhuanlan.zhihu.com/p/324210723][强烈推荐: x86段寄存器和分段机制]]
-  
+
 * cpu发展历史
   #+begin_columns
   x86(8086)之前
@@ -31,7 +31,7 @@ os中内存段页发展
   #+end_columns
 * 段寄存器
   根据发展史, 知道段寄存器的引入是为了解决 /cpu bits < 地址总线/ 的问题
-  
+
   #+begin_src plantuml :exports results :eval no-export :file segment_reigster.png
     @startuml
     /'
@@ -56,7 +56,7 @@ os中内存段页发展
         ----
         DS
         ---
-        SS 
+        SS
         ----
         ES
         ]
@@ -103,7 +103,7 @@ os中内存段页发展
    这将导致不同的进程访问了同一个物理内存地址.
    而逻辑地址到线性地址是根据GDTR (global)获得的, 全局相同.
    所以在线性地址到物理地址上做功夫
-   
+
    所以需要一个与进程关联的DTR(实际就是LDTR)来处理这个翻译动作.
    LDTR就是进程的段表.
    线性地址(?待验证)在LDTR中找到describe info.

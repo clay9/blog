@@ -40,7 +40,7 @@ org自带强大的export功能.
     - columns
     - expand
     - hints
-    
+
 ** 图片导出逻辑
    #+begin_src plantuml :exports results :eval no-export :file ox-hugo-export.png
      @startuml
