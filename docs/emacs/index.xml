@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 02 May 2025 13:24:37 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 02 May 2025 14:04:34 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述">
  简述
  &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
 &lt;/h2>
@@ -14,50 +14,36 @@
 &lt;/ol>
 &lt;p>综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/>
 同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/>&lt;/p>
-&lt;h3 id="日常使用功能">
- 日常使用功能
- &lt;a class="anchor" href="#%e6%97%a5%e5%b8%b8%e4%bd%bf%e7%94%a8%e5%8a%9f%e8%83%bd">#&lt;/a>
+&lt;h3 id="emacs配置">
+ emacs配置
+ &lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae">#&lt;/a>
 &lt;/h3>
+&lt;p>emacs配置可大致划分如下 &lt;br/>&lt;/p>
 &lt;ul>
-&lt;li>&lt;del>文本编辑&lt;/del> &lt;br/>
-&lt;em>因为emacs跑在wsl中, 日常很少用来文本编辑了&lt;/em> &lt;br/>&lt;/li>
-&lt;li>&lt;del>代码编写&lt;/del> &lt;br/>
-&lt;em>公司使用vs工程, 日常很少使用emacs编码了&lt;/em> &lt;br/>&lt;/li>
-&lt;li>gtd &lt;br/>&lt;/li>
-&lt;li>blog &lt;br/>&lt;/li>
+&lt;li>emacs作为程序的基本配置 &lt;br/>&lt;/li>
+&lt;li>text editor &amp;amp;&amp;amp; completion &lt;br/>&lt;/li>
+&lt;li>prog editor &lt;br/>&lt;/li>
+&lt;li>org &amp;amp;&amp;amp; gtd &lt;br/>&lt;/li>
+&lt;li>键位设置 &lt;br/>&lt;/li>
 &lt;/ul>
-&lt;blockquote class="book-hint info">
- 
-现在使用emacs, 大部分是在使用 `org-mode` 写blog, 使用 `org-agenda` 作GTD管理 &lt;br/>
-
-&lt;/blockquote>
-
-&lt;h2 id="emacs-程序">
- emacs-程序
- &lt;a class="anchor" href="#emacs-%e7%a8%8b%e5%ba%8f">#&lt;/a>
+&lt;h3 id="编译emacs">
+ 编译emacs
+ &lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs">#&lt;/a>
+&lt;/h3>
+&lt;details>
+&lt;div class="details">
+&lt;pre>&lt;code class="language-shell"># --without-all 最小化编译 (但是包含了x)
+# --without-x 不使用x
+# --with-gnutls=ifavailable 移除configure警告 (实际并未编译)
+# --with-tree-sittter 开启tree-sitter
+# --with-xml2 package::devdocs依赖
+# --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)
+./configure --without-all --without-x --with-gnutls=ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
+&lt;/code>&lt;/pre>
+&lt;/div>
+&lt;/details>
+&lt;h2 id="基本配置">
+ 基本配置
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">#&lt;/a>
 &lt;/h2>
-&lt;p>emacs作为程序最基本的配置. &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>themes &lt;br/>&lt;/li>
-&lt;li>ui界面显示 &lt;br/>
-&lt;ul>
-&lt;li>frame &lt;br/>&lt;/li>
-&lt;li>window &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>font &lt;br/>&lt;/li>
-&lt;li>file &lt;br/>
-&lt;ul>
-&lt;li>recentf files &lt;br/>&lt;/li>
-&lt;li>buffers &lt;br/>&lt;/li>
-&lt;li>sessions &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="text-editor">
- text editor
- &lt;a class="anchor" href="#text-editor">#&lt;/a>
-&lt;/h2>
-&lt;p>文本编辑器是emacs最原始, 最纯粹, 最重要的功能. &lt;br/>
-大部分配置都是在处理该项, 使其更符合个人习惯. &lt;br/>
-配置繁琐, 但不复杂 &lt;br/>&lt;/p></description></item></channel></rss>
+&lt;p>emacs作为程序的基本配置 &lt;br/>&lt;/p></description></item></channel></rss>
