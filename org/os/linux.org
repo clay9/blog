@@ -73,7 +73,7 @@ linux常用命令&&工具
    但每个process都这么处理, 非常不方便, 因此出现了screen与tmux
 
 *** screen
-    #+attr_shortcode: 基本命令
+    #+attr_shortcode: "基本命令"
     #+begin_details
     - screen, screen -S <name>
       创建screen
