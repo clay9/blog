@@ -7,7 +7,6 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: details
 
 linux常用命令&&工具
 
@@ -74,8 +73,11 @@ linux常用命令&&工具
    但每个process都这么处理, 非常不方便, 因此出现了screen与tmux
 
 *** screen
-    #+attr_shortcode: 基本命令
     #+begin_details
+    #+begin_summary
+    基本命令
+    #+end_summary
+
     - screen, screen -S <name>
       创建screen
     - screen -d
