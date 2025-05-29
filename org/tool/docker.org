@@ -23,11 +23,14 @@ docker容器
 * 安装
   1. 安装[[https://www.docker.com][docker]]
   2. +安装[[https://github.com/docker/kitematic][Kitmatic]]+
-     docker gui工具; 
+     docker gui工具;
      不推荐使用
 * 配置
   1. 镜像配置
      使用[[http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker][中国科技大学镜像加速]], 无须注册, 直接使用即可
+  2. 代理配置
+     配置时候, http和https都要配置好. 否则会导致奇怪问题, 比如卡登陆等.
+     [[file:docker/proxy.png]]
 * 使用
   [[https://www.runoob.com/docker/docker-container-connection.html][推荐阅读教程]]
   TODONOW 待补充
@@ -57,7 +60,7 @@ docker容器
      docker tag [old_image_name]  [new_image_name]
      #+END_EXAMPLE
   7. 推送image到dockerhub
-     : 必须先登录dockerhub   docker login 
+     : 必须先登录dockerhub   docker login
      : 推送的时候image必须增加tag, tag的名字必须为 登录id/image名字
      : docker 官网速度太慢了, 建议存储为文件, 供别人使用
      #+BEGIN_EXAMPLE
@@ -88,7 +91,7 @@ docker容器
    dockerfile -- 对镜像的管理, 可以安装并修改镜像   (类比C++中的class)
    docker-compose -- 对容器的管理, 可以指定使用哪个容器, 并能修改容器 (类比C++中的对象实例)
 
-   : docker-compose 是一个指令, docker-compose.yml是其配置文件 
+   : docker-compose 是一个指令, docker-compose.yml是其配置文件
    : docker-compose -h查看用法
 ** 网桥
    通过指令docker network可以查看 docker中的网桥信息
@@ -125,4 +128,4 @@ docker容器
      可以使用
      : docker run -it image_name
 * 镜像漏洞排查
-  docker scan 
+  docker scan
