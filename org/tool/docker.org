@@ -1,11 +1,12 @@
 #+title: docker
-#+date: 2024-01-18 19:15:46
+#+date: 2025-05-29 17:52:01
 #+hugo_section: docs
-#+hugo_bundle: tool
-#+export_file_name: docker
+#+hugo_bundle: tool/docker
+#+export_file_name: index
 #+hugo_weight: 1
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
 
 docker容器
 
