@@ -13,120 +13,87 @@ docker容器
 #+hugo: more
 
 * 功能
-** 为什么需要docker
-** docker与虚拟机的对比
+** docker vs 虚拟机
    之前以为docker容器就是简约版本的虚拟机, 所以一直想把不同的软件融合到一个镜像中
-   现在2020.6.21 发现上面的想法是错误的
-   现在的认知:
+   现在2020.6.21 发现上面的想法是错误的. 现在的认知:
    1) docker是对于app(单个软件)的封装
    2) 多个软件协同合作的正确方式, 应该是建立多个互相关联的容器, 而不是企图把所有的软件放到一个容器中
 
 * 安装
   1. 安装[[https://www.docker.com][docker]]
-  2. +安装[[https://github.com/docker/kitematic][Kitmatic]]+
-     docker gui工具;
-     不推荐使用
 * 配置
-  1. 镜像配置
-     使用[[http://mirrors.ustc.edu.cn/help/dockerhub.html?highlight=docker][中国科技大学镜像加速]], 无须注册, 直接使用即可
-  2. 代理配置
-     配置时候, http和https都要配置好. 否则会导致奇怪问题, 比如卡登陆等.
+  1. 代理配置
+     国内无法访问dockerhub, 需要配置代理使用.
+     docker的代理需要单独配置, 使用全局代理无效(不知道为什么TODO).
+     代理需要http和https都要配置, 否则会导致奇怪问题, 比如卡登陆等.
      [[file:docker/proxy.png]]
 * 使用
   [[https://www.runoob.com/docker/docker-container-connection.html][推荐阅读教程]]
-  TODONOW 待补充
-  docker实际应用
-  web服务器 + php + laravel + 数据库
 
-** 镜像操作
-  1. 搜索镜像
-     docker search <image name>
-  2. 下载镜像
-     docker pull <image name>
-  3. 实例化镜像
-     镜像实例化为容器 (类比C++中的类--镜像,  对象--容器)
-     docker run -e "参数"  -P 端口映射 --name 容器名字 -d(后台运行) image名字
-     : -p 本机端口 : 容器端口
-     : -v 本机路径 : 容器路径
-  4. 镜像存储为文件 && 加载
-     : docker save image_name -o file_path
-     : docker load -i file_path
-     在网络不好的情况下, 可以直接使用文件的方式加载镜像
-  5. 容器封装为镜像
-     #+BEGIN_EXAMPLE
-     docker commit [container_id]  [image_name]
-     #+END_EXAMPLE
-  6. image tag修改名字
-     #+BEGIN_EXAMPLE
-     docker tag [old_image_name]  [new_image_name]
-     #+END_EXAMPLE
-  7. 推送image到dockerhub
-     : 必须先登录dockerhub   docker login
-     : 推送的时候image必须增加tag, tag的名字必须为 登录id/image名字
-     : docker 官网速度太慢了, 建议存储为文件, 供别人使用
-     #+BEGIN_EXAMPLE
-     git push image
-     #+END_EXAMPLE
+** image
+   | cmd              | desc                        |
+   |------------------+-----------------------------|
+   | docker search    | search image                |
+   | docker pull      | pull image                  |
+   | docker run       | image => container (实例化) |
+   | docker save,load | image => file, file=>image  |
+   | docker commit    | container => image          |
+   | docker tag       | image tag 修改名字          |
+   | docker push      | push image to dockerhub     |
 
-** 容器操作
-  1. 查看容器
-     docker container ls -al
-  2. 启动 关闭 重启容器
-     docker container start | stop | restart  <container_id>
-  3. 重定义容器输出
-     docker container attach <container_id>
-  4. 进入到容器中
-     docker container exec -it <container_id>  COMMAND
-     -i interactive
-     -t tty
-     COMMAND 一般都是bash环境. 比如:
-     docker container exec -it mysql bash
-** 本机与docker容器交互
-   1. 文件传输
-      docker cp  test  mssql:/home
-   2. 查看镜像ip地址 TODONOW
-      因hexo原因, 下面的命令会导致hexo无法编译org为html, 所以详见
-      ~/bin/docker_ip.sh
+** container
+   | cmd                                  | desc                |
+   |--------------------------------------+---------------------|
+   | docker container ls                  | list containers     |
+   | docker container start,stop, restart |                     |
+   | docker container attach              | attach to container |
+   | docker container exec                | enter container     |
 
-** Dockerfile && docker-compose
-   dockerfile -- 对镜像的管理, 可以安装并修改镜像   (类比C++中的class)
-   docker-compose -- 对容器的管理, 可以指定使用哪个容器, 并能修改容器 (类比C++中的对象实例)
+** host && docker container
 
-   : docker-compose 是一个指令, docker-compose.yml是其配置文件
-   : docker-compose -h查看用法
-** 网桥
+   | cmd       | desc    |
+   |-----------+---------|
+   | docker cp | like cp |
+
+** docker network
    通过指令docker network可以查看 docker中的网桥信息
    网桥可以使多个容器组件局域网
 
    1. 容器可以在创建之前选择网桥
-      #+BEGIN_EXAMPLE
-      docker create --name [容器名称] --network [网桥名称] [镜像名称]
-      #+END_EXAMPLE
+      #+begin_src shell -n
+        docker create --name [容器名称] --network [网桥名称] [镜像名称]
+      #+end_src
    2. 容器也可以在运行状态时 选择网桥
-      #+BEGIN_EXAMPLE
-      docker network connect [网桥名称] [容器名称]
-      #+END_EXAMPLE
-** 卷 volume
-    1) docker volume create
-       命令用于创建新卷。默认情况下，新卷创建使用 local 驱动，但是可以通过 -d 参数来指定不同的驱动。
-    2) docker volume ls
-       会列出本地 Docker 主机上的全部卷。
-    3) docker volume inspect
-       用于查看卷的详细信息。可以使用该命令查看卷在 Docker 主机文件系统中的具体位置。
-    4) docker volume prune
-       会删除未被容器或者服务副本使用的全部卷。
-    5) docker volume rm
-       删除未被使用的指定卷
-* docker-compose
-* dockerfile
-  1. COPY 注意事项
-     : COPY src tag
-     如果tag不存在, 则会创建, 类似mkdir -p
-     - 如果src或tag为目录, 则必须以/结尾
-     - src为目录, 复制的时候src自身不会被复制, 只会复制其里面所有子文件
+      #+begin_src shell -n
+        docker network connect [网桥名称] [容器名称]
+      #+end_src
+
+** volume
+
+   | cmd                   | desc                                                    |
+   |-----------------------+---------------------------------------------------------|
+   | docker volume crate   | 创建新卷. 新卷默认使用local驱动, 可通过-d来指定不同驱动 |
+   | docker volume ls      | list all volumes                                        |
+   | docker volume inspect | show volume details                                     |
+   | docker volume prune   | 删除未被容器或者服务副本使用的全部卷                    |
+   | docker volume rm      | delete volume                                           |
+
+* Dockerfile && docker-compose
+  Dockerfile -- 对镜像的管理, 可以安装并修改镜像 (类比C++中的class)
+  docker-compose -- 对容器的管理, 可以指定使用哪个容器, 并能修改容器 (类比C++中的对象实例)
+
+** Dockerfile
+   1. COPY
+      : COPY src tag
+      如果tag不存在, 则会创建, 类似mkdir -p
+      - 如果src或tag为目录, 则必须以/结尾
+      - src为目录, 复制的时候src自身不会被复制, 只会复制其里面所有子文件
+** docker-compose
+   docker-compose 是一个指令, docker-compose.yml是其配置文件.
+   docker-compose -h查看用法
+
 * 小技巧
-  1. 使用镜像的时候, 不一定要做成容器
-     可以使用
+  1. 使用镜像的时候, 不一定要做成容器. 可以直接使用
      : docker run -it image_name
-* 镜像漏洞排查
-  docker scan
+  2. 镜像漏洞排查
+     : docker scan
