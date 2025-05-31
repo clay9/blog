@@ -9,8 +9,7 @@
 #+hugo_custom_front_matter: :bookCollapseSection false
 
 * 需求分析
-  =所有的设计都是基于需求的=, 应该先有需求, 再去设计.
-  当前的需求:
+  =所有的设计都是基于需求的=. 当前需求:
   1. 有哪些task
      - [X] 他们归属于哪个PROJECT
      - [X] 他们的四象限: 紧急&&重要
@@ -65,8 +64,9 @@
        \_ inbox       收集箱
        \_ task        任务清单
        \_ archive     归档文件
-    \_ gtd_emacs      emacs project file
-    \_ gtd_qygame     qygame project file
+    \_ gtd
+       \__ emacs      emacs project file
+       \__ qygame     qygame project file
   #+end_example
   gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及TODO
   | file        | desc                                |
@@ -75,7 +75,7 @@
   | task.org    | 任务清单                            |
   | archive.org | 归档文件                            |
 
-  gtd_emacs与gtd_qygame则是已经明确分类的PROJECT. 比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
+  gtd/emacs与gtd/qygame则是已经明确分类的PROJECT. 比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
   但即使都是emacs相关, 也可分为是emacs自身, org, 还是IDE. 所以emacs.org中实际包含了三个PROJECT: emacs, org, IDE
 
 * TODO的设计
