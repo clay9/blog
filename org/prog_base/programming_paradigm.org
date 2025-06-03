@@ -1,0 +1,58 @@
+#+title: 编程范式
+#+date: 2025-06-01 16:38:21
+#+hugo_section: docs
+#+hugo_bundle: prog_base/programming_paradigm
+#+export_file_name: index
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+Programming paradigm 即编程范型, 编程范式, 程序设计法
+
+#+hugo: more
+
+* 简述
+paradigm(范式) 表示一种基本的思维方式;
+Programming paradigm(编程范式) 表示对于 =编程= 这件事的思维方式;
+
+: 编程是把 =现实领域问题= 抽象为 =程序模型=
+
+* 常见编程范型
+
+  #+begin_example
+  编程范型只是一种思维方式, 不是互斥的.
+
+  比如面向对象编程中虽然把 =现实领域问题= 抽象为对象的交互
+  但是对于 =对象的方法(成员函数)= 也许仍是 抽象为一个个过程调用(过程式编程)
+
+  所以不要拘泥于某种编程范型
+  #+end_example
+
+  1. 指令性编程
+     早期计算机还不智能(抽象层面还不够), 需要更多注意力在硬件层面.
+     =现实领域问题= 就是按顺序一步步执行
+     =程序模型= 也更多的是对硬件层面的关注, 需要对硬件精细控制
+  2. 过程式编程
+     =现实领域问题= 被分解为一个个过程(function)
+     =程序模型= 就是一个个过程调用(function call)
+  3. 基于对象编程
+     =现实领域问题= 被分解为对象之间的交互
+     =程序模型= 就是对象的管理
+
+     : 此时的对象仅仅是对数据和方法的封装
+  4. 面向对象编程
+     =现实领域问题= 被分解为对象之间的交互
+     =程序模型= 就是对象的管理
+
+     #+begin_example
+     与基于对象编程不同的是, 这里的对象含义有所区别
+     这里对对象进行了扩展(继承), 丰富了对象的功能
+     #+end_example
+  5. 函数式编程
+     函数式编程将电脑运算视为函数运算，并且避免使用程序状态以及可变对象
+
+     : TODO 还不是很了解
+* 函数式编程
+  了解函数式编程要先了解 lambda演算
+  lambda演算 与 图灵机 都属于计算机理论基础

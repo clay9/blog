@@ -1,0 +1,21 @@
+#+title: 图灵机 && lambda演算
+#+date: 2025-06-01 16:38:49
+#+hugo_section: docs
+#+hugo_bundle: prog_base/base
+#+export_file_name: index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+计算机理论基础 ?
+
+#+hugo: more
+* 简述
+  图灵机, lambda演算 都是一种计算模型. 描述了计算的本质
+
+  [[https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B_(%E6%95%B0%E5%AD%A6)][计算模型]]
+
+* 图灵机
+  [[file:base/turing.pdf][pdf: 图灵机与计算]]
+* lambda演算
