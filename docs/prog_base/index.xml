@@ -1,96 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog base on 飘</title><link>https://clay9.github.io/blog/docs/prog_base/</link><description>Recent content in prog base on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 13 Jun 2025 08:57:26 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_base/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p>计算机理论基础 ? &lt;br/>&lt;/p></description></item><item><title>编程范式</title><link>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</guid><description>&lt;p>Programming paradigm 即编程范型, 编程范式, 程序设计法 &lt;br/>&lt;/p></description></item><item><title>设计原则</title><link>https://clay9.github.io/blog/docs/prog_base/principles/</link><pubDate>Fri, 13 Jun 2025 16:28:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/principles/</guid><description>&lt;p>面向对象编程的 六大设计原则 &lt;br/>&lt;/p></description></item><item><title>设计模式</title><link>https://clay9.github.io/blog/docs/prog_base/design_pattern/</link><pubDate>Wed, 04 Jun 2025 09:21:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/design_pattern/</guid><description>&lt;p>design pattern 设计模式 &lt;br/>&lt;/p></description></item><item><title>数据结构与算法分析</title><link>https://clay9.github.io/blog/docs/prog_base/algorithm/</link><pubDate>Sat, 10 Feb 2024 21:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/algorithm/</guid><description>&lt;h2 id="概述-总结">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog base on 飘</title><link>https://clay9.github.io/blog/docs/prog_base/</link><description>Recent content in prog base on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 22:43:05 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_base/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>编程范式</title><link>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</guid><description>&lt;p&gt;Programming paradigm 即编程范型, 编程范式, 程序设计法 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>设计原则</title><link>https://clay9.github.io/blog/docs/prog_base/principles/</link><pubDate>Fri, 13 Jun 2025 16:28:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/principles/</guid><description>&lt;p&gt;面向对象编程的 六大设计原则 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>设计模式</title><link>https://clay9.github.io/blog/docs/prog_base/design_pattern/</link><pubDate>Wed, 04 Jun 2025 09:21:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/design_pattern/</guid><description>&lt;p&gt;design pattern 设计模式 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>数据结构与算法分析</title><link>https://clay9.github.io/blog/docs/prog_base/algorithm/</link><pubDate>Sat, 10 Feb 2024 21:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/algorithm/</guid><description>&lt;h2 id="概述-总结"&gt;
  概述|总结
- &lt;a class="anchor" href="#%e6%a6%82%e8%bf%b0-%e6%80%bb%e7%bb%93">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="什么是">
+ 
+ &lt;a class="anchor" href="#%e6%a6%82%e8%bf%b0-%e6%80%bb%e7%bb%93"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="什么是"&gt;
  什么是
- &lt;a class="anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af">#&lt;/a>
-&lt;/h3>
-&lt;p>数据结构分为 &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>物理结构 &lt;br/>
-即在内存中的结构. 有顺序存储(内存连续) 和 链式存储(内存可不连续) &lt;br/>&lt;/li>
-&lt;li>逻辑结构 &lt;br/>
-一对一的线性, 一对多的树, 多对多的图 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;h3 id="逻辑结构">
+ 
+ &lt;a class="anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;数据结构分为 &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;物理结构 &lt;br/&gt;
+即在内存中的结构. 有顺序存储(内存连续) 和 链式存储(内存可不连续) &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;逻辑结构 &lt;br/&gt;
+一对一的线性, 一对多的树, 多对多的图 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="逻辑结构"&gt;
  逻辑结构
- &lt;a class="anchor" href="#%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84">#&lt;/a>
-&lt;/h3>
-&lt;h4 id="一对一">
+ 
+ &lt;a class="anchor" href="#%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;h4 id="一对一"&gt;
  一对一
- &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e4%b8%80">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>stack (LIFO) &lt;br/>
-堆栈, 后进先出 &lt;br/>&lt;/li>
-&lt;li>queue (FIFO) &lt;br/>
-队列, 先进先出 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;h4 id="一对多">
+ 
+ &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e4%b8%80"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;stack (LIFO) &lt;br/&gt;
+堆栈, 后进先出 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;queue (FIFO) &lt;br/&gt;
+队列, 先进先出 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="一对多"&gt;
  一对多
- &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e5%a4%9a">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>tree 树 &lt;br/>&lt;/li>
-&lt;li>binary tree 二叉树 &lt;br/>&lt;/li>
-&lt;li>search binary tree 搜索二叉树 &lt;br/>&lt;/li>
-&lt;li>blance binary tree 平衡二叉树 &lt;br/>&lt;/li>
-&lt;li>complet binary tree 完全二叉树 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>name&lt;/th>
- &lt;th>特征&lt;/th>
- &lt;th>备注&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>binary tree&lt;/td>
- &lt;td>1.任意节点 叶度 &amp;lt;=2&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>search bianry tree&lt;/td>
- &lt;td>1.binary tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>2.任意节点 left-child, root, right-child有序&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>blanced binary tree&lt;/td>
- &lt;td>1.search binary tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>2.任意节点的 &amp;lt;左树高度-右树高度&amp;gt; &amp;lt;=1&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>complet binary tree&lt;/td>
- &lt;td>1.search tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>2.节点依次从左到右&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h4 id="多对多">
+ 
+ &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e5%a4%9a"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;tree 树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;binary tree 二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;search binary tree 搜索二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;blance binary tree 平衡二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;complet binary tree 完全二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;name&lt;/th&gt;
+ &lt;th&gt;特征&lt;/th&gt;
+ &lt;th&gt;备注&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;binary tree&lt;/td&gt;
+ &lt;td&gt;1.任意节点 叶度 &amp;lt;=2&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;search bianry tree&lt;/td&gt;
+ &lt;td&gt;1.binary tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.任意节点 left-child, root, right-child有序&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;blanced binary tree&lt;/td&gt;
+ &lt;td&gt;1.search binary tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.任意节点的 &amp;lt;左树高度-右树高度&amp;gt; &amp;lt;=1&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;complet binary tree&lt;/td&gt;
+ &lt;td&gt;1.search tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.节点依次从左到右&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="多对多"&gt;
  多对多
- &lt;a class="anchor" href="#%e5%a4%9a%e5%af%b9%e5%a4%9a">#&lt;/a>
-&lt;/h4>
-&lt;p>graph 图 &lt;br/>&lt;/p></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#%e5%a4%9a%e5%af%b9%e5%a4%9a"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;p&gt;graph 图 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>

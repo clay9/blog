@@ -1,137 +1,238 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 13 Jun 2025 08:57:27 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p>计算机理论基础 ? &lt;br/>&lt;/p></description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p>docker容器 &lt;br/>&lt;/p></description></item><item><title>os</title><link>https://clay9.github.io/blog/docs/os/os/os/</link><pubDate>Fri, 31 May 2024 18:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/os/</guid><description>&lt;p>os学习整理 &lt;br/>&lt;/p></description></item><item><title>linux</title><link>https://clay9.github.io/blog/docs/os/linux/</link><pubDate>Fri, 31 May 2024 10:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/linux/</guid><description>&lt;p>linux常用命令&amp;amp;&amp;amp;工具 &lt;br/>&lt;/p></description></item><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p>org-mode一直被称为神器 &lt;br/>
-主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code>org-mode&lt;/code>), 另一个则是 &lt;code>org-agenda&lt;/code> &lt;br/>
-推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html">org心得体会&lt;/a> &lt;br/>&lt;/p>
-&lt;h2 id="配置">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 22:43:06 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="mac初步整理"&gt;
+ mac初步整理
+ 
+ &lt;a class="anchor" href="#mac%e5%88%9d%e6%ad%a5%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="界面的整理"&gt;
+ 界面的整理
+ 
+ &lt;a class="anchor" href="#%e7%95%8c%e9%9d%a2%e7%9a%84%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;launchpad图标大小整理 &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;每一列图标数量 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;defaults write com.apple.dock springboard-rows -int 7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每一行图标数量 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;defaults write com.apple.dock springboard-columns -int 7
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重启Launchpad &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加空白到Dock栏 &lt;br/&gt;
+空白能使Dock中的程序更好的归类. 按住Option可以拖动 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;defaults write com.apple.dock persistent-apps -array-add '{&amp;quot;tile-type&amp;quot;=&amp;quot;spacer-tile&amp;quot;;}'; killall Dock
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="状态栏调整"&gt;
+ 状态栏调整
+ 
+ &lt;a class="anchor" href="#%e7%8a%b6%e6%80%81%e6%a0%8f%e8%b0%83%e6%95%b4"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;按住Command之后, 鼠标可以拖动状态栏图标 &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id="mac自带输入法-简体拼音"&gt;
+ mac自带输入法 &amp;ndash; 简体拼音
+ 
+ &lt;a class="anchor" href="#mac%e8%87%aa%e5%b8%a6%e8%be%93%e5%85%a5%e6%b3%95-%e7%ae%80%e4%bd%93%e6%8b%bc%e9%9f%b3"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;记录一下常用快捷键 &amp;amp;&amp;amp; 配置 &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Fn+TAB &amp;ndash; 短按切换ABC与简体中文, 长按大小写 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;建议设置选词为竖屏, 横屏容易遮挡输入 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote class="book-hint info"&gt;
+ 
+不舒服的地方 &lt;br/&gt;
+
+1. 输入的时候无法使用shift来切换为英文, 必须使用Fn+TAB &lt;br/&gt;
+2. 候选词为横屏的时候, 会遮挡住输入区域 &lt;br/&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h3 id="关闭内置键盘"&gt;
+ 关闭内置键盘
+ 
+ &lt;a class="anchor" href="#%e5%85%b3%e9%97%ad%e5%86%85%e7%bd%ae%e9%94%ae%e7%9b%98"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;苹果内置键盘不好用, 但是触控板非常好用. &lt;br/&gt;
+习惯把HHKB放在苹果键盘上, 这样可以使用HHKB+苹果触控版 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>os</title><link>https://clay9.github.io/blog/docs/os/os/os/</link><pubDate>Fri, 31 May 2024 18:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/os/</guid><description>&lt;p&gt;os学习整理 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
+主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code&gt;org-mode&lt;/code&gt;), 另一个则是 &lt;code&gt;org-agenda&lt;/code&gt; &lt;br/&gt;
+推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html"&gt;org心得体会&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="配置"&gt;
  配置
- &lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h2>
-&lt;p>org作为文本模式配置较少, 更多的是配置org-agenda为GTD管理工具. &lt;br/>&lt;/p>
-&lt;p>org文本模式下, &lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-org-mode.el">配置简单外观 以及 Babel-languages&lt;/a> &lt;br/>
-org-agenda的配置可参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-org-agenda-mode.el">init-org-agenda.el&lt;/a>和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-org-agenda-fun.el">一系列自定义函数&lt;/a> &lt;br/>&lt;/p>
-&lt;h2 id="使用">
+ 
+ &lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;org作为文本模式配置较少, 更多的是配置org-agenda为GTD管理工具. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;org文本模式下, &lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-org-mode.el"&gt;配置简单外观 以及 Babel-languages&lt;/a&gt; &lt;br/&gt;
+org-agenda的配置可参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-org-agenda-mode.el"&gt;init-org-agenda.el&lt;/a&gt;和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-org-agenda-fun.el"&gt;一系列自定义函数&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="使用"&gt;
  使用
- &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="font-format">
+ 
+ &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="font-format"&gt;
  font format
- &lt;a class="anchor" href="#font-format">#&lt;/a>
-&lt;/h3>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>key&lt;/th>
- &lt;th>format&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>normal&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>=&lt;/td>
- &lt;td>&lt;code>monospace&lt;/code>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>~&lt;/td>
- &lt;td>key-binding&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>+&lt;/td>
- &lt;td>&lt;del>strike-through&lt;/del>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>_&lt;/td>
- &lt;td>&lt;span class="underline">underline&lt;/span>&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h3 id="基本语法">
+ 
+ &lt;a class="anchor" href="#font-format"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;key&lt;/th&gt;
+ &lt;th&gt;format&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;normal&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;=&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;monospace&lt;/code&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;~&lt;/td&gt;
+ &lt;td&gt;key-binding&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;+&lt;/td&gt;
+ &lt;td&gt;&lt;del&gt;strike-through&lt;/del&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;_&lt;/td&gt;
+ &lt;td&gt;&lt;span class="underline"&gt;underline&lt;/span&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="基本语法"&gt;
  基本语法
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95">#&lt;/a>
-&lt;/h3>
-&lt;h4 id="语法-time-stamp选择">
+ 
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;h4 id="语法-time-stamp选择"&gt;
  语法: time-stamp选择
- &lt;a class="anchor" href="#%e8%af%ad%e6%b3%95-time-stamp%e9%80%89%e6%8b%a9">#&lt;/a>
-&lt;/h4>
-&lt;p>添加time-stamp时, 不要在calendar中移动,效率太低 &lt;br/>
-使用以下2种方式即可: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>使用简约的时间格式 &lt;br/>
-17-1-1 =&amp;gt; 2017-01-01 &lt;br/>&lt;/li>
-&lt;li>使用时间间隔 &lt;br/>
-now = &lt;span class="timestamp-wrapper">&lt;span class="timestamp">[2016-12-28 Wed]&lt;/span>&lt;/span> &lt;br/>
-+1d =&amp;gt; 2016-12-29 &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;p>具体见(dir) - Org mode - Dates and times - Creating timestamps - The date/time promt &lt;br/>&lt;/p></description></item><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述">
+ 
+ &lt;a class="anchor" href="#%e8%af%ad%e6%b3%95-time-stamp%e9%80%89%e6%8b%a9"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;p&gt;添加time-stamp时, 不要在calendar中移动,效率太低 &lt;br/&gt;
+使用以下2种方式即可: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用简约的时间格式 &lt;br/&gt;
+17-1-1 =&amp;gt; 2017-01-01 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;使用时间间隔 &lt;br/&gt;
+now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-12-28 Wed]&lt;/span&gt;&lt;/span&gt; &lt;br/&gt;
++1d =&amp;gt; 2016-12-29 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;具体见(dir) - Org mode - Dates and times - Creating timestamps - The date/time promt &lt;br/&gt;&lt;/p&gt;</description></item><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述"&gt;
  简述
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="emacs是什么">
+ 
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="emacs是什么"&gt;
  emacs是什么
- &lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88">#&lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>emacs最原始,最纯粹的功能: &lt;code>text editor&lt;/code> &lt;br/>&lt;/li>
-&lt;li>也可以作为优秀的 &lt;code>program editor&lt;/code> &lt;br/>&lt;/li>
-&lt;li>优秀的文本 &lt;code>gtd&lt;/code> 软件 &lt;br/>&lt;/li>
-&lt;li>良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等 &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;p>综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/>
-同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/>&lt;/p>
-&lt;h3 id="emacs配置">
+ 
+ &lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;emacs最原始,最纯粹的功能: &lt;code&gt;text editor&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;也可以作为优秀的 &lt;code&gt;program editor&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;优秀的文本 &lt;code&gt;gtd&lt;/code&gt; 软件 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/&gt;
+同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id="emacs配置"&gt;
  emacs配置
- &lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h3>
-&lt;p>emacs配置可大致划分如下 &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>emacs作为程序的基本配置 &lt;br/>&lt;/li>
-&lt;li>text editor &amp;amp;&amp;amp; completion &lt;br/>&lt;/li>
-&lt;li>prog editor &lt;br/>&lt;/li>
-&lt;li>org &amp;amp;&amp;amp; gtd &lt;br/>&lt;/li>
-&lt;li>键位设置 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;h3 id="编译emacs">
+ 
+ &lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;emacs配置可大致划分如下 &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;text editor &amp;amp;&amp;amp; completion &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;prog editor &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;org &amp;amp;&amp;amp; gtd &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;键位设置 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="编译emacs"&gt;
  编译emacs
- &lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs">#&lt;/a>
-&lt;/h3>
-&lt;details>
-&lt;div class="details">
-&lt;pre>&lt;code class="language-shell"># --without-all 最小化编译 (但是包含了x)
+ 
+ &lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;details&gt;
+&lt;div class="details"&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;# --without-all 最小化编译 (但是包含了x)
 # --without-x 不使用x
 # --with-gnutls=ifavailable 移除configure警告 (实际并未编译)
 # --with-tree-sittter 开启tree-sitter
 # --with-xml2 package::devdocs依赖
 # --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)
 ./configure --without-all --without-x --with-gnutls=ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;/details>
-&lt;h2 id="基本配置">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/details&gt;
+&lt;h2 id="基本配置"&gt;
  基本配置
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h2>
-&lt;p>emacs作为程序的基本配置 &lt;br/>&lt;/p></description></item><item><title>socket base</title><link>https://clay9.github.io/blog/docs/os/socket/socket/</link><pubDate>Thu, 18 Jan 2024 19:13:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/socket/socket/</guid><description>&lt;p>socket相关网络编程 &lt;br/>&lt;/p></description></item><item><title>git</title><link>https://clay9.github.io/blog/docs/prog_vc/git/</link><pubDate>Thu, 18 Jan 2024 19:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_vc/git/</guid><description>&lt;p>git简易指导, 个人使用心得 &lt;br/>&lt;/p></description></item><item><title>global</title><link>https://clay9.github.io/blog/docs/prog_lsp/global/</link><pubDate>Thu, 18 Jan 2024 19:10:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_lsp/global/</guid><description>&lt;p>在project中生成TAGS文件, 方便索引 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">建议使用lsp代替, global响应虽然快速, 但是不如lsp实时定位方便
-&lt;/code>&lt;/pre></description></item><item><title>c++历史</title><link>https://clay9.github.io/blog/docs/prog_language/c++/c++/</link><pubDate>Thu, 18 Jan 2024 19:06:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/c++/c++/</guid><description>&lt;p>通过C++历史, 更好的了解C++特性 &lt;br/>&lt;/p></description></item><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看">
+ 
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>socket base</title><link>https://clay9.github.io/blog/docs/os/socket/socket/</link><pubDate>Thu, 18 Jan 2024 19:13:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/socket/socket/</guid><description>&lt;p&gt;socket相关网络编程 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>git</title><link>https://clay9.github.io/blog/docs/prog_vc/git/</link><pubDate>Thu, 18 Jan 2024 19:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_vc/git/</guid><description>&lt;p&gt;git简易指导, 个人使用心得 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>global</title><link>https://clay9.github.io/blog/docs/prog_lsp/global/</link><pubDate>Thu, 18 Jan 2024 19:10:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_lsp/global/</guid><description>&lt;p&gt;在project中生成TAGS文件, 方便索引 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;建议使用lsp代替, global响应虽然快速, 但是不如lsp实时定位方便
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>c++历史</title><link>https://clay9.github.io/blog/docs/prog_language/c++/c++/</link><pubDate>Thu, 18 Jan 2024 19:06:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/c++/c++/</guid><description>&lt;p&gt;通过C++历史, 更好的了解C++特性 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;
  proc总体状态查看
- &lt;a class="anchor" href="#proc%e6%80%bb%e4%bd%93%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="proc">
+ 
+ &lt;a class="anchor" href="#proc%e6%80%bb%e4%bd%93%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="proc"&gt;
  proc
- &lt;a class="anchor" href="#proc">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text">(gdb) info proc
+ 
+ &lt;a class="anchor" href="#proc"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;(gdb) info proc
 process 217777
 cmdline = '/home/clay/my/learn_gdb/a.out'
 cwd = '/home/clay/my/learn_gdb'
 exe = '/home/clay/my/learn_gdb/a.out'
-&lt;/code>&lt;/pre>
-&lt;h3 id="proc-status">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="proc-status"&gt;
  proc status
- &lt;a class="anchor" href="#proc-status">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text">//TODONOW 补充对应的字段
+ 
+ &lt;a class="anchor" href="#proc-status"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;//TODONOW 补充对应的字段
 info proc status
 
 显示与进程相关的附加信息
@@ -140,13 +241,15 @@ info proc status
 3) 待处理, 阻塞和沪铝的信号
 4) 消耗系统和用户的时间
 5) 堆栈大小
-&lt;/code>&lt;/pre>
-&lt;h3 id="内存分布">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="内存分布"&gt;
  内存分布
- &lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%88%86%e5%b8%83">#&lt;/a>
-&lt;/h3>
-&lt;p>&lt;code>段表&lt;/code> &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text"> //TODONOW 补充说明
+ 
+ &lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%88%86%e5%b8%83"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;段表&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt; //TODONOW 补充说明
  (gdb) info proc mappings
  process 217777
  Mapped address spaces:
@@ -174,288 +277,253 @@ info proc status
 0x7ffff7ffb000 0x7ffff7ffd000 0x2000 0x37000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
 0x7ffff7ffd000 0x7ffff7fff000 0x2000 0x39000 rw-p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
 0x7ffffffde000 0x7ffffffff000 0x21000 0x0 rw-p [stack]
-&lt;/code>&lt;/pre>
-&lt;p>&lt;code>页表&lt;/code> (Register: cr3) &lt;em>TODO 待补充&lt;/em> &lt;br/>&lt;/p></description></item><item><title>autotools</title><link>https://clay9.github.io/blog/docs/prog_compile/autotools/</link><pubDate>Thu, 18 Jan 2024 19:02:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/autotools/</guid><description>&lt;p>初学autotools &lt;br/>&lt;/p></description></item><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p>emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/>
-&lt;a href="https://linuxtoy.org/archives/emacs-eshell.html">官方文档&lt;/a> &lt;br/>&lt;/p>
-&lt;p>优势: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>emacs自带, 不同os环境统一 &lt;br/>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>语法支持tramp &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">cd /method:user@host#22:/path
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="eshell-and-and-elisp">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;页表&lt;/code&gt; (Register: cr3) &lt;em&gt;TODO 待补充&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>autotools</title><link>https://clay9.github.io/blog/docs/prog_compile/autotools/</link><pubDate>Thu, 18 Jan 2024 19:02:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/autotools/</guid><description>&lt;p&gt;初学autotools &lt;br/&gt;&lt;/p&gt;</description></item><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
+&lt;a href="https://linuxtoy.org/archives/emacs-eshell.html"&gt;官方文档&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;优势: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;emacs自带, 不同os环境统一 &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;语法支持tramp &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;cd /method:user@host#22:/path
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="eshell-and-and-elisp"&gt;
  eshell &amp;amp;&amp;amp; elisp
- &lt;a class="anchor" href="#eshell-and-and-elisp">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>defun为 eshell/xxx的函数, 可以在eshell中直接调用xxx &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="eshell-script">
- eshell script
- &lt;a class="anchor" href="#eshell-script">#&lt;/a>
-&lt;/h2>
-&lt;p>官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾 &lt;br/>&lt;/p>
-&lt;h3 id="变量赋值">
- 变量赋值
- &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e8%b5%8b%e5%80%bc">#&lt;/a>
-&lt;/h3>
-&lt;p>eshell 脚本中使用elisp语法给变量赋值 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">(setq remote_temp &amp;quot;/ssh:clay@192.168.0.97:~/temp&amp;quot;)
-&lt;/code>&lt;/pre>
-&lt;h3 id="变量使用">
- 变量使用 $
- &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8">#&lt;/a>
-&lt;/h3>
-&lt;p>基本与shell相同, 具体可以详见官方说明 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">eshell/rm -r $remote_temp
-&lt;/code>&lt;/pre></description></item><item><title>编程范式</title><link>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</guid><description>&lt;p>Programming paradigm 即编程范型, 编程范式, 程序设计法 &lt;br/>&lt;/p></description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="mac初步整理">
- mac初步整理
- &lt;a class="anchor" href="#mac%e5%88%9d%e6%ad%a5%e6%95%b4%e7%90%86">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="界面的整理">
- 界面的整理
- &lt;a class="anchor" href="#%e7%95%8c%e9%9d%a2%e7%9a%84%e6%95%b4%e7%90%86">#&lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>
-&lt;p>launchpad图标大小整理 &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>每一列图标数量 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">defaults write com.apple.dock springboard-rows -int 7
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>每一行图标数量 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">defaults write com.apple.dock springboard-columns -int 7
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>重启Launchpad &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-&lt;/code>&lt;/pre>
-&lt;p>&lt;em>该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!&lt;/em> &lt;br/>&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>添加空白到Dock栏 &lt;br/>
-空白能使Dock中的程序更好的归类. 按住Option可以拖动 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">defaults write com.apple.dock persistent-apps -array-add '{&amp;quot;tile-type&amp;quot;=&amp;quot;spacer-tile&amp;quot;;}'; killall Dock
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="状态栏调整">
- 状态栏调整
- &lt;a class="anchor" href="#%e7%8a%b6%e6%80%81%e6%a0%8f%e8%b0%83%e6%95%b4">#&lt;/a>
-&lt;/h3>
-&lt;p>按住Command之后, 鼠标可以拖动状态栏图标 &lt;br/>&lt;/p>
-&lt;h3 id="mac自带输入法-简体拼音">
- mac自带输入法 &amp;ndash; 简体拼音
- &lt;a class="anchor" href="#mac%e8%87%aa%e5%b8%a6%e8%be%93%e5%85%a5%e6%b3%95-%e7%ae%80%e4%bd%93%e6%8b%bc%e9%9f%b3">#&lt;/a>
-&lt;/h3>
-&lt;p>记录一下常用快捷键 &amp;amp;&amp;amp; 配置 &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>Fn+TAB &amp;ndash; 短按切换ABC与简体中文, 长按大小写 &lt;br/>&lt;/li>
-&lt;li>建议设置选词为竖屏, 横屏容易遮挡输入 &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;blockquote class="book-hint info">
  
-不舒服的地方 &lt;br/>
-
-1. 输入的时候无法使用shift来切换为英文, 必须使用Fn+TAB &lt;br/>
-2. 候选词为横屏的时候, 会遮挡住输入区域 &lt;br/>
-
-&lt;/blockquote>
-
-&lt;h3 id="关闭内置键盘">
- 关闭内置键盘
- &lt;a class="anchor" href="#%e5%85%b3%e9%97%ad%e5%86%85%e7%bd%ae%e9%94%ae%e7%9b%98">#&lt;/a>
-&lt;/h3>
-&lt;p>苹果内置键盘不好用, 但是触控板非常好用. &lt;br/>
-习惯把HHKB放在苹果键盘上, 这样可以使用HHKB+苹果触控版 &lt;br/>&lt;/p></description></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/gtd/</link><pubDate>Thu, 30 May 2024 20:41:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/gtd/</guid><description>&lt;h2 id="为什么要用gtd">
+ &lt;a class="anchor" href="#eshell-and-and-elisp"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;defun为 eshell/xxx的函数, 可以在eshell中直接调用xxx &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="eshell-script"&gt;
+ eshell script
+ 
+ &lt;a class="anchor" href="#eshell-script"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾 &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id="变量赋值"&gt;
+ 变量赋值
+ 
+ &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e8%b5%8b%e5%80%bc"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;eshell 脚本中使用elisp语法给变量赋值 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;(setq remote_temp &amp;quot;/ssh:clay@192.168.0.97:~/temp&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="变量使用"&gt;
+ 变量使用 $
+ 
+ &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;基本与shell相同, 具体可以详见官方说明 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;eshell/rm -r $remote_temp
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>编程范式</title><link>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</guid><description>&lt;p&gt;Programming paradigm 即编程范型, 编程范式, 程序设计法 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>linux</title><link>https://clay9.github.io/blog/docs/os/linux/</link><pubDate>Fri, 31 May 2024 10:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/linux/</guid><description>&lt;p&gt;linux常用命令&amp;amp;&amp;amp;工具 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/gtd/</link><pubDate>Thu, 30 May 2024 20:41:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;
  为什么要用GTD
- &lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd">#&lt;/a>
-&lt;/h2>
-&lt;p>每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. &lt;br/>
-这些事情如果都存储在脑中, 轻则焦虑不堪, 重则脑子爆炸. &lt;br/>
-而且脑中一旦塞满了这类事情, 非常不利于思考. &lt;br/>&lt;/p>
-&lt;p>&lt;code>大脑应该是拿来思考的, 而不是用来存储的.&lt;/code> &lt;br/>&lt;/p>
-&lt;p>假设一种情形, 大脑只用来思考, 而存储则放在大脑之外, 那么我们就不必因当下之外的事情而焦虑, 能够更专一的处理当下的问题. &lt;br/>
-同时, 如果外在存储能够提醒我们何时该思考何问题, 那么我们也不会因错过了某事而悔恨, &lt;em>比如女友生日.&lt;/em> &lt;br/>
-而这也是GTD的目的所在, 大脑只用来思考, 存储在脑外. &lt;br/>&lt;/p>
-&lt;h2 id="gtd是什么">
+ 
+ &lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. &lt;br/&gt;
+这些事情如果都存储在脑中, 轻则焦虑不堪, 重则脑子爆炸. &lt;br/&gt;
+而且脑中一旦塞满了这类事情, 非常不利于思考. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;大脑应该是拿来思考的, 而不是用来存储的.&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;假设一种情形, 大脑只用来思考, 而存储则放在大脑之外, 那么我们就不必因当下之外的事情而焦虑, 能够更专一的处理当下的问题. &lt;br/&gt;
+同时, 如果外在存储能够提醒我们何时该思考何问题, 那么我们也不会因错过了某事而悔恨, &lt;em&gt;比如女友生日.&lt;/em&gt; &lt;br/&gt;
+而这也是GTD的目的所在, 大脑只用来思考, 存储在脑外. &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="gtd是什么"&gt;
  GTD是什么
- &lt;a class="anchor" href="#gtd%e6%98%af%e4%bb%80%e4%b9%88">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="人生5楼">
+ 
+ &lt;a class="anchor" href="#gtd%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="人生5楼"&gt;
  人生5楼
- &lt;a class="anchor" href="#%e4%ba%ba%e7%94%9f5%e6%a5%bc">#&lt;/a>
-&lt;/h3>
-&lt;p>了解GTD之前, 必须了解 &lt;code>人生5楼.&lt;/code> &lt;br/>&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>楼数&lt;/th>
- &lt;th>功能&lt;/th>
- &lt;th>说明&lt;/th>
- &lt;th>备注&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>5楼&lt;/td>
- &lt;td>人生规划&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>4楼&lt;/td>
- &lt;td>3年目标&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>3楼&lt;/td>
- &lt;td>1年目标&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>2楼&lt;/td>
- &lt;td>职责范围&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>1楼&lt;/td>
- &lt;td>项目&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>GTD管理&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>地面&lt;/td>
- &lt;td>行动清单&lt;/td>
- &lt;td>归属1楼&lt;/td>
- &lt;td>GTD管理&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;p>把人生(或部分人生)比喻成一座大厦, &lt;br/>
-1楼是我们当下要做的事情, &lt;br/>
-2楼是我们的职责范围, &lt;br/>
-3楼是我们1年后的样子, &lt;br/>
-4楼是我们3年后的样子, &lt;br/>
-5楼是我们人生(10年, 20年或一辈子)的规划. &lt;br/>&lt;/p></description></item><item><title>k8s</title><link>https://clay9.github.io/blog/docs/tool/k8s/</link><pubDate>Thu, 18 Jan 2024 19:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/k8s/</guid><description>&lt;p>kubernetes, 简称k8s &lt;br/>&lt;/p></description></item><item><title>asio</title><link>https://clay9.github.io/blog/docs/os/socket/asio/</link><pubDate>Thu, 18 Jan 2024 19:14:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/socket/asio/</guid><description>&lt;h2 id="参考文档">
+ 
+ &lt;a class="anchor" href="#%e4%ba%ba%e7%94%9f5%e6%a5%bc"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;了解GTD之前, 必须了解 &lt;code&gt;人生5楼.&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;楼数&lt;/th&gt;
+ &lt;th&gt;功能&lt;/th&gt;
+ &lt;th&gt;说明&lt;/th&gt;
+ &lt;th&gt;备注&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;5楼&lt;/td&gt;
+ &lt;td&gt;人生规划&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;4楼&lt;/td&gt;
+ &lt;td&gt;3年目标&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;3楼&lt;/td&gt;
+ &lt;td&gt;1年目标&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;2楼&lt;/td&gt;
+ &lt;td&gt;职责范围&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;1楼&lt;/td&gt;
+ &lt;td&gt;项目&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;GTD管理&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;地面&lt;/td&gt;
+ &lt;td&gt;行动清单&lt;/td&gt;
+ &lt;td&gt;归属1楼&lt;/td&gt;
+ &lt;td&gt;GTD管理&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;把人生(或部分人生)比喻成一座大厦, &lt;br/&gt;
+1楼是我们当下要做的事情, &lt;br/&gt;
+2楼是我们的职责范围, &lt;br/&gt;
+3楼是我们1年后的样子, &lt;br/&gt;
+4楼是我们3年后的样子, &lt;br/&gt;
+5楼是我们人生(10年, 20年或一辈子)的规划. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>k8s</title><link>https://clay9.github.io/blog/docs/tool/k8s/</link><pubDate>Thu, 18 Jan 2024 19:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/k8s/</guid><description>&lt;p&gt;kubernetes, 简称k8s &lt;br/&gt;&lt;/p&gt;</description></item><item><title>asio</title><link>https://clay9.github.io/blog/docs/os/socket/asio/</link><pubDate>Thu, 18 Jan 2024 19:14:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/socket/asio/</guid><description>&lt;h2 id="参考文档"&gt;
  参考文档
- &lt;a class="anchor" href="#%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;a href="https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/">https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/&lt;/a> &lt;br/>
-&lt;a href="http://blog.jqian.net/post/boost-asio.html">http://blog.jqian.net/post/boost-asio.html&lt;/a> &lt;br/>
-&lt;a href="https://www.limerence2017.com/2023/06/07/asio20/">https://www.limerence2017.com/2023/06/07/asio20/&lt;/a> &lt;br/>&lt;/p></description></item><item><title>C &amp;&amp; C++ 常见库</title><link>https://clay9.github.io/blog/docs/prog_language/c++/stl/</link><pubDate>Thu, 18 Jan 2024 19:07:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/c++/stl/</guid><description>&lt;p>C++ 常见库 &lt;br/>&lt;/p></description></item><item><title>valgrind</title><link>https://clay9.github.io/blog/docs/prog_debug/valgrind/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/valgrind/</guid><description>&lt;p>程序检测工具 &lt;br/>&lt;/p></description></item><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p>参考文档 &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>&lt;a href="http://smacs.github.io/elisp/02-elisp-basic.html">水木社区Emacs版&lt;/a> &lt;br/>&lt;/li>
-&lt;li>&lt;a href="https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp">lisp的本质&lt;/a> &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="基础语法">
+ 
+ &lt;a class="anchor" href="#%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/"&gt;https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/&lt;/a&gt; &lt;br/&gt;
+&lt;a href="http://blog.jqian.net/post/boost-asio.html"&gt;http://blog.jqian.net/post/boost-asio.html&lt;/a&gt; &lt;br/&gt;
+&lt;a href="https://www.limerence2017.com/2023/06/07/asio20/"&gt;https://www.limerence2017.com/2023/06/07/asio20/&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>C &amp;&amp; C++ 常见库</title><link>https://clay9.github.io/blog/docs/prog_language/c++/stl/</link><pubDate>Thu, 18 Jan 2024 19:07:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/c++/stl/</guid><description>&lt;p&gt;C++ 常见库 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>valgrind</title><link>https://clay9.github.io/blog/docs/prog_debug/valgrind/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/valgrind/</guid><description>&lt;p&gt;程序检测工具 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://smacs.github.io/elisp/02-elisp-basic.html"&gt;水木社区Emacs版&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp"&gt;lisp的本质&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="基础语法"&gt;
  基础语法
- &lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="函数重载">
+ 
+ &lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="函数重载"&gt;
  函数重载
- &lt;a class="anchor" href="#%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd">#&lt;/a>
-&lt;/h3>
-&lt;p>elisp没有重载的概念, 直接覆盖原定义即可. 相关函数: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>advice-add &lt;br/>
-根据key来决定old_fun 与 new_fun的关系 &lt;br/>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>key&lt;/th>
- &lt;th>desc&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>filter-return&lt;/td>
- &lt;td>先执行old. new对old的结果再处理&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>before&lt;/td>
- &lt;td>先执行new, 过滤一下数据, 再把结果给old&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>arround&lt;/td>
- &lt;td>先执行new, 并在new中主动调用old(也可以不调用)&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;/li>
-&lt;li>使用defune 覆盖原函数定义 &lt;br/>
-如果只是重载, 应该使用这种方法. advice-add的本意不是用来override &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="elisp-and-and-shell">
+ 
+ &lt;a class="anchor" href="#%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;elisp没有重载的概念, 直接覆盖原定义即可. 相关函数: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;advice-add &lt;br/&gt;
+根据key来决定old_fun 与 new_fun的关系 &lt;br/&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;key&lt;/th&gt;
+ &lt;th&gt;desc&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;filter-return&lt;/td&gt;
+ &lt;td&gt;先执行old. new对old的结果再处理&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;before&lt;/td&gt;
+ &lt;td&gt;先执行new, 过滤一下数据, 再把结果给old&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;arround&lt;/td&gt;
+ &lt;td&gt;先执行new, 并在new中主动调用old(也可以不调用)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;使用defune 覆盖原函数定义 &lt;br/&gt;
+如果只是重载, 应该使用这种方法. advice-add的本意不是用来override &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="elisp-and-and-shell"&gt;
  elisp &amp;amp;&amp;amp; shell
- &lt;a class="anchor" href="#elisp-and-and-shell">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="bash调用elisp">
+ 
+ &lt;a class="anchor" href="#elisp-and-and-shell"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="bash调用elisp"&gt;
  bash调用elisp
- &lt;a class="anchor" href="#bash%e8%b0%83%e7%94%a8elisp">#&lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>elisp代码写入el文件(eshell script) &lt;br/>&lt;/li>
-&lt;li>bash调用emacs执行el文件 &lt;br/>
-&lt;pre>&lt;code class="language-text"># 实际还是emacs 执行的elisp代码
+ 
+ &lt;a class="anchor" href="#bash%e8%b0%83%e7%94%a8elisp"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;elisp代码写入el文件(eshell script) &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;bash调用emacs执行el文件 &lt;br/&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;# 实际还是emacs 执行的elisp代码
 emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;/ol>
-&lt;h3 id="elisp-调用bashe">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="elisp-调用bashe"&gt;
  elisp 调用bashe
- &lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text">(setq my-command
+ 
+ &lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;(setq my-command
 (concat &amp;quot;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;quot;$PATH\&amp;quot;\n&amp;quot;
  &amp;quot;for dir in ${dirs[@]}; do\n&amp;quot;
  &amp;quot; echo got dir \&amp;quot;$dir\&amp;quot;\n&amp;quot;
  &amp;quot;done\n&amp;quot;))
 (shell-command (format &amp;quot;bash -c %s&amp;quot; (shell-quote-argument my-command)))
-&lt;/code>&lt;/pre></description></item><item><title>设计原则</title><link>https://clay9.github.io/blog/docs/prog_base/principles/</link><pubDate>Fri, 13 Jun 2025 16:28:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/principles/</guid><description>&lt;p>面向对象编程的 六大设计原则 &lt;br/>&lt;/p></description></item><item><title>cadvisor, prometheus, grafana</title><link>https://clay9.github.io/blog/docs/tool/monitor/</link><pubDate>Wed, 05 Jun 2024 16:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/monitor/</guid><description>&lt;p>cadvisor, prometheus, grafana 组成的监控系统 &lt;br/>&lt;/p></description></item><item><title>org &amp;&amp; gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</link><pubDate>Thu, 30 May 2024 20:51:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</guid><description>&lt;h2 id="需求分析">
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>设计原则</title><link>https://clay9.github.io/blog/docs/prog_base/principles/</link><pubDate>Fri, 13 Jun 2025 16:28:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/principles/</guid><description>&lt;p&gt;面向对象编程的 六大设计原则 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>cadvisor, prometheus, grafana</title><link>https://clay9.github.io/blog/docs/tool/monitor/</link><pubDate>Wed, 05 Jun 2024 16:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/monitor/</guid><description>&lt;p&gt;cadvisor, prometheus, grafana 组成的监控系统 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org &amp;&amp; gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</link><pubDate>Thu, 30 May 2024 20:51:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</guid><description>&lt;h2 id="需求分析"&gt;
  需求分析
- &lt;a class="anchor" href="#%e9%9c%80%e6%b1%82%e5%88%86%e6%9e%90">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;code>所有的设计都是基于需求的&lt;/code>. 当前需求: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>有哪些task &lt;br/>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> 他们归属于哪个PROJECT &lt;br/>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> 他们的四象限: 紧急&amp;amp;&amp;amp;重要 &lt;br/>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> 工作量预估 &lt;br/>&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> 关联性 A task可能与B, C相关联 &lt;br/>
-&lt;em>TODO 该任务并未完成&lt;/em> &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>当前正在处理的任务 &lt;br/>
-尽可能的关注当前, 忽略其他 &lt;br/>&lt;/li>
-&lt;li>当某个task进行时, 快速capture我的想法, 并且自动refile &lt;br/>&lt;/li>
-&lt;li>看到自己花费的时间 &lt;br/>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> 一天,一周都做了什么 &lt;br/>&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> 某个PROJECT总共花费的时间 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="流程的设计">
+ 
+ &lt;a class="anchor" href="#%e9%9c%80%e6%b1%82%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;所有的设计都是基于需求的&lt;/code&gt;. 当前需求: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有哪些task &lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 他们归属于哪个PROJECT &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 他们的四象限: 紧急&amp;amp;&amp;amp;重要 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 工作量预估 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input disabled="" type="checkbox"&gt; 关联性 A task可能与B, C相关联 &lt;br/&gt;
+&lt;em&gt;TODO 该任务并未完成&lt;/em&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;当前正在处理的任务 &lt;br/&gt;
+尽可能的关注当前, 忽略其他 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;当某个task进行时, 快速capture我的想法, 并且自动refile &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;看到自己花费的时间 &lt;br/&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 一天,一周都做了什么 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;&lt;input checked="" disabled="" type="checkbox"&gt; 某个PROJECT总共花费的时间 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="流程的设计"&gt;
  流程的设计
- &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b%e7%9a%84%e8%ae%be%e8%ae%a1">#&lt;/a>
-&lt;/h2>
-&lt;pre>&lt;code class="language-text">-------------------------+------------------------
+ 
+ &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;-------------------------+------------------------
  |
  | capture (easy)
  |
@@ -484,60 +552,72 @@ emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
 | +---------+
 +-&amp;gt;| archive |
  +----+----+
-&lt;/code>&lt;/pre>
-&lt;h2 id="文件的设计">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="文件的设计"&gt;
  文件的设计
- &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1">#&lt;/a>
-&lt;/h2>
-&lt;p>区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间 &lt;br/>&lt;/p></description></item><item><title>shell</title><link>https://clay9.github.io/blog/docs/prog_language/shell/</link><pubDate>Thu, 18 Jan 2024 19:09:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/shell/</guid><description>&lt;p>shell 记录 &lt;br/>&lt;/p></description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p>全称 transparent remote access multiple protocol &lt;br/>
-tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>ssh &lt;br/>&lt;/li>
-&lt;li>su | sudo &lt;br/>
-&lt;pre>&lt;code class="language-text"># 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+ 
+ &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>shell</title><link>https://clay9.github.io/blog/docs/prog_language/shell/</link><pubDate>Thu, 18 Jan 2024 19:09:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/shell/</guid><description>&lt;p&gt;shell 记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p&gt;全称 transparent remote access multiple protocol &lt;br/&gt;
+tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ssh &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;su | sudo &lt;br/&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;# 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
 /su:root:path/
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="用法">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="用法"&gt;
  用法
- &lt;a class="anchor" href="#%e7%94%a8%e6%b3%95">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="basic">
+ 
+ &lt;a class="anchor" href="#%e7%94%a8%e6%b3%95"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="basic"&gt;
  basic
- &lt;a class="anchor" href="#basic">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text">/method:user@host#port:/path/to/file
+ 
+ &lt;a class="anchor" href="#basic"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;/method:user@host#port:/path/to/file
 
 # example 1
 /ssh:clay@192.1.1.1#22:~
 
 # example 2 windows下可以使用putty作为ssh的client
 /plink:clay@192.1.1.1:~
-&lt;/code>&lt;/pre>
-&lt;h3 id="set-default-method">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="set-default-method"&gt;
  set default method
- &lt;a class="anchor" href="#set-default-method">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text">(setq tramp-default-method &amp;quot;plink&amp;quot;)
+ 
+ &lt;a class="anchor" href="#set-default-method"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;(setq tramp-default-method &amp;quot;plink&amp;quot;)
 
 ; 设置之后的例子
 ; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
 /-:clay@192.1.1.1:~
-&lt;/code>&lt;/pre>
-&lt;h3 id="multiple-hop">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="multiple-hop"&gt;
  multiple hop
- &lt;a class="anchor" href="#multiple-hop">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text"># 在本机上, 通过clay用户登录到host1
+ 
+ &lt;a class="anchor" href="#multiple-hop"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;# 在本机上, 通过clay用户登录到host1
 # 再在host1上, 通过admin登录到host2
 /ssh:clay@host1|ssh:admin@host2:/path
-&lt;/code>&lt;/pre>
-&lt;h3 id="su-sudo">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="su-sudo"&gt;
  su | sudo
- &lt;a class="anchor" href="#su-sudo">#&lt;/a>
-&lt;/h3>
-&lt;pre>&lt;code class="language-text"># 使用sudo打开远程文件
+ 
+ &lt;a class="anchor" href="#su-sudo"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;# 使用sudo打开远程文件
 /-:clay@192.1.1.1|sudo::/path
 
 # 使用sudo打开本地文件
@@ -545,407 +625,455 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 /su::local-path
 /su:user@localhost:/local-path
 /sudo:root@localhost:/local-path
-&lt;/code>&lt;/pre>
-&lt;h3 id="use-with-bookmarks">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="use-with-bookmarks"&gt;
  use with bookmarks
- &lt;a class="anchor" href="#use-with-bookmarks">#&lt;/a>
-&lt;/h3>
-&lt;p>tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/>&lt;/p></description></item><item><title>设计模式</title><link>https://clay9.github.io/blog/docs/prog_base/design_pattern/</link><pubDate>Wed, 04 Jun 2025 09:21:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/design_pattern/</guid><description>&lt;p>design pattern 设计模式 &lt;br/>&lt;/p></description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what">
+ 
+ &lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>设计模式</title><link>https://clay9.github.io/blog/docs/prog_base/design_pattern/</link><pubDate>Wed, 04 Jun 2025 09:21:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/design_pattern/</guid><description>&lt;p&gt;design pattern 设计模式 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;
  what
- &lt;a class="anchor" href="#what">#&lt;/a>
-&lt;/h2>
-&lt;p>artist-mode和graphviz-mode都可以完成绘图的功能. &lt;br/>
-但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. &lt;br/>
-&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el">可参考笔者自用的线和矩形&lt;/a>, 提升artist-mode的使用体验 &lt;br/>&lt;/p>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>mode&lt;/th>
- &lt;th>简述&lt;/th>
- &lt;th>优点&lt;/th>
- &lt;th>缺点&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>artist-mode&lt;/td>
- &lt;td>ASCII绘图&lt;/td>
- &lt;td>1.ASCII代码表示图形&lt;/td>
- &lt;td>1.功能少&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>2.短小精悍&lt;/td>
- &lt;td>2.需要手动绘制图形&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>graphviz-mode&lt;/td>
- &lt;td>dot绘图&lt;/td>
- &lt;td>1.只关注逻辑设计,布局自动生成&lt;/td>
- &lt;td>1.生成的为图片文件, 而非可嵌入的ASCII代码&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>2.需要学习dot语言&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item><item><title>hugo</title><link>https://clay9.github.io/blog/docs/tool/hugo/</link><pubDate>Tue, 30 Jan 2024 10:24:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/hugo/</guid><description>&lt;p>使用hugo + github搭建blog &lt;br/>&lt;/p></description></item><item><title>make</title><link>https://clay9.github.io/blog/docs/prog_compile/make/</link><pubDate>Thu, 18 Jan 2024 19:02:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/make/</guid><description>&lt;p>make记录 &lt;br/>&lt;/p></description></item><item><title>mail</title><link>https://clay9.github.io/blog/docs/emacs/lisp/mail/</link><pubDate>Thu, 18 Jan 2024 18:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/mail/</guid><description>&lt;p>不建议使用, 没啥意义 &lt;br/>&lt;/p>
-&lt;h2 id="简述">
+ 
+ &lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;artist-mode和graphviz-mode都可以完成绘图的功能. &lt;br/&gt;
+但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. &lt;br/&gt;
+&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el"&gt;可参考笔者自用的线和矩形&lt;/a&gt;, 提升artist-mode的使用体验 &lt;br/&gt;&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;mode&lt;/th&gt;
+ &lt;th&gt;简述&lt;/th&gt;
+ &lt;th&gt;优点&lt;/th&gt;
+ &lt;th&gt;缺点&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;artist-mode&lt;/td&gt;
+ &lt;td&gt;ASCII绘图&lt;/td&gt;
+ &lt;td&gt;1.ASCII代码表示图形&lt;/td&gt;
+ &lt;td&gt;1.功能少&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.短小精悍&lt;/td&gt;
+ &lt;td&gt;2.需要手动绘制图形&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;graphviz-mode&lt;/td&gt;
+ &lt;td&gt;dot绘图&lt;/td&gt;
+ &lt;td&gt;1.只关注逻辑设计,布局自动生成&lt;/td&gt;
+ &lt;td&gt;1.生成的为图片文件, 而非可嵌入的ASCII代码&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.需要学习dot语言&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>hugo</title><link>https://clay9.github.io/blog/docs/tool/hugo/</link><pubDate>Tue, 30 Jan 2024 10:24:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/hugo/</guid><description>&lt;p&gt;使用hugo + github搭建blog &lt;br/&gt;&lt;/p&gt;</description></item><item><title>make</title><link>https://clay9.github.io/blog/docs/prog_compile/make/</link><pubDate>Thu, 18 Jan 2024 19:02:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/make/</guid><description>&lt;p&gt;make记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mail</title><link>https://clay9.github.io/blog/docs/emacs/lisp/mail/</link><pubDate>Thu, 18 Jan 2024 18:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/mail/</guid><description>&lt;p&gt;不建议使用, 没啥意义 &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="简述"&gt;
  简述
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
-&lt;/h2>
-&lt;p>emacs 流行的email client 有mu4e, notmuch, gnus等 &lt;br/>
-因为对email不是刚需, 只是轻度使用, 所以这里选了内置对gnus. 理由如下: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>emacs 内置 &lt;br/>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>顺便尝试 newsgroup &lt;br/>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>轻度使用email &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;/ol>
-&lt;p>gnus的缺点: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>配置复杂, 花了24h才看完官方文档. 发现实际用到的也就5% ? &lt;br/>&lt;/li>
-&lt;li>gnus是单线程, 所以如果网络不好, 非常容易把emacs卡住, 比如访问gmail &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="基本概念">
+ 
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;emacs 流行的email client 有mu4e, notmuch, gnus等 &lt;br/&gt;
+因为对email不是刚需, 只是轻度使用, 所以这里选了内置对gnus. 理由如下: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;emacs 内置 &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;顺便尝试 newsgroup &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;轻度使用email &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;gnus的缺点: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;配置复杂, 花了24h才看完官方文档. 发现实际用到的也就5% ? &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;gnus是单线程, 所以如果网络不好, 非常容易把emacs卡住, 比如访问gmail &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="基本概念"&gt;
  基本概念
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5">#&lt;/a>
-&lt;/h2>
-&lt;p>gnus概念划分比较友好, server, group, summary, article &lt;br/>
-各司其职, 又互相联系, 比较方便, 具体可以参考官方文档 &lt;br/>&lt;/p>
-&lt;h2 id="操作流程">
+ 
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;gnus概念划分比较友好, server, group, summary, article &lt;br/&gt;
+各司其职, 又互相联系, 比较方便, 具体可以参考官方文档 &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="操作流程"&gt;
  操作流程
- &lt;a class="anchor" href="#%e6%93%8d%e4%bd%9c%e6%b5%81%e7%a8%8b">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>设置server &lt;br/>&lt;/li>
-&lt;li>subscribe group &lt;br/>&lt;/li>
-&lt;li>enter group. show summary &lt;br/>&lt;/li>
-&lt;li>read article &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="group-level">
+ 
+ &lt;a class="anchor" href="#%e6%93%8d%e4%bd%9c%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;设置server &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;subscribe group &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;enter group. show summary &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;read article &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="group-level"&gt;
  group level
- &lt;a class="anchor" href="#group-level">#&lt;/a>
-&lt;/h2>
-&lt;p>group在gnus中是比较重要的概念. 而group level 可以更好的理解group &lt;br/>&lt;/p></description></item><item><title>cmake</title><link>https://clay9.github.io/blog/docs/prog_compile/cmake/</link><pubDate>Thu, 18 Jan 2024 19:03:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/cmake/</guid><description>&lt;p>cmake &lt;br/>&lt;/p></description></item><item><title>gdb &amp;&amp; gud</title><link>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</link><pubDate>Thu, 18 Jan 2024 18:43:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</guid><description>&lt;h2 id="简述">
+ 
+ &lt;a class="anchor" href="#group-level"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;group在gnus中是比较重要的概念. 而group level 可以更好的理解group &lt;br/&gt;&lt;/p&gt;</description></item><item><title>cmake</title><link>https://clay9.github.io/blog/docs/prog_compile/cmake/</link><pubDate>Thu, 18 Jan 2024 19:03:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/cmake/</guid><description>&lt;p&gt;cmake &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gdb &amp;&amp; gud</title><link>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</link><pubDate>Thu, 18 Jan 2024 18:43:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</guid><description>&lt;h2 id="简述"&gt;
  简述
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
-&lt;/h2>
-&lt;p>emacs使用gud来绘制gdb的调试信息. &lt;br/>
-gud可以认为是gdb的ui client. &lt;br/>&lt;/p>
-&lt;p>具体可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-gdb.el">github的init-gdb.el&lt;/a>和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-gdb-fun.el">一些自定义gud函数&lt;/a> &lt;br/>&lt;/p>
-&lt;h2 id="gdb使用">
+ 
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;emacs使用gud来绘制gdb的调试信息. &lt;br/&gt;
+gud可以认为是gdb的ui client. &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;具体可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-gdb.el"&gt;github的init-gdb.el&lt;/a&gt;和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-gdb-fun.el"&gt;一些自定义gud函数&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="gdb使用"&gt;
  gdb使用
- &lt;a class="anchor" href="#gdb%e4%bd%bf%e7%94%a8">#&lt;/a>
-&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>指令&lt;/th>
- &lt;th>简写&lt;/th>
- &lt;th>描述&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>attach&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>附加到已经运行的程序&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>run&lt;/td>
- &lt;td>r&lt;/td>
- &lt;td>运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>continue&lt;/td>
- &lt;td>c&lt;/td>
- &lt;td>继续执行，到下一个断点停止（或运行结束）&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>next&lt;/td>
- &lt;td>n&lt;/td>
- &lt;td>单步跟踪程序，当遇到函数调用时，也不进入此函数体&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>step&lt;/td>
- &lt;td>s&lt;/td>
- &lt;td>单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>until&lt;/td>
- &lt;td>u&lt;/td>
- &lt;td>当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>until+行号&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>运行至某行，不仅仅用来跳出循环&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>finish&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>quit&lt;/td>
- &lt;td>q&lt;/td>
- &lt;td>退出gdb&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>up&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>上个stack&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>down&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>下个stack&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>watch&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>变量监控&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>breakpoint&lt;/td>
- &lt;td>b&lt;/td>
- &lt;td>file :line_num 文件:行号&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&amp;lt;fun_name&amp;gt; 函数名字&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;p>run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败 &lt;br/>
-continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 &lt;br/>&lt;/p></description></item><item><title>AI</title><link>https://clay9.github.io/blog/docs/emacs/lisp/ai/</link><pubDate>Thu, 18 Jan 2024 18:44:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/ai/</guid><description>&lt;h2 id="简述">
+ 
+ &lt;a class="anchor" href="#gdb%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;指令&lt;/th&gt;
+ &lt;th&gt;简写&lt;/th&gt;
+ &lt;th&gt;描述&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;attach&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;附加到已经运行的程序&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;run&lt;/td&gt;
+ &lt;td&gt;r&lt;/td&gt;
+ &lt;td&gt;运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步命令&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;continue&lt;/td&gt;
+ &lt;td&gt;c&lt;/td&gt;
+ &lt;td&gt;继续执行，到下一个断点停止（或运行结束）&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;next&lt;/td&gt;
+ &lt;td&gt;n&lt;/td&gt;
+ &lt;td&gt;单步跟踪程序，当遇到函数调用时，也不进入此函数体&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;step&lt;/td&gt;
+ &lt;td&gt;s&lt;/td&gt;
+ &lt;td&gt;单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;until&lt;/td&gt;
+ &lt;td&gt;u&lt;/td&gt;
+ &lt;td&gt;当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;until+行号&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;运行至某行，不仅仅用来跳出循环&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;finish&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;quit&lt;/td&gt;
+ &lt;td&gt;q&lt;/td&gt;
+ &lt;td&gt;退出gdb&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;up&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;上个stack&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;down&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;下个stack&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;watch&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;变量监控&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;breakpoint&lt;/td&gt;
+ &lt;td&gt;b&lt;/td&gt;
+ &lt;td&gt;file :line_num 文件:行号&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&amp;lt;fun_name&amp;gt; 函数名字&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败 &lt;br/&gt;
+continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>AI</title><link>https://clay9.github.io/blog/docs/emacs/lisp/ai/</link><pubDate>Thu, 18 Jan 2024 18:44:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/ai/</guid><description>&lt;h2 id="简述"&gt;
  简述
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
-&lt;/h2>
-&lt;p>之前的IDE大多是基于语法的分析, AI代码助手提供了基于自然语义的分析. &lt;br/>
-效果非常的惊艳, 能更好的帮助编写文档与程序 &lt;br/>&lt;/p>
-&lt;p>当下流行的(2023-6)主要有: &lt;br/>
-Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &lt;br/>
-具体可以参考 &lt;a href="https://codeium.com/blog/code-assistant-comparison-copilot-tabnine-ghostwriter-codeium">测评文章&lt;/a> &lt;br/>&lt;/p>
-&lt;p>基于以下原因, 暂时使用了github copilot: &lt;br/>&lt;/p>
-&lt;ol>
-&lt;li>配置方便, emacs使用体验良好 &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="github-copilot">
+ 
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;之前的IDE大多是基于语法的分析, AI代码助手提供了基于自然语义的分析. &lt;br/&gt;
+效果非常的惊艳, 能更好的帮助编写文档与程序 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;当下流行的(2023-6)主要有: &lt;br/&gt;
+Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &lt;br/&gt;
+具体可以参考 &lt;a href="https://codeium.com/blog/code-assistant-comparison-copilot-tabnine-ghostwriter-codeium"&gt;测评文章&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;基于以下原因, 暂时使用了github copilot: &lt;br/&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;配置方便, emacs使用体验良好 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="github-copilot"&gt;
  github copilot
- &lt;a class="anchor" href="#github-copilot">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="使用">
+ 
+ &lt;a class="anchor" href="#github-copilot"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="使用"&gt;
  使用
- &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8">#&lt;/a>
-&lt;/h3>
-&lt;p>github copilot 没有emacs的官方插件, 使用的是第三方package &lt;a href="https://github.com/zerolfx/copilot.el">copilot&lt;/a>. &lt;br/>
-安装与配置均比较简单, 可以参考copilot官方文档 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
-&lt;/code>&lt;/pre>
-&lt;pre>&lt;code class="language-lisp">;;国内可能无法访问github copilot, 可以配置一下代理
+ 
+ &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;github copilot 没有emacs的官方插件, 使用的是第三方package &lt;a href="https://github.com/zerolfx/copilot.el"&gt;copilot&lt;/a&gt;. &lt;br/&gt;
+安装与配置均比较简单, 可以参考copilot官方文档 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-lisp"&gt;;;国内可能无法访问github copilot, 可以配置一下代理
 (setq copilot-network-proxy '(:host &amp;quot;127.0.0.1&amp;quot; :port &amp;quot;10887&amp;quot;))
-&lt;/code>&lt;/pre>
-&lt;h3 id="快捷键配置">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="快捷键配置"&gt;
  快捷键配置
- &lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h3>
-&lt;p>copilot 与company-mode的一些快捷键容易冲突, 可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el">init-local-shortkey.el&lt;/a> &lt;br/>&lt;/p>
-&lt;h3 id="使用体验">
+ 
+ &lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;copilot 与company-mode的一些快捷键容易冲突, 可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el"&gt;init-local-shortkey.el&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id="使用体验"&gt;
  使用体验
- &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e4%bd%93%e9%aa%8c">#&lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验 &lt;br/>&lt;/li>
-&lt;/ol></description></item><item><title>memory 01</title><link>https://clay9.github.io/blog/docs/os/os/memory_01/</link><pubDate>Thu, 30 May 2024 17:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/memory_01/</guid><description>&lt;p>os中内存段页发展 &lt;br/>&lt;/p></description></item><item><title>org exprot &amp;&amp; ox-hugo</title><link>https://clay9.github.io/blog/docs/emacs/org/org_export/</link><pubDate>Wed, 29 May 2024 15:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_export/</guid><description>&lt;p>org自带强大的export功能. &lt;br/>
-但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html. &lt;br/>&lt;/p></description></item><item><title>gcc</title><link>https://clay9.github.io/blog/docs/prog_compile/gcc/</link><pubDate>Thu, 18 Jan 2024 19:03:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/gcc/</guid><description>&lt;p>gcc &lt;br/>&lt;/p></description></item><item><title>静态库 &amp;&amp; 动态库</title><link>https://clay9.github.io/blog/docs/os/dll/</link><pubDate>Thu, 18 Jan 2024 18:55:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/dll/</guid><description>&lt;p>linux下静态库 &amp;amp;&amp;amp; 动态库 &lt;br/>&lt;/p>
-&lt;h2 id="差异区别">
+ 
+ &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e4%bd%93%e9%aa%8c"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>memory 01</title><link>https://clay9.github.io/blog/docs/os/os/memory_01/</link><pubDate>Thu, 30 May 2024 17:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/memory_01/</guid><description>&lt;p&gt;os中内存段页发展 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org exprot &amp;&amp; ox-hugo</title><link>https://clay9.github.io/blog/docs/emacs/org/org_export/</link><pubDate>Wed, 29 May 2024 15:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_export/</guid><description>&lt;p&gt;org自带强大的export功能. &lt;br/&gt;
+但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gcc</title><link>https://clay9.github.io/blog/docs/prog_compile/gcc/</link><pubDate>Thu, 18 Jan 2024 19:03:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/gcc/</guid><description>&lt;p&gt;gcc &lt;br/&gt;&lt;/p&gt;</description></item><item><title>静态库 &amp;&amp; 动态库</title><link>https://clay9.github.io/blog/docs/os/dll/</link><pubDate>Thu, 18 Jan 2024 18:55:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/dll/</guid><description>&lt;p&gt;linux下静态库 &amp;amp;&amp;amp; 动态库 &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="差异区别"&gt;
  差异区别
- &lt;a class="anchor" href="#%e5%b7%ae%e5%bc%82%e5%8c%ba%e5%88%ab">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>编译连接静态库时, 会copy一份静态库镜像到目标文件; &lt;br/>
-编译连接动态库时, 不会copy &lt;br/>&lt;/li>
-&lt;li>程序运行时, 无须再去访问原静态库; &lt;br/>
-程序运行时, 要能访问到动态库文件 &lt;br/>&lt;/li>
-&lt;li>静态库 .a &lt;br/>
-动态库 .so (shared object) &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;h2 id="生成方式">
+ 
+ &lt;a class="anchor" href="#%e5%b7%ae%e5%bc%82%e5%8c%ba%e5%88%ab"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;编译连接静态库时, 会copy一份静态库镜像到目标文件; &lt;br/&gt;
+编译连接动态库时, 不会copy &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;程序运行时, 无须再去访问原静态库; &lt;br/&gt;
+程序运行时, 要能访问到动态库文件 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;静态库 .a &lt;br/&gt;
+动态库 .so (shared object) &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="生成方式"&gt;
  生成方式
- &lt;a class="anchor" href="#%e7%94%9f%e6%88%90%e6%96%b9%e5%bc%8f">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>静态库 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">A.由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
+ 
+ &lt;a class="anchor" href="#%e7%94%9f%e6%88%90%e6%96%b9%e5%bc%8f"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;静态库 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;A.由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
 B.ar命令将很多.o转换成.a，生成文静态库
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>
-&lt;p>动态库 &lt;br/>
-A.gcc 加特定参数 编译 fPIC生成动态的.o文件; shared把动态.o文件打包为动态库 &lt;br/>&lt;/p>
-&lt;pre>&lt;code class="language-text">gcc -fPIC file1.c -c //这一步生成file1.o
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;动态库 &lt;br/&gt;
+A.gcc 加特定参数 编译 fPIC生成动态的.o文件; shared把动态.o文件打包为动态库 &lt;br/&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;gcc -fPIC file1.c -c //这一步生成file1.o
 gcc -shared file1.o -o libtest.so //把.o文件打包为动态库(.o文件必须是 fPIC生成)
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;/ol>
-&lt;h2 id="常见问题">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="常见问题"&gt;
  常见问题
- &lt;a class="anchor" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>运行时候找不到动态库, 处理方式 &lt;br/>
-&lt;pre>&lt;code class="language-text">（1) 最直接最简单的方法就是把so拉到/usr/lib或/lib中去，但这好像有点污染环境吧？
+ 
+ &lt;a class="anchor" href="#%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;运行时候找不到动态库, 处理方式 &lt;br/&gt;
+&lt;pre&gt;&lt;code class="language-text"&gt;（1) 最直接最简单的方法就是把so拉到/usr/lib或/lib中去，但这好像有点污染环境吧？
 （2）export LD_LIBRARY_PATH=$(pwd)
 （3）可以在/etc/ld.so.conf文件里加入我们生成的库的目录，然后/sbin/ldconfig
-&lt;/code>&lt;/pre>
-&lt;/li>
-&lt;li>加载动态库 &lt;br/>
-函数原型：void *dlopen(const char *libname,int flag); &lt;br/>
-&lt;ol>
-&lt;li>
-&lt;p>参数中的libname一般是库的全路径，这样dlopen会直接装载该文件； &lt;br/>&lt;/p></description></item><item><title>redis</title><link>https://clay9.github.io/blog/docs/tool/redis/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/redis/</guid><description>&lt;p>redis学习记录 &lt;br/>&lt;/p></description></item><item><title>数据库</title><link>https://clay9.github.io/blog/docs/tool/sql/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/sql/</guid><description>&lt;p>数据库开发 &lt;br/>&lt;/p></description></item><item><title>乱七八糟的协议合集</title><link>https://clay9.github.io/blog/docs/tool/protocol/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/protocol/</guid><description>&lt;p>协议太多, 不好分类, 真是乱七八糟 &lt;br/>&lt;/p></description></item><item><title>数据结构与算法分析</title><link>https://clay9.github.io/blog/docs/prog_base/algorithm/</link><pubDate>Sat, 10 Feb 2024 21:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/algorithm/</guid><description>&lt;h2 id="概述-总结">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;加载动态库 &lt;br/&gt;
+函数原型：void *dlopen(const char *libname,int flag); &lt;br/&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;参数中的libname一般是库的全路径，这样dlopen会直接装载该文件； &lt;br/&gt;&lt;/p&gt;</description></item><item><title>redis</title><link>https://clay9.github.io/blog/docs/tool/redis/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/redis/</guid><description>&lt;p&gt;redis学习记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>数据库</title><link>https://clay9.github.io/blog/docs/tool/sql/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/sql/</guid><description>&lt;p&gt;数据库开发 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>乱七八糟的协议合集</title><link>https://clay9.github.io/blog/docs/tool/protocol/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/protocol/</guid><description>&lt;p&gt;协议太多, 不好分类, 真是乱七八糟 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>数据结构与算法分析</title><link>https://clay9.github.io/blog/docs/prog_base/algorithm/</link><pubDate>Sat, 10 Feb 2024 21:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/algorithm/</guid><description>&lt;h2 id="概述-总结"&gt;
  概述|总结
- &lt;a class="anchor" href="#%e6%a6%82%e8%bf%b0-%e6%80%bb%e7%bb%93">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="什么是">
+ 
+ &lt;a class="anchor" href="#%e6%a6%82%e8%bf%b0-%e6%80%bb%e7%bb%93"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="什么是"&gt;
  什么是
- &lt;a class="anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af">#&lt;/a>
-&lt;/h3>
-&lt;p>数据结构分为 &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>物理结构 &lt;br/>
-即在内存中的结构. 有顺序存储(内存连续) 和 链式存储(内存可不连续) &lt;br/>&lt;/li>
-&lt;li>逻辑结构 &lt;br/>
-一对一的线性, 一对多的树, 多对多的图 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;h3 id="逻辑结构">
+ 
+ &lt;a class="anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;数据结构分为 &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;物理结构 &lt;br/&gt;
+即在内存中的结构. 有顺序存储(内存连续) 和 链式存储(内存可不连续) &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;逻辑结构 &lt;br/&gt;
+一对一的线性, 一对多的树, 多对多的图 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="逻辑结构"&gt;
  逻辑结构
- &lt;a class="anchor" href="#%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84">#&lt;/a>
-&lt;/h3>
-&lt;h4 id="一对一">
+ 
+ &lt;a class="anchor" href="#%e9%80%bb%e8%be%91%e7%bb%93%e6%9e%84"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;h4 id="一对一"&gt;
  一对一
- &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e4%b8%80">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>stack (LIFO) &lt;br/>
-堆栈, 后进先出 &lt;br/>&lt;/li>
-&lt;li>queue (FIFO) &lt;br/>
-队列, 先进先出 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;h4 id="一对多">
+ 
+ &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e4%b8%80"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;stack (LIFO) &lt;br/&gt;
+堆栈, 后进先出 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;queue (FIFO) &lt;br/&gt;
+队列, 先进先出 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="一对多"&gt;
  一对多
- &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e5%a4%9a">#&lt;/a>
-&lt;/h4>
-&lt;ul>
-&lt;li>tree 树 &lt;br/>&lt;/li>
-&lt;li>binary tree 二叉树 &lt;br/>&lt;/li>
-&lt;li>search binary tree 搜索二叉树 &lt;br/>&lt;/li>
-&lt;li>blance binary tree 平衡二叉树 &lt;br/>&lt;/li>
-&lt;li>complet binary tree 完全二叉树 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>name&lt;/th>
- &lt;th>特征&lt;/th>
- &lt;th>备注&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>binary tree&lt;/td>
- &lt;td>1.任意节点 叶度 &amp;lt;=2&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>search bianry tree&lt;/td>
- &lt;td>1.binary tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>2.任意节点 left-child, root, right-child有序&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>blanced binary tree&lt;/td>
- &lt;td>1.search binary tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>2.任意节点的 &amp;lt;左树高度-右树高度&amp;gt; &amp;lt;=1&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>complet binary tree&lt;/td>
- &lt;td>1.search tree&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;/td>
- &lt;td>2.节点依次从左到右&lt;/td>
- &lt;td>&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h4 id="多对多">
+ 
+ &lt;a class="anchor" href="#%e4%b8%80%e5%af%b9%e5%a4%9a"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;tree 树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;binary tree 二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;search binary tree 搜索二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;blance binary tree 平衡二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;complet binary tree 完全二叉树 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;name&lt;/th&gt;
+ &lt;th&gt;特征&lt;/th&gt;
+ &lt;th&gt;备注&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;binary tree&lt;/td&gt;
+ &lt;td&gt;1.任意节点 叶度 &amp;lt;=2&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;search bianry tree&lt;/td&gt;
+ &lt;td&gt;1.binary tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.任意节点 left-child, root, right-child有序&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;blanced binary tree&lt;/td&gt;
+ &lt;td&gt;1.search binary tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.任意节点的 &amp;lt;左树高度-右树高度&amp;gt; &amp;lt;=1&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;complet binary tree&lt;/td&gt;
+ &lt;td&gt;1.search tree&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;td&gt;2.节点依次从左到右&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="多对多"&gt;
  多对多
- &lt;a class="anchor" href="#%e5%a4%9a%e5%af%b9%e5%a4%9a">#&lt;/a>
-&lt;/h4>
-&lt;p>graph 图 &lt;br/>&lt;/p></description></item><item><title>rup架构图</title><link>https://clay9.github.io/blog/posts/rup/</link><pubDate>Tue, 13 Jun 2023 00:56:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/rup/</guid><description>&lt;p>RUP4+1架构图 &lt;br/>&lt;/p></description></item><item><title/><link>https://clay9.github.io/blog/posts/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/readme/</guid><description>&lt;h2 id="目录说明">
+ 
+ &lt;a class="anchor" href="#%e5%a4%9a%e5%af%b9%e5%a4%9a"&gt;#&lt;/a&gt;
+ 
+&lt;/h4&gt;
+&lt;p&gt;graph 图 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>rup架构图</title><link>https://clay9.github.io/blog/posts/rup/</link><pubDate>Tue, 13 Jun 2023 00:56:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/rup/</guid><description>&lt;p&gt;RUP4+1架构图 &lt;br/&gt;&lt;/p&gt;</description></item><item><title/><link>https://clay9.github.io/blog/posts/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/readme/</guid><description>&lt;h2 id="目录说明"&gt;
  目录说明
- &lt;a class="anchor" href="#%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e">#&lt;/a>
-&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>path&lt;/th>
- &lt;th>desc&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>org&lt;/td>
- &lt;td>blog org源码&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>static&lt;/td>
- &lt;td>hugo静态文件&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>config.toml&lt;/td>
- &lt;td>hugo配置文件&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="流程">
+ 
+ &lt;a class="anchor" href="#%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;path&lt;/th&gt;
+ &lt;th&gt;desc&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;org&lt;/td&gt;
+ &lt;td&gt;blog org源码&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;static&lt;/td&gt;
+ &lt;td&gt;hugo静态文件&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;config.toml&lt;/td&gt;
+ &lt;td&gt;hugo配置文件&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="流程"&gt;
  流程
- &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b">#&lt;/a>
-&lt;/h2>
-&lt;p>push触发github action &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>下载 clay9/emacs.git &lt;br/>&lt;/li>
-&lt;li>执行init-for-script.el, export org to md &lt;br/>&lt;/li>
-&lt;li>执行hugo的编译, export md to html &lt;br/>&lt;/li>
-&lt;li>执行hugo的发布 &lt;br/>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;push触发github action &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;下载 clay9/emacs.git &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;执行init-for-script.el, export org to md &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;执行hugo的编译, export md to html &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;执行hugo的发布 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

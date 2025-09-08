@@ -1,49 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 13 Jun 2025 08:57:26 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 22:43:04 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述"&gt;
  简述
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="emacs是什么">
+ 
+ &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="emacs是什么"&gt;
  emacs是什么
- &lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88">#&lt;/a>
-&lt;/h3>
-&lt;ol>
-&lt;li>emacs最原始,最纯粹的功能: &lt;code>text editor&lt;/code> &lt;br/>&lt;/li>
-&lt;li>也可以作为优秀的 &lt;code>program editor&lt;/code> &lt;br/>&lt;/li>
-&lt;li>优秀的文本 &lt;code>gtd&lt;/code> 软件 &lt;br/>&lt;/li>
-&lt;li>良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等 &lt;br/>&lt;/li>
-&lt;/ol>
-&lt;p>综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/>
-同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/>&lt;/p>
-&lt;h3 id="emacs配置">
+ 
+ &lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;emacs最原始,最纯粹的功能: &lt;code&gt;text editor&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;也可以作为优秀的 &lt;code&gt;program editor&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;优秀的文本 &lt;code&gt;gtd&lt;/code&gt; 软件 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/&gt;
+同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id="emacs配置"&gt;
  emacs配置
- &lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h3>
-&lt;p>emacs配置可大致划分如下 &lt;br/>&lt;/p>
-&lt;ul>
-&lt;li>emacs作为程序的基本配置 &lt;br/>&lt;/li>
-&lt;li>text editor &amp;amp;&amp;amp; completion &lt;br/>&lt;/li>
-&lt;li>prog editor &lt;br/>&lt;/li>
-&lt;li>org &amp;amp;&amp;amp; gtd &lt;br/>&lt;/li>
-&lt;li>键位设置 &lt;br/>&lt;/li>
-&lt;/ul>
-&lt;h3 id="编译emacs">
+ 
+ &lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;emacs配置可大致划分如下 &lt;br/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;text editor &amp;amp;&amp;amp; completion &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;prog editor &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;org &amp;amp;&amp;amp; gtd &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;键位设置 &lt;br/&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="编译emacs"&gt;
  编译emacs
- &lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs">#&lt;/a>
-&lt;/h3>
-&lt;details>
-&lt;div class="details">
-&lt;pre>&lt;code class="language-shell"># --without-all 最小化编译 (但是包含了x)
+ 
+ &lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;details&gt;
+&lt;div class="details"&gt;
+&lt;pre&gt;&lt;code class="language-shell"&gt;# --without-all 最小化编译 (但是包含了x)
 # --without-x 不使用x
 # --with-gnutls=ifavailable 移除configure警告 (实际并未编译)
 # --with-tree-sittter 开启tree-sitter
 # --with-xml2 package::devdocs依赖
 # --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)
 ./configure --without-all --without-x --with-gnutls=ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
-&lt;/code>&lt;/pre>
-&lt;/div>
-&lt;/details>
-&lt;h2 id="基本配置">
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/details&gt;
+&lt;h2 id="基本配置"&gt;
  基本配置
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae">#&lt;/a>
-&lt;/h2>
-&lt;p>emacs作为程序的基本配置 &lt;br/>&lt;/p></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>
