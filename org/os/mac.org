@@ -9,20 +9,20 @@
 #+hugo_custom_front_matter: :bookCollapseSection false
 
 * mac初步整理
-** 界面的整理
-   1. launchpad图标大小整理
-      - 每一列图标数量
-        #+begin_src sh -n
-          defaults write com.apple.dock springboard-rows -int 7
-        #+end_src
-      - 每一行图标数量
-        : defaults write com.apple.dock springboard-columns -int 7
-      - 重启Launchpad
-        : defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-        /该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!/
-   2. 添加空白到Dock栏
-      空白能使Dock中的程序更好的归类. 按住Option可以拖动
-      : defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
+** Launchpad整理
+   #+begin_src shell -n
+     # 每一列图标数量
+     defaults write com.apple.dock springboard-rows -int 7
+
+     # 每一行图标数量
+     defaults write com.apple.dock springboard-columns -int 7
+
+     # 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)
+     defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+
+     # 添加空白到Dock栏
+     defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
+   #+end_src
 ** 状态栏调整
    按住Command之后, 鼠标可以拖动状态栏图标
 ** mac自带输入法 -- 简体拼音
