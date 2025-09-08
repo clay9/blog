@@ -3,7 +3,7 @@
 #+hugo_section: docs
 #+hugo_bundle: os/mac
 #+export_file_name: index
-#+hugo_weight: 2
+#+hugo_weight: 1
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
@@ -12,7 +12,9 @@
 ** 界面的整理
    1. launchpad图标大小整理
       - 每一列图标数量
-         : defaults write com.apple.dock springboard-rows -int 7
+        #+begin_src shell -n
+          defaults write com.apple.dock springboard-rows -int 7
+        #+end_src
       - 每一行图标数量
         : defaults write com.apple.dock springboard-columns -int 7
       - 重启Launchpad
