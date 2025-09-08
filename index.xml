@@ -1,44 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 22:52:27 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="mac初步整理"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Sep 2025 23:15:14 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="mac初步整理"&gt;
  mac初步整理
  
  &lt;a class="anchor" href="#mac%e5%88%9d%e6%ad%a5%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
  
 &lt;/h2&gt;
-&lt;h3 id="界面的整理"&gt;
- 界面的整理
+&lt;h3 id="launchpad整理"&gt;
+ Launchpad整理
  
- &lt;a class="anchor" href="#%e7%95%8c%e9%9d%a2%e7%9a%84%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
+ &lt;a class="anchor" href="#launchpad%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;launchpad图标大小整理 &lt;br/&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;每一列图标数量 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-sh"&gt;defaults write com.apple.dock springboard-rows -int 7
+&lt;pre&gt;&lt;code class="language-shell"&gt;# 每一列图标数量
+defaults write com.apple.dock springboard-rows -int 7
+
+# 每一行图标数量
+defaults write com.apple.dock springboard-columns -int 7
+
+# 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)
+defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+
+# 添加空白到Dock栏
+defaults write com.apple.dock persistent-apps -array-add '{&amp;quot;tile-type&amp;quot;=&amp;quot;spacer-tile&amp;quot;;}'; killall Dock
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;每一行图标数量 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;defaults write com.apple.dock springboard-columns -int 7
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;重启Launchpad &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;该指令重启launchpad的时候, 也会使launchpad的排序恢复默认值!!!&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;添加空白到Dock栏 &lt;br/&gt;
-空白能使Dock中的程序更好的归类. 按住Option可以拖动 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;defaults write com.apple.dock persistent-apps -array-add '{&amp;quot;tile-type&amp;quot;=&amp;quot;spacer-tile&amp;quot;;}'; killall Dock
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;h3 id="状态栏调整"&gt;
  状态栏调整
  
