@@ -12,7 +12,7 @@
 ** 界面的整理
    1. launchpad图标大小整理
       - 每一列图标数量
-        #+begin_src shell -n
+        #+begin_src sh -n
           defaults write com.apple.dock springboard-rows -int 7
         #+end_src
       - 每一行图标数量
