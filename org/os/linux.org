@@ -8,8 +8,6 @@
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
 
-linux常用命令&&工具
-
 #+hugo: more
 * 查看硬件信息
 

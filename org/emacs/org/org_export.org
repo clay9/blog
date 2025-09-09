@@ -80,3 +80,130 @@ org自带强大的export功能.
 
    #+RESULTS:
    [[file:ox-hugo-export.png]]
+* org-mode & ox-hugo & hugo & hugo-book
+  代码块的角度来看.
+** org-mode 原生支持的代码块可以分为2部分
+  - org normal
+    center, example, quote...
+  - org babel
+    artist, c++, emacs-lisp, shell...
+  - org export to html时候的代码块
+    : 不推荐使用这种类型的导出
+    org-blackfriday-html5-inline-elements
+    org-html-html5-elements
+
+    ("abbr" "audio" "bdi" "bdo" "button" "canvas" "cite" "data" "datalist"
+  "del" "dfn" "embed" "iframe" "input" "ins" "kbd" "label" "map" "mark"
+  "meter" "noscript" "object" "output" "picture" "progress" "q" "ruby"
+  "s" "samp" "script" "select" "slot" "small" "span" "svg" "template"
+  "textarea" "time" "u" "var" "video")
+
+
+  ("article" "aside" "audio" "canvas" "details" "figcaption" "figure"
+  "footer" "header" "menu" "meter" "nav" "output" "progress" "section"
+  "summary" "video")
+
+** ox-hugo只是翻译工作, 把org-mode翻译为markdown
+  代码块的工作原理:
+
+  1. org normal && org babel
+     #+begin_example
+     #+begin_sh
+     something
+     #+end_sh
+
+     # 翻译为:
+     ```sh
+     something
+     ```
+     #+end_example
+
+  2. org-blackfriday-html5-inline-elements
+     #+begin_example
+     #+begin_INLINETAG
+     something
+     #+end_INLINETAG
+
+     # 翻译为:
+     <INLINETAG>something</INLINETAG>
+     #+end_example
+
+  3. org-html-html5-elements
+     #+begin_example
+     #+begin_BLOCKTAG
+     something
+     #+end_BLOCKTAG
+
+     # 翻译为:
+     <BLOCKTAG>
+
+     something
+
+    </BLOCKTAG>
+     #+end_example
+  4. mardown解析器不是别的代码块 && 且自定义代码块 #+hugo_paired_shortcodes: myshortcode
+     #+begin_example
+     #+begin_myshortcode
+     Something
+     #+end_myshortcode
+
+     # 翻译为:
+     {{< myshortcode >}}
+     Something
+     {{< /myshortcode >}}
+     #+end_example
+
+     #+begin_example
+     # 省略key, 直接下value也是可以的
+     #+attr_shortcode: :arg1 foo bar :arg2 color: red; text-align: center;
+     #+begin_myshortcode
+     Something
+     #+end_myshortcode
+
+     # 翻译为:
+     {{< myshortcode arg1="foo bar" arg2="color: red; text-align: center;" >}}
+     Something
+     {{< /myshortcode >}}
+     #+end_example
+  5. mardown解析器识别的代码块 && 且自定义代码块 #+hugo_paired_shortcodes: %myshortcode
+     自定义的时候需要加%, 其他的与上面的一致
+
+** hugo解析器支持的代码块
+   https://gohugo.io/content-management/shortcodes/#shortcodes-without-markdown
+
+   | key       | desc                |
+   |-----------+---------------------|
+   | +details+   | 使用hugo book       |
+   | +figure+    | org-mode自带        |
+   | +gist+      | hugo废弃的shortcode |
+   | +highlight+ | org-mode自带的babel |
+   | +instagram+ | 不使用instagram     |
+   | +param+     | 没使用场景          |
+   | qr        |                     |
+   | +ref+       | org-mode自带        |
+   | +relref+    | org-mode自带        |
+   | vimeo     |                     |
+   | +X+         | 没使用场景          |
+   | youtube   |                     |
+   |-----------+---------------------|
+
+   : TODO 如果hugo解析器有, 但是hugo book不支持, 会怎么样??
+** hugo book自身支持的代码块
+   如果代码块同时被 hugo解析器 与 hugo book支持, 应该是hugo book的会覆盖hugo解析器效果
+
+   https://hugo-book-demo.netlify.app/docs/shortcodes/buttons/
+
+   | key     | desc           |
+   |---------+----------------|
+   | badges  |                |
+   | +button+  | org-mode自带   |
+   | +card+    | 待定, 过于复杂 |
+   | columns |                |
+   | details |                |
+   | hints   |                |
+   | +images+  | org-mode自带   |
+   | mermaid |                |
+   | steps   |                |
+   | tabs    |                |
+   | +katex+   | 暂时用不到     |
+   |---------+----------------|

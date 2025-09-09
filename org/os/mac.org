@@ -7,9 +7,11 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: %qr %vimeo %youtube
+#+hugo_paired_shortcodes: badge columns details hint mermaid steps tabs tab
 
-* mac初步整理
-** Launchpad整理
+* 界面整理
+** Launchpad启动台
    #+begin_src shell -n
      # 每一列图标数量
      defaults write com.apple.dock springboard-rows -int 7
@@ -23,20 +25,8 @@
      # 添加空白到Dock栏
      defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
    #+end_src
-** 状态栏调整
-   按住Command之后, 鼠标可以拖动状态栏图标
-** mac自带输入法 -- 简体拼音
-   记录一下常用快捷键 && 配置
-   1. Fn+TAB -- 短按切换ABC与简体中文, 长按大小写
-   2. 建议设置选词为竖屏, 横屏容易遮挡输入
-
-   #+attr_shortcode: info
-   #+begin_hint
-   不舒服的地方
-   1. 输入的时候无法使用shift来切换为英文, 必须使用Fn+TAB
-   2. 候选词为横屏的时候, 会遮挡住输入区域
-   #+end_hint
-
+** 右上角状态栏
+   按住Command之后, 鼠标可以拖动状态栏图标, 拖出即可删除
 ** 关闭内置键盘
    苹果内置键盘不好用, 但是触控板非常好用.
    习惯把HHKB放在苹果键盘上, 这样可以使用HHKB+苹果触控版
@@ -54,6 +44,41 @@
    sudo kextunload -b com.apple.driver.AppleHIDKeyboard
    # To enable it back:
    sudo kextload -b com.apple.driver.AppleHIDKeyboard
+   #+END_EXAMPLE
+* 软件推荐
+  | 软件           | 介绍                                                   | 备注   |
+  |----------------+--------------------------------------------------------+--------|
+  | Alfred         | [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索                              |        |
+  | +Karabiner+      | [[https://pqrs.org/index.html][Karabiner]] 是键位映射软件                               | 已舍弃 |
+  | HomeBrew       | [[https://brew.sh/index_zh-cn][HomeBrew]] 是包管理软件(类似于ubuntu下的apt)             |        |
+  | Annotate       | Annotate(AppStore下载)是截屏软件, 同时支持gif录制      |        |
+  | IINA           | [[https://www.iina.io][IINA]] 是mac下好用的视频软件                             |        |
+  | Better Display | [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器 |        |
+  |----------------+--------------------------------------------------------+--------|
+
+* Q & A
+** mac卡顿处理
+   1. 删除Macintosh HD/系统/资源库/Caches中的文件
+   2. 删除Macintosh HD/资源库/Caches中的文件
+   3. 如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave
+** ssh远程连接macos, 中文乱码
+   这种情况一般是终端和服务器的字符集不匹配.
+   MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的.
+
+   1. 在.bash_profile中增加
+      #+BEGIN_EXAMPLE
+      export LC_ALL=en_US.UTF-8
+      export LANG=en_US.UTF-8
+      #+END_EXAMPLE
+   2. source .bash_profile
+   3. locale 查看下是否设置成功
+** mac崩溃原因查找
+   #+BEGIN_EXAMPLE shell
+   # 打印mac 24小时崩溃的原因
+   # 常见原因
+   # 5 -- 正常关机
+   # 3 -- 硬件关机 (holding the power button)
+   log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
    #+END_EXAMPLE
 ** 开机启动
    mac没有像linux使用init作为系统管理, 而是使用Launchd
@@ -100,38 +125,108 @@
        : sudo launchctl load -w ~/Library/LaunchAgents/com.service.name.plist
     5. test
        : launchctl start com.user.loginscript
-* mac好用的软件
-  | 软件           | 介绍                                                   | 备注   |
-  |----------------+--------------------------------------------------------+--------|
-  | Alfred         | [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索                              |        |
-  | +Karabiner+      | [[https://pqrs.org/index.html][Karabiner]] 是键位映射软件                               | 已舍弃 |
-  | HomeBrew       | [[https://brew.sh/index_zh-cn][HomeBrew]] 是包管理软件(类似于ubuntu下的apt)             |        |
-  | Annotate       | Annotate(AppStore下载)是截屏软件, 同时支持gif录制      |        |
-  | +IINA+           | [[https://www.iina.io][IINA]] 是mac下好用的视频软件                             | 已舍弃 |
-  | Better Display | [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器 |        |
-  |----------------+--------------------------------------------------------+--------|
+* test
+  #+begin_center
+  this is center
+  #+end_center
 
-* Q & A
-** mac卡顿处理
-   1. 删除Macintosh HD/系统/资源库/Caches中的文件
-   2. 删除Macintosh HD/资源库/Caches中的文件
-   3. 如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave
-** ssh远程连接macos, 中文乱码
-   这种情况一般是终端和服务器的字符集不匹配.
-   MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的.
+  #+begin_example
+  this is example
+  #+end_example
 
-   1. 在.bash_profile中增加
-      #+BEGIN_EXAMPLE
-      export LC_ALL=en_US.UTF-8
-      export LANG=en_US.UTF-8
-      #+END_EXAMPLE
-   2. source .bash_profile
-   3. locale 查看下是否设置成功
-** mac崩溃原因查找
-   #+BEGIN_EXAMPLE shell
-   # 打印mac 24小时崩溃的原因
-   # 常见原因
-   # 5 -- 正常关机
-   # 3 -- 硬件关机 (holding the power button)
-   log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
-   #+END_EXAMPLE
+  #+begin_quote
+  this is quote
+  #+end_quote
+
+  #+begin_src artist -n
+  this is artist
+  #+end_src
+
+  #+begin_src C++ -n
+    class CPP {
+      this_is_cpp();
+    };
+  #+end_src
+
+  #+begin_src emacs-lisp -n
+  (defun this_is_emacs_lisp () t)
+  #+end_src
+
+  #+begin_src plantuml :exports results :eval no-export :file xxx.png
+    this is plantuml
+  #+end_src
+* test hugo
+  下面的是qr
+  #+begin_qr
+  htpps://github.com
+  #+end_qr
+
+  下面的是vimeo1
+  #+begin_vimeo
+  55073825
+  #+end_vimeo
+
+  下面的是vimeo2, 使用attr_shortcode
+  #+attr_shortcode: 55073825
+  #+begin_vimeo
+
+  #+end_vimeo
+
+  下面的是youtube
+  #+begin_youtube
+  0RKpf3rK57I
+  #+end_youtube
+
+  下面的是youtube, 使用attr_shortcode
+  #+attr_shortcode: 0RKpf3rK57I
+  #+begin_youtube
+
+  #+end_youtube
+* test hugo book
+  #+attr_shortcode: :style info :title this_is_badge :value 22
+  #+begin_badge
+
+  #+end_badge
+
+
+  #+begin_columns
+  this is columns
+  1. abcoulomb
+  2. sfsdf
+  3. sadfdsf
+  #+end_columns
+
+
+  #+attr_shortcode: :open false :title this_is_details
+  #+begin_details
+  this is details s dsfadsfs
+  #+end_details
+
+  #+attr_shortcode: danger
+  #+begin_hint
+  this is hint
+  #+end_hint
+
+  #+begin_steps
+  this is step
+  1. one step
+  2. two step
+  3. three step
+  #+end_steps
+
+  #+begin_tabs
+  #+attr_shortcode: Macos
+  #+begin_tab
+  this is macs
+  #+end_tab
+
+  #+attr_shortcode: windows
+  #+begin_tab
+  this is windows
+  #+end_tab
+
+  #+attr_shortcode: linux
+  #+begin_tab
+  this is linux
+  #+end_tab
+  #+end_tabs
