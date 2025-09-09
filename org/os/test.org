@@ -10,22 +10,25 @@
 #+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
 * vimeo
   #+begin_export hugo
-  {{ vimeo 55073825 }}
+  {{< vimeo 55073825 >}}
   #+end_export
 * youtube
   #+begin_export hugo
- {{ youtube 0RKpf3rK57I }}
+ {{< youtube 0RKpf3rK57I >}}
   #+end_export
 
 * badge
   #+begin_export hugo
-  {{ badge style="danger" title="this is badge" value="11" }}
+  {{< badge style="danger" title="this is badge" value="11" >}}
   #+end_export
 * columns
   #+begin_columns
-  -  a
-  -  b
-  -  c
+  -  a title
+    aaaaaaaaaaaaa content
+  -  b title
+    bbbbbbbbbbb content
+  -  c title
+    cccccccccccccccccc content
   this is columns
   1. abcoulomb
   2. sfsdf
@@ -33,16 +36,20 @@
   #+end_columns
 * tabs
   #+begin_tabs
+  #++attr_shortcode: a title
   #+begin_tab
-  a
+  aaaaaaaa content
   #+end_tab
 
+  #++attr_shortcode: b title
   #+begin_tab
-  b
+  bbbbb content
   #+end_tab
 
+  #++attr_shortcode: c title
   #+begin_tab
-  c
+  c ccccccccccc sf
+  content
   #+end_tab
   #+end_tabs
 * Success
