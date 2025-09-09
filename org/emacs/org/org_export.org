@@ -143,9 +143,9 @@ org自带强大的export功能.
      #+end_example
   4. mardown解析器不是别的代码块 && 且自定义代码块 hugo_paired_shortcodes: myshortcode
      #+begin_example
-     #+begin_myshortcode
+     begin_myshortcode
      Something
-     #+end_myshortcode
+     end_myshortcode
 
      # 翻译为:
      {{< myshortcode >}}
@@ -155,10 +155,10 @@ org自带强大的export功能.
 
      #+begin_example
      # 省略key, 直接下value也是可以的
-     #+attr_shortcode: :arg1 foo bar :arg2 color: red; text-align: center;
-     #+begin_myshortcode
+     attr_shortcode: :arg1 foo bar :arg2 color: red; text-align: center;
+     begin_myshortcode
      Something
-     #+end_myshortcode
+     end_myshortcode
 
      # 翻译为:
      {{< myshortcode arg1="foo bar" arg2="color: red; text-align: center;" >}}
