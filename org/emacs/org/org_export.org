@@ -141,7 +141,7 @@ org自带强大的export功能.
 
     </BLOCKTAG>
      #+end_example
-  4. mardown解析器不是别的代码块 && 且自定义代码块 #+hugo_paired_shortcodes: myshortcode
+  4. mardown解析器不是别的代码块 && 且自定义代码块 hugo_paired_shortcodes: myshortcode
      #+begin_example
      #+begin_myshortcode
      Something
@@ -165,7 +165,7 @@ org自带强大的export功能.
      Something
      {{< /myshortcode >}}
      #+end_example
-  5. mardown解析器识别的代码块 && 且自定义代码块 #+hugo_paired_shortcodes: %myshortcode
+  5. mardown解析器识别的代码块 && 且自定义代码块 hugo_paired_shortcodes: %myshortcode
      自定义的时候需要加%, 其他的与上面的一致
 
 ** hugo解析器支持的代码块
