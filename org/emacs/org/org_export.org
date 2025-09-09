@@ -182,7 +182,7 @@ org自带强大的export功能.
    | qr        |                     |
    | +ref+       | org-mode自带        |
    | +relref+    | org-mode自带        |
-   | vimeo     |                     |
+   | vimeo     | TODO: not work      |
    | +X+         | 没使用场景          |
    | youtube   | TODO: not work      |
    |-----------+---------------------|
@@ -204,6 +204,6 @@ org自带强大的export功能.
    | +images+  | org-mode自带   |
    | mermaid |                |
    | steps   |                |
-   | tabs    |                |
+   | tabs    | TODO: not work |
    | +katex+   | 暂时用不到     |
    |---------+----------------|

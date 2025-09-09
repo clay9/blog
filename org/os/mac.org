@@ -192,22 +192,3 @@
   2. two step
   3. three step
   #+end_steps
-
-  #+begin_tabs
-  #+attr_shortcode: Macos
-  #+begin_tab
-  this is macs
-  #+end_tab
-
-  #+attr_shortcode: windows
-  #+begin_tab
-  this is windows
-  #+end_tab
-
-  #+attr_shortcode: linux
-  #+begin_tab
-  this is linux
-  #+end_tab
-  #+end_tabs
-
-  abc
