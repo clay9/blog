@@ -7,7 +7,7 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: %qr, %vimeo
+#+hugo_paired_shortcodes: %qr
 #+hugo_paired_shortcodes: badge, columns, details, hint, mermaid, steps, tabs, tab
 
 * 界面整理
@@ -160,17 +160,6 @@
   #+begin_qr
   htpps://github.com
   #+end_qr
-
-  下面的是vimeo1
-  #+begin_vimeo
-  55073825
-  #+end_vimeo
-
-  下面的是vimeo2, 使用attr_shortcode
-  #+attr_shortcode: 55073825
-  #+begin_vimeo
-
-  #+end_vimeo
 
 * test hugo book
   #+attr_shortcode: :style info :title this_is_badge :value 22
