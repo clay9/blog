@@ -193,17 +193,17 @@ org自带强大的export功能.
 
    https://hugo-book-demo.netlify.app/docs/shortcodes/buttons/
 
-   | key     | value    | desc           | sdf            |
-   |---------+----------+----------------+----------------|
-   | badges  |          |                | TODO: not work |
-   | +button+  | 按钮     | org-mode自带   |                |
-   | +card+    | 卡片     | 待定, 过于复杂 |                |
-   | columns | 列       |                | TODO: not work |
-   | details | 折叠     |                |                |
-   | hints   |          |                |                |
-   | +images+  | 图片     | org-mode自带   |                |
-   | mermaid | 画图     |                |                |
-   | steps   |          |                |                |
-   | tabs    |          | TODO: not work |                |
-   | +katex+   | 数学公式 | 暂时用不到     |                |
-   |---------+----------+----------------+----------------|
+   | key     | value    | desc           |
+   |---------+----------+----------------|
+   | badges  | 标签     |                |
+   | +button+  | 按钮     | org-mode自带   |
+   | +card+    | 卡片     | 待定, 过于复杂 |
+   | columns | 列       |                |
+   | details | 折叠     |                |
+   | hints   |          |                |
+   | +images+  | 图片     | org-mode自带   |
+   | mermaid | 画图     |                |
+   | steps   |          |                |
+   | tabs    |          | TODO: not work |
+   | +katex+   | 数学公式 | 暂时用不到     |
+   |---------+----------+----------------|

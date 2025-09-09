@@ -11,12 +11,3 @@ style = 'manni'
 [module]
 [[module.imports]]
 path = 'github.com/alex-shpak/hugo-book'
-
-[privacy]
-  [privacy.vimeo]
-    disable = false
-    enableDNT = false
-    simple = false
-  [privacy.youTube]
-    disable = false
-    privacyEnhanced = false
