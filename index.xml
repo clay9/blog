@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 09 Sep 2025 21:52:34 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="界面整理"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 09 Sep 2025 21:56:52 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="界面整理"&gt;
  界面整理
  
  &lt;a class="anchor" href="#%e7%95%8c%e9%9d%a2%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
@@ -977,12 +977,60 @@ gcc -shared file1.o -o libtest.so //把.o文件打包为动态库(.o文件必须
 函数原型：void *dlopen(const char *libname,int flag); &lt;br/&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;参数中的libname一般是库的全路径，这样dlopen会直接装载该文件； &lt;br/&gt;&lt;/p&gt;</description></item><item><title>redis</title><link>https://clay9.github.io/blog/docs/tool/redis/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/redis/</guid><description>&lt;p&gt;redis学习记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>数据库</title><link>https://clay9.github.io/blog/docs/tool/sql/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/sql/</guid><description>&lt;p&gt;数据库开发 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>test</title><link>https://clay9.github.io/blog/docs/os/test/</link><pubDate>Wed, 10 Sep 2025 03:59:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/test/</guid><description>&lt;h2 id="vimeo"&gt;
+&lt;p&gt;参数中的libname一般是库的全路径，这样dlopen会直接装载该文件； &lt;br/&gt;&lt;/p&gt;</description></item><item><title>redis</title><link>https://clay9.github.io/blog/docs/tool/redis/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/redis/</guid><description>&lt;p&gt;redis学习记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>数据库</title><link>https://clay9.github.io/blog/docs/tool/sql/</link><pubDate>Thu, 18 Jan 2024 19:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/sql/</guid><description>&lt;p&gt;数据库开发 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>test</title><link>https://clay9.github.io/blog/docs/os/test/</link><pubDate>Wed, 10 Sep 2025 03:59:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/test/</guid><description>&lt;h2 id="tabs"&gt;
+ tabs
+ 
+ &lt;a class="anchor" href="#tabs"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;div class="book-tabs"&gt;
+
+
+&lt;input type="radio" class="toggle" name="tabs-0" id="tabs-0-0" checked="checked" /&gt;
+&lt;label for="tabs-0-0"&gt;a&lt;/label&gt;
+&lt;div class="book-tabs-content markdown-inner"&gt;
+aaaaaaaa content &lt;br/&gt;
+&lt;/div&gt;
+
+
+
+&lt;input type="radio" class="toggle" name="tabs-0" id="tabs-0-1" /&gt;
+&lt;label for="tabs-0-1"&gt;b&lt;/label&gt;
+&lt;div class="book-tabs-content markdown-inner"&gt;
+bbbbb content &lt;br/&gt;
+&lt;/div&gt;
+
+
+
+&lt;input type="radio" class="toggle" name="tabs-0" id="tabs-0-2" /&gt;
+&lt;label for="tabs-0-2"&gt;c&lt;/label&gt;
+&lt;div class="book-tabs-content markdown-inner"&gt;
+c ccccccccccc sf &lt;br/&gt;
+content &lt;br/&gt;
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+
+&lt;h2 id="hugo"&gt;
+ Hugo
+ 
+ &lt;a class="anchor" href="#hugo"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="qr"&gt;
+ qr
+ 
+ &lt;a class="anchor" href="#qr"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;img src="https://clay9.github.io/blog/qr_170569f306758b1e.png" width="148" height="148"&gt;
+&lt;h3 id="vimeo"&gt;
  vimeo
  
  &lt;a class="anchor" href="#vimeo"&gt;#&lt;/a&gt;
  
-&lt;/h2&gt;
+&lt;/h3&gt;
 
  &lt;div
  style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
@@ -992,30 +1040,36 @@ gcc -shared file1.o -o libtest.so //把.o文件打包为动态库(.o文件必须
  &lt;/iframe&gt;
  &lt;/div&gt;
 
-&lt;h2 id="youtube"&gt;
+&lt;h3 id="youtube"&gt;
  youtube
  
  &lt;a class="anchor" href="#youtube"&gt;#&lt;/a&gt;
  
-&lt;/h2&gt;
+&lt;/h3&gt;
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
  &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/0RKpf3rK57I?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"&gt;&lt;/iframe&gt;
  &lt;/div&gt;
 
-&lt;h2 id="badge"&gt;
+&lt;h2 id="hugo-book"&gt;
+ Hugo book
+ 
+ &lt;a class="anchor" href="#hugo-book"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="badge"&gt;
  badge
  
  &lt;a class="anchor" href="#badge"&gt;#&lt;/a&gt;
  
-&lt;/h2&gt;
+&lt;/h3&gt;
 &lt;span class="book-badge danger"&gt;&lt;span class="book-badge-title"&gt;this is badge&lt;/span&gt;&lt;span class="book-badge-value"&gt;11&lt;/span&gt;&lt;/span&gt;
-&lt;h2 id="columns"&gt;
+&lt;h3 id="columns"&gt;
  columns
  
  &lt;a class="anchor" href="#columns"&gt;#&lt;/a&gt;
  
-&lt;/h2&gt;
-&lt;div class="book-columns book-columns-3 "&gt;
+&lt;/h3&gt;
+&lt;div class="book-columns book-columns-5 "&gt;
 &lt;ul&gt;
 &lt;li&gt;a title &lt;br/&gt;
 aaaaaaaaaaaaa content &lt;br/&gt;&lt;/li&gt;
