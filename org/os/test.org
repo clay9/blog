@@ -11,16 +11,7 @@
 
 * test hugo
 
-  #+begin_qr
-  https://github.com
-  #+end_qr
-
 * badge
-
-  #+attr_shortcode: :style info :title this_is_badge :value 22
-  #+begin_badge
-
-  #+end_badge
 
 * columns
   #+begin_columns
