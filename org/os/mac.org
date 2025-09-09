@@ -8,7 +8,7 @@
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
 #+hugo_paired_shortcodes: %qr
-#+hugo_paired_shortcodes: badge, columns, details, hint, mermaid, steps, tabs, tab
+#+hugo_paired_shortcodes: badge, columns, %details, %hint, mermaid, %steps, tabs, tab
 
 * 界面整理
 ** Launchpad启动台
@@ -158,7 +158,7 @@
 * test hugo
   下面的是qr
   #+begin_qr
-  htpps://github.com
+  https://github.com
   #+end_qr
 
 * test hugo book
