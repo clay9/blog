@@ -171,21 +171,21 @@ org自带强大的export功能.
 ** hugo解析器支持的代码块
    https://gohugo.io/content-management/shortcodes/#shortcodes-without-markdown
 
-   | key       | desc                |
-   |-----------+---------------------|
-   | +details+   | 使用hugo book       |
-   | +figure+    | org-mode自带        |
-   | +gist+      | hugo废弃的shortcode |
-   | +highlight+ | org-mode自带的babel |
-   | +instagram+ | 不使用instagram     |
-   | +param+     | 没使用场景          |
-   | qr        |                     |
-   | +ref+       | org-mode自带        |
-   | +relref+    | org-mode自带        |
-   | vimeo     | TODO: not work      |
-   | +X+         | 没使用场景          |
-   | youtube   | TODO: not work      |
-   |-----------+---------------------|
+   | key       | value           | desc                |
+   |-----------+-----------------+---------------------|
+   | +details+   | 折叠            | 使用hugo book       |
+   | +figure+    | 图片            | org-mode自带        |
+   | +gist+      |                 | hugo废弃的shortcode |
+   | +highlight+ | 代码高亮        | org-mode自带的babel |
+   | +instagram+ | 链接到instagram | 不使用instagram     |
+   | +param+     |                 | 没使用场景          |
+   | qr        | 二维码          |                     |
+   | +ref+       | 链接            | org-mode自带        |
+   | +relref+    | 链接            | org-mode自带        |
+   | vimeo     | 链接到vimeo     | TODO: not work      |
+   | +X+         | 链接到X         | 没使用场景          |
+   | youtube   | 链接到youtube   | TODO: not work      |
+   |-----------+-----------------+---------------------|
 
    : TODO 如果hugo解析器有, 但是hugo book不支持, 会怎么样??
 ** hugo book自身支持的代码块
@@ -193,17 +193,17 @@ org自带强大的export功能.
 
    https://hugo-book-demo.netlify.app/docs/shortcodes/buttons/
 
-   | key     | desc           | sdf            |
-   |---------+----------------+----------------|
-   | badges  |                | TODO: not work |
-   | +button+  | org-mode自带   |                |
-   | +card+    | 待定, 过于复杂 |                |
-   | columns |                | TODO: not work |
-   | details |                |                |
-   | hints   |                |                |
-   | +images+  | org-mode自带   |                |
-   | mermaid |                |                |
-   | steps   |                |                |
-   | tabs    | TODO: not work |                |
-   | +katex+   | 暂时用不到     |                |
-   |---------+----------------+----------------|
+   | key     | value    | desc           | sdf            |
+   |---------+----------+----------------+----------------|
+   | badges  |          |                | TODO: not work |
+   | +button+  | 按钮     | org-mode自带   |                |
+   | +card+    | 卡片     | 待定, 过于复杂 |                |
+   | columns | 列       |                | TODO: not work |
+   | details | 折叠     |                |                |
+   | hints   |          |                |                |
+   | +images+  | 图片     | org-mode自带   |                |
+   | mermaid | 画图     |                |                |
+   | steps   |          |                |                |
+   | tabs    |          | TODO: not work |                |
+   | +katex+   | 数学公式 | 暂时用不到     |                |
+   |---------+----------+----------------+----------------|
