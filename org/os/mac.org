@@ -7,8 +7,8 @@
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: %qr %vimeo %youtube
-#+hugo_paired_shortcodes: badge columns details hint mermaid steps tabs tab
+#+hugo_paired_shortcodes: %qr, %vimeo, %youtube
+#+hugo_paired_shortcodes: badge, columns, details, hint, mermaid, steps, tabs, tab
 
 * 界面整理
 ** Launchpad启动台
