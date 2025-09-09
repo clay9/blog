@@ -8,51 +8,58 @@
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
 #+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
-* vimeo
-  #+begin_export hugo
-  {{< vimeo 55073825 >}}
-  #+end_export
-* youtube
-  #+begin_export hugo
- {{< youtube 0RKpf3rK57I >}}
-  #+end_export
-
-* badge
-  #+begin_export hugo
-  {{< badge style="danger" title="this is badge" value="11" >}}
-  #+end_export
-* columns
-  #+begin_columns
-  -  a title
-    aaaaaaaaaaaaa content
-  -  b title
-    bbbbbbbbbbb content
-  -  c title
-    cccccccccccccccccc content
-  this is columns
-  1. abcoulomb
-  2. sfsdf
-  3. sadfdsf
-  #+end_columns
 * tabs
   #+begin_tabs
-  #++attr_shortcode: a title
+  #+attr_shortcode: a title
   #+begin_tab
   aaaaaaaa content
   #+end_tab
 
-  #++attr_shortcode: b title
+  #+attr_shortcode: b title
   #+begin_tab
   bbbbb content
   #+end_tab
 
-  #++attr_shortcode: c title
+  #+attr_shortcode: c title
   #+begin_tab
   c ccccccccccc sf
   content
   #+end_tab
   #+end_tabs
-* Success
+* Hugo
+** qr
+   #+begin_qr
+   https://github.coma
+   #+end_qr
+** vimeo
+   #+begin_export hugo
+   {{< vimeo 55073825 >}}
+   #+end_export
+** youtube
+   #+begin_export hugo
+  {{< youtube 0RKpf3rK57I >}}
+   #+end_export
+
+* Hugo book
+** badge
+   #+begin_export hugo
+   {{< badge style="danger" title="this is badge" value="11" >}}
+   #+end_export
+
+** columns
+   #+begin_columns
+   -  a title
+     aaaaaaaaaaaaa content
+   -  b title
+     bbbbbbbbbbb content
+   -  c title
+     cccccccccccccccccc content
+   this is columns
+   1. abcoulomb
+   2. sfsdf
+   3. sadfdsf
+   #+end_columns
+
 ** details
    #+attr_shortcode: :open false :title this_is_details
    #+begin_details

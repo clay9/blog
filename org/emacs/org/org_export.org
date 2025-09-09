@@ -182,9 +182,9 @@ org自带强大的export功能.
    | qr        | 二维码          |                     |
    | +ref+       | 链接            | org-mode自带        |
    | +relref+    | 链接            | org-mode自带        |
-   | vimeo     | 链接到vimeo     | TODO: not work      |
+   | vimeo     | 链接到vimeo     |                     |
    | +X+         | 链接到X         | 没使用场景          |
-   | youtube   | 链接到youtube   | TODO: not work      |
+   | youtube   | 链接到youtube   |                     |
    |-----------+-----------------+---------------------|
 
    : TODO 如果hugo解析器有, 但是hugo book不支持, 会怎么样??
