@@ -1,8 +1,6 @@
-/* 覆盖 Hugo Book 代码块高亮的焦点样式 */
-.book-page div.highlight pre:focus,
-.book-page div.highlight pre:focus-visible,
-.book-page div.highlight:focus,
-.book-page div.highlight:focus-visible {
+/* 覆盖掉 Book 默认代码块的 focus 高亮 */
+.book-page .highlight pre:focus,
+.book-page .highlight pre:focus-visible {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
