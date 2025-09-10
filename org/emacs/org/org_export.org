@@ -14,6 +14,10 @@ org自带强大的export功能.
 #+hugo: more
 
 * ox-hugo
+  :PROPERTIES:
+  :ID:       ox-hugo
+  :END:
+
   ox-hugo 只是把org翻译为hugo样式的md. 其支持的功能也是有限的.
   翻译之后的md在hugo和hugo theme的作用下转为html, 又损失了部分功能.
 
