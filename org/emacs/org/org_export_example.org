@@ -136,7 +136,7 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
     [[https://orgmode.org/]]
 *** id (link to org file by ID property)
     search org file for Headline has ID property "ox-hugo"
-    [[id:ox-hugo]]
+    TODO cause fail in Hugo
 * \TODO Items
 ** TODO Headline has TODO
 ** TODO TODO dependencies
