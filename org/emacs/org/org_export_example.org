@@ -90,9 +90,7 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
    [[https://orgmode.org/manual/Link-Format.html]]
 ** Internal Links
    1. "\[\[#FirstLink\]\]" [[#FirstLink]]
-   2. "\[\[#SecondLink\]\]" [[#SecondLink]]
    3. "\[\[*FirstLink\]\]" [[*FirstLink]]
-   4. "\[\[*SecondLink\]\]" [[*SecondLink]]
    5. "\[\[FirstLink\]\]" [[FirstLink]]
    6. "\[\[SecondLink\]\]" [[SecondLink]]
 
