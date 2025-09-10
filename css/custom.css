@@ -1,6 +1,4 @@
-/* 针对代码块去掉 focus 高亮 */
-pre:focus,
-code:focus {
+:focus {
   outline: none !important;
   box-shadow: none !important;
 }
