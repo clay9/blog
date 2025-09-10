@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>os on 飘</title><link>https://clay9.github.io/blog/docs/os/</link><description>Recent content in os on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 16:53:17 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/os/index.xml" rel="self" type="application/rss+xml"/><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="界面整理"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>os on 飘</title><link>https://clay9.github.io/blog/docs/os/</link><description>Recent content in os on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 17:59:42 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/os/index.xml" rel="self" type="application/rss+xml"/><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="界面整理"&gt;
  界面整理
  
  &lt;a class="anchor" href="#%e7%95%8c%e9%9d%a2%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
@@ -10,41 +10,114 @@
  &lt;a class="anchor" href="#launchpad%e5%90%af%e5%8a%a8%e5%8f%b0"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
-&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 1
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 2
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 3
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 4
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 5
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 6
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 7
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 8
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 9
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;10
-&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;11
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
-&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 每一列图标数量&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 每一列图标数量&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock springboard-rows -int &lt;span style="color:#f60"&gt;7&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 每一行图标数量&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock springboard-columns -int &lt;span style="color:#f60"&gt;7&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 添加空白到Dock栏&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock persistent-apps -array-add &lt;span style="color:#c30"&gt;&amp;#39;{&amp;#34;tile-type&amp;#34;=&amp;#34;spacer-tile&amp;#34;;}&amp;#39;&lt;/span&gt;; killall Dock
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id="右上角状态栏"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="右上角状态栏"&gt;
  右上角状态栏
  
  &lt;a class="anchor" href="#%e5%8f%b3%e4%b8%8a%e8%a7%92%e7%8a%b6%e6%80%81%e6%a0%8f"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;p&gt;按住Command之后, 鼠标可以拖动状态栏图标, 拖出即可删除 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>linux</title><link>https://clay9.github.io/blog/docs/os/linux/</link><pubDate>Fri, 31 May 2024 10:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/linux/</guid><description/></item><item><title>静态库 &amp;&amp; 动态库</title><link>https://clay9.github.io/blog/docs/os/dll/</link><pubDate>Thu, 18 Jan 2024 18:55:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/dll/</guid><description>&lt;p&gt;linux下静态库 &amp;amp;&amp;amp; 动态库 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;按住Command之后, 鼠标可以拖动状态栏图标, 拖出即可删除 &lt;br/&gt;&lt;/p&gt;
+&lt;h3 id="关闭内置键盘--针对mac-book"&gt;
+ 关闭内置键盘(针对mac book)
+ 
+ &lt;a class="anchor" href="#%e5%85%b3%e9%97%ad%e5%86%85%e7%bd%ae%e9%94%ae%e7%9b%98--%e9%92%88%e5%af%b9mac-book"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# For newer versions on MacOS / alternative solution:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# List loaded kexts for keyboard&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;kextstat | grep Keyboard
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# It&amp;#39;s going to output something like:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 81 0 0xffffff7f833c5000 0xb000 0xb000 com.apple.driver.AppleHIDKeyboard (208) 96DDE905-9D31-38A9-96B7-FB28573587C8 &amp;lt;43 6 5 3&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# com.apple.driver.AppleHIDKeyboard is loaded kext identifier.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# If you want to plug-in Apple Magic Keyboard / some other Bluetooth keyboard, turn it off first. Then follow the instruction below.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# To disable keyboard:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo kextunload -b com.apple.driver.AppleHIDKeyboard
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# To enable it back:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo kextload -b com.apple.driver.AppleHIDKeyboard
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="软件推荐"&gt;
+ 软件推荐
+ 
+ &lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e6%8e%a8%e8%8d%90"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;软件&lt;/th&gt;
+ &lt;th&gt;介绍&lt;/th&gt;
+ &lt;th&gt;备注&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Alfred&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://www.alfredapp.com"&gt;Alfred&lt;/a&gt; 是加强版的聚焦搜索&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;del&gt;Karabiner&lt;/del&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://pqrs.org/index.html"&gt;Karabiner&lt;/a&gt; 是键位映射软件&lt;/td&gt;
+ &lt;td&gt;已舍弃&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;HomeBrew&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://brew.sh/index_zh-cn"&gt;HomeBrew&lt;/a&gt; 是包管理软件(类似于ubuntu下的apt)&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Annotate&lt;/td&gt;
+ &lt;td&gt;Annotate(AppStore下载)是截屏软件, 同时支持gif录制&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;IINA&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://www.iina.io"&gt;IINA&lt;/a&gt; 是mac下好用的视频软件&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;Better Display&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://github.com/waydabber/BetterDisplay"&gt;Better Display&lt;/a&gt;可以更好的控制显示器, 尤其是对于2K显示器&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="q-and-a"&gt;
+ Q &amp;amp; A
+ 
+ &lt;a class="anchor" href="#q-and-a"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;h3 id="mac卡顿处理"&gt;
+ Mac卡顿处理
+ 
+ &lt;a class="anchor" href="#mac%e5%8d%a1%e9%a1%bf%e5%a4%84%e7%90%86"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;删除Macintosh HD/系统/资源库/Caches中的文件 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;删除Macintosh HD/资源库/Caches中的文件 &lt;br/&gt;&lt;/li&gt;
+&lt;li&gt;如果以上无效, 建议更换操作系统版本 &lt;br/&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="ssh远程连接mac-中文乱码"&gt;
+ SSH远程连接Mac, 中文乱码
+ 
+ &lt;a class="anchor" href="#ssh%e8%bf%9c%e7%a8%8b%e8%bf%9e%e6%8e%a5mac-%e4%b8%ad%e6%96%87%e4%b9%b1%e7%a0%81"&gt;#&lt;/a&gt;
+ 
+&lt;/h3&gt;
+&lt;p&gt;这种情况一般是终端和服务器的字符集不匹配. &lt;br/&gt;
+MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>linux</title><link>https://clay9.github.io/blog/docs/os/linux/</link><pubDate>Fri, 31 May 2024 10:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/linux/</guid><description/></item><item><title>静态库 &amp;&amp; 动态库</title><link>https://clay9.github.io/blog/docs/os/dll/</link><pubDate>Thu, 18 Jan 2024 18:55:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/dll/</guid><description>&lt;p&gt;linux下静态库 &amp;amp;&amp;amp; 动态库 &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="差异区别"&gt;
  差异区别
  
