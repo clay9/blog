@@ -41,7 +41,7 @@ linux下静态库 && 动态库
         3. 查找依次在/lib和/usr/lib目录查找。
         #+end_hint
      2) flag参数表示处理未定义函数的方式，可以使用RTLD_LAZY或RTLD_NOW
-        #+attr_shortcode: info|success|warning|danger
+        #+attr_shortcode: info
         #+begin_hint
         RTLD_LAZY表示暂时不去处理未定义函数，先把库装载到内存，等用到没定义的函数再说；
         RTLD_NOW表示马上检查是否存在未定义的函数，若存在，则dlopen以失败告终。
