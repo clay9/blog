@@ -90,9 +90,9 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
    [[https://orgmode.org/manual/Link-Format.html]]
 ** Internal Links
    1. "\[\[#FirstLink\]\]" [[#FirstLink]]
-   3. "\[\[*FirstLink\]\]" [[*FirstLink]]
-   5. "\[\[FirstLink\]\]" [[FirstLink]]
-   6. "\[\[SecondLink\]\]" [[SecondLink]]
+   2. "\[\[*FirstLink\]\]" [[*FirstLink]]
+   3. "\[\[FirstLink\]\]" [[FirstLink]]
+   4. "\[\[SecondLink\]\]" [[SecondLink]]
 
    #+begin_example
    [[#target]] 只会找 Entry with CUSTOM_ID为target
@@ -120,8 +120,7 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
     搜索文件. file: org_export_example_link_file.txt
     [[file:org_export_example_link_file.txt]]
 
-    搜索文件的第20行. file: org_export.org::20
-    [[file:org_export.org::20]]
+    搜索文件的第20行. file: org_export.org::20 TODO: not work
 
     搜傅文件中的 ox-hugo Headline. file: org_export.org::*ox-hugo
     [[file:org_export.org::*ox-hugo]]
