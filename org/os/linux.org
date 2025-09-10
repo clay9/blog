@@ -57,7 +57,7 @@
 
 * 命令说明
   #+name: cpuinfo
-  #+attr_shortcode: :title /proc/cpuinfo
+  #+attr_shortcode: :title cpuinfo
   #+begin_details
   #+begin_src shell
     # 总核数 = 物理CPU个数 X 每颗物理CPU的核数
