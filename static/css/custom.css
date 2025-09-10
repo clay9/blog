@@ -1,7 +1,0 @@
-/* 覆盖掉 Book 默认代码块的 focus 高亮 */
-.book-page .highlight pre:focus,
-.book-page .highlight pre:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
