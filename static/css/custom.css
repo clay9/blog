@@ -1,6 +1,6 @@
-::selection {
-  background-color: transparent !important;
-}
-::-moz-selection {
-  background-color: transparent !important;
+/* 针对代码块去掉 focus 高亮 */
+pre:focus,
+code:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
