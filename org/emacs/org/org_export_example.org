@@ -44,8 +44,8 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
     2) 2222
     3) 3333
 *** Description list (Unordered list)
-    Elijah Wood :: He plays Frodo
-    Sean Astin :: He plays Sam, Frodo's friend
+    - Elijah Wood :: He plays Frodo
+    - Sean Astin :: He plays Sam, Frodo's friend
 ** Drawers
    outside the drawer
    :drawername:
