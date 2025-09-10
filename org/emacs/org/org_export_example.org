@@ -204,6 +204,12 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
    superscipts:
    R_{sun}
 ** Embedded LaTex
+** Literal Examples
+   #+begin_src emacs-lisp -n
+     (message "H1")
+     (message "H2")
+     (message "H3")
+   #+end_src
 ** Images
    link to an image without description part
    [[file:ox-hugo-export.png]]
