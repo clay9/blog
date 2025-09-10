@@ -198,3 +198,6 @@ org自带强大的export功能.
        {{ < myshortcode > }}
        end_export
        #+end_example
+* TODO hugo book
+  1. 点击 block的时候, 会高亮显示block
+     如何取消这个设置

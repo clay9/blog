@@ -205,7 +205,7 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
    R_{sun}
 ** Embedded LaTex
 ** Literal Examples
-   #+begin_src emacs-lisp -n
+   #+begin_src emacs-lisp -n :hl_lines 2
      (message "H1")
      (message "H2")
      (message "H3")
