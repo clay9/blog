@@ -218,10 +218,9 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
    -----
    down bbbbbbbbbbb
 ** Creating Footnotes
-   只是一个脚注[fn:1]
-   balabala
-   balabala
-   [fn:1] 展示脚注内容
+   一个脚注[fn:1]
+
+[fn:1] A footnote is started by a footnote marker in square brackets in column 0, no indentation allowed. It ends at the next footnote definition, headline, or after two consecutive empty lines.
 
 
 
