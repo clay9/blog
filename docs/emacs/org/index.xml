@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>org &amp;&amp; gtd on 飘</title><link>https://clay9.github.io/blog/docs/emacs/org/</link><description>Recent content in org &amp;&amp; gtd on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:15:24 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/org/index.xml" rel="self" type="application/rss+xml"/><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>org &amp;&amp; gtd on 飘</title><link>https://clay9.github.io/blog/docs/emacs/org/</link><description>Recent content in org &amp;&amp; gtd on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:22:05 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/org/index.xml" rel="self" type="application/rss+xml"/><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
 主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code&gt;org-mode&lt;/code&gt;), 另一个则是 &lt;code&gt;org-agenda&lt;/code&gt; &lt;br/&gt;
 推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html"&gt;org心得体会&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="配置"&gt;
@@ -185,37 +185,36 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
  &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
  
 &lt;/h2&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;-------------------------+------------------------
- |
- | capture (easy)
- |
- |
- v
- archive +---------+
-+-------------------| inbox |
-| +----+----+
-| |
-| | refile (auto)
-| |
-| |
-| |----------------+--------------------|
-| | | |
-| | v v
-| v +---------+ +---------+
-| +---------+ | my/emacs| | work/qy |
-| | task | | * emacs| | * ker |
-| +----+----+ | * org | | * frame|
-| | | * ccIDE| | * sub |
-| | +---------+ +---------+
-| |
-| | archive (auto)
-| |
-| v
-| +---------+
-+-&amp;gt;| archive |
- +----+----+
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="文件的设计"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-------------------------+------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; | capture (easy)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; archive +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;+-------------------| inbox |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +----+----+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | refile (auto)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |----------------+--------------------|
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | | |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | v v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| v +---------+ +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +---------+ | my/emacs| | work/qy |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | task | | * emacs| | * ker |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +----+----+ | * org | | * frame|
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | | * ccIDE| | * sub |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | +---------+ +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | archive (auto)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;+-&amp;gt;| archive |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; +----+----+
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="文件的设计"&gt;
  文件的设计
  
  &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;

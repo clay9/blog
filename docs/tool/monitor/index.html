@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="cadvisor, prometheus, grafana 组成的监控系统 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/tool/monitor/"><meta property="og:site_name" content="飘"><meta property="og:title" content="cadvisor, prometheus, grafana"><meta property="og:description" content="cadvisor, prometheus, grafana 组成的监控系统"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-06-05T16:40:00+00:00"><meta property="article:modified_time" content="2025-09-10T03:15:25+00:00"><title>cadvisor, prometheus, grafana | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/tool/monitor/><link rel=stylesheet href=/blog/book.min.27cffe658670f57112663ed746a421db277c2dd6549965c27f9ad0103cccd990.css integrity="sha256-J8/+ZYZw9XESZj7XRqQh2yd8LdZUmWXCf5rQEDzM2ZA=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.2297ea681b713ae7501ca15db14bd68df5af7771286645c8acbfa7de9159978f.js integrity="sha256-IpfqaBtxOudQHKFdsUvWjfWvd3EoZkXIrL+n3pFZl48=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs book-layout-"><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="cadvisor, prometheus, grafana 组成的监控系统 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/tool/monitor/"><meta property="og:site_name" content="飘"><meta property="og:title" content="cadvisor, prometheus, grafana"><meta property="og:description" content="cadvisor, prometheus, grafana 组成的监控系统"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-06-05T16:40:00+00:00"><meta property="article:modified_time" content="2025-09-10T03:22:06+00:00"><title>cadvisor, prometheus, grafana | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/tool/monitor/><link rel=stylesheet href=/blog/book.min.27cffe658670f57112663ed746a421db277c2dd6549965c27f9ad0103cccd990.css integrity="sha256-J8/+ZYZw9XESZj7XRqQh2yd8LdZUmWXCf5rQEDzM2ZA=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.2e5d8a495caf049cb4ebb9337894dfc7e9170be3a5862f617fa35a9a4f56bee9.js integrity="sha256-Ll2KSVyvBJy067kzeJTfx+kXC+Olhi9hf6Namk9Wvuk=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs book-layout-"><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/blog/><span>飘</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><input type=checkbox id=section-991bd30d46a386cace03b4f84b11c8f5 class=toggle>
 <label for=section-991bd30d46a386cace03b4f84b11c8f5 class=flex><a role=button class=flex-auto>os</a></label><ul><li><a href=/blog/docs/os/mac/>mac</a></li><li><a href=/blog/docs/os/linux/>linux</a></li><li><input type=checkbox id=section-f866724d2acb7e76aaac59a04f639ef7 class=toggle>
 <label for=section-f866724d2acb7e76aaac59a04f639ef7 class=flex><a role=button class=flex-auto>os</a></label><ul><li><a href=/blog/docs/os/os/os/>os</a></li><li><a href=/blog/docs/os/os/memory_01/>memory 01</a></li></ul></li><li><a href=/blog/docs/os/dll/>静态库 && 动态库</a></li><li><input type=checkbox id=section-ab3af5bd51cb4c263c32a78225fa580c class=toggle>
@@ -18,59 +18,77 @@
 <a class=anchor href=#cadvisor>#</a></h2><p><a href=https://github.com/google/cadvisor>cadvisor</a>负责收集docker容器的运行信息,<br>prometheus下的<a href=https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md>cadvisor metrics指标</a>.<br></p><p><em>cadvisor开箱即用, 不需要专门配置</em><br></p><h2 id=node-exporter>node exporter
 <a class=anchor href=#node-exporter>#</a></h2><p><a href=https://github.com/prometheus/node_exporter>node exporter</a>是prometheus的收集器, 收集linux的硬件和os信息.<br></p><p><em>node exporter开箱即用, 不需要专门配置</em><br></p><h2 id=prometheus>prometheus
 <a class=anchor href=#prometheus>#</a></h2><p><a href=https://github.com/prometheus/prometheus>prometheus</a>不仅仅是数据库, 还是一套完整的监控系统.<br></p><h3 id=配置>配置
-<a class=anchor href=#%e9%85%8d%e7%bd%ae>#</a></h3><p>prometheus的配置非常简单, 一个 <code>prometheus.yml</code> 即可. 适合集群部署<br></p><pre><code class=language-yaml>global:
-  scrape_interval: 15s # By default, scrape targets every 15 seconds.
-
-  # Attach these labels to any time series or alerts when communicating with
-  # external systems (federation, remote storage, Alertmanager).
-  external_labels:
-    monitor: 'codelab-monitor'
-
-# A scrape configuration containing exactly one endpoint to scrape:
-scrape_configs:
-  # The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.
-  - job_name: 'nodeexporter'
-    # Override the global default and scrape targets from this job every 5 seconds.
-    scrape_interval: 5s
-    static_configs:
-      # - targets: ['host.docker.internal:9100']
-      - targets: ['node_exporter:9100']
-
-  - job_name: 'cadvisor'
-    scrape_interval: 5s
-    static_configs:
-      - targets: ['cadvisor:8080']
-
-  - job_name: 'prometheus'
-    scrape_interval: 10s
-    static_configs:
-      - targets: ['localhost:9090']
-</code></pre><h2 id=grafana>grafana
+<a class=anchor href=#%e9%85%8d%e7%bd%ae>#</a></h3><p>prometheus的配置非常简单, 一个 <code>prometheus.yml</code> 即可. 适合集群部署<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#309;font-weight:700>global</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span><span style=color:#309;font-weight:700>scrape_interval</span>:<span style=color:#bbb> </span>15s<span style=color:#bbb> </span><span style=color:#09f;font-style:italic># By default, scrape targets every 15 seconds.</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span><span style=color:#09f;font-style:italic># Attach these labels to any time series or alerts when communicating with</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span><span style=color:#09f;font-style:italic># external systems (federation, remote storage, Alertmanager).</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span><span style=color:#309;font-weight:700>external_labels</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>monitor</span>:<span style=color:#bbb> </span><span style=color:#c30>&#39;codelab-monitor&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:#09f;font-style:italic># A scrape configuration containing exactly one endpoint to scrape:</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:#309;font-weight:700>scrape_configs</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span><span style=color:#09f;font-style:italic># The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span>- <span style=color:#309;font-weight:700>job_name</span>:<span style=color:#bbb> </span><span style=color:#c30>&#39;nodeexporter&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#09f;font-style:italic># Override the global default and scrape targets from this job every 5 seconds.</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>scrape_interval</span>:<span style=color:#bbb> </span>5s<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>static_configs</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>      </span><span style=color:#09f;font-style:italic># - targets: [&#39;host.docker.internal:9100&#39;]</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>      </span>- <span style=color:#309;font-weight:700>targets</span>:<span style=color:#bbb> </span>[<span style=color:#c30>&#39;node_exporter:9100&#39;</span>]<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span>- <span style=color:#309;font-weight:700>job_name</span>:<span style=color:#bbb> </span><span style=color:#c30>&#39;cadvisor&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>scrape_interval</span>:<span style=color:#bbb> </span>5s<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>static_configs</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>      </span>- <span style=color:#309;font-weight:700>targets</span>:<span style=color:#bbb> </span>[<span style=color:#c30>&#39;cadvisor:8080&#39;</span>]<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span>- <span style=color:#309;font-weight:700>job_name</span>:<span style=color:#bbb> </span><span style=color:#c30>&#39;prometheus&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>scrape_interval</span>:<span style=color:#bbb> </span>10s<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>static_configs</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>      </span>- <span style=color:#309;font-weight:700>targets</span>:<span style=color:#bbb> </span>[<span style=color:#c30>&#39;localhost:9090&#39;</span>]<span style=color:#bbb>
+</span></span></span></code></pre></div><h2 id=grafana>grafana
 <a class=anchor href=#grafana>#</a></h2><p><a href=https://github.com/grafana/grafana>grafana</a>用于数据可视化 && 监控<br></p><p><em>TODO 补充 <code>Provision</code> 逻辑</em><br></p><h3 id=datasource>datasource
-<a class=anchor href=#datasource>#</a></h3><pre><code class=language-yaml>apiVersion: 1
-
-datasources:
-  - name: Prometheus
-    type: prometheus
-    # Access mode - proxy (server in the UI) or direct (browser in the UI).
-    access: proxy
-    url: http://prometheus:9090
-    jsonData:
-      httpMethod: POST
-      exemplarTraceIdDestinations:
-        # Field with internal link pointing to data source in Grafana.
-        # datasourceUid value can be anything, but it should be unique across all defined data source uids.
-        - datasourceUid: my_jaeger_uid
-          name: traceID
-
-        # Field with external link.
-        - name: traceID
-          url: 'http://localhost:3000/explore?orgId=1&amp;left=%5B%22now-1h%22,%22now%22,%22Jaeger%22,%7B%22query%22:%22$${__value.raw}%22%7D%5D'
-
-</code></pre><h3 id=dashboard>dashboard
-<a class=anchor href=#dashboard>#</a></h3><p>一个dashboard 由1个多个panel面板组成, 可以有多个dashboard<br>每个dashboard对应一个xx.yaml<br>每个面板对应一个配置文件xx.json<br></p><p>dashboard的配置文件xx.yaml中有个特殊的字段, 可以把指定目录下的 子目录变为dashboard, 子目录下的xx.json变为面板<br></p><pre><code class=language-text>path: $GF_PATHS_PROVISIONING/dashboards
-foldersFromFilesStructure: true
-</code></pre><p>当 foldersFromFilesStructure设置为true的时候, path下的子目录名字会变为dashboard的名字<br>子目录下的xx.json会变为该dashboard下的panel面板<br></p><p>这样我们只需要配置一个总的yaml, 然后规划path下的目录层级即可, 方便进行统一的管理<br></p><p><em>面板的配置文件 <code>xx.json</code> 可以找一些经典的, 在此基础上修改为适合自己的</em><br></p><h3 id=alerting>alerting
+<a class=anchor href=#datasource>#</a></h3><div class=highlight><div style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#309;font-weight:700>apiVersion</span>:<span style=color:#bbb> </span><span style=color:#f60>1</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:#309;font-weight:700>datasources</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>  </span>- <span style=color:#309;font-weight:700>name</span>:<span style=color:#bbb> </span>Prometheus<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>type</span>:<span style=color:#bbb> </span>prometheus<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#09f;font-style:italic># Access mode - proxy (server in the UI) or direct (browser in the UI).</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>access</span>:<span style=color:#bbb> </span>proxy<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>url</span>:<span style=color:#bbb> </span>http://prometheus:9090<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>    </span><span style=color:#309;font-weight:700>jsonData</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>      </span><span style=color:#309;font-weight:700>httpMethod</span>:<span style=color:#bbb> </span>POST<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>      </span><span style=color:#309;font-weight:700>exemplarTraceIdDestinations</span>:<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>        </span><span style=color:#09f;font-style:italic># Field with internal link pointing to data source in Grafana.</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>        </span><span style=color:#09f;font-style:italic># datasourceUid value can be anything, but it should be unique across all defined data source uids.</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>        </span>- <span style=color:#309;font-weight:700>datasourceUid</span>:<span style=color:#bbb> </span>my_jaeger_uid<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>          </span><span style=color:#309;font-weight:700>name</span>:<span style=color:#bbb> </span>traceID<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>        </span><span style=color:#09f;font-style:italic># Field with external link.</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>        </span>- <span style=color:#309;font-weight:700>name</span>:<span style=color:#bbb> </span>traceID<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb>          </span><span style=color:#309;font-weight:700>url</span>:<span style=color:#bbb> </span><span style=color:#c30>&#39;http://localhost:3000/explore?orgId=1&amp;left=%5B%22now-1h%22,%22now%22,%22Jaeger%22,%7B%22query%22:%22$${__value.raw}%22%7D%5D&#39;</span><span style=color:#bbb>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=dashboard>dashboard
+<a class=anchor href=#dashboard>#</a></h3><p>一个dashboard 由1个多个panel面板组成, 可以有多个dashboard<br>每个dashboard对应一个xx.yaml<br>每个面板对应一个配置文件xx.json<br></p><p>dashboard的配置文件xx.yaml中有个特殊的字段, 可以把指定目录下的 子目录变为dashboard, 子目录下的xx.json变为面板<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>path: $GF_PATHS_PROVISIONING/dashboards
+</span></span><span style=display:flex><span>foldersFromFilesStructure: true
+</span></span></code></pre></div><p>当 foldersFromFilesStructure设置为true的时候, path下的子目录名字会变为dashboard的名字<br>子目录下的xx.json会变为该dashboard下的panel面板<br></p><p>这样我们只需要配置一个总的yaml, 然后规划path下的目录层级即可, 方便进行统一的管理<br></p><p><em>面板的配置文件 <code>xx.json</code> 可以找一些经典的, 在此基础上修改为适合自己的</em><br></p><h3 id=alerting>alerting
 <a class=anchor href=#alerting>#</a></h3><ul><li>alter rule<br></li><li>contact point<br></li><li>notification policy<br></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/blog/docs/tool/k8s/ class="flex align-center book-icon"><img src=/blog/svg/backward.svg class=book-icon alt=Previous title=k8s>
 <span>k8s</span>
 </a></span><span><a href=/blog/docs/tool/hugo/ class="flex align-center book-icon"><span>hugo</span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog language on 飘</title><link>https://clay9.github.io/blog/docs/prog_language/</link><description>Recent content in prog language on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:15:25 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_language/index.xml" rel="self" type="application/rss+xml"/><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog language on 飘</title><link>https://clay9.github.io/blog/docs/prog_language/</link><description>Recent content in prog language on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:22:06 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_language/index.xml" rel="self" type="application/rss+xml"/><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://smacs.github.io/elisp/02-elisp-basic.html"&gt;水木社区Emacs版&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp"&gt;lisp的本质&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
@@ -60,10 +60,9 @@
 &lt;ol&gt;
 &lt;li&gt;elisp代码写入el文件(eshell script) &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;bash调用emacs执行el文件 &lt;br/&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 实际还是emacs 执行的elisp代码
-emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 实际还是emacs 执行的elisp代码
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="elisp-调用bashe"&gt;
  elisp 调用bashe
@@ -71,10 +70,10 @@ emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
  &lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(setq my-command
-(concat &amp;quot;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;quot;$PATH\&amp;quot;\n&amp;quot;
- &amp;quot;for dir in ${dirs[@]}; do\n&amp;quot;
- &amp;quot; echo got dir \&amp;quot;$dir\&amp;quot;\n&amp;quot;
- &amp;quot;done\n&amp;quot;))
-(shell-command (format &amp;quot;bash -c %s&amp;quot; (shell-quote-argument my-command)))
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>shell</title><link>https://clay9.github.io/blog/docs/prog_language/shell/</link><pubDate>Thu, 18 Jan 2024 19:09:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/shell/</guid><description>&lt;p&gt;shell 记录 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq my-command
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(concat &amp;#34;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;#34;$PATH\&amp;#34;\n&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;for dir in ${dirs[@]}; do\n&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34; echo got dir \&amp;#34;$dir\&amp;#34;\n&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;done\n&amp;#34;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(shell-command (format &amp;#34;bash -c %s&amp;#34; (shell-quote-argument my-command)))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>shell</title><link>https://clay9.github.io/blog/docs/prog_language/shell/</link><pubDate>Thu, 18 Jan 2024 19:09:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/shell/</guid><description>&lt;p&gt;shell 记录 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>

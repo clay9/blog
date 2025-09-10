@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:15:23 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:22:04 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
 &lt;a href="https://linuxtoy.org/archives/emacs-eshell.html"&gt;官方文档&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;优势: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -7,9 +7,8 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;语法支持tramp &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;cd /method:user@host#22:/path
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /method:user@host#22:/path
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="eshell-and-and-elisp"&gt;
  eshell &amp;amp;&amp;amp; elisp
@@ -34,25 +33,23 @@
  
 &lt;/h3&gt;
 &lt;p&gt;eshell 脚本中使用elisp语法给变量赋值 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(setq remote_temp &amp;quot;/ssh:clay@192.168.0.97:~/temp&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="变量使用"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq remote_temp &amp;#34;/ssh:clay@192.168.0.97:~/temp&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="变量使用"&gt;
  变量使用 $
  
  &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
 &lt;p&gt;基本与shell相同, 具体可以详见官方说明 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;eshell/rm -r $remote_temp
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p&gt;全称 transparent remote access multiple protocol &lt;br/&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eshell/rm -r $remote_temp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p&gt;全称 transparent remote access multiple protocol &lt;br/&gt;
 tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method &lt;br/&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ssh &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;su | sudo &lt;br/&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
-/su:root:path/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:root:path/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="用法"&gt;
  用法
@@ -66,52 +63,48 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;a class="anchor" href="#basic"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;/method:user@host#port:/path/to/file
-
-# example 1
-/ssh:clay@192.1.1.1#22:~
-
-# example 2 windows下可以使用putty作为ssh的client
-/plink:clay@192.1.1.1:~
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="set-default-method"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/method:user@host#port:/path/to/file
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# example 1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@192.1.1.1#22:~
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# example 2 windows下可以使用putty作为ssh的client
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/plink:clay@192.1.1.1:~
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="set-default-method"&gt;
  set default method
  
  &lt;a class="anchor" href="#set-default-method"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(setq tramp-default-method &amp;quot;plink&amp;quot;)
-
-; 设置之后的例子
-; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
-/-:clay@192.1.1.1:~
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="multiple-hop"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq tramp-default-method &amp;#34;plink&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;; 设置之后的例子
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1:~
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="multiple-hop"&gt;
  multiple hop
  
  &lt;a class="anchor" href="#multiple-hop"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 在本机上, 通过clay用户登录到host1
-# 再在host1上, 通过admin登录到host2
-/ssh:clay@host1|ssh:admin@host2:/path
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="su-sudo"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 在本机上, 通过clay用户登录到host1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 再在host1上, 通过admin登录到host2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@host1|ssh:admin@host2:/path
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="su-sudo"&gt;
  su | sudo
  
  &lt;a class="anchor" href="#su-sudo"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 使用sudo打开远程文件
-/-:clay@192.1.1.1|sudo::/path
-
-# 使用sudo打开本地文件
-# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
-/su::local-path
-/su:user@localhost:/local-path
-/sudo:root@localhost:/local-path
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="use-with-bookmarks"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 使用sudo打开远程文件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1|sudo::/path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 使用sudo打开本地文件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su::local-path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:user@localhost:/local-path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/sudo:root@localhost:/local-path
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="use-with-bookmarks"&gt;
  use with bookmarks
  
  &lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;
@@ -179,9 +172,8 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;轻度使用email &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;gnus的缺点: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -340,12 +332,10 @@ Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &l
 &lt;/h3&gt;
 &lt;p&gt;github copilot 没有emacs的官方插件, 使用的是第三方package &lt;a href="https://github.com/zerolfx/copilot.el"&gt;copilot&lt;/a&gt;. &lt;br/&gt;
 安装与配置均比较简单, 可以参考copilot官方文档 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-lisp"&gt;;;国内可能无法访问github copilot, 可以配置一下代理
-(setq copilot-network-proxy '(:host &amp;quot;127.0.0.1&amp;quot; :port &amp;quot;10887&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="快捷键配置"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;;;国内可能无法访问github copilot, 可以配置一下代理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#069;font-weight:bold"&gt;setq&lt;/span&gt; &lt;span style="color:#033"&gt;copilot-network-proxy&lt;/span&gt; &lt;span style="color:#555"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#fc3"&gt;:host&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt; &lt;span style="color:#fc3"&gt;:port&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;10887&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="快捷键配置"&gt;
  快捷键配置
  
  &lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;

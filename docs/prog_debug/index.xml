@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog debug on 飘</title><link>https://clay9.github.io/blog/docs/prog_debug/</link><description>Recent content in prog debug on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:15:25 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_debug/index.xml" rel="self" type="application/rss+xml"/><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog debug on 飘</title><link>https://clay9.github.io/blog/docs/prog_debug/</link><description>Recent content in prog debug on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:22:06 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_debug/index.xml" rel="self" type="application/rss+xml"/><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;
  proc总体状态查看
  
  &lt;a class="anchor" href="#proc%e6%80%bb%e4%bd%93%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b"&gt;#&lt;/a&gt;
@@ -10,62 +10,59 @@
  &lt;a class="anchor" href="#proc"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(gdb) info proc
-process 217777
-cmdline = '/home/clay/my/learn_gdb/a.out'
-cwd = '/home/clay/my/learn_gdb'
-exe = '/home/clay/my/learn_gdb/a.out'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="proc-status"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(gdb) info proc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;process 217777
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cmdline = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cwd = &amp;#39;/home/clay/my/learn_gdb&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;exe = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="proc-status"&gt;
  proc status
  
  &lt;a class="anchor" href="#proc-status"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;//TODONOW 补充对应的字段
-info proc status
-
-显示与进程相关的附加信息
-1) 用户ID, group id
-2) 虚拟内存使用情况
-3) 待处理, 阻塞和沪铝的信号
-4) 消耗系统和用户的时间
-5) 堆栈大小
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="内存分布"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;//TODONOW 补充对应的字段
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;info proc status
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;显示与进程相关的附加信息
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1) 用户ID, group id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2) 虚拟内存使用情况
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;3) 待处理, 阻塞和沪铝的信号
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;4) 消耗系统和用户的时间
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5) 堆栈大小
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="内存分布"&gt;
  内存分布
  
  &lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%88%86%e5%b8%83"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;段表&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt; //TODONOW 补充说明
- (gdb) info proc mappings
- process 217777
- Mapped address spaces:
-
- Start Addr End Addr Size Offset Perms objfile
-0x555555554000 0x555555555000 0x1000 0x0 r--p /home/clay/my/learn_gdb/a.out
-0x555555555000 0x555555556000 0x1000 0x1000 r-xp /home/clay/my/learn_gdb/a.out
-0x555555556000 0x555555557000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
-0x555555557000 0x555555558000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
-0x555555558000 0x555555559000 0x1000 0x3000 rw-p /home/clay/my/learn_gdb/a.out
-0x7ffff7d8a000 0x7ffff7d8d000 0x3000 0x0 rw-p 
-0x7ffff7d8d000 0x7ffff7db5000 0x28000 0x0 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7db5000 0x7ffff7f4a000 0x195000 0x28000 r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7f4a000 0x7ffff7fa2000 0x58000 0x1bd000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa2000 0x7ffff7fa3000 0x1000 0x215000 ---p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa3000 0x7ffff7fa7000 0x4000 0x215000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa7000 0x7ffff7fa9000 0x2000 0x219000 rw-p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa9000 0x7ffff7fb6000 0xd000 0x0 rw-p 
-0x7ffff7fbb000 0x7ffff7fbd000 0x2000 0x0 rw-p 
-0x7ffff7fbd000 0x7ffff7fc1000 0x4000 0x0 r--p [vvar]
-0x7ffff7fc1000 0x7ffff7fc3000 0x2000 0x0 r-xp [vdso]
-0x7ffff7fc3000 0x7ffff7fc5000 0x2000 0x0 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7fc5000 0x7ffff7fef000 0x2a000 0x2000 r-xp /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7fef000 0x7ffff7ffa000 0xb000 0x2c000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7ffb000 0x7ffff7ffd000 0x2000 0x37000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7ffd000 0x7ffff7fff000 0x2000 0x39000 rw-p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffffffde000 0x7ffffffff000 0x21000 0x0 rw-p [stack]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;页表&lt;/code&gt; (Register: cr3) &lt;em&gt;TODO 待补充&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>valgrind</title><link>https://clay9.github.io/blog/docs/prog_debug/valgrind/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/valgrind/</guid><description>&lt;p&gt;程序检测工具 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; //TODONOW 补充说明
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (gdb) info proc mappings
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; process 217777
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Mapped address spaces:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Start Addr End Addr Size Offset Perms objfile
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555554000 0x555555555000 0x1000 0x0 r--p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555555000 0x555555556000 0x1000 0x1000 r-xp /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555556000 0x555555557000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555557000 0x555555558000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555558000 0x555555559000 0x1000 0x3000 rw-p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7d8a000 0x7ffff7d8d000 0x3000 0x0 rw-p 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7d8d000 0x7ffff7db5000 0x28000 0x0 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7db5000 0x7ffff7f4a000 0x195000 0x28000 r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7f4a000 0x7ffff7fa2000 0x58000 0x1bd000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa2000 0x7ffff7fa3000 0x1000 0x215000 ---p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa3000 0x7ffff7fa7000 0x4000 0x215000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa7000 0x7ffff7fa9000 0x2000 0x219000 rw-p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa9000 0x7ffff7fb6000 0xd000 0x0 rw-p 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fbb000 0x7ffff7fbd000 0x2000 0x0 rw-p 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fbd000 0x7ffff7fc1000 0x4000 0x0 r--p [vvar]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fc1000 0x7ffff7fc3000 0x2000 0x0 r-xp [vdso]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fc3000 0x7ffff7fc5000 0x2000 0x0 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fc5000 0x7ffff7fef000 0x2a000 0x2000 r-xp /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fef000 0x7ffff7ffa000 0xb000 0x2c000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7ffb000 0x7ffff7ffd000 0x2000 0x37000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7ffd000 0x7ffff7fff000 0x2000 0x39000 rw-p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffffffde000 0x7ffffffff000 0x21000 0x0 rw-p [stack]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;页表&lt;/code&gt; (Register: cr3) &lt;em&gt;TODO 待补充&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>valgrind</title><link>https://clay9.github.io/blog/docs/prog_debug/valgrind/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/valgrind/</guid><description>&lt;p&gt;程序检测工具 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>

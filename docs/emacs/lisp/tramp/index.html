@@ -8,7 +8,6 @@ su | sudo
 
 
 
-
   用法
   
   #
@@ -28,7 +27,6 @@ su | sudo
 # example 2 windows下可以使用putty作为ssh的client
 /plink:clay@192.1.1.1:~
 
-
   set default method
   
   #
@@ -40,7 +38,6 @@ su | sudo
 ; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
 /-:clay@192.1.1.1:~
 
-
   multiple hop
   
   #
@@ -49,7 +46,6 @@ su | sudo
 # 在本机上,    通过clay用户登录到host1
 # 再在host1上, 通过admin登录到host2
 /ssh:clay@host1|ssh:admin@host2:/path
-
 
   su | sudo
   
@@ -65,13 +61,12 @@ su | sudo
 /su:user@localhost:/local-path
 /sudo:root@localhost:/local-path
 
-
   use with bookmarks
   
   #
   
 
-tramp使用的时候 需要使用到method user host path的组合，一般较长 '><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/emacs/lisp/tramp/"><meta property="og:site_name" content="飘"><meta property="og:title" content="tramp"><meta property="og:description" content='全称 transparent remote access multiple protocol tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method ssh su | sudo # 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件/su:root:path/用法 # basic # /method:user@host#port:/path/to/file# example 1/ssh:clay@192.1.1.1#22:~# example 2 windows下可以使用putty作为ssh的client/plink:clay@192.1.1.1:~set default method # (setq tramp-default-method "plink"); 设置之后的例子; 可以设置linux和windows下默认的method，之后就无需考虑操作系统/-:clay@192.1.1.1:~multiple hop # # 在本机上, 通过clay用户登录到host1# 再在host1上, 通过admin登录到host2/ssh:clay@host1|ssh:admin@host2:/pathsu | sudo # # 使用sudo打开远程文件/-:clay@192.1.1.1|sudo::/path# 使用sudo打开本地文件# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist/su::local-path/su:user@localhost:/local-path/sudo:root@localhost:/local-pathuse with bookmarks # tramp使用的时候 需要使用到method user host path的组合，一般较长'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-01-18T18:36:00+00:00"><meta property="article:modified_time" content="2025-09-10T03:15:23+00:00"><title>tramp | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/emacs/lisp/tramp/><link rel=stylesheet href=/blog/book.min.27cffe658670f57112663ed746a421db277c2dd6549965c27f9ad0103cccd990.css integrity="sha256-J8/+ZYZw9XESZj7XRqQh2yd8LdZUmWXCf5rQEDzM2ZA=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.2297ea681b713ae7501ca15db14bd68df5af7771286645c8acbfa7de9159978f.js integrity="sha256-IpfqaBtxOudQHKFdsUvWjfWvd3EoZkXIrL+n3pFZl48=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs book-layout-"><input type=checkbox class="hidden toggle" id=menu-control>
+tramp使用的时候 需要使用到method user host path的组合，一般较长 '><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/emacs/lisp/tramp/"><meta property="og:site_name" content="飘"><meta property="og:title" content="tramp"><meta property="og:description" content='全称 transparent remote access multiple protocol tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method ssh su | sudo # 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件 /su:root:path/ 用法 # basic # /method:user@host#port:/path/to/file # example 1 /ssh:clay@192.1.1.1#22:~ # example 2 windows下可以使用putty作为ssh的client /plink:clay@192.1.1.1:~ set default method # (setq tramp-default-method "plink") ; 设置之后的例子 ; 可以设置linux和windows下默认的method，之后就无需考虑操作系统 /-:clay@192.1.1.1:~ multiple hop # # 在本机上, 通过clay用户登录到host1 # 再在host1上, 通过admin登录到host2 /ssh:clay@host1|ssh:admin@host2:/path su | sudo # # 使用sudo打开远程文件 /-:clay@192.1.1.1|sudo::/path # 使用sudo打开本地文件 # su::默认的是 su:root@localhost. 配置在tramp-default-method-alist /su::local-path /su:user@localhost:/local-path /sudo:root@localhost:/local-path use with bookmarks # tramp使用的时候 需要使用到method user host path的组合，一般较长'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-01-18T18:36:00+00:00"><meta property="article:modified_time" content="2025-09-10T03:22:04+00:00"><title>tramp | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/emacs/lisp/tramp/><link rel=stylesheet href=/blog/book.min.27cffe658670f57112663ed746a421db277c2dd6549965c27f9ad0103cccd990.css integrity="sha256-J8/+ZYZw9XESZj7XRqQh2yd8LdZUmWXCf5rQEDzM2ZA=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.2e5d8a495caf049cb4ebb9337894dfc7e9170be3a5862f617fa35a9a4f56bee9.js integrity="sha256-Ll2KSVyvBJy067kzeJTfx+kXC+Olhi9hf6Namk9Wvuk=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs book-layout-"><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/blog/><span>飘</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><input type=checkbox id=section-991bd30d46a386cace03b4f84b11c8f5 class=toggle>
 <label for=section-991bd30d46a386cace03b4f84b11c8f5 class=flex><a role=button class=flex-auto>os</a></label><ul><li><a href=/blog/docs/os/mac/>mac</a></li><li><a href=/blog/docs/os/linux/>linux</a></li><li><input type=checkbox id=section-f866724d2acb7e76aaac59a04f639ef7 class=toggle>
 <label for=section-f866724d2acb7e76aaac59a04f639ef7 class=flex><a role=button class=flex-auto>os</a></label><ul><li><a href=/blog/docs/os/os/os/>os</a></li><li><a href=/blog/docs/os/os/memory_01/>memory 01</a></li></ul></li><li><a href=/blog/docs/os/dll/>静态库 && 动态库</a></li><li><input type=checkbox id=section-ab3af5bd51cb4c263c32a78225fa580c class=toggle>
@@ -86,52 +81,52 @@ tramp使用的时候 需要使用到method user host path的组合，一般较�
 <label for=section-11c3ec22a7b18dd97ab270ab2478f4f6 class=flex><a role=button class=flex-auto>prog debug</a></label><ul><li><a href=/blog/docs/prog_debug/gdb/>gdb</a></li><li><a href=/blog/docs/prog_debug/valgrind/>valgrind</a></li></ul></li><li><input type=checkbox id=section-e28331ccf58c3495c420d802b774d229 class=toggle>
 <label for=section-e28331ccf58c3495c420d802b774d229 class=flex><a role=button class=flex-auto>prog vc</a></label><ul><li><a href=/blog/docs/prog_vc/git/>git</a></li></ul></li><li><input type=checkbox id=section-5a14b397bf7b143e435d509e6ce0a2f4 class=toggle>
 <label for=section-5a14b397bf7b143e435d509e6ce0a2f4 class=flex><a role=button class=flex-auto>prog base</a></label><ul><li><a href=/blog/docs/prog_base/base/>图灵机 && lambda演算</a></li><li><a href=/blog/docs/prog_base/programming_paradigm/>编程范式</a></li><li><a href=/blog/docs/prog_base/principles/>设计原则</a></li><li><a href=/blog/docs/prog_base/design_pattern/>设计模式</a></li><li><a href=/blog/docs/prog_base/algorithm/>数据结构与算法分析</a></li></ul></li><li><input type=checkbox id=section-a21c7c1e5253f7258b54a084bca47bcd class=toggle>
-<label for=section-a21c7c1e5253f7258b54a084bca47bcd class=flex><a role=button class=flex-auto>tools</a></label><ul><li><a href=/blog/docs/tool/docker/>docker</a></li><li><a href=/blog/docs/tool/k8s/>k8s</a></li><li><a href=/blog/docs/tool/monitor/>cadvisor, prometheus, grafana</a></li><li><a href=/blog/docs/tool/hugo/>hugo</a></li><li><a href=/blog/docs/tool/redis/>redis</a></li><li><a href=/blog/docs/tool/sql/>数据库</a></li><li><a href=/blog/docs/tool/protocol/>乱七八糟的协议合集</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/blog/svg/menu.svg class=book-icon alt=Menu></label><h3>tramp</h3><label for=toc-control><img src=/blog/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#用法>用法</a><ul><li><a href=#basic>basic</a></li><li><a href=#set-default-method>set default method</a></li><li><a href=#multiple-hop>multiple hop</a></li><li><a href=#su-sudo>su | sudo</a></li><li><a href=#use-with-bookmarks>use with bookmarks</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><p>全称 transparent remote access multiple protocol<br>tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method<br></p><ul><li>ssh<br></li><li>su | sudo<br><pre><code class=language-text># 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
-/su:root:path/
-</code></pre></li></ul><h2 id=用法>用法
+<label for=section-a21c7c1e5253f7258b54a084bca47bcd class=flex><a role=button class=flex-auto>tools</a></label><ul><li><a href=/blog/docs/tool/docker/>docker</a></li><li><a href=/blog/docs/tool/k8s/>k8s</a></li><li><a href=/blog/docs/tool/monitor/>cadvisor, prometheus, grafana</a></li><li><a href=/blog/docs/tool/hugo/>hugo</a></li><li><a href=/blog/docs/tool/redis/>redis</a></li><li><a href=/blog/docs/tool/sql/>数据库</a></li><li><a href=/blog/docs/tool/protocol/>乱七八糟的协议合集</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/blog/svg/menu.svg class=book-icon alt=Menu></label><h3>tramp</h3><label for=toc-control><img src=/blog/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#用法>用法</a><ul><li><a href=#basic>basic</a></li><li><a href=#set-default-method>set default method</a></li><li><a href=#multiple-hop>multiple hop</a></li><li><a href=#su-sudo>su | sudo</a></li><li><a href=#use-with-bookmarks>use with bookmarks</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><p>全称 transparent remote access multiple protocol<br>tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method<br></p><ul><li>ssh<br></li><li>su | sudo<br><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+</span></span><span style=display:flex><span>/su:root:path/
+</span></span></code></pre></div></li></ul><h2 id=用法>用法
 <a class=anchor href=#%e7%94%a8%e6%b3%95>#</a></h2><h3 id=basic>basic
-<a class=anchor href=#basic>#</a></h3><pre><code class=language-text>/method:user@host#port:/path/to/file
-
-# example 1
-/ssh:clay@192.1.1.1#22:~
-
-# example 2 windows下可以使用putty作为ssh的client
-/plink:clay@192.1.1.1:~
-</code></pre><h3 id=set-default-method>set default method
-<a class=anchor href=#set-default-method>#</a></h3><pre><code class=language-text>(setq tramp-default-method &quot;plink&quot;)
-
-; 设置之后的例子
-; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
-/-:clay@192.1.1.1:~
-</code></pre><h3 id=multiple-hop>multiple hop
-<a class=anchor href=#multiple-hop>#</a></h3><pre><code class=language-text># 在本机上,    通过clay用户登录到host1
-# 再在host1上, 通过admin登录到host2
-/ssh:clay@host1|ssh:admin@host2:/path
-</code></pre><h3 id=su-sudo>su | sudo
-<a class=anchor href=#su-sudo>#</a></h3><pre><code class=language-text># 使用sudo打开远程文件
-/-:clay@192.1.1.1|sudo::/path
-
-# 使用sudo打开本地文件
-# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
-/su::local-path
-/su:user@localhost:/local-path
-/sudo:root@localhost:/local-path
-</code></pre><h3 id=use-with-bookmarks>use with bookmarks
-<a class=anchor href=#use-with-bookmarks>#</a></h3><p>tramp使用的时候 需要使用到method user host path的组合，一般较长<br></p><p>我们更希望使用较短的shortcut去远程打开某个file<br></p><p>这里推荐的方法是bookmark. 理由:<br></p><ol><li>bookmark emacs内置, 而且非常方便<br></li><li>bookmark 的配置信息 可以方便git管理<br></li></ol><p>使用方法:<br></p><pre><code class=language-text># 1.远程连接
-C-x f /ssh:clay@192.1.1.1:~
-
-# 2.添加到bookmark
-C-x C-f BOOK-NAME RET
-
-# 3.查看bookmark
-C-x C-f
-
-# 4.管理bookmark配置文件
-~/.emacs.d/bookmarks
-
-# 5.管理auth信息文件
-~/.emacs.d/authinfo
-</code></pre></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/blog/docs/emacs/lisp/eshell/ class="flex align-center book-icon"><img src=/blog/svg/backward.svg class=book-icon alt=Previous title=eshell>
+<a class=anchor href=#basic>#</a></h3><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>/method:user@host#port:/path/to/file
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># example 1
+</span></span><span style=display:flex><span>/ssh:clay@192.1.1.1#22:~
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># example 2 windows下可以使用putty作为ssh的client
+</span></span><span style=display:flex><span>/plink:clay@192.1.1.1:~
+</span></span></code></pre></div><h3 id=set-default-method>set default method
+<a class=anchor href=#set-default-method>#</a></h3><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>(setq tramp-default-method &#34;plink&#34;)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>; 设置之后的例子
+</span></span><span style=display:flex><span>; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+</span></span><span style=display:flex><span>/-:clay@192.1.1.1:~
+</span></span></code></pre></div><h3 id=multiple-hop>multiple hop
+<a class=anchor href=#multiple-hop>#</a></h3><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># 在本机上,    通过clay用户登录到host1
+</span></span><span style=display:flex><span># 再在host1上, 通过admin登录到host2
+</span></span><span style=display:flex><span>/ssh:clay@host1|ssh:admin@host2:/path
+</span></span></code></pre></div><h3 id=su-sudo>su | sudo
+<a class=anchor href=#su-sudo>#</a></h3><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># 使用sudo打开远程文件
+</span></span><span style=display:flex><span>/-:clay@192.1.1.1|sudo::/path
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 使用sudo打开本地文件
+</span></span><span style=display:flex><span># su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+</span></span><span style=display:flex><span>/su::local-path
+</span></span><span style=display:flex><span>/su:user@localhost:/local-path
+</span></span><span style=display:flex><span>/sudo:root@localhost:/local-path
+</span></span></code></pre></div><h3 id=use-with-bookmarks>use with bookmarks
+<a class=anchor href=#use-with-bookmarks>#</a></h3><p>tramp使用的时候 需要使用到method user host path的组合，一般较长<br></p><p>我们更希望使用较短的shortcut去远程打开某个file<br></p><p>这里推荐的方法是bookmark. 理由:<br></p><ol><li>bookmark emacs内置, 而且非常方便<br></li><li>bookmark 的配置信息 可以方便git管理<br></li></ol><p>使用方法:<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># 1.远程连接
+</span></span><span style=display:flex><span>C-x f /ssh:clay@192.1.1.1:~
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 2.添加到bookmark
+</span></span><span style=display:flex><span>C-x C-f BOOK-NAME RET
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 3.查看bookmark
+</span></span><span style=display:flex><span>C-x C-f
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 4.管理bookmark配置文件
+</span></span><span style=display:flex><span>~/.emacs.d/bookmarks
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># 5.管理auth信息文件
+</span></span><span style=display:flex><span>~/.emacs.d/authinfo
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/blog/docs/emacs/lisp/eshell/ class="flex align-center book-icon"><img src=/blog/svg/backward.svg class=book-icon alt=Previous title=eshell>
 <span>eshell</span>
 </a></span><span><a href=/blog/docs/emacs/lisp/graph/ class="flex align-center book-icon"><span>artist && plantuml</span>
 <img src=/blog/svg/forward.svg class=book-icon alt=Next title="artist && plantuml"></a></span></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#用法>用法</a><ul><li><a href=#basic>basic</a></li><li><a href=#set-default-method>set default method</a></li><li><a href=#multiple-hop>multiple hop</a></li><li><a href=#su-sudo>su | sudo</a></li><li><a href=#use-with-bookmarks>use with bookmarks</a></li></ul></li></ul></nav></div></aside></main></body></html>

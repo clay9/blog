@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:15:25 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="界面整理"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 03:22:06 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description>&lt;h2 id="界面整理"&gt;
  界面整理
  
  &lt;a class="anchor" href="#%e7%95%8c%e9%9d%a2%e6%95%b4%e7%90%86"&gt;#&lt;/a&gt;
@@ -10,118 +10,41 @@
  &lt;a class="anchor" href="#launchpad%e5%90%af%e5%8a%a8%e5%8f%b0"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-shell"&gt;# 每一列图标数量
-defaults write com.apple.dock springboard-rows -int 7
-
-# 每一行图标数量
-defaults write com.apple.dock springboard-columns -int 7
-
-# 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)
-defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
-
-# 添加空白到Dock栏
-defaults write com.apple.dock persistent-apps -array-add '{&amp;quot;tile-type&amp;quot;=&amp;quot;spacer-tile&amp;quot;;}'; killall Dock
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="右上角状态栏"&gt;
+&lt;div class="highlight"&gt;&lt;div style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;"&gt;&lt;tr&gt;&lt;td style="vertical-align:top;padding:0;margin:0;border:0;"&gt;
+&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 1
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 2
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 3
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 4
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 5
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 6
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 7
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 8
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt; 9
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;10
+&lt;/span&gt;&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%"&gt;
+&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 每一列图标数量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock springboard-rows -int &lt;span style="color:#f60"&gt;7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 每一行图标数量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock springboard-columns -int &lt;span style="color:#f60"&gt;7&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# 添加空白到Dock栏&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock persistent-apps -array-add &lt;span style="color:#c30"&gt;&amp;#39;{&amp;#34;tile-type&amp;#34;=&amp;#34;spacer-tile&amp;#34;;}&amp;#39;&lt;/span&gt;; killall Dock
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="右上角状态栏"&gt;
  右上角状态栏
  
  &lt;a class="anchor" href="#%e5%8f%b3%e4%b8%8a%e8%a7%92%e7%8a%b6%e6%80%81%e6%a0%8f"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;p&gt;按住Command之后, 鼠标可以拖动状态栏图标, 拖出即可删除 &lt;br/&gt;&lt;/p&gt;
-&lt;h3 id="关闭内置键盘"&gt;
- 关闭内置键盘
- 
- &lt;a class="anchor" href="#%e5%85%b3%e9%97%ad%e5%86%85%e7%bd%ae%e9%94%ae%e7%9b%98"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;p&gt;苹果内置键盘不好用, 但是触控板非常好用. &lt;br/&gt;
-习惯把HHKB放在苹果键盘上, 这样可以使用HHKB+苹果触控版 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# For newer versions on MacOS / alternative solution:
-# List loaded kexts for keyboard
-kextstat | grep Keyboard
-# It's going to output something like:
-# 81 0 0xffffff7f833c5000 0xb000 0xb000 com.apple.driver.AppleHIDKeyboard (208) 96DDE905-9D31-38A9-96B7-FB28573587C8 &amp;lt;43 6 5 3&amp;gt;
-# com.apple.driver.AppleHIDKeyboard is loaded kext identifier.
-
-# If you want to plug-in Apple Magic Keyboard / some other Bluetooth keyboard, turn it off first. Then follow the instruction below.
-# To disable keyboard:
-sudo kextunload -b com.apple.driver.AppleHIDKeyboard
-# To enable it back:
-sudo kextload -b com.apple.driver.AppleHIDKeyboard
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="软件推荐"&gt;
- 软件推荐
- 
- &lt;a class="anchor" href="#%e8%bd%af%e4%bb%b6%e6%8e%a8%e8%8d%90"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;软件&lt;/th&gt;
- &lt;th&gt;介绍&lt;/th&gt;
- &lt;th&gt;备注&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;Alfred&lt;/td&gt;
- &lt;td&gt;&lt;a href="https://www.alfredapp.com"&gt;Alfred&lt;/a&gt; 是加强版的聚焦搜索&lt;/td&gt;
- &lt;td&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;&lt;del&gt;Karabiner&lt;/del&gt;&lt;/td&gt;
- &lt;td&gt;&lt;a href="https://pqrs.org/index.html"&gt;Karabiner&lt;/a&gt; 是键位映射软件&lt;/td&gt;
- &lt;td&gt;已舍弃&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;HomeBrew&lt;/td&gt;
- &lt;td&gt;&lt;a href="https://brew.sh/index_zh-cn"&gt;HomeBrew&lt;/a&gt; 是包管理软件(类似于ubuntu下的apt)&lt;/td&gt;
- &lt;td&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Annotate&lt;/td&gt;
- &lt;td&gt;Annotate(AppStore下载)是截屏软件, 同时支持gif录制&lt;/td&gt;
- &lt;td&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;IINA&lt;/td&gt;
- &lt;td&gt;&lt;a href="https://www.iina.io"&gt;IINA&lt;/a&gt; 是mac下好用的视频软件&lt;/td&gt;
- &lt;td&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;Better Display&lt;/td&gt;
- &lt;td&gt;&lt;a href="https://github.com/waydabber/BetterDisplay"&gt;Better Display&lt;/a&gt;可以更好的控制显示器, 尤其是对于2K显示器&lt;/td&gt;
- &lt;td&gt;&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="q-and-a"&gt;
- Q &amp;amp; A
- 
- &lt;a class="anchor" href="#q-and-a"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="mac卡顿处理"&gt;
- mac卡顿处理
- 
- &lt;a class="anchor" href="#mac%e5%8d%a1%e9%a1%bf%e5%a4%84%e7%90%86"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;删除Macintosh HD/系统/资源库/Caches中的文件 &lt;br/&gt;&lt;/li&gt;
-&lt;li&gt;删除Macintosh HD/资源库/Caches中的文件 &lt;br/&gt;&lt;/li&gt;
-&lt;li&gt;如果以上无效, 建议更换操作系统版本, 比如从macOS high sierra更换为macOS Mojave &lt;br/&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="ssh远程连接macos-中文乱码"&gt;
- ssh远程连接macos, 中文乱码
- 
- &lt;a class="anchor" href="#ssh%e8%bf%9c%e7%a8%8b%e8%bf%9e%e6%8e%a5macos-%e4%b8%ad%e6%96%87%e4%b9%b1%e7%a0%81"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;p&gt;这种情况一般是终端和服务器的字符集不匹配. &lt;br/&gt;
-MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>os</title><link>https://clay9.github.io/blog/docs/os/os/os/</link><pubDate>Fri, 31 May 2024 18:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/os/</guid><description>&lt;p&gt;os学习整理 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
+&lt;p&gt;按住Command之后, 鼠标可以拖动状态栏图标, 拖出即可删除 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>os</title><link>https://clay9.github.io/blog/docs/os/os/os/</link><pubDate>Fri, 31 May 2024 18:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/os/</guid><description>&lt;p&gt;os学习整理 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
 主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code&gt;org-mode&lt;/code&gt;), 另一个则是 &lt;code&gt;org-agenda&lt;/code&gt; &lt;br/&gt;
 推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html"&gt;org心得体会&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="配置"&gt;
@@ -238,15 +161,14 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 &lt;/h3&gt;
 &lt;details&gt;
 &lt;div class="details"&gt;
-&lt;pre&gt;&lt;code class="language-shell"&gt;# --without-all 最小化编译 (但是包含了x)
-# --without-x 不使用x
-# --with-gnutls=ifavailable 移除configure警告 (实际并未编译)
-# --with-tree-sittter 开启tree-sitter
-# --with-xml2 package::devdocs依赖
-# --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)
-./configure --without-all --without-x --with-gnutls=ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --without-all 最小化编译 (但是包含了x)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --without-x 不使用x&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-gnutls=ifavailable 移除configure警告 (实际并未编译)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-tree-sittter 开启tree-sitter&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-xml2 package::devdocs依赖&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./configure --without-all --without-x --with-gnutls&lt;span style="color:#555"&gt;=&lt;/span&gt;ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/details&gt;
 &lt;h2 id="基本配置"&gt;
  基本配置
@@ -255,8 +177,8 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
  
 &lt;/h2&gt;
 &lt;p&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>socket base</title><link>https://clay9.github.io/blog/docs/os/socket/socket/</link><pubDate>Thu, 18 Jan 2024 19:13:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/socket/socket/</guid><description>&lt;p&gt;socket相关网络编程 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>git</title><link>https://clay9.github.io/blog/docs/prog_vc/git/</link><pubDate>Thu, 18 Jan 2024 19:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_vc/git/</guid><description>&lt;p&gt;git简易指导, 个人使用心得 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>global</title><link>https://clay9.github.io/blog/docs/prog_lsp/global/</link><pubDate>Thu, 18 Jan 2024 19:10:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_lsp/global/</guid><description>&lt;p&gt;在project中生成TAGS文件, 方便索引 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;建议使用lsp代替, global响应虽然快速, 但是不如lsp实时定位方便
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>c++历史</title><link>https://clay9.github.io/blog/docs/prog_language/c++/c++/</link><pubDate>Thu, 18 Jan 2024 19:06:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/c++/c++/</guid><description>&lt;p&gt;通过C++历史, 更好的了解C++特性 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;建议使用lsp代替, global响应虽然快速, 但是不如lsp实时定位方便
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>c++历史</title><link>https://clay9.github.io/blog/docs/prog_language/c++/c++/</link><pubDate>Thu, 18 Jan 2024 19:06:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/c++/c++/</guid><description>&lt;p&gt;通过C++历史, 更好的了解C++特性 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;
  proc总体状态查看
  
  &lt;a class="anchor" href="#proc%e6%80%bb%e4%bd%93%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b"&gt;#&lt;/a&gt;
@@ -268,65 +190,62 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
  &lt;a class="anchor" href="#proc"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(gdb) info proc
-process 217777
-cmdline = '/home/clay/my/learn_gdb/a.out'
-cwd = '/home/clay/my/learn_gdb'
-exe = '/home/clay/my/learn_gdb/a.out'
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="proc-status"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(gdb) info proc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;process 217777
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cmdline = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cwd = &amp;#39;/home/clay/my/learn_gdb&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;exe = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="proc-status"&gt;
  proc status
  
  &lt;a class="anchor" href="#proc-status"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;//TODONOW 补充对应的字段
-info proc status
-
-显示与进程相关的附加信息
-1) 用户ID, group id
-2) 虚拟内存使用情况
-3) 待处理, 阻塞和沪铝的信号
-4) 消耗系统和用户的时间
-5) 堆栈大小
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="内存分布"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;//TODONOW 补充对应的字段
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;info proc status
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;显示与进程相关的附加信息
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;1) 用户ID, group id
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2) 虚拟内存使用情况
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;3) 待处理, 阻塞和沪铝的信号
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;4) 消耗系统和用户的时间
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5) 堆栈大小
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="内存分布"&gt;
  内存分布
  
  &lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%88%86%e5%b8%83"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;段表&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt; //TODONOW 补充说明
- (gdb) info proc mappings
- process 217777
- Mapped address spaces:
-
- Start Addr End Addr Size Offset Perms objfile
-0x555555554000 0x555555555000 0x1000 0x0 r--p /home/clay/my/learn_gdb/a.out
-0x555555555000 0x555555556000 0x1000 0x1000 r-xp /home/clay/my/learn_gdb/a.out
-0x555555556000 0x555555557000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
-0x555555557000 0x555555558000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
-0x555555558000 0x555555559000 0x1000 0x3000 rw-p /home/clay/my/learn_gdb/a.out
-0x7ffff7d8a000 0x7ffff7d8d000 0x3000 0x0 rw-p 
-0x7ffff7d8d000 0x7ffff7db5000 0x28000 0x0 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7db5000 0x7ffff7f4a000 0x195000 0x28000 r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7f4a000 0x7ffff7fa2000 0x58000 0x1bd000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa2000 0x7ffff7fa3000 0x1000 0x215000 ---p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa3000 0x7ffff7fa7000 0x4000 0x215000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa7000 0x7ffff7fa9000 0x2000 0x219000 rw-p /usr/lib/x86_64-linux-gnu/libc.so.6
-0x7ffff7fa9000 0x7ffff7fb6000 0xd000 0x0 rw-p 
-0x7ffff7fbb000 0x7ffff7fbd000 0x2000 0x0 rw-p 
-0x7ffff7fbd000 0x7ffff7fc1000 0x4000 0x0 r--p [vvar]
-0x7ffff7fc1000 0x7ffff7fc3000 0x2000 0x0 r-xp [vdso]
-0x7ffff7fc3000 0x7ffff7fc5000 0x2000 0x0 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7fc5000 0x7ffff7fef000 0x2a000 0x2000 r-xp /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7fef000 0x7ffff7ffa000 0xb000 0x2c000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7ffb000 0x7ffff7ffd000 0x2000 0x37000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffff7ffd000 0x7ffff7fff000 0x2000 0x39000 rw-p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
-0x7ffffffde000 0x7ffffffff000 0x21000 0x0 rw-p [stack]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;页表&lt;/code&gt; (Register: cr3) &lt;em&gt;TODO 待补充&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>autotools</title><link>https://clay9.github.io/blog/docs/prog_compile/autotools/</link><pubDate>Thu, 18 Jan 2024 19:02:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/autotools/</guid><description>&lt;p&gt;初学autotools &lt;br/&gt;&lt;/p&gt;</description></item><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; //TODONOW 补充说明
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (gdb) info proc mappings
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; process 217777
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Mapped address spaces:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Start Addr End Addr Size Offset Perms objfile
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555554000 0x555555555000 0x1000 0x0 r--p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555555000 0x555555556000 0x1000 0x1000 r-xp /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555556000 0x555555557000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555557000 0x555555558000 0x1000 0x2000 r--p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x555555558000 0x555555559000 0x1000 0x3000 rw-p /home/clay/my/learn_gdb/a.out
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7d8a000 0x7ffff7d8d000 0x3000 0x0 rw-p 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7d8d000 0x7ffff7db5000 0x28000 0x0 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7db5000 0x7ffff7f4a000 0x195000 0x28000 r-xp /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7f4a000 0x7ffff7fa2000 0x58000 0x1bd000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa2000 0x7ffff7fa3000 0x1000 0x215000 ---p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa3000 0x7ffff7fa7000 0x4000 0x215000 r--p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa7000 0x7ffff7fa9000 0x2000 0x219000 rw-p /usr/lib/x86_64-linux-gnu/libc.so.6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fa9000 0x7ffff7fb6000 0xd000 0x0 rw-p 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fbb000 0x7ffff7fbd000 0x2000 0x0 rw-p 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fbd000 0x7ffff7fc1000 0x4000 0x0 r--p [vvar]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fc1000 0x7ffff7fc3000 0x2000 0x0 r-xp [vdso]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fc3000 0x7ffff7fc5000 0x2000 0x0 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fc5000 0x7ffff7fef000 0x2a000 0x2000 r-xp /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7fef000 0x7ffff7ffa000 0xb000 0x2c000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7ffb000 0x7ffff7ffd000 0x2000 0x37000 r--p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffff7ffd000 0x7ffff7fff000 0x2000 0x39000 rw-p /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;0x7ffffffde000 0x7ffffffff000 0x21000 0x0 rw-p [stack]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;页表&lt;/code&gt; (Register: cr3) &lt;em&gt;TODO 待补充&lt;/em&gt; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>autotools</title><link>https://clay9.github.io/blog/docs/prog_compile/autotools/</link><pubDate>Thu, 18 Jan 2024 19:02:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_compile/autotools/</guid><description>&lt;p&gt;初学autotools &lt;br/&gt;&lt;/p&gt;</description></item><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
 &lt;a href="https://linuxtoy.org/archives/emacs-eshell.html"&gt;官方文档&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;优势: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -335,9 +254,8 @@ info proc status
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;语法支持tramp &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;cd /method:user@host#22:/path
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /method:user@host#22:/path
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="eshell-and-and-elisp"&gt;
  eshell &amp;amp;&amp;amp; elisp
@@ -362,17 +280,16 @@ info proc status
  
 &lt;/h3&gt;
 &lt;p&gt;eshell 脚本中使用elisp语法给变量赋值 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(setq remote_temp &amp;quot;/ssh:clay@192.168.0.97:~/temp&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="变量使用"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq remote_temp &amp;#34;/ssh:clay@192.168.0.97:~/temp&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="变量使用"&gt;
  变量使用 $
  
  &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
 &lt;p&gt;基本与shell相同, 具体可以详见官方说明 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;eshell/rm -r $remote_temp
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>编程范式</title><link>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</guid><description>&lt;p&gt;Programming paradigm 即编程范型, 编程范式, 程序设计法 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>linux</title><link>https://clay9.github.io/blog/docs/os/linux/</link><pubDate>Fri, 31 May 2024 10:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/linux/</guid><description/></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/gtd/</link><pubDate>Thu, 30 May 2024 20:41:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eshell/rm -r $remote_temp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>编程范式</title><link>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/programming_paradigm/</guid><description>&lt;p&gt;Programming paradigm 即编程范型, 编程范式, 程序设计法 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>linux</title><link>https://clay9.github.io/blog/docs/os/linux/</link><pubDate>Fri, 31 May 2024 10:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/linux/</guid><description/></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/gtd/</link><pubDate>Thu, 30 May 2024 20:41:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;
  为什么要用GTD
  
  &lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd"&gt;#&lt;/a&gt;
@@ -521,10 +438,9 @@ info proc status
 &lt;ol&gt;
 &lt;li&gt;elisp代码写入el文件(eshell script) &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;bash调用emacs执行el文件 &lt;br/&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 实际还是emacs 执行的elisp代码
-emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 实际还是emacs 执行的elisp代码
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="elisp-调用bashe"&gt;
  elisp 调用bashe
@@ -532,13 +448,13 @@ emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
  &lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(setq my-command
-(concat &amp;quot;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;quot;$PATH\&amp;quot;\n&amp;quot;
- &amp;quot;for dir in ${dirs[@]}; do\n&amp;quot;
- &amp;quot; echo got dir \&amp;quot;$dir\&amp;quot;\n&amp;quot;
- &amp;quot;done\n&amp;quot;))
-(shell-command (format &amp;quot;bash -c %s&amp;quot; (shell-quote-argument my-command)))
-&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>设计原则</title><link>https://clay9.github.io/blog/docs/prog_base/principles/</link><pubDate>Fri, 13 Jun 2025 16:28:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/principles/</guid><description>&lt;p&gt;面向对象编程的 六大设计原则 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>cadvisor, prometheus, grafana</title><link>https://clay9.github.io/blog/docs/tool/monitor/</link><pubDate>Wed, 05 Jun 2024 16:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/monitor/</guid><description>&lt;p&gt;cadvisor, prometheus, grafana 组成的监控系统 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org &amp;&amp; gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</link><pubDate>Thu, 30 May 2024 20:51:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</guid><description>&lt;h2 id="需求分析"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq my-command
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(concat &amp;#34;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;#34;$PATH\&amp;#34;\n&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;for dir in ${dirs[@]}; do\n&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34; echo got dir \&amp;#34;$dir\&amp;#34;\n&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;done\n&amp;#34;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(shell-command (format &amp;#34;bash -c %s&amp;#34; (shell-quote-argument my-command)))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>设计原则</title><link>https://clay9.github.io/blog/docs/prog_base/principles/</link><pubDate>Fri, 13 Jun 2025 16:28:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/principles/</guid><description>&lt;p&gt;面向对象编程的 六大设计原则 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>cadvisor, prometheus, grafana</title><link>https://clay9.github.io/blog/docs/tool/monitor/</link><pubDate>Wed, 05 Jun 2024 16:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/monitor/</guid><description>&lt;p&gt;cadvisor, prometheus, grafana 组成的监控系统 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org &amp;&amp; gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</link><pubDate>Thu, 30 May 2024 20:51:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</guid><description>&lt;h2 id="需求分析"&gt;
  需求分析
  
  &lt;a class="anchor" href="#%e9%9c%80%e6%b1%82%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;
@@ -571,37 +487,36 @@ emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
  &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
  
 &lt;/h2&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;-------------------------+------------------------
- |
- | capture (easy)
- |
- |
- v
- archive +---------+
-+-------------------| inbox |
-| +----+----+
-| |
-| | refile (auto)
-| |
-| |
-| |----------------+--------------------|
-| | | |
-| | v v
-| v +---------+ +---------+
-| +---------+ | my/emacs| | work/qy |
-| | task | | * emacs| | * ker |
-| +----+----+ | * org | | * frame|
-| | | * ccIDE| | * sub |
-| | +---------+ +---------+
-| |
-| | archive (auto)
-| |
-| v
-| +---------+
-+-&amp;gt;| archive |
- +----+----+
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="文件的设计"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-------------------------+------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; | capture (easy)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; archive +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;+-------------------| inbox |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +----+----+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | refile (auto)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |----------------+--------------------|
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | | |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | v v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| v +---------+ +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +---------+ | my/emacs| | work/qy |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | task | | * emacs| | * ker |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +----+----+ | * org | | * frame|
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | | * ccIDE| | * sub |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | +---------+ +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| | archive (auto)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +---------+
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;+-&amp;gt;| archive |
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; +----+----+
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="文件的设计"&gt;
  文件的设计
  
  &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
@@ -612,10 +527,9 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;ul&gt;
 &lt;li&gt;ssh &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;su | sudo &lt;br/&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
-/su:root:path/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:root:path/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="用法"&gt;
  用法
@@ -629,52 +543,48 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;a class="anchor" href="#basic"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;/method:user@host#port:/path/to/file
-
-# example 1
-/ssh:clay@192.1.1.1#22:~
-
-# example 2 windows下可以使用putty作为ssh的client
-/plink:clay@192.1.1.1:~
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="set-default-method"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/method:user@host#port:/path/to/file
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# example 1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@192.1.1.1#22:~
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# example 2 windows下可以使用putty作为ssh的client
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/plink:clay@192.1.1.1:~
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="set-default-method"&gt;
  set default method
  
  &lt;a class="anchor" href="#set-default-method"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;(setq tramp-default-method &amp;quot;plink&amp;quot;)
-
-; 设置之后的例子
-; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
-/-:clay@192.1.1.1:~
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="multiple-hop"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq tramp-default-method &amp;#34;plink&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;; 设置之后的例子
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1:~
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="multiple-hop"&gt;
  multiple hop
  
  &lt;a class="anchor" href="#multiple-hop"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 在本机上, 通过clay用户登录到host1
-# 再在host1上, 通过admin登录到host2
-/ssh:clay@host1|ssh:admin@host2:/path
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="su-sudo"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 在本机上, 通过clay用户登录到host1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 再在host1上, 通过admin登录到host2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@host1|ssh:admin@host2:/path
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="su-sudo"&gt;
  su | sudo
  
  &lt;a class="anchor" href="#su-sudo"&gt;#&lt;/a&gt;
  
 &lt;/h3&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;# 使用sudo打开远程文件
-/-:clay@192.1.1.1|sudo::/path
-
-# 使用sudo打开本地文件
-# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
-/su::local-path
-/su:user@localhost:/local-path
-/sudo:root@localhost:/local-path
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="use-with-bookmarks"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 使用sudo打开远程文件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1|sudo::/path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 使用sudo打开本地文件
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su::local-path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:user@localhost:/local-path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/sudo:root@localhost:/local-path
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="use-with-bookmarks"&gt;
  use with bookmarks
  
  &lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;
@@ -742,9 +652,8 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;轻度使用email &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;反而发现gnus非常难配置, 因为可定制的选项太多了, 所以不是很友好
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;gnus的缺点: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -903,12 +812,10 @@ Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &l
 &lt;/h3&gt;
 &lt;p&gt;github copilot 没有emacs的官方插件, 使用的是第三方package &lt;a href="https://github.com/zerolfx/copilot.el"&gt;copilot&lt;/a&gt;. &lt;br/&gt;
 安装与配置均比较简单, 可以参考copilot官方文档 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class="language-lisp"&gt;;;国内可能无法访问github copilot, 可以配置一下代理
-(setq copilot-network-proxy '(:host &amp;quot;127.0.0.1&amp;quot; :port &amp;quot;10887&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id="快捷键配置"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;;;国内可能无法访问github copilot, 可以配置一下代理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#069;font-weight:bold"&gt;setq&lt;/span&gt; &lt;span style="color:#033"&gt;copilot-network-proxy&lt;/span&gt; &lt;span style="color:#555"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#fc3"&gt;:host&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt; &lt;span style="color:#fc3"&gt;:port&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;10887&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="快捷键配置"&gt;
  快捷键配置
  
  &lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
@@ -948,17 +855,15 @@ Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &l
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;静态库 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;A.由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
-B.ar命令将很多.o转换成.a，生成文静态库
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;A.由源文件编译生成一堆.o，每个.o里都包含这个编译单元的符号表
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;B.ar命令将很多.o转换成.a，生成文静态库
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;动态库 &lt;br/&gt;
 A.gcc 加特定参数 编译 fPIC生成动态的.o文件; shared把动态.o文件打包为动态库 &lt;br/&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;gcc -fPIC file1.c -c //这一步生成file1.o
-gcc -shared file1.o -o libtest.so //把.o文件打包为动态库(.o文件必须是 fPIC生成)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gcc -fPIC file1.c -c //这一步生成file1.o
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gcc -shared file1.o -o libtest.so //把.o文件打包为动态库(.o文件必须是 fPIC生成)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="常见问题"&gt;
  常见问题
@@ -968,11 +873,10 @@ gcc -shared file1.o -o libtest.so //把.o文件打包为动态库(.o文件必须
 &lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;运行时候找不到动态库, 处理方式 &lt;br/&gt;
-&lt;pre&gt;&lt;code class="language-text"&gt;（1) 最直接最简单的方法就是把so拉到/usr/lib或/lib中去，但这好像有点污染环境吧？
-（2）export LD_LIBRARY_PATH=$(pwd)
-（3）可以在/etc/ld.so.conf文件里加入我们生成的库的目录，然后/sbin/ldconfig
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;（1) 最直接最简单的方法就是把so拉到/usr/lib或/lib中去，但这好像有点污染环境吧？
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;（2）export LD_LIBRARY_PATH=$(pwd)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;（3）可以在/etc/ld.so.conf文件里加入我们生成的库的目录，然后/sbin/ldconfig
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;加载动态库 &lt;br/&gt;
 函数原型：void *dlopen(const char *libname,int flag); &lt;br/&gt;
 &lt;ol&gt;
