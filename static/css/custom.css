@@ -1,3 +1,6 @@
 ::selection {
-  background: transparent;
+  background-color: transparent !important;
+}
+::-moz-selection {
+  background-color: transparent !important;
 }
