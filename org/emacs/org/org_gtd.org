@@ -60,13 +60,13 @@
 
   #+begin_example
     gtd
-    \_ gtd_common     通用gtd流程文件
-       \_ inbox       收集箱
-       \_ task        任务清单
-       \_ archive     归档文件
+    \_ gtd_common         // 通用gtd流程文件
+       \_ inbox.org       // 收集箱
+       \_ task.org        // 任务清单
+       \_ archive.org     // 归档文件
     \_ gtd
-       \__ emacs      emacs project file
-       \__ qygame     qygame project file
+       \__ emacs.org      // emacs project file
+       \__ qygame.org     // qygame project file
   #+end_example
   gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及TODO
   | file        | desc                                |
@@ -75,8 +75,7 @@
   | task.org    | 任务清单                            |
   | archive.org | 归档文件                            |
 
-  gtd/emacs与gtd/qygame则是已经明确分类的PROJECT. 比如gtd_emacs/emacs.org明确的是与emacs有关的任务.
-  但即使都是emacs相关, 也可分为是emacs自身, org, 还是IDE. 所以emacs.org中实际包含了三个PROJECT: emacs, org, IDE
+  gtd/emacs.org与gtd/qygame.org则是已经明确分类的PROJECT. 比如gtd/emacs.org明确的是与emacs有关的任务
 
 * TODO的设计
   | key      | desc         |
@@ -120,12 +119,12 @@
 * refile的设计
   refile应该是自动完成的, 不应该手动
   为了自动完成, item已经给了相关信息(tag)
-  在gtd_my或gtd_work的PROJECT中, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
+  在gtd的PROJECT中, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
   这里的办法是匹配PROJECT ITEM的heading, 比如:
   #+BEGIN_EXAMPLE org
-  * PROJECT org
+  * PROJECT emacs
   #+END_EXAMPLE
-  当capute-item的tag 与 PROJECT-item的heading(org)相匹配的时候, 会自动refile
+  当capute-item的tag 与 PROJECT-item的heading相匹配的时候, 会自动refile
 * archive的设计
   archive的目的:
   - 在org file中隐藏已 =DONE= 的task
@@ -134,7 +133,7 @@
 
 
   现在方案:
-  对于gtd_my, gtd_work中的task, archive到PROEJCT/archive下面
+  对于gtd中的task, archive到当前文件下的** xxx_archive
   对于gtd_common中的task, archive到archive.org
 
 * Agent的设计
@@ -160,15 +159,15 @@
     | capture with                                         add timestamp &&
     | template       +---------+ auto refile   +---------+   auto refile     +---------+ archive       +---------+
     +--------------->|  inbxo  |-------------->|next step|------------------>|  agenda |-------------->| archive |
-    |  C-s C-s       +---+-----+               +---------+  C-j s            +---------+  C-j d        +---------+
+    |                +---+-----+               +---------+                   +---------+               +---------+
     |                    |                                                                                  ^
     |                    |                              archiv                                              |
     |                    +----------------------------------------------------------------------------------+
-    |                                                   C-j d
+    |
   #+END_EXAMPLE
 
   1. capture -> inbox
-  2. 当打开org-agenda或者在org-agenda中按'r', 会自动把inbox中的文件refile到指定位置
-  3. 在org-agenda界面操控
-  4. C-j d调用archive, 完成archive动作
+  2. 当打开org-agenda或者在org-agenda中按'g', 会自动把inbox中的文件refile到指定位置
+  3. 在org-next-view buffer中添加timestamp可放到org-agenda-view; 或者直接执行archive操作
+  4. 在org-agenda-view buffer中调用archive
   5. 其实还有最后一步, 即把archive中的内容输出到blog中
