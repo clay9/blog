@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 10 Sep 2025 18:29:30 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 02:59:46 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述"&gt;
  简述
  
  &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
@@ -46,8 +46,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-tree-sittter 开启tree-sitter&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-xml2 package::devdocs依赖&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./configure --without-all --without-x --with-gnutls&lt;span style="color:#555"&gt;=&lt;/span&gt;ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./configure --without-all --without-x --with-gnutls&lt;span style="color:#555"&gt;=&lt;/span&gt;ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/details&gt;
 &lt;h2 id="基本配置"&gt;
  基本配置

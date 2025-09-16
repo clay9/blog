@@ -1,4 +1,4 @@
-<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="通过C++历史, 更好的了解C++特性 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/prog_language/c++/c++/"><meta property="og:site_name" content="飘"><meta property="og:title" content="c++历史"><meta property="og:description" content="通过C++历史, 更好的了解C++特性"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-01-18T19:06:00+00:00"><meta property="article:modified_time" content="2025-09-10T18:29:31+00:00"><title>c++历史 | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/prog_language/c++/c++/><link rel=stylesheet href=/blog/book.min.27cffe658670f57112663ed746a421db277c2dd6549965c27f9ad0103cccd990.css integrity="sha256-J8/+ZYZw9XESZj7XRqQh2yd8LdZUmWXCf5rQEDzM2ZA=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.331b00de3243fb460e8755732363b6df2ec4a1828fb9f4342a3967dd1b7bbf98.js integrity="sha256-MxsA3jJD+0YOh1VzI2O23y7EoYKPufQ0Kjln3Rt7v5g=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs book-layout-"><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="通过C++历史, 更好的了解C++特性 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/prog_language/c++/c++/"><meta property="og:site_name" content="飘"><meta property="og:title" content="c++历史"><meta property="og:description" content="通过C++历史, 更好的了解C++特性"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2024-01-18T19:06:00+00:00"><meta property="article:modified_time" content="2025-09-16T02:59:47+00:00"><title>c++历史 | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/prog_language/c++/c++/><link rel=stylesheet href=/blog/book.min.0a54853ef64343924749021d313bdcd91a60654f0f6d4d1ea249567659058ba0.css integrity="sha256-ClSFPvZDQ5JHSQIdMTvc2RpgZU8PbU0eoklWdlkFi6A=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.8a4649e187c57f1c51f228d371e037f9031c3a5b4005b8f12781d2cef512b1a8.js integrity="sha256-ikZJ4YfFfxxR8ijTceA3+QMcOltABbjxJ4HSzvUSsag=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs book-layout-"><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/blog/><span>飘</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><input type=checkbox id=section-991bd30d46a386cace03b4f84b11c8f5 class=toggle>
 <label for=section-991bd30d46a386cace03b4f84b11c8f5 class=flex><a role=button class=flex-auto>os</a></label><ul><li><a href=/blog/docs/os/mac/>mac</a></li><li><a href=/blog/docs/os/linux/>linux</a></li><li><input type=checkbox id=section-f866724d2acb7e76aaac59a04f639ef7 class=toggle>
 <label for=section-f866724d2acb7e76aaac59a04f639ef7 class=flex><a href=/blog/docs/os/os/ class=flex-auto>os</a></label><ul><li><a href=/blog/docs/os/os/os/>os</a></li><li><a href=/blog/docs/os/os/memory_01/>memory 01</a></li><li><a href=/blog/docs/os/os/dll/>library</a></li></ul></li><li><input type=checkbox id=section-ab3af5bd51cb4c263c32a78225fa580c class=toggle>
@@ -22,32 +22,27 @@
 <a class=anchor href=#1990-%e5%87%ba%e7%89%88%e4%ba%86-%e6%a0%87%e5%87%86%e5%8c%96%e5%9f%ba%e7%a1%80>#</a></h3><p>??哪一年??稍后还引入了模板例外处理、命名空间、新的强制类型转换，以及布林类型<br></p><h3 id=1998-c-plus-plus-98-第一个c-plus-plus-标准>1998 C++98 第一个C++标准
 <a class=anchor href=#1998-c-plus-plus-98-%e7%ac%ac%e4%b8%80%e4%b8%aac-plus-plus-%e6%a0%87%e5%87%86>#</a></h3><p>标准分为 核心语言 && C++标准程序库<br>C++标准程序库主要包含 STL && C标准库的稍加修改版<br></p><p>语言特性:<br></p><ol><li>classes 相关<br><ol><li>构造 && 析构<br></li><li>friend<br></li><li>继承<br></li><li>多态<br></li><li>静态成员<br></li></ol></li><li>new delete<br></li><li>高级概念 ?? 高级在哪?? 需要对比当时的环境<br><ol><li>模板<br></li><li>命名空间<br></li><li>异常<br></li><li>类型转换<br>隐式转换 && 显式转换<br></li></ol></li></ol><p>stl:<br></p><ol><li>异常 &lt;exception><br></li><li>类型检查 &lt;typeinfo><br></li><li>输入输出 &lt;iostream><br></li></ol><h3 id=2003-c-plus-plus-03-第二个c-plus-plus-标准>2003 C++03 第二个C++标准
 <a class=anchor href=#2003-c-plus-plus-03-%e7%ac%ac%e4%ba%8c%e4%b8%aac-plus-plus-%e6%a0%87%e5%87%86>#</a></h3><p>C++03 主要是在C++98基础上针对实现方的一些问题进行了修复，从而在各个实现间达到一致、保持了可移植性。<br>该版本共涉及 92 项核心语言缺陷报告、125 项库缺陷报告，所提供的新特性只有一项：值初始化（value initialization）<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>实现方是指编译器 ??需要重点看一下当时的编译器有哪些??
-</span></span><span style=display:flex><span>对于使用者(程序员)来说, C++03与C++98差异不大(只有一条 值初始化)
-</span></span></code></pre></div><h3 id=2006-c-plus-plus-性能技术报告>2006 C++性能技术报告
+</span></span><span style=display:flex><span>对于使用者(程序员)来说, C++03与C++98差异不大(只有一条 值初始化)</span></span></code></pre></div><h3 id=2006-c-plus-plus-性能技术报告>2006 C++性能技术报告
 <a class=anchor href=#2006-c-plus-plus-%e6%80%a7%e8%83%bd%e6%8a%80%e6%9c%af%e6%8a%a5%e5%91%8a>#</a></h3><h3 id=2007-c-plus-plus-技术报告-库扩展>2007 C++技术报告: 库扩展
 <a class=anchor href=#2007-c-plus-plus-%e6%8a%80%e6%9c%af%e6%8a%a5%e5%91%8a-%e5%ba%93%e6%89%a9%e5%b1%95>#</a></h3><h3 id=2010-数学函数扩展>2010 数学函数扩展
 <a class=anchor href=#2010-%e6%95%b0%e5%ad%a6%e5%87%bd%e6%95%b0%e6%89%a9%e5%b1%95>#</a></h3><h3 id=2011-c-plus-plus-11-第三个c-plus-plus-标准>2011 C++11 第三个C++标准
 <a class=anchor href=#2011-c-plus-plus-11-%e7%ac%ac%e4%b8%89%e4%b8%aac-plus-plus-%e6%a0%87%e5%87%86>#</a></h3><p>先前被称作C++0x, 本预计2000-2009间会发布, 结果一直拖到了2011年. 因此改名C++11. <a href=https://zh.wikipedia.org/wiki/C%2B%2B11>参考资料</a><br></p><p>相比于C++03，C++11标准包含核心语言的新机能，<br>而且扩展C++标准程序库，并入了大部分的C++ Technical Report 1程序库（数学的特殊函数除外)<br></p><h4 id=设计原则>设计原则
 <a class=anchor href=#%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99>#</a></h4><ol><li>维持稳定性和与C++98，可能的话还有C之间的兼容性；<br></li><li>尽可能不透过核心语言的扩展，而是透过标准程序库来引进新的特性；<br></li><li>能够演进编程技术的变更优先；<br></li><li>改进C++以帮助系统以及库设计，而不是引进只针对特别应用的新特性；<br></li><li>增进类别安全，提供对现行不安全的技术更安全的替代方案；<br></li><li>增进直接对硬件工作的能力与表现；<br></li><li>提供现实世界中问题的适当解决方案；<br></li><li>实行“zero-overhead”原则（某些功能要求的额外支持只有在该功能被使用时才能使用）；<br></li><li>使C++易于教授与学习<br></li></ol><h4 id=语言变更>语言变更
 <a class=anchor href=#%e8%af%ad%e8%a8%80%e5%8f%98%e6%9b%b4>#</a></h4><p>C++委员会的主要作用之一是改善语言核心。核心语言将被大幅改善的领域包括<br></p><ul><li>多线程支持<br></li><li>泛型编程<br></li><li>统一的初始化<br></li><li>以及性能表现的加强<br></li></ul><p>在此分成4个区块来讨论核心语言的特色以及变更:<br>执行期表现强化、构造期表现强化、可用性强化，还有新的功能。<br>某些特性可能会同时属于多个区块，但在此仅于其最具代表性的区块描述<br></p><ul><li><p>执行期表现强化</p><p>提升某些性能表现, 像是内存或者速度上的提升<br></p><ul><li><p>右值引用 && std::move && std::forward</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>右值引用是语言特性,  std::move &amp;&amp; std::forward是stl中新增的函数 (头文件&lt;utility&gt;)
-</span></span><span style=display:flex><span>符合设计原则2, 使用stl补充语言特性
-</span></span></code></pre></div><p>右值引用的本质是为了解决C++之前版本的深度copy问题. <a href=https://zh.wikipedia.org/wiki/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8>wiki参考资料</a><br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template &lt;typename T, typename Arg&gt;
+</span></span><span style=display:flex><span>符合设计原则2, 使用stl补充语言特性</span></span></code></pre></div><p>右值引用的本质是为了解决C++之前版本的深度copy问题. <a href=https://zh.wikipedia.org/wiki/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8>wiki参考资料</a><br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template &lt;typename T, typename Arg&gt;
 </span></span><span style=display:flex><span>shared_ptr&lt;T&gt; factory(Arg arg)
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>return shared_ptr&lt;T&gt;( new T(arg));
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template &lt;typename T, typename Arg&gt;
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template &lt;typename T, typename Arg&gt;
 </span></span><span style=display:flex><span>shared_ptr&lt;T&gt; factory(Arg&amp; arg)
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>return shared_ptr&lt;T&gt;( new T(arg));
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template&lt; typename T, typename Arg&gt;
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template&lt; typename T, typename Arg&gt;
 </span></span><span style=display:flex><span>shared_ptr&lt;T&gt; factory(const Arg&amp; arg)
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>//无法修改arg对象
 </span></span><span style=display:flex><span>return shared_ptr&lt;T&gt;( new T(arg));
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template&lt;typename T, typename Arg&gt;
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template&lt;typename T, typename Arg&gt;
 </span></span><span style=display:flex><span>shared_ptr&lt;T&gt; factory(Arg&amp;&amp; arg)
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>return shared_ptr&lt;T&gt;(new T(std::forward&lt;Arg&gt;(arg)));
@@ -55,14 +50,12 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>/*
 </span></span><span style=display:flex><span>调用时候, 参数如果是左值, 只需要std::move()获取对应的右值
-</span></span><span style=display:flex><span>*/
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//两者都在&lt;utility&gt;头文件
+</span></span><span style=display:flex><span>*/</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//两者都在&lt;utility&gt;头文件
 </span></span><span style=display:flex><span>//std::move(arg)       可以获取左值的右值引用
 </span></span><span style=display:flex><span>//                     因为右值引用是将原对象的内容移动到新对象, 所以原对象移动后不应再使用
 </span></span><span style=display:flex><span>//std::forward&lt;T&gt;(arg) 可以获取arg的T属性.
 </span></span><span style=display:flex><span>//                     T如果为int,  则使用arg的右值
-</span></span><span style=display:flex><span>//                     T若果为int&amp;, 则使用arg的左值
-</span></span></code></pre></div><p>右值引用使用场景:<br></p><ol><li><p>上面的exp所展示的<br></p></li><li><p>就是在以传值方式传递对象时隐式发生的耗时且不必要的深度拷贝。<br>举例而言，std::vector&lt;T>本质上是一个C-style数组及其大小的封装，<br>如果一个std::vector&lt;T>的临时对象是在函数内部或者函数返回时创建，<br>要将其存储就只能透过生成新的std::vector&lt;T>并且把该临时对象所有的资料复制过去<br>然后该临时对象会被析构，其使用的内存会被释放<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>std::vector&lt;int&gt; test(){
+</span></span><span style=display:flex><span>//                     T若果为int&amp;, 则使用arg的左值</span></span></code></pre></div><p>右值引用使用场景:<br></p><ol><li><p>上面的exp所展示的<br></p></li><li><p>就是在以传值方式传递对象时隐式发生的耗时且不必要的深度拷贝。<br>举例而言，std::vector&lt;T>本质上是一个C-style数组及其大小的封装，<br>如果一个std::vector&lt;T>的临时对象是在函数内部或者函数返回时创建，<br>要将其存储就只能透过生成新的std::vector&lt;T>并且把该临时对象所有的资料复制过去<br>然后该临时对象会被析构，其使用的内存会被释放<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>std::vector&lt;int&gt; test(){
 </span></span><span style=display:flex><span>  std::vector&lt;int&gt; vec_data;
 </span></span><span style=display:flex><span>   //一些操作
 </span></span><span style=display:flex><span>   //...
@@ -74,8 +67,7 @@
 </span></span><span style=display:flex><span>   //
 </span></span><span style=display:flex><span>   // 其中深度copy会造成非常大的开销, 导致性能低下
 </span></span><span style=display:flex><span>   return vec_data;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>std::vector&lt;int&gt; test(){
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>std::vector&lt;int&gt; test(){
 </span></span><span style=display:flex><span>  std::vector&lt;int&gt; vec_data;
 </span></span><span style=display:flex><span>  //一些操作
 </span></span><span style=display:flex><span>  //...
@@ -87,8 +79,7 @@
 </span></span><span style=display:flex><span>  //
 </span></span><span style=display:flex><span>  //对比旧版本, 这里少了深度copy这一层
 </span></span><span style=display:flex><span>  return std::vector&lt;int&gt; (std::move(vec_data) );
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ol><p>注意事项<br></p><ol><li>对象被右值引用后, 再操作会导致不可预知的问题(内存相关信息已被置为null)<br></li><li>并非所有情形都合适. 应该使用在避免深度copy的场合<br></li></ol></li></ul><ul><li><p>constexpr 泛化的常量表达式</p><p>constexpr确保对象在编译期完成初始化操作, 因此加快运行期的效率<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//const 与 constexpr 均表示该表达式(对象或函数)被声明为常量
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ol><p>注意事项<br></p><ol><li>对象被右值引用后, 再操作会导致不可预知的问题(内存相关信息已被置为null)<br></li><li>并非所有情形都合适. 应该使用在避免深度copy的场合<br></li></ol></li></ul><ul><li><p>constexpr 泛化的常量表达式</p><p>constexpr确保对象在编译期完成初始化操作, 因此加快运行期的效率<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//const 与 constexpr 均表示该表达式(对象或函数)被声明为常量
 </span></span><span style=display:flex><span>//const     不保证对象经历哪种类型的初始化, 可能是编译器初始化, 也可能是运行期初始化
 </span></span><span style=display:flex><span>//constexpr 保证对象使用编译器初始化
 </span></span><span style=display:flex><span>
@@ -99,8 +90,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>//constexpr演示
 </span></span><span style=display:flex><span>constexpr int get_number(){ return 5; }
-</span></span><span style=display:flex><span>int arr[get_number()]; //正确. 因为constexpr保证函数get_number调用在编译器初始化
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//修饰函数表达式
+</span></span><span style=display:flex><span>int arr[get_number()]; //正确. 因为constexpr保证函数get_number调用在编译器初始化</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//修饰函数表达式
 </span></span><span style=display:flex><span>//函数主体必须是非虚拟的，并且除了 typedef 和静态断言之外，仅包含一个 return 语句
 </span></span><span style=display:flex><span>constexpr int max() { return 4; } // ok
 </span></span><span style=display:flex><span>constexpr long long_max() { return 23423424; } //ok
@@ -133,10 +123,7 @@
 </span></span><span style=display:flex><span>constexpr double xx = 1.0;
 </span></span><span style=display:flex><span>constexpr complex cx3(xx, 0); //ok 编译期初始化
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>complex cx4(1.0, 2.0); //ok 运行期初始化
-</span></span></code></pre></div></li></ul><ul><li><p>对POD定义的修正</p><p>?? 这是什么, 完全没有看懂 ??<br></p></li></ul></li></ul><ul><li><p>构造期表现强化</p><ul><li><p>外部模版</p><p>在标准C++中，只要在编译单元内遇到被完整定义的模板，编译器都必须将其实例化（instantiate）<br>这会大大增加编译时间，特别是模板在许多编译单元内使用相同的参数实例化。<br></p><p>C++11之前, 可以告诉编译器在特定位置开始实例化, 但无法告诉编译器不要引发模板实例化<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template class std::vector&lt;MyClass&gt;;
-</span></span></code></pre></div><p>C++11增加了 阻止编译器在编译期间引发模板实例化<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>extern template class std::vector&lt;MyClass&gt;;
-</span></span></code></pre></div></li></ul></li></ul><ul><li><p>可用性的加强</p><ul><li><p>初始化列表</p><p>初始化列表的构想是 结构(或数组)的成员依据定义的顺序 由一串形参产生.<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Test{
+</span></span><span style=display:flex><span>complex cx4(1.0, 2.0); //ok 运行期初始化</span></span></code></pre></div></li></ul><ul><li><p>对POD定义的修正</p><p>?? 这是什么, 完全没有看懂 ??<br></p></li></ul></li></ul><ul><li><p>构造期表现强化</p><ul><li><p>外部模版</p><p>在标准C++中，只要在编译单元内遇到被完整定义的模板，编译器都必须将其实例化（instantiate）<br>这会大大增加编译时间，特别是模板在许多编译单元内使用相同的参数实例化。<br></p><p>C++11之前, 可以告诉编译器在特定位置开始实例化, 但无法告诉编译器不要引发模板实例化<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>template class std::vector&lt;MyClass&gt;;</span></span></code></pre></div><p>C++11增加了 阻止编译器在编译期间引发模板实例化<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>extern template class std::vector&lt;MyClass&gt;;</span></span></code></pre></div></li></ul></li></ul><ul><li><p>可用性的加强</p><ul><li><p>初始化列表</p><p>初始化列表的构想是 结构(或数组)的成员依据定义的顺序 由一串形参产生.<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Test{
 </span></span><span style=display:flex><span>  int a;
 </span></span><span style=display:flex><span>  double b;
 </span></span><span style=display:flex><span>  int c;
@@ -145,8 +132,7 @@
 </span></span><span style=display:flex><span>//给予 Test一串形参,  Test的成员根据位置,自动获得初始化
 </span></span><span style=display:flex><span>//Test成员a, b, c根据自己在Test结构中定义的顺序, 自动与形参1, 2.0, 3获得匹配的初始化
 </span></span><span style=display:flex><span>//即a=1, b=2.0, c=3
-</span></span><span style=display:flex><span>Test t1{1, 2.0, 3};
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11 增加了初始化列表构造函数 std::initializer_list&lt;&gt;
+</span></span><span style=display:flex><span>Test t1{1, 2.0, 3};</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11 增加了初始化列表构造函数 std::initializer_list&lt;&gt;
 </span></span><span style=display:flex><span>class Test{
 </span></span><span style=display:flex><span>public:
 </span></span><span style=display:flex><span>  Test(std::initializer_list&lt;int&gt; list); //初始化列表构造函数
@@ -169,11 +155,9 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>//如果想调用普通构造函数, 应该使用标准的构造函数语法
 </span></span><span style=display:flex><span>//调用的是 Test(init i);
-</span></span><span style=display:flex><span>Test test(1);
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//std::initializer_list除了可以在构造函数中使用, 也可用于普通函数
+</span></span><span style=display:flex><span>Test test(1);</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//std::initializer_list除了可以在构造函数中使用, 也可用于普通函数
 </span></span><span style=display:flex><span>void Fun(std::initializer_list&lt;int&gt; list);
-</span></span><span style=display:flex><span>Fun(1, 2, 3);
-</span></span></code></pre></div></li></ul><ul><li><p>统一的初始化</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct BasicStruct{
+</span></span><span style=display:flex><span>Fun(1, 2, 3);</span></span></code></pre></div></li></ul><ul><li><p>统一的初始化</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct BasicStruct{
 </span></span><span style=display:flex><span>  int x;
 </span></span><span style=display:flex><span>  float y;
 </span></span><span style=display:flex><span>}
@@ -187,14 +171,12 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>//两者都可以采用一样的初始化样式
 </span></span><span style=display:flex><span>BasicStruct val1 {5, 2.1f};
-</span></span><span style=display:flex><span>AltStruct   val2 {2, 2.1f};
-</span></span></code></pre></div></li></ul><ul><li><p>auto && decltype</p><p>C++03使用参数必须明确的指出其类别.<br>然而随着模板类别的出现以及模板元编程的技巧, 某物的类别, 特被是函数定义明确的返回类别, 不容易表示.<br>C++11提供了auto 自动类别推导, 来解决该问题<br></p><p>有被明确初始化的参数可以使用auto.<br>对于指针类型, 使用auto 和 auto*是一样的.<br>对于引用类型, 必须使用auto&. 因为auto总是推断出非引用类型<br></p></li></ul><ul><li><p>基于范围的for循环</p><p>简化了for循环. 可以使用在C型数组, 初始化列表, 和任何定义了begin(), end()的类型<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>int my_array[5] {1, 2, 3, 4, 5};
+</span></span><span style=display:flex><span>AltStruct   val2 {2, 2.1f};</span></span></code></pre></div></li></ul><ul><li><p>auto && decltype</p><p>C++03使用参数必须明确的指出其类别.<br>然而随着模板类别的出现以及模板元编程的技巧, 某物的类别, 特被是函数定义明确的返回类别, 不容易表示.<br>C++11提供了auto 自动类别推导, 来解决该问题<br></p><p>有被明确初始化的参数可以使用auto.<br>对于指针类型, 使用auto 和 auto*是一样的.<br>对于引用类型, 必须使用auto&. 因为auto总是推断出非引用类型<br></p></li></ul><ul><li><p>基于范围的for循环</p><p>简化了for循环. 可以使用在C型数组, 初始化列表, 和任何定义了begin(), end()的类型<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>int my_array[5] {1, 2, 3, 4, 5};
 </span></span><span style=display:flex><span>//每个元素 * 2
 </span></span><span style=display:flex><span>//注意这里是auto&amp;, 而非auto
 </span></span><span style=display:flex><span>for (auto&amp; x : my_array){
 </span></span><span style=display:flex><span>  x *= 2;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li>lambda函数表达式</li></ul><ul><li><p>返回类别后置的函数声明</p><p>?? 看样子, 主要用于模板中函数的返回类别 ??<br></p></li></ul><ul><li><p>class对象构造改良</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11之前, 构造函数不允许调用其他构造函数
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li>lambda函数表达式</li></ul><ul><li><p>返回类别后置的函数声明</p><p>?? 看样子, 主要用于模板中函数的返回类别 ??<br></p></li></ul><ul><li><p>class对象构造改良</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11之前, 构造函数不允许调用其他构造函数
 </span></span><span style=display:flex><span>//C++11, 取消了该限制, 允许构造函数调用其他构造函数, 这种做法称为委托构造
 </span></span><span style=display:flex><span>class SomeType{
 </span></span><span style=display:flex><span>public:
@@ -207,8 +189,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  int m_i;
 </span></span><span style=display:flex><span>  string m_s;
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03 基类的构造函数不能直接作为派生类的构造函数, 每个派生类必须实现自己的构造函数
+</span></span><span style=display:flex><span>};</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03 基类的构造函数不能直接作为派生类的构造函数, 每个派生类必须实现自己的构造函数
 </span></span><span style=display:flex><span>//C++11 取消了该限制. 编译器可以使用基类的构造函数完成派生类的构造
 </span></span><span style=display:flex><span>//而将基类的构造函数带入派生类的动作. 无法选择性的部分带入.
 </span></span><span style=display:flex><span>//要么全部带入, 要么一个都不带入
@@ -220,8 +201,7 @@
 </span></span><span style=display:flex><span>class DerivedClass :public BaseClass {
 </span></span><span style=display:flex><span>public:
 </span></span><span style=display:flex><span>  using BaseClass::BaseClass; //使用基类的构造函数
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03 class 成员变量只能在构造函数中被初始化
+</span></span><span style=display:flex><span>};</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03 class 成员变量只能在构造函数中被初始化
 </span></span><span style=display:flex><span>//C++11 取消了该限制, 使其可以在声明的地方初始化
 </span></span><span style=display:flex><span>class SomeClass{
 </span></span><span style=display:flex><span>public:
@@ -230,23 +210,20 @@
 </span></span><span style=display:flex><span>private:
 </span></span><span style=display:flex><span>  int m_val = 45;
 </span></span><span style=display:flex><span>  int m_test {45}; //也可以使用列表初始化的样式
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div></li></ul><ul><li><p>显示虚函数重载</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Base{
+</span></span><span style=display:flex><span>};</span></span></code></pre></div></li></ul><ul><li><p>显示虚函数重载</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Base{
 </span></span><span style=display:flex><span>  virtual void func(int);
 </span></span><span style=display:flex><span>};
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>struct Derived : Base{
 </span></span><span style=display:flex><span>  virtual void func(int) override;    //ok 显示重载
 </span></span><span style=display:flex><span>  virtual void func(float) override;  //error: struct Base中没有对应的虚函数
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Base{
+</span></span><span style=display:flex><span>};</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Base{
 </span></span><span style=display:flex><span>  virtual void func(int) final;
 </span></span><span style=display:flex><span>};
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>struct Derived : Base{
 </span></span><span style=display:flex><span>  virtual void func(int);  //error: struct Base:func 禁止重载
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div></li></ul><ul><li><p>空指针</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11之前, 使用NULL来表示0和空指针 ( C的做法 )
+</span></span><span style=display:flex><span>};</span></span></code></pre></div></li></ul><ul><li><p>空指针</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11之前, 使用NULL来表示0和空指针 ( C的做法 )
 </span></span><span style=display:flex><span>//但是在函数重载时候, 就容易引发歧义
 </span></span><span style=display:flex><span>void foo (char*);
 </span></span><span style=display:flex><span>void foo (int);
@@ -256,8 +233,7 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>//C++11引入了nullptr 用来表示指针
 </span></span><span style=display:flex><span>//这样调用的就是 void foo(nullptr_t)
-</span></span><span style=display:flex><span>foo(nullptr)
-</span></span></code></pre></div></li></ul><ul><li><p>强类型枚举</p><p>?? 不是很明白 这个的意义在哪 ??<br>?? 枚举不和int比较, 不会很限制使用场景吗 ??<br></p></li></ul><ul><li><p>角括号</p><p>C++03的分析器一律把 >> 视为右移运算符. 为了避免, 编码时候不能把>>连着写. 尤其在模板编码中<br>C++11变更了分析器规则, 使其更加智能<br></p></li></ul><ul><li><p>显式类别转换 explicit</p><p>?? 完全没有印象 ??<br></p></li></ul><ul><li><p>模板的别名</p><p>?? 对模板 完全不熟悉 ??<br></p></li></ul><ul><li>模板参数的缺省值</li></ul><ul><li><p>无限制的unions</p><p>?? 需要详细了解一下 ??<br></p></li></ul></li></ul><ul><li><p>能力的提升</p><p>这些特性让C++语言能够做一些以前做不到的，或者极其复杂的，或者需求一些不可移植的库的事情。<br></p><ul><li><p>可变参数模板</p><p>?? 又是模板&mldr; ??<br></p></li></ul><ul><li><p>字符串字面值</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03 提供了两种字符串字面值
+</span></span><span style=display:flex><span>foo(nullptr)</span></span></code></pre></div></li></ul><ul><li><p>强类型枚举</p><p>?? 不是很明白 这个的意义在哪 ??<br>?? 枚举不和int比较, 不会很限制使用场景吗 ??<br></p></li></ul><ul><li><p>角括号</p><p>C++03的分析器一律把 >> 视为右移运算符. 为了避免, 编码时候不能把>>连着写. 尤其在模板编码中<br>C++11变更了分析器规则, 使其更加智能<br></p></li></ul><ul><li><p>显式类别转换 explicit</p><p>?? 完全没有印象 ??<br></p></li></ul><ul><li><p>模板的别名</p><p>?? 对模板 完全不熟悉 ??<br></p></li></ul><ul><li>模板参数的缺省值</li></ul><ul><li><p>无限制的unions</p><p>?? 需要详细了解一下 ??<br></p></li></ul></li></ul><ul><li><p>能力的提升</p><p>这些特性让C++语言能够做一些以前做不到的，或者极其复杂的，或者需求一些不可移植的库的事情。<br></p><ul><li><p>可变参数模板</p><p>?? 又是模板&mldr; ??<br></p></li></ul><ul><li><p>字符串字面值</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03 提供了两种字符串字面值
 </span></span><span style=display:flex><span>&#34;abc&#34;   //产生以空字符\0结尾的 const char 数组
 </span></span><span style=display:flex><span>L&#34;abc&#34;  //产生以空字符\0结尾的 const wchat_t数组
 </span></span><span style=display:flex><span>
@@ -272,12 +248,10 @@
 </span></span><span style=display:flex><span>// \U之后的是32 bits的十六进制数值
 </span></span><span style=display:flex><span>u8&#34;This is a Unicode Character: \u2018.&#34;
 </span></span><span style=display:flex><span>u&#34;This is a bigger Unicode Character: \u2018.&#34;
-</span></span><span style=display:flex><span>u8&#34;This is a Unicode Character: \U00002018.&#34;
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>R&#34;(The String Data \ Stuff &#34; )&#34; //()中的内容不会被转义
+</span></span><span style=display:flex><span>u8&#34;This is a Unicode Character: \U00002018.&#34;</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>R&#34;(The String Data \ Stuff &#34; )&#34; //()中的内容不会被转义
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>//R 可以和 u8/u/U组合使用
-</span></span><span style=display:flex><span>u8R&#34;(I&#39;m a &#34;raw UTF-8&#34; string.)&#34;
-</span></span></code></pre></div></li></ul><ul><li><p>用户定义字面值</p><p>C++11开放用户定义新的字面修饰符（literal modifier），利用自定义的修饰符完成由字面值构造对象。<br></p><p>字面值转换可以定义为两个阶段：原始与转换后（raw与cooked)<br>原始字面值指特定类型的字符序列，而转换后的字面值则代表另一种类别。<br>如字面值1234，原始字面值是'1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;, &lsquo;4&rsquo;的字符序列；<br>而转换后的字面值是整数值1234。另外，字面值0xA转换前是序列'0&rsquo;, &lsquo;x&rsquo;, &lsquo;A&rsquo;；转换后代表整数值10。<br></p><p>?? 如何使用 ??<br></p></li></ul><ul><li><p>多线程编程支持</p><p>C++标准委员会计划统一对多线程编程的支持. 这将涉及两个部分：<br></p><ol><li>设计一个可以使多个线程在一个进程中共存的内存模型；<br></li><li>为线程之间的交互提供支持. 这部分将由程序库提供支持<br></li></ol><p>在多个线程可能会访问相同内存的情形下，由一个内存模型对它们进行调度是非常有必要的。<br>遵守模型规则的程序是被保证正确运行的，<br>但违反规则的程序会发生不可预料的行为，这些行为依赖于编译器的优化和内存一致性的问题。<br></p><p>虽然C++11会在语言的定义上提供一个内存模型以支持线程，但线程的使用主要将以C++11标准库的方式呈现。<br>C++11标准库会提供类别thread（std::thread）。若要执行一个线程，可以创建一个类别thread的实体，其初始参数为一个函数对象，以及该函数对象所需要的参数。透过成员函数std::thread::join()对线程会合的支持，一个线程可以暂停直到其它线程执行完毕。若有底层平台支持，成员函数std::thread::native_handle()将可提供对原生线程对象执行平台特定的操作。<br>对于线程间的同步，标准库将会提供适当的互斥锁（像是std::mutex，std::recursive_mutex等等）和条件参数（std::condition_variable和std::condition_variable_any）。前述同步机制将会以RAII锁（std::lock_guard和std::unique_lock）和锁相关算法的方式呈现，以方便程序员使用。<br>对于要求高性能，或是极底层的工作，有时或甚至是必须的，我们希望线程间的通信能避免互斥锁使用上的开销。以原子操作来访问内存可以达成此目的。针对不同情况，我们可以透过显性的内存屏障改变该访问内存动作的可见性。<br>对于线程间异步的传输，C++11标准库加入了以及std::packaged_task用来包装一个会传回异步结果的函数调用。因为缺少结合数个future的功能，和无法判定一组promise集合中的某一个promise是否完成，futures此一提案因此而受到了批评。<br>更高级的线程支持，如线程池，已经决定留待在未来的Technical Report加入此类支持。更高级的线程支持不会是C++11的一部分，但设想是其最终实现将创建在目前已有的线程支持之上。<br>std::async提供了一个简便方法以用来执行线程，并将线程绑定在std::future。用户可以选择一个工作是要多个线程上异步的执行，或是在一个线程上执行并等待其所需要的资料。默认的情况，实现可以根据底层硬件选择前面两个选项的其中之一。另外在较简单的使用情形下，实现也可以利用线程池提供支持。<br></p><p>?? 后期重点查看 ??<br></p></li></ul><ul><li>thread-local的存储期限</li></ul><ul><li><p>使用或禁用对象的默认函数</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03中, 用户无法精确控制class的默认函数, 比如默认构造函数, 默认复制构造函数, 默认赋值运算符等
+</span></span><span style=display:flex><span>u8R&#34;(I&#39;m a &#34;raw UTF-8&#34; string.)&#34;</span></span></code></pre></div></li></ul><ul><li><p>用户定义字面值</p><p>C++11开放用户定义新的字面修饰符（literal modifier），利用自定义的修饰符完成由字面值构造对象。<br></p><p>字面值转换可以定义为两个阶段：原始与转换后（raw与cooked)<br>原始字面值指特定类型的字符序列，而转换后的字面值则代表另一种类别。<br>如字面值1234，原始字面值是'1&rsquo;, &lsquo;2&rsquo;, &lsquo;3&rsquo;, &lsquo;4&rsquo;的字符序列；<br>而转换后的字面值是整数值1234。另外，字面值0xA转换前是序列'0&rsquo;, &lsquo;x&rsquo;, &lsquo;A&rsquo;；转换后代表整数值10。<br></p><p>?? 如何使用 ??<br></p></li></ul><ul><li><p>多线程编程支持</p><p>C++标准委员会计划统一对多线程编程的支持. 这将涉及两个部分：<br></p><ol><li>设计一个可以使多个线程在一个进程中共存的内存模型；<br></li><li>为线程之间的交互提供支持. 这部分将由程序库提供支持<br></li></ol><p>在多个线程可能会访问相同内存的情形下，由一个内存模型对它们进行调度是非常有必要的。<br>遵守模型规则的程序是被保证正确运行的，<br>但违反规则的程序会发生不可预料的行为，这些行为依赖于编译器的优化和内存一致性的问题。<br></p><p>虽然C++11会在语言的定义上提供一个内存模型以支持线程，但线程的使用主要将以C++11标准库的方式呈现。<br>C++11标准库会提供类别thread（std::thread）。若要执行一个线程，可以创建一个类别thread的实体，其初始参数为一个函数对象，以及该函数对象所需要的参数。透过成员函数std::thread::join()对线程会合的支持，一个线程可以暂停直到其它线程执行完毕。若有底层平台支持，成员函数std::thread::native_handle()将可提供对原生线程对象执行平台特定的操作。<br>对于线程间的同步，标准库将会提供适当的互斥锁（像是std::mutex，std::recursive_mutex等等）和条件参数（std::condition_variable和std::condition_variable_any）。前述同步机制将会以RAII锁（std::lock_guard和std::unique_lock）和锁相关算法的方式呈现，以方便程序员使用。<br>对于要求高性能，或是极底层的工作，有时或甚至是必须的，我们希望线程间的通信能避免互斥锁使用上的开销。以原子操作来访问内存可以达成此目的。针对不同情况，我们可以透过显性的内存屏障改变该访问内存动作的可见性。<br>对于线程间异步的传输，C++11标准库加入了以及std::packaged_task用来包装一个会传回异步结果的函数调用。因为缺少结合数个future的功能，和无法判定一组promise集合中的某一个promise是否完成，futures此一提案因此而受到了批评。<br>更高级的线程支持，如线程池，已经决定留待在未来的Technical Report加入此类支持。更高级的线程支持不会是C++11的一部分，但设想是其最终实现将创建在目前已有的线程支持之上。<br>std::async提供了一个简便方法以用来执行线程，并将线程绑定在std::future。用户可以选择一个工作是要多个线程上异步的执行，或是在一个线程上执行并等待其所需要的资料。默认的情况，实现可以根据底层硬件选择前面两个选项的其中之一。另外在较简单的使用情形下，实现也可以利用线程池提供支持。<br></p><p>?? 后期重点查看 ??<br></p></li></ul><ul><li>thread-local的存储期限</li></ul><ul><li><p>使用或禁用对象的默认函数</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++03中, 用户无法精确控制class的默认函数, 比如默认构造函数, 默认复制构造函数, 默认赋值运算符等
 </span></span><span style=display:flex><span>//比方说, 要让class不能被copy, 必须将复制构造函数 与 赋值运算符声明为private, 并不去定义他们.
 </span></span><span style=display:flex><span>//        这样尝试使用这些为定义的函数会导致编译期或连接器错误
 </span></span><span style=display:flex><span>//        但这种手法一点也不理想
@@ -295,16 +269,14 @@
 </span></span><span style=display:flex><span>  NonCopyable (const NonCopyable&amp; ) = delete;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  NonCopyable () = default;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li><p>long long int类型</p><p>在32位系统上，一个long long int是保有至少64个有效比特的整数类别。<br>C99将这个类别引入了标准C中，目前大多数的C++编译器也支持这种类别。<br>C++11将把这种类别添加到标准C++中。<br></p></li></ul><ul><li>静态assertion</li></ul><ul><li><p>sizeof运算符可以作用于class的所有成员</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11之前, sizeof运算符只能用于class的静态成员
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li><p>long long int类型</p><p>在32位系统上，一个long long int是保有至少64个有效比特的整数类别。<br>C99将这个类别引入了标准C中，目前大多数的C++编译器也支持这种类别。<br>C++11将把这种类别添加到标准C++中。<br></p></li></ul><ul><li>静态assertion</li></ul><ul><li><p>sizeof运算符可以作用于class的所有成员</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11之前, sizeof运算符只能用于class的静态成员
 </span></span><span style=display:flex><span>//C++11修改为均可使用
 </span></span><span style=display:flex><span>struct SomeType{
 </span></span><span style=display:flex><span>  OtherType member;
 </span></span><span style=display:flex><span>};
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>sizeof(SomeType::member); //传回OtherType的大小
-</span></span><span style=display:flex><span>//?? 如果成员是vector数组, 会是什么样 ??
-</span></span></code></pre></div></li></ul><ul><li><p>垃圾回收机制</p><p>?? 没明白&mldr; ??<br></p></li></ul></li></ul><h4 id=stl变更>stl变更
+</span></span><span style=display:flex><span>//?? 如果成员是vector数组, 会是什么样 ??</span></span></code></pre></div></li></ul><ul><li><p>垃圾回收机制</p><p>?? 没明白&mldr; ??<br></p></li></ul></li></ul><h4 id=stl变更>stl变更
 <a class=anchor href=#stl%e5%8f%98%e6%9b%b4>#</a></h4><ul><li><p>stl组件上的升级</p><p>基于C++11新特性, 实现stl的更优<br></p><ol><li>右值引用和其相关的move支持<br></li><li>支持UTF-16编码，和UTF-32字符集<br></li><li>变长参数模板（与右值引用搭配可以达成完美转发（perfect forwarding））<br></li><li>编译期常量表达式<br></li><li>Decltype<br></li><li>显式类别转换子<br></li><li>使用或禁用对象的默认函数<br></li></ol></li></ul><ul><li>线程支持</li></ul><ul><li>多元组类别</li></ul><ul><li>散列表</li></ul><ul><li>正则表达式</li></ul><ul><li>通用智能指针</li></ul><ul><li><p>可扩展的随机数功能</p><p>?? C++版本的 也太麻烦了把 &mldr; ??<br></p></li></ul><ul><li><p>包装引用</p><p>?? 与模板有关 ??<br></p></li></ul><ul><li>对函数对象的包装</li></ul><ul><li><p>用于元编程的类别属性</p><p>?? ?? ??<br></p></li></ul><ul><li>用于计算函数对象返回类型的统一方法</li></ul><ul><li><p>itoa函数</p><p>iota 函数可将给定区间的值设定为从某值开始的连续值，<br>例如将连续十个整数设定为从 1 开始的连续整数（即 1、2、3、4、5、6、7、8、9、10）。<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>#include &lt;iostream&gt;
 </span></span><span style=display:flex><span>#include &lt;array&gt;
 </span></span><span style=display:flex><span>#include &lt;numeric&gt;
@@ -313,14 +285,12 @@
 </span></span><span style=display:flex><span>std::iota(ai.begin(), ai.end(), 1);
 </span></span><span style=display:flex><span>for(int i: ai){
 </span></span><span style=display:flex><span>  std::cout&lt;&lt;i&lt;&lt;&#34; &#34;;//1 2 3 4 5 6 7 8 9 10
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>?? 貌似 作用不大呀 ??<br></p></li></ul><h3 id=2011-十进制浮点数扩展>2011 十进制浮点数扩展
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><p>?? 貌似 作用不大呀 ??<br></p></li></ul><h3 id=2011-十进制浮点数扩展>2011 十进制浮点数扩展
 <a class=anchor href=#2011-%e5%8d%81%e8%bf%9b%e5%88%b6%e6%b5%ae%e7%82%b9%e6%95%b0%e6%89%a9%e5%b1%95>#</a></h3><h3 id=2014-c-plus-plus-14-第四个c-plus-plus-标准>2014 C++14 第四个C++标准
 <a class=anchor href=#2014-c-plus-plus-14-%e7%ac%ac%e5%9b%9b%e4%b8%aac-plus-plus-%e6%a0%87%e5%87%86>#</a></h3><p>C++14旨在作为C++11的一个小扩展, 主要提供漏洞修复和小的改进. <a href=https://zh.wikipedia.org/wiki/C%2B%2B14>参考资料</a><br></p><h4 id=语言特性变更>语言特性变更
 <a class=anchor href=#%e8%af%ad%e8%a8%80%e7%89%b9%e6%80%a7%e5%8f%98%e6%9b%b4>#</a></h4><ul><li><p>泛型的lambda</p><p>?? 这是什么玩意 ??<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11中, lambda函数的形参必须被声明为具体的类型
 </span></span><span style=display:flex><span>//C++14 放宽了这个要求
-</span></span><span style=display:flex><span>auto lambda = [](auto x, auto y) { return x + y; }
-</span></span></code></pre></div></li></ul><ul><li><p>lambda捕获部分中使用表达式</p><p>C++11的lambda函数允许通过 [值copy 或 引用] 捕获已在外层作用域声明的变量.<br>C++14允许lambda成员用任意的被捕获表达式初始化.意味着:<br></p><ol><li>允许 capture by value-move<br></li><li>允许任意声明的lambda成员, 而不需要外层作用域有一个具有相应名字的变量.这称为广义捕获.<br>即使在闭包区域中存在相同的变量也会被新变量覆盖(只是在lambda中被覆盖).<br>新变量类型由他的初始化表达式推导, 类似与auto<br></li></ol><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//val新变量不需要特意声明类型, 会根据auto自动推导
+</span></span><span style=display:flex><span>auto lambda = [](auto x, auto y) { return x + y; }</span></span></code></pre></div></li></ul><ul><li><p>lambda捕获部分中使用表达式</p><p>C++11的lambda函数允许通过 [值copy 或 引用] 捕获已在外层作用域声明的变量.<br>C++14允许lambda成员用任意的被捕获表达式初始化.意味着:<br></p><ol><li>允许 capture by value-move<br></li><li>允许任意声明的lambda成员, 而不需要外层作用域有一个具有相应名字的变量.这称为广义捕获.<br>即使在闭包区域中存在相同的变量也会被新变量覆盖(只是在lambda中被覆盖).<br>新变量类型由他的初始化表达式推导, 类似与auto<br></li></ol><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//val新变量不需要特意声明类型, 会根据auto自动推导
 </span></span><span style=display:flex><span>//lambda的返回值为1, 说明新变量val成功被初始化
 </span></span><span style=display:flex><span>auto lambda = [val = 1]{ return val; }
 </span></span><span style=display:flex><span>
@@ -334,8 +304,7 @@
 </span></span><span style=display:flex><span>  return r + x;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>//结果是外部变量x被设置为2;  f()返回12
-</span></span><span style=display:flex><span>f();
-</span></span></code></pre></div></li></ul><ul><li><p>函数返回类型推导</p><p>C++11允许lambda函数根据return语句的表达式类型推断返回类型;<br>C++14为一般的函数也提供了这个功能.<br></p><p>?? 真的完全想不通这种不易阅读的特性 到底有什么用 ??<br></p></li></ul><ul><li><p>decltype(auto)</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>const int x = 0;
+</span></span><span style=display:flex><span>f();</span></span></code></pre></div></li></ul><ul><li><p>函数返回类型推导</p><p>C++11允许lambda函数根据return语句的表达式类型推断返回类型;<br>C++14为一般的函数也提供了这个功能.<br></p><p>?? 真的完全想不通这种不易阅读的特性 到底有什么用 ??<br></p></li></ul><ul><li><p>decltype(auto)</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>const int x = 0;
 </span></span><span style=display:flex><span>auto x1 = x; //x1为int类型
 </span></span><span style=display:flex><span>decltype(auto) x2 = x; //x2为const int类型
 </span></span><span style=display:flex><span>
@@ -346,13 +315,11 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>int&amp;&amp; z =0;
 </span></span><span style=display:flex><span>auto z1 = std::move(z); //int
-</span></span><span style=display:flex><span>decltype(auto) z2 = std::move(z); //int&amp;&amp;
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//函数返回类型为int
+</span></span><span style=display:flex><span>decltype(auto) z2 = std::move(z); //int&amp;&amp;</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//函数返回类型为int
 </span></span><span style=display:flex><span>auto f (const int&amp; i) { return i; }
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>//函数返回类型为const int&amp;
-</span></span><span style=display:flex><span>decltype(auto) g (const int&amp; i) { return i; }
-</span></span></code></pre></div></li></ul><ul><li><p>constexpr函数放宽限制</p><p>C++11对constexpr函数做了严格的限制, 允许的语句非常少(基本就是一条return语句&mldr;)<br>C++14放宽了该限制. 允许constexpr有以下内容:<br></p><ol><li>任何声明, 除了<br><ul><li>static 或 thread_local变量<br></li><li>没有初始化的变量声明<br></li></ul></li><li>条件分支语句 if && switch<br></li><li>所有的循环语句, 包含range for 循环<br></li><li>表达式可以改变一个对象的值<br>需要该对象的生命期在声明为constexpr的函数内部开始, 包括对有constexpr声明的任何非const非静态成员函数的调用.<br></li></ol><p>此外，C++11指出，所有被声明为constexpr的非静态成员函数也隐含声明为const（即函数不能修改*this的值）<br>C++14中这点已经被删除，非静态成员函数可以为非const<br></p></li></ul><ul><li><p>变量模板</p><p>C++14之前模板可以是函数模板或类模板<br>C++14中引入了变量模板<br></p></li></ul><ul><li><p>class对象构造优化 (聚合类的成员初始化)</p><p>C++11中class的成员变量可以在声明的地方初始化. 但是如果构造函数中未定义该变量, 那么该class就不允许使用聚合初始化;<br>C++14中放松了这一限制<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Test{
+</span></span><span style=display:flex><span>decltype(auto) g (const int&amp; i) { return i; }</span></span></code></pre></div></li></ul><ul><li><p>constexpr函数放宽限制</p><p>C++11对constexpr函数做了严格的限制, 允许的语句非常少(基本就是一条return语句&mldr;)<br>C++14放宽了该限制. 允许constexpr有以下内容:<br></p><ol><li>任何声明, 除了<br><ul><li>static 或 thread_local变量<br></li><li>没有初始化的变量声明<br></li></ul></li><li>条件分支语句 if && switch<br></li><li>所有的循环语句, 包含range for 循环<br></li><li>表达式可以改变一个对象的值<br>需要该对象的生命期在声明为constexpr的函数内部开始, 包括对有constexpr声明的任何非const非静态成员函数的调用.<br></li></ol><p>此外，C++11指出，所有被声明为constexpr的非静态成员函数也隐含声明为const（即函数不能修改*this的值）<br>C++14中这点已经被删除，非静态成员函数可以为非const<br></p></li></ul><ul><li><p>变量模板</p><p>C++14之前模板可以是函数模板或类模板<br>C++14中引入了变量模板<br></p></li></ul><ul><li><p>class对象构造优化 (聚合类的成员初始化)</p><p>C++11中class的成员变量可以在声明的地方初始化. 但是如果构造函数中未定义该变量, 那么该class就不允许使用聚合初始化;<br>C++14中放松了这一限制<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Test{
 </span></span><span style=display:flex><span>  int m_x;
 </span></span><span style=display:flex><span>  int m_y = 40;
 </span></span><span style=display:flex><span>
@@ -361,12 +328,10 @@
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>Test t1{1}; //在C++11中是不允许的, 因为Test的构造函数Test(int x)中未初始化m_y
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Test t2{1}; //在C++14中是合法的. m_y会使用默认值40
-</span></span></code></pre></div></li></ul><ul><li><p>二进制字面量</p><p>C++14的数字允许使用二进制形式指定.使用前缀0b或0B.<br></p></li></ul><ul><li><p>数字分位符</p><p>C++14引入单引号 &rsquo; 作为数字分位符号, 使得数值型的字母量更好的可读性.<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>auto integer_literal = 100&#39;0000;
+</span></span><span style=display:flex><span>Test t2{1}; //在C++14中是合法的. m_y会使用默认值40</span></span></code></pre></div></li></ul><ul><li><p>二进制字面量</p><p>C++14的数字允许使用二进制形式指定.使用前缀0b或0B.<br></p></li></ul><ul><li><p>数字分位符</p><p>C++14引入单引号 &rsquo; 作为数字分位符号, 使得数值型的字母量更好的可读性.<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>auto integer_literal = 100&#39;0000;
 </span></span><span style=display:flex><span>auto floating_point_literal = 1.797&#39;693&#39;134&#39;862&#39;315&#39;7E+308;
 </span></span><span style=display:flex><span>auto binary_literal = 0b0100&#39;1100&#39;0110;
-</span></span><span style=display:flex><span>auto silly_example = 1&#39;0&#39;0&#39;000&#39;00;
-</span></span></code></pre></div></li></ul><ul><li><p>deprecated属性</p><p>deprecated属性允许标记不推荐使用的实体，该实体仍然能合法使用，<br>但会让用户注意到使用它是不受欢迎的，并且可能会导致在编译期间输出警告消息。<br>deprecated可以有一个可选的字符串文字作为参数，以解释弃用的原因和/或建议替代者。<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[[deprecated]] void f();
+</span></span><span style=display:flex><span>auto silly_example = 1&#39;0&#39;0&#39;000&#39;00;</span></span></code></pre></div></li></ul><ul><li><p>deprecated属性</p><p>deprecated属性允许标记不推荐使用的实体，该实体仍然能合法使用，<br>但会让用户注意到使用它是不受欢迎的，并且可能会导致在编译期间输出警告消息。<br>deprecated可以有一个可选的字符串文字作为参数，以解释弃用的原因和/或建议替代者。<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>[[deprecated]] void f();
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>[[deprecated(&#34;g() is unsafe, use h() instead&#34;)]]
 </span></span><span style=display:flex><span>void g();
@@ -374,17 +339,14 @@
 </span></span><span style=display:flex><span>void test(){
 </span></span><span style=display:flex><span>  f(); //warnning: f()已被弃用
 </span></span><span style=display:flex><span>  g(); //warnning: g() is unsafe, use h() instead
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><h4 id=stl变更>stl变更
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><h4 id=stl变更>stl变更
 <a class=anchor href=#stl%e5%8f%98%e6%9b%b4>#</a></h4><ul><li><p>共享的互斥体和锁</p><p>C++14增加了一类共享的互斥体和相应的共享锁<br>起初选择的名字是std::shared_mutex，但由于后来增加了与std::timed_mutex相似的特性，std::shared_timed_mutex成为了更适合的名字<br></p></li></ul><ul><li>元函数的别名</li></ul><ul><li><p>关联容器中的异构查找</p><p>C++标准库定义了四个关联容器类。<br>set和multiset允许用户根据一个值在容器中查找对应的的同类型的值。<br>map和multimap容器允许用户指定键（key）和值（value）的类型，根据键进行查找并返回对应的值。<br>然而，查找只能接受指定类型的参数，在map和multimap中是键的类型，而在set和multiset容器中就是值本身的类型。<br></p><p>C++14允许通过其他类型进行查找，只需要这个类型和实际的键类型之间可以进行比较操作。[<br>这允许std::set&lt;std::string>使用const char*，或任何可以通过operator&lt; 与std::string比较的类型作为查找的参数。<br></p><p>为保证向后兼容性，这种异构查找只在提供给关联容器的比较器允许的情况下有效。<br>标准库的泛型比较器，如std::less&lt;>与std::greater&lt;>允许异构查找<br></p></li></ul><ul><li><p>stl自定义字面量</p><p>C++11增加了自定义字面量的语言特性. C++14的stl中利用了这个特性<br>C++14 stl定义了如下字面量后缀<br></p><ol><li>s 创建各种std::basic_string类型<br></li><li>h, min, s, ms, us, ns 创建相应的std::chrono::duration时间间隔<br></li><li>if, i, il 创建std::complex&lt;float>, std::complex&lt;double>, std::complex&lt;long double>复数类型<br></li></ol><p>这些字面量可以用于编译时的constexpr<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//两个s互补干扰, 表示std::basic_string的s只能对字符串字面量操作, 而表示秒的只针对数字.
 </span></span><span style=display:flex><span>auto str = &#34;hello world&#34;s;
 </span></span><span style=display:flex><span>auto dur = 60s;
-</span></span><span style=display:flex><span>auto z   = 99i;
-</span></span></code></pre></div></li></ul><ul><li><p>通过类型寻址多元组</p><p>C++11引入的std::tuple类型允许不同类型的值的聚合体用编译期整型常数索引。<br>C++14还允许使用类型代替常数索引，从多元组中获取对象。<br>若多元组含有多于一个这个类型的对象，将会产生一个编译错误<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>tuple&lt;string, string, int&gt; t(&#34;foo&#34;, &#34;bar&#34;, 7);
+</span></span><span style=display:flex><span>auto z   = 99i;</span></span></code></pre></div></li></ul><ul><li><p>通过类型寻址多元组</p><p>C++11引入的std::tuple类型允许不同类型的值的聚合体用编译期整型常数索引。<br>C++14还允许使用类型代替常数索引，从多元组中获取对象。<br>若多元组含有多于一个这个类型的对象，将会产生一个编译错误<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>tuple&lt;string, string, int&gt; t(&#34;foo&#34;, &#34;bar&#34;, 7);
 </span></span><span style=display:flex><span>int i = get&lt;2&gt;(t);    //i = 7; C++11
 </span></span><span style=display:flex><span>int j = get&lt;int&gt;(t);  //j = 7; C++14新增
-</span></span><span style=display:flex><span>string s = get&lt;string&gt;(t); //编译错误, 歧义
-</span></span></code></pre></div></li></ul><ul><li><p>较小的标准库特性</p><ol><li>std::make_unique可以像std::make_shared一样使用, 用于产生std::unique_str对象<br></li><li>std::is_finale用于识别一个class类型是否禁止被继承<br></li><li>std::integral_constant增加了一个返回常量值的operator()<br></li><li>全局std::begin/std::end函数之外, 增加了std::cbegin/std::cend函数, 用于返回常量迭代器 constant iterators<br></li></ol></li></ul><h3 id=2015-文件系统>2015 文件系统
+</span></span><span style=display:flex><span>string s = get&lt;string&gt;(t); //编译错误, 歧义</span></span></code></pre></div></li></ul><ul><li><p>较小的标准库特性</p><ol><li>std::make_unique可以像std::make_shared一样使用, 用于产生std::unique_str对象<br></li><li>std::is_finale用于识别一个class类型是否禁止被继承<br></li><li>std::integral_constant增加了一个返回常量值的operator()<br></li><li>全局std::begin/std::end函数之外, 增加了std::cbegin/std::cend函数, 用于返回常量迭代器 constant iterators<br></li></ol></li></ul><h3 id=2015-文件系统>2015 文件系统
 <a class=anchor href=#2015-%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f>#</a></h3><h3 id=2015-用于并行计算的扩展>2015 用于并行计算的扩展
 <a class=anchor href=#2015-%e7%94%a8%e4%ba%8e%e5%b9%b6%e8%a1%8c%e8%ae%a1%e7%ae%97%e7%9a%84%e6%89%a9%e5%b1%95>#</a></h3><h3 id=2015-事务性内存操作>2015 事务性内存操作
 <a class=anchor href=#2015-%e4%ba%8b%e5%8a%a1%e6%80%a7%e5%86%85%e5%ad%98%e6%93%8d%e4%bd%9c>#</a></h3><h3 id=2015-概念库-用于优化编译期信息>2015 概念库, 用于优化编译期信息
@@ -397,11 +359,9 @@
 <a class=anchor href=#%e6%96%b0%e5%8a%9f%e8%83%bd>#</a></h4><ul><li>static_assert无需提供出错信息</li></ul><ul><li>具有模板形式的模板参数允许使用typename (之前只能使用class)</li></ul><ul><li>std::uncaught_excepitions取代std::uncaught_exception</li></ul><ul><li>变长参数模板的Folding运算</li></ul><ul><li>容器访问操作表示方法的统一化</li></ul><ul><li>连续迭代器</li></ul><ul><li>新增特殊数学函数</li></ul><h4 id=语言特性>语言特性
 <a class=anchor href=#%e8%af%ad%e8%a8%80%e7%89%b9%e6%80%a7>#</a></h4><ul><li><p>u8字面量</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11的时候, u8可以修饰字符串
 </span></span><span style=display:flex><span>//C++17新增了u8可以修饰单个字符
-</span></span><span style=display:flex><span>char x = u8&#39;x&#39;;
-</span></span></code></pre></div></li></ul><ul><li><p>使noexcept成为系统的一部分</p><p>?? 需要再仔细的查看 ??<br>noexcept在C++11中首次加入, 作用是抛出异常, 取代throw ?? 为什么取代throw ??<br></p><p>C++17中使其成为了系统的一部分 ??什么意思??<br></p></li></ul><ul><li><p>{}列表初始化的自动推导规则</p><p>具体详见C++11中的说明 <a href=#%e5%88%9d%e5%a7%8b%e5%8c%96%e5%88%97%e8%a1%a8>初始化列表</a><br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11中会被推导为 std::initializer_list&lt;int&gt;
+</span></span><span style=display:flex><span>char x = u8&#39;x&#39;;</span></span></code></pre></div></li></ul><ul><li><p>使noexcept成为系统的一部分</p><p>?? 需要再仔细的查看 ??<br>noexcept在C++11中首次加入, 作用是抛出异常, 取代throw ?? 为什么取代throw ??<br></p><p>C++17中使其成为了系统的一部分 ??什么意思??<br></p></li></ul><ul><li><p>{}列表初始化的自动推导规则</p><p>具体详见C++11中的说明 <a href=#%e5%88%9d%e5%a7%8b%e5%8c%96%e5%88%97%e8%a1%a8>初始化列表</a><br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++11中会被推导为 std::initializer_list&lt;int&gt;
 </span></span><span style=display:flex><span>//C++17中推导为 int
-</span></span><span style=display:flex><span>auto x {3};
-</span></span></code></pre></div></li></ul><ul><li><p>lambda函数按值捕获this指针</p><p>C++17之前, lambda只能按引用捕获this指针<br>C++17允许使用*this捕获对象的副本<br></p></li></ul><ul><li><p>class 构造函数</p><p>?? 完全没有概念 ??<br></p><ol><li>编译时 if constexpr<br></li><li>构造函数lambda<br></li></ol></li></ul><ul><li><p>内联变量 inline</p><p>过去inline用于函数声明, 现在也可以用于变量声明, 表示函数或定义可定义多次(内容必须完全相同)<br>这允许在头文件中定义一个内联变量<br></p></li></ul><ul><li><p>结构化绑定</p><p>变量定义初始化时, 允许形如auto [x,y,z] = expr;<br>其中expr的 元组类似的对象包括 std::tuple, std::pair, std::array等聚合结构<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//例子1
+</span></span><span style=display:flex><span>auto x {3};</span></span></code></pre></div></li></ul><ul><li><p>lambda函数按值捕获this指针</p><p>C++17之前, lambda只能按引用捕获this指针<br>C++17允许使用*this捕获对象的副本<br></p></li></ul><ul><li><p>class 构造函数</p><p>?? 完全没有概念 ??<br></p><ol><li>编译时 if constexpr<br></li><li>构造函数lambda<br></li></ol></li></ul><ul><li><p>内联变量 inline</p><p>过去inline用于函数声明, 现在也可以用于变量声明, 表示函数或定义可定义多次(内容必须完全相同)<br>这允许在头文件中定义一个内联变量<br></p></li></ul><ul><li><p>结构化绑定</p><p>变量定义初始化时, 允许形如auto [x,y,z] = expr;<br>其中expr的 元组类似的对象包括 std::tuple, std::pair, std::array等聚合结构<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//例子1
 </span></span><span style=display:flex><span>using Coordinate = std::pair&lt;int, int&gt;;
 </span></span><span style=display:flex><span>Coordinate origin() { return Coordinate{1,2}; }
 </span></span><span style=display:flex><span>const auto [x, y] = origin(); //x=1; y=2
@@ -414,8 +374,7 @@
 </span></span><span style=display:flex><span>};
 </span></span><span style=display:flex><span>for (const auto&amp; [key, value] : mapping:){
 </span></span><span style=display:flex><span>   //do something
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li><p>if/switch选择语句可以带初始化</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//例子1
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li><p>if/switch选择语句可以带初始化</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//例子1
 </span></span><span style=display:flex><span>//之前需要放到语句块中限制锁的范围
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>  std::lock_guard&lt;std::mutex&gt; lk(mx);
@@ -438,8 +397,7 @@
 </span></span><span style=display:flex><span>switch (Foo gadget(args); auto s = gadget.status()) {
 </span></span><span style=display:flex><span>  case OK: gadget.zip(); break;
 </span></span><span style=display:flex><span>  case Bad: throw BadFoo(s.message());
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li><p>嵌套的namespace</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++17以前
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li><p>嵌套的namespace</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//C++17以前
 </span></span><span style=display:flex><span>namespace A{
 </span></span><span style=display:flex><span>  namespace B{
 </span></span><span style=display:flex><span>    namespace C{
@@ -451,8 +409,7 @@
 </span></span><span style=display:flex><span>//C++17简化了
 </span></span><span style=display:flex><span>namespace A::B::C{
 </span></span><span style=display:flex><span>  int i;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li><p>fallthrough, nodiscard, maybe_unused特性</p><p>C++17中新增<br></p></li></ul><h4 id=stl>stl
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li><p>fallthrough, nodiscard, maybe_unused特性</p><p>C++17中新增<br></p></li></ul><h4 id=stl>stl
 <a class=anchor href=#stl>#</a></h4><ul><li>std::variant</li></ul><ul><li>std::optional</li></ul><ul><li>std::any</li></ul><ul><li>std::string_view</li></ul><ul><li>std::filesystem</li></ul><ul><li>std::invoke</li></ul><ul><li>std::apply</li></ul><ul><li>std::byte</li></ul><ul><li>maps && sets更优效率的移动节点</li></ul><ul><li><p>并行算法</p><p>许多stl算法, 如copy, find和sort支持并行执行策略<br></p></li></ul><h3 id=2018-网络库>2018 网络库
 <a class=anchor href=#2018-%e7%bd%91%e7%bb%9c%e5%ba%93>#</a></h3><h3 id=2018-并行扩展>2018 并行扩展
 <a class=anchor href=#2018-%e5%b9%b6%e8%a1%8c%e6%89%a9%e5%b1%95>#</a></h3><h3 id=2018-模块>2018 模块
@@ -470,15 +427,12 @@
 </span></span><span style=display:flex><span>import cppcon;
 </span></span><span style=display:flex><span>int main(){
 </span></span><span style=display:flex><span>  std::cout &lt;&lt; CppCon::GetWelcome();
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li><p>import头文件</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//隐式的将 iostream 转换为模块
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li><p>import头文件</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//隐式的将 iostream 转换为模块
 </span></span><span style=display:flex><span>//加速构建, 因为iosteam只会处理一次
 </span></span><span style=display:flex><span>//和预编译PCH具有相似的效果 ?? PCH是什么 ??
-</span></span><span style=display:flex><span>import &lt;iostream&gt;
-</span></span></code></pre></div></li></ul><ul><li><p>Ranges</p><p>Range代表一串元素或者一串元素中的一段<br>意义:<br></p><ol><li>简化语法, 方便使用<br></li><li>防止begin/end不配对<br></li><li>使变换/过滤等串联操作成为可能<br></li></ol><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>vector&lt;int&gt; data{11, 22, 33};
+</span></span><span style=display:flex><span>import &lt;iostream&gt;</span></span></code></pre></div></li></ul><ul><li><p>Ranges</p><p>Range代表一串元素或者一串元素中的一段<br>意义:<br></p><ol><li>简化语法, 方便使用<br></li><li>防止begin/end不配对<br></li><li>使变换/过滤等串联操作成为可能<br></li></ol><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>vector&lt;int&gt; data{11, 22, 33};
 </span></span><span style=display:flex><span>sort(begin(data), end(data));
-</span></span><span style=display:flex><span>sort(data); //使用Ranges
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//View: 延迟计算, 不持有, 不改写
+</span></span><span style=display:flex><span>sort(data); //使用Ranges</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//View: 延迟计算, 不持有, 不改写
 </span></span><span style=display:flex><span>//Actions: 即时处理, 改写
 </span></span><span style=display:flex><span>//Algorithms: 所有接受begin/end对的算法都可以使用
 </span></span><span style=display:flex><span>//View和Ations使用管道符 | 串联
@@ -504,26 +458,21 @@
 </span></span><span style=display:flex><span>int total = accumulate( view::ints(1) |  //产生一个无限对整型数列
 </span></span><span style=display:flex><span>                        view::transform([] (int i) { return i * i;}) | //平方
 </span></span><span style=display:flex><span>                        view::take(10), //取前10个元素
-</span></span><span style=display:flex><span>                        0); //累加
-</span></span></code></pre></div></li></ul><ul><li><p>协程</p><p>意义:<br></p><ol><li>异步I/O<br></li><li>延迟计算<br></li><li>事件驱动的程序<br></li><li>generator<br></li></ol><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//co_wait    挂起协程, 等待其他计算完成
+</span></span><span style=display:flex><span>                        0); //累加</span></span></code></pre></div></li></ul><ul><li><p>协程</p><p>意义:<br></p><ol><li>异步I/O<br></li><li>延迟计算<br></li><li>事件驱动的程序<br></li><li>generator<br></li></ol><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//co_wait    挂起协程, 等待其他计算完成
 </span></span><span style=display:flex><span>//co_return  从协程返回 (协程禁用return)
 </span></span><span style=display:flex><span>//co_yield   弹出一个值, 挂起协程, 下一次调用继续协程的运行
-</span></span><span style=display:flex><span>//for co_await 循环体
-</span></span></code></pre></div></li></ul><ul><li><p>Concepts</p><p>?? 模板相关 ??<br></p></li></ul><ul><li><p>lambda</p><ol><li>需要显示捕获this变量<br>C++20之前 [=] 隐式捕获this<br>C++20开始 需要显示捕获this [=, this]<br></li><li>模板形式的lambda表达式<br></li><li>lambda表达式捕获 支持打包展开<br></li></ol></li></ul><ul><li>constexpr 更新</li></ul><ul><li><p>原子智能指针 Atomic</p><p>智能指针对于数据读写并非线程安全.<br>C++20之前, 多线程中使用智能指针, 需要使用mutex控制访问.<br>C++20新增 atomic&lt;shared_ptr&lt;T>>, atomic&lt;weak_ptr&lt;T>><br></p></li></ul><ul><li><p>class 指定初始化</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Data{
+</span></span><span style=display:flex><span>//for co_await 循环体</span></span></code></pre></div></li></ul><ul><li><p>Concepts</p><p>?? 模板相关 ??<br></p></li></ul><ul><li><p>lambda</p><ol><li>需要显示捕获this变量<br>C++20之前 [=] 隐式捕获this<br>C++20开始 需要显示捕获this [=, this]<br></li><li>模板形式的lambda表达式<br></li><li>lambda表达式捕获 支持打包展开<br></li></ol></li></ul><ul><li>constexpr 更新</li></ul><ul><li><p>原子智能指针 Atomic</p><p>智能指针对于数据读写并非线程安全.<br>C++20之前, 多线程中使用智能指针, 需要使用mutex控制访问.<br>C++20新增 atomic&lt;shared_ptr&lt;T>>, atomic&lt;weak_ptr&lt;T>><br></p></li></ul><ul><li><p>class 指定初始化</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>struct Data{
 </span></span><span style=display:flex><span>  int m_x = 0;
 </span></span><span style=display:flex><span>  std::string m_s;
 </span></span><span style=display:flex><span>};
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>Data d{.m_s = &#34;Hellow&#34;};
-</span></span></code></pre></div></li></ul><ul><li><p>&lt;=> 运算符</p><p>三路比较运算符<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//类似C的strcmp函数返回-1, 0, 1
+</span></span><span style=display:flex><span>Data d{.m_s = &#34;Hellow&#34;};</span></span></code></pre></div></li></ul><ul><li><p>&lt;=> 运算符</p><p>三路比较运算符<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>//类似C的strcmp函数返回-1, 0, 1
 </span></span><span style=display:flex><span>//但实际&lt;=&gt;返回的并非int类型, 而是&lt;compare&gt;头中的对象
 </span></span><span style=display:flex><span>(a &lt;=&gt; b ) &lt; 0 //如果a&lt;b为true
 </span></span><span style=display:flex><span>(a &lt;=&gt; b ) == 0 //如果a==b为true
-</span></span><span style=display:flex><span>(a &lt;=&gt; b ) &gt; 0 //如果a&gt;b为true
-</span></span></code></pre></div></li></ul><ul><li><p>范围for循环语句 支持初始化语句</p><p>C++17 if, switch语句支持了初始化语句<br>C++20 新增for循环语句的支持<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>for (auto data = GetData(); auto&amp; value : data){
+</span></span><span style=display:flex><span>(a &lt;=&gt; b ) &gt; 0 //如果a&gt;b为true</span></span></code></pre></div></li></ul><ul><li><p>范围for循环语句 支持初始化语句</p><p>C++17 if, switch语句支持了初始化语句<br>C++20 新增for循环语句的支持<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>for (auto data = GetData(); auto&amp; value : data){
 </span></span><span style=display:flex><span>  //do something
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><ul><li><p>特性测试宏</p><p>__has_cpp_attribute(fallthrough)<br>__cpp_binary_literals<br>__cpp_chart_t<br>__cpp_coroutines<br></p></li></ul><ul><li><p>consteval</p><p>constexpr函数可能编译期执行, 也可以在运行期执行;<br>consteval只能在编译期执行<br></p></li></ul><ul><li><p>constinit</p><p>强制指定以常量方式初始化<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>const char* GetStringDyn() {
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><ul><li><p>特性测试宏</p><p>__has_cpp_attribute(fallthrough)<br>__cpp_binary_literals<br>__cpp_chart_t<br>__cpp_coroutines<br></p></li></ul><ul><li><p>consteval</p><p>constexpr函数可能编译期执行, 也可以在运行期执行;<br>consteval只能在编译期执行<br></p></li></ul><ul><li><p>constinit</p><p>强制指定以常量方式初始化<br></p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>const char* GetStringDyn() {
 </span></span><span style=display:flex><span>  return &#34;dynamic init&#34;;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>constexpr const char* GetString(bool constInit) {
@@ -532,8 +481,7 @@
 </span></span><span style=display:flex><span>    GetStringDyn();
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>constinit const char* a = GetString(true); // ✔
-</span></span><span style=display:flex><span>constinit const char* b = GetString(false); // ❌
-</span></span></code></pre></div></li></ul><ul><li><p>用using引用enum类型</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>enum class CardTypeSuit {
+</span></span><span style=display:flex><span>constinit const char* b = GetString(false); // ❌</span></span></code></pre></div></li></ul><ul><li><p>用using引用enum类型</p><div class=highlight><pre tabindex=0 style=background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>enum class CardTypeSuit {
 </span></span><span style=display:flex><span>  Clubs,
 </span></span><span style=display:flex><span>  Diamonds,
 </span></span><span style=display:flex><span>  Hearts,
@@ -561,11 +509,10 @@
 </span></span><span style=display:flex><span>   case Hearts: return &#34;Hearts&#34;;
 </span></span><span style=display:flex><span>   case Spades: return &#34;Spades&#34;;
 </span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></li></ul><h4 id=stl>stl
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></li></ul><h4 id=stl>stl
 <a class=anchor href=#stl>#</a></h4><ul><li>choron 增加日历和时区的支持</li></ul><ul><li><p>std::span</p><p>某段连续数据的视图<br>不持有数据, 不分配和销毁数据<br>copy非常快<br>不支持数据跨步<br>可通过运行期确定长度, 也可编译期确定长度<br></p></li></ul><ul><li><p>特性测试宏</p><p>__cpp_lib_conceps<br>__cpp_lib_ranges<br>__cpp_lib_scoped_lock<br></p></li></ul><ul><li><p>&lt;version></p><p>包含c++标准库版本, 发布日期, 版权证书, 特性宏等<br></p></li></ul><ul><li><p>std::format</p><p>?? C++ 也有format了 &mldr;. ??<br></p></li></ul><h2 id=设计原则>设计原则
 <a class=anchor href=#%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99>#</a></h2><ol><li>C++设计成直接的和广泛的支援多种程式设计风格（过程化程式设计、数据抽象、物件导向程式设计、泛型程式设计）。<br></li><li>C++设计成给程式设计者更多的选择，即使可能导致程式设计者选择错误。<br></li><li>C++设计成尽可能与C相容，借此提供一个从C到C++的平滑过渡。<br></li><li>C++避免平台限定或没有普遍用途的特性。<br></li><li>C++不使用会带来额外开销的特性。<br></li><li>C++设计成无需复杂的程式设计环境。<br></li></ol><h2 id=待学习>待学习
-<a class=anchor href=#%e5%be%85%e5%ad%a6%e4%b9%a0>#</a></h2><ol><li>stl<br>C++中很重要的功能, 必须要尽快了解常用的<br></li><li>新的概念<br>C++20中增加了很多新概念<br></li><li>新的语言特性<br>只需要学习常用的特性, 有些特性是为了配合模板而来的, 暂时不需要学习<br></li><li>其他常用的库<br>比如网络库Asio, 格式库protobuf<br></li><li>模板<br>模板的作用 更多的是用在stl的编写上, 日常开发使用的比较少, 可以暂时先不学习<br></li></ol></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/blog/docs/emacs/lisp/ai/ class="flex align-center book-icon"><img src=/blog/svg/backward.svg class=book-icon alt=Previous title=AI>
+<a class=anchor href=#%e5%be%85%e5%ad%a6%e4%b9%a0>#</a></h2><ol><li>stl<br>C++中很重要的功能, 必须要尽快了解常用的<br></li><li>新的概念<br>C++20中增加了很多新概念<br></li><li>新的语言特性<br>只需要学习常用的特性, 有些特性是为了配合模板而来的, 暂时不需要学习<br></li><li>其他常用的库<br>比如网络库Asio, 格式库protobuf<br></li><li>模板<br>模板的作用 更多的是用在stl的编写上, 日常开发使用的比较少, 可以暂时先不学习<br></li></ol></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><div class="flex flex-wrap justify-between"><span><a href=/blog/docs/emacs/lisp/ai/ class="flex align-center"><img src=/blog/svg/backward.svg class=book-icon alt=Previous title=AI>
 <span>AI</span>
-</a></span><span><a href=/blog/docs/prog_language/c++/stl/ class="flex align-center book-icon"><span>C && C++ 常见库</span>
+</a></span><span><a href=/blog/docs/prog_language/c++/stl/ class="flex align-center"><span>C && C++ 常见库</span>
 <img src=/blog/svg/forward.svg class=book-icon alt=Next title="C && C++ 常见库"></a></span></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#演变>演变</a><ul><li><a href=#1979-诞生>1979 诞生</a></li><li><a href=#1983-改名c-plus-plus>1983 改名C++</a></li><li><a href=#1985-发布第一版>1985 发布第一版<span class=org-target id=org-target--C--------></span></a></li><li><a href=#1989-发布release-2-dot-0>1989 发布Release 2.0</a></li><li><a href=#1990-出版了-标准化基础>1990 出版了<span class=org-target id=org-target--The-Annotated-C---Reference-Manual></span> 标准化基础</a></li><li><a href=#1998-c-plus-plus-98-第一个c-plus-plus-标准>1998 C++98 第一个C++标准</a></li><li><a href=#2003-c-plus-plus-03-第二个c-plus-plus-标准>2003 C++03 第二个C++标准</a></li><li><a href=#2006-c-plus-plus-性能技术报告>2006 C++性能技术报告</a></li><li><a href=#2007-c-plus-plus-技术报告-库扩展>2007 C++技术报告: 库扩展</a></li><li><a href=#2010-数学函数扩展>2010 数学函数扩展</a></li><li><a href=#2011-c-plus-plus-11-第三个c-plus-plus-标准>2011 C++11 第三个C++标准</a></li><li><a href=#2011-十进制浮点数扩展>2011 十进制浮点数扩展</a></li><li><a href=#2014-c-plus-plus-14-第四个c-plus-plus-标准>2014 C++14 第四个C++标准</a></li><li><a href=#2015-文件系统>2015 文件系统</a></li><li><a href=#2015-用于并行计算的扩展>2015 用于并行计算的扩展</a></li><li><a href=#2015-事务性内存操作>2015 事务性内存操作</a></li><li><a href=#2015-概念库-用于优化编译期信息>2015 概念库, 用于优化编译期信息</a></li><li><a href=#2016-用于并行计算的扩展>2016 用于并行计算的扩展</a></li><li><a href=#2017-标准库扩展>2017 标准库扩展</a></li><li><a href=#2017-提供范围机制>2017 提供范围机制</a></li><li><a href=#2017-协程库扩展>2017 协程库扩展</a></li><li><a href=#2017-c-plus-plus-17-第五个c-plus-plus-标准>2017 C++17 第五个C++标准</a></li><li><a href=#2018-网络库>2018 网络库</a></li><li><a href=#2018-并行扩展>2018 并行扩展</a></li><li><a href=#2018-模块>2018 模块</a></li><li><a href=#2020-c-plus-plus-20-第五个c-plus-plus-标准>2020 C++20 第五个C++标准</a></li></ul></li><li><a href=#设计原则>设计原则</a></li><li><a href=#待学习>待学习</a></li></ul></nav></div></aside></main></body></html>
