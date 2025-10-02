@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 02:59:45 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:16 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
 &lt;a href="https://linuxtoy.org/archives/emacs-eshell.html"&gt;官方文档&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;优势: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -9,35 +9,15 @@
 &lt;p&gt;语法支持tramp &lt;br/&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /method:user@host#22:/path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="eshell-and-and-elisp"&gt;
- eshell &amp;amp;&amp;amp; elisp
- 
- &lt;a class="anchor" href="#eshell-and-and-elisp"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="eshell-and-and-elisp"&gt;eshell &amp;amp;&amp;amp; elisp&lt;a class="anchor" href="#eshell-and-and-elisp"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;defun为 eshell/xxx的函数, 可以在eshell中直接调用xxx &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="eshell-script"&gt;
- eshell script
- 
- &lt;a class="anchor" href="#eshell-script"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="eshell-script"&gt;eshell script&lt;a class="anchor" href="#eshell-script"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾 &lt;br/&gt;&lt;/p&gt;
-&lt;h3 id="变量赋值"&gt;
- 变量赋值
- 
- &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e8%b5%8b%e5%80%bc"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="变量赋值"&gt;变量赋值&lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e8%b5%8b%e5%80%bc"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;eshell 脚本中使用elisp语法给变量赋值 &lt;br/&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq remote_temp &amp;#34;/ssh:clay@192.168.0.97:~/temp&amp;#34;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="变量使用"&gt;
- 变量使用 $
- 
- &lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq remote_temp &amp;#34;/ssh:clay@192.168.0.97:~/temp&amp;#34;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="变量使用"&gt;变量使用 $&lt;a class="anchor" href="#%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;基本与shell相同, 具体可以详见官方说明 &lt;br/&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;eshell/rm -r $remote_temp&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p&gt;全称 transparent remote access multiple protocol &lt;br/&gt;
 tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method &lt;br/&gt;&lt;/p&gt;
@@ -47,48 +27,23 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:root:path/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="用法"&gt;
- 用法
- 
- &lt;a class="anchor" href="#%e7%94%a8%e6%b3%95"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="basic"&gt;
- basic
- 
- &lt;a class="anchor" href="#basic"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="用法"&gt;用法&lt;a class="anchor" href="#%e7%94%a8%e6%b3%95"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="basic"&gt;basic&lt;a class="anchor" href="#basic"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/method:user@host#port:/path/to/file
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# example 1
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@192.1.1.1#22:~
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# example 2 windows下可以使用putty作为ssh的client
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/plink:clay@192.1.1.1:~&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="set-default-method"&gt;
- set default method
- 
- &lt;a class="anchor" href="#set-default-method"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/plink:clay@192.1.1.1:~&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="set-default-method"&gt;set default method&lt;a class="anchor" href="#set-default-method"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq tramp-default-method &amp;#34;plink&amp;#34;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;; 设置之后的例子
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1:~&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="multiple-hop"&gt;
- multiple hop
- 
- &lt;a class="anchor" href="#multiple-hop"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1:~&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="multiple-hop"&gt;multiple hop&lt;a class="anchor" href="#multiple-hop"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 在本机上, 通过clay用户登录到host1
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 再在host1上, 通过admin登录到host2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@host1|ssh:admin@host2:/path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="su-sudo"&gt;
- su | sudo
- 
- &lt;a class="anchor" href="#su-sudo"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/ssh:clay@host1|ssh:admin@host2:/path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="su-sudo"&gt;su | sudo&lt;a class="anchor" href="#su-sudo"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 使用sudo打开远程文件
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/-:clay@192.1.1.1|sudo::/path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -96,18 +51,8 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su::local-path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:user@localhost:/local-path
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/sudo:root@localhost:/local-path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="use-with-bookmarks"&gt;
- use with bookmarks
- 
- &lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;
- what
- 
- &lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/sudo:root@localhost:/local-path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="use-with-bookmarks"&gt;use with bookmarks&lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;what&lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;artist-mode和graphviz-mode都可以完成绘图的功能. &lt;br/&gt;
 但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. &lt;br/&gt;
 &lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el"&gt;可参考笔者自用的线和矩形&lt;/a&gt;, 提升artist-mode的使用体验 &lt;br/&gt;&lt;/p&gt;
@@ -147,12 +92,7 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;</description></item><item><title>mail</title><link>https://clay9.github.io/blog/docs/emacs/lisp/mail/</link><pubDate>Thu, 18 Jan 2024 18:40:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/mail/</guid><description>&lt;p&gt;不建议使用, 没啥意义 &lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="简述"&gt;
- 简述
- 
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="简述"&gt;简述&lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;emacs 流行的email client 有mu4e, notmuch, gnus等 &lt;br/&gt;
 因为对email不是刚需, 只是轻度使用, 所以这里选了内置对gnus. 理由如下: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -171,47 +111,22 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;li&gt;配置复杂, 花了24h才看完官方文档. 发现实际用到的也就5% ? &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;gnus是单线程, 所以如果网络不好, 非常容易把emacs卡住, 比如访问gmail &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="基本概念"&gt;
- 基本概念
- 
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="基本概念"&gt;基本概念&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;gnus概念划分比较友好, server, group, summary, article &lt;br/&gt;
 各司其职, 又互相联系, 比较方便, 具体可以参考官方文档 &lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="操作流程"&gt;
- 操作流程
- 
- &lt;a class="anchor" href="#%e6%93%8d%e4%bd%9c%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="操作流程"&gt;操作流程&lt;a class="anchor" href="#%e6%93%8d%e4%bd%9c%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;设置server &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;subscribe group &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;enter group. show summary &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;read article &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="group-level"&gt;
- group level
- 
- &lt;a class="anchor" href="#group-level"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;p&gt;group在gnus中是比较重要的概念. 而group level 可以更好的理解group &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gdb &amp;&amp; gud</title><link>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</link><pubDate>Thu, 18 Jan 2024 18:43:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</guid><description>&lt;h2 id="简述"&gt;
- 简述
- 
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="group-level"&gt;group level&lt;a class="anchor" href="#group-level"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;group在gnus中是比较重要的概念. 而group level 可以更好的理解group &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gdb &amp;&amp; gud</title><link>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</link><pubDate>Thu, 18 Jan 2024 18:43:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/gdb/</guid><description>&lt;h2 id="简述"&gt;简述&lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;emacs使用gud来绘制gdb的调试信息. &lt;br/&gt;
 gud可以认为是gdb的ui client. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;具体可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-gdb.el"&gt;github的init-gdb.el&lt;/a&gt;和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-gdb-fun.el"&gt;一些自定义gud函数&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="gdb使用"&gt;
- gdb使用
- 
- &lt;a class="anchor" href="#gdb%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="gdb使用"&gt;gdb使用&lt;a class="anchor" href="#gdb%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -294,12 +209,68 @@ gud可以认为是gdb的ui client. &lt;br/&gt;&lt;/p&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;run相当于重新启动程序, 但是由于某些原因(找不到库? 怀疑是变量不同), 容易导致程序启动失败 &lt;br/&gt;
-continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>AI</title><link>https://clay9.github.io/blog/docs/emacs/lisp/ai/</link><pubDate>Thu, 18 Jan 2024 18:44:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/ai/</guid><description>&lt;h2 id="简述"&gt;
- 简述
- 
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+continue 相当于继续执行, 一般在接attach和gdb Server之后使用, 使程序继续执行 &lt;br/&gt;&lt;/p&gt;
+&lt;h2 id="gud使用"&gt;gud使用&lt;a class="anchor" href="#gud%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;buffer名字&lt;/th&gt;
+ &lt;th&gt;简述&lt;/th&gt;
+ &lt;th&gt;备注&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;gud&lt;/td&gt;
+ &lt;td&gt;gdb命令输入窗口&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;source&lt;/td&gt;
+ &lt;td&gt;调试时自动显示源码&lt;/td&gt;
+ &lt;td&gt;不要edit, 否则导致source自动关联失效&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;breakpoint&lt;/td&gt;
+ &lt;td&gt;断点&lt;/td&gt;
+ &lt;td&gt;不会命中的断点显示为pending&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;threads&lt;/td&gt;
+ &lt;td&gt;线程&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;stack&lt;/td&gt;
+ &lt;td&gt;堆栈&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;local&lt;/td&gt;
+ &lt;td&gt;local变量&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;register&lt;/td&gt;
+ &lt;td&gt;寄存器&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;assembler&lt;/td&gt;
+ &lt;td&gt;显示汇编&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;memory&lt;/td&gt;
+ &lt;td&gt;内存查看&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;为了显示方便, &lt;br/&gt;
+breakpoint与threads buffer同在一个frame; &lt;br/&gt;
+local与register buffer同在一个frame; &lt;br/&gt;
+可以按&amp;quot;TAB&amp;quot;快速切换 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>AI</title><link>https://clay9.github.io/blog/docs/emacs/lisp/ai/</link><pubDate>Thu, 18 Jan 2024 18:44:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/ai/</guid><description>&lt;h2 id="简述"&gt;简述&lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;之前的IDE大多是基于语法的分析, AI代码助手提供了基于自然语义的分析. &lt;br/&gt;
 效果非常的惊艳, 能更好的帮助编写文档与程序 &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;当下流行的(2023-6)主要有: &lt;br/&gt;
@@ -309,34 +280,14 @@ Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &l
 &lt;ol&gt;
 &lt;li&gt;配置方便, emacs使用体验良好 &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="github-copilot"&gt;
- github copilot
- 
- &lt;a class="anchor" href="#github-copilot"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="使用"&gt;
- 使用
- 
- &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="github-copilot"&gt;github copilot&lt;a class="anchor" href="#github-copilot"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="使用"&gt;使用&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;github copilot 没有emacs的官方插件, 使用的是第三方package &lt;a href="https://github.com/zerolfx/copilot.el"&gt;copilot&lt;/a&gt;. &lt;br/&gt;
 安装与配置均比较简单, 可以参考copilot官方文档 &lt;br/&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;其中需要开通github copilot, 建议在某宝购买github学生包, 便宜又方便, 但是容易被封, 千万不要使用自己的github账号&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-lisp" data-lang="lisp"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;;;国内可能无法访问github copilot, 可以配置一下代理&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#069;font-weight:bold"&gt;setq&lt;/span&gt; &lt;span style="color:#033"&gt;copilot-network-proxy&lt;/span&gt; &lt;span style="color:#555"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#fc3"&gt;:host&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt; &lt;span style="color:#fc3"&gt;:port&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;10887&amp;#34;&lt;/span&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="快捷键配置"&gt;
- 快捷键配置
- 
- &lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#069;font-weight:bold"&gt;setq&lt;/span&gt; &lt;span style="color:#033"&gt;copilot-network-proxy&lt;/span&gt; &lt;span style="color:#555"&gt;&amp;#39;&lt;/span&gt;(&lt;span style="color:#fc3"&gt;:host&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;127.0.0.1&amp;#34;&lt;/span&gt; &lt;span style="color:#fc3"&gt;:port&lt;/span&gt; &lt;span style="color:#c30"&gt;&amp;#34;10887&amp;#34;&lt;/span&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="快捷键配置"&gt;快捷键配置&lt;a class="anchor" href="#%e5%bf%ab%e6%8d%b7%e9%94%ae%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;copilot 与company-mode的一些快捷键容易冲突, 可以参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-local-shortkey.el"&gt;init-local-shortkey.el&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;h3 id="使用体验"&gt;
- 使用体验
- 
- &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e4%bd%93%e9%aa%8c"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="使用体验"&gt;使用体验&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8%e4%bd%93%e9%aa%8c"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;github copilot自身还好, 但是github学生包账号非常容易被封, 略微影响使用体验 &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;</description></item></channel></rss>

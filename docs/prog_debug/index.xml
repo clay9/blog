@@ -1,25 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog debug on 飘</title><link>https://clay9.github.io/blog/docs/prog_debug/</link><description>Recent content in prog debug on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 02:59:46 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_debug/index.xml" rel="self" type="application/rss+xml"/><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;
- proc总体状态查看
- 
- &lt;a class="anchor" href="#proc%e6%80%bb%e4%bd%93%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="proc"&gt;
- proc
- 
- &lt;a class="anchor" href="#proc"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog debug on 飘</title><link>https://clay9.github.io/blog/docs/prog_debug/</link><description>Recent content in prog debug on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:17 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_debug/index.xml" rel="self" type="application/rss+xml"/><item><title>gdb</title><link>https://clay9.github.io/blog/docs/prog_debug/gdb/</link><pubDate>Thu, 18 Jan 2024 19:05:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_debug/gdb/</guid><description>&lt;h2 id="proc总体状态查看"&gt;proc总体状态查看&lt;a class="anchor" href="#proc%e6%80%bb%e4%bd%93%e7%8a%b6%e6%80%81%e6%9f%a5%e7%9c%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="proc"&gt;proc&lt;a class="anchor" href="#proc"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(gdb) info proc
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;process 217777
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cmdline = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cwd = &amp;#39;/home/clay/my/learn_gdb&amp;#39;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;exe = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="proc-status"&gt;
- proc status
- 
- &lt;a class="anchor" href="#proc-status"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;exe = &amp;#39;/home/clay/my/learn_gdb/a.out&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="proc-status"&gt;proc status&lt;a class="anchor" href="#proc-status"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;//TODONOW 补充对应的字段
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;info proc status
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -28,12 +13,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2) 虚拟内存使用情况
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;3) 待处理, 阻塞和沪铝的信号
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;4) 消耗系统和用户的时间
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5) 堆栈大小&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="内存分布"&gt;
- 内存分布
- 
- &lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%88%86%e5%b8%83"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;5) 堆栈大小&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="内存分布"&gt;内存分布&lt;a class="anchor" href="#%e5%86%85%e5%ad%98%e5%88%86%e5%b8%83"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;段表&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; //TODONOW 补充说明
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (gdb) info proc mappings

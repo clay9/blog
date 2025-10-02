@@ -1,27 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>org &amp;&amp; gtd on 飘</title><link>https://clay9.github.io/blog/docs/emacs/org/</link><description>Recent content in org &amp;&amp; gtd on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 02:59:46 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/org/index.xml" rel="self" type="application/rss+xml"/><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>org &amp;&amp; gtd on 飘</title><link>https://clay9.github.io/blog/docs/emacs/org/</link><description>Recent content in org &amp;&amp; gtd on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:16 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/org/index.xml" rel="self" type="application/rss+xml"/><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
 主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code&gt;org-mode&lt;/code&gt;), 另一个则是 &lt;code&gt;org-agenda&lt;/code&gt; &lt;br/&gt;
 推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html"&gt;org心得体会&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="配置"&gt;
- 配置
- 
- &lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="配置"&gt;配置&lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;org作为文本模式配置较少, 更多的是配置org-agenda为GTD管理工具. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;org文本模式下, &lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-org-mode.el"&gt;配置简单外观 以及 Babel-languages&lt;/a&gt; &lt;br/&gt;
 org-agenda的配置可参考&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-org-agenda-mode.el"&gt;init-org-agenda.el&lt;/a&gt;和&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/fun/init-org-agenda-fun.el"&gt;一系列自定义函数&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="使用"&gt;
- 使用
- 
- &lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="font-format"&gt;
- font format
- 
- &lt;a class="anchor" href="#font-format"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="使用"&gt;使用&lt;a class="anchor" href="#%e4%bd%bf%e7%94%a8"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="font-format"&gt;font format&lt;a class="anchor" href="#font-format"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -52,18 +37,8 @@ org-agenda的配置可参考&lt;a href="https://github.com/clay9/emacs.d/blob/ma
  &lt;/tr&gt;
  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3 id="基本语法"&gt;
- 基本语法
- 
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;h4 id="语法-time-stamp选择"&gt;
- 语法: time-stamp选择
- 
- &lt;a class="anchor" href="#%e8%af%ad%e6%b3%95-time-stamp%e9%80%89%e6%8b%a9"&gt;#&lt;/a&gt;
- 
-&lt;/h4&gt;
+&lt;h3 id="基本语法"&gt;基本语法&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="语法-time-stamp选择"&gt;语法: time-stamp选择&lt;a class="anchor" href="#%e8%af%ad%e6%b3%95-time-stamp%e9%80%89%e6%8b%a9"&gt;#&lt;/a&gt;&lt;/h4&gt;
 &lt;p&gt;添加time-stamp时, 不要在calendar中移动,效率太低 &lt;br/&gt;
 使用以下2种方式即可: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -73,12 +48,7 @@ org-agenda的配置可参考&lt;a href="https://github.com/clay9/emacs.d/blob/ma
 now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-12-28 Wed]&lt;/span&gt;&lt;/span&gt; &lt;br/&gt;
 +1d =&amp;gt; 2016-12-29 &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;具体见(dir) - Org mode - Dates and times - Creating timestamps - The date/time promt &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/gtd/</link><pubDate>Thu, 30 May 2024 20:41:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;
- 为什么要用GTD
- 
- &lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;p&gt;具体见(dir) - Org mode - Dates and times - Creating timestamps - The date/time promt &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/gtd/</link><pubDate>Thu, 30 May 2024 20:41:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;为什么要用GTD&lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. &lt;br/&gt;
 这些事情如果都存储在脑中, 轻则焦虑不堪, 重则脑子爆炸. &lt;br/&gt;
 而且脑中一旦塞满了这类事情, 非常不利于思考. &lt;br/&gt;&lt;/p&gt;
@@ -86,18 +56,8 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 &lt;p&gt;假设一种情形, 大脑只用来思考, 而存储则放在大脑之外, 那么我们就不必因当下之外的事情而焦虑, 能够更专一的处理当下的问题. &lt;br/&gt;
 同时, 如果外在存储能够提醒我们何时该思考何问题, 那么我们也不会因错过了某事而悔恨, &lt;em&gt;比如女友生日.&lt;/em&gt; &lt;br/&gt;
 而这也是GTD的目的所在, 大脑只用来思考, 存储在脑外. &lt;br/&gt;&lt;/p&gt;
-&lt;h2 id="gtd是什么"&gt;
- GTD是什么
- 
- &lt;a class="anchor" href="#gtd%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="人生5楼"&gt;
- 人生5楼
- 
- &lt;a class="anchor" href="#%e4%ba%ba%e7%94%9f5%e6%a5%bc"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="gtd是什么"&gt;GTD是什么&lt;a class="anchor" href="#gtd%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="人生5楼"&gt;人生5楼&lt;a class="anchor" href="#%e4%ba%ba%e7%94%9f5%e6%a5%bc"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;了解GTD之前, 必须了解 &lt;code&gt;人生5楼.&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;table&gt;
  &lt;thead&gt;
@@ -152,12 +112,7 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 2楼是我们的职责范围, &lt;br/&gt;
 3楼是我们1年后的样子, &lt;br/&gt;
 4楼是我们3年后的样子, &lt;br/&gt;
-5楼是我们人生(10年, 20年或一辈子)的规划. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org &amp;&amp; gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</link><pubDate>Thu, 30 May 2024 20:51:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</guid><description>&lt;h2 id="需求分析"&gt;
- 需求分析
- 
- &lt;a class="anchor" href="#%e9%9c%80%e6%b1%82%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+5楼是我们人生(10年, 20年或一辈子)的规划. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org &amp;&amp; gtd</title><link>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</link><pubDate>Thu, 30 May 2024 20:51:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_gtd/</guid><description>&lt;h2 id="需求分析"&gt;需求分析&lt;a class="anchor" href="#%e9%9c%80%e6%b1%82%e5%88%86%e6%9e%90"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;所有的设计都是基于需求的&lt;/code&gt;. 当前需求: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;有哪些task &lt;br/&gt;
@@ -179,12 +134,7 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="流程的设计"&gt;
- 流程的设计
- 
- &lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="流程的设计"&gt;流程的设计&lt;a class="anchor" href="#%e6%b5%81%e7%a8%8b%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-------------------------+------------------------
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; |
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; | capture (easy)
@@ -213,12 +163,7 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| v
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +---------+
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;+-&amp;gt;| archive |
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; +----+----+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="文件的设计"&gt;
- 文件的设计
- 
- &lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; +----+----+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="文件的设计"&gt;文件的设计&lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org exprot to hugo</title><link>https://clay9.github.io/blog/docs/emacs/org/org_export/</link><pubDate>Wed, 29 May 2024 15:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_export/</guid><description>&lt;p&gt;org自带强大的export功能. &lt;br/&gt;
 但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html. &lt;br/&gt;&lt;/p&gt;</description></item><item><title>orgmode =&gt; html演示</title><link>https://clay9.github.io/blog/docs/emacs/org/org_export_example/</link><pubDate>Wed, 10 Sep 2025 08:03:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org_export_example/</guid><description>&lt;p&gt;org mode内容由ox-hugo导出到hugo book theme的功能演示. &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;根据&lt;a href="https://orgmode.org/manual/"&gt;orgmode官方文档&lt;/a&gt;的顺序进行演示 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>

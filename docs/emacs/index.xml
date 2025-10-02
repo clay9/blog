@@ -1,15 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 02:59:46 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述"&gt;
- 简述
- 
- &lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="emacs是什么"&gt;
- emacs是什么
- 
- &lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>emacs on 飘</title><link>https://clay9.github.io/blog/docs/emacs/</link><description>Recent content in emacs on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:16 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>emacs</title><link>https://clay9.github.io/blog/docs/emacs/emacs/</link><pubDate>Thu, 30 May 2024 20:11:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/emacs/</guid><description>&lt;h2 id="简述"&gt;简述&lt;a class="anchor" href="#%e7%ae%80%e8%bf%b0"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="emacs是什么"&gt;emacs是什么&lt;a class="anchor" href="#emacs%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;emacs最原始,最纯粹的功能: &lt;code&gt;text editor&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;也可以作为优秀的 &lt;code&gt;program editor&lt;/code&gt; &lt;br/&gt;&lt;/li&gt;
@@ -18,12 +8,7 @@
 &lt;/ol&gt;
 &lt;p&gt;综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务. &lt;br/&gt;
 同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本 &lt;br/&gt;&lt;/p&gt;
-&lt;h3 id="emacs配置"&gt;
- emacs配置
- 
- &lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="emacs配置"&gt;emacs配置&lt;a class="anchor" href="#emacs%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;emacs配置可大致划分如下 &lt;br/&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/li&gt;
@@ -32,12 +17,7 @@
 &lt;li&gt;org &amp;amp;&amp;amp; gtd &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;键位设置 &lt;br/&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="编译emacs"&gt;
- 编译emacs
- 
- &lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="编译emacs"&gt;编译emacs&lt;a class="anchor" href="#%e7%bc%96%e8%af%91emacs"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;details&gt;
 &lt;div class="details"&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --without-all 最小化编译 (但是包含了x)&lt;/span&gt;
@@ -48,10 +28,5 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#09f;font-style:italic"&gt;# --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./configure --without-all --without-x --with-gnutls&lt;span style="color:#555"&gt;=&lt;/span&gt;ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/details&gt;
-&lt;h2 id="基本配置"&gt;
- 基本配置
- 
- &lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="基本配置"&gt;基本配置&lt;a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;emacs作为程序的基本配置 &lt;br/&gt;&lt;/p&gt;</description></item></channel></rss>

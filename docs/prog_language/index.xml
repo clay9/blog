@@ -1,20 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog language on 飘</title><link>https://clay9.github.io/blog/docs/prog_language/</link><description>Recent content in prog language on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 16 Sep 2025 02:59:47 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_language/index.xml" rel="self" type="application/rss+xml"/><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog language on 飘</title><link>https://clay9.github.io/blog/docs/prog_language/</link><description>Recent content in prog language on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:17 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_language/index.xml" rel="self" type="application/rss+xml"/><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://smacs.github.io/elisp/02-elisp-basic.html"&gt;水木社区Emacs版&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp"&gt;lisp的本质&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="基础语法"&gt;
- 基础语法
- 
- &lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="函数重载"&gt;
- 函数重载
- 
- &lt;a class="anchor" href="#%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="基础语法"&gt;基础语法&lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="函数重载"&gt;函数重载&lt;a class="anchor" href="#%e5%87%bd%e6%95%b0%e9%87%8d%e8%bd%bd"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;elisp没有重载的概念, 直接覆盖原定义即可. 相关函数: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;advice-add &lt;br/&gt;
@@ -45,30 +35,15 @@
 &lt;li&gt;使用defune 覆盖原函数定义 &lt;br/&gt;
 如果只是重载, 应该使用这种方法. advice-add的本意不是用来override &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="elisp-and-and-shell"&gt;
- elisp &amp;amp;&amp;amp; shell
- 
- &lt;a class="anchor" href="#elisp-and-and-shell"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="bash调用elisp"&gt;
- bash调用elisp
- 
- &lt;a class="anchor" href="#bash%e8%b0%83%e7%94%a8elisp"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="elisp-and-and-shell"&gt;elisp &amp;amp;&amp;amp; shell&lt;a class="anchor" href="#elisp-and-and-shell"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="bash调用elisp"&gt;bash调用elisp&lt;a class="anchor" href="#bash%e8%b0%83%e7%94%a8elisp"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;elisp代码写入el文件(eshell script) &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;bash调用emacs执行el文件 &lt;br/&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 实际还是emacs 执行的elisp代码
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id="elisp-调用bashe"&gt;
- elisp 调用bashe
- 
- &lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="elisp-调用bashe"&gt;elisp 调用bashe&lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq my-command
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(concat &amp;#34;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;#34;$PATH\&amp;#34;\n&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;for dir in ${dirs[@]}; do\n&amp;#34;
