@@ -34,7 +34,7 @@ jobs:
           git clone --branch v12.0.0 https://github.com/alex-shpak/hugo-book.git themes/hugo-book
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v4
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true
