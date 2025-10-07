@@ -119,3 +119,33 @@
 
    第二部, 在emacs的input-decode-map中将这些Sequences Event code映射为我们的按键
    详见[[https://github.com/clay9/emacs.d/blob/master/lisp/init-tty-keys.el][init-tty-keys.el]]
+** Ctrl
+   sdf
+   | key | command             | desc        |
+   |-----+---------------------+-------------|
+   | a   | beging-of-line      |             |
+   | b   | back-of-char        |             |
+   | c   |                     | Prefix      |
+   | d   | c-d                 | self-Prefix |
+   | e   | end-of-line         |             |
+   | f   | forward-of-char     |             |
+   | g   | quit                |             |
+   | h   |                     | Prefix      |
+   | i   |                     | Tab         |
+   | j   |                     | self-Prefix |
+   | k   | kill                |             |
+   | l   | recenter-top-bottom |             |
+   | m   |                     | Enter       |
+   | n   | forward line        |             |
+   | o   | open-line           |             |
+   | p   | backward line       |             |
+   | q   |                     |             |
+   | r   |                     | self-Prefix |
+   | s   |                     | self-Prefix |
+   | t   |                     |             |
+   | u   | universal-argument  |             |
+   | v   | scroll buffer       |             |
+   | w   | kill/kill-save      |             |
+   | x   |                     | Prefix      |
+   | y   | yank                |             |
+   | z   |                     |             |

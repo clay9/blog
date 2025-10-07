@@ -57,14 +57,14 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
 
 * Tables
 ** Normale
-  | key  | value | desc  |
-  |------+-------+-------|
-  | a    |     1 | a = 1 |
-  | b    |     2 |       |
-  | c    |       |       |
-  | d    |       |       |
-  |------+-------+-------|
-  | abdc |       |       |
+   | key  | value | desc  |
+   |------+-------+-------|
+   | a    |     1 | a = 1 |
+   | b    |     2 |       |
+   | c    |       |       |
+   | d    |       |       |
+   |------+-------+-------|
+   | abdc |       |       |
 ** Column Width and Alignment
    |---+---------------------+--------|
    |   | <3>                 |        |
@@ -126,7 +126,6 @@ org mode内容由ox-hugo导出到hugo book theme的功能演示.
 
     搜傅文件中的ox-hugo. file: org_export.org::ox-hugo
     [[file:org_export.org::ox-hugo]]
-
 *** http, https
     link to https://orgmode.org
     [[https://orgmode.org/]]
