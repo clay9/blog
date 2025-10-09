@@ -56,7 +56,7 @@
        +----+----+
   #+END_EXAMPLE
 * 文件的设计
-  区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间
+  每个大型Project 应该单独一个file. 比如emacs.org
 
   #+begin_example
     gtd
@@ -75,9 +75,11 @@
   | task.org    | 任务清单                            |
   | archive.org | 归档文件                            |
 
-  gtd/emacs.org与gtd/qygame.org则是已经明确分类的PROJECT. 比如gtd/emacs.org明确的是与emacs有关的任务
-
 * TODO的设计
+  TODO 或 WAITTING是最小的 执行单元.
+  不应该再TODO下再设置TODO (可以使用列表来拆分)
+
+
   | key      | desc         |
   |----------+--------------|
   | TODO     | 等待自己处理 |
@@ -94,6 +96,7 @@
 * Effort的设计
   effort是自己对某个task工作量的预估.
   与task完成时的clock-sum-time比对, 可以更好的进行分析.
+  effort不做拆分, 对于Project下的TODO items, 不需要再设置effort
 
   为了方便的effort, 这里只在两处设计了提示:
   1. capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过
@@ -113,18 +116,22 @@
   这里的办法是给item一个tag.
   比如 capture了一个item, 再给其增加对应的tag
   #+begin_example
-  * org应该快速capture :org:
+  下面表明这是一个与PROJECT emacs有关的task
+
+  * org应该快速capture :emacs:
   #+end_example
-  这样就表明了这是一个与org PROJECT有关的task
+
 * refile的设计
   refile应该是自动完成的, 不应该手动
   为了自动完成, item已经给了相关信息(tag)
   在gtd的PROJECT中, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
   这里的办法是匹配PROJECT ITEM的heading, 比如:
   #+BEGIN_EXAMPLE org
+  当capute-item的tag 与 PROJECT-item的heading相匹配的时候, 会自动refile
+
   * PROJECT emacs
   #+END_EXAMPLE
-  当capute-item的tag 与 PROJECT-item的heading相匹配的时候, 会自动refile
+
 * archive的设计
   archive的目的:
   - 在org file中隐藏已 =DONE= 的task
@@ -133,7 +140,7 @@
 
 
   现在方案:
-  对于gtd中的task, archive到当前文件下的** xxx_archive
+  对于gtd中的task, archive到当前Project Heading的** archive
   对于gtd_common中的task, archive到archive.org
 
 * Agent的设计
@@ -150,8 +157,8 @@
 
   org-next-view 显示todo|waiting items && tuck project
 
-  org-project-view中没必要包含gtd_common中的item
-  org-archive-view中包含gtd_common中的TODO, PROJECT items
+  org-project-view 显示正在进行的Projects信息
+  org-archive-view 中已归档的Projects && 已归档的TODO items
 
 * 使用流程
   #+BEGIN_EXAMPLE
@@ -166,8 +173,7 @@
     |
   #+END_EXAMPLE
 
-  1. capture -> inbox
-  2. 当打开org-agenda或者在org-agenda中按'g', 会自动把inbox中的文件refile到指定位置
-  3. 在org-next-view buffer中添加timestamp可放到org-agenda-view; 或者直接执行archive操作
-  4. 在org-agenda-view buffer中调用archive
-  5. 其实还有最后一步, 即把archive中的内容输出到blog中
+  1. capture -> inbox -> auto refile
+  2. 在org-next-view buffer中添加timestamp可放到org-agenda-view; 或者直接执行archive操作
+  3. 在org-agenda-view buffer中调用archive
+  4. 其实还有最后一步, 即把archive中的内容输出到blog中
