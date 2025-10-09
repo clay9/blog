@@ -96,7 +96,9 @@
 * Effort的设计
   effort是自己对某个task工作量的预估.
   与task完成时的clock-sum-time比对, 可以更好的进行分析.
-  effort不做拆分, 对于Project下的TODO items, 不需要再设置effort
+
+  对于Project, 在org-agenda-buffe中只会统计Project自身的effort, 忽略subtree的.
+  如果想看subtree的Effort与Clock对比, 可以进入到file中使用org-columns-view视图
 
   为了方便的effort, 这里只在两处设计了提示:
   1. capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过
