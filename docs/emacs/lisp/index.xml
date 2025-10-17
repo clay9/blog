@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:16 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>常用扩展 on 飘</title><link>https://clay9.github.io/blog/docs/emacs/lisp/</link><description>Recent content in 常用扩展 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 22:52:36 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>eshell</title><link>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</link><pubDate>Thu, 18 Jan 2024 18:19:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/eshell/</guid><description>&lt;p&gt;emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh) &lt;br/&gt;
 &lt;a href="https://linuxtoy.org/archives/emacs-eshell.html"&gt;官方文档&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;优势: &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -52,10 +52,8 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su::local-path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:user@localhost:/local-path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/sudo:root@localhost:/local-path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="use-with-bookmarks"&gt;use with bookmarks&lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;what&lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;artist-mode和graphviz-mode都可以完成绘图的功能. &lt;br/&gt;
-但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. &lt;br/&gt;
-&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el"&gt;可参考笔者自用的线和矩形&lt;/a&gt;, 提升artist-mode的使用体验 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>画图</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;what&lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;artist-mode和dot都可以完成绘图的功能. &lt;br/&gt;&lt;/p&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -69,7 +67,7 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;tr&gt;
  &lt;td&gt;artist-mode&lt;/td&gt;
  &lt;td&gt;ASCII绘图&lt;/td&gt;
- &lt;td&gt;1.ASCII代码表示图形&lt;/td&gt;
+ &lt;td&gt;1.ASCII表示图形&lt;/td&gt;
  &lt;td&gt;1.功能少&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
@@ -79,7 +77,7 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;td&gt;2.需要手动绘制图形&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
- &lt;td&gt;graphviz-mode&lt;/td&gt;
+ &lt;td&gt;mermaid&lt;/td&gt;
  &lt;td&gt;dot绘图&lt;/td&gt;
  &lt;td&gt;1.只关注逻辑设计,布局自动生成&lt;/td&gt;
  &lt;td&gt;1.生成的为图片文件, 而非可嵌入的ASCII代码&lt;/td&gt;

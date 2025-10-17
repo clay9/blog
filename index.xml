@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 02 Oct 2025 11:00:18 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description/></item><item><title>os</title><link>https://clay9.github.io/blog/docs/os/os/os/</link><pubDate>Fri, 31 May 2024 18:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/os/</guid><description>&lt;p&gt;os学习整理 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 22:52:38 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机 &amp;&amp; lambda演算</title><link>https://clay9.github.io/blog/docs/prog_base/base/</link><pubDate>Sun, 01 Jun 2025 16:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/base/</guid><description>&lt;p&gt;计算机理论基础 ? &lt;br/&gt;&lt;/p&gt;</description></item><item><title>docker</title><link>https://clay9.github.io/blog/docs/tool/docker/</link><pubDate>Thu, 29 May 2025 17:52:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/tool/docker/</guid><description>&lt;p&gt;docker容器 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>mac</title><link>https://clay9.github.io/blog/docs/os/mac/</link><pubDate>Tue, 04 Jun 2024 14:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/mac/</guid><description/></item><item><title>os</title><link>https://clay9.github.io/blog/docs/os/os/os/</link><pubDate>Fri, 31 May 2024 18:18:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/os/os/os/</guid><description>&lt;p&gt;os学习整理 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
 主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code&gt;org-mode&lt;/code&gt;), 另一个则是 &lt;code&gt;org-agenda&lt;/code&gt; &lt;br/&gt;
 推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html"&gt;org心得体会&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="配置"&gt;配置&lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -340,7 +340,7 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;| +---------+
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;+-&amp;gt;| archive |
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; +----+----+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="文件的设计"&gt;文件的设计&lt;a class="anchor" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e8%ae%be%e8%ae%a1"&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;区分目录是为了更好的给PROJECT做分类处理, 使后续的统计查看更方便. 比如org-agenda `R统计时间 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>shell</title><link>https://clay9.github.io/blog/docs/prog_language/shell/</link><pubDate>Thu, 18 Jan 2024 19:09:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/shell/</guid><description>&lt;p&gt;shell 记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p&gt;全称 transparent remote access multiple protocol &lt;br/&gt;
+&lt;p&gt;每个大型Project 应该单独一个file. 比如emacs.org &lt;br/&gt;&lt;/p&gt;</description></item><item><title>shell</title><link>https://clay9.github.io/blog/docs/prog_language/shell/</link><pubDate>Thu, 18 Jan 2024 19:09:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/shell/</guid><description>&lt;p&gt;shell 记录 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>tramp</title><link>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</link><pubDate>Thu, 18 Jan 2024 18:36:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/tramp/</guid><description>&lt;p&gt;全称 transparent remote access multiple protocol &lt;br/&gt;
 tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method &lt;br/&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ssh &lt;br/&gt;&lt;/li&gt;
@@ -373,10 +373,8 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su::local-path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/su:user@localhost:/local-path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/sudo:root@localhost:/local-path&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="use-with-bookmarks"&gt;use with bookmarks&lt;a class="anchor" href="#use-with-bookmarks"&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>设计模式</title><link>https://clay9.github.io/blog/docs/prog_base/design_pattern/</link><pubDate>Wed, 04 Jun 2025 09:21:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/design_pattern/</guid><description>&lt;p&gt;design pattern 设计模式 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>artist &amp;&amp; plantuml</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;what&lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;artist-mode和graphviz-mode都可以完成绘图的功能. &lt;br/&gt;
-但artist-mode提供的功能过于基础, 使用的时候, 最好进行进一步封装. &lt;br/&gt;
-&lt;a href="https://github.com/clay9/emacs.d/blob/master/lisp/init-artist-mode.el"&gt;可参考笔者自用的线和矩形&lt;/a&gt;, 提升artist-mode的使用体验 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;tramp使用的时候 需要使用到method user host path的组合，一般较长 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>设计模式</title><link>https://clay9.github.io/blog/docs/prog_base/design_pattern/</link><pubDate>Wed, 04 Jun 2025 09:21:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/design_pattern/</guid><description>&lt;p&gt;design pattern 设计模式 &lt;br/&gt;&lt;/p&gt;</description></item><item><title>画图</title><link>https://clay9.github.io/blog/docs/emacs/lisp/graph/</link><pubDate>Thu, 18 Jan 2024 18:38:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/lisp/graph/</guid><description>&lt;h2 id="what"&gt;what&lt;a class="anchor" href="#what"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;artist-mode和dot都可以完成绘图的功能. &lt;br/&gt;&lt;/p&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
@@ -390,7 +388,7 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;tr&gt;
  &lt;td&gt;artist-mode&lt;/td&gt;
  &lt;td&gt;ASCII绘图&lt;/td&gt;
- &lt;td&gt;1.ASCII代码表示图形&lt;/td&gt;
+ &lt;td&gt;1.ASCII表示图形&lt;/td&gt;
  &lt;td&gt;1.功能少&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
@@ -400,7 +398,7 @@ tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb
  &lt;td&gt;2.需要手动绘制图形&lt;/td&gt;
  &lt;/tr&gt;
  &lt;tr&gt;
- &lt;td&gt;graphviz-mode&lt;/td&gt;
+ &lt;td&gt;mermaid&lt;/td&gt;
  &lt;td&gt;dot绘图&lt;/td&gt;
  &lt;td&gt;1.只关注逻辑设计,布局自动生成&lt;/td&gt;
  &lt;td&gt;1.生成的为图片文件, 而非可嵌入的ASCII代码&lt;/td&gt;
