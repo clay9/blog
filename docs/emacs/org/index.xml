@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>org &amp;&amp; gtd on 飘</title><link>https://clay9.github.io/blog/docs/emacs/org/</link><description>Recent content in org &amp;&amp; gtd on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 17 Oct 2025 22:52:36 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/org/index.xml" rel="self" type="application/rss+xml"/><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>org &amp;&amp; gtd on 飘</title><link>https://clay9.github.io/blog/docs/emacs/org/</link><description>Recent content in org &amp;&amp; gtd on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 06 Nov 2025 10:42:01 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/emacs/org/index.xml" rel="self" type="application/rss+xml"/><item><title>org</title><link>https://clay9.github.io/blog/docs/emacs/org/org/</link><pubDate>Thu, 30 May 2024 20:33:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/emacs/org/org/</guid><description>&lt;p&gt;org-mode一直被称为神器 &lt;br/&gt;
 主要有2大功能, 一是自身强大的文本模式(依赖 &lt;code&gt;org-mode&lt;/code&gt;), 另一个则是 &lt;code&gt;org-agenda&lt;/code&gt; &lt;br/&gt;
 推荐阅读: &lt;a href="http://doc.norang.ca/org-mode.html"&gt;org心得体会&lt;/a&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;h2 id="配置"&gt;配置&lt;a class="anchor" href="#%e9%85%8d%e7%bd%ae"&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -56,6 +56,9 @@ now = &lt;span class="timestamp-wrapper"&gt;&lt;span class="timestamp"&gt;[2016-
 &lt;p&gt;假设一种情形, 大脑只用来思考, 而存储则放在大脑之外, 那么我们就不必因当下之外的事情而焦虑, 能够更专一的处理当下的问题. &lt;br/&gt;
 同时, 如果外在存储能够提醒我们何时该思考何问题, 那么我们也不会因错过了某事而悔恨, &lt;em&gt;比如女友生日.&lt;/em&gt; &lt;br/&gt;
 而这也是GTD的目的所在, 大脑只用来思考, 存储在脑外. &lt;br/&gt;&lt;/p&gt;
+&lt;div class="hint"&gt;
+&lt;p&gt;GTD不是用来提升效率的, 它是用来避免混乱的. 当你没有混乱, 就不需要它 &lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
 &lt;h2 id="gtd是什么"&gt;GTD是什么&lt;a class="anchor" href="#gtd%e6%98%af%e4%bb%80%e4%b9%88"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id="人生5楼"&gt;人生5楼&lt;a class="anchor" href="#%e4%ba%ba%e7%94%9f5%e6%a5%bc"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;了解GTD之前, 必须了解 &lt;code&gt;人生5楼.&lt;/code&gt; &lt;br/&gt;&lt;/p&gt;
