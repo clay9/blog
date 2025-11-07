@@ -1,0 +1,265 @@
+#+title: socket base
+#+date: 2024-01-18 19:13:58
+#+hugo_section: docs
+#+hugo_bundle: os/socket
+#+export_file_name: socket
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+socket相关网络编程
+#+hugo: more
+
+* 基本概念
+** socket
+   socket是 [应用层] 与 [传输层, 网络层] 之间的一个抽象层
+   它的出现是为了简化网络进程通信
+*** linux头文件
+     1. usr/include/x86_64-linux-gnu/sys/socket.h
+	结构体
+        sockaddr
+	函数
+        socket() connect() send() recv() shutdown()
+	socket() bind()    lisent()  accept() recv() send() shutdown()
+        g++的默认目录中已经包含了sys/的上层目录
+     2. usr/include/netinet/in.h
+	结构体
+        AF_INET  中的 sockaddr_in
+	AF_INET6 中的 sockaddr_in6
+	AF_UNIx  中的 sockaddr_un
+     3. user/include/arpa/inet.h
+	函数
+	htons()
+	inet_addr()
+     4. unistd.h
+	函数
+	close()
+
+*** socket函数
+    1. socket(domain, socket_type, protol)
+       domain
+       socket_type
+       protol
+       socket()本质是创建了一个进程文件表, 返回的值为指向进程文件表的指针的索引.
+    2. bind(fd, sockaddr*, len)
+       fd:        socket()中的文件表指针的索引
+       sockaddr:  地址, 端口
+       len:       sockaddr的长度
+       <1> 比较有意思的是sockaddr根据family的不同, 可以与不同的结构体互转
+           比如
+            AF_INET   sockaddr_in
+            AF_INET6  sockaddr_in6
+            AF_UNIX   sockaddr_un
+           这几种结构体都与sockaddr可互转(字节对齐blabla)
+       bind()本质是在补充socket()创建的文件表. socket()时候该文件表很多值都是空的, bind()来补充
+       因为client 在connect的时候, 系统会自动分配端口,以及绑定本机ip, 所以client的socket一般不必要
+       使用bind()
+    3. connet(fd, sockaddr*, len)
+       连接到其他scokaddr
+    4. listen(fd, iMaxNum)
+       : iMaxNum是队列中的最大数, 并不是指可连接的socket数目
+       一般只在server开启listen(), 监听指定的端口信息
+    5. accept()
+       accept()会造成阻塞.
+       它会将listen()中的sockaddr进行处理
+       处理流程是 accept()会创建一个新的fd_connet, 此fd_connet公用server socket() fd的端口和地址
+       但是fd_connect仅仅是用来传输数据的
+    6. recv(fd, msg)  send(fd, msg)
+       至accetp()时候, 一切操作就和在本地上操作一样,
+       所以这里的recv() 和 send()操作与本机上的文件操作是一样的
+    7. close(fd)  shutdown(fd, type)
+       linux一切皆是file原则, fd可以关闭
+*** [ip, port]相关函数
+    : 点分十进制ip 是以字符串形式存储的
+    : 网络字节序 即 32位的二进制
+    #+BEGIN_EXAMPLE
+    //in_addr
+    struct in_addr
+    {
+    　　in_addr_t s_addr;
+    };
+
+    //in_addr_t
+    typedef unsigned long  in_addr_t
+    #+END_EXAMPLE
+
+    1. 函数原型: in_addr_t inet_addr(const char* strptr);
+       若字符串有效, 则将点分十进制IP字符串转换为网络字节序地址，否则为INADDR_NONE
+
+    2. 函数原型：int inet_aton(const char *IP, struct in_addr *addr);
+       将点分十进制IP地址转换为网络字节序存储在addr中，并且返回该网络字节序表示的无符号整数
+
+    3. 函数原型：char *inet_ntoa(struct in_addr in);
+       将网络字节序的IP地址（也就是结构体in_addr类型变量）转化为点分十进制的IP地址（字符串)
+
+*** socket fd本质
+    socket本质是维护了fd进程文件表, 如下:
+
+    | 名称 | 说明                                      | 备注                 |
+    |------+-------------------------------------------+----------------------|
+    | fd   | 文件描述符, 表的索引                      |                      |
+    |------+-------------------------------------------+----------------------|
+    | host | 1. 域名(DNS /etc/hosts) 2. ip地址         | 兼容Ipv4 Ipv6是难点  |
+    |------+-------------------------------------------+----------------------|
+    | 服务 | 1. 服务名称(/etc/services) 2. 端口        |                      |
+    |------+-------------------------------------------+----------------------|
+    | 协议 | 1. 传输层(/etc/protol) 2. 网络层          | 链路层用到的比较少   |
+    |------+-------------------------------------------+----------------------|
+    | 网络 | 1. 网络名称?(DNS /etc/networks) 2. ip地址 | 谁会使用到这些信息?? |
+    |------+-------------------------------------------+----------------------|
+
+    期间用到的函数主要有
+    : 尽量使用ipv4, ipv6通用的函数
+    1. 流程函数
+       socket() bind() listen() connect() accept()等
+    2. 字节处理函数
+       处理大小字节序 htons() htonl() ntohs() ntohl()
+       处理域名与十分数字 getaddrinfo()  getnameinfo()
+    3. 处理sockaddr结构体的函数
+       getsockname() 返回local fd
+       getpeername() 返回remote fd
+
+** socket问题
+   1. 阻塞
+      : 影响并发, 多路复用
+      解决方案:
+      1) 使用非阻塞模型, 比如select, poll, epoll(linux下特有), IOCP(windows下特有)
+      2) 多线程 -- 不推荐使用
+      3) 多进程 -- 不推荐使用
+   2. 粘包
+      解决方案:
+      1) 限制发送大小
+      2) 每个消息增加长度标识
+** I/O模型
+   [[https://mp.weixin.qq.com/s?src=11&timestamp=1565671711&ver=1787&signature=-mLkqQr803XDHb4f3aj9Lf1dJl8uVOV9fCCMMTzs0zSuOYH-qof7nsYCdgho1XLdPQYQP6QL5-WHtI6g-MD9xIsJcuxzdH*idpCZqtzl85r9D4C3XRRuOcCXqLKDzi-i&new=1][强烈建议阅读]]
+   (链接过期, 直接搜狗搜索epoll, "epoll本质"即是)
+   1. 阻塞式
+   2. 非阻塞
+   3. select
+   4. poll
+   5. epoll (linux特有)
+   6. IOCP (windows特有)
+
+** epoll使用
+*** epoll本身为我们处理了什么
+    1. 之前socket::recv()时, 导致我们的进程阻塞
+    2. 现在socket::recv()时, 使epoll阻塞; epoll中断时, 告之进程
+*** 有了epoll我们还需要处理什么
+    1. 创建epoll对象
+    2. 添加检视的fd对象 -- op, epoll_event
+    3. 检测是否有中断, 然后处理
+* socket属性
+** keep live机制
+   当socket服务端开启keep live之后,
+   服务器检测到 _一定时间内_ socket不活动的时候,
+   就会每隔 _固定时间_ 向该sockt发送 _固定次数_ 的查询.
+   如果一直没有回应, 服务端则关闭该socket
+
+   对应的字段为:
+   #+BEGIN_EXAMPLE
+   tcp_keepalive_time（开启keepalive的闲置时长）
+   tcp_keepalive_intvl（keepalive探测包的发送间隔）
+   tcp_keepalive_probes （如果对方不予应答，探测包的发送次数）
+   #+END_EXAMPLE
+* 编程实例
+** 原始socket模型, recv()中处理分包粘包
+   原始socket模型,  考虑到tcp分包
+   #+BEGIN_SRC C++
+     //网络读取 -- 系统检测到网络I/O事件时, 调用该函数
+     LRESULT CTCPSocketService::OnSocketNotifyRead(WPARAM wParam, LPARAM lParam)
+     {
+	 //读取数据
+	 //使用中间量m+cbRecvbuf来当做缓冲区
+	 //使用中间量m_wRecvsize来记录当前缓冲区中已读数据大小
+	 int iRetCode = recv(m_hSocket, (char *)m_cbRecvBuf + m_wRecvSize, sizeof(m_cbRecvBuf) - m_wRecvSize, 0);
+	 //读取失败, 则返回SOCKET_ERROR
+	 if (iRetCode == SOCKET_ERROR)
+	 {
+	     ZeroMemory(m_cbRecvBuf, sizeof(m_cbRecvBuf));
+	     m_wRecvSize = 0;
+	     return 1;//"网络连接关闭，读取数据失败";
+	 }
+	 //读取成功, 则返回读取到的数据的大小
+	 m_wRecvSize += iRetCode;
+
+	 //在tcp数据中, 增加包的大小, 用来校验是否读取完毕;
+	 TCP_Head * pHead = (TCP_Head *)m_cbRecvBuf;
+	 WORD wPacketSize = pHead->TCPInfo.wPacketSize;
+
+	 // //数据包大小校验
+	 if (wPacketSize > (SOCKET_TCP_BUFFER + sizeof(TCP_Head)))
+	 {
+	     //当发生错误时候, 缓冲区置位
+	     ZeroMemory(m_cbRecvBuf, sizeof(m_cbRecvBuf));
+	     m_wRecvSize = 0;
+	     return 3;//"数据包太大";
+	     }
+
+	     //解析数据
+	     if (m_wRecvSize == wPacketSize)  //数据全部接受完毕之后 再解析
+	     {
+		 //拷贝数据
+		 BYTE cbDataBuffer[SOCKET_TCP_BUFFER+sizeof(TCP_Head)];
+		 CopyMemory(cbDataBuffer, m_cbRecvBuf, wPacketSize);
+
+		 //置位缓冲信息 -- 缓冲区中只保存一条tcp信息
+		 m_wRecvSize = 0;
+		 ZeroMemory(m_cbRecvBuf, sizeof(m_cbRecvBuf));
+
+		 //解密数据
+		 WORD wRealySize = CrevasseBuffer(cbDataBuffer, wPacketSize);
+		 if(wRealySize < sizeof(TCP_Head)) return 4; //解析后的数据错误
+
+		 //获得TCP_Head
+		 TCP_Command Command = ((TCP_Head *)cbDataBuffer)->CommandInfo;
+
+		 //获得实际的数据
+		 void * pDataBuffer = cbDataBuffer + sizeof(TCP_Head); //实际的数据
+		 WORD wRealDataSize = wRealySize - sizeof(TCP_Head);   //实际的数据大小
+
+		 //内核命令
+		 if (Command.wMainCmdID == MDM_KN_COMMAND)
+		 {
+		 switch (Command.wSubCmdID)
+		 {
+		     case SUB_KN_DETECT_SOCKET:	//网络检测
+		     {
+			 //发送数据
+			 SendData(MDM_KN_COMMAND, SUB_KN_DETECT_SOCKET, pDataBuffer, wRealDataSize);
+			 break;
+		     }
+		 }
+		 continue;
+		 }
+
+		 //处理数据
+		 bool bSuccess = m_QueueServiceEvent.PostTCPSocketReadEvent(m_wServiceID, Command, pDataBuffer, wRealDataSize);
+		 if (bSuccess == false) return 5;//"网络数据包处理失败";
+	     };
+
+	     return 0;
+     }
+   #+END_SRC
+
+* ipv4
+  : 系统文件在/proc/sys/net/ipv4下面
+
+  #+BEGIN_EXAMPLE sh 常用设定
+  ip_local_port_range # 用户端口范围, [n, m)
+  tcp_timestamp       # 针对TIME_WAIT状态的tcp连接; 0关闭,1开启
+  tcp_tw_recycle      # 是否快速回收+ linux内核已删除该字段
+  tcp_tw_reuse        # TIME_WAIT状态的tcp的port是否可以复用;0关闭,1开启
+                      # 需要开启tcp_timestamp;
+		      # 这是针对cli的设计,而非svr
+  tcp_rmem            # tcp read缓冲区
+  tcp_wmem            # tcp write缓冲区
+  #+END_EXAMPLE
+
+  #+BEGIN_EXAMPLE sh 文件含义
+  ip_forward               0禁止ip转发, 1打开;
+  ip_default_ttl           数据报的生存周期(time to live), 即最多经过多少路由器
+
+  ip_no_pmtu_disc          关闭路径MTU探测
+  min_pmtu                 最小路径MTU的大小
+  mtu_expires              PMTU信息缓存多长时间
+  #+END_EXAMPLE

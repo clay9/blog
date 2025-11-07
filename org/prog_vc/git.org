@@ -1,0 +1,141 @@
+#+title: git
+#+date: 2024-01-18 19:11:34
+#+hugo_section: docs
+#+hugo_bundle: prog_vc
+#+export_file_name: git
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+git简易指导, 个人使用心得
+
+#+hugo: more
+
+* git使用流程
+* git原理
+* git特性
+** tag
+   1. 获取最近的tag
+      #+BEGIN_EXAMPLE sh
+      git describe --abbrev=0 --tags 
+      #+END_EXAMPLE
+   2. 查看2个tag(或HEAD, 或branch)之间的距离, A与B之间的距离(或B与A之间的距离)
+      : 如果未branch_name, 实际为branch上的HEAD节点
+      #+BEGIN_EXAMPLE sh
+      git log --pretty=oneline tagA...tagB
+      #+END_EXAMPLE
+
+      查看从A到B的距离, 而不是从B到A的距离
+      If you just wanted commits reachable from tagB but not tagA:
+      #+BEGIN_EXAMPLE sh
+      git log --pretty=oneline tagA..tagB
+      #或者
+      git log --pretty=oneline ^tagA tagB
+      #+END_EXAMPLE
+   3. 简化SHA信息 --abbrev-commit
+      #+BEGIN_EXAMPLE sh
+      # 一般--pretty=oneline 后面都会加 --abbrev-commit
+      git log --pretty=oneline --abbrev-commit
+      #+END_EXAMPLE
+
+* git高级特性
+** git hooks
+   [[https://blog.csdn.net/jessise_zhan/article/details/80131618][参考文档]]
+** 删除大文件
+   1. 寻找大文件 
+      #+BEGIN_EXAMPLE sh
+      git rev-list --objects --all | grep "$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk '{print$1}')"
+      #+END_EXAMPLE
+   2. 删除大文件
+      #+BEGIN_EXAMPLE sh
+      git filter-branch -f --prune-empty --index-filter 'git rm -rf --cached --ignore-unmatch your-file-name' --tag-name-filter cat -- --all
+      #+END_EXAMPLE
+   3. 删除之后
+      #+BEGIN_EXAMPLE sh
+      git gc --prune=now
+      #+END_EXAMPLE
+* git lfs
+  把大文件排除在git仓库之外, git仓库中只有一个指针指向该大文件
+** 安装lfs
+   #+BEGIN_EXAMPLE sh
+   curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash &&
+   sudo apt-get install git-lfs &&
+   git lfs install
+   #+END_EXAMPLE
+** 初始化
+   #+BEGIN_EXAMPLE sh
+   git lfs install
+   #+END_EXAMPLE
+** 使用
+   1. 过滤大文件
+      #+BEGIN_EXAMPLE sh
+      git lfs track file_path
+      #+END_EXAMPLE
+   2. 过滤之后, 会生成.gitattributes
+   3. 提交到远端
+      git push      -- 提交普通文件
+      git lfs push  -- 提交lfs文件
+   4. 下载大文件
+      #+BEGIN_EXAMPLE sh
+      git lfs clone url
+      #+END_EXAMPLE
+* git submodule
+  参考文档 https://www.cnblogs.com/nicksheng/p/6201711.html
+
+  当项目越来越庞大之后，不可避免的要拆分成多个子模块，
+  我们希望各个子模块有独立的版本管理，并且由专门的人去维护，这时候我们就要用到git的submodule功能
+  submodule 管理的不是分支, 而是一个commit
+
+  #+BEGIN_EXAMPLE sh
+  #递归的方式克隆整个项目
+  git clone <repository> --recursive
+  #添加子模块
+  git submodule add --branch branch_name <repository> <path>
+  #初始化子模块 -- 根据.gitmodule文件clone子模块
+  git submodule init
+  # 更新子模块 参数remote表示拉取远端最新的而非仓库对应的;  init同上
+  git submodule update --remote --init
+  # 拉取所有子模块
+  git submodule foreach git pull 
+  #+END_EXAMPLE
+** 拉取子模块
+   - 方法1 
+     1. 先clone父项目
+     2. 更新子模块
+	#+BEGIN_EXAMPLE sh
+	git submodule update --init
+	#+END_EXAMPLE
+   - 方法2 
+     1. clone 父项目时 加 --recursive
+	#+BEGIN_EXAMPLE sh
+	git clone url path --recursive
+	#+END_EXAMPLE
+
+* F&Q
+  1. 问: 命令行下的git status如何显示中文
+     #+BEGIN_EXAMPLE
+     答：git config --global core.quotepath false
+     #+END_EXAMPLE
+  2. 问：在命令行下(gnu-bash)中git不能补全git的命令
+     #+BEGIN_EXAMPLE
+     1) 首先获得源码 git clone git://git.kernel.org/pub/scm/git/git.git 
+     1) 从源码中拷贝git-completion.bash到用户主目录下. git-completion.bash 
+	cp git/contrib/completion/git-completion.bash ~/.git-completion.bash 
+     2) 在 .bashrc 中加入 source ~/.git-completion.bash 
+     3) 在shell下执行 . ~/.bashrc
+     #+END_EXAMPLE
+  3. 问: 如何取消对文件的跟踪
+     #+BEGIN_EXAMPLE
+     答: 分情况而定
+     1) 对于从没有追踪过的文件, 只需要设置.gitignore即可
+     2) 对于已经追踪过的文件, 需要git rm --cached (-r) file 然后再加入到.gitignoe中即可
+     #+END_EXAMPLE
+  4. git对大小写不敏感问题, 可以通过下面命令修改
+     : git config core.ignorecase false
+  5. 修改git默认的编辑器
+      #+BEGIN_EXAMPLE sh git修改默认的编辑器
+      git config --global core.editor "'D:/notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+      #+END_EXAMPLE
+
+
+

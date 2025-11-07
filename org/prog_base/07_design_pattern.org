@@ -1,0 +1,26 @@
+#+title: 设计模式
+#+date: 2025-11-13 16:26:48
+#+hugo_section: docs
+#+hugo_bundle: prog_base/07_design_pattern
+#+export_file_name: index
+#+hugo_weight: 7
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+design pattern 设计模式
+
+#+hugo: more
+* 简介
+  [[https://refactoringguru.cn/design-patterns][推荐阅读]]
+  设计模式是一种经验总结, 是对软件设计中 =常见问题= 的 =典型解决方案=
+
+* 常用设计模式
+  大概可以分为 创建型模式, 结构性模式, 行为模式
+
+  创建型模式提供创建对象的机制, 增加已有代码的灵活性和可复用性
+  结构型模式介绍如何将对象和类组装成较大的结构, 并同时保持结构的灵活和高效
+  行为模式负责对象间的高效沟通和职责委派
+* 创建型模式
+  1. 抽象工厂模式

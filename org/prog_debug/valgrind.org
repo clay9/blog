@@ -1,0 +1,17 @@
+#+title: valgrind
+#+date: 2024-01-18 19:05:20
+#+hugo_section: docs
+#+hugo_bundle: prog_debug
+#+export_file_name: valgrind
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+程序检测工具
+#+hugo: more
+
+* valgrind
+  程序性能查看工具,号称程序员的瑞士军刀
+  可以查看内存信息, 函数调用, cache信息等等
+  
+  

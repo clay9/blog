@@ -1,0 +1,123 @@
+#+title: λ验算
+#+date: 2025-11-13 16:26:00
+#+hugo_section: docs
+#+hugo_bundle: prog_base/02_lambda
+#+export_file_name: index
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+λ演算是一种计算模型, 告诉"计算的本质如何表达" (计算就是函数应用与替换)
+
+#+hugo: more
+
+* 推荐阅读
+  [[file:base/lambda.pdf][lambda演算教程]] ([[file:base/lambda zh.pdf][机翻版]])
+
+* λ演算 语法定义
+  λ演算里的项M,N 定义为:
+  1. 变量: x
+  2. 抽象 (函数): λx.M
+  3. 应用: M N
+
+
+  抽象(abstraction): 创建一个函数, 把x 当作参数, M 是函数体.
+  在这里, 就是把函数的逻辑从具体值中抽象出来
+  比如λx.x+1 表示"一个输入, 返回x+1的函数".
+  实际上现在叫函数更合适, 但是当时的背景(1930年)下, 可能那时候的函数定义与现在不一致
+
+  应用(application): 把函数作用于某个具体值.
+  比如(λx.x+1) 3 表示把函数λx.x+1 作用在3 上. 实际就是现在的函数调用 f(x=3)
+
+* λ演算 三种归约
+  1. α 归约
+     改变绑定变量名字, 防止冲突. 只是改了变量名字, 没有改变函数的意义
+     λx.x+1 = λy.y+1
+
+  2. β 归约
+     核心归约规则，也是 λ 演算的核心计算方式
+     (λx.M) N = M[x:=N]
+
+  3. η 归约
+     表示“扩展或收缩函数”，当函数可以被简化为一个等价形式, 反映函数的“本质行为”不变。
+     λx.(M x) = M. if M 中不包含x
+
+     如果M 函数中不包含x, 那么 λx.(M x) 就等于函数 M
+* 数字的定义
+  在 λ演算中数字0(以及其他自然数)是可以定义的, 通过函数来表示.
+  这种表示通常叫做 Church 数字（Church numeral）
+
+  -----
+
+  Church 数字 基本思想：
+  一个自然数 n 被表示为一个函数，它接收两个参数：
+  一个函数 f(表示“操作”)
+  一个初始值 x
+  重复应用某个操作(f) n 次于 x 上
+
+  0 := λf.λx.x
+  1 := λf.λx.(f x)
+  2 := λf.λx.(f (f x))
+
+
+  λf.λx.x:          先接收f, 返回λx.x,         再接收x, 返回x       表示对f 调用0次
+  λf.λx.(f x):      先接受f, 返回λx.(f x),     再接受x, 返回f x     表示对f 调用1次 f(x)
+  λf.λx.(f (f x)):  先接受f, 返回λx.(f (f x)), 再接受x, 返回f (f x) 表示对f 调用2次 f(f(x))
+
+  #+attr_shortcode: info
+  #+begin_hint
+  Q: 为什么一定要传入f && x, 只要f, 去掉x 可以吗?
+
+  lambda 中的函数一定要有参数, 才能有具体结果. (与编程中的函数有差异)
+  如果不传x 给函数f, 那么函数f 就不会有具体结果, 只是一堆f(f()) 嵌套调用
+  所以必须要传递x 给函数 f
+  #+end_hint
+
+* 加法计算表示
+  : TODO 完成加法计算表示
+
+  1 + 1
+  对1 进行 +1 的操作. f 是+1, x 是1
+
+  3 + 2
+  对3 进行 +2 的操作. f 是+2, x 是3
+
+  但是上面的理解是基于自然数的, 在λ中自然数不是1,2, 而是Church 数字
+
+  -----
+
+  如果是使用λ中的Church 数字表示
+  加法是某个操作(函数), 接受2 个参数, 所以应该是λm.λn.Function
+  我们用ADD 来表示加法这个操作 ADD = λm.λn.Function
+  现在剩下的就是来推导ADD 的函数体
+
+  m: 是重复调用f m 次 于 x 上
+  n: 是重复调用f n 次 于 x 上
+  所以m+n应该是重复调用f m+n 次 于 x 上, 也就是Function 的意义
+
+  n(f x) 表示: (f (f (f x))) 对f 重复调用n 次于 x 上
+  m(f (n(f x))) 表示: 对f 重复调用m 次于 n(f x) 上
+  : TODO 这里的定义错了, 导致后续的推算都是错误的
+
+  所以ADD 的定义可以是:
+  ADD = λm.λn.λf.λx.(m(f (n(f x))))
+
+  计算ADD λf.λx.(f x) λf.λx.(f x), 也就是计算1+1
+  λm.λn.λf.λx.(m(f (n(f x))))  λf.λx.(f x)  λf.λx.(f x)
+
+  1. 先传入参数m λf.λx.(f x)
+     λm.λn.λf.λx.(m(f (n(f x)))) ->
+     λn.λf.λx.(λf.λx.(f x) (f (n(f x)))) ->
+
+
+     其中
+     λf.λx.(f x) (f (n(f x))) ->
+     λa.λb.(a b) (f (n(f x))) ->
+     λb.(a b) [a := (f (n(f x)))] ->
+     λb.((f (n(f x))) b) ->
+     λx.((f (n(f x))) x)
+
+* 减法计算表示
+  : TODO 完成减法计算表示

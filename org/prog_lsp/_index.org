@@ -1,0 +1,9 @@
+#+title: prog lsp
+#+date: 2024-01-18 19:09:56
+#+hugo_section: docs
+#+hugo_bundle: prog_lsp
+#+export_file_name: _index
+#+hugo_weight: 11
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection true

@@ -1,0 +1,50 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: clay9/emacs.d
+          path: emacs.d
+
+      - uses: purcell/setup-emacs@master
+        with:
+          version: 30.1
+
+      - run: |
+          mv emacs.d ~/.emacs.d
+          emacs -Q --script ~/.emacs.d/script/init-for-script.el
+          rm -rf ~/.emacs.d
+          echo "ls -alR content" && ls -alR content
+
+      - name: Download hugo-book theme
+        run: |
+          mkdir -p themes
+          git clone --branch v12.0.0 https://github.com/alex-shpak/hugo-book.git themes/hugo-book
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify --buildFuture
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public

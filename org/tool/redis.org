@@ -1,0 +1,72 @@
+#+title: redis
+#+date: 2024-01-18 19:19:31
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: redis
+#+hugo_weight: 11
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+redis学习记录
+
+#+hugo: more
+
+* 基础
+** 数据结构
+   1. 二进制安全字符串 (key, value)
+   2. 列表 (链表实现)
+   3. 集合
+   4. 排序集合
+   5. 哈希
+   6. 位数组(简单的位图)
+   7. HyperLogLogs 概率数据结构
+   8. Streams
+** 键值注意事项
+   键一般不要太大, 但又不要太短, 导致不可阅读. 需要平衡
+   值不能大于512MB   
+** 常用的指令
+*** 通用命令
+    exist   返回1表示存在, 0表示不存在
+    del     删除
+    type    返回key对应值的类型, 不存在值, 则为none
+    expire  设置过期时间(秒). key对应的过期时间也会被保存在磁盘上
+    : 或者set key 100 ex 10 -- 使用ex来简化expire
+    persist 删除key的过期时间, 并永久化
+*** 字符串
+    get
+    set
+    getset  将键设置为新值, 并返回旧值为结果
+*** 链表相关
+    : 索引从0开始
+    lpush (key v) 在链表的左侧(头部)添加元素 -- 常数时间    
+    rpush (key v) 在链表的右侧(尾部)添加元素 -- 常数时间
+    : 可以一次推送多个数据. 返回结果为当前链表中的元素个数
+    lrange (key arg1 arg2) 从链表中提取元素范围 -- 需要的时间与元素数量正比, 非常慢
+    : 参数可以为负数表示. -1表示最后一个元素, -2表示倒数第二个
+    lpop (key)
+    rpop (key)
+    : 返回结果为左侧或右侧的元素
+    ltrim (key arg1 arg2) 只保留范围内的元素, 删除链表其他元素
+    llen (key)  链表的长度
+*** Hash
+    hmset
+    hmget    检索多个字段(可单, 可全部)
+    hget     检索单个字段
+    hgetall  检索所有字段
+    hincrby  可以对单个字段的val执行加操作
+*** Set
+    sadd     添加新的元素
+    smembers 返回集合中的元素(未排序的, redis随意返回)
+    sismember (Set key) 检测key是否是Set的成员. 返回1是,0不是
+    spop (key option& count)    删除count个随机的元素, 并返回给客户端
+    scard    返回集合中的元素个数
+*** Sorted Set
+    现根据score排序, score一致则根据key的字典值排序
+    zadd (ZSet key score val)  添加新的元素. 多了一个score的写入
+    zrange    (ZSet index_b index_e option& withscores) 返回范围内的元素(正序的)
+    zrevrange (ZSet index_b index_E option& withscores) 返回范围内的元素(倒序的)
+    : 额外参数withscores会输出元素的score
+    zrangebyscore (ZSet -inf score_val) 返回有序集合中的score <= score_val的元素
+    zremrangebyscore (ZSet score_b zsocre_e) 删除集合中所有score在b,e之间的元素
+    zrank    (ZSet key) 返回元素在正序集合中的index
+    zrevrank (ZSet key) 返回元素在倒叙集合中的index

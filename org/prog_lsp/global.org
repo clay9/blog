@@ -1,0 +1,59 @@
+#+title: global
+#+date: 2024-01-18 19:10:37
+#+hugo_section: docs
+#+hugo_bundle: prog_lsp
+#+export_file_name: global
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+在project中生成TAGS文件, 方便索引
+: 建议使用lsp代替, global响应虽然快速, 但是不如lsp实时定位方便
+
+#+hugo: more
+
+* 安装
+  #+BEGIN_EXAMPLE shell
+  sudo apt install global
+  #+END_EXAMPLE
+* 使用
+  #+BEGIN_EXAMPLE shell
+  # step1 make tag-files (GPATH, GRTAGS, GTAGS)
+  gtags
+
+  # *step2 maybe make htlm
+  htags
+
+  # step3 find 
+  global X    #find tag
+  global -r X #find rtag
+  global -s X #find symbol
+  #+END_EXAMPLE
+** GPATH, GRTAGS, GTAGS
+   GTAGS 中包含了定义
+   GRTAGS中包含了引用
+   GPATH 中是路径名字
+
+   对于C++来说
+   tag包含了class, struct, global-function && class-function
+   但是不包含class-symbol(成员变量), 局部变量, 全局变量
+   rtags中包含了tag中内容的引用 和 非tag中内容的引用(比如成员变量)
+
+   所以使用global来查找的时候, 参数非常有必要. 比如   
+   global X    是在GTAGS中查找, 所以是查找不到成员变量的, 因为成员变量没有在GTAGS中
+   global -r X 是在GRTAGS中查找GTAGS中定义的内容的引用, 所以也是查找不到成员变量的
+   global -s X 与-r相反, 是在GRTAGS中查找没有在GTAGS中定义内容的引用, 所以可以查找成员变量, 局部变量, 全局变量等
+** 对于C++的.h文件
+   通过gtags --config可以查看gtags生成tags-file的配置
+   #+BEGIN_EXAMPLE shell
+   wangruoxudeMacBook-Pro:~ clay$ gtags --config
+   :skip=HTML/,HTML.pub/,tags,TAGS,ID,y.tab.c,y.tab.h,gtags.files,cscope.files,cscope.out,cscope.po.out,cscope.in.out,SCCS/,RCS/,CVS/,CVSROOT/,{arch}/,autom4te.cache/,*.orig,*.rej,*.bak,*~,#*#,*.swp,*.tmp,*_flymake.*,*_flymake,*.o,*.a,*.so,*.lo,*.zip,*.gz,*.bz2,*.xz,*.lzh,*.Z,*.tgz,*.min.js,*min.css:langmap=c\:.c.h,yacc\:.y,asm\:.s.S,java\:.java,cpp\:.c++.cc.hh.cpp.cxx.hxx.hpp.C.H,php\:.php.php3.phtml
+   #+END_EXAMPLE
+
+   很明显上面会把.h当作c来处理, 而非C++, 因此我们需要修改其默认行为
+   #+BEGIN_EXAMPLE shell
+   # GTAGSFORCECPP 设置为非nil, 表示把.h当作C++来处理
+   export GTAGSFORCECPP=1
+   #+END_EXAMPLE
+* 参考资料
+  [[https://www.gnu.org/software/global/manual/global.html][官方文档]]

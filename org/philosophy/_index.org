@@ -1,0 +1,10 @@
+#+title: philosophy
+#+date: 2025-11-08 18:08:41
+#+hugo_section: docs
+#+hugo_bundle: philosophy
+#+export_file_name: _index
+#+hugo_weight: 100
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection true
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab

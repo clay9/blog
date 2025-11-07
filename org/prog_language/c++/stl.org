@@ -1,0 +1,161 @@
+#+title: C && C++ 常见库
+#+date: 2024-01-18 19:07:05
+#+hugo_section: docs
+#+hugo_bundle: prog_language/c++
+#+export_file_name: stl
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+
+C++ 常见库
+
+#+hugo: more
+
+* <format>
+  用法: 主要使用std::format()
+  意义: std::format之前, C++格式化字符要么使用C的format, 要么使用std::iostream
+        C的format非类型安全; std::iostream效率低下
+        而std::fromat类型安全, 效率也高
+  备注: C++20中首次加入
+
+  #+begin_src c++ -n 
+  template<typename... Args>
+  std::string fromat(string_view fmt, const Args&... args);
+  #+end_src
+  #+BEGIN_EXAMPLE C++ format()函数使用
+  //例子1
+  //format()返回类型或值的字符串表示形式
+  //{}作为类型安全的占位符
+  string who{"lilei"};
+  int val{12};
+  double pi{std::numbers::pi};
+
+  format("Hello, {}!\n", who); //Hello, lilei!
+  format("Val: {}\n", who);    //Val: 12
+  format("v: {}\n", who);     //v: 3.141592652589793
+
+
+  //例子2
+  //左对齐<,  右对齐>,  中心对齐^
+  //{:.<10}  左对齐, 10占位, 不足使用.代替
+  //.是填充字符
+  //10表示占位大小
+  format("{:.<10}", 12); //12........
+  format("{:.>10}", 12); //........12
+  format("{:.^10}", 12); //....12....
+
+
+  //例子3
+  //设置数值的精读
+  format("{:.5}", std::number::pi); //3.1416
+  #+END_EXAMPLE
+
+
+* *********************************************
+* 下面的都是待整理
+* *********************************************
+* 转换函数
+  c++11 支持
+  1. std::to_string(XX)
+     XX 为int, short, long, longlong数值类型
+  2. std::stoi()
+     同类型的有std::stol(), std::stoll()
+* 文件操作: fstream类
+  C++类, 头文件:
+  #include <fstream>
+
+  流程函数
+  1. 构造fstream对象
+     fstream file;
+  2. 打开文件
+     file.open(file_name, mode)
+     mode:
+     - fstream::out  写: 内存->文件
+     - fstream::in   读: 文件->内存
+       当带有此模式的时候, 会默认认为文件存在,
+       即使文件不存在, 也不会创建文件;
+       所以对于需要创建文件的场景, 应该不带此mode
+  3. 读文件
+     1) file >> string file_val
+    >> 遇到 空格 \n \r \t时候停止 -- 待确认TODONOW
+     2) file.get(char ch)
+    每次读取一个字符
+     3) getline(file, string &file_val)
+    读取一行, 遇到\n停止
+     4) file.read(char*buf, length)
+    在读指针位置读取length长度到buf中, 一般用于二进制文件
+  4. 写文件
+     1) file << file_val
+    待确认TODONOW
+     2) file.put(ch)
+    写入一个字符
+     3) file.write(char*buf, length)
+    在写指针位置写入length长度的buf, 一般用户二进制文件
+  5. 关闭文件
+     file.close
+
+
+  读写指针函数
+  1. 获得读写指针位置
+     TODONOW 待确认
+  2. 设置读写指针函数
+     1) 读: seekg(postion) //postion绝对位置
+    一般用户文本文件
+     2) 读: seekg(offset, ios::beg|ios::end::ios::cur) //offset相对位置
+    一般用户二进制文件, 最好勿在文本文件中使用
+     3) 写: seekp(positon)
+    一般用户文本文件
+     4) 写: seekp(offset, ios::beg|ios::end|ios::cur)
+    一般用户二进制文件, 最好勿在文本文件中使用
+
+
+  fstream状态函数
+  1. if(file) 检验流是否有效
+     这个需要重点查看下, 什么时候流会失效
+     已知:
+     1) file.eof()时候, file则会变为无效
+  2. file.is_open() 流是否打开了文件
+  3. file.eof() 是否到了文件尾
+  4. file.clear()
+     TODONOW 这个也需要再看下
+     如果file.eof(), 调用clear可以重置标志;
+     重置标识后, file重新变为有效流
+* 字符串: string类
+  1. 构造
+  2. 比较
+  3. 查找
+  4. 插入
+  5. 删除
+  6.
+* curses使用
+  官方地址: http://www.tldp.org/HOWTO/NCURSES-Programming-HOWTO/windows.html
+
+* *********************************************
+* FILE
+  FILE是C的文件操作 -- C++的为fstream
+  问: 为什么有了fstream 还需要FILE?
+  答: 很多系统函数,都是对C的支持, 比如popen()函数等
+
+  1. fopen
+  2. fread
+  3. fwrite
+  4. fclose
+
+* *********************************************
+* C++ 与 shell的互相调用,传参,获取运行输出
+* 左值, 右值, 左值引用, 右值引用
+  左值 lvalue(loactor value)  -- 地址
+  右值 rvalue(read value) -- value
+  : lvalue 是“loactor value”的缩写，可意为存储在内存中、有明确存储地址（可寻址）的数
+  : rvalue 译为 "read value"，指的是那些可以提供数据值的数据（不一定可以寻址，例如存储于寄存器中的数据）
+  : 有名称的, 可以获取到存储地址的 变量或表达式为左值, 其余为右值
+
+  引用
+  & -- 只能操作左值, 称为左值引用
+  && -- 只能操作右值,称为右值引用
+
+
+  std::move(arg) -- 可以把左值引用转换为右值引用
+  左值引用, 对于类来说, 会使用copy 构造函数
+  右值引用, 对于类来说, 会使用移动构造函数

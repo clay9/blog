@@ -1,0 +1,82 @@
+#+title: tramp
+#+date: 2024-01-18 18:36:31
+#+hugo_section: docs
+#+hugo_bundle: emacs/lisp
+#+export_file_name: tramp
+#+hugo_weight: 3
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+
+全称 transparent remote access multiple protocol
+tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method
+- ssh
+- su | sudo
+  #+BEGIN_EXAMPLE shell
+  # 这种并不连接到远程主机, 而是允许使用另一个用户身份打开本地文件
+  /su:root:path/
+  #+END_EXAMPLE
+
+* 用法
+** basic
+   #+BEGIN_EXAMPLE shell
+   /method:user@host#port:/path/to/file
+
+   # example 1
+   /ssh:clay@192.1.1.1#22:~
+
+   # example 2 windows下可以使用putty作为ssh的client
+   /plink:clay@192.1.1.1:~
+   #+END_EXAMPLE
+
+** set default method
+   #+BEGIN_EXAMPLE elisp
+   (setq tramp-default-method "plink")
+
+   ; 设置之后的例子
+   ; 可以设置linux和windows下默认的method，之后就无需考虑操作系统
+   /-:clay@192.1.1.1:~
+   #+END_EXAMPLE
+** multiple hop
+   #+BEGIN_EXAMPLE shell
+   # 在本机上,    通过clay用户登录到host1
+   # 再在host1上, 通过admin登录到host2
+   /ssh:clay@host1|ssh:admin@host2:/path
+   #+END_EXAMPLE
+** su | sudo
+   #+BEGIN_EXAMPLE shell
+   # 使用sudo打开远程文件
+   /-:clay@192.1.1.1|sudo::/path
+
+   # 使用sudo打开本地文件
+   # su::默认的是 su:root@localhost. 配置在tramp-default-method-alist
+   /su::local-path
+   /su:user@localhost:/local-path
+   /sudo:root@localhost:/local-path
+   #+END_EXAMPLE
+** use with bookmarks
+   tramp使用的时候 需要使用到method user host path的组合，一般较长
+
+   我们更希望使用较短的shortcut去远程打开某个file
+
+   这里推荐的方法是bookmark. 理由:
+   1. bookmark emacs内置, 而且非常方便
+   2. bookmark 的配置信息 可以方便git管理
+
+   使用方法:
+   #+BEGIN_EXAMPLE shell
+   # 1.远程连接
+   C-x f /ssh:clay@192.1.1.1:~
+
+   # 2.添加到bookmark
+   C-x C-f BOOK-NAME RET
+
+   # 3.查看bookmark
+   C-x C-f
+
+   # 4.管理bookmark配置文件
+   ~/.emacs.d/bookmarks
+
+   # 5.管理auth信息文件
+   ~/.emacs.d/authinfo
+   #+END_EXAMPLE

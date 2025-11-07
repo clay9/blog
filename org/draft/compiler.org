@@ -1,0 +1,423 @@
+#+title: compiler
+#+date: 2025-10-09 13:00:25
+#+hugo_section: docs
+#+hugo_bundle: draft/compiler
+#+export_file_name: index
+#+hugo_weight: 100
+#+hugo_draft: true
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+
+* PROJECT [#B] compiler
+  :PROPERTIES:
+  :CAPTURE_TIME: [2024-05-20 Mon 10:23]
+  :Effort:   8:00
+  :END:
+** CANCEL [#C] 编译原理 (mooc在线学习)
+*** note
+    词法分析(Lexical Analysis) -> 语法分析(Syntax Analysis) -> 语义分析(Semantic Analysis)
+
+*** 词法分析
+    词法分析: 识别各个单词, 确定单词类型; 将识别的单词转换为统一的 机内表示::词法单元token形式
+    token <种别码, 属性值>
+
+    | 单词类型 | 种别               | 种别码      | 属性值     |
+    |----------+--------------------+-------------+------------|
+    | 关键字   | if, else, then...  | 一词一码    |            |
+    |----------+--------------------+-------------+------------|
+    | 标识符   | 变量名, 数组名...  | 多词一码    | 属性值区分 |
+    |----------+--------------------+-------------+------------|
+    | 常量     | 整型, 字符型...    | 一型一码    | 属性值区分 |
+    |----------+--------------------+-------------+------------|
+    | 运算符   | 算术, 关系,逻辑... | 一词一码    |            |
+    |          |                    | 或 一型一码 |            |
+    |----------+--------------------+-------------+------------|
+    | 界限符   | ; () = {} ...      | 一词一码    |            |
+    |----------+--------------------+-------------+------------|
+
+    如果实现可以确定的, 就可以使用一词一码, 根据种别码区分;
+    不确定的就是用一型一码或多词一码, 使用属性值区分.
+*** 语法分析
+    语法分析: 从词法分析输出的token序列中识别出各类短语; 并构造语法分析树(parse tree)
+*** 语义分析
+    语义分析:
+    1) 收集标记符的属性信息
+    2) 语义检查
+
+**** 属性信息
+     属性信息: 种属(Kind), 类型(Type), 存储位置与长度, 值, 作用域, 参数和返回值信息
+     属性信息放入到符号表(Symbol Table)中
+
+     #+title:符号表(Symbol Table)
+     | Name在字符串表start位置 | Name长度 | Type | Kind     | Val | ADDK |
+     |-------------------------+----------+------+----------+-----+------|
+     |                       0 |        6 | 整数 | 简单变量 |     |      |
+     |-------------------------+----------+------+----------+-----+------|
+     |                       6 |        6 | 实数 | 数组     |     |      |
+     |-------------------------+----------+------+----------+-----+------|
+     |                      12 |        5 | 字符 | 常熟     |     |      |
+     |-------------------------+----------+------+----------+-----+------|
+     字符串表: 保存了符号Name的字符串
+*** 中间代码
+    常用表示形式:
+    1) 三地址码 (Three-address Code)
+       由类似于汇编语言的指令序列组成, 每个指令最多有三个操作数
+    2) 语法结构树/语法树 (Syntax Trees)
+       变体: 无环有向图
+*** 编译器
+    目标代码生成: 已原程序的中间表示形式作为输入, 并把它映射到目标语言
+    其中, 非常重要的一个任务是为程序中使用的变量 合理分配寄存器
+
+    代码优化: 为改进代码进行的等价程序变换, 使其运行的更快一些, 占用空间更少一下
+    机器无关代码优化 -- 在中间表示形式中优化
+    机器相关代码优化 -- 在目标机器层面优化
+*** 程序语言设计 及其文法
+**** 2-1 没看懂在作什么??
+     字母表
+     字母表的运算
+
+     串
+     串的运算
+**** 2-2 文法
+     如果是句子, 那么文法就是单词的构成规则
+     如果是单词, 那么文法就是字母的构成规则
+     G = (VT, VN, P, S)
+
+     VT: 终结符集合
+     终结符:: 文法所定义的语言的基本符合, 也称token
+     比如句子的终结符是单词
+
+     VN: 非终结符集合
+     非终结符: 用来表示语法成分的符号, 也称"语法变量"
+     比如 VN={<句子>, <名词短语>, <动词短语>...}
+     VT与VN不相交; 两者统称为文法符号集
+
+     P: 产生式的集合
+     产生式描述了将终结符和非终结符组合成串的方法
+
+     S: 开始符号
+
+*** question
+    1) [ ] 词法, 语法, 语义, 文法
+       文法 是什么
+** 编译原理 (CS143课程)
+*** compiler
+    1. Lexical Analysis
+    2. Parsing
+    3. Semantics Analysis
+    4. Optimization
+    5. Code Generation
+*** Lexical Analysis
+    divide program text into "token"
+
+    1. Lexical structure = token classes
+    2. We must say what set of strings is in a token class
+       - Use regular languages
+
+
+    //step
+    1. lexical specification to regular expressions
+    2. regular expressions to NFA
+    3. (*) NFA to DFA
+    4. DFA|NFA to table-driven implementation
+
+**** regular languages
+     regular expressions specify regular languages
+
+     regular expressions: syntax that we write
+     regular languages: set of things
+
+
+     //regular expressions
+     1. Single character
+        'c' = {"c"}
+     2. Epsilon
+        ε = {""}
+        : ε is a language that has a single string namely the empty string. it's not empty;
+     3. Union
+        A+B = {a|a∈ A} ∪  {b|b∈ B}
+     4. Concatenation
+        AB = {ab |a∈ A ⟑ b∈ B}
+     5. Iteration
+        A* = A0 + A1 + ....
+
+     //Σ
+     Σ is set of characters
+     The regular expressions over Σ are the smallest set of expressions including "1-5"
+     Σ上的正则表达式是最小的表达式集合
+**** formal language
+     a regular expression are one example of formal language
+
+     meaning function L maps syntax to semantics
+     L(syntax) = semantics
+     : regulare expression => set of strings
+
+     体会syntax 与 semantics的差异
+     syntax是语法, 表现形式
+     semantics是语义, 是背后表达的意思
+**** lexical specification
+     1. write a regular expressions for the lexemes of each token class
+        为token class 编写syntax
+     2. construct R, matching all lexemes for all tokens
+        编写一个巨型的syntax 匹配token中的所有词库
+     3. let input be x1...xn
+        for 1<=i<=n check x1..xn ∈ L(R)
+
+        #+begin_src c
+          //这里应该是找到匹配的最大的词根lexeme
+          for (int i =1; i <= n; i++){
+            if(x1...xi ∈ L(R))
+              continue;
+            else
+              break;
+           }
+        #+end_src
+     4. if success, then we know that
+        x1...xi ∈ L(Rj) for some j
+        #+begin_example
+          //当x1...xi ∈  L(R_keyword), 同时也x1...xi ∈ L(R_id)时, 怎么处理
+          //应当对 lexemes 进行优先级排序
+        #+end_example
+     5. remove x1...xi from input and goto (3)
+     6. 错误处理
+        when x1...xi not match, throw error to user.
+
+        //处理方法:
+        make a 'error' lexemes;
+        put 'error' at last position of R.
+        when match 'error', throw
+
+
+     //lexemes 词库
+     1) number = digit+
+     2) keyword = 'if' + 'else' + ...
+     3) identifier = letter(letter + digit)*
+     4) openpar = '('
+     5) ...
+
+
+     //R: lexemes union
+     R = number + keyword + identifier + ...
+**** finite automata
+     A finite automaton consists of
+     - An input alphabet Σ
+     - A set of states S
+     - A start state n
+     - A set of accepting states F⊆ S
+       F: final; 所以这里为什么叫accepting state, 而不是final state
+       如果一个输入从n状态出发, 能在某一个终止状态(F)结束, 那么该输入就被这个DFA接受.
+       所有的这种输入的集合就是这个自动机finite automata的语言
+
+     - A set of transitions state -(input)-> state
+       N(S0, 0) = S1 :: 单步表示. 对状态S0输入0, 可以进入状态S1
+       N(N(S0, 0), 1) = S2 :: 多步表示. 对S0输入0; 对上一步的状态输入1, 得到S2
+
+
+     //本质
+     有穷自动机的本质:
+     finite automata 的目标设定为F, 动作是N(S, a).
+     目的是对输入Σ 进行校验, 判断这个输入Σ 是不是自己的语言.
+
+     有点像是regular. 目标设定为R, 动作是L(syntax).
+     目的是对输入syntax 进行校验, 判断这个输入syntax 是不是属于R.
+
+
+     //DFA && NFA
+     DFA '确定'有穷自动机; 确定意味着对于一个输入, 只有唯一的可能状态
+     NFA '不确定'有穷自动机; 对于一个输入, 对应的是一个 DFA的集合
+
+     DFA 和 NFA 使用相同的set of languages
+     DFA 因为N()是确定的, 所以时间效率更高, 但是相应的其需要的空间更大(S和N 更多)
+     NFA 因为N()是不确定的, 时间效率要低; 但是空间要小很多很多.
+
+
+**** lexical specification to regular expressions
+**** regular expressions to NFA
+     // 5种 regulare expression 都可以转为NFA
+     1. 'c' = {c}
+     2. ε
+     3. A+B
+     4. AB
+     5. A*
+**** NFA to DFA
+     1. NFA 和 DFA的转换概念 https://zhuanlan.zhihu.com/p/638533433
+     2. ε闭包算法
+        1) 基础概念 https://juejin.cn/post/6971406501990629383
+        2) 深度优先,宽度优先 https://zhuanlan.zhihu.com/p/31158595
+
+**** DFA|NFA to table-driven implementation
+     session L19
+
+*** Parse
+
+    | phases | input                | output           |
+    |--------+----------------------+------------------|
+    | Lexer  | string of characters | string of tokens |
+    |--------+----------------------+------------------|
+    | Parser | string of tokens     | parse tree       |
+    |--------+----------------------+------------------|
+
+**** Context Free Grammar - CFGs
+***** 需求背景
+      //需求
+      不是所有的tokens sequence都是program. parser需要能识别有效的program
+
+
+      //正则处理不了
+      正则无法表达recursive(递归). 原因:
+      1. 记录经过state S0的次数.
+      2. 如果递归造成死循环, 正则表达不了无限的状态
+         : ?? regular expressions确实表达不了无限的状态, 为什么状态机也不可以???
+
+      正则只能生成tokens sequence, 却无法判断该tokens sequence是否有效.
+      因此需要context free grammar
+
+
+      //设计, 需要2个东西:
+      1. language. 描述valid strings of token是什么. 即 context free grammar
+      2. method. 判断strings of token是否valid
+***** CFG 语法
+      CFG 包括以下4个东西:
+      1. A set of terminals T. 不可再分的符号. 在 productions种, terminal是右侧的最小单位
+      2. A set of non-terminals N. 可以由其他符号组合而成
+      3. A start symbol S. 一般是一个 non-terminal
+      4. A set of productions. 产生式 X -> Y1...Yn (X∈ N, Y∈ (N∪ T))
+         定义:
+         1) 起初以 start symbol S开始.
+         2) 不断的替换N (使用production中的 X-> Y1...Yn)
+         3) 重复2, 直到没有X (X∈ N)
+
+
+      //补充
+      1. 此处的terminals 就是lexer 输出的tokens
+      2. 从start symbol开始, 用productions 推导出整个language
+      3. start symbol只有1个. 其他都是set
+      4. productions可以看作rules, 不断的用右侧表达式替换左侧
+***** parser 进度
+      parser要解决2个问题, 当前进度为0.5
+      1. 判断language是否valid(解决). 但error处理不够方便.
+      2. 缺一个CFG的 implementation.
+**** Derivations && parse tree
+     A derivation is a sequence of productions.
+     核心目的: 用grammar 和 input 构建一个parse tree.
+
+     derivation继承. 这里使用"继承"这个名字很有意思.
+     比如tree 的节点 是由下层的节点构成的.
+
+     //
+     left-most  derivation
+     right-most derivation
+     they have the same parse tree
+
+**** Ambiguity 二义性
+     消除使用 rewrite grammar
+     共存使用 运算符优先级(precedence declaration) 和 关联性(associativity declaration)
+
+     //对比
+     rewrite grammar, 导致grammar复杂, 难以阅读和维护;
+     precedence | associativity declaration 可能会导致 Rising behavior. 所以添加后需要check grammar
+     : 大多数parse使用的declaration
+
+
+**** error handling
+     //3 methods
+     1. Panic mode. skip 一些input, 然后try parse left.
+        可以一次compile more error
+     2. error productions.
+        兼容了常见mistake用法, 但增加了语法的复杂度
+     3. Automatic local or global correction. 理论研究用的多, 工程较少使用.
+**** AST 抽象语法树
+
+
+**** Recursive Descent Parsing 递归下降分析
+**** Predictive Parsing 预测性分析
+     predict parser 接受 LL(k) grammar
+**** Bottom-up Parsing
+**** A shift-reduce Parsing
+**** SLR Parsing
+*** Semantics Analysis
+    check "meaning"(semantics) error
+*** Optimization
+    Optimization就是在优化 L(syntax) = semantics
+*** summary
+**** regular expressions && context free grammar
+     //先明白 language 的概念
+     language 是 a set of strings, 而a set of strings 是可以通过rule描述的
+
+     反过来说, rule 可以描述 a set of strings, 也就是rule可以描述language
+     我们称满足rule的a set of strings, 叫做该rule的language
+
+
+     //regular expressions
+     regular expressions 即是rule.
+     由于该rule的特性(具体啥特性呢?!), 其可以很好的描述 lexic (text???).
+     因此常用来做文本分析, 生成token sequence
+
+     该rule的表现形式 估计也与其特性有关. 具体得后面再分析了 TODONOW
+
+
+     //context free grammar
+     该rule特性就是可以自然得表达recursive. 因此非常适合用来做check tokens valid
+
+     该rule的表现形式 如何与其特性(recursive)有关的, 这个也需要具体分析. TODONOW
+
+*** question
+    1. [ ] L(syntax) = semantics 在哪个环节使用
+       P13时的认知:
+       Lexical Analysis -> token -> parse -> semantics -> optimization -> code generation
+       感觉像是在 Lexical -> token环节使用,
+       可是syntax (regular expression) -> semantics 从字面上看贯穿了 Lex->token->parse->semantics
+       所以有点没明白, regular expression的作用, 或者说 L(syntax) = semantics的作用
+    2. [X] finite automata accepting states F 是做什么用的????
+       set of final state; FA的目标, 为了获得FA的languages
+    3. [ ] 设计一个Finite Automata, 来判断 几百个动作 是否会导致死循环
+    4. [ ] NFA to DFA 没有看懂 转换的规则是什么
+    5. [ ] Parse的开头有句话:
+       strings of balanced parentheses are not regular
+       这是什么意思?? 平衡括号字符串不规则
+    6. [X] context free grammar 会产生 ambiguous的根本原因是什么?
+       N 在 productions中找到 >=2 条 production
+** 编译原理应用
+   :目的:
+   编写一门新的语言 my-artist-uml (mauml);
+   这门语言, 专门用来在emacs中, 生成ascii graph
+   :end:
+
+   :已知:
+   1. 编译原理看到了Parse, 看不动了.
+      了解了一下compiler的工作原理
+      Lexical Analysis -> Parse -> Semantic Analysis -> Optimization -> Generate code
+      token sequence -> parse tree (ADT) -> *IR -> machine code
+
+      因为我最终是运行在emacs中, 所以只要拿到ADT, 然后解析为lisp即可. 不需要后面的Optimization && Generate code
+
+   2. 大概了解了一下, 其他编译器的原理
+      前端 -- 中间 -- 后端
+      前端: Lexer, Parse, Semantic Analysis
+      中间: IR
+      后端: Optimization, Generate code
+
+      1) 使用flex 生成token sequence
+         flex 是fast lexical analysis
+         给定 regular expreesions && input, 可以帮我们生成token sequence
+      2) 使用bison
+         bison 是parse
+         给定token sequence, 可以帮我们生成parse tree (ADT abstract syntax tree)
+   :end:
+
+   :方案:
+   1. 使用 C++ 自己实现Lexical Analysis && Parse. 原因:
+      1) flex, bison 都需要额外安装使用
+      2) 更好的了解compiler
+      3) 使用c++, 而不是elisp. 是因为对c++比较熟悉
+   :end:
+
+   :计划:
+   1. make a Lexical Analysis. only include "id" && "keyword"
+   :end:
+
+   :感悟:
+   1. 今天看了 王超 的blog, 感悟很大. 差距太大了, 为什么他这么优秀
+   :end:

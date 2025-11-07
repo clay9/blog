@@ -1,0 +1,121 @@
+#+title: 图灵机
+#+date: 2025-11-13 16:25:46
+#+hugo_section: docs
+#+hugo_bundle: prog_base/01_turing
+#+export_file_name: index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+图灵机是一种[[https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B_(%E6%95%B0%E5%AD%A6)][计算模型]], 告诉"能计算什么"
+
+#+hugo: more
+
+* 推荐阅读
+  [[file:base/turing.pdf][pdf: 图灵机与计算]]
+* 图灵机基本概念
+  #+ATTR_MD: :width 144 :height 144
+  [[file:base/turing.png]]
+  图灵机由以下部分构成:
+  1. 无限长的纸带: 每个格子存储一个符号, 初始状态表示输入, 运算结束后纸带包含输出和中间计算结果
+  2. 读写头: 可以读取当前格符号, 写入符号, 并向左或向右移动一格
+  3. 内部状态: 来自有限状态集合的一个元素, 表示机器当前的内部信息
+  4. 程序: 一张规则表δ, 根据当前状态和当前纸带符号, 操控读写头动作
+
+* 加法计算表示
+  : TODO fix 错误: 输出的是 "1 1", 而不是"11". 少了搬运的动作
+
+  如何用图灵机来描述一个具体的计算呢? 比如计算1+1
+
+  纸带初始状态即是输入: "1", "+", "1"
+  输出如何表示呢? 因为图灵机不是直接处理阿拉伯数字, 而是处理符号. 所以我们使用"11" 表示2
+
+  初始: 状态为q0, 读写头在纸带的1 处. 程序:
+
+  | internal status | input | action          | internal status |
+  |-----------------+-------+-----------------+-----------------|
+  | q0              | 1     | move next       | q0              |
+  | q0              | +     | rm +, move next | q0              |
+  | q0              | 1     | move next       | q0              |
+  | q0              |       | stop            | qhalt           |
+
+  读写头的动作为:
+  1 -> move next
+  /+ -> remove "+", move next
+  1 -> move next
+    -> 停机, 内部状态变为qhalt
+
+  这样经过程序计算, 纸带上的结果为: "1" "" "1" 也就是"11" 表示2
+
+  -----
+
+  扩展为通用加法计算
+  根据上面的1+1, 我们知道数字n可以使用n 个"1"表示
+  但我们还要知道现在是在读第一个数字还是第二个数字, 因为内部状态q0 表示读第一个数字, q1 表示在读第二个
+
+  那么对于n + m, 程序:
+
+  | internal status | input | action          | internal status |
+  |-----------------+-------+-----------------+-----------------|
+  | q0              | 1     | move next       | q0              |
+  | q0              | +     | rm +, move next | q1              |
+  | q1              | 1     | move next       | q1              |
+  | q1              |       | stop            | qhalt           |
+
+  #+attr_shortcode: info
+  #+begin_hint
+  为什么图灵机上不使用自然数符号. 比如使用"2" 表示2?
+
+  图灵机实际不知道符号的含义, 这些符号的含义是我们赋予的, 而图灵机不知道.
+  要想让图灵机理解符号的含义, 必然要增加内部状态机的复杂度
+  #+end_hint
+* 减法计算表示
+  : TODO 完成一个通用的减法计算
+
+  假设 4 -2.
+
+  纸带初始状态为: 1111-11
+  输出应该为11
+
+  同样使用q0表示读第一个数, q1表示读第二个数.
+  q2 表示在处理减法, 需要找到第一个数
+  q3 表示已经到了第一个数
+
+  初始: 内部状态q0, 读写头在位置0 处. 程序:
+
+  | internal status | input | action          | internal status |
+  |-----------------+-------+-----------------+-----------------|
+  | q0              |     1 | move next       | q0              |
+  | q0              |     - | move next       | q1              |
+  | q1              |     1 | move previous   | q2              |
+  | q2              |     1 | move previous   | q2              |
+  | q2              |     - | move previous   | q3              |
+  | q3              |     1 | rm 1, move next | q3              |
+  | q3              |     - | move next       |                 |
+
+
+  1111-11
+
+  到了-1位置之后, 应该如何处理呢?
+
+
+  可以goto postion 0, 状态为q3, 然后删除"1". 如果遇到了"-", 则变为q4, 表示不够删除的了, 到_结束后加1
+  如果是"-"之前遇到了"1", 则删除, 变为q5. q5 遇到- 之后
+
+
+  遇到第二个数的时候, "1" 要删除, 同时改变status 为q3. 表示在处理减法. 回到postion 0
+
+  如果第一个数字够减法, 则减去"1", 同时变为q0, 再次计算 (这里导致了重复计算, 不如直接回到postion q3)
+  如果第一个数字不够了, 则stop, 此时, 留在纸带上的就是结果
+* 不可计算
+* 停机问题
+* 图灵机模型是如何想出来的
+  图灵机是模拟人类计算过程.
+
+  假设碰到了一个具体的计算问题,
+  把这个问题平铺到了很多张纸上, 并且排列好了 -- 纸带
+  在上面做一些具体的操作?
+  内部状态?
+  程序?

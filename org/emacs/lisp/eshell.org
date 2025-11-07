@@ -1,0 +1,32 @@
+#+title: eshell
+#+date: 2024-01-18 18:19:26
+#+hugo_section: docs
+#+hugo_bundle: emacs/lisp
+#+export_file_name: eshell
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+
+emacs自带的shell解释器, 正在尝试使用, 期望可以取代其他shell解析器(比如bash, zsh)
+[[https://linuxtoy.org/archives/emacs-eshell.html][官方文档]]
+
+优势:
+1. emacs自带, 不同os环境统一
+2. 语法支持tramp
+   : cd /method:user@host#22:/path
+
+* eshell && elisp
+  1. defun为 eshell/xxx的函数, 可以在eshell中直接调用xxx
+* eshell script
+  官方不建议在eshell中写shell脚本, eshell脚本也是以.sh结尾
+** 变量赋值
+   eshell 脚本中使用elisp语法给变量赋值
+   #+BEGIN_EXAMPLE eshell
+   (setq remote_temp "/ssh:clay@192.168.0.97:~/temp")
+   #+END_EXAMPLE
+** 变量使用 $
+   基本与shell相同, 具体可以详见官方说明
+   #+BEGIN_EXAMPLE eshell
+   eshell/rm -r $remote_temp
+   #+END_EXAMPLE

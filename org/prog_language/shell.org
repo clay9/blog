@@ -1,0 +1,59 @@
+#+title: shell
+#+date: 2024-01-18 19:09:26
+#+hugo_section: docs
+#+hugo_bundle: prog_language
+#+export_file_name: shell
+#+hugo_weight: 3
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+shell 记录
+
+#+hugo: more
+
+* 记录
+     1. exit 与 return
+	return 退出函数; 在非函数地方, 无效
+	exit 在任何地方, 都代表推出sh
+
+     2. $# 代表入参
+	  sh脚本的入参在非函数地方调用
+	  函数的入参在调用函数的地方传递
+
+     3. $@ 可以传递所有的参数到下一层
+
+     4. 数组使用echo打印的话 只会显示第一个
+
+     5. [ ] 与 [[ ]] 区别
+	   [[ ]]更高级, 识别与或非等; 而[ ] 不识别
+	
+     6. ' ' 与 " "区别 
+	  在 ' '中的变量不会被展开; '$a'显示出来是字面值$a
+	
+     7. 空语句 是 :
+
+     8. 数组
+	${name[@]}
+	${name[*]}
+
+     9. 获取函数返回值
+	1) return的返回值 可以通过 $?获取
+	   但是该返回值返回的只能是0-255的数字
+
+	   #+BEGIN_EXAMPLE sh
+	   fun_check
+	   $? # 获取fun_check的返回值
+	   #+END_EXAMPLE
+	2) echo的返回值 可以通过$()调用获取
+	   #+BEGIN_EXAMPLE sh
+	   ret=$(fun_check)
+	   #+END_EXAMPLE
+     10. 获取文件名 和 扩展名
+	 #+BEGIN_EXAMPLE sh
+	 file="1.2.3.4.5"
+	 ${file%%.*} # =>1
+	 ${file%.*}  # =>1.2.3.4
+
+	 ${file#*.}  # =>2.3.4.5
+	 ${file##*.} # =>5
+	 #+END_EXAMPLE

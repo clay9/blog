@@ -1,0 +1,151 @@
+#+title: emacs
+#+date: 2024-05-30 20:11:54
+#+hugo_section: docs
+#+hugo_bundle: emacs/emacs
+#+export_file_name: index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+* 简述
+** emacs是什么
+  1. emacs最原始,最纯粹的功能: =text editor=
+  2. 也可以作为优秀的 =program editor=
+  3. 优秀的文本 =gtd= 软件
+  4. 良好的扩展性, 很多优秀插件, 比如org,magit,tramp,eshell等
+
+  综上, emacs其实更像一个大杂烩, 整合了大多数功能, 使其可以高效的完成任务.
+  同时, 因为良好的定制性, emacs可以增强个人使用体验, 但也增加了很多学习成本
+** emacs配置
+   emacs配置可大致划分如下
+   - emacs作为程序的基本配置
+   - text editor && completion
+   - prog editor
+   - org && gtd
+   - 键位设置
+** 编译emacs
+   #+begin_details
+     #+begin_src shell
+    # --without-all 最小化编译 (但是包含了x)
+    # --without-x   不使用x
+    # --with-gnutls=ifavailable 移除configure警告 (实际并未编译)
+    # --with-tree-sittter 开启tree-sitter
+    # --with-xml2 package::devdocs依赖
+    # --with-native-compilation 之前的gccEmacs(据传可增加运行效率) (未使用)
+    ./configure --without-all --without-x --with-gnutls=ifavailable --without-pop --with-tree-sitter --with-xml2 --with-native-compilation
+  #+end_src
+   #+end_details
+
+
+* 基本配置
+  emacs作为程序的基本配置
+  - themes
+  - ui界面显示
+    + frame
+    + window
+  - font
+  - file
+    + recentf files
+    + buffers
+    + sessions
+
+* text editor
+  文本编辑器是emacs最原始, 最纯粹, 最重要的功能.
+  大部分配置都是在处理该项, 使其更符合个人习惯.
+  配置繁琐, 但不复杂
+
+** show
+   text editor最基本的配置, 文本在buffer中显示的样子.
+   比如行号, break-line, column indicator等
+
+** move-and-kill
+   即是text editor, 也是emacs最基础的操作.
+   delete, kill, yank, select. 这是emacs中最基础的操作
+** hide-show
+   hide, show 方便控制sexp的显示隐藏
+* completion
+  text editor的配置使我们可以高效的编辑文本.
+  而completion则可以使emacs更聪明的理解我们的动作.
+
+  emacs有非常多的completion前端和后端, 也有前后端大杂烩.
+  没必要都了解, 选一个常用的即可.
+
+  completion流程:
+  complete根据我们动作提供候选者 -> 前端显示候选者 -> 我们选择合适的候选
+  流程本身非常简单, 涉及到的package也很少, 比较复杂的是候选者的提供, 而这个不需要我们自己去做.
+  现在的方案 ([2023-11-01 Wed]):
+  consult提供候选, vertico && corfu作为前端显示, marginalia补充候选者信息, orderless过滤候选者.
+  embark提供对候选者的操作.
+
+  几个package提供了功能的最小合集, 且与emacs兼容性良好. 因此不再建议使用helm等大杂烩包
+  其他一些package也是在提供候选, 比如yasnippet, eglot, copilot等. 因为针对的场景不同, 暂时不在这里介绍
+* prog editor
+  emacs可以配置为优秀的IDE. 而且因为定制性强, 配置的IDE更能符合个人的工作流程.
+  合格的IDE需要有以下功能: 编辑, 编译, 调试, +发布+
+
+  emacs内置了lsp client: eglot. 而且eglot与错误处理flymake搭配良好.
+  eglot可以把lsp server中的错误信息给到flymake, completion信息给到corfu(实际是给到emacs completion通用接口), symbol信息给到xerf
+
+* 键位设置
+** 原则
+   1. 尽量保留默认常用快捷键
+   2. 不同mode, 尽量使用相似的快捷键
+
+** 前缀快捷键
+   | key | desc                                           |
+   |-----+------------------------------------------------|
+   | C-s | 通用快捷键(与mode无关的 or 所有mode都会使用的) |
+   | C-j | mode自身快捷键                                 |
+   | C-d | 项目相关快捷键                                 |
+   | C-r | tool 快捷键                                    |
+   |-----+------------------------------------------------|
+
+** tty keys
+   | step                          | remap                              |
+   |-------------------------------+------------------------------------|
+   | tty(console)                  | 物理code => Sequences Event code   |
+   |-------------------------------+------------------------------------|
+   | emacs: input-decode-map       | Sequences Event code => 第一层转换 |
+   |-------------------------------+------------------------------------|
+   | emacs: local-function-key-map | 第一层转换 => emacs可识别的        |
+   |-------------------------------+------------------------------------|
+   | emacs : global-set-key等      | eamcs可识别的 => function          |
+   |-------------------------------+------------------------------------|
+
+   由于tty(console)对于有些key(比如C-backspace)等未作Sequences Event code.
+   所以其(C-backspace)的表现和backspace可能是一样的.
+   第一步, 先在console中对需要的key 设定Sequences Event code.
+
+   第二部, 在emacs的input-decode-map中将这些Sequences Event code映射为我们的按键
+   详见[[https://github.com/clay9/emacs.d/blob/master/lisp/init-tty-keys.el][init-tty-keys.el]]
+** Ctrl
+   sdf
+   | key | command             | desc        |
+   |-----+---------------------+-------------|
+   | a   | beging-of-line      |             |
+   | b   | back-of-char        |             |
+   | c   |                     | Prefix      |
+   | d   | c-d                 | self-Prefix |
+   | e   | end-of-line         |             |
+   | f   | forward-of-char     |             |
+   | g   | quit                |             |
+   | h   |                     | Prefix      |
+   | i   |                     | Tab         |
+   | j   |                     | self-Prefix |
+   | k   | kill                |             |
+   | l   | recenter-top-bottom |             |
+   | m   |                     | Enter       |
+   | n   | forward line        |             |
+   | o   | open-line           |             |
+   | p   | backward line       |             |
+   | q   |                     |             |
+   | r   |                     | self-Prefix |
+   | s   |                     | self-Prefix |
+   | t   |                     |             |
+   | u   | universal-argument  |             |
+   | v   | scroll buffer       |             |
+   | w   | kill/kill-save      |             |
+   | x   |                     | Prefix      |
+   | y   | yank                |             |
+   | z   |                     |             |

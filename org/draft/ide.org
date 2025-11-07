@@ -1,0 +1,165 @@
+#+title: emacs ide
+#+date: 2024-02-10 21:47:07
+#+hugo_section: docs
+#+hugo_bundle: Wrong type argument: number-or-marker-p, nil
+#+export_file_name: index
+#+hugo_weight: 100
+#+hugo_draft: true
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+
+* 演示的功能
+  1. [X] 定义跳转
+     frontends: helm-gtags-mode
+     backends : global
+  2. [X] 代码补全    -- 输入命名空间或class, 提示后续输入
+     frontends: company-mode
+     backends : company-clang
+  3. [X] 代码补全2   -- 输入前几个字母之后, 可以选择函数
+     frontends: company-mode
+     backends : company-clangg
+  4. [X] include补全 -- 自动补全 系统头文件
+     frontends: company-mode
+     backends : compay-c-headers
+     需要设置company-c-headers的路径
+  5. [ ] 在mini-buff显示 函数与变量定义
+  6. [ ] 在顶部显示 光标所在的函数名字
+  7. [ ] 获取符号处的man手册
+  8. [ ] 交互式大纲
+     include, function 一览,  感觉意义不大??
+  9. [ ] 大纲 -- speedbar样式展示
+  10. [ ] 编译支持 && 漂亮的编译输出
+      helm-compilation 或许更好
+  11. [ ] GDB调试
+      gud
+
+* 演示的快捷键
+  1. [ ] sexp 移动
+     forward-sexp, backward-sexp, kill-sexp, mark-sexp
+  2. [ ] defun
+     beginning-of-defun 移动到函数开头
+     end-of-defun       移动到函数尾
+     mark-defun
+  3. [X] 在项目中查找定义
+  4. [X] 在项目中查找引用
+  5. [X] +查找当前函数调用的函数+
+     没有必要
+  6. [ ] 在项目中查找文件
+     Projectile
+  7. [X] 使用标签栈查看访问过的标签
+
+* 疑问
+  1. company-mode都使用clang作为backends了,
+     为什么helm-gtags还得用gtags作为backends, 不能一起使用clang吗
+
+     因为gtags生成的TAGS中, 没有像clang一样考虑作用域
+
+  2. company-clang 没有设置include也正常使用了
+     教程中提示需要设置company-clang-arguments
+     company-c-headers 设置company-c-headers-path-user
+     两者都放入.dir-locals.el
+
+
+
+
+* semantic, clang, gtags
+  cc IDE需要主要功能有: tag查找, 代码补全
+
+  这3种方式都是通过生成db来完成该功能的(clang 不确定)
+
+  1. gtags
+     - 优点
+       1. 生成快速, 而且不会影响emacs速度(外部生成)
+       2. 生成的db比较紧凑, 小
+     - 缺点
+       1. 不支持语义(查找与补全 均不支持语义)
+          gtags补全肯定是没法支持语义了. 但不知道为什么查找也不支持语义
+       2. 依赖外部软件global
+  2. semantic
+     - 优点
+       1. 实时语义支持
+          补全的时候支持实时语义, 查找的时候没有支持语义
+          应该是补全的时候, 不是通过db来操作的
+          而查找的时候是通过db
+     - 缺点
+       1. 因为是实时的, 所以会在emacs运行的时候, 实时解析. 会影响emacs速度
+       2. 查找的ui界面显示很糟糕
+  3. clang
+     - 优点
+       1. 实时语义支持
+          应该是补全的时候, 不是通过db来操作的
+          补全的时候支持实时语义, 貌似查找时候没有使用到clang
+     - 缺点
+       1. 依赖外部程序clang
+
+
+
+* CEDET学习
+** EDE
+   使用CEDET, 需要先配置EDE
+   EDE配置了项目的位置, 为之后生成smanticdb准备
+
+** semantic
+   semantic 语义解析器, 生成semanticdb.
+   后续的tag查找, 自动补全都依赖该db
+
+*** TODO 源代码预处理
+    有关 C/C++ 预处理器定义的更多信息，您可以在semantic-lex-c-preprocessor-symbol-map变量的文档中找到。您可以使用命令获取为带有源代码的文件定义的预处理器符号列表 semantic-lex-spp-describe。然后使用这些结果来设置:spp-table参数或semantic-lex-c-preprocessor-symbol-map变量。
+
+    许多库将所有宏定义存储在一个或多个包含文件中，因此您可以按原样使用这些定义。为此，您需要在 semantic-lex-c-preprocessor-symbol-file变量中指定这些文件，当 CEDET 执行分析时，将使用这些文件中的值。默认情况下，此变量只有一个值 — 包含 C++ 标准库定义的文件，但您可以在其中添加更多数据。例如，我想展示 CEDET 与 Qt4 一起工作的配置：
+
+    (setq qt4-base-dir "/usr/include/qt4" )
+    (semantic-add-system-include qt4-base-dir 'c++-mode)
+    (add-to-list 'auto-mode-alist (cons qt4- base-dir 'c++-mode))
+    (add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qconfig.h" ))
+    (add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qconfig-dist.h" ))
+    (add-to-list 'semantic-lex-c-preprocessor-symbol-file (连接 qt4-base-dir "/Qt/qglobal.h" ))
+
+** senator
+   代码导航(tag查找, rtag查找等), 依赖semanticDB
+** TODO srecode
+   代码重构.  并不知道具体效果
+** TODO speedbar
+   目录显示,  不知道具体是否好用
+** TODO cogre
+   生成UML图表
+** TODO eieio
+   它为 Emacs Lisp 实现了类似 CLOS（Common Lisp 对象系统）的基础设施
+   不知道具体做什么的
+
+
+* func
+  源代码中导航
+  1. semantic-ia-fast-jump
+     跳转到定义, 如果没有找到定义, 可能会跳转到声明
+  2. semantic-complete-jump-local && semantic-complete-jump
+     跳转到本地, 全局 symbol定义
+  3. semantic-analyze-proto-impl-toggle
+     在声明|定义中切换
+  4. semantic-decoration-include-visit
+     跳转到包含文件
+  5. semantic-symref && semantic-symref-symbo
+     查找rtags
+
+
+
+
+
+
+  
+* 最新的代码分析方案
+  传统方案是semantic, clang, gtags, 已渐渐成为时代的眼泪了
+  新的方案是 lsp
+  lsp 分为前端, 后端. 两者通过lsp协议通信
+  lsp后端只负责分析, lsp前端负责展示
+
+  1. 完成emacs lsp
+     - [ ] lsp-client: eglot
+       eglot 会同时开启flymake来查看编译错误, 有时候导致非常的繁琐
+       1) 查看如何在eglot中关闭
+       2) 考虑正式使用flymake
+     - [ ] lsp-server: clangd
+       1) bear 告诉clangd 项目范围
+       2) clangd 安装在docker中运行
+       3) 如何自动化处理这些

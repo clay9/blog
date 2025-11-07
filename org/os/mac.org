@@ -1,0 +1,140 @@
+#+title: mac
+#+date: 2024-06-04 14:36:29
+#+hugo_section: docs
+#+hugo_bundle: os/mac
+#+export_file_name: index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+#+hugo: more
+
+* 界面整理
+** Launchpad启动台
+   #+begin_src shell
+     # 每一列图标数量
+     defaults write com.apple.dock springboard-rows -int 7
+
+     # 每一行图标数量
+     defaults write com.apple.dock springboard-columns -int 7
+
+     # 添加空白到Dock栏
+     defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
+
+     # 重启Launchpad (重启时, 会使launchpad的排序恢复默认值)
+     defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock
+   #+end_src
+** 右上角状态栏
+   按住Command之后, 鼠标可以拖动状态栏图标, 拖出即可删除
+** 关闭内置键盘(针对mac book)
+   #+begin_src shell
+     # For newer versions on MacOS / alternative solution:
+     # List loaded kexts for keyboard
+     kextstat | grep Keyboard
+     # It's going to output something like:
+     # 81    0 0xffffff7f833c5000 0xb000     0xb000     com.apple.driver.AppleHIDKeyboard (208) 96DDE905-9D31-38A9-96B7-FB28573587C8 <43 6 5 3>
+     # com.apple.driver.AppleHIDKeyboard is loaded kext identifier.
+
+     # If you want to plug-in Apple Magic Keyboard / some other Bluetooth keyboard, turn it off first. Then follow the instruction below.
+     # To disable keyboard:
+     sudo kextunload -b com.apple.driver.AppleHIDKeyboard
+     # To enable it back:
+     sudo kextload -b com.apple.driver.AppleHIDKeyboard
+   #+end_src
+* 软件推荐
+  | 软件           | 介绍                                                   | 备注   |
+  |----------------+--------------------------------------------------------+--------|
+  | Alfred         | [[https://www.alfredapp.com][Alfred]] 是加强版的聚焦搜索                              |        |
+  | +Karabiner+      | [[https://pqrs.org/index.html][Karabiner]] 是键位映射软件                               | 已舍弃 |
+  | HomeBrew       | [[https://brew.sh/index_zh-cn][HomeBrew]] 是包管理软件(类似于ubuntu下的apt)             |        |
+  | Annotate       | Annotate(AppStore下载)是截屏软件, 同时支持gif录制      |        |
+  | IINA           | [[https://www.iina.io][IINA]] 是mac下好用的视频软件                             |        |
+  | Better Display | [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器 |        |
+  |----------------+--------------------------------------------------------+--------|
+
+* Q & A
+** Mac卡顿处理
+   1. 删除Macintosh HD/系统/资源库/Caches中的文件
+   2. 删除Macintosh HD/资源库/Caches中的文件
+   3. 如果以上无效, 建议更换操作系统版本
+** SSH远程连接Mac, 中文乱码
+   这种情况一般是终端和服务器的字符集不匹配.
+   MacOSX下默认的是utf8字符集(locale查看)，而我的对应值是空的.
+
+   #+begin_src shell
+     # 在.bash_profile中增加字符集设置
+     export LC_ALL=en_US.UTF-8 >> ~/.bash_profile
+     export LANG=en_US.UTF-8 >> ~/.bash_profile
+
+     #
+     source ~/.bash_profile
+
+     # 查看结果
+     locale
+   #+end_src
+
+** Mac崩溃日志
+   #+begin_src shell
+     # 打印mac 24小时崩溃的原因
+     # 常见原因
+     # 5 -- 正常关机
+     # 3 -- 硬件关机 (holding the power button)
+     log show --predicate 'eventMessage contains "Previous shutdown cause"' --last 24h
+   #+end_src
+** 开机启动
+   mac没有像linux使用init作为系统管理, 而是使用Launchd
+*** Launchd
+    | 级别                   | 目录                          |
+    |------------------------+-------------------------------|
+    | 操作系统级别的服务程序 | /System/Library/LaunchDaemons |
+    |                        | /System/Library/LaunchAgents  |
+    |------------------------+-------------------------------|
+    | 本机全局               | /Library/LaunchDaemons        |
+    |                        | /Library/LaunchAgents         |
+    |------------------------+-------------------------------|
+    | 用户级别               | ~/Library/LaunchAgents        |
+    |------------------------+-------------------------------|
+    Daemons是一种无用户交互的服务程序, 而Agents是用户交互
+    当系统启动时, 依次执行/System/Library/LaunchDaemons 和 /Library/LaunchDaemons
+    当用户登陆时, 依次执行/System/Library/LaunchAgents, /Library/LaunchAgents 和 ~/Library/LaunchAgents
+
+    系统启动过程中不能使用图形交互API, 与用户交互的程序不能在系统启动过程中被调用.
+
+    #+attr_shortcode: info
+    #+begin_hint
+    定义一个由Launchd管理服务:
+    1. 定制一个launchd规则的plist文件. 它告诉launchd如何运行一个程序
+    2. 根据程序运行的方式, 把这个Plist文件存放到合适的位置, 并设置好文件属性等
+    #+end_hint
+
+*** 操作流程
+    1. 编写运行程序, 并添加可执行权限
+       如果是Daemons调用, 需要给于777权限
+    2. 编写plist文件
+       #+begin_src xml
+         <?xml version="1.0" encoding="UTF-8"?>
+         <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+         <plist version="1.0">
+           <dict>
+             <key>Label</key>
+             <string>com.user.loginscript</string>
+             <key>ProgramArguments</key>
+             <array>
+               <string>/path/to/my/script.sh</string>
+             </array>
+             <key>RunAtLoad</key>
+             <true/>
+           </dict>
+         </plist>
+       #+end_src
+    3. 根据功能, plist文件放到合适的目录
+    4. load plist
+       #+begin_src shell
+         # load path/to/plist
+         sudo launchctl load -w ~/Library/LaunchAgents/com.service.name.plist
+
+         # test. com.user.loginscript defined in plist
+         launchctl start com.user.loginscript
+       #+end_src

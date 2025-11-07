@@ -1,0 +1,46 @@
+#+title: elisp
+#+date: 2024-01-18 18:34:47
+#+hugo_section: docs
+#+hugo_bundle: prog_language
+#+export_file_name: elisp
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+参考文档
+1. [[http://smacs.github.io/elisp/02-elisp-basic.html][水木社区Emacs版]]
+2. [[https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp][lisp的本质]]
+
+* 基础语法
+** 函数重载
+   elisp没有重载的概念, 直接覆盖原定义即可. 相关函数:
+   1. advice-add
+      根据key来决定old_fun 与 new_fun的关系
+      | key           | desc                                          |
+      |---------------+-----------------------------------------------|
+      | filter-return | 先执行old. new对old的结果再处理               |
+      |---------------+-----------------------------------------------|
+      | before        | 先执行new, 过滤一下数据, 再把结果给old        |
+      |---------------+-----------------------------------------------|
+      | arround       | 先执行new, 并在new中主动调用old(也可以不调用) |
+      |---------------+-----------------------------------------------|
+   2. 使用defune 覆盖原函数定义
+      如果只是重载, 应该使用这种方法. advice-add的本意不是用来override
+     
+* elisp && shell
+** bash调用elisp
+   1. elisp代码写入el文件(eshell script)
+   2. bash调用emacs执行el文件
+      #+BEGIN_EXAMPLE shell
+      # 实际还是emacs 执行的elisp代码
+      emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el
+      #+END_EXAMPLE
+** elisp 调用bashe
+   #+BEGIN_EXAMPLE elisp
+   (setq my-command
+   (concat "IFS=: read -ra dirs <<<\"$PATH\"\n"
+           "for dir in ${dirs[@]}; do\n"
+           " echo got dir \"$dir\"\n"
+           "done\n"))
+   (shell-command (format "bash -c %s" (shell-quote-argument my-command)))
+   #+END_EXAMPLE

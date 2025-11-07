@@ -1,0 +1,31 @@
+#+title: cmake
+#+date: 2024-01-18 19:03:10
+#+hugo_section: docs
+#+hugo_bundle: prog_compile
+#+export_file_name: cmake
+#+hugo_weight: 6
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+cmake
+
+#+hugo: more
+* 参数
+  -S path_to_source
+  -B path_to_build
+  -G generator-name
+
+  # 列出所有的编译选项
+   cmake . -LH 
+  
+* F&Q
+  1. err:
+    #+BEGIN_EXAMPLE 1
+    Tell CMake where to find the compiler by setting either the environment
+    variable "CXX" or the CMake cache entry CMAKE_CXX_COMPILER to the full path
+    to the compiler, or to the compiler name if it is in the PATH.
+    #+END_EXAMPLE
+
+    sln:
+     - sudo apt install gcc
+     - sudo apt install g++

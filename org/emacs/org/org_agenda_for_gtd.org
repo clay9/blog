@@ -1,0 +1,175 @@
+#+title: org agenda for GTD
+#+date: 2025-11-08 18:25:51
+#+hugo_section: docs
+#+hugo_bundle: emacs/org/org_agenda_for_gtd
+#+export_file_name: index
+#+hugo_weight: 3
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+* 需求分析
+  =所有的设计都是基于需求的=. 当前需求:
+  1. 有哪些task
+     - [X] 他们归属于哪个PROJECT
+     - [X] 他们的四象限: 紧急&&重要
+     - [X] 工作量预估
+     - [ ] 关联性 A task可能与B, C相关联
+       /TODO 该任务并未完成/
+  2. 当前正在处理的任务
+     尽可能的关注当前, 忽略其他
+  3. 当某个task进行时, 快速capture我的想法, 并且自动refile
+  4. 看到自己花费的时间
+     - [X] 一天,一周都做了什么
+     - [X] 某个project/task总共花费的时间
+
+* 流程的设计
+  #+BEGIN_EXAMPLE artist-mode
+    -------------------------+------------------------
+                             |
+                             | capture (easy)
+                             |
+                             |
+                             v
+         archive        +---------+
+    +-------------------|  inbox  |
+    |                   +----+----+
+    |                        |
+    |                        | refile (auto)
+    |                        |
+    |                        |
+    |       |----------------+--------------------|
+    |       |                |                    |
+    |       |                v                    v
+    |       v           +---------+          +---------+
+    |  +---------+      | my/emacs|          | work/qy |
+    |  |  task   |      |  * emacs|          |  * ker  |
+    |  +----+----+      |  * org  |          |  * frame|
+    |       |           |  * ccIDE|          |  * sub  |
+    |       |           +---------+          +---------+
+    |       |
+    |       | archive (auto)
+    |       |
+    |       v
+    |  +---------+
+    +->| archive |
+       +----+----+
+  #+END_EXAMPLE
+* 文件的设计
+  每个大型Project 应该单独一个file. 比如emacs.org
+
+  #+begin_example
+    gtd
+    \_ gtd_common         // 通用gtd流程文件
+       \_ inbox.org       // 收集箱
+       \_ task.org        // 任务清单
+       \_ archive.org     // 归档文件
+    \_ gtd
+       \__ emacs.org      // emacs project file
+       \__ qygame.org     // qygame project file
+  #+end_example
+  gtd_common中保存的是一些通用的, 可能暂时不好归类的PROJECT以及TODO
+  | file        | desc                                |
+  |-------------+-------------------------------------|
+  | inbox.org   | 不区分时间,场景, 灵光一闪即可扔进去 |
+  | task.org    | 任务清单                            |
+  | archive.org | 归档文件                            |
+
+* TODO的设计
+  TODO 或 WAITTING是最小的 执行单元.
+  不应该再TODO下再设置TODO (可以使用列表来拆分)
+
+
+  | key      | desc         |
+  |----------+--------------|
+  | TODO     | 等待自己处理 |
+  | WAITTING | 等待他人完成 |
+  | PROJECT  | 项目         |
+  | DONE     | 完成         |
+  | CANCEL   | 取消         |
+  |----------+--------------|
+
+* TAGS的设计
+  四象限使用proirity来区分;
+  TAGS为之后快速查找使用
+
+* Effort的设计
+  effort是自己对某个task工作量的预估.
+  与task完成时的clock-sum-time比对, 可以更好的进行分析.
+
+  对于Project, 在org-agenda-buffe中只会统计Project自身的effort, 忽略subtree的.
+  如果想看subtree的Effort与Clock对比, 可以进入到file中使用org-columns-view视图
+
+  为了方便的effort, 这里只在两处设计了提示:
+  1. capture的时候, 可以输入effort. 当然为了快速capture, 这里允许输入0跳过
+  2. clock-in的时候, 如果item effort还是0, 则会要求进入工作预估
+
+* clock的设计
+  org的clock已经非常好用了. 这里只是修改了clock 的显示样式
+
+* capture设计
+  经常是在工作的时候, 突然有了某个想法. 这个想法也许值得记录, 但不要打断当前的思路.
+  所以capture应该是快速的, 但又要明确的(归属要明确)
+
+  为了快速capture, 所以不应该考虑这个想法应该放到哪个file. 统一放到inbox即可.
+  为了后面的auto refile, 这个想法或item 应该携带足够的信息, 可以完成auto refile.
+  这里的办法是给item一个tag.
+  比如 capture了一个item, 再给其增加对应的tag
+  #+begin_example
+  下面表明这是一个与PROJECT emacs有关的task
+
+  * org应该快速capture :emacs:
+  #+end_example
+
+* refile的设计
+  refile应该是自动完成的, 不应该手动
+  为了自动完成, item已经给了相关信息(tag)
+  在gtd的PROJECT中, 也应该携带足够的信息去与该tag匹配. 只有匹配成功了, 就可以auto-refile
+  这里的办法是匹配PROJECT ITEM的heading, 比如:
+  #+BEGIN_EXAMPLE org
+  当capute-item的tag 与 PROJECT-item的heading相匹配的时候, 会自动refile
+
+  * PROJECT emacs
+  #+END_EXAMPLE
+
+* archive的设计
+  archive的目的:
+  - 在org file中隐藏已 =DONE= 的task
+  - 后期统计
+  - 归档
+
+
+  现在方案:
+  对于gtd中的task, archive到当前Project Heading的** archive
+  对于gtd_common中的task, archive到archive.org
+
+* Agent的设计
+  agent的目的有2个:
+  1. 查看各种代办事项
+     - 今天的和未来的 (org-agenda-view)
+     - TODO的 (org-next-view)
+     - inbox中的 (org-inbox-view)
+  2. 统计信息
+     - 以time为视角的统计, 比如今天或这周做了哪些TODO或PROJECT
+       org clock report (day/week/month/year)
+     - 以PROJECT为视角的统计. 比如统计emacs PROJECT花费的时间
+       org-project-view, org-archive-view 以及在特定PROJECT file中的org-colmun-view查看具体task
+
+* 使用流程
+  #+BEGIN_EXAMPLE
+    |
+    | capture with                                         add timestamp &&
+    | template       +---------+ auto refile   +---------+   auto refile     +---------+ archive       +---------+
+    +--------------->|  inbxo  |-------------->|next step|------------------>|  agenda |-------------->| archive |
+    |                +---+-----+               +---------+                   +---------+               +---------+
+    |                    |                                                                                  ^
+    |                    |                              archiv                                              |
+    |                    +----------------------------------------------------------------------------------+
+    |
+  #+END_EXAMPLE
+
+  1. capture -> inbox -> auto refile
+  2. 在org-next-view buffer中添加timestamp可放到org-agenda-view; 或者直接执行archive操作
+  3. 在org-agenda-view buffer中调用archive
+  4. 其实还有最后一步, 即把archive中的内容输出到blog中

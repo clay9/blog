@@ -1,0 +1,223 @@
+#+title: 数据库
+#+date: 2024-01-18 19:19:56
+#+hugo_section: docs
+#+hugo_bundle: tool
+#+export_file_name: sql
+#+hugo_weight: 12
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+数据库开发
+#+hugo: more
+
+* 数据库开发  
+** win下
+   [[https://www.bbsmax.com/A/kjdwDq7wzN/][详细解释]]
+   1. 原生接口
+   2. ODBC
+   3. OLE
+   4. ADO
+** linux下
+   1. 原生接口
+   2. ODBC
+* sqlserver
+** 优缺点
+** Docker安装sqlserver
+   [[https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-docker?view=sql-server-2017&pivots=cs1-bash][官方文档]]
+   1. 搜索镜像 
+      docker search mssql
+   2. 安装镜像(这个是官网的)
+      docker pull microsoft/mssql-server-linux
+   3. 运行镜像, 创建容器
+      docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=hack@2020" -p 9988:1433 --name mssql -d microsoft/mssql-server-linux
+      
+      注: 如果不指定映射的端口, 则可能随机使用一个端口
+          密码必须8位数, 否则会创建失败
+	  -p 第一个参数为主机端口, 第二参数为docker容器端口
+   4. 进入容器
+      docker exec -it mssql bash
+   5. 测试sql server命令
+      /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "passwd"
+   6. 如果启动失败
+      docker logs mssql 查看日志信息
+** sqlcmd用法
+   1. 登录
+      : /opt/mssql-tools/bin/sqlcmd -S 127.0.0.1 -U SA -P "hack@2020"
+   2. 执行语句查询
+      : select * from sys.databeses
+      : go
+      一定记得使用go
+** unicode支持
+   : 排序规则会影响字符集
+   - 服务器 排序规则
+   - 数据库 排序规则
+   - 表中的字段 排序规则
+
+
+   1. 排序规则会影响字符集, 比如排序规则为xx_UTF8, 那么其默认的字符集为unicode
+   2. nchar nvarchar类型会无视排序规则, 直接把改字段变为unicode编码
+      : 使用的时候 记得加N, exp:  N'排序规则'
+** client 与 server
+   最理想的状态
+   1. server 是 unicode编码(只要nchar, nvarchar即可)
+   2. client 是 unicode编码
+   3. unixodbc 编译的时候, 添加了 utf8的支持
+      : ./configure --enable-iconv=yes --with-iconv-char-enc=UTF-8
+
+   总结:
+   数据库表字段的编码, 
+   服务器程序运行环境的编码,
+   unixodbc编译时候的字符编码 
+   三者需要统一, 这样写入数据库的时候 才不会乱码
+
+   : 服务器运行环境 locale可以查看
+   : locale -a显示系统支持的字符集
+** 遇到的奇怪的问题 && 解决思路
+   简述: 通过odbc 操作sqlserver, 插入中文错误
+   现象:
+   1) 读取sqlserver中文正常
+   2) 插入sqlserver中文乱码
+   思路:
+   1) 查看sqlserver 的编码集(排序规则)
+   2) 查看qy-server的运行环境
+      : locale
+   3) 编译unixodbc的时候是否加入了编码的支持
+   4) 查看odbc的配置文件
+      : odbcinst -j
+      : 这次的问题在于 odb的配置文件中 有重名的DSN
+      
+   
+* mysql
+   优点:
+   缺点:
+   1. 没有存储过程
+
+
+* ODBC
+  1. 安装odbc驱动 
+     : 建议使用官方源码安装 http://www.unixodbc.org
+     下载源码之后
+     : ./configure --enable-gui=no --enable-iconv=yes --with-iconv-char-enc=UTF-8
+     : ./configure --enable-gui=no --enable-iconv=yes --with-iconv-char-enc=GB18030
+     : 这里需要添加中文支持, 不然会发生数据库读取中文正常, 写入中文时候乱码
+  2. 安装对应的sql的驱动
+     : 这里sql的驱动是 odbc下的sql驱动
+     以mssql为例. 在microsoft官网下载
+  3. 查看sql的驱动信息
+     : debin在 /usr/local/etc/odbcinst.ini
+     #+BEGIN_EXAMPLE
+     [ODBC Driver 17 for SQL Server]
+     Description=Microsoft ODBC Driver 17 for SQL Server
+     Driver=/opt/microsoft/msodbcsql17/lib64/libmsodbcsql-17.6.so.1.1
+     UsageCount=1
+     #+END_EXAMPLE
+     说明sql的驱动安装成功
+  4. 编写DSN
+     : debin在 /usr/local/etc/odbc.ini
+     #+BEGIN_EXAMPLE
+     [MssqlDB]
+     Driver = ODBC Driver 17 for SQL Server
+     Server = tcp:172.16.238.10,1433
+     #+END_EXAMPLE
+
+  5. 测试安装
+     #+BEGIN_EXAMPLE sh
+     # 查看odbc是否已经安装
+     odbcinst -j
+
+     # 查看驱动是否安装 odbcinst.ini
+     odbcinst -q -d
+
+     # 查看源是否安装 odbc.init
+     odbcinst -q -s
+     #+END_EXAMPLE
+  6. 测试连接
+     上面安装测试完成之后, 测试连接
+     #+BEGIN_EXAMPLE
+     isql MssqlDB user_name user_passwd -v 
+     #+END_EXAMPLE
+     
+     如果连接成功
+     #+BEGIN_EXAMPLE
+     +---------------------------------------+
+     | Connected!                            |
+     |                                       |
+     | sql-statement                         |
+     | help [tablename]                      |
+     | quit                                  |
+     |                                       |
+     +---------------------------------------+
+     #+END_EXAMPLE
+     
+     连接失败的可能分析
+     - 先确认安装测试的3个命令执行正常
+     - 确认数据库的密码是否正确
+       : 在数据库的容器中查看$SA_PASSWORD, 与本地的密码比较
+  
+  
+* 常用数据库语句
+  : sql server
+
+  1. 查询sql版本
+     #+BEGIN_EXAMPLE
+     select @@version
+     go
+     #+END_EXAMPLE
+
+  2. 查询支持的字符集
+     : 只有2019版本 才支付utf-8字符集
+     #+BEGIN_EXAMPLE
+     select * from ::fn_helpcollations()
+     go
+     #+END_EXAMPLE
+     
+     查询当前系统的排序规则
+     : SELECT SERVERPROPERTY('Collation')
+
+     查询排序规则的字符集
+     : SELECT COLLATIONPROPERTY('Chinese_PRC_Stroke_CI_AI_KS_WS', 'CodePage')
+     #+BEGIN_EXAMPLE
+     936 简体中文GBK 
+     950 繁体中文BIG5 
+     437 美国/加拿大英语 
+     932 日文 
+     949 韩文 
+     866 俄文 
+     65001 unicode UFT-8
+     #+END_EXAMPLE
+
+  3. 查询所有的库
+     #+BEGIN_EXAMPLE
+     select * from sys.databeses order by name
+     go
+     #+END_EXAMPLE
+     有时候显示的数据太多, 我们可以只显示需要的比如
+     #+BEGIN_EXAMPLE
+     select name from sys.databeses order by name
+     go
+     #+END_EXAMPLE
+  4. 查询当前数据库所有表
+     1) 方法一
+	#+BEGIN_EXAMPLE
+	select * from sys.objects where type='U'
+	go
+	#+END_EXAMPLE
+	--XType='U':表示所有用户表; 
+	--XType='S':表示所有系统表;
+     2) 方法二
+	#+BEGIN_EXAMPLE
+	select * from sys.tables
+	go
+	#+END_EXAMPLE
+  5. 查询表中所有的字段
+     SELECT * FROM SysColumns WHERE id=Object_Id('TableName');
+
+
+
+
+SELECT COLLATIONPROPERTY('Chinese_PRC_CS_AS_WS', 'CodePage')
+
+SELECT COLLATIONPROPERTY('Chinese_PRC_90_CI_AS_SC_UTF8', 'CodePage')
+SELECT COLLATIONPROPERTY('Latin1_General_100_CI_AI_SC_UTF8', 'CodePage')
+SELECT COLLATIONPROPERTY('SQL_Latin1_General_CP1_CI_AS', 'CodePage')
+SELECT COLLATIONPROPERTY('Chinese_Simplified_Stroke_Order_100_CI_AI', 'CodePage')

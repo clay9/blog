@@ -1,0 +1,11 @@
+#+title: os
+#+date: 2024-05-30 17:35:48
+#+hugo_section: docs
+#+hugo_bundle: os/os
+#+export_file_name: _index
+#+hugo_weight: 10
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection true
+
+待整理, 东西很多很杂

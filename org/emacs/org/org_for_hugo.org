@@ -1,0 +1,164 @@
+#+title: org for hugo
+#+date: 2025-11-08 18:26:23
+#+hugo_section: docs
+#+hugo_bundle: emacs/org/org_for_hugo
+#+export_file_name: index
+#+hugo_weight: 10
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+org自带强大的export功能.
+但更多的是使用ox-hugo导出hugo样式的md, 再使用hugo生成html.
+
+#+hugo: more
+
+* ox-hugo
+  :PROPERTIES:
+  :ID:       ox-hugo
+  :END:
+
+  ox-hugo 只是把org翻译为hugo样式的md. 其支持的功能也是有限的.
+  翻译之后的md在hugo和hugo theme的作用下转为html, 又损失了部分功能.
+
+  这里使用的hugo theme为hugo book.
+
+  可以通过此处查看orgmode转为html后, 各个功能的效果. TODO 待做. 预计展示功能为:
+  - 字体样式
+  - ref, inline-ref
+  - picture
+  - shortcodes
+
+* ox-hugo 图片导出逻辑
+  [[file:ox-hugo-export.png]]
+* ox-hugo shortcodes 导出逻辑
+** markdown中的shortcode
+   对于hugo和hugo theme的shortcode 就是mardown的 shortcode. 主要有下面2类:
+   - 单标签（self-closing shortcode)
+     : {{ < myshortcode > }}
+   - 成对标签（paired shortcode)
+     + 内容可被markdown解析器 解析
+       #+begin_example
+         {{% details %}}
+         ### 可被再解析
+         {{% /details %}}
+       #+end_example
+     + 内容不可被markdown解析器 解析
+       #+begin_example
+         {{< columns >}}
+         {{< tab "Tab1" >}}Tab1 内容{{< /tab >}}
+         {{< tab "Tab2" >}}Tab2 内容{{< /tab >}}
+         {{< /columns >}}
+       #+end_example
+** hugo 支持的shortcode
+   https://gohugo.io/content-management/shortcodes/#shortcodes-without-markdown
+
+   自身使用情况:
+   | shortcode | 功能说明         | 使用情况        |
+   |-----------+------------------+-----------------|
+   | +details+   | 折叠内容块       | hugo book已支持 |
+   | +figure+    | 图片展示         | org-mode自带    |
+   | +gist+      | github gist 嵌入 | hugo已废弃      |
+   | +highlight+ | 代码高亮         | org babel自带   |
+   | +instagram+ | instagram嵌入    | 不使用          |
+   | +param+     | 参数引用         | 没使用场景      |
+   | qr        | 生成二维码       |                 |
+   | +ref+       | 链接引用         | org-mode自带    |
+   | +relref+    | 相对引用         | org-mode自带    |
+   | vimeo     | vimeo视频        |                 |
+   | +X+         | X链接            | 没使用场景      |
+   | youtube   | YouTube链接      |                 |
+   |-----------+------------------+-----------------|
+
+** hugo book支持的代码块
+   : 如果代码块同时被 hugo解析器 与 hugo book支持, 应该是hugo book的会覆盖hugo解析器效果
+
+   https://hugo-book-demo.netlify.app/docs/shortcodes/buttons/
+
+   | shortcode | 功能说明 | 使用情况             |
+   |-----------+----------+----------------------|
+   | badges    | 标签     | 适合文章开头增加标识 |
+   | +button+    | 按钮     | org-mode自带         |
+   | +card+      | 卡片     | org转md过于复杂      |
+   | columns   | 列布局   |                      |
+   | details   | 折叠块   |                      |
+   | hints     | 提示框   |                      |
+   | +images+    | 图片     | org-mode自带         |
+   | mermaid   | 流程图   |                      |
+   | steps     | 步骤框   |                      |
+   | tabs      | 选项卡   |                      |
+   | +katex+     | 数学公式 | org mode自带         |
+   |-----------+----------+----------------------|
+** org中的shortcode
+   org中的shortcode (在org中叫block). 主要有:
+   - 文字类型的.
+     center, example, quote等
+   - 代码类型的. 由org babel提供支持
+     artist, c++, emacs-lisp, plantform等
+   - html类型的. 可细分为
+     + org-blackfriday-html5-inline-elements
+     + org-html-html5-elements
+** ox-hugo的shortcode导出逻辑
+*** org文字类型
+    #+begin_example
+      ,#+begin_sh
+      something
+      ,#+end_sh
+
+      # 翻译为:
+      ```sh
+      something
+      ```
+    #+end_example
+*** org代码类型
+*** org html类型
+    1. org-blackfriday-html5-inline-elements
+    2. org-html-html5-elements
+       #+begin_example
+       #+begin_BLOCKTAG
+       something
+       #+end_BLOCKTAG
+
+       # 翻译为:
+       <BLOCKTAG>
+
+       something
+
+      </BLOCKTAG>
+       #+end_example
+*** org 自定义类型
+    : 这里的自定义是指, ox-hugo为了转为md中的shortcode. 而非org自身的block自定义.
+    : ox-hugo没有对单标签shortcode进行自定义处理. 导致对于单标签只能使用org-exprot
+
+    1. hugo_paired_shortcodes: myshortcode. 转为markdown解析器不识别的
+       #+begin_example
+       begin_myshortcode
+       Something
+       end_myshortcode
+
+       # 翻译为:
+       myshortcode
+       Something
+       /myshortcode
+       #+end_example
+
+       #+begin_example
+       # 省略key, 直接下value也是可以的
+       attr_shortcode: :arg1 foo bar :arg2 color: red; text-align: center;
+       begin_myshortcode
+       Something
+       end_myshortcode
+
+       # 翻译为:
+       myshortcode arg1="foo bar" arg2="color: red; text-align: center;"
+       Something
+       /myshortcode
+       #+end_example
+    2. hugo_paired_shortcodes: %myshortcode 转为markdown解析器识别的
+    3. 单标签
+       #+begin_example
+       begin_export hugo
+       {{ < myshortcode > }}
+       end_export
+       #+end_example

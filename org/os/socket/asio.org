@@ -1,0 +1,39 @@
+#+title: asio
+#+date: 2024-01-18 19:14:14
+#+hugo_section: docs
+#+hugo_bundle: os/socket
+#+export_file_name: asio
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+* 参考文档
+  https://mmoaay.gitbooks.io/boost-asio-cpp-network-programming-chinese/content/
+  http://blog.jqian.net/post/boost-asio.html
+  https://www.limerence2017.com/2023/06/07/asio20/
+
+* 阻塞 vs 非阻塞
+  blocking vs non-blocking.
+  描述的是 调用线程是否等待结果
+
+  - 阻塞
+    发起调用后, 如果结果没准备好, 线程会一直开在那里, 直到得到结果.
+    线程在等待, 不能干别的事情. 例如read() 文件
+  - 非阻塞
+    发起调用后, 如果结果没准备好, 函数立即返回一个状态值, 线程可以继续干别的.
+
+* 同步 vs 异步
+  synchronous vs asynchronous
+  描述的是 调用结果的获取方式
+
+  - 同步
+    调用方主动等待或轮询, 自己负责把结果取回来.
+    就算底层操作是非阻塞的, 你也可能要不停的问"好了没".
+  - 异步
+    调用方发起请求后, 不需要主动等待, 结果准备好时, 会通过回调, 事件通知你.
+* 一个类比（打饭窗口 🍚）
+  阻塞同步：排队打饭，直到打好才走。
+  非阻塞同步：你不排队，隔一会儿自己跑来看看饭打好了没。
+
+  阻塞异步：你让食堂阿姨做好给你打电话，但你一直死守着电话，啥也不干。
+  非阻塞异步：你让食堂阿姨做好给你打电话，你该干啥干啥，饭好了电话通知你。

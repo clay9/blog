@@ -1,0 +1,304 @@
+#+title: org for hugo demo
+#+date: 2025-11-08 18:25:28
+#+hugo_section: docs
+#+hugo_bundle: emacs/org/org_for_hugo_demo
+#+export_file_name: index
+#+hugo_weight: 11
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+org mode content到hugo book theme的演示.
+
+根据[[https://orgmode.org/manual/][orgmode官方文档]]的顺序进行演示
+
+#+hugo: more
+* Document Structure
+** Headlines
+*** Third level
+    some text
+**** Third level 1
+**** Third level 2
+** Plain Lists
+*** Unordered list
+    start with "-"
+    - one
+    - two
+    - three
+
+
+    start with "+"
+    + 1111
+    + 2222
+    + 3333
+*** Ordered list
+    start with "."
+    1. one
+    2. two
+    3. three
+
+
+    start with ")"
+    1) 1111
+    2) 2222
+    3) 3333
+*** Description list (Unordered list)
+    - Elijah Wood :: He plays Frodo
+    - Sean Astin :: He plays Sam, Frodo's friend
+** Drawers
+   outside the drawer
+   :drawername:
+   inside the drawer
+   :end:
+   after the drawer
+** Block
+   org 中的block 即是 md中的shortcodes.[[#shortcode][参考shortcode]]
+
+* Tables
+** Normale
+   | key  | value | desc  |
+   |------+-------+-------|
+   | a    |     1 | a = 1 |
+   | b    |     2 |       |
+   | c    |       |       |
+   | d    |       |       |
+   |------+-------+-------|
+   | abdc |       |       |
+** Column Width and Alignment
+   |---+---------------------+--------|
+   |   | <3>                 |        |
+   | 1 | one                 | some   |
+   | 2 | two                 | boring |
+   | 3 | this is a long text | column |
+   |---+---------------------+--------|
+** Column Groups
+   | N | N^2 | N^3 | N^4 |   sqrt(n) | sqrt[4](N) |
+   |---+-----+-----+-----+-----------+------------|
+   | / |   < |     |   > |         < |          > |
+   | 1 |   1 |   1 |   1 |         1 |          1 |
+   | 2 |   4 |   8 |  16 | 1.4142136 |  1.1892071 |
+   | 3 |   9 |  27 |  81 | 1.7320508 |  1.3160740 |
+   |---+-----+-----+-----+-----------+------------|
+* Hyperlinks
+** Link Format
+   with description
+   [[https://orgmode.org/manual/Link-Format.html][link with description]]
+
+   without description
+   [[https://orgmode.org/manual/Link-Format.html]]
+** Internal Links
+   1. "\[\[#FirstLink\]\]" [[#FirstLink]]
+   2. "\[\[*FirstLink\]\]" [[*FirstLink]]
+   3. "\[\[FirstLink\]\]" [[FirstLink]]
+   4. "\[\[SecondLink\]\]" [[SecondLink]]
+
+   #+begin_example
+   [[#target]] 只会找 Entry with CUSTOM_ID为target
+   [[*target]] 只会找 Headline name为target
+   [[target]] 优先找 entry with <<target>>; 其次Name为target
+   #+end_example
+*** Entry with "CUSTOM_ID"
+    :PROPERTIES:
+    :CUSTOM_ID: FirstLink
+    :END:
+*** FirstLink
+*** List has \<\<FirstLink\>\>
+    1. one
+    2. <<FirstLink>>two
+*** Table has Name \<\<FirstLink\>\> \<\<SecondLink\>\>
+    #+NAME: FirstLink
+    | a | b |
+    |   |   |
+
+    #+NAME: SecondLink
+    | b  | b |
+    | cc | c |
+** External Links
+*** file
+    搜索文件. file: org_for_hugo_demo_link_file.txt
+    [[file:org_for_hugo_demo_link_file.txt]]
+
+    搜索文件的第20行. file: org_for_hugo.org::20 TODO: not work
+
+    搜傅文件中的 ox-hugo Headline. file: org_for_hugo.org::*ox-hugo
+    [[file:org_for_hugo.org::*ox-hugo]]
+
+    搜傅文件中的ox-hugo. file: org_for_hugo.org::ox-hugo
+    [[file:org_for_hugo.org::ox-hugo]]
+*** http, https
+    link to https://orgmode.org
+    [[https://orgmode.org/]]
+*** id (link to org file by ID property)
+    search org file for Headline has ID property "ox-hugo"
+    [[id:ox-hugo]]
+* \TODO Items
+** TODO Headline has TODO
+** TODO TODO dependencies
+*** DONE one
+*** TODO two
+** Priorities
+*** TODO [#B] Write letter to Wen
+*** TODO [#A] Write letter to Mom
+** Breaking Down Tasks into Subtasks
+*** TODO Call people [1/2]
+**** TODO XiaoMing
+**** DONE XiaoBai
+** TODO Checkboxes [1/3]
+   - [-] call people [1/3]
+     - [ ] XiaoMing
+     - [X] XiaoBai
+     - [ ] Sam
+   - [X] order food
+   - [ ] think about what music to play
+* Tags
+** With Tag "work"                                                     :work:
+** With Tag "home"                                                     :home:
+* Dates and Times
+** Timestamps
+   1. active timestamp
+      <2025-09-10 Wed 10:00>
+   2. inactive timestamp
+      [2025-09-10 Wed 10:00]
+   3. time range
+      [2025-09-10 Wed 10:00-12:00]
+   4. time/date range
+      [2025-09-10 Wed]--[2025-09-13 Sat]
+      [2025-09-10 Wed 10:00-12:00]--[2025-09-13 Sat 09:00-10:00]
+** Deadlines and Scheduling
+*** TODO Deadlines
+    DEADLINE: [2025-09-20 Sat]
+*** TODO Scheduling
+    SCHEDULED: [2025-10-05 Sun]
+* Markup for Rich Contents
+** Paragraphs
+   #+begin_center
+   this is center \\
+   balabala
+   #+end_center
+
+   #+begin_example
+   * this is examples
+   ** this balabala
+   #+end_example
+
+   #+begin_quote
+   this is quote
+   #+end_quote
+** Emphasis and Monospace
+   | key | format         | format2 |
+   |-----+----------------+---------|
+   |     | normal         | 普通    |
+   | /*  | *bold*           | *粗体*    |
+   | //  | /italics/        | /斜体/    |
+   | =   | =monospace=      | =代码=    |
+   | ~   | ~key-binding~    | ~等宽~    |
+   | +   | +strike-through+ | +删除线+  |
+   | /_  | _underline_      | _下划线_  |
+   |-----+----------------+---------|
+** Subscripts and Superscripts
+   subscripts:
+   10^8
+
+   superscipts:
+   R_{sun}
+** Embedded LaTex
+** Literal Examples
+   #+begin_src emacs-lisp -n :hl_lines 2
+     (message "H1")
+     (message "H2")
+     (message "H3")
+   #+end_src
+** Images
+   link to an image without description part
+   [[file:ox-hugo-export.png]]
+
+   [[file:ox-hugo-export.png][link to an image with description]]
+** Horizontal Rules
+   up aaaaaaaaaaaa
+   -----
+   down bbbbbbbbbbb
+** Creating Footnotes
+   一个脚注[fn:1]
+
+[fn:1] A footnote is started by a footnote marker in square brackets in column 0, no indentation allowed. It ends at the next footnote definition, headline, or after two consecutive empty lines.
+
+
+
+   匿名脚注[fn:: this is the inline definition of this footnote]
+
+   inline footnote[fn:2: a definition]
+* Shortcodes in Hugo and Hugo book
+  :PROPERTIES:
+  :CUSTOM_ID: shortcode
+  :END:
+
+** Hugo
+*** qr
+    #+begin_qr
+    https://github.coma
+    #+end_qr
+*** vimeo
+    #+begin_export hugo
+    {{< vimeo 55073825 >}}
+    #+end_export
+*** youtube
+    #+begin_export hugo
+   {{< youtube 0RKpf3rK57I >}}
+    #+end_export
+
+** Hugo book
+*** badge
+    #+begin_export hugo
+    {{< badge style="danger" title="this is badge" value="11" >}}
+    #+end_export
+
+*** columns
+    #+begin_columns
+    -  a title
+      aaaaaaaaaaaaa content
+    -  b title
+      bbbbbbbbbbb content
+    -  c title
+      cccccccccccccccccc content
+    this is columns
+    1. abcoulomb
+    2. sfsdf
+    3. sadfdsf
+    #+end_columns
+
+*** details
+    #+attr_shortcode: :title this_is_details
+    #+begin_details
+    this is details s dsfadsfs
+    #+end_details
+*** hint
+    #+attr_shortcode: danger
+    #+begin_hint
+    this is hint
+    #+end_hint
+*** steps
+    #+begin_steps
+    this is step
+    1. one step
+    2. two step
+    3. three step
+    #+end_steps
+*** tabs
+    #+begin_tabs
+    #+attr_shortcode: a title
+    #+begin_tab
+    aaaaaaaa content
+    #+end_tab
+
+    #+attr_shortcode: b title
+    #+begin_tab
+    bbbbb content
+    #+end_tab
+
+    #+attr_shortcode: c title
+    #+begin_tab
+    c ccccccccccc sf
+    content
+    #+end_tab
+    #+end_tabs

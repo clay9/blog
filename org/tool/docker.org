@@ -1,0 +1,97 @@
+#+title: docker
+#+date: 2025-05-29 17:52:01
+#+hugo_section: docs
+#+hugo_bundle: tool/docker
+#+export_file_name: index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+docker容器
+
+#+hugo: more
+
+* 功能
+** docker vs 虚拟机
+   之前以为docker容器就是简约版本的虚拟机, 所以一直想把不同的软件融合到一个镜像中
+   现在2020.6.21 发现上面的想法是错误的. 现在的认知:
+   1) docker是对于app(单个软件)的封装
+   2) 多个软件协同合作的正确方式, 应该是建立多个互相关联的容器, 而不是企图把所有的软件放到一个容器中
+
+* 配置
+  1. 代理配置
+     国内无法访问dockerhub, 需要配置代理使用.
+     docker的代理需要单独配置, 使用全局代理无效(不知道为什么TODO).
+     代理需要http和https都要配置, 否则会导致奇怪问题, 比如卡登陆等.
+     [[file:docker/proxy.png]]
+* 使用
+  [[https://www.runoob.com/docker/docker-container-connection.html][推荐阅读教程]]
+
+** image
+   | cmd              | desc                        |
+   |------------------+-----------------------------|
+   | docker search    | search image                |
+   | docker pull      | pull image                  |
+   | docker run       | image => container (实例化) |
+   | docker save,load | image => file, file=>image  |
+   | docker commit    | container => image          |
+   | docker tag       | image tag 修改名字          |
+   | docker push      | push image to dockerhub     |
+
+** container
+   | cmd                                  | desc                |
+   |--------------------------------------+---------------------|
+   | docker container ls                  | list containers     |
+   | docker container start,stop, restart |                     |
+   | docker container attach              | attach to container |
+   | docker container exec                | enter container     |
+
+** host && docker container
+
+   | cmd       | desc    |
+   |-----------+---------|
+   | docker cp | like cp |
+
+** docker network
+   通过指令docker network可以查看 docker中的网桥信息
+   网桥可以使多个容器组件局域网
+
+   1. 容器可以在创建之前选择网桥
+      #+begin_src shell -n
+        docker create --name [容器名称] --network [网桥名称] [镜像名称]
+      #+end_src
+   2. 容器也可以在运行状态时 选择网桥
+      #+begin_src shell -n
+        docker network connect [网桥名称] [容器名称]
+      #+end_src
+
+** volume
+
+   | cmd                   | desc                                                    |
+   |-----------------------+---------------------------------------------------------|
+   | docker volume crate   | 创建新卷. 新卷默认使用local驱动, 可通过-d来指定不同驱动 |
+   | docker volume ls      | list all volumes                                        |
+   | docker volume inspect | show volume details                                     |
+   | docker volume prune   | 删除未被容器或者服务副本使用的全部卷                    |
+   | docker volume rm      | delete volume                                           |
+
+* Dockerfile && docker-compose
+  Dockerfile -- 对镜像的管理, 可以安装并修改镜像 (类比C++中的class)
+  docker-compose -- 对容器的管理, 可以指定使用哪个容器, 并能修改容器 (类比C++中的对象实例)
+
+** Dockerfile
+   1. COPY
+      : COPY src tag
+      如果tag不存在, 则会创建, 类似mkdir -p
+      - 如果src或tag为目录, 则必须以/结尾
+      - src为目录, 复制的时候src自身不会被复制, 只会复制其里面所有子文件
+** docker-compose
+   docker-compose 是一个指令, docker-compose.yml是其配置文件.
+   docker-compose -h查看用法
+
+* 小技巧
+  1. 使用镜像的时候, 不一定要做成容器. 可以直接使用
+     : docker run -it image_name
+  2. 镜像漏洞排查
+     : docker scan

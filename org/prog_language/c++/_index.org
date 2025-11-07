@@ -1,0 +1,9 @@
+#+title: c++
+#+date: 2024-01-22 10:17:06
+#+hugo_section: docs
+#+hugo_bundle: prog_language/c++
+#+export_file_name: _index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection true

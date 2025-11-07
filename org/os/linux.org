@@ -1,0 +1,246 @@
+#+title: linux
+#+date: 2024-05-31 10:36:48
+#+hugo_section: docs
+#+hugo_bundle: os/linux
+#+export_file_name: index
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+#+hugo: more
+* 查看硬件信息
+  | 信息 | 命令              |
+  |------+-------------------|
+  | cpu  | [[cpuinfo][cat /proc/cpuinfo]] |
+  |------+-------------------|
+
+* 查看OS信息
+  | 信息            | 命令                       |
+  |-----------------+----------------------------|
+  | linux发行版信息 | cat /etc/issue             |
+  |-----------------+----------------------------|
+  | kernel信息      | cat /proc/version, uname-a |
+  |-----------------+----------------------------|
+  | process         | [[top][top]]                        |
+  |-----------------+----------------------------|
+  | memory          | [[free][free]]                       |
+  |-----------------+----------------------------|
+  | fd              | [[fd][查看与设置]]                 |
+  |-----------------+----------------------------|
+  | socket          | [[ss][ss]], netstat                |
+  |-----------------+----------------------------|
+
+
+* 常用命令
+
+  | 命令                 | 信息                                        |
+  |----------------------+---------------------------------------------|
+  | \vert                    | 管道. 将 =前面的标准输出= 作为 =后面的标准输入= |
+  |----------------------+---------------------------------------------|
+  | xargs                | 将 =前面的标准输出= 作为 =后面命令的参数=       |
+  |----------------------+---------------------------------------------|
+  | nohup                | 程序后台运行, 前缀, 占用标准输出            |
+  |----------------------+---------------------------------------------|
+  | &                    | 程序后台运行, 后缀, 不占用标准输出          |
+  |----------------------+---------------------------------------------|
+  | watch                | 周期性执行某个命令                          |
+  |----------------------+---------------------------------------------|
+  | crontab              | 定时任务                                    |
+  |----------------------+---------------------------------------------|
+  | sort                 | [[sort][排序]]                                        |
+  |----------------------+---------------------------------------------|
+  | wc                   | 统计行数                                    |
+  |----------------------+---------------------------------------------|
+  | readelf, nm, objdump | 查看库的封装信息                            |
+  |----------------------+---------------------------------------------|
+
+* 命令说明
+  #+name: cpuinfo
+  #+attr_shortcode: :title cpuinfo
+  #+begin_details
+  #+begin_src shell
+    # 总核数 = 物理CPU个数 X 每颗物理CPU的核数
+    # 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+
+    # 查看物理CPU个数
+    cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+
+    # 查看每个物理CPU中core的个数(即核数)
+    cat /proc/cpuinfo| grep "cpu cores"| uniq
+
+    # 查看逻辑CPU的个数
+    cat /proc/cpuinfo| grep "processor"| wc -l
+
+    # 查看CPU信息（型号）
+    cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+  #+end_src
+  #+end_details
+
+  #+name: top
+  #+attr_shortcode: :title top
+  #+begin_details
+  #+begin_example
+    # top header (这一系列信息是系统的信息, docker容器内外是一致的)
+    top - 12:19:58 up  3:45,  1 user,  load average: 0.00, 0.02, 0.05
+    Tasks:  27 total,   1 running,  26 sleeping,   0 stopped,   0 zombie
+    %Cpu(s):  1.5 us,  1.1 sy,  0.0 ni, 97.2 id,  0.0 wa,  0.0 hi,  0.2 si,  0.0 st
+    MiB Mem :  64348.3 total,  39305.2 free,  11285.5 used,  13757.6 buff/cache
+    MiB Swap:   8192.0 total,   8192.0 free,      0.0 used.  52690.6 avail Mem
+
+    | key      | desc                                            |
+    |----------+-------------------------------------------------|
+    | top      | 当前系统时间;                                   |
+    |          | 启动了3小时45分钟;                              |
+    |          | user同时在线的用户;                             |
+    |          | load average服务器1min, 5min, 15min的负载情况   |
+    |----------+-------------------------------------------------|
+    | Tasks    | 总共开启了27个进程                              |
+    |          | 1个在run, 26个sleep, 0stoped, 0僵尸进程         |
+    |----------+-------------------------------------------------|
+    | %Cpu     | 总核数的平均值(不会大于100%)                    |
+    |          | us用户占比, sy系统占比                          |
+    |          | ni用户进程空间内改变过优先级的进程占用CPU百分比 |
+    |          | id空闲cpu百分比                                 |
+    |          | wa用户进程空间内改变过优先级的进程占用CPU百分比 |
+    |          | hi硬件中断, si软件中断, st实时                  |
+    |----------+-------------------------------------------------|
+    | MiB Mem  | total系统物理总内存,                            |
+    |          | free空闲内存, used已使用, buff/cache缓冲区内存  |
+    |----------+-------------------------------------------------|
+    | MiB Swap | total交换总内存                                 |
+    |          | free交换空闲, used交换已用, avail 可用内存      |
+    |----------+-------------------------------------------------|
+  #+end_example
+
+  #+begin_example
+    # top body
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    122 root      20   0   12936   7148   6648 S   1.0   0.0   2:32.20 cli
+    69  root      20   0   12928   7064   6572 S   0.7   0.0   2:07.64 svr
+
+    | key     | desc                                      |
+    |---------+-------------------------------------------|
+    | pid     |                                           |
+    | user    | 谁启动的该进程                            |
+    | PR      | 优先级                                    |
+    | ni      | nice值 负值表示高优先级，正值表示低优先级 |
+    | VIRT    | 虚拟内存                                  |
+    | RES     | 真实内存                                  |
+    | SHR     | 共享内存                                  |
+    | %CPU    | 单核cpu占比, 大于100%表示占用了多个cpu核  |
+    | TIME+   | 进程运行总时间??占用cpu的总时间??         |
+    | COMMAND | 进程启动时的命令                          |
+    |---------+-------------------------------------------|
+  #+end_example
+  #+end_details
+
+  #+name: free
+  #+attr_shortcode: :title free
+  #+begin_details
+  #+begin_example
+    ## free -h
+    total        used        free      shared  buff/cache   available
+    Mem:           62Gi        11Gi        38Gi        17Mi        13Gi        51Gi
+    Swap:         8.0Gi          0B       8.0Gi
+
+    | key        | desc                                   |
+    |------------+----------------------------------------|
+    | total      | 系统总内存                             |
+    |------------+----------------------------------------|
+    | used       | 已使用                                 |
+    |------------+----------------------------------------|
+    | free       | 空闲                                   |
+    |------------+----------------------------------------|
+    | shared     | 已舍弃的内存?                          |
+    |------------+----------------------------------------|
+    | buff/cache | io读写内存;                            |
+    |            | 内存紧张的时候,会自动释放;             |
+    |            | cache文件系统缓存; buff 裸设备相关缓存 |
+    |------------+----------------------------------------|
+    | available  | 可用内存. = free + buff/cache          |
+    |------------+----------------------------------------|
+  #+end_example
+  #+end_details
+
+  #+name: ss
+  #+attr_shortcode: :title ss
+  #+begin_details
+  #+begin_example
+  * every 100s 每100s刷新一次 ss-s  851d60ae4404是服务器名字  服务器当前时间
+  * total:           这个数值是docker容器有关的, 每个单独计算;   貌似是inet + 1 TODONOW.
+  * TCP: 2101        这个数值是docker容器无关的, 容器内外都一样; 貌似是state总和?? TODONOW
+  *      estab    -- 这个数值是docker容器相关的, 每个单独计算
+  *      closed   -- 这个数值是docker容器相关的, 每个单独计算
+  *      orphaned --
+  *      timewait --
+  Every 100.0s: ss -s      851d60ae4404: Wed Oct 20 17:44:33 2021
+  Total: 3
+  TCP:   2101 (estab 0, closed 2100, orphaned 0, timewait 0)
+
+  * RAW
+  * UDP
+  * TCP   这里的total是docker容器相关的, 每个单独计算
+  * INET
+  * FRAG
+  Transport Total     IP        IPv6
+  RAW       0         0         0
+  UDP       1         1         0
+  TCP       1         1         0
+  INET      2         2         0
+  FRAG      0         0         0
+  #+end_example
+
+  #+begin_example
+  常用参数
+  | 参数                                        | 含义                                              |
+  |---------------------------------------------+---------------------------------------------------|
+  | ss -a                                       | show all state. 默认只显示established state       |
+  | ss -[4,6,t,u]                               | 匹配ipv4, ipv6, tcp协议, udp协议连接              |
+  | ss [dst,src] <ip>:[port]                    | 匹配远端,本地 地址(端口)                          |
+  | ss [dport,sport] [le,ge,eq,ne,gt,lt] <port> | 匹配远端,本地相符的连接. port比较参数与sh语法一致 |
+  | ss state [state-status]                     | 匹配state                                         |
+  |---------------------------------------------+---------------------------------------------------|
+  #+end_example
+  #+end_details
+
+  #+name: fd
+  #+attr_shortcode: :title fd
+  #+begin_details
+  #+begin_example
+    | 信息                                     | 查看命令              |
+    |------------------------------------------+-----------------------|
+    | 所有进程允许打开的最大fd数量             | /proc/sys/fs/file-max |
+    | 所有进程已经打开的fd数量及允许的最大数量 | /proc/sys/fs/file-nr  |
+    | 单个进程允许打开的最大fd数量             | ulimit -n             |
+    | 单个进程(例如pid为5454)已打开的fd        | ls -l =/proc/5454/fd/=  |
+    |------------------------------------------+-----------------------|
+
+    | 作用                                    | 命令                                                      |
+    |-----------------------------------------+-----------------------------------------------------------|
+    | 用户单进程最大(仅当前sesstion生效)      | ulimit -n                                                 |
+    | 用户单进程设置                          | ulimit -n xx                                              |
+    | 用户单进程S(软件)最大(需要重新登录生效) | echo '* soft nofile 1048576' >> /etc/security/limits.conf |
+    | 用户单进程H(硬件)最大(需要重新登录生效) | echo '* hard nofile 1048576' >> /etc/security/limits.conf |
+    |-----------------------------------------+-----------------------------------------------------------|
+  #+end_example
+
+  #+attr_shortcode: warning
+  #+begin_hint
+  - 用户单进程H最大的值一定不能大于fs.nr_open, 否则注销后将无法正常登录
+  - 以上3个的配置数都受限于fs.nr_open -- 调用sysctl -p生效
+    sysctl -w fs.nr_open=xxx
+  #+end_hint
+  #+end_details
+
+  #+name: sort
+  #+attr_shortcode: :title sort
+  #+begin_details
+  根据Ascii进行排序, 默认为升序
+  - u 去除重复行
+  - r 降序
+  - n 根据 =数值= 而非 =Ascii= 排序
+  - k, t  k指定列数, t指定分隔符
+  - f 会将小写字母都转换为大写字母来进行比较，亦即忽略大小写
+  #+end_details

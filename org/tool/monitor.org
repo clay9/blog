@@ -1,0 +1,114 @@
+#+title: cadvisor, prometheus, grafana
+#+date: 2024-06-05 16:40:03
+#+hugo_section: docs
+#+hugo_bundle: tool/monitor
+#+export_file_name: index
+#+hugo_weight: 3
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+cadvisor, prometheus, grafana 组成的监控系统
+
+#+hugo: more
+* 总览
+  - cadvisor :: 收集docker容器数据
+  - nodex_exporter :: 收集主机数据
+  - prometheus :: 数据库
+  - grafana :: 数据展示
+
+
+* cadvisor
+  [[https://github.com/google/cadvisor][cadvisor]]负责收集docker容器的运行信息,
+  prometheus下的[[https://github.com/google/cadvisor/blob/master/docs/storage/prometheus.md][cadvisor metrics指标]].
+
+  /cadvisor开箱即用, 不需要专门配置/
+* node exporter
+  [[https://github.com/prometheus/node_exporter][node exporter]]是prometheus的收集器, 收集linux的硬件和os信息.
+
+  /node exporter开箱即用, 不需要专门配置/
+* prometheus
+  [[https://github.com/prometheus/prometheus][prometheus]]不仅仅是数据库, 还是一套完整的监控系统.
+** 配置
+   prometheus的配置非常简单, 一个 =prometheus.yml= 即可. 适合集群部署
+   #+begin_src yaml
+     global:
+       scrape_interval: 15s # By default, scrape targets every 15 seconds.
+
+       # Attach these labels to any time series or alerts when communicating with
+       # external systems (federation, remote storage, Alertmanager).
+       external_labels:
+         monitor: 'codelab-monitor'
+
+     # A scrape configuration containing exactly one endpoint to scrape:
+     scrape_configs:
+       # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+       - job_name: 'nodeexporter'
+         # Override the global default and scrape targets from this job every 5 seconds.
+         scrape_interval: 5s
+         static_configs:
+           # - targets: ['host.docker.internal:9100']
+           - targets: ['node_exporter:9100']
+
+       - job_name: 'cadvisor'
+         scrape_interval: 5s
+         static_configs:
+           - targets: ['cadvisor:8080']
+
+       - job_name: 'prometheus'
+         scrape_interval: 10s
+         static_configs:
+           - targets: ['localhost:9090']
+   #+end_src
+   
+* grafana
+  [[https://github.com/grafana/grafana][grafana]]用于数据可视化 && 监控
+
+  /TODO 补充 =Provision= 逻辑/
+  
+** datasource
+   #+begin_src yaml -n
+     apiVersion: 1
+
+     datasources:
+       - name: Prometheus
+         type: prometheus
+         # Access mode - proxy (server in the UI) or direct (browser in the UI).
+         access: proxy
+         url: http://prometheus:9090
+         jsonData:
+           httpMethod: POST
+           exemplarTraceIdDestinations:
+             # Field with internal link pointing to data source in Grafana.
+             # datasourceUid value can be anything, but it should be unique across all defined data source uids.
+             - datasourceUid: my_jaeger_uid
+               name: traceID
+
+             # Field with external link.
+             - name: traceID
+               url: 'http://localhost:3000/explore?orgId=1&left=%5B%22now-1h%22,%22now%22,%22Jaeger%22,%7B%22query%22:%22$${__value.raw}%22%7D%5D'
+     
+   #+end_src
+** dashboard
+   一个dashboard 由1个多个panel面板组成,  可以有多个dashboard
+   每个dashboard对应一个xx.yaml
+   每个面板对应一个配置文件xx.json
+
+   dashboard的配置文件xx.yaml中有个特殊的字段, 可以把指定目录下的 子目录变为dashboard, 子目录下的xx.json变为面板
+   #+BEGIN_EXAMPLE yaml 
+   path: $GF_PATHS_PROVISIONING/dashboards
+   foldersFromFilesStructure: true
+   #+END_EXAMPLE
+   当 foldersFromFilesStructure设置为true的时候, path下的子目录名字会变为dashboard的名字
+   子目录下的xx.json会变为该dashboard下的panel面板
+
+   这样我们只需要配置一个总的yaml, 然后规划path下的目录层级即可, 方便进行统一的管理
+
+   /面板的配置文件 =xx.json= 可以找一些经典的, 在此基础上修改为适合自己的/
+
+** alerting
+
+   - alter rule
+   - contact point
+   - notification policy
+   

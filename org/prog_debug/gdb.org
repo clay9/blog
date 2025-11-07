@@ -1,0 +1,134 @@
+#+title: gdb
+#+date: 2024-01-18 19:05:06
+#+hugo_section: docs
+#+hugo_bundle: prog_debug
+#+export_file_name: gdb
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+       
+* proc总体状态查看
+** proc
+   #+begin_example
+   (gdb) info proc
+   process 217777
+   cmdline = '/home/clay/my/learn_gdb/a.out'
+   cwd = '/home/clay/my/learn_gdb'
+   exe = '/home/clay/my/learn_gdb/a.out'
+   #+end_example
+** proc status
+   #+begin_example
+   //TODONOW 补充对应的字段
+   info proc status
+   
+   显示与进程相关的附加信息
+   1) 用户ID, group id
+   2) 虚拟内存使用情况
+   3) 待处理, 阻塞和沪铝的信号
+   4) 消耗系统和用户的时间
+   5) 堆栈大小
+   #+end_example
+** 内存分布
+   =段表=
+   #+begin_example
+   //TODONOW 补充说明
+   (gdb) info proc mappings
+   process 217777
+   Mapped address spaces:
+
+     Start Addr           End Addr       Size     Offset  Perms  objfile
+ 0x555555554000     0x555555555000     0x1000        0x0  r--p   /home/clay/my/learn_gdb/a.out
+ 0x555555555000     0x555555556000     0x1000     0x1000  r-xp   /home/clay/my/learn_gdb/a.out
+ 0x555555556000     0x555555557000     0x1000     0x2000  r--p   /home/clay/my/learn_gdb/a.out
+ 0x555555557000     0x555555558000     0x1000     0x2000  r--p   /home/clay/my/learn_gdb/a.out
+ 0x555555558000     0x555555559000     0x1000     0x3000  rw-p   /home/clay/my/learn_gdb/a.out
+ 0x7ffff7d8a000     0x7ffff7d8d000     0x3000        0x0  rw-p   
+ 0x7ffff7d8d000     0x7ffff7db5000    0x28000        0x0  r--p   /usr/lib/x86_64-linux-gnu/libc.so.6
+ 0x7ffff7db5000     0x7ffff7f4a000   0x195000    0x28000  r-xp   /usr/lib/x86_64-linux-gnu/libc.so.6
+ 0x7ffff7f4a000     0x7ffff7fa2000    0x58000   0x1bd000  r--p   /usr/lib/x86_64-linux-gnu/libc.so.6
+ 0x7ffff7fa2000     0x7ffff7fa3000     0x1000   0x215000  ---p   /usr/lib/x86_64-linux-gnu/libc.so.6
+ 0x7ffff7fa3000     0x7ffff7fa7000     0x4000   0x215000  r--p   /usr/lib/x86_64-linux-gnu/libc.so.6
+ 0x7ffff7fa7000     0x7ffff7fa9000     0x2000   0x219000  rw-p   /usr/lib/x86_64-linux-gnu/libc.so.6
+ 0x7ffff7fa9000     0x7ffff7fb6000     0xd000        0x0  rw-p   
+ 0x7ffff7fbb000     0x7ffff7fbd000     0x2000        0x0  rw-p   
+ 0x7ffff7fbd000     0x7ffff7fc1000     0x4000        0x0  r--p   [vvar]
+ 0x7ffff7fc1000     0x7ffff7fc3000     0x2000        0x0  r-xp   [vdso]
+ 0x7ffff7fc3000     0x7ffff7fc5000     0x2000        0x0  r--p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+ 0x7ffff7fc5000     0x7ffff7fef000    0x2a000     0x2000  r-xp   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+ 0x7ffff7fef000     0x7ffff7ffa000     0xb000    0x2c000  r--p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+ 0x7ffff7ffb000     0x7ffff7ffd000     0x2000    0x37000  r--p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+ 0x7ffff7ffd000     0x7ffff7fff000     0x2000    0x39000  rw-p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+ 0x7ffffffde000     0x7ffffffff000    0x21000        0x0  rw-p   [stack]
+   #+end_example
+
+   =页表= (Register: cr3) /TODO 待补充/
+** 多线程视图
+   #+begin_example
+   //TODONOW 补充多线程情形
+   (gdb) info threads
+   Id   Target Id                                  Frame 
+   * 1    Thread 0x7ffff7d8a740 (LWP 217777) "a.out" main (argc=1, argv=0x7fffffffe138) at main.cc:4
+
+   #+end_example
+* frame查看
+  #+begin_example
+    //info frame 显示的是更详细的信息, 但是可读性很差
+    (gdb) info frame
+    Stack level 0, frame at 0x7fffffffe030:
+    rip = 0x55555555513f in main (main.cc:4); saved rip = 0x7ffff7db6d90
+    source language c++.
+    Arglist at 0x7fffffffe020, args: argc=1, argv=0x7fffffffe138
+    Locals at 0x7fffffffe020, Previous frame's sp is 0x7fffffffe030
+    Saved registers:
+    rbp at 0x7fffffffe020, rip at 0x7fffffffe028
+
+
+    //TODONOW 补充多frame
+    (gdb) frame
+    #0  main (argc=1, argv=0x7fffffffe138) at main.cc:4
+    4	    int b = 2;
+#+end_example
+
+  #+attr_shortcode: info
+  #+begin_hint
+  脑海中先有进程的view(多线程, 内存);
+  proc 也是一帧一帧(frame by frame)运行的;
+  查看的是每个frame下的状态(内存, Reigster, 线程等). 在不同frame间查看, 就像播放动画片
+  #+end_hint
+  
+* 当前frame下的其他信息
+  1) backtrace 函数栈
+  2) register 寄存器
+  3) local 本地?变量 //TODONOW 更准确的描述
+  4) scope 作用域变量
+
+
+* 常用命令
+  1. bt (backtrace) 查看函数栈
+     bt full 查看更加详细的信息
+  2. f (frame) 查看栈信息
+     f 0 表示查看栈顶;  f n查看第n+1层
+     down 查看下一栈
+     up 查看上一栈
+  3. i (info)
+     i program 查看当前进程运行信息
+     i threads 查看当前线程运行信息
+     
+     i f 查看当前栈所在层的具体信息
+     i args 当前函数的参数名及其值
+     i locals 当前函数中所有局部变量及其值
+     i catch 异常处理信息
+     
+     i b 查看断点
+     i proc mappings 查看程序的内存分布
+     i reg 查看寄存器
+     
+
+  4. l (list) 查看源码
+  5. p (print) 查看变量的值
+ 
+
+* gcore
+  gcore #进程pid
+  执行命令后，会在当前目录下生成一个该进程的core dump文件了

@@ -1,0 +1,81 @@
+#+title: gcc
+#+date: 2024-01-18 19:03:32
+#+hugo_section: docs
+#+hugo_bundle: prog_compile
+#+export_file_name: gcc
+#+hugo_weight: 10
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+
+gcc
+
+#+hugo: more
+
+
+* gcc
+   1. 查看搜索路径
+      g++ | gcc -print-serach-dirs (可通过--help查看)
+   2. 头文件搜索路径
+      gcc  C_INCLUDE_PATH
+      g++  CPLUS_INCLUDE_PATH
+
+      ep: export CPLUS_INCLUDE_PATH=/usr/lib/
+      _扩展1_
+      1) 输出 echo $C_INCLUDE_PATH
+      2) 调用 $C_INCLUDE_PATH
+      3) 赋值 export C_INCLUDE_PATH
+      4) 删除变量 unset C_INCLUDE_PATH
+      5) C++调用 string strValue(getenv("C_INCLUDE_PATH")
+   3. 库文件搜索路径
+      1) LIBRARY_PATH
+	 gcc编译时候需要
+          
+      2) LD_LIBRARY_PATH
+	 程序运行时候需要
+
+* g++ 编译参数 -rdynamic 与 -g
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2024-02-10 Sat 21:31
+  :ARCHIVE_FILE: ~/my/gtd/gtd_common/archive.org
+  :ARCHIVE_CATEGORY: archive
+  :END:
+** 总览
+   1. g++ 编译的支持. -g可以增加调试信息(实际增加的为行号和函数符号等)
+   2. g++ 编译的支持. -rdynamic. 增加符号信息(只有符号信息)
+   3. g++ 中的-DDEBUG和-DNDEBUG只是增加了宏定义, 并不表示releas和debug版本.
+      实际的优化还是-O0 -O3
+
+   : g++ 实际没有release和debug. -g是增加调试信息, -O3是程序编译优化, -DDEBUG是宏定义
+
+** 如果加了-rdynamic, 不增加-g
+   那么崩溃信息中, 崩溃地址 会使用符号名称+偏移地址
+   #+BEGIN_EXAMPLE
+   E20220104 18:16:43.152771  1127 qysignal.cpp:38] ./qy_gate(main+0x235) [0x408c33]
+   #+END_EXAMPLE
+   可以看到是main函数崩溃的, 具体位置在main函数偏移0x235, 即0x408c33
+   所以需要先计算main函数的位置, 然后加上+0x235
+   nm qy_gate |grep main 得到main的位置
+   假设偏移后的位置为0x1213, 那么通过下面的命令查看具体信息
+   addr2line -e qy_gate 0x1213 -sfC
+   : 实际上[0x408c33]中既是偏移后的地址, 不需要手动计算
+
+   会发现, 显示的信息为
+   #+BEGIN_EXAMPLE
+   main
+   ??? : ?
+   #+END_EXAMPLE
+   ???:? 是因为缺少调试信息,即g++编译时候无-g
+** 如果不加-rdynamic
+   日志会直接显示地址, 而不是符号+偏移地址
+   E20220104 18:16:43.152771  1127 qysignal.cpp:38] ./qy_gate(0x235) [0x408c33]
+** 如果加-g
+   通过addr2line -e qy_gate 0x1213 -sfC可以显示出具体的行号
+   main
+   main.cpp : 12
+** 总结
+   建议去掉-rdynamic, 增加-g
+* 指定静态库
+  1) -static 所有的-l都指定静态库, 找不到则报错
+  2) -Bstatic 对跟在后面的所有库执行静态链接
+  3) -l:<filename>  -l:libmylib.a 只针对于-l的参数
+

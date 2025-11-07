@@ -1,0 +1,10 @@
+baseURL = "https://clay9.github.io/blog"
+title = "飘"
+theme = "hugo-book"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+codeFences = true
+style = 'manni'

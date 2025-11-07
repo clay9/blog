@@ -1,0 +1,473 @@
+#+title: os
+#+date: 2025-10-09 13:01:11
+#+hugo_section: docs
+#+hugo_bundle: draft/os
+#+export_file_name: index
+#+hugo_weight: 100
+#+hugo_draft: true
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+* [#B] os
+  :PROPERTIES:
+  :CAPTURE_TIME: [2024-05-20 Mon 10:25]
+  :Effort:   8:00
+  :ARCHIVE_TIME: 2024-05-31 Fri 18:37
+  :ARCHIVE_FILE: ~/my/gtd/gtd_common/task.org
+  :ARCHIVE_CATEGORY: task
+  :ARCHIVE_TODO: DONE
+  :END:
+** [#C] 操作系统 (mooc在线学习)
+*** 启动过程
+    1) 开机时, CS=0xFFFF, IP=0x0000
+    2) 寻址0xFFFF0 (ROM BIOS映射区)
+       BIOS: basic input/output system
+    3) 检查RAM, 键盘, 显示器等硬件(尤其主板)
+    4) 将磁盘0磁道0扇区(512 bit)读入0x7c00位置
+       这里就是引导扇区
+    5) 设置CS=0x7c0, IP=0x0000
+*** 线程创建 与 切换
+    1. 用户级线程的创建 与 切换
+       创建:
+       1) 创建了新的TCB
+       2) 初始化了栈
+
+       切换:
+       1) 通过调用yeild来实现.
+          yeild中只需要切换TCB即可
+    2. 内核级线程的创建 与 切换
+       用户级线程 与 内核级线程 切换:
+       int:  用户 => 内核
+       iret: 内核 => 用户
+
+       内核级线程的切换:
+       类比yeild即可
+
+       内核级线程的创建:
+       1) 创建TCB
+       2) 初始化栈
+
+       注:
+       int的时候, 硬件往内核的TCB中压入了一下信息
+       SS:SP(栈信息), EFLAGS(??), IP,CS(PC信息), 1000(内核自身的栈调用?)
+*** 信号量
+    1. 信号量
+       : 信号量就是资源
+       信号量sem 表示的是可用资源的个数
+       负数 : 表示资源已被用完
+       正数 : 表示有可用的资源
+       这里只对资源不可用检测, 不会资源上限检测
+
+       //结构体
+       struct Semaphore
+       {
+       int count;
+       PCB* queue;
+       }
+
+       //函数
+       P(sem): 消耗资源; P在苏兰语中是test的意思
+       V(sem): 产生资源; V在苏兰语中是add的意思
+
+       // +信号量 被舍弃的原因+ 在C++20中增加了std::semaphore(与系统的semaphore不同, 只能在同进程的线程间同步)
+       1) 信号量语义不明.
+          既可以用来表示互斥, 又可以用来表示同步
+          互斥可以使用mutex代替;
+          同步可以使用condition代替.
+       2) 加锁, 解锁不在一个线程, 容易导致错误
+          信号量的加解锁可以不在统一个线程(进程), 容易导致错误, 且不容易发现;
+          mutex规定了必须在同一个线程加解锁, 容易发现错误
+    2. 生产者, 消费者中 使用2个信号量来处理
+       第一个信号量 表示一共有多少个位置可用(缓冲区可用位置)
+       : producer消耗(--)该资源, consumer产生(++)该资源
+       第二个信号量 表示当前缓冲区的个数
+       : producer产生该资源, consumer消耗该资源
+*** 临界区(原子操作)
+    1. 临界区 (原子操作)
+       原则:
+       1) 互斥进入
+       2) 有空让进
+       3) 有限等待
+
+       如何生成临界区:
+       1) 软件方法
+          a. Peterson算法(2个线程)
+          b. filter算法(多个线程)
+       2) 硬件方法
+          a. 关中断, 处理完之后, 再开中断 (不适用现在的硬件了, 现在基本都是多cpu)
+          : 关中断之后, 就不会切换进程了. 所以就是临界区了.
+          : 但是多cpu无效. 因为中断与cpu绑定
+          b. 原子指令 (mutex)
+          : 不会被打断的指令即原子指令. 由硬件设计的
+*** 内存 段
+    找到一块空闲的内存, 把程序放入内存, 然后由cpu取指执行
+    逻辑地址 => 物理地址的 重定位
+    : 可以在 编译, 载入, 运行 时重定位
+    运行时重定位 => 地址翻译
+    为了能够运行时重定位, 需要进程可以在内存中换入,换出
+
+    //段 : 实际对应的虚拟内存
+    为了更好的管理内存, 对进程进行了分段, 不同类型的代码(数据)放入不同的段(寄存器)
+    比如代码放入cs, 数据放入ds, 栈放入ss, 函数库(lib,dll)放入其他的寄存器(??)
+    每个段(寄存器)都有不同的特性(属性), 比如代码段不应该修改, 堆栈是可增长的, 函数库按需加载或不加载
+    PCB中存放 段的信息即进程段表LDT(存放在寄存器LDTR中 R:register)
+    而且LDT 和 GDT非常类似. GDT是OS的段表, LDT是进程的段表
+    : 分段更像是从人(程序员)的角度 去管理的内存
+
+    //页 : 实际对应的物理内存
+    os初始化的时候, mem_map中的初始化
+    : 分页是从内存(机器)的角度 去管理的内存
+
+    //段 与 页
+    把段分割成页. 比如代码段需要2.3页, 那么就给它3页.
+    在内存中找未使用的3页
+
+    这3页分配到的内存可能是不连续的.
+    所以段需要知道 对应的 内存地址
+    使用页表(在寄存器cr3中)来表示.
+    所以每个段都有自己的页表
+    段分割成的页就是虚拟地址, 虚拟地址和页框(物理页)通过MMU硬件转换
+
+    | 段->页 | 页框(物理页) | 保护 |
+    |--------+--------------+------|
+    |      0 |            5 | R    |
+    |--------+--------------+------|
+    |      1 |            7 | R/W  |
+    |--------+--------------+------|
+    |      2 |            6 | R    |
+    |--------+--------------+------|
+
+    #offset# -- #page#
+    0-12     -- 12-15
+    jmp [0x2240]
+    就是0x2240 右移12bit, 即0x2; 说明jmp 到第2页.
+    再从页表中找到第二页对应的页框(物理页), 找到页框6
+    对应的物理地址就是 页框6 + offset, 即0x6240
+
+    0x2240 -> 0x6240的获取是由硬件(MMU)计算的
+
+    //总结1
+    程序由多个段组成, 每个段切割成多个页放到物理内存中的页中.
+    以后根据页表查找内存地址
+
+    //总结2
+    process -> segment -> page(virtual) -> page(物理)
+    1. 先建立段表 LDT (放到寄存器)
+    2. 每个段建立 页表(v->物理)
+       virtual page就是虚拟内存
+       页表放到内存中的
+
+
+**** 多级页表 与 快表
+
+     为了提高内存空间利用率, 单张页应该小. 导致进程的页表非常大 (4G内存/4K页大小 = 1M)
+     页大小为4K, 地址是32位的. 就会有2^20个页面.
+     如果2^20页面都放入内存中, 就需要4M内存. 单个进程就需要这么大了, 100个进程, 就需要400M了
+     实际上, 2^20中的大部分项都不会用到. 所以可以把页表改小
+     所以引入多级页表和快表, 用来减少页表大小
+
+     | 页号 | 物理页 | 保护 |              | 页号 | 物理页 | 保护 |
+     |------+--------+------+--------------+------+--------+------|
+     |    0 |      5 | R    |              |    0 |      5 | R    |
+     |------+--------+------+--------------+------+--------+------|
+     |    1 |      1 | R/W  | # 修改为=> # |    1 |      1 | R/W  |
+     |------+--------+------+--------------+------+--------+------|
+     |    2 |        |      |              |    3 |      4 | R    |
+     |------+--------+------+--------------+------+--------+------|
+     |    3 |      4 | R    |              |      |        |      |
+     |------+--------+------+--------------+------+--------+------|
+
+     : 新的页表, 不再连续, 但是已经排好序了. 可以使用二分法查找 log(2^20)=20
+     : 因为页表在内存中, 导致每次操作内存, 都会额外查找20次. 导致机器性能下降10-20%
+     : 所以这种页表 虽然节省了内存空间, 但是性能降低太多了
+
+
+     //多级页表
+     # 页目录# -- #页号# -- #offset#
+     10bits    -- 10bits -- 12bits
+     多级页表空间上高效了, 但是效率降低了;
+     增加了一层访问, 要先看章再看节.
+     所以多访问了一次内存(章).
+
+     //快表 (TLB)
+     TLB是一组相连快速存储, 是寄存器.
+     可以非常快速的找到最近逻辑页使用的物理页号
+
+     //快表 与 多级页表
+     如果 快表命中, 则直接使用快表, 非常快
+     否则, 使用多级页表
+
+
+     //总结
+     虚拟内存->物理 (硬件MMU处理)
+     为了减少页表的内存size, 使用多级页表
+     为了加快访问, 使用快表(TLB)
+
+     TLB能显著加快访问速度, 因为只需要在内存中读取一次,
+     而多级页表在32bits中需要读取2次(先读章,再读节)
+
+*** register 寄存器
+    常用register
+**** 通用寄存器 (数据寄存器)
+     ax, bx, cx, dx (rax, rbx, rcx, rdx)
+     一般用来存放数据, 也就数据寄存器
+
+     AX(Accumulator Register) ：累加寄存器，它主要用于输入/输出和大规模的指令运算。
+     BX(Base Register)：基址寄存器，用来存储基础访问地址
+     CX(Count Register)：计数寄存器，CX 寄存器在迭代的操作中会循环计数
+     DX(data Register)：数据寄存器，它也用于输入/输出操作。它还与 AX 寄存器以及 DX 一起使用，用于涉及大数值的乘法和除法运算。
+**** 段寄存器
+     CS(Code Segment) ：代码寄存器，程序代码的基础位置
+     DS(Data Segment)：数据寄存器，变量的基本位置
+     SS(Stack Segment)：栈寄存器，栈的基础位置
+     ES(Extra Segment)：其他寄存器，内存中变量的其他基本位置。
+
+     https://zhuanlan.zhihu.com/p/324210723
+
+**** 索引寄存器
+     BP(Base Pointer)：基础指针，它是栈寄存器上的偏移量，用来定位栈上变量
+     SP(Stack Pointer): 栈指针，它是栈寄存器上的偏移量，用来定位栈顶
+     SI(Source Index): 变址寄存器，用来拷贝源字符串
+     DI(Destination Index): 目标变址寄存器，用来复制到目标字符串
+**** 状态和控制寄存器
+     IP(Instruction Pointer)：指令指针寄存器，它是从 Code Segment 代码寄存器处的偏移来存储执行的下一条指令
+     FLAG: Flag 寄存器用于存储当前进程的状态
+*** 待整理 TODONOW
+    1. 图灵机 => 通用图灵机
+       图灵机的控制器是单一的, 比如只能计算加法的加法控制器
+       通用图灵机是指 控制器通用了
+    2. PC, IP, CS
+       CS, IP是两个寄存器. 通过两个寄存器的值运算得到指令的地址, 也就是PC的值
+
+       CS: code segment 代码段寄存器
+       IP: instruction pointer 指令指针寄存器
+       PC: program count 程序计数器
+
+       16位机: CS<<4 + IP 只有20bit. 能访问的内存很小
+       32位机(即保护模式): PC = 根据CS在gdt中查表 + IP
+       gdt: global describe table(硬件设置的)
+    3. POSIX 指定了标准的系统调用(system_call)
+       POSIX: Portable Operating System Interface of Unix
+    4. 系统调用 != 函数调用
+       1) 系统调用 不能像 普通函数调用那样直接jump
+       2) 防止直接jump的手段 是通过硬件设计完成的
+          内核态, 用户态
+          不允许从用户段jump到内核段
+       3) 普通函数 想访问 系统调用(内核函数), 只能通过中断(int 0x80)
+          int 0x80 会把CPL设置为0, 允许用户段访问内核段
+    5. 多进程
+       共用cpu, 所以有了PCB
+       共用内存, 所以有了 虚拟内存(内存映射)
+    6. cpu调度算法
+       : 使用单变量counter可以完美实现, 参考linux 0.11
+       1) FIFO (公平原则)
+       2) 短作业优先
+       3) 轮转调度 Robin
+       4) 优先级
+    10. 锁很慢, 慢在哪
+        //锁机制
+        尝试使用硬件指令获得锁(现在一般是 compare and swap),
+        如果获得失败, 则使用内核提供的锁调用.
+
+        //慢的原因
+        1) 跨cpu调度   (> 2000ns)
+        2) cpu自身调度 (900ns)
+        3) 上下文切换  (150ns)
+        4) cache不命中 (消耗时间??)
+        5) TLB不命中   (这是什么?? 消耗时间??)
+
+        //优化
+        : 本质是减少锁冲突
+        1) 颗粒度. 加锁的范围要小
+           不要在锁的过程中做阻塞操作
+        2) 使用读写锁. 读操作之间不互斥
+        3) 自旋锁
+           如果锁的时间 < 调度时间, 那么可以自旋
+           自旋: 循环调用硬件指令获得锁 compare and swap, 一般100次左右
+
+*** Q & A
+    1. [ ] 如果高级语言C, C++都是在系统调用(system_call),
+       那么std::cout 和 printf 为什么会有差异
+       效率的差异主要体现在哪??
+    2. [ ] schedule()=>switch_to() 中为什么需要用汇编来精准控制?
+       教程中说是需要精准控制寄存器.
+       那么在计算机中, 寄存器的状态是怎样的
+    3. [ ] 多进程通信中的 同步问题
+       产生同步问题的根因: 多进程交互执行
+       原子操作, 锁 等都可以解决同步问题
+    4. [ ] 函数调用栈 && 寄存器信息 保存在TCB中,
+       那么PCB中会保存什么信息?
+    5. [X] 函数栈, TCB, esp之间的关系
+       函数栈: 函数调用栈
+       TCB: 除了关联(has?)函数栈, 还有PC信息
+       esp: 寄存器?? 这是什么的寄存器? 或者说 寄存器的作用
+
+       A:
+       寄存器类型:
+       ax,bx,cx,dx, cs,ds,ss, ip, sp
+
+       sp是16 bit; 后来有了32bit的, 就改名esp; 再后来又有了64bit的, 起名rsp
+    6. [ ] 为什么没有觉得操作系统很复杂??
+       当前进度: 多进程视图中的 进程切换
+       后续:
+       1) 多进程通信(同步)
+       2) mem, file 等其他视图
+    7. [ ] 中断本质是什么
+    8. [ ] 指令流水是什么?
+    9. [ ] L12 <<内核级线程实现>> 再学习
+       1) 先自己画图
+       2) 再自己写一遍代码
+       3) 与课程中的对照
+    10. [X] 信号量课程, 添加了sem之后, 还是需要从唤醒队列中拿取.
+        既然这样, 直接从唤醒队列中拿取就可以了, 为什么还需要sem
+        sem表示了资源的个数, 只有资源被消耗完之后, 才会变为-1,-2.
+    11. [X] 信号量课程, 如何保证sem的准确(锁? 原子操作)
+        参考 临界区
+    12. [ ] cpu流水指令, cache缓存
+    13. [ ] CAS compare and swap 实现逻辑
+    14. [ ] 使用银行家算法 来判断是否会 死锁
+        是否可使用向量来判断?
+    15. [ ] 进程页表中的逻辑地址为什么不会全部使用??
+        比如 有页表0,1,2,3. 但是可能只有0,1,3使用了, 但是2未使用
+
+        why ??
+        已知:
+        1) 进程 => (代码, 数据, 栈等)段 => 每个段都有自己的页表
+        如果是这样, 为什么还会空着页号呢???
+        会不会之前申请了某块内存a(产生了页3), 继续申请(产生页4), 释放内存a, 所以页3空了??
+
+** 操作系统习题练习
+   :PROPERTIES:
+   :CAPTURE_TODO: TODO
+   :CAPTURE_TIME: [2024-05-11 Sat 17:54]
+   :Effort:   8:00
+   :END:
+   :LOGBOOK:
+   CLOCK: [2024-05-30 Thu 16:42]--[2024-05-30 Thu 19:48] =>  3:06
+   :END:
+   目标:
+   1) 查缺补漏
+** GDB 调试学习
+   :PROPERTIES:
+   :CAPTURE_TIME: [2024-05-20 Mon 15:58]
+   :Effort:   3:00
+   :ARCHIVE_TIME: 2024-05-31 Fri 18:35
+   :ARCHIVE_FILE: ~/my/gtd/gtd_common/task.org
+   :ARCHIVE_OLPATH: os
+   :ARCHIVE_CATEGORY: task
+   :ARCHIVE_TODO: DONE
+   :END:
+   :LOGBOOK:
+   CLOCK: [2024-05-24 Fri 10:38]--[2024-05-24 Fri 12:36] =>  1:58
+   CLOCK: [2024-05-22 Wed 10:28]--[2024-05-22 Wed 11:32] =>  1:04
+   CLOCK: [2024-05-21 Tue 17:46]--[2024-05-21 Tue 18:10] =>  0:24
+   CLOCK: [2024-05-21 Tue 17:25]--[2024-05-21 Tue 17:45] =>  0:20
+   CLOCK: [2024-05-21 Tue 16:07]--[2024-05-21 Tue 16:42] =>  0:35
+   CLOCK: [2024-05-21 Tue 15:42]--[2024-05-21 Tue 16:00] =>  0:18
+   CLOCK: [2024-05-21 Tue 14:50]--[2024-05-21 Tue 14:59] =>  0:09
+   CLOCK: [2024-05-21 Tue 14:09]--[2024-05-21 Tue 14:35] =>  0:26
+   CLOCK: [2024-05-21 Tue 10:38]--[2024-05-21 Tue 13:09] =>  2:31
+   CLOCK: [2024-05-20 Mon 19:15]--[2024-05-20 Mon 19:17] =>  0:02
+   CLOCK: [2024-05-20 Mon 17:59]--[2024-05-20 Mon 19:08] =>  1:09
+   :END:
+
+   目标: 使用GDB完成对process view视图查看
+   1. proc 总体状态
+      [[https://sourceware.org/gdb/current/onlinedocs/gdb.html/Process-Information.html#Process-Information][官方文档: process information]]
+      1) proc where
+         #+begin_example
+         (gdb) info proc
+         process 217777
+         cmdline = '/home/clay/my/learn_gdb/a.out'
+         cwd = '/home/clay/my/learn_gdb'
+         exe = '/home/clay/my/learn_gdb/a.out'
+         #+end_example
+      2) proc status
+         #+begin_example
+         //TODONOW 补充对应的字段
+         info proc status
+
+         显示与进程相关的附加信息
+         1) 用户ID, group id
+         2) 虚拟内存使用情况
+         3) 待处理, 阻塞和沪铝的信号
+         4) 消耗系统和用户的时间
+         5) 堆栈大小
+         ...
+         #+end_example
+      3) 内存分布
+         段表LDT (Register: LDTR)
+         #+begin_example
+         //TODONOW 补充说明
+         (gdb) info proc mappings
+         process 217777
+         Mapped address spaces:
+
+           Start Addr           End Addr       Size     Offset  Perms  objfile
+       0x555555554000     0x555555555000     0x1000        0x0  r--p   /home/clay/my/learn_gdb/a.out
+       0x555555555000     0x555555556000     0x1000     0x1000  r-xp   /home/clay/my/learn_gdb/a.out
+       0x555555556000     0x555555557000     0x1000     0x2000  r--p   /home/clay/my/learn_gdb/a.out
+       0x555555557000     0x555555558000     0x1000     0x2000  r--p   /home/clay/my/learn_gdb/a.out
+       0x555555558000     0x555555559000     0x1000     0x3000  rw-p   /home/clay/my/learn_gdb/a.out
+       0x7ffff7d8a000     0x7ffff7d8d000     0x3000        0x0  rw-p
+       0x7ffff7d8d000     0x7ffff7db5000    0x28000        0x0  r--p   /usr/lib/x86_64-linux-gnu/libc.so.6
+       0x7ffff7db5000     0x7ffff7f4a000   0x195000    0x28000  r-xp   /usr/lib/x86_64-linux-gnu/libc.so.6
+       0x7ffff7f4a000     0x7ffff7fa2000    0x58000   0x1bd000  r--p   /usr/lib/x86_64-linux-gnu/libc.so.6
+       0x7ffff7fa2000     0x7ffff7fa3000     0x1000   0x215000  ---p   /usr/lib/x86_64-linux-gnu/libc.so.6
+       0x7ffff7fa3000     0x7ffff7fa7000     0x4000   0x215000  r--p   /usr/lib/x86_64-linux-gnu/libc.so.6
+       0x7ffff7fa7000     0x7ffff7fa9000     0x2000   0x219000  rw-p   /usr/lib/x86_64-linux-gnu/libc.so.6
+       0x7ffff7fa9000     0x7ffff7fb6000     0xd000        0x0  rw-p
+       0x7ffff7fbb000     0x7ffff7fbd000     0x2000        0x0  rw-p
+       0x7ffff7fbd000     0x7ffff7fc1000     0x4000        0x0  r--p   [vvar]
+       0x7ffff7fc1000     0x7ffff7fc3000     0x2000        0x0  r-xp   [vdso]
+       0x7ffff7fc3000     0x7ffff7fc5000     0x2000        0x0  r--p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+       0x7ffff7fc5000     0x7ffff7fef000    0x2a000     0x2000  r-xp   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+       0x7ffff7fef000     0x7ffff7ffa000     0xb000    0x2c000  r--p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+       0x7ffff7ffb000     0x7ffff7ffd000     0x2000    0x37000  r--p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+       0x7ffff7ffd000     0x7ffff7fff000     0x2000    0x39000  rw-p   /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+       0x7ffffffde000     0x7ffffffff000    0x21000        0x0  rw-p   [stack]
+         #+end_example
+
+         页表 (Register: cr3) TODONOW 待补充
+      4) 多线程视图
+         #+begin_example
+         //TODONOW 补充多线程情形
+         (gdb) info threads
+         Id   Target Id                                  Frame
+         * 1    Thread 0x7ffff7d8a740 (LWP 217777) "a.out" main (argc=1, argv=0x7fffffffe138) at main.cc:4
+
+         #+end_example
+   2. frame
+      #+begin_example
+      //info frame 显示的是更详细的信息, 但是可读性很差
+      (gdb) info frame
+      Stack level 0, frame at 0x7fffffffe030:
+      rip = 0x55555555513f in main (main.cc:4); saved rip = 0x7ffff7db6d90
+      source language c++.
+      Arglist at 0x7fffffffe020, args: argc=1, argv=0x7fffffffe138
+      Locals at 0x7fffffffe020, Previous frame's sp is 0x7fffffffe030
+      Saved registers:
+      rbp at 0x7fffffffe020, rip at 0x7fffffffe028
+
+
+      //TODONOW 补充多frame
+      (gdb) frame
+      #0  main (argc=1, argv=0x7fffffffe138) at main.cc:4
+      4	    int b = 2;
+      #+end_example
+   3. 当前frame下的其他信息
+      1) backtrace 函数栈
+      2) register 寄存器
+      3) local 本地?变量 //TODONOW 更准确的描述
+      4) scope 作用域变量
+
+*** step
+    1) [X] GDB 文档阅读
+    2) [X] using gdb under emacs
+    3) [ ] 上手实操
+
+*** think
+    1. 脑海中先有进程的view(多线程, 内存);
+       proc 也是一帧一帧(frame by frame)运行的;
+       查看的是每个frame下的状态(内存, Reigster, 线程等). 在不同frame间查看, 就像播放动画片

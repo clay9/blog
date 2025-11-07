@@ -1,0 +1,138 @@
+#+title: hugo
+#+date: 2024-01-30 10:24:31
+#+hugo_section: docs
+#+hugo_bundle: tool/hugo
+#+export_file_name: index
+#+hugo_weight: 5
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+
+使用hugo + github搭建blog
+
+#+hugo: more
+
+* 前言
+  记录blog好处很多, 却也增加了使用者的难度, 比如要理解html,css等. 同时,外在的表现往往会导致重心偏移, 过多追求外在的东西, 忽略了记录blog的初衷.
+
+  因此, 需要一个能让我们专注于文章知识本身, 而无需去关心其他的工具, 来帮助我们搭建blog.
+
+  当下, 一个不错的选择是hugo. hugo不拘束文章语言(markdown, org等), 自动将语言转化为html, 并且提供不错的主题外观, 使我们可以专注文章本身.
+
+* hugo是什么
+  如上所言, hugo是一款不错的blog框架
+
+  主要优点:
+  - 不限制前端语言
+  - 自动化生成html
+  - 丰富便捷的themes
+  - 与github action无缝结合, 无须在本地搭建hugo运行环境
+  - 迅速上手, 学习时间短
+  - 对org-mode的支持可以忍受
+
+* hugo使用
+** 安装
+   不建议在本地搭建hugo环境. 如果blog托管在github, 强烈推荐使用github action来部署.
+
+** 配置
+   hugo配置非常简单, 可以参考[[https://github.com/clay9/clay9.github.io/blob/master/config.toml][hugo.toml]]
+   github action的配置, 可以参考[[https://github.com/clay9/clay9.github.io/blob/master/.github/workflows/gh-pages.yml][yml]]
+
+** 使用
+   hugo官方guthub action是把content目录下的md文件, 转换为静态的html文件.
+   所以我们只要把自己的blog文件在官方之前, 转换为md文件放到content目录下面即可. 同样的, 我们也可以把自己生成的html文件直接放到content目录
+
+   虽然github action做了很多动作, 但我们需要做的只是维护自己的blog文件, 并git push即可. blog的更新流程由github action完成, 我们无须关心.
+* hugo高级用法
+** section && bundle && menu
+   | key     | desc                                     |
+   |---------+------------------------------------------|
+   | menu    | top navigation (所有文章\vert{}分类\vert{}标签\vert{}关于) |
+   |---------+------------------------------------------|
+   | section | post\vert{}docs\vert{}menu等                         |
+   |---------+------------------------------------------|
+   | bundle  | 文件资源的管理方式                       |
+   |---------+------------------------------------------|
+
+   bundle 只能是index.md 或者_index.md. 其他后缀名无效
+   TODO 增加bundle的详细解释
+
+** module
+   hugo module可以代替主题
+   使用步骤:
+   1. 把自身仓库变为hugo module
+      实际就是增加了一个go.mod文件
+   2. 在config.toml中增加module import
+      代替了theme, 所以这里的theme要删除, 否则hugo执行的时候会提示找不到theme
+   3. 调用hugo时, hugo会主动下载module, 并且把它认定为theme文件
+
+
+   vs gitsubmodule 优势
+   1. gitsubmodule还需要管理使用的theme的信息, module完全不需要管理
+      gitsubmodule 可以使用 update --remote来指定使用远程仓库信息, 但是繁琐, 不如go.mod方便
+** highlight
+   代码高亮风格: [[https://xyproto.github.io/splash/docs/index.html][hightlight style]]
+** shortcode
+   TODO 待补充
+   简单理解, 每个hugo theme可以定义自己的shortcode
+   这样可以充分扩展 markdown的语法
+
+** 自定义域名
+   实现子域名www.wcq.life 与 顶域名 wcq.life均可访问
+*** hugo配置
+    修改配置文件
+    #+begin_example
+    baseURL = "https://www.wcq.life"
+    #+end_example
+
+*** github配置
+    在blog/static目录下新增CNAME文件, 其内容为域名, 比如 www.wcq.life
+
+    static目录下的内容, 会由hugo action自动放到网站根结点. 这符合github的要求
+*** 域名服务商配置
+    1. [[https://help.github.com/articles/using-a-custom-domain-with-github-pages/][wcq.life绑定教程]]
+       建议创建 wcq.life指向 github的A记录
+    2. [[https://help.github.com/articles/using-a-custom-domain-with-github-pages/][www.wcq.life绑定教程]]
+       创建www.wcq.life指向clay9.github.io的CNAME即可
+
+    [[file:hugo/record.png]]
+** blank-line
+   hugo 默认使用goldmark作为md的解析器
+   设置markup.goldmark.renderer.hardWraps为true, goldmark 会把 \n => <br />
+   如果在emacs中设置(setq org-export-preserve-breaks t), ox-hugo也会把 \n => <br />
+   所以两者只需要设置一个, 这里建议设置emacs中的
+* hugo book theme
+** 基本概念
+  hugo-book-theme 的file-tree-menu (这里的file-tree-menu 不是上面的menu)
+
+  #+begin_src artist
+    server
+    \_ _index
+    \_ view
+       \_ _index
+       \_ page_3
+       \_ page_4
+    \_ page_1
+    \_ page_2
+  #+end_src
+
+  server/_index 是server的信息显示
+  server/view/_index是server/view的信息显示 (也可以没有)
+  page_1, page_2的weight只影响自身节点(server节点)下的排序, 不会影响server/view节点
+
+  hugo_book 简介的显示, 需要放到content/_index.md中
+** 参考文档
+   可以参考官方的例子去做
+   [[https://hugo-book-demo.netlify.app/][官方deamon对应的web展示]]
+   [[https://github.com/alex-shpak/hugo-book][官方github网址]]
+
+* Q & A
+  1. buildFuture: hugo无法正常发布DATE等于今天的blog
+     date导致的发布时间问题. 与github(美国时间)有时差, 导致发布的贴子无法立刻查看.
+
+     date的本意是 创作时间.
+     但是publishData为空的时候, 猜测使用了date时间.
+     而date又有时差, 导致帖子无法立刻被查看.
+
+     解决方案: 在gh-pages.yml中为hugo增加参数
+     hugo --minify --buildFuture
