@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 19 Nov 2025 08:46:39 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机</title><link>https://clay9.github.io/blog/docs/prog_base/01_turing/</link><pubDate>Thu, 13 Nov 2025 16:25:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/01_turing/</guid><description>&lt;p&gt;图灵机是一种&lt;a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B_%28%E6%95%B0%E5%AD%A6%29"&gt;计算模型&lt;/a&gt;, 告诉&amp;quot;能计算什么&amp;quot; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/philosophy/gtd/</link><pubDate>Sat, 08 Nov 2025 18:10:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/philosophy/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;为什么要用GTD&lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd"&gt;#&lt;/a&gt;&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>简介 on 飘</title><link>https://clay9.github.io/blog/</link><description>Recent content in 简介 on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Wed, 19 Nov 2025 12:16:57 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>图灵机</title><link>https://clay9.github.io/blog/docs/prog_base/01_turing/</link><pubDate>Thu, 13 Nov 2025 16:25:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_base/01_turing/</guid><description>&lt;p&gt;图灵机是一种&lt;a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9E%8B_%28%E6%95%B0%E5%AD%A6%29"&gt;计算模型&lt;/a&gt;, 告诉&amp;quot;能计算什么&amp;quot; &lt;br/&gt;&lt;/p&gt;</description></item><item><title>gtd</title><link>https://clay9.github.io/blog/docs/philosophy/gtd/</link><pubDate>Sat, 08 Nov 2025 18:10:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/philosophy/gtd/</guid><description>&lt;h2 id="为什么要用gtd"&gt;为什么要用GTD&lt;a class="anchor" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e7%94%a8gtd"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;每天或每周需要处理的事情非常之多, 小到晚上要洗衣服, 大到明天项目交付. &lt;br/&gt;
 这些事情如果都存储在脑中, 轻则焦虑不堪, 重则脑子爆炸. &lt;br/&gt;
 而且脑中一旦塞满了这类事情, 非常不利于思考. &lt;br/&gt;&lt;/p&gt;
@@ -968,7 +968,20 @@ Github Copilot, Tabnine, Replit Ghostwriter, Amazon CodeWhisperer 和 Codeium &l
 &lt;li&gt;贪心 &amp;ndash; 最优解 &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;*滑动窗口 &lt;br/&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="滑动窗口"&gt;&lt;span class="org-todo todo TODO"&gt;TODO&lt;/span&gt; 滑动窗口&lt;a class="anchor" href="#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3"&gt;#&lt;/a&gt;&lt;/h2&gt;</description></item><item><title>rup架构图</title><link>https://clay9.github.io/blog/posts/rup/</link><pubDate>Tue, 13 Jun 2023 00:56:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/rup/</guid><description>&lt;p&gt;RUP4+1架构图 &lt;br/&gt;&lt;/p&gt;</description></item><item><title/><link>https://clay9.github.io/blog/posts/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/readme/</guid><description>&lt;h2 id="目录说明"&gt;目录说明&lt;a class="anchor" href="#%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="滑动窗口"&gt;&lt;span class="org-todo todo TODO"&gt;TODO&lt;/span&gt; 滑动窗口&lt;a class="anchor" href="#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="整数反转"&gt;整数反转&lt;a class="anchor" href="#%e6%95%b4%e6%95%b0%e5%8f%8d%e8%bd%ac"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;获得反转后的数字 &lt;br/&gt;
+获得数字低位 - 高位 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;123 % 10 = 3; 123 / 10 = 12 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;12 % 10 = 2; 12/ 10 = 1 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;1 % 10 = 1; 1 / 10 = 0 &lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;可以看出终止条件为 x = 0 &lt;br/&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获得符号 &lt;br/&gt;
+&amp;gt; 0 ? + : - &lt;br/&gt;&lt;/p&gt;</description></item><item><title>rup架构图</title><link>https://clay9.github.io/blog/posts/rup/</link><pubDate>Tue, 13 Jun 2023 00:56:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/rup/</guid><description>&lt;p&gt;RUP4+1架构图 &lt;br/&gt;&lt;/p&gt;</description></item><item><title/><link>https://clay9.github.io/blog/posts/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clay9.github.io/blog/posts/readme/</guid><description>&lt;h2 id="目录说明"&gt;目录说明&lt;a class="anchor" href="#%e7%9b%ae%e5%bd%95%e8%af%b4%e6%98%8e"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;table&gt;
  &lt;thead&gt;
  &lt;tr&gt;
