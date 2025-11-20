@@ -83,3 +83,92 @@
 
   仔细想想确实是有蛛丝马迹的, 第一眼思路中获取的时候 /10,  反转的时候*10.
   这明显的关联, 表明两者可以同步进行
+* 字符串转换整数
+
+  流程就是题目中描述的:
+  1. 舍弃空格
+  2. 符号检查
+  3. 转换 -- 终止条件
+  4. 舍入: 额外条件判断
+
+
+  程序internal state
+  q0 -- 空格判断
+  q1 -- 符号检查
+  q2 -- 跳过0
+  q3 -- 转换
+
+
+  // 伪代码
+  int state = skip_space;
+  bool postive = true;
+  int ans;
+  for (auto & v : s ) {
+     // 跳过空格
+     if (state = skip_space) {
+        if (v = ' ') continue;
+        else state = symbol;
+     }
+
+     // 判断符号
+     if (state = symbol) {
+        if (v = '-') postive = false;
+
+        state = skip0;
+        if (v = '-' || v = '+') continue;
+     }
+
+     // 跳过0
+     if (state = skip0) {
+         if (v = '0') continue;
+         else state = translate
+     }
+
+     // 读取数字
+     if (state = translate){
+         if (v < '0' || v > '9') break;
+         else {
+            if (ans > INT_MAX/10) return INT_MAX;
+            if (ans < INT_MAX/10) return INT_MIN;
+            ans *= 10;
+            ans += positve ? v - '0' : -(v - '0')
+         }
+     }
+  }
+
+  return ans;
+
+  -----
+  这里遇到小坑了, 就是
+  if (ans > INT_MAX/10) return INT_MAX;
+  if (ans < INT_MAX/10) return INT_MIN;
+
+  习惯性的被上次的题目整数反转影响了, 实际判断应该是
+  ans * 10 + dig > INT_MAX ->
+  ans > (INT_MAX - dig) / 10
+
+  ans * 10 + dig < INT_MIN ->
+  ans < (INT_MIN - dig) / 10
+
+  考虑到越界问题, 完整的判断是
+  if (postive && ans > (INT_MAX - dig) / 10) return INT_MAX;
+  if (!postive && ans < (INT_MIN - dig) / 10) return INT_MIN;
+
+
+  -----
+  总结:
+
+  图灵机的internal state 非常适合处理这种多状态的问题, 而且简单易懂
+
+
+  以前总以为解体思路就是
+  1. 分治
+  2. 回溯
+  3. DP
+  4. 贪心
+  5. 滑动窗口
+  6. 双指针
+
+  但现在才发现并不是所有的题目都需要, 很多问题, 其实就是简单的图灵机问题, 使用基本的internal state 就可以了
+
+  ps: turing 和 λ验算的blog 要快点补充完整
