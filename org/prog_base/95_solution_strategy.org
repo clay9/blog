@@ -15,6 +15,7 @@
   3. 动态规划 -- 最优解
   4. 贪心 -- 最优解
   5. *滑动窗口
+  6. 双指针
 
 * TODO 滑动窗口
 * 整数反转
@@ -271,3 +272,113 @@
 
      hash 算法是处理搜索的,
      双指针 ?
+* 整数转罗马数字
+
+  回顾一下turing,
+  1) 无限长的纸带
+  2) 读写头
+  3) 内部状态
+  4) 程序 table
+
+  -----
+  对应在这个问题中
+
+  1. 从低位开始 -> 高位,  这样只需要循环一遍
+
+  2. internal state
+  q0: start
+  q1: 4, 9 开头  -> 减法形式
+  q2: [1, 3] -> 连续n次
+  q3: (4, 9) -> 最大值
+  q4: 0 -> 跳过
+
+  3. bit 与 罗马数字的映射
+
+
+  具体代码:
+
+  const string symbol[4][2] = {
+     I, V,
+     X, L,
+     C, D,
+     M
+  }
+
+  string ans;
+  int bit = 0;
+  while(val != 0) {
+    temp = val % 10; // get low bit
+
+    if (temp = 4) {
+    ans = symbol[bit][0] + symbol[bit][1] + ans;
+
+    } else if (temp = 9) {
+    ans = symbol[bit][0] + symbol[bit+1][0] + ans;
+    }
+    else if (temp >=1 && temp <= 3){
+    for(int i = 0; i< temp; i++){
+    ans = symbol[bit][0] + ans;
+    }
+    } else if (temp > 4 && temp < 9) {
+
+    while( temp != 0) {
+
+    if (temp > 5) {
+    temp -= 5;
+    ans = symbol[bit][1] + ans;
+    } else {
+    temp -= 1;
+    ans = symbol[bit][0] + ans;
+    }
+    }
+
+    } else if (temp == 0) {
+        ;  // do nothing
+    }
+
+
+    val = val / 10;
+    bit ++;
+  }
+
+
+
+  3999
+  0, 9  I V
+  1, 9  X L
+  2, 9  C D
+  3, 3  M
+
+
+  -----
+
+  官方解题思路是用罗马数字表示出所有数字
+  然后循环, 直到输入的num 为0
+
+  const pair<int, string> valueSymbols[] = {
+    {1000, "M"},
+    {900,  "CM"},
+    {500,  "D"},
+    {400,  "CD"},
+    {100,  "C"},
+    {90,   "XC"},
+    {50,   "L"},
+    {40,   "XL"},
+    {10,   "X"},
+    {9,    "IX"},
+    {5,    "V"},
+    {4,    "IV"},
+    {1,    "I"},
+  };
+
+
+  -----
+  总结:
+
+  为什么我第一时间想到的是 internal state?
+  是受了题目描述的影响, 题目描述中就是使用了分支描述
+
+
+  官方题解更优. 官方题解是循环减去罗马数字的最大值, 直到num 为0;
+  而我的解题, 则是根据输入来使用不同的action ( 仔细想想, 确实只是输入, 还没有internal state)
+  我的解题更接近turing machine. 而官方解体是对题目进一步思考之后的结果
