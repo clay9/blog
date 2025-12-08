@@ -1,0 +1,73 @@
+#+title: Wireshark
+#+date: 2025-12-08 10:09:32
+#+hugo_section: docs
+#+hugo_bundle: tool/11_wireshark
+#+export_file_name: index
+#+hugo_weight: 11
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+* 基础知识
+** 网卡
+
+   | 分类         | 接口示例          | 用途                    |
+   |--------------+-------------------+-------------------------|
+   | 物理有线网卡 | en0/eth0          | LAN/家庭局域网/数据中心 |
+   | 物理无线网卡 | en1/wlan0         | Wi-Fi                   |
+   | 虚拟回环     | lo0               | 本机程序通信            |
+   | 虚拟TUN/TAP  | utun0             | VPN/代理                |
+   | 容器/虚拟机  | docker0, vboxnet0 | 虚拟化网络              |
+
+** Protocol 协议
+
+   OSI 七层模型
+   | 层级 | 英文                         | 主要作用                               | 典型协议/应用                      | 举例说明                                         |
+   |------+------------------------------+----------------------------------------+------------------------------------+--------------------------------------------------|
+   |    7 | 应用层 (Application Layer)   | 提供用户和应用程序的网络服务接口       | HTTP, FTP, SMTP, DNS, MQTT         | 浏览器访问网页、邮件客户端收发邮件、IoT 设备通信 |
+   |    6 | 表示层 (Presentation Layer)  | 数据格式化、加密/解密、压缩/解压       | TLS/SSL, ASCII, JPEG, MPEG         | HTTPS 加密传输、图像或视频格式转换               |
+   |    5 | 会话层 (Session Layer)       | 建立、管理、终止会话/连接              | SIP, NetBIOS, RPC                  | 视频会议建立会话，数据库客户端维持连接           |
+   |    4 | 传输层 (Transport Layer)     | 端到端的数据传输，提供可靠或不可靠服务 | TCP, UDP, QUIC                     | TCP 可靠传输（重传、排序），UDP 流媒体传输       |
+   |    3 | 网络层 (Network Layer)       | 路由选择和逻辑寻址                     | IP, ICMP, ICMPv6, IGMP             | IP 地址路由，Ping 测试，组播管理                 |
+   |    2 | 数据链路层 (Data Link Layer) | 局域网内帧传输，物理地址管理，差错检测 | Ethernet, Wi-Fi (802.11), ARP, PPP | MAC 地址通信，交换机转发帧，ARP 地址解析         |
+   |    1 | 物理层 (Physical Layer)      | 实际传输比特流，定义物理介质和电气特性 | 光纤, 网线, 无线电信号             | 网线传输比特，Wi-Fi 信号发射，光纤信号传输       |
+
+   #+attr_shortcode: info
+   #+begin_hint
+   OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五层, 合并了5,6,7层
+   #+end_hint
+
+   -----
+   数据封装过程:
+
+   | 层         | 数据单位           | 说明                                                        |
+   |------------+--------------------+-------------------------------------------------------------|
+   | 应用层     | Data（应用数据）   | 例如 HTTP 请求、DNS 查询                                    |
+   | 传输层     | Segment / Datagram | TCP 报文段或 UDP 数据报，包含端口号、序列号等               |
+   | 网络层     | Packet             | IP 数据包，包含源 IP/目的 IP 等信息                         |
+   | 数据链路层 | Frame（帧）        | 在局域网中传输的数据单位，包含源 MAC/目的 MAC、类型、CRC 等 |
+   | 物理层     | Bits（比特流）     | 真正通过网线/光纤/无线信号传输的 0 和 1                     |
+
+
+   1. 应用层的Data (比如文本,图片或视频)被传输层封装为Segment/Datagram
+      Segment/Datagram本身不包含IP地址.
+
+   2. 网络层把Segment/Datagram打包为Packet
+
+   3. 网络层从应用层拿到目标ip后, 根据本地路由表判断:
+      - 目标在本地网络   -> 设定下一跳IP = 目标IP (发送给目标主机)
+      - 目标不在本地网络 -> 设定下一跳IP = 路由器IP (发送给网关)
+
+   4. 数据链路层拿到下一跳IP后, 获取对应的mac address
+      - 如果ARP缓存中可以找到IP对应的mac, 则使用该mac
+      - 如果ARP中未找到, 则发送ARP广播, 获取mac address
+
+   5. 数据链路层封装网络packet为frame, 并发送到对应的mac地址
+      数据链路层发送给交换机, 交换机发送给对应的mac address.
+      因为是通过交换机发送, 所以这里就是为什么需要frame中设置源, 目的mac address
+
+   6. *frame到了路由器后, 路由器在网络层查看IP 目的地址, 决定下一跳的IP
+      数据链路层重新封装frame:
+      源MAC = 路由器接口MAC
+      目的MAC = 下一跳设备MAC
