@@ -31,7 +31,7 @@ jobs:
       - name: Download hugo-book theme
         run: |
           mkdir -p themes
-          git clone --branch v12.0.0 https://github.com/alex-shpak/hugo-book.git themes/hugo-book
+          git clone --branch v0.14.0 https://github.com/alex-shpak/hugo-book.git themes/hugo-book
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3

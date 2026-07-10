@@ -78,9 +78,7 @@ org自带强大的export功能.
 
    | shortcode | 功能说明 | 使用情况             |
    |-----------+----------+----------------------|
-   | badges    | 标签     | 适合文章开头增加标识 |
    | +button+    | 按钮     | org-mode自带         |
-   | +card+      | 卡片     | org转md过于复杂      |
    | columns   | 列布局   |                      |
    | details   | 折叠块   |                      |
    | hints     | 提示框   |                      |

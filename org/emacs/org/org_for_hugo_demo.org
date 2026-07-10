@@ -248,11 +248,6 @@ org mode content到hugo book theme的演示.
     #+end_export
 
 ** Hugo book
-*** badge
-    #+begin_export hugo
-    {{< badge style="danger" title="this is badge" value="11" >}}
-    #+end_export
-
 *** columns
     #+begin_columns
     -  a title
