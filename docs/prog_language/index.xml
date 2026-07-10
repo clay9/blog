@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog language on 飘</title><link>https://clay9.github.io/blog/docs/prog_language/</link><description>Recent content in prog language on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Dec 2025 03:57:46 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_language/index.xml" rel="self" type="application/rss+xml"/><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>prog language on 飘</title><link>https://clay9.github.io/blog/docs/prog_language/</link><description>Recent content in prog language on 飘</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 10 Jul 2026 02:55:55 +0000</lastBuildDate><atom:link href="https://clay9.github.io/blog/docs/prog_language/index.xml" rel="self" type="application/rss+xml"/><item><title>elisp</title><link>https://clay9.github.io/blog/docs/prog_language/elisp/</link><pubDate>Thu, 18 Jan 2024 18:34:00 +0000</pubDate><guid>https://clay9.github.io/blog/docs/prog_language/elisp/</guid><description>&lt;p&gt;参考文档 &lt;br/&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href="http://smacs.github.io/elisp/02-elisp-basic.html"&gt;水木社区Emacs版&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.csdn.net/article/2012-11-22/2812113-The-Nature-Of-Lisp"&gt;lisp的本质&lt;/a&gt; &lt;br/&gt;&lt;/li&gt;
@@ -10,26 +10,26 @@
 &lt;li&gt;advice-add &lt;br/&gt;
 根据key来决定old_fun 与 new_fun的关系 &lt;br/&gt;
 &lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th&gt;key&lt;/th&gt;
- &lt;th&gt;desc&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td&gt;filter-return&lt;/td&gt;
- &lt;td&gt;先执行old. new对old的结果再处理&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;before&lt;/td&gt;
- &lt;td&gt;先执行new, 过滤一下数据, 再把结果给old&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td&gt;arround&lt;/td&gt;
- &lt;td&gt;先执行new, 并在new中主动调用old(也可以不调用)&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;key&lt;/th&gt;
+					&lt;th&gt;desc&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;filter-return&lt;/td&gt;
+					&lt;td&gt;先执行old. new对old的结果再处理&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;before&lt;/td&gt;
+					&lt;td&gt;先执行new, 过滤一下数据, 再把结果给old&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;arround&lt;/td&gt;
+					&lt;td&gt;先执行new, 并在new中主动调用old(也可以不调用)&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;使用defune 覆盖原函数定义 &lt;br/&gt;
@@ -40,11 +40,11 @@
 &lt;ol&gt;
 &lt;li&gt;elisp代码写入el文件(eshell script) &lt;br/&gt;&lt;/li&gt;
 &lt;li&gt;bash调用emacs执行el文件 &lt;br/&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 实际还是emacs 执行的elisp代码
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# 实际还是emacs 执行的elisp代码
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;emacs -u clay --script /Users/clay/.emacs.d/lisp/fun/init-hexo-fun.el&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id="elisp-调用bashe"&gt;elisp 调用bashe&lt;a class="anchor" href="#elisp-%e8%b0%83%e7%94%a8bashe"&gt;#&lt;/a&gt;&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq my-command
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(setq my-command
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(concat &amp;#34;IFS=: read -ra dirs &amp;lt;&amp;lt;&amp;lt;\&amp;#34;$PATH\&amp;#34;\n&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;for dir in ${dirs[@]}; do\n&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34; echo got dir \&amp;#34;$dir\&amp;#34;\n&amp;#34;

@@ -1,107 +1,107 @@
 <!doctype html><html lang=en dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="基础知识#
 网卡#
 
-  
-      
-          分类
-          接口示例
-          用途
-      
-  
-  
-      
-          物理有线网卡
-          en0/eth0
-          LAN/家庭局域网/数据中心
-      
-      
-          物理无线网卡
-          en1/wlan0
-          Wi-Fi
-      
-      
-          虚拟回环
-          lo0
-          本机程序通信
-      
-      
-          虚拟TUN/TAP
-          utun0
-          VPN/代理
-      
-      
-          容器/虚拟机
-          docker0, vboxnet0
-          虚拟化网络
-      
-  
+	
+			
+					分类
+					接口示例
+					用途
+			
+	
+	
+			
+					物理有线网卡
+					en0/eth0
+					LAN/家庭局域网/数据中心
+			
+			
+					物理无线网卡
+					en1/wlan0
+					Wi-Fi
+			
+			
+					虚拟回环
+					lo0
+					本机程序通信
+			
+			
+					虚拟TUN/TAP
+					utun0
+					VPN/代理
+			
+			
+					容器/虚拟机
+					docker0, vboxnet0
+					虚拟化网络
+			
+	
 
 Protocol 协议#
 OSI 七层模型 
 
-  
-      
-          层级
-          英文
-          主要作用
-          典型协议/应用
-          举例说明
-      
-  
-  
-      
-          7
-          应用层 (Application Layer)
-          提供用户和应用程序的网络服务接口
-          HTTP, FTP, SMTP, DNS, MQTT
-          浏览器访问网页、邮件客户端收发邮件、IoT 设备通信
-      
-      
-          6
-          表示层 (Presentation Layer)
-          数据格式化、加密/解密、压缩/解压
-          TLS/SSL, ASCII, JPEG, MPEG
-          HTTPS 加密传输、图像或视频格式转换
-      
-      
-          5
-          会话层 (Session Layer)
-          建立、管理、终止会话/连接
-          SIP, NetBIOS, RPC
-          视频会议建立会话，数据库客户端维持连接
-      
-      
-          4
-          传输层 (Transport Layer)
-          端到端的数据传输，提供可靠或不可靠服务
-          TCP, UDP, QUIC
-          TCP 可靠传输（重传、排序），UDP 流媒体传输
-      
-      
-          3
-          网络层 (Network Layer)
-          路由选择和逻辑寻址
-          IP, ICMP, ICMPv6, IGMP
-          IP 地址路由，Ping 测试，组播管理
-      
-      
-          2
-          数据链路层 (Data Link Layer)
-          局域网内帧传输，物理地址管理，差错检测
-          Ethernet, Wi-Fi (802.11), ARP, PPP
-          MAC 地址通信，交换机转发帧，ARP 地址解析
-      
-      
-          1
-          物理层 (Physical Layer)
-          实际传输比特流，定义物理介质和电气特性
-          光纤, 网线, 无线电信号
-          网线传输比特，Wi-Fi 信号发射，光纤信号传输
-      
-  
+	
+			
+					层级
+					英文
+					主要作用
+					典型协议/应用
+					举例说明
+			
+	
+	
+			
+					7
+					应用层 (Application Layer)
+					提供用户和应用程序的网络服务接口
+					HTTP, FTP, SMTP, DNS, MQTT
+					浏览器访问网页、邮件客户端收发邮件、IoT 设备通信
+			
+			
+					6
+					表示层 (Presentation Layer)
+					数据格式化、加密/解密、压缩/解压
+					TLS/SSL, ASCII, JPEG, MPEG
+					HTTPS 加密传输、图像或视频格式转换
+			
+			
+					5
+					会话层 (Session Layer)
+					建立、管理、终止会话/连接
+					SIP, NetBIOS, RPC
+					视频会议建立会话，数据库客户端维持连接
+			
+			
+					4
+					传输层 (Transport Layer)
+					端到端的数据传输，提供可靠或不可靠服务
+					TCP, UDP, QUIC
+					TCP 可靠传输（重传、排序），UDP 流媒体传输
+			
+			
+					3
+					网络层 (Network Layer)
+					路由选择和逻辑寻址
+					IP, ICMP, ICMPv6, IGMP
+					IP 地址路由，Ping 测试，组播管理
+			
+			
+					2
+					数据链路层 (Data Link Layer)
+					局域网内帧传输，物理地址管理，差错检测
+					Ethernet, Wi-Fi (802.11), ARP, PPP
+					MAC 地址通信，交换机转发帧，ARP 地址解析
+			
+			
+					1
+					物理层 (Physical Layer)
+					实际传输比特流，定义物理介质和电气特性
+					光纤, 网线, 无线电信号
+					网线传输比特，Wi-Fi 信号发射，光纤信号传输
+			
+	
 
 
-OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五层, 合并了5,6,7层 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/tool/11_wireshark/"><meta property="og:site_name" content="飘"><meta property="og:title" content="Wireshark"><meta property="og:description" content="基础知识# 网卡# 分类 接口示例 用途 物理有线网卡 en0/eth0 LAN/家庭局域网/数据中心 物理无线网卡 en1/wlan0 Wi-Fi 虚拟回环 lo0 本机程序通信 虚拟TUN/TAP utun0 VPN/代理 容器/虚拟机 docker0, vboxnet0 虚拟化网络 Protocol 协议# OSI 七层模型 层级 英文 主要作用 典型协议/应用 举例说明 7 应用层 (Application Layer) 提供用户和应用程序的网络服务接口 HTTP, FTP, SMTP, DNS, MQTT 浏览器访问网页、邮件客户端收发邮件、IoT 设备通信 6 表示层 (Presentation Layer) 数据格式化、加密/解密、压缩/解压 TLS/SSL, ASCII, JPEG, MPEG HTTPS 加密传输、图像或视频格式转换 5 会话层 (Session Layer) 建立、管理、终止会话/连接 SIP, NetBIOS, RPC 视频会议建立会话，数据库客户端维持连接 4 传输层 (Transport Layer) 端到端的数据传输，提供可靠或不可靠服务 TCP, UDP, QUIC TCP 可靠传输（重传、排序），UDP 流媒体传输 3 网络层 (Network Layer) 路由选择和逻辑寻址 IP, ICMP, ICMPv6, IGMP IP 地址路由，Ping 测试，组播管理 2 数据链路层 (Data Link Layer) 局域网内帧传输，物理地址管理，差错检测 Ethernet, Wi-Fi (802.11), ARP, PPP MAC 地址通信，交换机转发帧，ARP 地址解析 1 物理层 (Physical Layer) 实际传输比特流，定义物理介质和电气特性 光纤, 网线, 无线电信号 网线传输比特，Wi-Fi 信号发射，光纤信号传输 OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五层, 合并了5,6,7层"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2025-12-08T10:09:00+00:00"><meta property="article:modified_time" content="2025-12-08T03:57:46+00:00"><title>Wireshark | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/tool/11_wireshark/><link rel=stylesheet href=/blog/book.min.e456d10aed65d3bbdca94d70c236a8aa850b8de9fd31e4073ed44adec0702035.css integrity="sha256-5FbRCu1l07vcqU1wwjaoqoULjen9MeQHPtRK3sBwIDU=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.e6122c7a5231d83ee0f4ad1b66ecfa52a9b3e6e5cc18e2df968b0e94e9ca1e89.js integrity="sha256-5hIselIx2D7g9K0bZuz6Uqmz5uXMGOLflosOlOnKHok=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
+OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五层, 合并了5,6,7层 "><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://clay9.github.io/blog/docs/tool/11_wireshark/"><meta property="og:site_name" content="飘"><meta property="og:title" content="Wireshark"><meta property="og:description" content="基础知识# 网卡# 分类 接口示例 用途 物理有线网卡 en0/eth0 LAN/家庭局域网/数据中心 物理无线网卡 en1/wlan0 Wi-Fi 虚拟回环 lo0 本机程序通信 虚拟TUN/TAP utun0 VPN/代理 容器/虚拟机 docker0, vboxnet0 虚拟化网络 Protocol 协议# OSI 七层模型 层级 英文 主要作用 典型协议/应用 举例说明 7 应用层 (Application Layer) 提供用户和应用程序的网络服务接口 HTTP, FTP, SMTP, DNS, MQTT 浏览器访问网页、邮件客户端收发邮件、IoT 设备通信 6 表示层 (Presentation Layer) 数据格式化、加密/解密、压缩/解压 TLS/SSL, ASCII, JPEG, MPEG HTTPS 加密传输、图像或视频格式转换 5 会话层 (Session Layer) 建立、管理、终止会话/连接 SIP, NetBIOS, RPC 视频会议建立会话，数据库客户端维持连接 4 传输层 (Transport Layer) 端到端的数据传输，提供可靠或不可靠服务 TCP, UDP, QUIC TCP 可靠传输（重传、排序），UDP 流媒体传输 3 网络层 (Network Layer) 路由选择和逻辑寻址 IP, ICMP, ICMPv6, IGMP IP 地址路由，Ping 测试，组播管理 2 数据链路层 (Data Link Layer) 局域网内帧传输，物理地址管理，差错检测 Ethernet, Wi-Fi (802.11), ARP, PPP MAC 地址通信，交换机转发帧，ARP 地址解析 1 物理层 (Physical Layer) 实际传输比特流，定义物理介质和电气特性 光纤, 网线, 无线电信号 网线传输比特，Wi-Fi 信号发射，光纤信号传输 OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五层, 合并了5,6,7层"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="docs"><meta property="article:published_time" content="2025-12-08T10:09:00+00:00"><meta property="article:modified_time" content="2026-07-10T02:55:55+00:00"><title>Wireshark | 飘</title><link rel=icon href=/blog/favicon.png><link rel=manifest href=/blog/manifest.json><link rel=canonical href=https://clay9.github.io/blog/docs/tool/11_wireshark/><link rel=stylesheet href=/blog/book.min.e456d10aed65d3bbdca94d70c236a8aa850b8de9fd31e4073ed44adec0702035.css integrity="sha256-5FbRCu1l07vcqU1wwjaoqoULjen9MeQHPtRK3sBwIDU=" crossorigin=anonymous><script defer src=/blog/fuse.min.js></script><script defer src=/blog/en.search.min.7f9ec0118021f750d91f02c4319d372408904d3d5bd15105349cabe114b17862.js integrity="sha256-f57AEYAh91DZHwLEMZ03JAiQTT1b0VEFNJyr4RSxeGI=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-docs"><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/blog/><span>飘</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><input type=checkbox id=section-991bd30d46a386cace03b4f84b11c8f5 class=toggle>
 <label for=section-991bd30d46a386cace03b4f84b11c8f5 class=flex><a role=button>os</a>
 <img src=/blog/icons/chevron-right.svg class=book-icon></label><ul><li><a href=/blog/docs/os/mac/>mac</a></li><li><a href=/blog/docs/os/linux/>linux</a></li><li><input type=checkbox id=section-f866724d2acb7e76aaac59a04f639ef7 class=toggle>
@@ -130,7 +130,7 @@ OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五
 <label for=section-5a14b397bf7b143e435d509e6ce0a2f4 class=flex><a role=button>prog base</a>
 <img src=/blog/icons/chevron-right.svg class=book-icon></label><ul><li><a href=/blog/docs/prog_base/01_turing/>图灵机</a></li><li><a href=/blog/docs/prog_base/02_lambda/>λ验算</a></li><li><a href=/blog/docs/prog_base/05_programming_paradigm/>编程范式</a></li><li><a href=/blog/docs/prog_base/06_principles/>设计原则</a></li><li><a href=/blog/docs/prog_base/07_design_pattern/>设计模式</a></li><li><a href=/blog/docs/prog_base/99_algorithm/>数据结构</a></li><li><a href=/blog/docs/prog_base/91_algorithm/>算法分析</a></li><li><a href=/blog/docs/prog_base/95_solution_strategy/>解题思路</a></li></ul></li><li><input type=checkbox id=section-a21c7c1e5253f7258b54a084bca47bcd class=toggle checked>
 <label for=section-a21c7c1e5253f7258b54a084bca47bcd class=flex><a role=button>tools</a>
-<img src=/blog/icons/chevron-right.svg class=book-icon></label><ul><li><a href=/blog/docs/tool/docker/>docker</a></li><li><a href=/blog/docs/tool/k8s/>k8s</a></li><li><a href=/blog/docs/tool/monitor/>cadvisor, prometheus, grafana</a></li><li><a href=/blog/docs/tool/hugo/>hugo</a></li><li><a href=/blog/docs/tool/11_wireshark/ class=active>Wireshark</a></li><li><a href=/blog/docs/tool/redis/>redis</a></li><li><a href=/blog/docs/tool/sql/>数据库</a></li><li><a href=/blog/docs/tool/protocol/>乱七八糟的协议合集</a></li></ul></li><li><input type=checkbox id=section-00470258e11beb8778cf3c8f3c62a5f8 class=toggle>
+<img src=/blog/icons/chevron-right.svg class=book-icon></label><ul><li><a href=/blog/docs/tool/docker/>docker</a></li><li><a href=/blog/docs/tool/k8s/>k8s</a></li><li><a href=/blog/docs/tool/monitor/>cadvisor, prometheus, grafana</a></li><li><a href=/blog/docs/tool/hugo/>hugo</a></li><li><a href=/blog/docs/tool/11_wireshark/ class=active>Wireshark</a></li><li><a href=/blog/docs/tool/redis/>redis</a></li><li><a href=/blog/docs/tool/sql/>数据库</a></li><li><a href=/blog/docs/tool/21_rime/>Rime输入法</a></li><li><a href=/blog/docs/tool/protocol/>乱七八糟的协议合集</a></li></ul></li><li><input type=checkbox id=section-00470258e11beb8778cf3c8f3c62a5f8 class=toggle>
 <label for=section-00470258e11beb8778cf3c8f3c62a5f8 class=flex><a role=button>philosophy</a>
 <img src=/blog/icons/chevron-right.svg class=book-icon></label><ul><li><a href=/blog/docs/philosophy/gtd/>gtd</a></li></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/blog/icons/menu.svg class=book-icon alt=Menu></label><h3>Wireshark</h3><label for=toc-control><img src=/blog/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#基础知识>基础知识</a><ul><li><a href=#网卡>网卡</a></li><li><a href=#protocol-协议>Protocol 协议</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h2 id=基础知识>基础知识<a class=anchor href=#%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86>#</a></h2><h3 id=网卡>网卡<a class=anchor href=#%e7%bd%91%e5%8d%a1>#</a></h3><table><thead><tr><th>分类</th><th>接口示例</th><th>用途</th></tr></thead><tbody><tr><td>物理有线网卡</td><td>en0/eth0</td><td>LAN/家庭局域网/数据中心</td></tr><tr><td>物理无线网卡</td><td>en1/wlan0</td><td>Wi-Fi</td></tr><tr><td>虚拟回环</td><td>lo0</td><td>本机程序通信</td></tr><tr><td>虚拟TUN/TAP</td><td>utun0</td><td>VPN/代理</td></tr><tr><td>容器/虚拟机</td><td>docker0, vboxnet0</td><td>虚拟化网络</td></tr></tbody></table><h3 id=protocol-协议>Protocol 协议<a class=anchor href=#protocol-%e5%8d%8f%e8%ae%ae>#</a></h3><p>OSI 七层模型<br></p><table><thead><tr><th>层级</th><th>英文</th><th>主要作用</th><th>典型协议/应用</th><th>举例说明</th></tr></thead><tbody><tr><td>7</td><td>应用层 (Application Layer)</td><td>提供用户和应用程序的网络服务接口</td><td>HTTP, FTP, SMTP, DNS, MQTT</td><td>浏览器访问网页、邮件客户端收发邮件、IoT 设备通信</td></tr><tr><td>6</td><td>表示层 (Presentation Layer)</td><td>数据格式化、加密/解密、压缩/解压</td><td>TLS/SSL, ASCII, JPEG, MPEG</td><td>HTTPS 加密传输、图像或视频格式转换</td></tr><tr><td>5</td><td>会话层 (Session Layer)</td><td>建立、管理、终止会话/连接</td><td>SIP, NetBIOS, RPC</td><td>视频会议建立会话，数据库客户端维持连接</td></tr><tr><td>4</td><td>传输层 (Transport Layer)</td><td>端到端的数据传输，提供可靠或不可靠服务</td><td>TCP, UDP, QUIC</td><td>TCP 可靠传输（重传、排序），UDP 流媒体传输</td></tr><tr><td>3</td><td>网络层 (Network Layer)</td><td>路由选择和逻辑寻址</td><td>IP, ICMP, ICMPv6, IGMP</td><td>IP 地址路由，Ping 测试，组播管理</td></tr><tr><td>2</td><td>数据链路层 (Data Link Layer)</td><td>局域网内帧传输，物理地址管理，差错检测</td><td>Ethernet, Wi-Fi (802.11), ARP, PPP</td><td>MAC 地址通信，交换机转发帧，ARP 地址解析</td></tr><tr><td>1</td><td>物理层 (Physical Layer)</td><td>实际传输比特流，定义物理介质和电气特性</td><td>光纤, 网线, 无线电信号</td><td>网线传输比特，Wi-Fi 信号发射，光纤信号传输</td></tr></tbody></table><blockquote class="book-hint info"><p>OSI 七层模型只是指导作用(建筑蓝图), 现在网络实际是TCP/IP五层, 合并了5,6,7层<br></p></blockquote><hr><p>数据封装过程:<br></p><table><thead><tr><th>层</th><th>数据单位</th><th>说明</th></tr></thead><tbody><tr><td>应用层</td><td>Data（应用数据）</td><td>例如 HTTP 请求、DNS 查询</td></tr><tr><td>传输层</td><td>Segment / Datagram</td><td>TCP 报文段或 UDP 数据报，包含端口号、序列号等</td></tr><tr><td>网络层</td><td>Packet</td><td>IP 数据包，包含源 IP/目的 IP 等信息</td></tr><tr><td>数据链路层</td><td>Frame（帧）</td><td>在局域网中传输的数据单位，包含源 MAC/目的 MAC、类型、CRC 等</td></tr><tr><td>物理层</td><td>Bits（比特流）</td><td>真正通过网线/光纤/无线信号传输的 0 和 1</td></tr></tbody></table><ol><li><p>应用层的Data (比如文本,图片或视频)被传输层封装为Segment/Datagram<br>Segment/Datagram本身不包含IP地址.<br></p></li><li><p>网络层把Segment/Datagram打包为Packet<br></p></li><li><p>网络层从应用层拿到目标ip后, 根据本地路由表判断:<br></p><ul><li>目标在本地网络 -> 设定下一跳IP = 目标IP (发送给目标主机)<br></li><li>目标不在本地网络 -> 设定下一跳IP = 路由器IP (发送给网关)<br></li></ul></li><li><p>数据链路层拿到下一跳IP后, 获取对应的mac address<br></p><ul><li>如果ARP缓存中可以找到IP对应的mac, 则使用该mac<br></li><li>如果ARP中未找到, 则发送ARP广播, 获取mac address<br></li></ul></li><li><p>数据链路层封装网络packet为frame, 并发送到对应的mac地址<br>数据链路层发送给交换机, 交换机发送给对应的mac address.<br>因为是通过交换机发送, 所以这里就是为什么需要frame中设置源, 目的mac address<br></p></li><li><p>*frame到了路由器后, 路由器在网络层查看IP 目的地址, 决定下一跳的IP<br>数据链路层重新封装frame:<br>源MAC = 路由器接口MAC<br>目的MAC = 下一跳设备MAC<br></p></li></ol></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><div class="flex flex-wrap justify-between"><span><a href=/blog/docs/tool/hugo/ class="flex align-center"><img src=/blog/icons/backward.svg class=book-icon alt=Previous title=hugo>
 <span>hugo</span>
