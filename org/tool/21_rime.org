@@ -1,0 +1,57 @@
+#+title: Rime输入法
+#+date: 2026-07-10 07:04:46
+#+hugo_section: docs
+#+hugo_bundle: tool/21_rime
+#+export_file_name: index
+#+hugo_weight: 21
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+* 为什么需要
+  1. emacs 中英文切换
+
+* macos安装rime
+  #+attr_shortcode: info
+  #+begin_hint
+  可以不在macos安装rime. 只在emacs 安装.
+  两边都安装是为了方便同步词库
+  #+end_hint
+
+  1. [[https://rime.im/][官网下载]]
+  2. macos启用rime输入法
+     下载完成后, 点击mac的"系统-键盘-文字输入"旁边的"编辑", 添加"简体中文-鼠须管"
+  3. 配置rime输入法
+  4. 部署
+     - 重新部署: 编译配置, 让修改的YAML生效
+     - 同步用户数据: 把词频,词库等生成到同步目录中
+* Emacs使用rime
+  1. 确定鼠须管使用的librime版本(如果安装鼠须管)
+     鼠须管重新部署后, 查看~/Library/Rime/installation.yaml中的rime_version
+     : 是为了macos::rime 和 emacs::rime的配置可以通用
+  2. 下载对应的librime
+  3. 执行M-x toggle-input-method
+     第一次启动会自动编译动态模块, 可以查看是否编译正常, 输出在buff "*Shell Command Output*";
+     如果是macos, 需要在隐私与安全性中确认几个库是安全的.
+
+* TODO rime配置
+** 常见文件
+#+begin_example
+~/Library/Rime
+├── default.yaml
+├── default.custom.yaml        ← 全局设置
+├── squirrel.yaml
+├── squirrel.custom.yaml       ← 鼠须管设置
+│
+├── luna_pinyin.schema.yaml
+├── luna_pinyin.custom.yaml    ← 拼音方案修改
+│
+├── luna_pinyin.dict.yaml      ← 词典
+│
+├── custom_phrase.txt          ← 自定义短语
+├── installation.yaml
+├── user.yaml
+├── build/
+└── *.userdb
+#+end_example
