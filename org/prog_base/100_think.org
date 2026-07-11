@@ -1,0 +1,118 @@
+#+title: TODO 思想
+#+date: 2026-07-11 07:54:18
+#+hugo_section: docs
+#+hugo_bundle: prog_base/100_think
+#+export_file_name: index
+#+hugo_weight: 100
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+1. RAII
+2. 异常处理
+
+#+hugo: more
+* RAII
+  全称(Resource Acquisition Is Initialization), 中文翻译:资源获取即初始化.
+
+  实际意义: 把资源的生命周期绑定到对象的生命周期上
+
+* 异常处理
+  1. C++ 早期(1979～1980年代): 没有异常
+     最初的 C++(当时叫“C with Classes”) 沿用C的错误处理方式, 通过返回值来表示错误:
+     #+begin_src C++ :hl_lines
+       int ret = open_file("a.txt");
+
+       if (ret != 0)
+       {
+         // error
+       }
+     #+end_src
+
+     缺点:
+     1) 错误必须层层传递
+     2) 容易忘记检查返回值
+     3) 正常逻辑错误处理被异常错误污染
+  2. 1980年代中后期: C++开始设计异常机制
+     C++ 使用对象, 而对象在构造之后, 无法像之前一样返回错误码.
+     同时综合考虑RAII, C++ 引入了异常
+     #+begin_src C++ :hl_lines
+       File::File()
+       {
+         if(error)
+           throw FileError();
+       }
+     #+end_src
+
+     缺点:
+     1) 隐式控制流
+     2) 复杂异常安全规则
+     3) 调试困难
+     4) 性能问题
+  3. C++23 : 引入std::expected
+     std::expected 把错误当作返回值的一部分处理
+
+     #+begin_src C++ :hl_lines
+       std::expected<int, FileError> read_file()
+       {
+         if (error)
+           return std::unexpected(FileError{});
+
+         return 100;
+       }
+
+       auto result = read_file();
+
+       if (!result)
+         {
+           // 处理错误
+         }
+         else
+         {
+           int value = *result;
+         }
+     #+end_src
+
+     问题:
+     1) std::expected 不是用来代替异常的. 两者使用场景不一样.
+        异常表示发生了意外情况;
+        std::expected 表示的是正常可预期的失败;
+
+        #+begin_src C++ :hl_lines
+          expected<User, NotFound> find_user(id);
+        #+end_src
+        用户不存在不是异常, 而是一种结果
+     2) std::expected 没有直接解决File file 失败的问题.
+        在C++ 中对象File file 是确定的, 要么成功, 要么失败(抛出throw)
+
+        std::expected 通过对象工厂来间接解决File file 失败问题
+        #+begin_src C++ :hl_lines
+          class File
+          {
+           private:
+            File(int fd);
+
+           public:
+            static std::expected<File, Error>
+            create(std::string_view path);
+          };
+
+
+
+          std::expected<File, FileError>
+          File::open(std::string path)
+          {
+            int fd = ::open(path.c_str());
+
+            if(fd < 0)
+              {
+                return std::unexpected(FileError{});
+              }
+
+            return File(fd);
+          }
+        #+end_src
+
+        所以std::expected不解决这个语法形式的问题，而是改变 API 设计
+        从File file 变为 auto file = File::open(); //返回std::expected
