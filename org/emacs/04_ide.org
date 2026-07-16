@@ -1,0 +1,46 @@
+#+title: C++ IDE
+#+date: 2026-07-16 09:08:03
+#+hugo_section: docs
+#+hugo_bundle: emacs/04_ide
+#+export_file_name: index
+#+hugo_weight: 4
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+Emacs 构造C++ IDE
+
+#+hugo: more
+* IDE 功能
+  1. 编辑器
+     | 功能     | Emacs package       |
+     |----------+---------------------|
+     | 语法高亮 | tree-sitter         |
+     | LSP      | eglot               |
+     | 代码补全 | completion-at-point |
+     | 错误诊断 | flymake             |
+     | 代码导航 | xref                |
+     | 代码重构 | eglot code actions  |
+     |----------+---------------------|
+  2. 编译器
+     compile 调用外部程序
+  3. 调试器
+     gud (TODO 后续使用dap-mode 代替)
+  4. 项目管理
+     - project.el 管理项目
+     - magit 版本管理
+  5. AI 辅助
+     TODO 后续补充
+
+* 工作流程
+  场景:
+  代码文件在host中, 编译环境在container.
+
+  工作流程:
+  Emacs在host中打开文件;
+  eglot连接container中的lsp server(clangd);
+  compile调用container中的编译命令;
+  magit, rg等运行在host
+
+  也就是说除了与编译环境有关的命令外, 都使用host中的.
