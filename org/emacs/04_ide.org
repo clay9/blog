@@ -12,6 +12,7 @@
 Emacs 构造C++ IDE
 
 #+hugo: more
+
 * IDE 功能
   1. 编辑器
      | 功能     | Emacs package       |
