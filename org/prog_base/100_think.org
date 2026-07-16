@@ -21,7 +21,7 @@
 * 异常处理
   1. C++ 早期(1979～1980年代): 没有异常
      最初的 C++(当时叫“C with Classes”) 沿用C的错误处理方式, 通过返回值来表示错误:
-     #+begin_src C++ :hl_lines
+     #+begin_src C++
        int ret = open_file("a.txt");
 
        if (ret != 0)
@@ -37,7 +37,7 @@
   2. 1980年代中后期: C++开始设计异常机制
      C++ 使用对象, 而对象在构造之后, 无法像之前一样返回错误码.
      同时综合考虑RAII, C++ 引入了异常
-     #+begin_src C++ :hl_lines
+     #+begin_src C++
        File::File()
        {
          if(error)
@@ -53,7 +53,7 @@
   3. C++23 : 引入std::expected
      std::expected 把错误当作返回值的一部分处理
 
-     #+begin_src C++ :hl_lines
+     #+begin_src C++
        std::expected<int, FileError> read_file()
        {
          if (error)
@@ -79,7 +79,7 @@
         异常表示发生了意外情况;
         std::expected 表示的是正常可预期的失败;
 
-        #+begin_src C++ :hl_lines
+        #+begin_src C++
           expected<User, NotFound> find_user(id);
         #+end_src
         用户不存在不是异常, 而是一种结果
@@ -87,7 +87,7 @@
         在C++ 中对象File file 是确定的, 要么成功, 要么失败(抛出throw)
 
         std::expected 通过对象工厂来间接解决File file 失败问题
-        #+begin_src C++ :hl_lines
+        #+begin_src C++
           class File
           {
            private:
