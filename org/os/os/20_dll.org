@@ -1,0 +1,68 @@
+#+title: library
+#+date: 2025-09-11 02:11:19
+#+hugo_section: docs
+#+hugo_bundle: os/os/dll
+#+export_file_name: index
+#+hugo_weight:20
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+linux下静态库 && 动态库
+
+#+hugo: more
+
+* 差异区别
+  |          | 静态库                                              | 动态库                              |
+  |----------+-----------------------------------------------------+-------------------------------------|
+  | format   | .a                                                  | .so                                 |
+  | 编译连接 | copy静态库到目标文件                                | no copy                             |
+  | 运行     | 不再访问原静态库                                    | 需要访问动态库                      |
+  | 生成方式 | 1. 源文件生成一系列.o, 每个.o都包含编译单元的符号表 | 1. gcc -fPIC file1.c -c 生成file1.o |
+  |          | 2. ar指令把.os转为.a                                | 2. gcc -shared file1.o -o libt.so   |
+  |----------+-----------------------------------------------------+-------------------------------------|
+
+
+* Q % A
+  1. 运行时候找不到动态库
+     - mov .so to /usr/lib或/lib. 不推荐
+     - export LD_LIBRARY_PATH=/path/to/.so
+     - 在/etc/ld.so.conf文件里加入我们生成的库的目录，然后ldconfig
+
+  2. 加载动态库
+     函数原型：void *dlopen(const char *libname,int flag);
+     1) 参数中的libname一般是库的全路径，这样dlopen会直接装载该文件
+        #+attr_shortcode: info
+        #+begin_hint
+        如果只是指定了库名称，在dlopen在查找库的过程中会按照如下路径进行搜索：
+        1. 根据环境变量LD_LIBRARY_PATH查找
+        2. 根据/etc/ld.so.cache查找
+        3. 查找依次在/lib和/usr/lib目录查找。
+        #+end_hint
+     2) flag参数表示处理未定义函数的方式，可以使用RTLD_LAZY或RTLD_NOW
+        #+attr_shortcode: info
+        #+begin_hint
+        RTLD_LAZY表示暂时不去处理未定义函数，先把库装载到内存，等用到没定义的函数再说；
+        RTLD_NOW表示马上检查是否存在未定义的函数，若存在，则dlopen以失败告终。
+        #+end_hint
+
+
+* 动态库再认知
+** 结论
+   动态库允许延迟定义,
+   但是在连接为可执行文件时, 所有动态库的声明必须有定义
+
+** 测试
+   A 依赖libbase.so, B依赖libA
+   A编译的时候, 不指定libbase.so(但是要include base的头文件), 可以编译成功.
+   表示满足延迟定义
+
+   B -lA 编译, 编译成功, 连接失败, 提示libA没有xxx的定义(在libbase中)
+   若B -lA -lbase, 则编译连接都成功
+   #+attr_shortcode: info
+   #+begin_hint
+   连接为执行文件的时候, 所有的声明都必须要有定义
+   而且这个定义可以是在A中-lbase, 也可以是在B中 -lbase
+   说明-lbase只是告之符合连接表而已
+   #+end_hint

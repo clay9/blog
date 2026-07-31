@@ -1,0 +1,38 @@
+#+title: 线程
+#+date: 2026-07-31 18:52:39
+#+hugo_section: docs
+#+hugo_bundle: os/os/2_thread
+#+export_file_name: index
+#+hugo_weight: 2
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+* c++代码 与 汇编的差异
+  c++: n++
+
+  在汇编中实际是3行代码
+  1. 读取内存数据 -> register
+  2. register 操作数据加1
+  3. register写会数据 -> 内存
+
+  所以不要被自己眼睛骗了, 多用汇编去思考
+
+* 如何防止数据竞争
+  1. 不共享
+     把竞争的数据变为线程内部数据 thread local
+     最效率, 不需要锁
+  2. 硬件支持的原子操作
+     1) 单个变量: atomic, 翻译为硬件支持的原子操作 (对比n++ 的3行逻辑)
+     2) 复杂数据: 无锁数据结构
+  3. 锁
+* “无锁”不一定比“有锁”快
+  | 场景           | 选用无锁（CAS / Lock-Free）                          | 选用互斥锁（Mutex）                                     |
+  |----------------+------------------------------------------------------+---------------------------------------------------------|
+  | 低 / 中度竞争  | 完胜（无上下文切换开销）                             | 稍逊（有加解锁开销）                                    |
+  | 重度/极高竞争  | 完败（上万线程反复 CAS 失败，CPU 被空转拉爆到 100%） | 完胜（抢不到锁的线程直接休眠，把 CPU 资源让给持锁线程） |
+  | 临界区逻辑复杂 | 实现极难，甚至不可能                                 | 极易编写和维护                                          |
+
+
+  结论： 在极度剧烈的写竞争下，让抢不到锁的线程“休眠”（使用互斥锁/ Futex）反而比让它们“不停 CAS 自旋”（无锁）更能保护 CPU，防止系统雪崩。
