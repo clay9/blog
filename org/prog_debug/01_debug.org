@@ -1,0 +1,46 @@
+#+title: 程序错误检测与分析
+#+date: 2026-08-01 23:23:58
+#+hugo_section: docs
+#+hugo_bundle: prog_debug/01_debug
+#+export_file_name: index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+* 总览
+  1. 运行时检测分析
+  2. crash后最好用的方法 core + gdb
+  3. crash后次一级的方法 临终遗言
+
+* 运行时检测
+  Sanitizer家族已经取代Valgrind, 成为最常用的运行时检测(2026/8/1)
+
+  | Sanitizer   | 全称                               | 主要检测问题           | 常用场景             |
+  |-------------+------------------------------------+------------------------+----------------------|
+  | **ASan**      | AddressSanitizer                   | 内存错误               | 日常开发首选         |
+  | **UBSan**     | UndefinedBehaviorSanitizer         | C++未定义行为          | 几乎总和 ASan 一起用 |
+  | **TSan**      | ThreadSanitizer                    | 数据竞争、线程同步错误 | 多线程程序           |
+  | **MSan**      | MemorySanitizer                    | 未初始化内存读取       | 高安全要求代码       |
+  | **LSan**      | LeakSanitizer                      | 内存泄漏               | 服务端、长期运行程序 |
+  | **HWASan**    | Hardware-assisted AddressSanitizer | 内存错误（硬件辅助）   | ARM64、大型系统      |
+  | **CFI**       | Control Flow Integrity             | 控制流劫持             | 安全加固             |
+  | **SafeStack** | Safe Stack                         | 栈攻击防护             | 安全敏感程序         |
+
+  常用的是开启ASan + UBSan + LSan.
+  其他的无法同时全部开启
+
+* crash: core + gdb
+  生产环境一般很难有core
+
+* crash: 临终遗言
+  1. 生成环境backtrace -> raw数据(PC)
+  2. raw数据 -> 提交给分析服务器处理
+
+
+  分析服务器需要有程序的debug symbol信息, 这就要求生成程序的时候需要携带debug symbol信息.
+  CMake中常见方案是使Release with debug 来生成程序, 而后剥离出程序的debug symbol信息
+
+
+  backtrace 所在的handler 代码一定要简单. 因为此时程序已经崩溃了, 要保证在最低可用情况下, 留下临终遗言
