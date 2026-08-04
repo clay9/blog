@@ -1,0 +1,28 @@
+#+title: 测试
+#+date: 2026-08-05 02:15:59
+#+hugo_section: docs
+#+hugo_bundle: 14_prog_test/test
+#+export_file_name: index
+#+hugo_weight:
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+测试总览
+
+#+hugo: more
+
+1. 单元测试
+   单元测试, 没必要测试每一个函数,
+   只需要测试class 或单元(namespace) 对外的public 接口即可
+
+2. 业务测试
+
+
+
+#+attr_shortcode: info
+#+begin_hint
+单元测试还是站在程序的角度去看的, 看的是模块对外提供的接口
+而业务测试, 则是完全站在用户或业务角度去看的
+#+end_hint
