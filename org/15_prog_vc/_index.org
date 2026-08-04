@@ -1,7 +1,7 @@
-#+title: prog debug
-#+date: 2024-01-18 19:04:36
+#+title: prog vc
+#+date: 2024-01-18 19:11:21
 #+hugo_section: docs
-#+hugo_bundle: prog_debug
+#+hugo_bundle: prog_vc
 #+export_file_name: _index
 #+hugo_weight: 15
 #+hugo_draft: false
