@@ -1,12 +1,13 @@
 #+title: tramp
-#+date: 2024-01-18 18:36:31
+#+date: 2026-09-13 15:02:55
 #+hugo_section: docs
-#+hugo_bundle: emacs/lisp
-#+export_file_name: tramp
+#+hugo_bundle: 02_emacs/10_lisp/03_tramp
+#+export_file_name: index
 #+hugo_weight: 3
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
-
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
 
 全称 transparent remote access multiple protocol
 tramp是用来编辑远端文件的模块, 支持多种协议 ssh, ftp, smb, adb等, 常用method

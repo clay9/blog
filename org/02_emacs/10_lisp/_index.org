@@ -1,7 +1,7 @@
 #+title: 常用扩展
-#+date: 2026-09-13 14:57:12
+#+date: 2026-09-13 15:00:49
 #+hugo_section: docs
-#+hugo_bundle: 02_emacs/lisp
+#+hugo_bundle: 02_emacs/10_lisp
 #+export_file_name: _index
 #+hugo_weight: 10
 #+hugo_draft: false

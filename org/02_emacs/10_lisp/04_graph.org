@@ -1,11 +1,14 @@
 #+title: 画图
-#+date: 2024-01-18 18:38:57
+#+date: 2026-09-13 15:02:16
 #+hugo_section: docs
-#+hugo_bundle: emacs/lisp
-#+export_file_name: graph
+#+hugo_bundle: 02_emacs/10_lisp/04_graph
+#+export_file_name: index
 #+hugo_weight: 4
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection false
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
 
 * what
   artist-mode和dot都可以完成绘图的功能.
