@@ -1,9 +1,9 @@
 #+title: org for hugo demo
-#+date: 2025-11-08 18:25:28
+#+date: 2026-09-13 14:45:53
 #+hugo_section: docs
-#+hugo_bundle: emacs/org/org_for_hugo_demo
+#+hugo_bundle: 02_emacs/05_org/12_org_for_hugo_demo
 #+export_file_name: index
-#+hugo_weight: 11
+#+hugo_weight: 12
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
@@ -122,10 +122,10 @@ org mode content到hugo book theme的演示.
     搜索文件的第20行. file: org_for_hugo.org::20 TODO: not work
 
     搜傅文件中的 ox-hugo Headline. file: org_for_hugo.org::*ox-hugo
-    [[file:org_for_hugo.org::*ox-hugo]]
+    [[file:11_org_for_hugo.org::*ox-hugo]]
 
     搜傅文件中的ox-hugo. file: org_for_hugo.org::ox-hugo
-    [[file:org_for_hugo.org::ox-hugo]]
+    [[file:11_org_for_hugo.org::ox-hugo]]
 *** http, https
     link to https://orgmode.org
     [[https://orgmode.org/]]

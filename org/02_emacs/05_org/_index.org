@@ -1,9 +1,14 @@
 #+title: org
-#+date: 2024-01-18 18:11:31
+#+date: 2026-09-13 14:46:19
 #+hugo_section: docs
-#+hugo_bundle: emacs/org
+#+hugo_bundle: 02_emacs/05_org
 #+export_file_name: _index
 #+hugo_weight: 5
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection true
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
+org-mode一直被称为神器
+主要有2大功能, 一是自身强大的文本模式(依赖 =org-mode=), 另一个则是 =org-agenda=
+推荐阅读: [[http://doc.norang.ca/org-mode.html][org心得体会]]
