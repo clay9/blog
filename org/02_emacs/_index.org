@@ -1,9 +1,10 @@
 #+title: emacs
-#+date: 2024-01-18 18:06:59
+#+date: 2026-09-13 14:56:12
 #+hugo_section: docs
-#+hugo_bundle: emacs
+#+hugo_bundle: 02_emacs
 #+export_file_name: _index
 #+hugo_weight: 2
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection true
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
