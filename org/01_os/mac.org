@@ -52,6 +52,7 @@
   | Annotate       | Annotate(AppStore下载)是截屏软件, 同时支持gif录制      |        |
   | IINA           | [[https://www.iina.io][IINA]] 是mac下好用的视频软件                             |        |
   | Better Display | [[https://github.com/waydabber/BetterDisplay][Better Display]]可以更好的控制显示器, 尤其是对于2K显示器 |        |
+  | InputSourcePro | [[https://github.com/runjuu/InputSourcePro][InputSourcePro]] 可以对APP进行单独的输入法控制           |        |
   |----------------+--------------------------------------------------------+--------|
 
 * Q & A
