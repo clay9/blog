@@ -1,17 +1,14 @@
-#+title: library
-#+date: 2025-09-11 02:11:19
+#+title: 动态库 && 静态库
+#+date: 2026-10-23 07:16:56
 #+hugo_section: docs
-#+hugo_bundle: os/os/dll
+#+hugo_bundle: 01_os/os/20_dll
 #+export_file_name: index
-#+hugo_weight:20
+#+hugo_weight: 20
 #+hugo_draft: false
 #+hugo_auto_set_lastmod: t
 #+hugo_custom_front_matter: :bookCollapseSection false
 #+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
 
-linux下静态库 && 动态库
-
-#+hugo: more
 
 * 差异区别
   |          | 静态库                                              | 动态库                              |
@@ -54,12 +51,15 @@ linux下静态库 && 动态库
    但是在连接为可执行文件时, 所有动态库的声明必须有定义
 
 ** 测试
-   A 依赖libbase.so, B依赖libA
+   A.so 依赖libbase.so, B.so依赖libA.so
    A编译的时候, 不指定libbase.so(但是要include base的头文件), 可以编译成功.
    表示满足延迟定义
 
    B -lA 编译, 编译成功, 连接失败, 提示libA没有xxx的定义(在libbase中)
+   当把(无论是可执行文件还是另一个.so)链接A时，链接器会检查 A.so 内部的符号完整性
+
    若B -lA -lbase, 则编译连接都成功
+
    #+attr_shortcode: info
    #+begin_hint
    连接为执行文件的时候, 所有的声明都必须要有定义
