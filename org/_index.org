@@ -1,4 +1,14 @@
 #+title: 简介
+#+date: 2026-11-15 19:18:13
+#+hugo_section: docs
+#+hugo_bundle: .
+#+export_file_name: _index
+#+hugo_weight: 1
+#+hugo_draft: false
+#+hugo_auto_set_lastmod: t
+#+hugo_custom_front_matter: :bookCollapseSection true
+#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
+
 
 * 个人简介
   - 昵称: wcq
