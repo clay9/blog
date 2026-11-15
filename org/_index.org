@@ -1,5 +1,5 @@
 #+title: 简介
-#+layout: landing
+#+hugo_layout: landing
 
 * 个人简介
   - 昵称: wcq
