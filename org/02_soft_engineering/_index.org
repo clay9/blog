@@ -1,8 +1,8 @@
-#+title: 个人思考
+#+title: 软件工程
 #+hugo_front_matter_format: yaml
 #+begin_src yaml :front_matter_extra t
   params:
   bookFlatSection: true
-  bookIcon: brain
+  bookIcon: code
   bookCollapseSection: false
 #+end_src

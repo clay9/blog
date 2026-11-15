@@ -1,8 +1,0 @@
-#+title: 开发工具
-#+hugo_front_matter_format: yaml
-#+begin_src yaml :front_matter_extra t
-  params:
-  bookFlatSection: true
-  bookIcon: wrench
-  bookCollapseSection: false
-#+end_src

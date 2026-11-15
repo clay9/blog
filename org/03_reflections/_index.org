@@ -1,0 +1,8 @@
+#+title: 个人思考
+#+hugo_front_matter_format: yaml
+#+begin_src yaml :front_matter_extra t
+  params:
+  bookFlatSection: false
+  bookIcon: lightbulb
+  bookCollapseSection: true
+#+end_src

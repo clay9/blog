@@ -1,8 +1,8 @@
-#+title: 可观测性
+#+title: 计算机基础
 #+hugo_front_matter_format: yaml
 #+begin_src yaml :front_matter_extra t
   params:
   bookFlatSection: true
-  bookIcon: monitor
+  bookIcon: brain
   bookCollapseSection: false
 #+end_src
