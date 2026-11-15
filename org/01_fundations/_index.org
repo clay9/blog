@@ -3,6 +3,6 @@
 #+begin_src yaml :front_matter_extra t
   params:
   bookFlatSection: true
-  bookIcon: brain
+  bookIcon: book-open
   bookCollapseSection: false
 #+end_src
