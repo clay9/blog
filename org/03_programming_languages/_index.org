@@ -3,6 +3,6 @@
 #+begin_src yaml :front_matter_extra t
   params:
   bookFlatSection: true
-  bookIcon: code-xml
+  bookIcon: code
   bookCollapseSection: false
 #+end_src
