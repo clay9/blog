@@ -2,7 +2,7 @@
 
 * 需求分析
   =所有的设计都是基于需求的=.
-  GTD 管理的是task 和project. (详见[[file:~/my/blog/org/99_philosophy/gtd.org][GTD说明]])
+  GTD 管理的是task 和project. (详见[[file:~/my/blog/org/99_philosophy/01_gtd.org][GTD说明]])
 
   task 是非常小的任务, 符合GTD流程, 同时可以被GTD可视化展示
   project 表明了项目的层级结构, 可以被GTD可视化展示, 但自身不符合GTD流程
