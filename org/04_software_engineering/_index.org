@@ -1,0 +1,8 @@
+#+title: 软件工程与程序设计
+#+hugo_front_matter_format: yaml
+#+begin_src yaml :front_matter_extra t
+  params:
+  bookFlatSection: true
+  bookIcon: workflow
+  bookCollapseSection: false
+#+end_src

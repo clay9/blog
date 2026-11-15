@@ -1,0 +1,19 @@
+#+title: 字节序
+
+* 大小字节序
+  对于多字节, 比如 AE FF
+
+  Big—Endian 大字节
+  如果在内存中
+  0x 0000 0001 AE
+  0x 0000 0002 FF
+  即内存中的低位保存的是高字节 则为Big-Endian
+
+  little-Endian 小字节
+  如果在内存中
+  0x 0000 0001 FF
+  0x 0000 0002 AE
+  即内存中的低位保存的是低字节 则为little-Endian
+
+  网络上的传输为大字节序
+  所以在host传入到internet时候, 比如socket, 应该将字节序转换
