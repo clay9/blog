@@ -1,3 +1,2 @@
 #+title: os
-#+hugo_bookFlatSection: true
-#+hugo_bookIcon: iconset
+#+hugo_custom_front_matter: :bookFlatSection true :bookIcon iconset
