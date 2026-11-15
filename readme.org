@@ -1,7 +1,3 @@
-
-* 知识组织架构
-  [[file:organizational_structure.org][点击查看详情]]
-
 * 目录说明
   | path        | desc         |
   |-------------+--------------|
