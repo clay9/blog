@@ -1,14 +1,4 @@
 #+title: 算法分析
-#+date: 2025-11-18 18:07:40
-#+hugo_section: docs
-#+hugo_bundle: prog_base/91_algorithm
-#+export_file_name: index
-#+hugo_weight: 91
-#+hugo_draft: false
-#+hugo_auto_set_lastmod: t
-#+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
-
 
 * 搜索算法
   线性查找: 遍历. 线性查找可以进化为哈希查找来降低时间复杂度

@@ -1,13 +1,4 @@
 #+title: Wireshark
-#+date: 2025-12-08 10:09:32
-#+hugo_section: docs
-#+hugo_bundle: tool/11_wireshark
-#+export_file_name: index
-#+hugo_weight: 11
-#+hugo_draft: false
-#+hugo_auto_set_lastmod: t
-#+hugo_custom_front_matter: :bookCollapseSection false
-#+hugo_paired_shortcodes: qr %columns %details %hint mermaid %steps tabs tab
 
 * 基础知识
 ** 网卡
