@@ -1,1 +1,4 @@
 #+title: os
+#+hugo_bookFlatSection: true
+#+hugo_bookIcon: monitor
+# braces, code-xml, database, gnuemacs, monitor, server, brain, combine, git-branch, keyboard, network, workflow
