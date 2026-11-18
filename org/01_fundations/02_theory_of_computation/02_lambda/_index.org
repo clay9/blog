@@ -1,4 +1,5 @@
 #+title: Lambda 验算
+#+hugo_custom_front_matter: :bookCollapseSection false
 
 λ演算是一种计算模型, 告诉"计算的本质如何表达" (计算就是函数应用与替换)
 
