@@ -6,3 +6,8 @@
   bookIcon: lightbulb
   bookCollapseSection: true
 #+end_src
+
+
+工具会迭代, 概念会过时, 思想才会短暂的永恒!
+
+相对于历史长河, 是短暂的; 相对于我们的一生, 是永恒的.
