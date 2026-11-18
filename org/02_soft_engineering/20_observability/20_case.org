@@ -1,0 +1,66 @@
+#+title: 案例
+
+* 案例描述
+  正常的请求逻辑是:
+
+  1. client 向 ActorService 发起创建房间请求
+  2. ActorService 判断后给 RoomManagerService
+  3. RoomManagerService 判断后给 RoomService
+  4. RoomService 判断后回复 RoomManagerService
+  5. RoomManagerService 回复ActorService
+  6. ActorService 通知GateService
+  7. GateService 回复ActorService
+  8. ActorService 回复client 成功
+
+
+  正常来说, Client 收到成功的, GateService 中已经存有了Client 的信息
+  但是问题却是, Client 收到成功了, GateService 却没有Client 信息, 导致路由失败
+  -----
+* 当时排查方案
+  背景:
+  1. 传统的监控系统, 只能通过每个Service 的日志来进行定位
+  2. 系统刚刚进行了重构, 还未覆盖单元测试, 每个环节都不可靠
+
+
+  经过了几个小时的时间, 才发现问题是:
+  新增了一个字段, 而RoomService 中没有更新, 导致赋值为空.
+  这个空字段, 从RoomService 一直传递给GateService.
+  而GateService 的接口定义中, 空字段也是符合的, 没有错误打印
+-----
+* 案例总结
+  暴露的问题:
+
+  1. 接口设计不合理
+     GateService 中同一个字段同时承担了两种不同的业务语义
+     导致GateService 对输入的合法性校验不足
+  2. Service 输入输出合法性校验
+     这个问题还需要再思考:
+     1) Service 对于纯转发的内容, 或不在自己业务范围内字段 要不要进入输入检测
+     2) Service 有必要对每个输出进行合法性校验吗? 如果不校验输出只校验输入, 又会有什么不同
+  3. 日志设计不合理
+     对跨Service 的长链, 错误追踪能力非常差
+  4. 测试的重要性
+     缺少单元测试, 导致每个环节看来都是不可靠的. 需要从收到Client 输入起, 排查每一个环节
+     如果有单元测试, 可以跳过很多环节
+
+
+  虽然暴露了不少设计的缺陷 和 测试的遗漏, 但更严重的是问题排错.
+  整个排错过程中, 深刻感受到系统内部就像黑盒一样, 完全不透明, 只能通过日志努力还原
+
+  期待的应该是有明确的调用链路, 在链路每个环节上有明确的上下文信息.
+  也许Traces 就是用来解决这个的?
+
+  #+attr_shortcode: info
+  #+begin_hint
+  TODO 补充: 使用Traces 几个月后, 补充该案例在Traces 下的排查过程
+  #+end_hint
+
+
+  #+attr_shortcode: info
+  #+begin_hint
+  暴露的另一个严重的问题是: 业务流程缺乏整体性.
+  每个Service 只完成了各自的部分, 没有人保证整个业务流程的正确性
+
+  这部分内容不在可观测性中展开, 放在qygame
+  TODO 补充文档链接
+  #+end_hint
