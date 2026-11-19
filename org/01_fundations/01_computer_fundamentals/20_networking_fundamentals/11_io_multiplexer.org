@@ -1,23 +1,30 @@
 #+title: I/O 多路复用
 
+I/O 多路复用允许一个线程同时监听多个fd, 当某个fd 就绪时, 通知线程进行相应的I/O 操作.
 
-* I/O模型
-  [[https://mp.weixin.qq.com/s?src=11&timestamp=1565671711&ver=1787&signature=-mLkqQr803XDHb4f3aj9Lf1dJl8uVOV9fCCMMTzs0zSuOYH-qof7nsYCdgho1XLdPQYQP6QL5-WHtI6g-MD9xIsJcuxzdH*idpCZqtzl85r9D4C3XRRuOcCXqLKDzi-i&new=1][强烈建议阅读]]
-  (链接过期, 直接搜狗搜索epoll, "epoll本质"即是)
-  1. 阻塞式
-  2. 非阻塞
-  3. select
-  4. poll
-  5. epoll (linux特有)
-  6. IOCP (windows特有)
+-----
+
+* I/O 多路复用机制
+  根据演进顺序为:
+
+  - select
+  - poll
+  - epoll
 
 
+  select, poll 是过时的方案, 现在的主流方案是epoll
 
-* epoll使用
-** epoll本身为我们处理了什么
-   1. 之前socket::recv()时, 导致我们的进程阻塞
-   2. 现在socket::recv()时, 使epoll阻塞; epoll中断时, 告之进程
-** 有了epoll我们还需要处理什么
-   1. 创建epoll对象
-   2. 添加检视的fd对象 -- op, epoll_event
-   3. 检测是否有中断, 然后处理
+-----
+* epoll
+** 水平触发LT, 边缘触发ET
+   - 水平触发: 只要FD 仍然处于可读状态, 就会持续通知
+   - 边缘触发: 只有FD 状态发生变化时才通知
+
+
+   #+attr_shortcode: info
+   #+begin_hint
+   实际项目中, LT, ET 有各自的应用场景:
+
+   LT: 稳健与开发效率. "简单正确优先"
+   ET: 性能更好. 减少无效唤醒. 但ET 模式下, 强制要求非阻塞I/O 且每次必须读到EAGAIN
+   #+end_hint
