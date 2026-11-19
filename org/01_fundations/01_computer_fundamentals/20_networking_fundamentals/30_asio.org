@@ -1,0 +1,56 @@
+#+title: Asio
+
+Asio 是C++ 生态里最成熟、应用最广的异步网络库
+Asio 的异步支持在设计上基于Proactor 设计模式
+
+* 概念
+  Asio 的概念体系可以围绕"异步操作如何被发起、调度、串行化与完成"这条主线来理解.
+  核心概念包括io_context、Completion Handler/Token、Executor、Strand, 以及支撑TCP/UDP 通信的socket 相关类型
+
+** io_context
+   io_context 是Asio 的Proactor 抽象. 所有I/O 对象(socket、timer) 等都关联到一个io_context
+
+   它的关键行为是: 完成处理程序(Token)只会从正在调用 io_context::run() 的线程中被调用.
+   这意味着如果你只在单线程里调用 run(), 所有 handler 天然就是串行执行的, 不需要加锁.
+   如果多个线程同时调用run(), 他们构成一个线程池, io_context 可能把工作分发给其中任意一个.
+** Completion Handler/Token
+   Completion Handler 是异步操作完成后被调用的函数对象, 用来处理结果.
+   在Asio 中叫做Completion Token, 比"回调函数"更通用. Token 可以被协程或sender 风格的适配器使用.
+** Executor
+   真正执行handler 的地方.
+   Asio 的一个重要演进: 从直接在io_context 上调度handler转向由Executor 执行handler
+
+   Executor 可以理解为"一个执行工作的轻量句柄", 它决定了handler在哪个执行上下文、以什么方式被调用.
+   io_context 本身可以充当executor, 但executor 的抽象更通用, 可以表示线程池、strand 获取自定义执行资源
+
+   每个handler 都关联一个executor
+** Strand
+   Strand 是无锁串行化
+   Strand 的定义是"事件处理程序的严格顺序调用(即不并发调用)".
+   它的价值在于: 在多线程程序中, 如果你把handler 绑定到一个strand 上, 这些handler 不会同时执行, 因此共享数据不需要显式加锁
+** 网络相关类型
+   Asio 开箱支持TCP、UDP和ICMP
+   ip::tcp::socket: TCP 连接的数据读写
+   ip::tcp::acceptor: 服务端接受新连接
+* 编程实践
+  1. 要不要创建多个io_context
+     通常不需要, 一个io_context 本身就能高效处理大量并发连接. Asio官方文档也指出, 多个线程调用同一个io_context的run() 来构成线程池是标准做法.
+     多个io_context 通常只在有明确的"隔离"需求时才考虑, 比如, 隔离不同优先级的任务.
+
+     典型的工业实践:
+     创建单个 =io_context=, 用 =std::thread::hardware_concurrency()= 个线程跑run(), 并为每个连接创建一个 =strand= 来串行化其handler
+  2. 对TCP 保活的处理
+     Asio 只给开关, 策略自理
+  3. epoll LT/ET
+     如果Asio使用的是epoll, 那么使用的是ET 模式.
+     但内部细节由Asio 处理了, 对于应用层无感知
+  4. 生命周期: 使用 =shared_from_this= 解决
+  5. 让异步代码"看起来像同步"
+     明显趋势是使用C++20 协程替代回调嵌套
+
+     回调模型的问题: 代码变成嵌套的lambda, 错误处理分散, 状态机需要手动处理, 逻辑被切碎在handler 里.
+     协程模型用少量内存(协程帧, 每帧几百字节), 让代码写起来像是同步. 它解决了"回调地狱"问题, 提升工程可维护性
+  6. 定时器: 用steady_timer 替代额外线程
+  7. 基础约束: handler 不能阻塞
+     不能让handler 阻塞io_context 中的线程
+     io_context 线程不是用来执行长任务的, handler 应该尽快返回, 长任务调度到独立线程池
