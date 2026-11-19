@@ -25,9 +25,14 @@ Asio 的异步支持在设计上基于Proactor 设计模式
 
    每个handler 都关联一个executor
 ** Strand
-   Strand 是无锁串行化
+   Strand 是无锁化串行
    Strand 的定义是"事件处理程序的严格顺序调用(即不并发调用)".
    它的价值在于: 在多线程程序中, 如果你把handler 绑定到一个strand 上, 这些handler 不会同时执行, 因此共享数据不需要显式加锁
+
+   Strand 不与线程绑定, 它只保证两件事:
+   1. 不并发: 通过同一个strand 的handlers, 一个执行完毕后, 下一个才会开始
+   2. 按提交顺序执行: 通过post() 提交到同一strand 的handler, 按FIFO 顺序执行
+
 ** 网络相关类型
    Asio 开箱支持TCP、UDP和ICMP
    ip::tcp::socket: TCP 连接的数据读写
@@ -39,6 +44,7 @@ Asio 的异步支持在设计上基于Proactor 设计模式
 
      典型的工业实践:
      创建单个 =io_context=, 用 =std::thread::hardware_concurrency()= 个线程跑run(), 并为每个连接创建一个 =strand= 来串行化其handler
+
   2. 对TCP 保活的处理
      Asio 只给开关, 策略自理
   3. epoll LT/ET
