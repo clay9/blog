@@ -33,6 +33,8 @@ Asio 的异步支持在设计上基于Proactor 设计模式
    1. 不并发: 通过同一个strand 的handlers, 一个执行完毕后, 下一个才会开始
    2. 按提交顺序执行: 通过post() 提交到同一strand 的handler, 按FIFO 顺序执行
 
+
+   数据隔离从"绑定线程"变成"绑定 strand", 让应用层可以面向"逻辑上的串行域"编程, 而不是面向计算资源(比如物理线程)编程
 ** 网络相关类型
    Asio 开箱支持TCP、UDP和ICMP
    ip::tcp::socket: TCP 连接的数据读写
