@@ -1,0 +1,39 @@
+#+title: 案例1: 依赖引用
+* 案例背景
+  有三个Service: GateService, ActorService, RoomService.
+  三个Service 需要的路由信息:
+  - GateService
+    player.actor_service_id, player.room_service_id
+  - ActorService
+    player.gate_service_id, player.room_service_id
+  - RoomService
+    player.gate_service_id, player.actor_service_id
+
+    -----
+  其中GateService 产生事件:
+  1. UserSessionConnected
+  2. UserSessionClosed
+  GateService -> ActorService : 更新player.gate_service_id
+
+
+  RoomService 产生事件:
+  1. UserEnteredRoom
+  2. UserLeftRoom
+  RoomService -> ActorService: 更新player.room_service_id
+
+
+  ActorService 负责更新
+  GateService 中的player.room_service_id
+  RoomService 中的player.gate_service_id
+-----
+* 问题描述
+  从单个Service 角度来看, 还好:
+  - GateService : 我产生Session 事件; 需要维护player.room_service_id
+  - RoomService : 我产生Room 事件; 需要维护player.gate_service_id
+  - ActorService: 玩家权威数据, 所有事件都告诉我, 我来负责处理玩家状态; 并更新其他Service 状态
+
+
+  但是混在一起看, 就完蛋了, 互相引用, 导致非常的负责.
+
+  解决方案
+  1. 尝试过订阅发布模式, 不是很好用. (RPC 消息本身是命令Command 语义, 而发布订阅需要Event 事件语义)
